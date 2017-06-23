@@ -1,0 +1,420 @@
+{
+    "title": "XDocument",
+    "updated": "2012-12-20T07:54:32+13:00",
+    "id": "f504df1f-df53-42a6-a124-5928c1e8e45b",
+    "entry": [
+        {
+            "title": "document",
+            "category": {
+                "_term": "Document",
+                "_scheme": "http://hl7.org/fhir/resource-types"
+            },
+            "id": "51f93677-7843-4531-a960-d220d606acdb",
+            "updated": "2012-12-20T07:54:32+13:00",
+            "published": "2012-12-20T07:54:32+13:00",
+            "author": {"name": "not specified"},
+            "content": {"Document": {
+                "section": [
+                    {
+                        "code": {
+                            "coding": [{
+                                "system": {"value": "sys"},
+                                "code": {"value": "meds"},
+                                "display": {"value": "meds"}
+                            }],
+                            "text": {"value": "Medications"}
+                        },
+                        "content": {
+                            "type": {"value": "List"},
+                            "id": {"value": "5e1084e2-21f5-4cd0-8d26-64b1a4ecdadf"}
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [{
+                                "system": {"value": "sys"},
+                                "code": {"value": "meds"},
+                                "display": {"value": "meds"}
+                            }],
+                            "text": {"value": "Medications"}
+                        },
+                        "content": {
+                            "type": {"value": "List"},
+                            "id": {"value": "577dd6b4-9c35-42e2-95f7-3a1037d0f9e3"}
+                        }
+                    }
+                ],
+                "information": {
+                    "author": [{
+                        "id": {"value": 100},
+                        "type": {"value": "Person"},
+                        "display": {"value": "david ian hay "}
+                    }],
+                    "confidentialityCode": {
+                        "system": {"value": "conf"},
+                        "code": {"value": "N"},
+                        "display": {"value": "Normal"}
+                    },
+                    "identifier": {"id": {"value": "0fc01779-8041-40ec-ba89-efd11ed6bffb"}},
+                    "instant": {"value": "2012-12-20T07:54:32+13:00"},
+                    "title": {"value": "Medications summary"},
+                    "type": {"coding": [{
+                        "system": {"value": "typ-sys"},
+                        "code": {"value": "typ"},
+                        "display": {"value": "typ-disp"}
+                    }]},
+                    "subject": {
+                        "id": {"value": "100"},
+                        "type": {"value": "Person"},
+                        "display": {"value": "john andrew cardinal "}
+                    }
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>Medications summary<\/div>"
+                }
+            }}
+        },
+        {
+            "title": "A medication item",
+            "category": {
+                "_term": "Prescription",
+                "_scheme": "http://hl7.org/fhir/resource-types"
+            },
+            "id": "754a935b-2082-40ef-8da2-2f61955dd7cd",
+            "updated": "2012-12-20T07:54:32+13:00",
+            "published": "2012-12-20T07:54:32+13:00",
+            "author": {"name": "not specified"},
+            "content": {"Prescription": {
+                "status": {"value": "active"},
+                "prescribed": {"value": "2012-12-19T10:28:16+13:00"},
+                "patient": {
+                    "id": {"value": "100"},
+                    "type": {"value": "Patient"},
+                    "display": {"value": "john andrew cardinal "}
+                },
+                "prescriber": {
+                    "id": {"value": 103},
+                    "type": {"value": "Agent"},
+                    "display": {"value": "Dr Joe Kool"}
+                },
+                "medicine": {"identification": {
+                    "coding": [{
+                        "system": {"value": "ulm"},
+                        "code": {"value": "amox"},
+                        "display": {"value": "dfgsdgsdf"}
+                    }],
+                    "text": {"value": "dfgsdgsdf"}
+                }},
+                "administrationRequest": {
+                    "description": {"value": "3 tab 3 times a day"},
+                    "dosageInstruction": [{
+                        "doseQuantity": {
+                            "value": {"value": "3"},
+                            "units": {"value": "tab"}
+                        },
+                        "schedule": [{"repeat": {
+                            "frequency": {"value": "3"},
+                            "units": {"value": "d"},
+                            "duration": {"value": 1}
+                        }}]
+                    }]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>dfgsdgsdf 3 tab 3 times per day<\/div>"
+                },
+                "extension": []
+            }}
+        },
+        {
+            "title": "A medication item",
+            "category": {
+                "_term": "Prescription",
+                "_scheme": "http://hl7.org/fhir/resource-types"
+            },
+            "id": "9e1b8e21-d872-46dc-a724-10b8e50fb59d",
+            "updated": "2012-12-20T07:54:32+13:00",
+            "published": "2012-12-20T07:54:32+13:00",
+            "author": {"name": "not specified"},
+            "content": {"Prescription": {
+                "status": {"value": "active"},
+                "prescribed": {"value": "2012-12-19T10:28:06+13:00"},
+                "patient": {
+                    "id": {"value": "100"},
+                    "type": {"value": "Patient"},
+                    "display": {"value": "john andrew cardinal "}
+                },
+                "prescriber": {
+                    "id": {"value": 103},
+                    "type": {"value": "Agent"},
+                    "display": {"value": "Dr Joe Kool"}
+                },
+                "medicine": {"identification": {
+                    "coding": [{
+                        "system": {"value": "ulm"},
+                        "code": {"value": "amox"},
+                        "display": {"value": "amoxil tab 250mg"}
+                    }],
+                    "text": {"value": "amoxil tab 250mg"}
+                }},
+                "administrationRequest": {
+                    "description": {"value": "3 tab 3 times a day"},
+                    "dosageInstruction": [{
+                        "doseQuantity": {
+                            "value": {"value": "3"},
+                            "units": {"value": "tab"}
+                        },
+                        "schedule": [{"repeat": {
+                            "frequency": {"value": "3"},
+                            "units": {"value": "d"},
+                            "duration": {"value": 1}
+                        }}]
+                    }]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>amoxil tab 250mg 3 tab 3 times per day<\/div>"
+                },
+                "extension": []
+            }}
+        },
+        {
+            "category": {
+                "_term": "List",
+                "_scheme": "http://hl7.org/fhir/resource-types"
+            },
+            "id": "5e1084e2-21f5-4cd0-8d26-64b1a4ecdadf",
+            "updated": "2012-12-20T07:54:32+13:00",
+            "published": "2012-12-20T07:54:32+13:00",
+            "author": {"name": "not specified"},
+            "content": {"List": {
+                "entry": [
+                    {"item": {
+                        "id": {"value": "754a935b-2082-40ef-8da2-2f61955dd7cd"},
+                        "type": {"value": "Prescription"},
+                        "display": {"value": "A medication item"}
+                    }},
+                    {"item": {
+                        "id": {"value": "9e1b8e21-d872-46dc-a724-10b8e50fb59d"},
+                        "type": {"value": "Prescription"},
+                        "display": {"value": "A medication item"}
+                    }}
+                ],
+                "code": {
+                    "coding": [{
+                        "system": {"value": "typ-sys"},
+                        "code": {"value": "typ"},
+                        "display": {"value": "typ-disp"}
+                    }],
+                    "text": {"value": "Medications List"}
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns='http://www.w3.org/1999/xhtml'><h5>Original Meds<\/h5><\/div>"
+                }
+            }}
+        },
+        {
+            "title": "A medication item",
+            "category": {
+                "_term": "Prescription",
+                "_scheme": "http://hl7.org/fhir/resource-types"
+            },
+            "id": "754a935b-2082-40ef-8da2-2f61955dd7cd",
+            "updated": "2012-12-20T07:54:32+13:00",
+            "published": "2012-12-20T07:54:32+13:00",
+            "author": {"name": "not specified"},
+            "content": {"Prescription": {
+                "status": {"value": "active"},
+                "prescribed": {"value": "2012-12-19T10:28:16+13:00"},
+                "patient": {
+                    "id": {"value": "100"},
+                    "type": {"value": "Patient"},
+                    "display": {"value": "john andrew cardinal "}
+                },
+                "prescriber": {
+                    "id": {"value": 103},
+                    "type": {"value": "Agent"},
+                    "display": {"value": "Dr Joe Kool"}
+                },
+                "medicine": {"identification": {
+                    "coding": [{
+                        "system": {"value": "ulm"},
+                        "code": {"value": "amox"},
+                        "display": {"value": "dfgsdgsdf"}
+                    }],
+                    "text": {"value": "dfgsdgsdf"}
+                }},
+                "administrationRequest": {
+                    "description": {"value": "3 tab 3 times a day"},
+                    "dosageInstruction": [{
+                        "doseQuantity": {
+                            "value": {"value": "3"},
+                            "units": {"value": "tab"}
+                        },
+                        "schedule": [{"repeat": {
+                            "frequency": {"value": "3"},
+                            "units": {"value": "d"},
+                            "duration": {"value": 1}
+                        }}]
+                    }]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>dfgsdgsdf 3 tab 3 times per day<\/div>"
+                },
+                "extension": []
+            }}
+        },
+        {
+            "title": "A medication item",
+            "category": {
+                "_term": "Prescription",
+                "_scheme": "http://hl7.org/fhir/resource-types"
+            },
+            "id": "9e1b8e21-d872-46dc-a724-10b8e50fb59d",
+            "updated": "2012-12-20T07:54:32+13:00",
+            "published": "2012-12-20T07:54:32+13:00",
+            "author": {"name": "not specified"},
+            "content": {"Prescription": {
+                "status": {"value": "active"},
+                "prescribed": {"value": "2012-12-19T10:28:06+13:00"},
+                "patient": {
+                    "id": {"value": "100"},
+                    "type": {"value": "Patient"},
+                    "display": {"value": "john andrew cardinal "}
+                },
+                "prescriber": {
+                    "id": {"value": 103},
+                    "type": {"value": "Agent"},
+                    "display": {"value": "Dr Joe Kool"}
+                },
+                "medicine": {"identification": {
+                    "coding": [{
+                        "system": {"value": "ulm"},
+                        "code": {"value": "amox"},
+                        "display": {"value": "amoxil tab 250mg"}
+                    }],
+                    "text": {"value": "amoxil tab 250mg"}
+                }},
+                "administrationRequest": {
+                    "description": {"value": "3 tab 3 times a day"},
+                    "dosageInstruction": [{
+                        "doseQuantity": {
+                            "value": {"value": "3"},
+                            "units": {"value": "tab"}
+                        },
+                        "schedule": [{"repeat": {
+                            "frequency": {"value": "3"},
+                            "units": {"value": "d"},
+                            "duration": {"value": 1}
+                        }}]
+                    }]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>amoxil tab 250mg 3 tab 3 times per day<\/div>"
+                },
+                "extension": []
+            }}
+        },
+        {
+            "title": "A medication item",
+            "category": {
+                "_term": "Prescription",
+                "_scheme": "http://hl7.org/fhir/resource-types"
+            },
+            "id": "533bd83a-6b63-402d-b997-672682df0717",
+            "updated": "2012-12-20T07:54:32+13:00",
+            "published": "2012-12-20T07:54:32+13:00",
+            "author": {"name": "not specified"},
+            "content": {"Prescription": {
+                "status": {"value": "active"},
+                "prescribed": {"value": "2012-12-20T07:54:31+13:00"},
+                "patient": {
+                    "id": {"value": "100"},
+                    "type": {"value": "Patient"},
+                    "display": {"value": "john andrew cardinal "}
+                },
+                "prescriber": {
+                    "id": {"value": 103},
+                    "type": {"value": "Agent"},
+                    "display": {"value": "Dr Joe Kool"}
+                },
+                "medicine": {"identification": {
+                    "coding": [{
+                        "system": {"value": "ulm"},
+                        "code": {"value": "amox"},
+                        "display": {"value": "atenolol 50mg"}
+                    }],
+                    "text": {"value": "atenolol 50mg"}
+                }},
+                "administrationRequest": {
+                    "description": {"value": "1 tab 1 times a day"},
+                    "dosageInstruction": [{
+                        "doseQuantity": {
+                            "value": {"value": "1"},
+                            "units": {"value": "tab"}
+                        },
+                        "schedule": [{"repeat": {
+                            "frequency": {"value": "1"},
+                            "units": {"value": "d"},
+                            "duration": {"value": 1}
+                        }}]
+                    }]
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>atenolol 50mg 1 tab 1 times per day<\/div>"
+                },
+                "extension": []
+            }}
+        },
+        {
+            "category": {
+                "_term": "List",
+                "_scheme": "http://hl7.org/fhir/resource-types"
+            },
+            "id": "577dd6b4-9c35-42e2-95f7-3a1037d0f9e3",
+            "updated": "2012-12-20T07:54:32+13:00",
+            "published": "2012-12-20T07:54:32+13:00",
+            "author": {"name": "not specified"},
+            "content": {"List": {
+                "entry": [
+                    {"item": {
+                        "id": {"value": "754a935b-2082-40ef-8da2-2f61955dd7cd"},
+                        "type": {"value": "Prescription"},
+                        "display": {"value": "A medication item"}
+                    }},
+                    {"item": {
+                        "id": {"value": "9e1b8e21-d872-46dc-a724-10b8e50fb59d"},
+                        "type": {"value": "Prescription"},
+                        "display": {"value": "A medication item"}
+                    }},
+                    {"item": {
+                        "id": {"value": "533bd83a-6b63-402d-b997-672682df0717"},
+                        "type": {"value": "Prescription"},
+                        "display": {"value": "A medication item"}
+                    }}
+                ],
+                "code": {
+                    "coding": [{
+                        "system": {"value": "typ-sys"},
+                        "code": {"value": "typ"},
+                        "display": {"value": "typ-disp"}
+                    }],
+                    "text": {"value": "Medications List"}
+                },
+                "text": {
+                    "status": "generated",
+                    "div": "<div xmlns='http://www.w3.org/1999/xhtml'><h5>New meds<\/h5><\/div>"
+                }
+            }}
+        }
+    ],
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns='http://www.w3.org/1999/xhtml'>Atom feed<\/div>"
+    }
+}

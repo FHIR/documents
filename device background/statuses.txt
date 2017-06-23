@@ -1,0 +1,80 @@
+--- Measurement-Status attribute defines the state of the measurement; used by derived classes
+
+--
+
+MeasurementStatus ::= BITS-16 {
+
+invalid(0),
+
+questionable(1),
+
+not-available(2),
+
+calibration-ongoing(3),
+
+test-data(4),
+
+demo-data(5),
+
+validated-data(8), -- relevant, e.g., in an archive
+
+early-indication(9), -- early estimate of value
+
+msmt-ongoing(10), -- indicates that a new measurement is just being taken
+
+-- (episodic)
+
+msmt-state-in-alarm(14), -- indicates that the metric has an active 
+alarm condition
+
+msmt-state-al-inhibited(15) -- metric supports alarming, and alarms are turned off
+
+-- (optional)
+
+}
+
+--
+
+ 
+
+This gets invoked from 7.3.5.1 Metric Numeric NuObsValue, which descends from Metric:
+
+ 
+
+---- Nu-Observed-Value attribute always includes identification, state, and dimension to ensure
+
+-- consistency with minimal overhead
+
+--NuObsValue ::= SEQUENCE {
+
+metric-id OID-Type, -- from VMO::Type or Metric-Id-Partition partition
+
+state MeasurementStatus,
+
+-- defined in Metric base class
+
+unit-code OID-Type, -- from dimensions nomenclature partition
+
+value FLOAT-Type
+
+}
+
+---- Observed value for compound numerics
+
+--NuObsValueCmp ::= SEQUENCE OF NuObsValue
+
+--
+
+ s
+
+
+
+Re: Syntax.  The mapping between MDDL/ASN.1 to JSON is reasonably straight, much better than to HL7 v2; not sure about DDS.
+
+Re: State.  In "medical" device data, each sample needs to be validatable (from a clinical/nursing point of view), so each "observation" instance needs to have a status element to facilitate that.  ["Waves" (i.e. RT Sample Arrays) are different in that they are "validated" in sample chunks, such as "QRS" complex segments.]  Typically, [near-]RT parameter OBServations are temporally several seconds to minutes apart and put into flowsheets, but still need to be validated before the data can be considered a "legal" record (and thus economically remuneratable and forensically traceable record).  If you look at a trend of samples, for example, the attachment, which is a rendition of a [near]RT "Anesthesia Record" that might appear on an Anesthesia Workstation [e.g. PICIS vendor], each of the little data points need to be individually validated before the Record is valid and re-usable for clinical, economic or legal purposes.
+
+/Jan
+
+PS.  Anecdotally, to display the .gif, I had to allow to upgrade my .gif displayer through my browser;  this would be verboten in medical devices, since the totality of code on which e.g. FDA Class Medical Device certification is based would be altered (yes, that would be even 1 bit of code on which QA/QC substantiated the approval is based), so it is not likely-to-never likely that Java will show up in bona fide "medical" device code.  On the other hand, if there were some kind of FHIR resource representing the salient info, a JSON exchange of it, and another (operational) resource to render it for visualization purposes, most, even really inexpensive, medical and/or personal devices would be able to support that kind of interchange, which I assume would universally be FHIR/JSON-based.  Just a vision...
+
+

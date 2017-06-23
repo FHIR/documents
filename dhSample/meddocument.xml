@@ -1,0 +1,427 @@
+<feed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.w3.org/2005/Atom ../../../../OrionSourceControl/EMRlite/FHIR-dev/fhirSchema/fhir-atom.xsd"
+ xmlns="http://www.w3.org/2005/Atom">
+    <title>XDocument</title>
+    <updated>2012-12-20T07:54:32+13:00</updated>
+    <id>urn:uuid:f504df1f-df53-42a6-a124-5928c1e8e45b</id>
+    <entry>
+        <title>document</title>
+        <id>urn:uuid:51f93677-7843-4531-a960-d220d606acdb</id>
+        <updated>2012-12-20T07:54:32+13:00</updated>
+        <published>2012-12-20T07:54:32+13:00</published>
+        <author>
+            <name>not specified</name>
+        </author>
+        <category term="Document" scheme="http://hl7.org/fhir/resource-types"/>
+        <content type="text/xml"><Document xmlns="http://hl7.org/fhir">
+                <information>
+                    <instant>2012-12-20T07:54:32+13:00</instant>
+                    <type>
+                        <coding>
+                            <system>typ-sys</system>
+                            <code>typ</code>
+                            <display>typ-disp</display>
+                        </coding>
+                    </type>
+                    <title>Medications summary</title>
+                    <confidentialityCode>
+                        <system>conf</system>
+                        <code>N</code>
+                        <display>Normal</display>
+                    </confidentialityCode>
+                    <subject>
+                        <type>Person</type>
+                        <id>100</id>
+                        <display>john andrew cardinal </display>
+                    </subject>
+                    <author>
+                        <type>Person</type>
+                        <id>100</id>
+                        <display>david ian hay </display>
+                    </author>
+                </information>
+                <section>
+                    <code>
+                        <coding>
+                            <system>sys</system>
+                            <code>meds</code>
+                            <display>meds</display>
+                        </coding>
+                        <text>Medications</text>
+                    </code>
+                    <content><type>List</type><id>5e1084e2-21f5-4cd0-8d26-64b1a4ecdadf</id></content>
+                </section>
+                <section>
+                    <code>
+                        <coding>
+                            <system>sys</system>
+                            <code>meds</code>
+                            <display>meds</display>
+                        </coding>
+                        <text>Medications</text>
+                    </code>
+                    <content><type>List</type><id>577dd6b4-9c35-42e2-95f7-3a1037d0f9e3</id></content>
+                </section>
+                <text>
+                    <status>generated</status>
+                    <div xmlns="http://www.w3.org/1999/xhtml">Medications summary</div>
+                </text>
+            </Document></content>
+    </entry>
+    <entry>
+        <title>A medication item</title>
+        <id>urn:uuid:754a935b-2082-40ef-8da2-2f61955dd7cd</id>
+        <updated>2012-12-20T07:54:32+13:00</updated>
+        <published>2012-12-20T07:54:32+13:00</published>
+        <author>
+            <name>not specified</name>
+        </author>
+        <category term="Prescription" scheme="http://hl7.org/fhir/resource-types"/>
+        <content type="text/xml"><Prescription xmlns="http://hl7.org/fhir">
+                <status>active</status>
+                <patient>
+                    <type>Patient</type>
+                    <id>100</id>
+                    <display>john andrew cardinal </display>
+                </patient>
+                <prescriber>
+                    <type>Agent</type>
+                    <id>103</id>
+                    <display>Dr Joe Kool</display>
+                </prescriber>
+                <prescribed>2012-12-19T10:28:16+13:00</prescribed>
+                <medicine>
+                    <identification>
+                        <coding>
+                            <system>ulm</system>
+                            <code>amox</code>
+                            <display>dfgsdgsdf</display>
+                        </coding>
+                        <text>dfgsdgsdf</text>
+                    </identification>
+                </medicine>
+                <administrationRequest>
+                    <description>3 tab 3 times a day</description>
+                    <dosageInstruction>
+                        <doseQuantity>
+                            <value>3</value>
+                            <units>tab </units>
+                        </doseQuantity>
+                        <schedule>
+                            <repeat>
+                                <frequency>3</frequency>
+                                <duration>1</duration>
+                                <units>d</units>
+                            </repeat>
+                        </schedule>
+                    </dosageInstruction>
+                </administrationRequest>
+                <text>
+                    <status>generated</status>
+                    <div xmlns="http://www.w3.org/1999/xhtml">dfgsdgsdf 3 tab 3 times per day</div>
+                </text>
+            </Prescription></content>
+    </entry>
+    <entry>
+        <title>A medication item</title>
+        <id>urn:uuid:9e1b8e21-d872-46dc-a724-10b8e50fb59d</id>
+        <updated>2012-12-20T07:54:32+13:00</updated>
+        <published>2012-12-20T07:54:32+13:00</published>
+        <author>
+            <name>not specified</name>
+        </author>
+        <category term="Prescription" scheme="http://hl7.org/fhir/resource-types"/>
+        <content type="text/xml"><Prescription xmlns="http://hl7.org/fhir">
+                <status>active</status>
+                <patient>
+                    <type>Patient</type>
+                    <id>100</id>
+                    <display>john andrew cardinal </display>
+                </patient>
+                <prescriber>
+                    <type>Agent</type>
+                    <id>103</id>
+                    <display>Dr Joe Kool</display>
+                </prescriber>
+                <prescribed>2012-12-19T10:28:06+13:00</prescribed>
+                <medicine>
+                    <identification>
+                        <coding>
+                            <system>ulm</system>
+                            <code>amox</code>
+                            <display>amoxil tab 250mg</display>
+                        </coding>
+                        <text>amoxil tab 250mg</text>
+                    </identification>
+                </medicine>
+                <administrationRequest>
+                    <description>3 tab 3 times a day</description>
+                    <dosageInstruction>
+                        <doseQuantity>
+                            <value>3</value>
+                            <units>tab </units>
+                        </doseQuantity>
+                        <schedule>
+                            <repeat>
+                                <frequency>3</frequency>
+                                <duration>1</duration>
+                                <units>d</units>
+                            </repeat>
+                        </schedule>
+                    </dosageInstruction>
+                </administrationRequest>
+                <text>
+                    <status>generated</status>
+                    <div xmlns="http://www.w3.org/1999/xhtml">amoxil tab 250mg 3 tab 3 times per
+                        day</div>
+                </text>
+            </Prescription></content>
+    </entry>
+    <entry>
+        <id>urn:uuid:5e1084e2-21f5-4cd0-8d26-64b1a4ecdadf</id>
+		<title>David did not supply a title here</title>
+        <updated>2012-12-20T07:54:32+13:00</updated>
+        <published>2012-12-20T07:54:32+13:00</published>
+        <author>
+            <name>not specified</name>
+        </author>
+        <category term="List" scheme="http://hl7.org/fhir/resource-types"/>
+        <content type="text/xml"><List xmlns="http://hl7.org/fhir">
+                <code>
+                    <coding>
+                        <system>typ-sys</system>
+                        <code>typ</code>
+                        <display>typ-disp</display>
+                    </coding>
+                    <text>Medications List</text>
+                </code>
+                <entry>
+                    <item>
+                        <type>Prescription</type>
+                        <id>754a935b-2082-40ef-8da2-2f61955dd7cd</id>
+                        <display>A medication item</display>
+                    </item>
+                </entry>
+                <entry>
+                    <item>
+                        <type>Prescription</type>
+                        <id>9e1b8e21-d872-46dc-a724-10b8e50fb59d</id>
+                        <display>A medication item</display>
+                    </item>
+                </entry>
+                <text>
+                    <status>generated</status>
+                    <div xmlns="http://www.w3.org/1999/xhtml"><h5>Original Meds</h5></div>
+                </text>
+            </List></content>
+    </entry>
+    <entry>
+        <title>A medication item</title>
+        <id>urn:uuid:754a935b-2082-40ef-8da2-2f61955dd7cd</id>
+        <updated>2012-12-20T07:54:32+13:00</updated>
+        <published>2012-12-20T07:54:32+13:00</published>
+        <author>
+            <name>not specified</name>
+        </author>
+        <category term="Prescription" scheme="http://hl7.org/fhir/resource-types"/>
+        <content type="text/xml"><Prescription xmlns="http://hl7.org/fhir">
+                <status>active</status>
+                <patient>
+                    <type>Patient</type>
+                    <id>100</id>
+                    <display>john andrew cardinal </display>
+                </patient>
+                <prescriber>
+                    <type>Agent</type>
+                    <id>103</id>
+                    <display>Dr Joe Kool</display>
+                </prescriber>
+                <prescribed>2012-12-19T10:28:16+13:00</prescribed>
+                <medicine>
+                    <identification>
+                        <coding>
+                            <system>ulm</system>
+                            <code>amox</code>
+                            <display>dfgsdgsdf</display>
+                        </coding>
+                        <text>dfgsdgsdf</text>
+                    </identification>
+                </medicine>
+                <administrationRequest>
+                    <description>3 tab 3 times a day</description>
+                    <dosageInstruction>
+                        <doseQuantity>
+                            <value>3</value>
+                            <units>tab </units>
+                        </doseQuantity>
+                        <schedule>
+                            <repeat>
+                                <frequency>3</frequency>
+                                <duration>1</duration>
+                                <units>d</units>
+                            </repeat>
+                        </schedule>
+                    </dosageInstruction>
+                </administrationRequest>
+                <text>
+                    <status>generated</status>
+                    <div xmlns="http://www.w3.org/1999/xhtml">dfgsdgsdf 3 tab 3 times per day</div>
+                </text>
+            </Prescription></content>
+    </entry>
+    <entry>
+        <title>A medication item</title>
+        <id>urn:uuid:9e1b8e21-d872-46dc-a724-10b8e50fb59d</id>
+        <updated>2012-12-20T07:54:32+13:00</updated>
+        <published>2012-12-20T07:54:32+13:00</published>
+        <author>
+            <name>not specified</name>
+        </author>
+        <category term="Prescription" scheme="http://hl7.org/fhir/resource-types"/>
+        <content type="text/xml"><Prescription xmlns="http://hl7.org/fhir">
+                <status>active</status>
+                <patient>
+                    <type>Patient</type>
+                    <id>100</id>
+                    <display>john andrew cardinal </display>
+                </patient>
+                <prescriber>
+                    <type>Agent</type>
+                    <id>103</id>
+                    <display>Dr Joe Kool</display>
+                </prescriber>
+                <prescribed>2012-12-19T10:28:06+13:00</prescribed>
+                <medicine>
+                    <identification>
+                        <coding>
+                            <system>ulm</system>
+                            <code>amox</code>
+                            <display>amoxil tab 250mg</display>
+                        </coding>
+                        <text>amoxil tab 250mg</text>
+                    </identification>
+                </medicine>
+                <administrationRequest>
+                    <description>3 tab 3 times a day</description>
+                    <dosageInstruction>
+                        <doseQuantity>
+                            <value>3</value>
+                            <units>tab </units>
+                        </doseQuantity>
+                        <schedule>
+                            <repeat>
+                                <frequency>3</frequency>
+                                <duration>1</duration>
+                                <units>d</units>
+                            </repeat>
+                        </schedule>
+                    </dosageInstruction>
+                </administrationRequest>
+                <text>
+                    <status>generated</status>
+                    <div xmlns="http://www.w3.org/1999/xhtml">amoxil tab 250mg 3 tab 3 times per
+                        day</div>
+                </text>
+            </Prescription></content>
+    </entry>
+    <entry>
+        <title>A medication item</title>
+        <id>urn:uuid:533bd83a-6b63-402d-b997-672682df0717</id>
+        <updated>2012-12-20T07:54:32+13:00</updated>
+        <published>2012-12-20T07:54:32+13:00</published>
+        <author>
+            <name>not specified</name>
+        </author>
+        <category term="Prescription" scheme="http://hl7.org/fhir/resource-types"/>
+        <content type="text/xml"><Prescription xmlns="http://hl7.org/fhir">
+                <status>active</status>
+                <patient>
+                    <type>Patient</type>
+                    <id>100</id>
+                    <display>john andrew cardinal </display>
+                </patient>
+                <prescriber>
+                    <type>Agent</type>
+                    <id>103</id>
+                    <display>Dr Joe Kool</display>
+                </prescriber>
+                <prescribed>2012-12-20T07:54:31+13:00</prescribed>
+                <medicine>
+                    <identification>
+                        <coding>
+                            <system>ulm</system>
+                            <code>amox</code>
+                            <display>atenolol 50mg</display>
+                        </coding>
+                        <text>atenolol 50mg</text>
+                    </identification>
+                </medicine>
+                <administrationRequest>
+                    <description>1 tab 1 times a day</description>
+                    <dosageInstruction>
+                        <doseQuantity>
+                            <value>1</value>
+                            <units>tab </units>
+                        </doseQuantity>
+                        <schedule>
+                            <repeat>
+                                <frequency>1</frequency>
+                                <duration>1</duration>
+                                <units>d</units>
+                            </repeat>
+                        </schedule>
+                    </dosageInstruction>
+                </administrationRequest>
+                <text>
+                    <status>generated</status>
+                    <div xmlns="http://www.w3.org/1999/xhtml">atenolol 50mg 1 tab 1 times per
+                        day</div>
+                </text>
+            </Prescription></content>
+    </entry>
+    <entry>
+        <id>urn:uuid:577dd6b4-9c35-42e2-95f7-3a1037d0f9e3</id>
+		<title>David did not supply a title here</title>
+        <updated>2012-12-20T07:54:32+13:00</updated>
+        <published>2012-12-20T07:54:32+13:00</published>
+        <author>
+            <name>not specified</name>
+        </author>
+        <category term="List" scheme="http://hl7.org/fhir/resource-types"/>
+        <content type="text/xml"><List xmlns="http://hl7.org/fhir">
+                <code>
+                    <coding>
+                        <system>typ-sys</system>
+                        <code>typ</code>
+                        <display>typ-disp</display>
+                    </coding>
+                    <text>Medications List</text>
+                </code>
+                <entry>
+                    <item>
+                        <type>Prescription</type>
+                        <id>754a935b-2082-40ef-8da2-2f61955dd7cd</id>
+                        <display>A medication item</display>
+                    </item>
+                </entry>
+                <entry>
+                    <item>
+                        <type>Prescription</type>
+                        <id>9e1b8e21-d872-46dc-a724-10b8e50fb59d</id>
+                        <display>A medication item</display>
+                    </item>
+                </entry>
+                <entry>
+                    <item>
+                        <type>Prescription</type>
+                        <id>533bd83a-6b63-402d-b997-672682df0717</id>
+                        <display>A medication item</display>
+                    </item>
+                </entry>
+                <text>
+                    <status>generated</status>
+                    <div xmlns="http://www.w3.org/1999/xhtml"><h5>New meds</h5></div>
+                </text>
+            </List></content>
+    </entry>
+</feed>

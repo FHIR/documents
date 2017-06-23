@@ -1,0 +1,51 @@
+suggestions welcome for the kind of stuff I should mention
+[10:32:16 AM] Grahame Grieve: I'm going to do the copy, and HL7 staff are going to finish it
+[10:44:01 AM] David Hay: ease / speed of implementation has to be right up there of course
+[10:44:12 AM] David Hay: building on existing stuff is also important
+[10:44:38 AM] David Hay: able to co-exist with other standards - esp interop between CDA and FHIR docs
+[10:45:26 AM] David Hay: evolutionary rather than revolutionary (they don't like TOO much change!)
+[10:46:08 AM] David Hay: wide interest form many different organizations - SDO, vendor, clincial establishment
+[10:46:51 AM] David Hay: on-line 'stuff' (can't use resource) - hyperlinked spec, samples, demo servers
+[10:48:01 AM] Lloyd McKenzie: Reference implementations
+[10:54:03 AM] David Hay: libraries in development...
+[10:54:41 AM] David Hay: standards use (so toolkits available) - XML, JSON, Atom, HTTP
+[10:55:25 AM] David Hay: mobile friendly (and add OAuth to the list of other standards)
+[11:21:24 AM] Andy Stechishin: Aimed at modern Web Developers
+[11:23:00 AM] Lloyd McKenzie: Multiple developers have had simple interfaces up and running in less than a day
+[2:07:52 PM] Grahame Grieve: thanks everyone
+
+Btw - if you haven't finished the text for the himss brochure, you might also want to mention that the FHIR specs can be understood - at least at the high level - by domain experts like clinicians. Try that with v2/v3/cda!
+
+
+
+CIO / Clinician
+
+
+What is FHIR
+ - acronym
+ - new specification
+ - scalable simple web api
+ - same reasons the web love it, applies to enterprise 
+ 
+Why it is better
+
+Exhchanging clinical and administrative information is hard. No one can afford to get the inforamtion they want it when and where they want it. The existing standards aren't helping - the best you can hope for is to get things sort of working
+
+ - focused on implementation - fast
+ - builds on existing knowledge, but makes it available
+ - co-exist with other approaches
+ - open license, online
+ - mobile friendly
+ - free clinical information : specification GET OUT OF THE WAY
+
+
+Implementation
+ - connectathon (open, invited)
+ - result in <1 day
+
+
+
+Where it is at 
+ - draft - but implementation focused
+ - released for DSTU late 2013 early 2014
+ - Work towards normative 2016

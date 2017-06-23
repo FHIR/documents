@@ -1,0 +1,4867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RTM xmlns="http://www.nist.gov/rtm">
+  <Units>
+    <term>
+      <Dimension>Unspecified</Dimension>
+      <DIM/>
+      <DIMC/>
+      <Symbol>?</Symbol>
+      <UOM_UCUM>{unknown}</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NOS</UOM_MDC>
+      <UCODE10>0</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Dimension- less</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>-</Symbol>
+      <UOM_UCUM>{unitless} 1</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DIMLESS</UOM_MDC>
+      <UCODE10>512</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Dimension- less</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>1/0</Symbol>
+      <UOM_UCUM>1 {bool}</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_BOOLEAN</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- decibel  (existing 11073 definition)</Dimension>
+      <DIM>[Bel]</DIM>
+      <DIMC>[Bel]</DIMC>
+      <Symbol>DB</Symbol>
+      <UOM_UCUM>dB dB[10.nV]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DECIBEL</UOM_MDC>
+      <UCODE10>6432</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- decibel  (proposal "dB1")</Dimension>
+      <DIM>[Bel]</DIM>
+      <DIMC>[Bel]</DIMC>
+      <Symbol>dB(V)</Symbol>
+      <UOM_UCUM>dB[V]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DECIBEL_X_V</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- decibel  (proposal "dB1")</Dimension>
+      <DIM>[Bel]</DIM>
+      <DIMC>[Bel]</DIMC>
+      <Symbol>dB(mV)</Symbol>
+      <UOM_UCUM>dB[mV]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DECIBEL_X_MV</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- decibel  (proposal "dB1")</Dimension>
+      <DIM>[Bel]</DIM>
+      <DIMC>[Bel]</DIMC>
+      <Symbol>dB(uV)</Symbol>
+      <UOM_UCUM>dB[uV]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DECIBEL_X_UV</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- decibel  (proposal "dB1")</Dimension>
+      <DIM>[Bel]</DIM>
+      <DIMC>[Bel]</DIMC>
+      <Symbol>dB(nV)</Symbol>
+      <UOM_UCUM>dB[nV]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DECIBEL_X_NV</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- decibel  (proposal "dB1")</Dimension>
+      <DIM>[Bel]</DIM>
+      <DIMC>[Bel]</DIMC>
+      <Symbol>dB(10nV)</Symbol>
+      <UOM_UCUM>dB[10.nV]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DECIBEL_DECA_NV</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- decibel  (proposal "dB2")</Dimension>
+      <DIM>[Bel]</DIM>
+      <DIMC>[Bel]</DIMC>
+      <Symbol>B(mV)</Symbol>
+      <UOM_UCUM>B[mV]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_BEL_MV</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- Bel and deciBel   (proposal "dB3")</Dimension>
+      <DIM>[Bel]</DIM>
+      <DIMC>[Bel]</DIMC>
+      <Symbol>B</Symbol>
+      <UOM_UCUM>B</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_BEL</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- Bel and deciBel   (proposal "dB3")</Dimension>
+      <DIM>[Bel]</DIM>
+      <DIMC>[Bel]</DIMC>
+      <Symbol>dB</Symbol>
+      <UOM_UCUM>dB</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DECI_BEL</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- Bel and deciBel   (proposal "dB3")</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>%</Symbol>
+      <UOM_UCUM>%</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PERCENT</UOM_MDC>
+      <UCODE10>544</UCODE10>
+      <_UOM_GROUPS>_UOM_CONC_GAS</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- Bel and deciBel   (proposal "dB3")</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>Ppht</Symbol>
+      <UOM_UCUM>[ppth]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PARTS_PER_10_TO_MINUS_3</UOM_MDC>
+      <UCODE10>576</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- Bel and deciBel   (proposal "dB3")</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>Ppm</Symbol>
+      <UOM_UCUM>[ppm]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PARTS_PER_10_TO_MINUS_6</UOM_MDC>
+      <UCODE10>608</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- Bel and deciBel   (proposal "dB3")</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>10*-9 10^-9</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PARTS_PER_10_TO_MINUS_9</UOM_MDC>
+      <UCODE10>640</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- Bel and deciBel   (proposal "dB3")</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>Ppb</Symbol>
+      <UOM_UCUM>10*-12 10^-12</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PARTS_PER_10_TO_MINUS_12</UOM_MDC>
+      <UCODE10>672</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- Bel and deciBel   (proposal "dB3")</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>Ppt</Symbol>
+      <UOM_UCUM>10*-15 10^-15</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PARTS_PER_10_TO_MINUS_15</UOM_MDC>
+      <UCODE10>704</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- angles</Dimension>
+      <DIM>[rad]</DIM>
+      <DIMC>[rad]</DIMC>
+      <Symbol>Degree</Symbol>
+      <UOM_UCUM>deg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_ANG_DEG</UOM_MDC>
+      <UCODE10>736</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- angles</Dimension>
+      <DIM>[rad]</DIM>
+      <DIMC>[rad]</DIMC>
+      <Symbol>Rad</Symbol>
+      <UOM_UCUM>rad</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_ANG_RAD</UOM_MDC>
+      <UCODE10>768</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass fraction</Dimension>
+      <DIM>MM-1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>g g-1</Symbol>
+      <UOM_UCUM>g/g</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_G</UOM_MDC>
+      <UCODE10>800</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass fraction</Dimension>
+      <DIM>MM-1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>g kg-1</Symbol>
+      <UOM_UCUM>g/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_KG</UOM_MDC>
+      <UCODE10>832</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass fraction</Dimension>
+      <DIM>MM-1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>mg kg-1</Symbol>
+      <UOM_UCUM>mg/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_G_PER_KG</UOM_MDC>
+      <UCODE10>850</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass fraction</Dimension>
+      <DIM>MM-1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>ug kg-1</Symbol>
+      <UOM_UCUM>ug/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_G_PER_KG</UOM_MDC>
+      <UCODE10>851</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass fraction</Dimension>
+      <DIM>MM-1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>ng kg-1</Symbol>
+      <UOM_UCUM>ng/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_G_PER_KG</UOM_MDC>
+      <UCODE10>852</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass fraction</Dimension>
+      <DIM>MM-1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>g mg-1</Symbol>
+      <UOM_UCUM>g/mg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_MG</UOM_MDC>
+      <UCODE10>6464</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- relative quantity</Dimension>
+      <DIM>NN-1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>mol mol-1</Symbol>
+      <UOM_UCUM>mol/mol</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_MOLE</UOM_MDC>
+      <UCODE10>864</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- volume fraction</Dimension>
+      <DIM>L3L-3</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>l l-1</Symbol>
+      <UOM_UCUM>L/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_L</UOM_MDC>
+      <UCODE10>896</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- volume fraction</Dimension>
+      <DIM>L3L-3</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>l dl-1</Symbol>
+      <UOM_UCUM>L/dL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_DL</UOM_MDC>
+      <UCODE10>6400</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- volume fraction</Dimension>
+      <DIM>L3L-3</DIM>
+      <DIMC>1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>mL/dL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_L_PER_DL</UOM_MDC>
+      <UCODE10>6418</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- volume fraction</Dimension>
+      <DIM>L3L-3</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>m m-3</Symbol>
+      <UOM_UCUM>DO_NOT_USE</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_CUBIC_X_M_PER_M_CUBE</UOM_MDC>
+      <UCODE10>928</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- volume fraction</Dimension>
+      <DIM>L3L-3</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>m cm-3</Symbol>
+      <UOM_UCUM>DO_NOT_USE</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_CUBIC_X_M_PER_CM_CUBE</UOM_MDC>
+      <UCODE10>960</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- volume fraction</Dimension>
+      <DIM>L3L-3</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>vol %</Symbol>
+      <UOM_UCUM>%{vol}</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_VOL_PERCENT</UOM_MDC>
+      <UCODE10>6240</UCODE10>
+      <_UOM_GROUPS>_UOM_CONC_GAS</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- special vital signs counts</Dimension>
+      <DIM>[pH]</DIM>
+      <DIMC>[pH]</DIMC>
+      <Symbol>PH</Symbol>
+      <UOM_UCUM>[pH]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PH</UOM_MDC>
+      <UCODE10>992</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- special vital signs counts</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>Drop</Symbol>
+      <UOM_UCUM>[drp]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DROP</UOM_MDC>
+      <UCODE10>1024</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- special vital signs counts</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>Rbc</Symbol>
+      <UOM_UCUM>{rbc}</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_RBC</UOM_MDC>
+      <UCODE10>1056</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- special vital signs counts</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>Beat</Symbol>
+      <UOM_UCUM>{beat}</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_BEAT</UOM_MDC>
+      <UCODE10>1088</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- special vital signs counts</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>Breath</Symbol>
+      <UOM_UCUM>{breath}</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_BREATH</UOM_MDC>
+      <UCODE10>1120</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- special vital signs counts</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>Cell</Symbol>
+      <UOM_UCUM>{cell}</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_CELL</UOM_MDC>
+      <UCODE10>1152</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- special vital signs counts</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>Cough</Symbol>
+      <UOM_UCUM>{cough}</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_COUGH</UOM_MDC>
+      <UCODE10>1184</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- special vital signs counts</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>Sigh</Symbol>
+      <UOM_UCUM>{sigh}</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_SIGH</UOM_MDC>
+      <UCODE10>1216</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- special vital signs counts</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>%PCV</Symbol>
+      <UOM_UCUM>%{pcv}</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PCT_PCV</UOM_MDC>
+      <UCODE10>1248</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L (length)</Dimension>
+      <DIM>L</DIM>
+      <DIMC>L</DIMC>
+      <Symbol>m</Symbol>
+      <UOM_UCUM>m</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_M</UOM_MDC>
+      <UCODE10>1280</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L (length)</Dimension>
+      <DIM>L</DIM>
+      <DIMC>L</DIMC>
+      <Symbol>cm</Symbol>
+      <UOM_UCUM>cm</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_CENTI_M</UOM_MDC>
+      <UCODE10>1297</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L (length)</Dimension>
+      <DIM>L</DIM>
+      <DIMC>L</DIMC>
+      <Symbol>mm</Symbol>
+      <UOM_UCUM>mm</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_M</UOM_MDC>
+      <UCODE10>1298</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L (length)</Dimension>
+      <DIM>L</DIM>
+      <DIMC>L</DIMC>
+      <Symbol>um</Symbol>
+      <UOM_UCUM>um</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_M</UOM_MDC>
+      <UCODE10>1299</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L (length)</Dimension>
+      <DIM>L</DIM>
+      <DIMC>L</DIMC>
+      <Symbol>yd</Symbol>
+      <UOM_UCUM>[yd_i]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_YARD</UOM_MDC>
+      <UCODE10>1312</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L (length)</Dimension>
+      <DIM>L</DIM>
+      <DIMC>L</DIMC>
+      <Symbol>ft</Symbol>
+      <UOM_UCUM>[ft_i]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_FOOT</UOM_MDC>
+      <UCODE10>1344</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L (length)</Dimension>
+      <DIM>L</DIM>
+      <DIMC>L</DIMC>
+      <Symbol>in</Symbol>
+      <UOM_UCUM>[in_i]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INCH</UOM_MDC>
+      <UCODE10>1376</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L (areic volume)</Dimension>
+      <DIM>L</DIM>
+      <DIMC>L</DIMC>
+      <Symbol>l/m-2</Symbol>
+      <UOM_UCUM>L/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_M_SQ</UOM_MDC>
+      <UCODE10>1408</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L (areic volume)</Dimension>
+      <DIM>L</DIM>
+      <DIMC>L</DIMC>
+      <Symbol>ml/m-2</Symbol>
+      <UOM_UCUM>mL/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_L_PER_M_SQ</UOM_MDC>
+      <UCODE10>1426</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-1</Dimension>
+      <DIM>L-1</DIM>
+      <DIMC>L-1</DIMC>
+      <Symbol>m-1</Symbol>
+      <UOM_UCUM>/m</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_X_M</UOM_MDC>
+      <UCODE10>1440</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>LT-1</Dimension>
+      <DIM>LT-1</DIM>
+      <DIMC>LT-1</DIMC>
+      <Symbol>m min-1</Symbol>
+      <UOM_UCUM>m/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_M_PER_MIN</UOM_MDC>
+      <UCODE10>6560</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L2 (area)</Dimension>
+      <DIM>L2</DIM>
+      <DIMC>L2</DIMC>
+      <Symbol>m2</Symbol>
+      <UOM_UCUM>m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_SQ_X_M</UOM_MDC>
+      <UCODE10>1472</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L2 (area)</Dimension>
+      <DIM>L2</DIM>
+      <DIMC>L2</DIMC>
+      <Symbol>in2</Symbol>
+      <UOM_UCUM>[in_i]2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_SQ_X_INCH</UOM_MDC>
+      <UCODE10>1504</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L2 (area)</Dimension>
+      <DIM>L2</DIM>
+      <DIMC>L2</DIMC>
+      <Symbol>cm2</Symbol>
+      <UOM_UCUM>cm2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_SQ_X_CM</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-2</Dimension>
+      <DIM>L-2</DIM>
+      <DIMC>L-2</DIMC>
+      <Symbol>m-2</Symbol>
+      <UOM_UCUM>/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_SQ_X_M</UOM_MDC>
+      <UCODE10>1536</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3 (volume)</Dimension>
+      <DIM>L3</DIM>
+      <DIMC>L3</DIMC>
+      <Symbol>m3</Symbol>
+      <UOM_UCUM>m3</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_CUBIC_X_M</UOM_MDC>
+      <UCODE10>1568</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3 (volume)</Dimension>
+      <DIM>L3</DIM>
+      <DIMC>L3</DIMC>
+      <Symbol>l</Symbol>
+      <UOM_UCUM>L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L</UOM_MDC>
+      <UCODE10>1600</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3 (volume)</Dimension>
+      <DIM>L3</DIM>
+      <DIMC>L3</DIMC>
+      <Symbol>ml</Symbol>
+      <UOM_UCUM>mL {liquid}mL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_L</UOM_MDC>
+      <UCODE10>1618</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN _UOM_DOSE_QUAN_LIQUID</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3 (volume)</Dimension>
+      <DIM>L3</DIM>
+      <DIMC>L3</DIMC>
+      <Symbol>ul</Symbol>
+      <UOM_UCUM>uL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_L</UOM_MDC>
+      <UCODE10>1619</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3 (volume)</Dimension>
+      <DIM>L3</DIM>
+      <DIMC>L3</DIMC>
+      <Symbol>l breath-1</Symbol>
+      <UOM_UCUM>L/{breath}</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_BREATH</UOM_MDC>
+      <UCODE10>1632</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3 (volume)</Dimension>
+      <DIM>L3</DIM>
+      <DIMC>L3</DIMC>
+      <Symbol>ml breath-1</Symbol>
+      <UOM_UCUM>mL/{breath}</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_L_PER_BREATH</UOM_MDC>
+      <UCODE10>1650</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3 (volume)</Dimension>
+      <DIM>L3</DIM>
+      <DIMC>L3</DIMC>
+      <Symbol>l beat-1</Symbol>
+      <UOM_UCUM>L/{beat}</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_BEAT</UOM_MDC>
+      <UCODE10>6112</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3 (volume)</Dimension>
+      <DIM>L3</DIM>
+      <DIMC>L3</DIMC>
+      <Symbol>ml beat-1</Symbol>
+      <UOM_UCUM>mL/{beat}</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_L_PER_BEAT</UOM_MDC>
+      <UCODE10>6130</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-3</Dimension>
+      <DIM>L-3</DIM>
+      <DIMC>L-3</DIMC>
+      <Symbol>m-3</Symbol>
+      <UOM_UCUM>/m3</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_CUBIC_X_M</UOM_MDC>
+      <UCODE10>1664</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-3</Dimension>
+      <DIM>L-3</DIM>
+      <DIMC>L-3</DIMC>
+      <Symbol>l-1</Symbol>
+      <UOM_UCUM>/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_X_L</UOM_MDC>
+      <UCODE10>1696</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>M (mass)</Dimension>
+      <DIM>M</DIM>
+      <DIMC>M</DIMC>
+      <Symbol>g</Symbol>
+      <UOM_UCUM>g</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G</UOM_MDC>
+      <UCODE10>1728</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>M (mass)</Dimension>
+      <DIM>M</DIM>
+      <DIMC>M</DIMC>
+      <Symbol>kg</Symbol>
+      <UOM_UCUM>kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_KILO_G</UOM_MDC>
+      <UCODE10>1731</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>M (mass)</Dimension>
+      <DIM>M</DIM>
+      <DIMC>M</DIMC>
+      <Symbol>mg</Symbol>
+      <UOM_UCUM>mg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_G</UOM_MDC>
+      <UCODE10>1746</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>M (mass)</Dimension>
+      <DIM>M</DIM>
+      <DIMC>M</DIMC>
+      <Symbol>ug</Symbol>
+      <UOM_UCUM>ug</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_G</UOM_MDC>
+      <UCODE10>1747</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>M (mass)</Dimension>
+      <DIM>M</DIM>
+      <DIMC>M</DIMC>
+      <Symbol>ng</Symbol>
+      <UOM_UCUM>ng</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_G</UOM_MDC>
+      <UCODE10>1748</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>M (mass)</Dimension>
+      <DIM>M</DIM>
+      <DIMC>M</DIMC>
+      <Symbol>lb</Symbol>
+      <UOM_UCUM>[lb_av]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_LB</UOM_MDC>
+      <UCODE10>1760</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>M (mass)</Dimension>
+      <DIM>M</DIM>
+      <DIMC>M</DIMC>
+      <Symbol>oz</Symbol>
+      <UOM_UCUM>[oz_av]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_OZ</UOM_MDC>
+      <UCODE10>1792</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>M-1</Dimension>
+      <DIM>M-1</DIM>
+      <DIMC>M-1</DIMC>
+      <Symbol>g-1</Symbol>
+      <UOM_UCUM>/g</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_X_G</UOM_MDC>
+      <UCODE10>1824</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML</Dimension>
+      <DIM>ML</DIM>
+      <DIMC>ML</DIMC>
+      <Symbol>g m</Symbol>
+      <UOM_UCUM>g.m</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_M</UOM_MDC>
+      <UCODE10>1856</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-1</Dimension>
+      <DIM>ML-1</DIM>
+      <DIMC>ML-1</DIMC>
+      <Symbol>g m m-2</Symbol>
+      <UOM_UCUM>g.m/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_M_PER_M_SQ</UOM_MDC>
+      <UCODE10>1888</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML2 (moment of inertia)</Dimension>
+      <DIM>ML2</DIM>
+      <DIMC>ML2</DIMC>
+      <Symbol>g m2</Symbol>
+      <UOM_UCUM>g.m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_M_SQ</UOM_MDC>
+      <UCODE10>1920</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-2</Dimension>
+      <DIM>ML-2</DIM>
+      <DIMC>ML-2</DIMC>
+      <Symbol>g m-2</Symbol>
+      <UOM_UCUM>g/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_M_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-2</Dimension>
+      <DIM>ML-2</DIM>
+      <DIMC>ML-2</DIMC>
+      <Symbol>kg m-2</Symbol>
+      <UOM_UCUM>kg/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_KILO_G_PER_M_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-2</Dimension>
+      <DIM>ML-2</DIM>
+      <DIMC>ML-2</DIMC>
+      <Symbol>mg m-2</Symbol>
+      <UOM_UCUM>mg/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_G_PER_M_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-2</Dimension>
+      <DIM>ML-2</DIM>
+      <DIMC>ML-2</DIMC>
+      <Symbol>ug m-2</Symbol>
+      <UOM_UCUM>ug/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_G_PER_M_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-2</Dimension>
+      <DIM>ML-2</DIM>
+      <DIMC>ML-2</DIMC>
+      <Symbol>ng m-2</Symbol>
+      <UOM_UCUM>ng/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_G_PER_M_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-2</Dimension>
+      <DIM>ML-2</DIM>
+      <DIMC>ML-2</DIMC>
+      <Symbol>kg m-2</Symbol>
+      <UOM_UCUM>kg/m2#</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_KG_PER_M_SQ#</UOM_MDC>
+      <UCODE10>1952</UCODE10>
+      <_UOM_GROUPS>_UOM_DEPRECATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-3 (concentration of mass)</Dimension>
+      <DIM>ML-3</DIM>
+      <DIMC>ML-3</DIMC>
+      <Symbol>g m-3</Symbol>
+      <UOM_UCUM>g/m3</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_M_CUBE</UOM_MDC>
+      <UCODE10>1984</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-3 (concentration of mass)</Dimension>
+      <DIM>ML-3</DIM>
+      <DIMC>ML-3</DIMC>
+      <Symbol>g cm-3</Symbol>
+      <UOM_UCUM>g/cm3</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_CM_CUBE</UOM_MDC>
+      <UCODE10>2016</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-3 (concentration of mass)</Dimension>
+      <DIM>ML-3</DIM>
+      <DIMC>ML-3</DIMC>
+      <Symbol>g l-1</Symbol>
+      <UOM_UCUM>g/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_L</UOM_MDC>
+      <UCODE10>2048</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-3 (concentration of mass)</Dimension>
+      <DIM>ML-3</DIM>
+      <DIMC>ML-3</DIMC>
+      <Symbol>g cl-3</Symbol>
+      <UOM_UCUM>g/cL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_CL</UOM_MDC>
+      <UCODE10>2080</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-3 (concentration of mass)</Dimension>
+      <DIM>ML-3</DIM>
+      <DIMC>ML-3</DIMC>
+      <Symbol>g dl-3</Symbol>
+      <UOM_UCUM>g/dL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_DL</UOM_MDC>
+      <UCODE10>2112</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-3 (concentration of mass)</Dimension>
+      <DIM>ML-3</DIM>
+      <DIMC>ML-3</DIMC>
+      <Symbol>mg dl-3</Symbol>
+      <UOM_UCUM>mg/dL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_G_PER_DL</UOM_MDC>
+      <UCODE10>2130</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-3 (concentration of mass)</Dimension>
+      <DIM>ML-3</DIM>
+      <DIMC>ML-3</DIMC>
+      <Symbol>g ml-3</Symbol>
+      <UOM_UCUM>g/mL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_ML</UOM_MDC>
+      <UCODE10>2144</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_CONC</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-3 (concentration of mass)</Dimension>
+      <DIM>ML-3</DIM>
+      <DIMC>ML-3</DIMC>
+      <Symbol>mg ml-3</Symbol>
+      <UOM_UCUM>mg/mL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_G_PER_ML</UOM_MDC>
+      <UCODE10>2162</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_CONC</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-3 (concentration of mass)</Dimension>
+      <DIM>ML-3</DIM>
+      <DIMC>ML-3</DIMC>
+      <Symbol>ug ml-3</Symbol>
+      <UOM_UCUM>ug/mL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_G_PER_ML</UOM_MDC>
+      <UCODE10>2163</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_CONC</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML-3 (concentration of mass)</Dimension>
+      <DIM>ML-3</DIM>
+      <DIMC>ML-3</DIMC>
+      <Symbol>ng ml-3</Symbol>
+      <UOM_UCUM>ng/mL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_G_PER_ML</UOM_MDC>
+      <UCODE10>2164</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_CONC</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T (time)</Dimension>
+      <DIM>T</DIM>
+      <DIMC>T</DIMC>
+      <Symbol>s</Symbol>
+      <UOM_UCUM>s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_SEC</UOM_MDC>
+      <UCODE10>2176</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T (time)</Dimension>
+      <DIM>T</DIM>
+      <DIMC>T</DIMC>
+      <Symbol>ms</Symbol>
+      <UOM_UCUM>ms</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_SEC</UOM_MDC>
+      <UCODE10>2194</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T (time)</Dimension>
+      <DIM>T</DIM>
+      <DIMC>T</DIMC>
+      <Symbol>us</Symbol>
+      <UOM_UCUM>us</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_SEC</UOM_MDC>
+      <UCODE10>2195</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T (time)</Dimension>
+      <DIM>T</DIM>
+      <DIMC>T</DIMC>
+      <Symbol>ns</Symbol>
+      <UOM_UCUM>ns</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_SEC</UOM_MDC>
+      <UCODE10>2196</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T (time)</Dimension>
+      <DIM>T</DIM>
+      <DIMC>T</DIMC>
+      <Symbol>min</Symbol>
+      <UOM_UCUM>min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MIN</UOM_MDC>
+      <UCODE10>2208</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T (time)</Dimension>
+      <DIM>T</DIM>
+      <DIMC>T</DIMC>
+      <Symbol>h</Symbol>
+      <UOM_UCUM>h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_HR</UOM_MDC>
+      <UCODE10>2240</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T (time)</Dimension>
+      <DIM>T</DIM>
+      <DIMC>T</DIMC>
+      <Symbol>d</Symbol>
+      <UOM_UCUM>d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DAY</UOM_MDC>
+      <UCODE10>2272</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T (time)</Dimension>
+      <DIM>T</DIM>
+      <DIMC>T</DIMC>
+      <Symbol>weeks</Symbol>
+      <UOM_UCUM>wk</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_WEEKS</UOM_MDC>
+      <UCODE10>2304</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T (time)</Dimension>
+      <DIM>T</DIM>
+      <DIMC>T</DIMC>
+      <Symbol>mth</Symbol>
+      <UOM_UCUM>mo</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MON</UOM_MDC>
+      <UCODE10>2336</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T (time)</Dimension>
+      <DIM>T</DIM>
+      <DIMC>T</DIMC>
+      <Symbol>y</Symbol>
+      <UOM_UCUM>a</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_YR</UOM_MDC>
+      <UCODE10>2368</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T (time)</Dimension>
+      <DIM>T</DIM>
+      <DIMC>T</DIMC>
+      <Symbol>TOD</Symbol>
+      <UOM_UCUM/>
+      <UOM_MDC>MDC_DIM_TOD</UOM_MDC>
+      <UCODE10>2400</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T (time)</Dimension>
+      <DIM>T</DIM>
+      <DIMC>T</DIMC>
+      <Symbol>DATE</Symbol>
+      <UOM_UCUM/>
+      <UOM_MDC>MDC_DIM_DATE</UOM_MDC>
+      <UCODE10>2432</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T-1 (rate; frequency)</Dimension>
+      <DIM>T-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>s-1</Symbol>
+      <UOM_UCUM>/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_X_SEC</UOM_MDC>
+      <UCODE10>2464</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T-1 (rate; frequency)</Dimension>
+      <DIM>T-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>1/1000s</Symbol>
+      <UOM_UCUM>/(1000.s)</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_KILO_SEC</UOM_MDC>
+      <UCODE10>2167</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T-1 (rate; frequency)</Dimension>
+      <DIM>T-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>Hz</Symbol>
+      <UOM_UCUM>Hz</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_HZ</UOM_MDC>
+      <UCODE10>2496</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T-1 (rate; frequency)</Dimension>
+      <DIM>T-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>min-1</Symbol>
+      <UOM_UCUM>/min 1/min {count}/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_MIN</UOM_MDC>
+      <UCODE10>2528</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T-1 (rate; frequency)</Dimension>
+      <DIM>T-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>h-1</Symbol>
+      <UOM_UCUM>/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_HR</UOM_MDC>
+      <UCODE10>2560</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T-1 (rate; frequency)</Dimension>
+      <DIM>T-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>d-1</Symbol>
+      <UOM_UCUM>/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_DAY</UOM_MDC>
+      <UCODE10>2592</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T-1 (rate; frequency)</Dimension>
+      <DIM>T-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>week-1</Symbol>
+      <UOM_UCUM>/wk</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_WK</UOM_MDC>
+      <UCODE10>2624</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T-1 (rate; frequency)</Dimension>
+      <DIM>T-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>mth-1</Symbol>
+      <UOM_UCUM>/mo</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_MO</UOM_MDC>
+      <UCODE10>2656</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T-1 (rate; frequency)</Dimension>
+      <DIM>T-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>y-1</Symbol>
+      <UOM_UCUM>/a</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_YR</UOM_MDC>
+      <UCODE10>2688</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T-2 (rate; frequency squared)</Dimension>
+      <DIM>T-2</DIM>
+      <DIMC>T-2</DIMC>
+      <Symbol>s-2</Symbol>
+      <UOM_UCUM>/s2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_X_SEC_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>T-2 (rate; frequency squared)</Dimension>
+      <DIM>T-2</DIM>
+      <DIMC>T-2</DIMC>
+      <Symbol>1/100s2</Symbol>
+      <UOM_UCUM>/(100.s2)</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_HECTO_SEC_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- special vital signs rates</Dimension>
+      <DIM>T-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>bpm</Symbol>
+      <UOM_UCUM>/min 1/min {beat}/min {beats}/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_BEAT_PER_MIN</UOM_MDC>
+      <UCODE10>2720</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- special vital signs rates</Dimension>
+      <DIM>T-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>bpm l-1</Symbol>
+      <UOM_UCUM>{beat}/min/L 1/min/L /min/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_BEAT_PER_MIN_PER_X_L</UOM_MDC>
+      <UCODE10>6496</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- special vital signs rates</Dimension>
+      <DIM>T-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>puls min-1</Symbol>
+      <UOM_UCUM>/min 1/min {pulse}/min {pulses}/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PULS_PER_MIN</UOM_MDC>
+      <UCODE10>2752</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- special vital signs rates</Dimension>
+      <DIM>T-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>resp min-1</Symbol>
+      <UOM_UCUM>/min 1/min {breath}/min {breaths}/min {resp}/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_RESP_PER_MIN</UOM_MDC>
+      <UCODE10>2784</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>LT-1  (velocity)</Dimension>
+      <DIM>LT-1</DIM>
+      <DIMC>LT-1</DIMC>
+      <Symbol>m s-1</Symbol>
+      <UOM_UCUM>m/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_M_PER_SEC</UOM_MDC>
+      <UCODE10>2816</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>LT-1  (velocity)</Dimension>
+      <DIM>LT-1</DIM>
+      <DIMC>LT-1</DIMC>
+      <Symbol>mm s-1</Symbol>
+      <UOM_UCUM>mm/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_M_PER_SEC</UOM_MDC>
+      <UCODE10>2834</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>LT-1  (velocity)</Dimension>
+      <DIM>[rad]T-1</DIM>
+      <DIMC>T-1[rad]</DIMC>
+      <Symbol>rad/s</Symbol>
+      <UOM_UCUM>rad/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_RAD_PER_SEC</UOM_MDC>
+      <UCODE10>6688</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>LT-1  (velocity)</Dimension>
+      <DIM>[rad]T-1</DIM>
+      <DIMC>T-1[rad]</DIMC>
+      <Symbol>rpm</Symbol>
+      <UOM_UCUM>360.deg/min 2.[pi].rad/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_ROTATIONS_PER_MIN</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Volume per minute per body surface area</Dimension>
+      <DIM>L3T-1L-2</DIM>
+      <DIMC>LT-1</DIMC>
+      <Symbol>l min-1 m-2</Symbol>
+      <UOM_UCUM>L/min/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_MIN_PER_M_SQ</UOM_MDC>
+      <UCODE10>2848</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Volume per minute per body surface area</Dimension>
+      <DIM>L3T-1L-2</DIM>
+      <DIMC>LT-1</DIMC>
+      <Symbol>ml min-1 m-2</Symbol>
+      <UOM_UCUM>mL/min/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_L_PER_MIN_PER_M_SQ</UOM_MDC>
+      <UCODE10>2866</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Volume per minute per body surface area</Dimension>
+      <DIM>L2T-1</DIM>
+      <DIMC>L2T-1</DIMC>
+      <Symbol>m2 s-1</Symbol>
+      <UOM_UCUM>m2/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_SQ_X_M_PER_SEC</UOM_MDC>
+      <UCODE10>2880</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3T-1  (volume flow rate)</Dimension>
+      <DIM>L3T-1</DIM>
+      <DIMC>L3T-1</DIMC>
+      <Symbol>m3 s-1</Symbol>
+      <UOM_UCUM>m3/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_CUBIC_X_M_PER_SEC</UOM_MDC>
+      <UCODE10>2912</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3T-1  (volume flow rate)</Dimension>
+      <DIM>L3T-1</DIM>
+      <DIMC>L3T-1</DIMC>
+      <Symbol>m3 min-1</Symbol>
+      <UOM_UCUM>m3/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_CUBIC_X_M_PER_MIN</UOM_MDC>
+      <UCODE10>2944</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3T-1  (volume flow rate)</Dimension>
+      <DIM>L3T-1</DIM>
+      <DIMC>L3T-1</DIMC>
+      <Symbol>m3 h-1</Symbol>
+      <UOM_UCUM>m3/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_CUBIC_X_M_PER_HR</UOM_MDC>
+      <UCODE10>2976</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3T-1  (volume flow rate)</Dimension>
+      <DIM>L3T-1</DIM>
+      <DIMC>L3T-1</DIMC>
+      <Symbol>m3 d-1</Symbol>
+      <UOM_UCUM>m3/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_CUBIC_X_M_PER_DAY</UOM_MDC>
+      <UCODE10>3008</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3T-1  (volume flow rate)</Dimension>
+      <DIM>L3T-1</DIM>
+      <DIMC>L3T-1</DIMC>
+      <Symbol>l s-1</Symbol>
+      <UOM_UCUM>L/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_SEC</UOM_MDC>
+      <UCODE10>3040</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3T-1  (volume flow rate)</Dimension>
+      <DIM>L3T-1</DIM>
+      <DIMC>L3T-1</DIMC>
+      <Symbol>l min-1</Symbol>
+      <UOM_UCUM>L/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_MIN</UOM_MDC>
+      <UCODE10>3072</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3T-1  (volume flow rate)</Dimension>
+      <DIM>L3T-1</DIM>
+      <DIMC>L3T-1</DIMC>
+      <Symbol>ml min-1</Symbol>
+      <UOM_UCUM>mL/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_L_PER_MIN</UOM_MDC>
+      <UCODE10>3090</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE_LIQUID</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3T-1  (volume flow rate)</Dimension>
+      <DIM>L3T-1</DIM>
+      <DIMC>L3T-1</DIMC>
+      <Symbol>ul min-1</Symbol>
+      <UOM_UCUM>uL/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_L_PER_MIN</UOM_MDC>
+      <UCODE10>3091</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE_LIQUID</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3T-1  (volume flow rate)</Dimension>
+      <DIM>L3T-1</DIM>
+      <DIMC>L3T-1</DIMC>
+      <Symbol>l h-1</Symbol>
+      <UOM_UCUM>L/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_HR</UOM_MDC>
+      <UCODE10>3104</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE_LIQUID</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3T-1  (volume flow rate)</Dimension>
+      <DIM>L3T-1</DIM>
+      <DIMC>L3T-1</DIMC>
+      <Symbol>ml h-1</Symbol>
+      <UOM_UCUM>mL/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_L_PER_HR</UOM_MDC>
+      <UCODE10>3122</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE_LIQUID</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3T-1  (volume flow rate)</Dimension>
+      <DIM>L3T-1</DIM>
+      <DIMC>L3T-1</DIMC>
+      <Symbol>l d-1</Symbol>
+      <UOM_UCUM>L/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_DAY</UOM_MDC>
+      <UCODE10>3136</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3T-1  (volume flow rate)</Dimension>
+      <DIM>L3T-1</DIM>
+      <DIMC>L3T-1</DIMC>
+      <Symbol>drops min-1</Symbol>
+      <UOM_UCUM>[drp]/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_DROPS_PER_MIN</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3M-1 (volume content)</Dimension>
+      <DIM>L3M-1</DIM>
+      <DIMC>L3M-1</DIMC>
+      <Symbol>l kg-1</Symbol>
+      <UOM_UCUM>L/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_KG</UOM_MDC>
+      <UCODE10>3168</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3M-1 (volume content)</Dimension>
+      <DIM>L3M-1</DIM>
+      <DIMC>L3M-1</DIMC>
+      <Symbol>ml kg-1</Symbol>
+      <UOM_UCUM>mL/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_L_PER_KG</UOM_MDC>
+      <UCODE10>3186</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN _UOM_DOSE_QUAN_LIQUID</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L3M-1 (volume content)</Dimension>
+      <DIM>L3M-1</DIM>
+      <DIMC>L3M-1</DIMC>
+      <Symbol>m3 d-1</Symbol>
+      <UOM_UCUM>m3/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_CUBIC_X_L_PER_KG</UOM_MDC>
+      <UCODE10>3200</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L2M-1T (permeability)</Dimension>
+      <DIM>L2M-1T</DIM>
+      <DIMC>L2M-1T</DIMC>
+      <Symbol>m Pa-1s-1</Symbol>
+      <UOM_UCUM>m/Pa/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_M_PER_PASCAL_SEC</UOM_MDC>
+      <UCODE10>3232</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L2M-1T (permeability)</Dimension>
+      <DIM>L2M-1T</DIM>
+      <DIMC>L2M-1T</DIMC>
+      <Symbol>l min-1 mmHG-1</Symbol>
+      <UOM_UCUM>L/min/mm[Hg]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_MIN_PER_ML_HG</UOM_MDC>
+      <UCODE10>3264</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>MT-1 (mass flow rate)</Dimension>
+      <DIM>MT-1</DIM>
+      <DIMC>MT-1</DIMC>
+      <Symbol>g s-1</Symbol>
+      <UOM_UCUM>g/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_SEC</UOM_MDC>
+      <UCODE10>3296</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>MT-1 (mass flow rate)</Dimension>
+      <DIM>MT-1</DIM>
+      <DIMC>MT-1</DIMC>
+      <Symbol>g min-1</Symbol>
+      <UOM_UCUM>g/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_MIN</UOM_MDC>
+      <UCODE10>3328</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>MT-1 (mass flow rate)</Dimension>
+      <DIM>MT-1</DIM>
+      <DIMC>MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>mg/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_G_PER_MIN</UOM_MDC>
+      <UCODE10>3346</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>MT-1 (mass flow rate)</Dimension>
+      <DIM>MT-1</DIM>
+      <DIMC>MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ug/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_G_PER_MIN</UOM_MDC>
+      <UCODE10>3347</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>MT-1 (mass flow rate)</Dimension>
+      <DIM>MT-1</DIM>
+      <DIMC>MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ng/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_G_PER_MIN</UOM_MDC>
+      <UCODE10>3348</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>MT-1 (mass flow rate)</Dimension>
+      <DIM>MT-1</DIM>
+      <DIMC>MT-1</DIMC>
+      <Symbol>g h-1</Symbol>
+      <UOM_UCUM>g/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_HR</UOM_MDC>
+      <UCODE10>3360</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>MT-1 (mass flow rate)</Dimension>
+      <DIM>MT-1</DIM>
+      <DIMC>MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>mg/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_G_PER_HR</UOM_MDC>
+      <UCODE10>3378</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>MT-1 (mass flow rate)</Dimension>
+      <DIM>MT-1</DIM>
+      <DIMC>MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ug/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_G_PER_HR</UOM_MDC>
+      <UCODE10>3379</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>MT-1 (mass flow rate)</Dimension>
+      <DIM>MT-1</DIM>
+      <DIMC>MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ng/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_G_PER_HR</UOM_MDC>
+      <UCODE10>3380</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>MT-1 (mass flow rate)</Dimension>
+      <DIM>MT-1</DIM>
+      <DIMC>MT-1</DIMC>
+      <Symbol>g d-1</Symbol>
+      <UOM_UCUM>g/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_DAY</UOM_MDC>
+      <UCODE10>3392</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>MT-1 (mass flow rate)</Dimension>
+      <DIM>MT-1</DIM>
+      <DIMC>MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>mg/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_G_PER_DAY</UOM_MDC>
+      <UCODE10>3410</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>MT-1 (mass flow rate)</Dimension>
+      <DIM>MT-1</DIM>
+      <DIMC>MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ug/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_G_PER_DAY</UOM_MDC>
+      <UCODE10>3411</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>MT-1 (mass flow rate)</Dimension>
+      <DIM>MT-1</DIM>
+      <DIMC>MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ng/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_G_PER_DAY</UOM_MDC>
+      <UCODE10>3412</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>g kg-1 s-1</Symbol>
+      <UOM_UCUM>g/kg/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_KG_PER_SEC</UOM_MDC>
+      <UCODE10>3424</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>g kg-1 m-1</Symbol>
+      <UOM_UCUM>g/kg/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_KG_PER_MIN</UOM_MDC>
+      <UCODE10>3456</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>mg/kg/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_G_PER_KG_PER_MIN</UOM_MDC>
+      <UCODE10>3474</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ug/kg/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_G_PER_KG_PER_MIN</UOM_MDC>
+      <UCODE10>3475</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ng/kg/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_G_PER_KG_PER_MIN</UOM_MDC>
+      <UCODE10>3476</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>g kg-1 h-1</Symbol>
+      <UOM_UCUM>g/kg/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_KG_PER_HR</UOM_MDC>
+      <UCODE10>3488</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>mg/kg/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_G_PER_KG_PER_HR</UOM_MDC>
+      <UCODE10>3506</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ug/kg/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_G_PER_KG_PER_HR</UOM_MDC>
+      <UCODE10>3507</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ng/kg/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_G_PER_KG_PER_HR</UOM_MDC>
+      <UCODE10>3508</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>g kg-1 d-1</Symbol>
+      <UOM_UCUM>g/kg/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_KG_PER_DAY</UOM_MDC>
+      <UCODE10>3520</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>mg/kg/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_G_PER_KG_PER_DAY</UOM_MDC>
+      <UCODE10>3538</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ug/kg/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_G_PER_KG_PER_DAY</UOM_MDC>
+      <UCODE10>3539</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ng/kg/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_G_PER_KG_PER_DAY</UOM_MDC>
+      <UCODE10>3540</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>g lb-1 min-1</Symbol>
+      <UOM_UCUM>g/[lb_av]/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_LB_PER_MIN</UOM_MDC>
+      <UCODE10>6784</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>mg/[lb_av]/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_G_PER_LB_PER_MIN</UOM_MDC>
+      <UCODE10>6802</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ug/[lb_av]/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_G_PER_LB_PER_MIN</UOM_MDC>
+      <UCODE10>6803</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ng/[lb_av]/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_G_PER_LB_PER_MIN</UOM_MDC>
+      <UCODE10>6804</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol>g lb-1 h-1</Symbol>
+      <UOM_UCUM>g/[lb_av]/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_LB_PER_HR</UOM_MDC>
+      <UCODE10>6752</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>mg/[lb_av]/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_G_PER_LB_PER_HR</UOM_MDC>
+      <UCODE10>6770</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ug/[lb_av]/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_G_PER_LB_PER_HR</UOM_MDC>
+      <UCODE10>6771</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body weight</Dimension>
+      <DIM>MT-1M-1</DIM>
+      <DIMC>T-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ng/[lb_av]/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_G_PER_LB_PER_HR</UOM_MDC>
+      <UCODE10>6772</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body surface area</Dimension>
+      <DIM>MT-1L-2</DIM>
+      <DIMC>L-2MT-1</DIMC>
+      <Symbol>g m2 min-1</Symbol>
+      <UOM_UCUM>g/m2/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_M_SQ_PER_MIN</UOM_MDC>
+      <UCODE10>6848</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body surface area</Dimension>
+      <DIM>MT-1L-2</DIM>
+      <DIMC>L-2MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>mg/m2/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_G_PER_M_SQ_PER_MIN</UOM_MDC>
+      <UCODE10>6866</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body surface area</Dimension>
+      <DIM>MT-1L-2</DIM>
+      <DIMC>L-2MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ug/m2/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_G_PER_M_SQ_PER_MIN</UOM_MDC>
+      <UCODE10>6867</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body surface area</Dimension>
+      <DIM>MT-1L-2</DIM>
+      <DIMC>L-2MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ng/m2/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_G_PER_M_SQ_PER_MIN</UOM_MDC>
+      <UCODE10>6868</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body surface area</Dimension>
+      <DIM>MT-1L-2</DIM>
+      <DIMC>L-2MT-1</DIMC>
+      <Symbol>g m2 h-1</Symbol>
+      <UOM_UCUM>g/m2/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_M_SQ_PER_HR</UOM_MDC>
+      <UCODE10>6816</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body surface area</Dimension>
+      <DIM>MT-1L-2</DIM>
+      <DIMC>L-2MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>mg/m2/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_G_PER_M_SQ_PER_HR</UOM_MDC>
+      <UCODE10>6834</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body surface area</Dimension>
+      <DIM>MT-1L-2</DIM>
+      <DIMC>L-2MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ug/m2/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_G_PER_M_SQ_PER_HR</UOM_MDC>
+      <UCODE10>6835</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body surface area</Dimension>
+      <DIM>MT-1L-2</DIM>
+      <DIMC>L-2MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ng/m2/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_G_PER_M_SQ_PER_HR</UOM_MDC>
+      <UCODE10>6836</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body surface area</Dimension>
+      <DIM>MT-1L-2</DIM>
+      <DIMC>L-2MT-1</DIMC>
+      <Symbol>g m2 d-1</Symbol>
+      <UOM_UCUM>g/m2/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_M_SQ_PER_DAY</UOM_MDC>
+      <UCODE10>7168</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body surface area</Dimension>
+      <DIM>MT-1L-2</DIM>
+      <DIMC>L-2MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>mg/m2/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_G_PER_M_SQ_PER_DAY</UOM_MDC>
+      <UCODE10>7186</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body surface area</Dimension>
+      <DIM>MT-1L-2</DIM>
+      <DIMC>L-2MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ug/m2/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_G_PER_M_SQ_PER_DAY</UOM_MDC>
+      <UCODE10>7187</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mass dose rate per body surface area</Dimension>
+      <DIM>MT-1L-2</DIM>
+      <DIMC>L-2MT-1</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ng/m2/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_G_PER_M_SQ_PER_DAY</UOM_MDC>
+      <UCODE10>7188</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-3MT-1 (mass concentration rate)</Dimension>
+      <DIM>ML-3T-1</DIM>
+      <DIMC>L-3MT-1</DIMC>
+      <Symbol>g l-1 s-1</Symbol>
+      <UOM_UCUM>g/L/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_L_PER_SEC</UOM_MDC>
+      <UCODE10>3552</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-3MT-1 (mass concentration rate)</Dimension>
+      <DIM>ML-3T-1</DIM>
+      <DIMC>L-3MT-1</DIMC>
+      <Symbol>g l-1 m-1</Symbol>
+      <UOM_UCUM>g/L/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_L_PER_MIN</UOM_MDC>
+      <UCODE10>3584</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-3MT-1 (mass concentration rate)</Dimension>
+      <DIM>ML-3T-1</DIM>
+      <DIMC>L-3MT-1</DIMC>
+      <Symbol>g l-1 h-1</Symbol>
+      <UOM_UCUM>g/L/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_L_PER_HR</UOM_MDC>
+      <UCODE10>3616</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-3MT-1 (mass concentration rate)</Dimension>
+      <DIM>ML-3T-1</DIM>
+      <DIMC>L-3MT-1</DIMC>
+      <Symbol>g l-1 d-1</Symbol>
+      <UOM_UCUM>g/L/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_L_PER_DAY</UOM_MDC>
+      <UCODE10>3648</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-1MT-1 (dynamic viscosity)</Dimension>
+      <DIM>L-1MT-1</DIM>
+      <DIMC>L-1MT-1</DIMC>
+      <Symbol>g m-1 s-1</Symbol>
+      <UOM_UCUM>g/m/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_PER_M_PER_SEC</UOM_MDC>
+      <UCODE10>3680</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>LMT-1 (momentum; impulse)</Dimension>
+      <DIM>LMT-1</DIM>
+      <DIMC>LMT-1</DIMC>
+      <Symbol>gm s-1</Symbol>
+      <UOM_UCUM>g.m/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_M_PER_SEC</UOM_MDC>
+      <UCODE10>3712</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>LMT-1 (momentum; impulse)</Dimension>
+      <DIM>LMT-1</DIM>
+      <DIMC>LMT-1</DIMC>
+      <Symbol>Ns</Symbol>
+      <UOM_UCUM>N.s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_NEWTON_SEC</UOM_MDC>
+      <UCODE10>3744</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>LMT-2 (force)</Dimension>
+      <DIM>LMT-2</DIM>
+      <DIMC>LMT-2</DIMC>
+      <Symbol>N</Symbol>
+      <UOM_UCUM>N</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_NEWTON</UOM_MDC>
+      <UCODE10>3776</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>LMT-2 (force)</Dimension>
+      <DIM>LMT-2</DIM>
+      <DIMC>LMT-2</DIMC>
+      <Symbol>dyn</Symbol>
+      <UOM_UCUM>dyn</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_DYNE</UOM_MDC>
+      <UCODE10>3808</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-1MT-2 (pressure)</Dimension>
+      <DIM>LMT-2L-2</DIM>
+      <DIMC>L-1MT-2</DIMC>
+      <Symbol>Pa</Symbol>
+      <UOM_UCUM>Pa</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_PASCAL</UOM_MDC>
+      <UCODE10>3840</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-1MT-2 (pressure)</Dimension>
+      <DIM>LMT-2L-2</DIM>
+      <DIMC>L-1MT-2</DIMC>
+      <Symbol>hPa</Symbol>
+      <UOM_UCUM>hPa</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_HECTO_PASCAL</UOM_MDC>
+      <UCODE10>3842</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-1MT-2 (pressure)</Dimension>
+      <DIM>LMT-2L-2</DIM>
+      <DIMC>L-1MT-2</DIMC>
+      <Symbol>kPa</Symbol>
+      <UOM_UCUM>kPa</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_KILO_PASCAL</UOM_MDC>
+      <UCODE10>3843</UCODE10>
+      <_UOM_GROUPS>_UOM_CONC_GAS</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-1MT-2 (pressure)</Dimension>
+      <DIM>LMT-2L-2</DIM>
+      <DIMC>L-1MT-2</DIMC>
+      <Symbol>mmHg</Symbol>
+      <UOM_UCUM>mm[Hg]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MMHG</UOM_MDC>
+      <UCODE10>3872</UCODE10>
+      <_UOM_GROUPS>_UOM_CONC_GAS</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-1MT-2 (pressure)</Dimension>
+      <DIM>LMT-2L-2</DIM>
+      <DIMC>L-1MT-2</DIMC>
+      <Symbol>cm H2O</Symbol>
+      <UOM_UCUM>cm[H2O]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_CM_H2O</UOM_MDC>
+      <UCODE10>3904</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-1MT-2 (pressure)</Dimension>
+      <DIM>LMT-2L-2</DIM>
+      <DIMC>L-1MT-2</DIMC>
+      <Symbol>bar</Symbol>
+      <UOM_UCUM>bar</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_BAR</UOM_MDC>
+      <UCODE10>3936</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-1MT-2 (pressure)</Dimension>
+      <DIM>LMT-2L-2</DIM>
+      <DIMC>L-1MT-2</DIMC>
+      <Symbol>PSI</Symbol>
+      <UOM_UCUM>[psi]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PSI</UOM_MDC>
+      <UCODE10>6592</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L2MT-2 (energy, work)</Dimension>
+      <DIM>L2MT-2</DIM>
+      <DIMC>L2MT-2</DIMC>
+      <Symbol>J</Symbol>
+      <UOM_UCUM>J</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_JOULES</UOM_MDC>
+      <UCODE10>3968</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L2MT-2 (energy, work)</Dimension>
+      <DIM>L2MT-2</DIM>
+      <DIMC>L2MT-2</DIMC>
+      <Symbol>eV</Symbol>
+      <UOM_UCUM>eV</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_EVOLT</UOM_MDC>
+      <UCODE10>4000</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L2MT-3 (power)</Dimension>
+      <DIM>L2MT-3</DIM>
+      <DIMC>L2MT-3</DIMC>
+      <Symbol>W</Symbol>
+      <UOM_UCUM>W</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_WATT</UOM_MDC>
+      <UCODE10>4032</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L2MT-3 (power)</Dimension>
+      <DIM>L2MT-3</DIM>
+      <DIMC>L2MT-3</DIMC>
+      <Symbol>mW</Symbol>
+      <UOM_UCUM>mW</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_WATT</UOM_MDC>
+      <UCODE10>4050</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L2MT-3 (power)</Dimension>
+      <DIM>L2MT-3</DIM>
+      <DIMC>L2MT-3</DIMC>
+      <Symbol>uW</Symbol>
+      <UOM_UCUM>uW</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_WATT</UOM_MDC>
+      <UCODE10>4051</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L2MT-3 (power)</Dimension>
+      <DIM>L2MT-3</DIM>
+      <DIMC>L2MT-3</DIMC>
+      <Symbol>nW</Symbol>
+      <UOM_UCUM>nW</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_WATT</UOM_MDC>
+      <UCODE10>4052</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-4MT-1 (hydraulic impedance)</Dimension>
+      <DIM>L-4MT-1</DIM>
+      <DIMC>L-4MT-1</DIMC>
+      <Symbol>Pa s m-3</Symbol>
+      <UOM_UCUM>Pa.s/m3</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_PASCAL_SEC_PER_M_CUBE</UOM_MDC>
+      <UCODE10>4064</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-4MT-1 (hydraulic impedance)</Dimension>
+      <DIM>L-4MT-1</DIM>
+      <DIMC>L-4MT-1</DIMC>
+      <Symbol>Pa s l-1</Symbol>
+      <UOM_UCUM>Pa.s/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_PASCAL_SEC_PER_L</UOM_MDC>
+      <UCODE10>4096</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-4MT-1 (hydraulic impedance)</Dimension>
+      <DIM>L-4MT-1</DIM>
+      <DIMC>L-4MT-1</DIMC>
+      <Symbol>dyn s cm-5</Symbol>
+      <UOM_UCUM>dyn.s/cm5</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_DYNE_SEC_PER_CM5</UOM_MDC>
+      <UCODE10>4128</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>compliance</Dimension>
+      <DIM>L4M-1T2</DIM>
+      <DIMC>L4M-1T2</DIMC>
+      <Symbol>l (cmH2O)-1</Symbol>
+      <UOM_UCUM>L/cm[H2O]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_CM_H2O</UOM_MDC>
+      <UCODE10>5888</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>compliance</Dimension>
+      <DIM>L4M-1T2</DIM>
+      <DIMC>L4M-1T2</DIMC>
+      <Symbol>ml (cmH2O)-1</Symbol>
+      <UOM_UCUM>mL/cm[H2O]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_L_PER_CM_H2O</UOM_MDC>
+      <UCODE10>5906</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>compliance</Dimension>
+      <DIM>L4M-1T2</DIM>
+      <DIMC>L4M-1T2</DIMC>
+      <Symbol>l (mmHg)-1</Symbol>
+      <UOM_UCUM>L/mm[Hg]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_MM_HG</UOM_MDC>
+      <UCODE10>6272</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>compliance</Dimension>
+      <DIM>L4M-1T2</DIM>
+      <DIMC>L4M-1T2</DIMC>
+      <Symbol>l Pa-1</Symbol>
+      <UOM_UCUM>L/Pa</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_MM_PA</UOM_MDC>
+      <UCODE10>6304</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>compliance per body weight</Dimension>
+      <DIM>L4M-2T2</DIM>
+      <DIMC>L4M-2T2</DIMC>
+      <Symbol>l (cmH2O)-1 kg-1</Symbol>
+      <UOM_UCUM>L/cm[H2O]/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_CM_H2O_PER_KG</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>compliance per body weight</Dimension>
+      <DIM>L4M-2T2</DIM>
+      <DIMC>L4M-2T2</DIMC>
+      <Symbol>ml (cmH2O)-1 kg-1</Symbol>
+      <UOM_UCUM>mL/cm[H2O]/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_L_PER_CM_H2O_PER_KG</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-4M1T-2 (elastance)</Dimension>
+      <DIM>L-4M1T-2</DIM>
+      <DIMC>L-4M1T-2</DIMC>
+      <Symbol>cmH2O l-1</Symbol>
+      <UOM_UCUM>cm[H2O]/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_CM_H2O_PER_L</UOM_MDC>
+      <UCODE10>6144</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-4M1T-2 (elastance)</Dimension>
+      <DIM>L-4M1T-2</DIM>
+      <DIMC>L-4M1T-2</DIMC>
+      <Symbol>mmHg l-1</Symbol>
+      <UOM_UCUM>mm[Hg]/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MM_HG_PER_X_L</UOM_MDC>
+      <UCODE10>6336</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-4M1T-2 (elastance)</Dimension>
+      <DIM>L-4M1T-2</DIM>
+      <DIMC>L-4M1T-2</DIMC>
+      <Symbol>Pa l-1</Symbol>
+      <UOM_UCUM>Pa/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PA_PER_X_L</UOM_MDC>
+      <UCODE10>6368</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L-4M1T-2 (elastance)</Dimension>
+      <DIM>L-4M1T-2</DIM>
+      <DIMC>L-4M1T-2</DIMC>
+      <Symbol>l-1 min-1</Symbol>
+      <UOM_UCUM>/L/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_X_L_PER_MIN</UOM_MDC>
+      <UCODE10>6528</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>I (electrical current)</Dimension>
+      <DIM>I</DIM>
+      <DIMC>I</DIMC>
+      <Symbol>A</Symbol>
+      <UOM_UCUM>a</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_AMPS</UOM_MDC>
+      <UCODE10>4160</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>IT (electrical charge)</Dimension>
+      <DIM>IT</DIM>
+      <DIMC>TI</DIMC>
+      <Symbol>C</Symbol>
+      <UOM_UCUM>C</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_COULOMB</UOM_MDC>
+      <UCODE10>4192</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>IT (electrical charge)</Dimension>
+      <DIM>IT</DIM>
+      <DIMC>TI</DIMC>
+      <Symbol>Ah</Symbol>
+      <UOM_UCUM>A.h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_AMP_HR</UOM_MDC>
+      <UCODE10>6080</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>IL-1 (magnetic field strength)</Dimension>
+      <DIM>IL-1</DIM>
+      <DIMC>L-1I</DIMC>
+      <Symbol>A m-1</Symbol>
+      <UOM_UCUM>A/m</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_AMPS_PER_M</UOM_MDC>
+      <UCODE10>4224</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>IL-1 (magnetic field strength)</Dimension>
+      <DIM>IL-1</DIM>
+      <DIMC>L-1I</DIMC>
+      <Symbol>Wb m-2</Symbol>
+      <UOM_UCUM>T</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_TESLA</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML2I-1T-3 (electric potential)</Dimension>
+      <DIM>ML2I-1T-3</DIM>
+      <DIMC>L2MT-3I-1</DIMC>
+      <Symbol>V</Symbol>
+      <UOM_UCUM>V</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_VOLT</UOM_MDC>
+      <UCODE10>4256</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML2I-1T-3 (electric potential)</Dimension>
+      <DIM>ML2I-1T-3</DIM>
+      <DIMC>L2MT-3I-1</DIMC>
+      <Symbol>mV</Symbol>
+      <UOM_UCUM>mV</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_VOLT</UOM_MDC>
+      <UCODE10>4274</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML2I-1T-3 (electric potential)</Dimension>
+      <DIM>ML2I-1T-3</DIM>
+      <DIMC>L2MT-3I-1</DIMC>
+      <Symbol>uV</Symbol>
+      <UOM_UCUM>uV</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_VOLT</UOM_MDC>
+      <UCODE10>4275</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML2I-1T-3 (electric potential)</Dimension>
+      <DIM>ML2I-1T-3</DIM>
+      <DIMC>L2MT-3I-1</DIMC>
+      <Symbol>nV</Symbol>
+      <UOM_UCUM>nV</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_VOLT</UOM_MDC>
+      <UCODE10>4276</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML2I-1T-2 (electric potential time integral)</Dimension>
+      <DIM>ML2I-1T-2</DIM>
+      <DIMC>L2MT-2I-1</DIMC>
+      <Symbol>V.s</Symbol>
+      <UOM_UCUM>V.s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_VOLT_SEC</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML2I-1T-2 (electric potential time integral)</Dimension>
+      <DIM>ML2I-1T-2</DIM>
+      <DIMC>L2MT-2I-1</DIMC>
+      <Symbol>uV.ms</Symbol>
+      <UOM_UCUM>uV.ms</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_VOLT_SEC</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML2I-1T-4 (electric potential rate of change)</Dimension>
+      <DIM>ML2I-1T-4</DIM>
+      <DIMC>L2MT-4I-1</DIMC>
+      <Symbol>V/s</Symbol>
+      <UOM_UCUM>V/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_VOLT_PER_SEC</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML2I-1T-4 (electric potential rate of change)</Dimension>
+      <DIM>ML2I-1T-4</DIM>
+      <DIMC>L2MT-4I-1</DIMC>
+      <Symbol>uV/s</Symbol>
+      <UOM_UCUM>uV/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_VOLT_PER_SEC</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML2I-2T-3 (electric resistance)</Dimension>
+      <DIM>ML2I-2T-3</DIM>
+      <DIMC>L2MT-3I-2</DIMC>
+      <Symbol>W</Symbol>
+      <UOM_UCUM>Ohm</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_OHM</UOM_MDC>
+      <UCODE10>4288</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML2I-2T-3 (electric resistance)</Dimension>
+      <DIM>ML2I-2T-3</DIM>
+      <DIMC>L2MT-3I-2</DIMC>
+      <Symbol/>
+      <UOM_UCUM>mOhm</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_OHM</UOM_MDC>
+      <UCODE10>4306</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>ML3I-2T-3 (electrical resistivity)</Dimension>
+      <DIM>ML3I-2T-3</DIM>
+      <DIMC>L3MT-3I-2</DIMC>
+      <Symbol>Wm</Symbol>
+      <UOM_UCUM>Ohm.m</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_OHM_M</UOM_MDC>
+      <UCODE10>4320</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>M-1L-2I2T3 (electric conductance)</Dimension>
+      <DIM>M-1L-2I2T3</DIM>
+      <DIMC>L-2M-1T3I2</DIMC>
+      <Symbol>W-1, S</Symbol>
+      <UOM_UCUM>s 1/Ohm /Ohm</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_X_OHM</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>M-1L-2I2T3 (electric conductance)</Dimension>
+      <DIM>M-1L-2I2T3</DIM>
+      <DIMC>L-2M-1T3I2</DIMC>
+      <Symbol/>
+      <UOM_UCUM>ms 1/kOhm /kOhm</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_PER_KILO_OHM</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>I2T4M-1L-2 (electrical capacitance)</Dimension>
+      <DIM>I2T4M-1L-2</DIM>
+      <DIMC>L-2M-1T4I2</DIMC>
+      <Symbol>F</Symbol>
+      <UOM_UCUM>F</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_FARAD</UOM_MDC>
+      <UCODE10>4352</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Q (temperature)</Dimension>
+      <DIM>Q</DIM>
+      <DIMC>Q</DIMC>
+      <Symbol>K</Symbol>
+      <UOM_UCUM>K {delta}K</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_KELVIN</UOM_MDC>
+      <UCODE10>4384</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Q (temperature)</Dimension>
+      <DIM>Q</DIM>
+      <DIMC>Q</DIMC>
+      <Symbol>C</Symbol>
+      <UOM_UCUM>Cel {delta}Cel</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DEGC</UOM_MDC>
+      <UCODE10>6048</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Q (temperature)</Dimension>
+      <DIM>Q</DIM>
+      <DIMC>Q</DIMC>
+      <Symbol>F</Symbol>
+      <UOM_UCUM>[degF] {delta}[degF]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_FAHR</UOM_MDC>
+      <UCODE10>4416</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>QT3M-1L-2 (thermal resistance)</Dimension>
+      <DIM>QT3M-1L-2</DIM>
+      <DIMC>L-2M-1T3Q</DIMC>
+      <Symbol>K W-1</Symbol>
+      <UOM_UCUM>K/W</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_KELVIN_PER_X_WATT</UOM_MDC>
+      <UCODE10>4448</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>J (luminous intensity)</Dimension>
+      <DIM>J</DIM>
+      <DIMC>J</DIMC>
+      <Symbol>cd</Symbol>
+      <UOM_UCUM>cd</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_CANDELA</UOM_MDC>
+      <UCODE10>4480</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Luminance</Dimension>
+      <DIM>JL-2</DIM>
+      <DIMC>L-2J</DIMC>
+      <Symbol>lumen/m2</Symbol>
+      <UOM_UCUM>lm/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_LUMEN_PER_M_SQ</UOM_MDC>
+      <UCODE10>6720</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>N (amount of substance)</Dimension>
+      <DIM>N</DIM>
+      <DIMC>N</DIMC>
+      <Symbol>osmole</Symbol>
+      <UOM_UCUM>osm</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_OSM</UOM_MDC>
+      <UCODE10>4512</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>N (amount of substance)</Dimension>
+      <DIM>N</DIM>
+      <DIMC>N</DIMC>
+      <Symbol>mol</Symbol>
+      <UOM_UCUM>mol</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE</UOM_MDC>
+      <UCODE10>4544</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>N (amount of substance)</Dimension>
+      <DIM>N</DIM>
+      <DIMC>N</DIMC>
+      <Symbol>mmol</Symbol>
+      <UOM_UCUM>mmol</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_MOLE</UOM_MDC>
+      <UCODE10>4562</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>N (amount of substance)</Dimension>
+      <DIM>N</DIM>
+      <DIMC>N</DIMC>
+      <Symbol>eq</Symbol>
+      <UOM_UCUM>eq</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV</UOM_MDC>
+      <UCODE10>4576</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>N (amount of substance)</Dimension>
+      <DIM>N</DIM>
+      <DIMC>N</DIMC>
+      <Symbol>meq</Symbol>
+      <UOM_UCUM>meq</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_EQUIV</UOM_MDC>
+      <UCODE10>4594</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NL-3 (concentration)</Dimension>
+      <DIM>NL-3</DIM>
+      <DIMC>L-3N</DIMC>
+      <Symbol>osmol l-1</Symbol>
+      <UOM_UCUM>osm/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_OSM_PER_L</UOM_MDC>
+      <UCODE10>4608</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NL-3 (concentration)</Dimension>
+      <DIM>NL-3</DIM>
+      <DIMC>L-3N</DIMC>
+      <Symbol>mol cm-3</Symbol>
+      <UOM_UCUM>mol/cm3</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_CM_CUBE</UOM_MDC>
+      <UCODE10>4640</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NL-3 (concentration)</Dimension>
+      <DIM>NL-3</DIM>
+      <DIMC>L-3N</DIMC>
+      <Symbol>mol m-3</Symbol>
+      <UOM_UCUM>mol/m3</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_M_CUBE</UOM_MDC>
+      <UCODE10>4672</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NL-3 (concentration)</Dimension>
+      <DIM>NL-3</DIM>
+      <DIMC>L-3N</DIMC>
+      <Symbol>mol l-1</Symbol>
+      <UOM_UCUM>mol/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_L</UOM_MDC>
+      <UCODE10>4704</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NL-3 (concentration)</Dimension>
+      <DIM>NL-3</DIM>
+      <DIMC>L-3N</DIMC>
+      <Symbol>mmol l-1</Symbol>
+      <UOM_UCUM>mmol/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_MOLE_PER_L</UOM_MDC>
+      <UCODE10>4722</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NL-3 (concentration)</Dimension>
+      <DIM>NL-3</DIM>
+      <DIMC>L-3N</DIMC>
+      <Symbol>mol ml-1</Symbol>
+      <UOM_UCUM>mol/mL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_ML</UOM_MDC>
+      <UCODE10>4736</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NL-3 (concentration)</Dimension>
+      <DIM>NL-3</DIM>
+      <DIMC>L-3N</DIMC>
+      <Symbol>mmol ml-1</Symbol>
+      <UOM_UCUM>mmol/mL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_MOLE_PER_ML</UOM_MDC>
+      <UCODE10>4754</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_CONC</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NL-3 (concentration)</Dimension>
+      <DIM>NL-3</DIM>
+      <DIMC>L-3N</DIMC>
+      <Symbol>eq cm-3</Symbol>
+      <UOM_UCUM>mol/cm3</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_CM_CUBE</UOM_MDC>
+      <UCODE10>4768</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NL-3 (concentration)</Dimension>
+      <DIM>NL-3</DIM>
+      <DIMC>L-3N</DIMC>
+      <Symbol>eq m-3</Symbol>
+      <UOM_UCUM>eq/m3</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_M_CUBE</UOM_MDC>
+      <UCODE10>4800</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NL-3 (concentration)</Dimension>
+      <DIM>NL-3</DIM>
+      <DIMC>L-3N</DIMC>
+      <Symbol>eq l-1</Symbol>
+      <UOM_UCUM>eq/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_L</UOM_MDC>
+      <UCODE10>4832</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NL-3 (concentration)</Dimension>
+      <DIM>NL-3</DIM>
+      <DIMC>L-3N</DIMC>
+      <Symbol>meq l-1</Symbol>
+      <UOM_UCUM>meq/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_EQUIV_PER_L</UOM_MDC>
+      <UCODE10>4850</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NL-3 (concentration)</Dimension>
+      <DIM>NL-3</DIM>
+      <DIMC>L-3N</DIMC>
+      <Symbol>eq ml-1</Symbol>
+      <UOM_UCUM>eq/mL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_ML</UOM_MDC>
+      <UCODE10>4864</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NL-3 (concentration)</Dimension>
+      <DIM>NL-3</DIM>
+      <DIMC>L-3N</DIMC>
+      <Symbol>meq ml-1</Symbol>
+      <UOM_UCUM>meq/mL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_EQUIV_PER_ML</UOM_MDC>
+      <UCODE10>4882</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_CONC</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NM-1 (substance content)</Dimension>
+      <DIM>NM-1</DIM>
+      <DIMC>M-1N</DIMC>
+      <Symbol>osmol  kg-1</Symbol>
+      <UOM_UCUM>osm/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_OSM_PER_KG</UOM_MDC>
+      <UCODE10>4896</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NM-1 (substance content)</Dimension>
+      <DIM>NM-1</DIM>
+      <DIMC>M-1N</DIMC>
+      <Symbol>mol kg-1</Symbol>
+      <UOM_UCUM>mol/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_KG</UOM_MDC>
+      <UCODE10>4928</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NM-1 (substance content)</Dimension>
+      <DIM>NM-1</DIM>
+      <DIMC>M-1N</DIMC>
+      <Symbol>mmol kg-1</Symbol>
+      <UOM_UCUM>mmol/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_MOLE_PER_KG</UOM_MDC>
+      <UCODE10>4946</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NM-1 (substance content)</Dimension>
+      <DIM>NL-2</DIM>
+      <DIMC>L-2N</DIMC>
+      <Symbol>mol m-2</Symbol>
+      <UOM_UCUM>mol/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_M_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NM-1 (substance content)</Dimension>
+      <DIM>NL-2</DIM>
+      <DIMC>L-2N</DIMC>
+      <Symbol>mmol m-2</Symbol>
+      <UOM_UCUM>mmol/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_MOLE_PER_M_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NM-1 (substance content)</Dimension>
+      <DIM>NM-1</DIM>
+      <DIMC>M-1N</DIMC>
+      <Symbol>eq kg-1</Symbol>
+      <UOM_UCUM>eq/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_KG</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NM-1 (substance content)</Dimension>
+      <DIM>NM-1</DIM>
+      <DIMC>M-1N</DIMC>
+      <Symbol>meq kg-1</Symbol>
+      <UOM_UCUM>meq/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_EQUIV_PER_KG</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NM-1 (substance content)</Dimension>
+      <DIM>NL-2</DIM>
+      <DIMC>L-2N</DIMC>
+      <Symbol>eq m-2</Symbol>
+      <UOM_UCUM>eq/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_M_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>NM-1 (substance content)</Dimension>
+      <DIM>NL-2</DIM>
+      <DIMC>L-2N</DIMC>
+      <Symbol>meq m-2</Symbol>
+      <UOM_UCUM>meq/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_EQUIV_PER_M_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate</Dimension>
+      <DIM>NT-1</DIM>
+      <DIMC>T-1N</DIMC>
+      <Symbol>mol s-1</Symbol>
+      <UOM_UCUM>mol/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_SEC</UOM_MDC>
+      <UCODE10>4960</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate</Dimension>
+      <DIM>NT-1</DIM>
+      <DIMC>T-1N</DIMC>
+      <Symbol>mol min-1</Symbol>
+      <UOM_UCUM>mol/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_MIN</UOM_MDC>
+      <UCODE10>4992</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate</Dimension>
+      <DIM>NT-1</DIM>
+      <DIMC>T-1N</DIMC>
+      <Symbol>mmol min-1</Symbol>
+      <UOM_UCUM>mmol/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_MOLE_PER_MIN</UOM_MDC>
+      <UCODE10>5010</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate</Dimension>
+      <DIM>NT-1</DIM>
+      <DIMC>T-1N</DIMC>
+      <Symbol>mol h-1</Symbol>
+      <UOM_UCUM>mol/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_HR</UOM_MDC>
+      <UCODE10>5024</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate</Dimension>
+      <DIM>NT-1</DIM>
+      <DIMC>T-1N</DIMC>
+      <Symbol>mmol h-1</Symbol>
+      <UOM_UCUM>mmol/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_MOLE_PER_HR</UOM_MDC>
+      <UCODE10>5042</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate</Dimension>
+      <DIM>NT-1</DIM>
+      <DIMC>T-1N</DIMC>
+      <Symbol>mol d-1</Symbol>
+      <UOM_UCUM>mol/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_DAY</UOM_MDC>
+      <UCODE10>5056</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate</Dimension>
+      <DIM>NT-1</DIM>
+      <DIMC>T-1N</DIMC>
+      <Symbol>mmol d-1</Symbol>
+      <UOM_UCUM>mmol/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_MOLE_PER_DAY</UOM_MDC>
+      <UCODE10>5074</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate</Dimension>
+      <DIM>NT-1</DIM>
+      <DIMC>T-1N</DIMC>
+      <Symbol>eq s-1</Symbol>
+      <UOM_UCUM>eq/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_SEC</UOM_MDC>
+      <UCODE10>5088</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate</Dimension>
+      <DIM>NT-1</DIM>
+      <DIMC>T-1N</DIMC>
+      <Symbol>eq min-1</Symbol>
+      <UOM_UCUM>eq/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_MIN</UOM_MDC>
+      <UCODE10>5120</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate</Dimension>
+      <DIM>NT-1</DIM>
+      <DIMC>T-1N</DIMC>
+      <Symbol/>
+      <UOM_UCUM>meq/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_EQUIV_PER_MIN</UOM_MDC>
+      <UCODE10>5138</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate</Dimension>
+      <DIM>NT-1</DIM>
+      <DIMC>T-1N</DIMC>
+      <Symbol>eq h-1</Symbol>
+      <UOM_UCUM>eq/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_HR</UOM_MDC>
+      <UCODE10>5152</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate</Dimension>
+      <DIM>NT-1</DIM>
+      <DIMC>T-1N</DIMC>
+      <Symbol/>
+      <UOM_UCUM>meq/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_EQUIV_PER_HR</UOM_MDC>
+      <UCODE10>5170</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate</Dimension>
+      <DIM>NT-1</DIM>
+      <DIMC>T-1N</DIMC>
+      <Symbol>eq d-1</Symbol>
+      <UOM_UCUM>eq/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_DAY</UOM_MDC>
+      <UCODE10>5184</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate</Dimension>
+      <DIM>NT-1</DIM>
+      <DIMC>T-1N</DIMC>
+      <Symbol/>
+      <UOM_UCUM>meq/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_EQUIV_PER_DAY</UOM_MDC>
+      <UCODE10>5202</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>mol kg-1 s-1</Symbol>
+      <UOM_UCUM>mol/kg/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_KG_PER_SEC</UOM_MDC>
+      <UCODE10>5216</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>mol kg-1 min-1</Symbol>
+      <UOM_UCUM>mol/kg/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_KG_PER_MIN</UOM_MDC>
+      <UCODE10>5248</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>mmol kg-1 min-1</Symbol>
+      <UOM_UCUM>mmol/kg/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_MOLE_PER_KG_PER_MIN</UOM_MDC>
+      <UCODE10>5266</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>mol kg-1 h-1</Symbol>
+      <UOM_UCUM>mol/kg/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_KG_PER_HR</UOM_MDC>
+      <UCODE10>5280</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>mmol kg-1 h-1</Symbol>
+      <UOM_UCUM>mmol/kg/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_MOLE_PER_KG_PER_HR</UOM_MDC>
+      <UCODE10>5298</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>mol kg-1 d-1</Symbol>
+      <UOM_UCUM>mol/kg/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_KG_PER_DAY</UOM_MDC>
+      <UCODE10>5312</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>mmol kg-1 d-1</Symbol>
+      <UOM_UCUM>mmol/kg/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_MOLE_PER_KG_PER_DAY</UOM_MDC>
+      <UCODE10>5330</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate per body surface area</Dimension>
+      <DIM>NT-1L-2</DIM>
+      <DIMC>L-2T-1N</DIMC>
+      <Symbol>mol m-2 s-1</Symbol>
+      <UOM_UCUM>mol/m2/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_M_SQ_PER_SEC</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate per body surface area</Dimension>
+      <DIM>NT-1L-2</DIM>
+      <DIMC>L-2T-1N</DIMC>
+      <Symbol>mol m-2 min-1</Symbol>
+      <UOM_UCUM>mol/m2/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_M_SQ_PER_MIN</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate per body surface area</Dimension>
+      <DIM>NT-1L-2</DIM>
+      <DIMC>L-2T-1N</DIMC>
+      <Symbol>mmol m-2 min-1</Symbol>
+      <UOM_UCUM>mmol/m2/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_MOLE_PER_M_SQ_PER_MIN</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate per body surface area</Dimension>
+      <DIM>NT-1L-2</DIM>
+      <DIMC>L-2T-1N</DIMC>
+      <Symbol>mol m-2 h-1</Symbol>
+      <UOM_UCUM>mol/m2/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_M_SQ_PER_HR</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate per body surface area</Dimension>
+      <DIM>NT-1L-2</DIM>
+      <DIMC>L-2T-1N</DIMC>
+      <Symbol>mmol m-2 h-1</Symbol>
+      <UOM_UCUM>mmol/m2/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_MOLE_PER_M_SQ_PER_HR</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate per body surface area</Dimension>
+      <DIM>NT-1L-2</DIM>
+      <DIMC>L-2T-1N</DIMC>
+      <Symbol>mol m-2 d-1</Symbol>
+      <UOM_UCUM>mol/m2/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_MOLE_PER_M_SQ_PER_DAY</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- mol dose rate per body surface area</Dimension>
+      <DIM>NT-1L-2</DIM>
+      <DIMC>L-2T-1N</DIMC>
+      <Symbol>mmol m-2 d-1</Symbol>
+      <UOM_UCUM>mmol/m2/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_MOLE_PER_M_SQ_PER_DAY</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>eq kg-1 s-1</Symbol>
+      <UOM_UCUM>eq/kg/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_KG_PER_SEC</UOM_MDC>
+      <UCODE10>5344</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>eq kg-1 min-1</Symbol>
+      <UOM_UCUM>eq/kg/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_KG_PER_MIN</UOM_MDC>
+      <UCODE10>5376</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>meq kg-1 min-1</Symbol>
+      <UOM_UCUM>meq/kg/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_EQUIV_PER_KG_PER_MIN</UOM_MDC>
+      <UCODE10>5394</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>eq kg-1 h-1</Symbol>
+      <UOM_UCUM>eq/kg/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_KG_PER_HR</UOM_MDC>
+      <UCODE10>5408</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>meq kg-1 h-1</Symbol>
+      <UOM_UCUM>meq/kg/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_EQUIV_PER_KG_PER_HR</UOM_MDC>
+      <UCODE10>5426</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>eq kg-1 d-1</Symbol>
+      <UOM_UCUM>eq/kg/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_KG_PER_DAY</UOM_MDC>
+      <UCODE10>5440</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>meq kg-1 d-1</Symbol>
+      <UOM_UCUM>meq/kg/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_EQUIV_PER_KG_PER_DAY</UOM_MDC>
+      <UCODE10>5458</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>eq lb-1 min-1</Symbol>
+      <UOM_UCUM>eq/[lb_av]/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_LB_PER_MIN</UOM_MDC>
+      <UCODE10>7040</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>meq lb-1 min-1</Symbol>
+      <UOM_UCUM>meq/[lb_av]/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_EQUIV_PER_LB_PER_MIN</UOM_MDC>
+      <UCODE10>7058</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>eq lb-1 h-1</Symbol>
+      <UOM_UCUM>eq/[lb_av]/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_LB_PER_HR</UOM_MDC>
+      <UCODE10>7008</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body weight</Dimension>
+      <DIM>NT-1M-1</DIM>
+      <DIMC>M-1T-1N</DIMC>
+      <Symbol>meq lb-1 h-1</Symbol>
+      <UOM_UCUM>meq/[lb_av]/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_EQUIV_PER_LB_PER_HR</UOM_MDC>
+      <UCODE10>7026</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body surface area</Dimension>
+      <DIM>NT-1L-2</DIM>
+      <DIMC>L-2T-1N</DIMC>
+      <Symbol>eq m-2 min-1</Symbol>
+      <UOM_UCUM>eq/m2/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_M_SQ_PER_MIN</UOM_MDC>
+      <UCODE10>7104</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body surface area</Dimension>
+      <DIM>NT-1L-2</DIM>
+      <DIMC>L-2T-1N</DIMC>
+      <Symbol>meq m-2 min-1</Symbol>
+      <UOM_UCUM>meq/m2/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_EQUIV_PER_M_SQ_PER_MIN</UOM_MDC>
+      <UCODE10>7122</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body surface area</Dimension>
+      <DIM>NT-1L-2</DIM>
+      <DIMC>L-2T-1N</DIMC>
+      <Symbol>eq m-2 h-1</Symbol>
+      <UOM_UCUM>eq/m2/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_M_SQ_PER_HR</UOM_MDC>
+      <UCODE10>7072</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body surface area</Dimension>
+      <DIM>NT-1L-2</DIM>
+      <DIMC>L-2T-1N</DIMC>
+      <Symbol>meq m-2 h-1</Symbol>
+      <UOM_UCUM>meq/m2/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_EQUIV_PER_M_SQ_PER_HR</UOM_MDC>
+      <UCODE10>7090</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body surface area</Dimension>
+      <DIM>NT-1L-2</DIM>
+      <DIMC>L-2T-1N</DIMC>
+      <Symbol>eq m-2 d-1</Symbol>
+      <UOM_UCUM>eq/m2/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_EQUIV_PER_M_SQ_PER_DAY</UOM_MDC>
+      <UCODE10>7136</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- eq dose rate per body surface area</Dimension>
+      <DIM>NT-1L-2</DIM>
+      <DIMC>L-2T-1N</DIMC>
+      <Symbol>meq m-2 d-1</Symbol>
+      <UOM_UCUM>meq/m2/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_EQUIV_PER_M_SQ_PER_DAY</UOM_MDC>
+      <UCODE10>7154</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>International Unit</Dimension>
+      <DIM>[iU]</DIM>
+      <DIMC>[iU]</DIMC>
+      <Symbol>i.u.</Symbol>
+      <UOM_UCUM>[iU]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT</UOM_MDC>
+      <UCODE10>5472</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>International Unit</Dimension>
+      <DIM>[iU]</DIM>
+      <DIMC>[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT</UOM_MDC>
+      <UCODE10>5490</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>International Unit</Dimension>
+      <DIM>[iU]</DIM>
+      <DIMC>[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MEGA_INTL_UNIT</UOM_MDC>
+      <UCODE10>5476</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU concentration</Dimension>
+      <DIM>[iU]L-3</DIM>
+      <DIMC>L-3[iU]</DIMC>
+      <Symbol>i.u. cm-3</Symbol>
+      <UOM_UCUM>[iU]/cm3</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_CM_CUBE</UOM_MDC>
+      <UCODE10>5504</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU concentration</Dimension>
+      <DIM>[iU]L-3</DIM>
+      <DIMC>L-3[iU]</DIMC>
+      <Symbol>i.u. m-3</Symbol>
+      <UOM_UCUM>[iU]/m3</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_M_CUBE</UOM_MDC>
+      <UCODE10>5536</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU concentration</Dimension>
+      <DIM>[iU]L-3</DIM>
+      <DIMC>L-3[iU]</DIMC>
+      <Symbol>i.u. l-1</Symbol>
+      <UOM_UCUM>[iU]/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_L</UOM_MDC>
+      <UCODE10>5568</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU concentration</Dimension>
+      <DIM>[iU]L-3</DIM>
+      <DIMC>L-3[iU]</DIMC>
+      <Symbol>i.u. ml-1</Symbol>
+      <UOM_UCUM>[iU]/mL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_ML</UOM_MDC>
+      <UCODE10>5600</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_CONC</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU concentration</Dimension>
+      <DIM>[iU]L-3</DIM>
+      <DIMC>L-3[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/mL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT_PER_ML</UOM_MDC>
+      <UCODE10>5618</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_CONC</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU concentration</Dimension>
+      <DIM>[iU]L-3</DIM>
+      <DIMC>L-3[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/mL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MEGA_INTL_UNIT_PER_ML</UOM_MDC>
+      <UCODE10>5604</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_CONC</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU mass flow rate</Dimension>
+      <DIM>[iU]T-1</DIM>
+      <DIMC>T-1[iU]</DIMC>
+      <Symbol>i.u. s-1</Symbol>
+      <UOM_UCUM>[iU]/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_SEC</UOM_MDC>
+      <UCODE10>5632</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU mass flow rate</Dimension>
+      <DIM>[iU]T-1</DIM>
+      <DIMC>T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>M[iU]/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MEGA_INTL_UNIT_PER_SEC</UOM_MDC>
+      <UCODE10>5636</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU mass flow rate</Dimension>
+      <DIM>[iU]T-1</DIM>
+      <DIMC>T-1[iU]</DIMC>
+      <Symbol>i.u. min-1</Symbol>
+      <UOM_UCUM>[iU]/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_MIN</UOM_MDC>
+      <UCODE10>5664</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU mass flow rate</Dimension>
+      <DIM>[iU]T-1</DIM>
+      <DIMC>T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT_PER_MIN</UOM_MDC>
+      <UCODE10>5682</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU mass flow rate</Dimension>
+      <DIM>[iU]T-1</DIM>
+      <DIMC>T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MEGA_INTL_UNIT_PER_MIN</UOM_MDC>
+      <UCODE10>5668</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU mass flow rate</Dimension>
+      <DIM>[iU]T-1</DIM>
+      <DIMC>T-1[iU]</DIMC>
+      <Symbol>i.u. h-1</Symbol>
+      <UOM_UCUM>[iU]/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_HR</UOM_MDC>
+      <UCODE10>5696</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU mass flow rate</Dimension>
+      <DIM>[iU]T-1</DIM>
+      <DIMC>T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT_PER_HR</UOM_MDC>
+      <UCODE10>5714</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU mass flow rate</Dimension>
+      <DIM>[iU]T-1</DIM>
+      <DIMC>T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MEGA_INTL_UNIT_PER_HR</UOM_MDC>
+      <UCODE10>5700</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU mass flow rate</Dimension>
+      <DIM>[iU]T-1</DIM>
+      <DIMC>T-1[iU]</DIMC>
+      <Symbol>i.u. d-1</Symbol>
+      <UOM_UCUM>[iU]/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_DAY</UOM_MDC>
+      <UCODE10>5728</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU mass flow rate</Dimension>
+      <DIM>[iU]T-1</DIM>
+      <DIMC>T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT_PER_DAY</UOM_MDC>
+      <UCODE10>5746</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU mass flow rate</Dimension>
+      <DIM>[iU]T-1</DIM>
+      <DIMC>T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MEGA_INTL_UNIT_PER_DAY</UOM_MDC>
+      <UCODE10>5732</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose quantity per body weight</Dimension>
+      <DIM>[iU]M-1</DIM>
+      <DIMC>M-1[iU]</DIMC>
+      <Symbol>i.u. kg-1</Symbol>
+      <UOM_UCUM>[iU]/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_KG</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose quantity per body weight</Dimension>
+      <DIM>[iU]M-1</DIM>
+      <DIMC>M-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT_PER_KG</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose quantity per body weight</Dimension>
+      <DIM>[iU]M-1</DIM>
+      <DIMC>M-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>u[iU]/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_INTL_UNIT_PER_KG</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_NOT_USED</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose quantity per body weight</Dimension>
+      <DIM>[iU]M-1</DIM>
+      <DIMC>M-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>n[iU]/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_INTL_UNIT_PER_KG</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_NOT_USED</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose quantity per body weight</Dimension>
+      <DIM>[iU]M-1</DIM>
+      <DIMC>M-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MEGA_INTL_UNIT_PER_KG</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose quantity per body surface area</Dimension>
+      <DIM>[iU]L-2</DIM>
+      <DIMC>L-2[iU]</DIMC>
+      <Symbol>i.u. m-2</Symbol>
+      <UOM_UCUM>[iU]/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_M_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose quantity per body surface area</Dimension>
+      <DIM>[iU]L-2</DIM>
+      <DIMC>L-2[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT_PER_M_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_QUAN</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose quantity per body surface area</Dimension>
+      <DIM>[iU]L-2</DIM>
+      <DIMC>L-2[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>u[iU]/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MICRO_INTL_UNIT_PER_M_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_NOT_USED</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose quantity per body surface area</Dimension>
+      <DIM>[iU]L-2</DIM>
+      <DIMC>L-2[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>n[iU]/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_NANO_INTL_UNIT_PER_M_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_NOT_USED</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose quantity per body surface area</Dimension>
+      <DIM>[iU]L-2</DIM>
+      <DIMC>L-2[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MEGA_INTL_UNIT_PER_M_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body weight</Dimension>
+      <DIM>[iU]T-1M-1</DIM>
+      <DIMC>M-1T-1[iU]</DIMC>
+      <Symbol>i.u. kg-1 s-1</Symbol>
+      <UOM_UCUM>[iU]/kg/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_KG_PER_SEC</UOM_MDC>
+      <UCODE10>5760</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body weight</Dimension>
+      <DIM>[iU]T-1M-1</DIM>
+      <DIMC>M-1T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/kg/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT_PER_KG_PER_SEC</UOM_MDC>
+      <UCODE10>5778</UCODE10>
+      <_UOM_GROUPS>_UOM_NOT_USED</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body weight</Dimension>
+      <DIM>[iU]T-1M-1</DIM>
+      <DIMC>M-1T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/kg/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MEGA_INTL_UNIT_PER_KG_PER_SEC</UOM_MDC>
+      <UCODE10>5764</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body weight</Dimension>
+      <DIM>[iU]T-1M-1</DIM>
+      <DIMC>M-1T-1[iU]</DIMC>
+      <Symbol>i.u. kg-1 min-1</Symbol>
+      <UOM_UCUM>[iU]/kg/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_KG_PER_MIN</UOM_MDC>
+      <UCODE10>5792</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body weight</Dimension>
+      <DIM>[iU]T-1M-1</DIM>
+      <DIMC>M-1T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/kg/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT_PER_KG_PER_MIN</UOM_MDC>
+      <UCODE10>5810</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body weight</Dimension>
+      <DIM>[iU]T-1M-1</DIM>
+      <DIMC>M-1T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/kg/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MEGA_INTL_UNIT_PER_KG_PER_MIN</UOM_MDC>
+      <UCODE10>5796</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body weight</Dimension>
+      <DIM>[iU]T-1M-1</DIM>
+      <DIMC>M-1T-1[iU]</DIMC>
+      <Symbol>i.u. kg-1 h-1</Symbol>
+      <UOM_UCUM>[iU]/kg/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_KG_PER_HR</UOM_MDC>
+      <UCODE10>5824</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body weight</Dimension>
+      <DIM>[iU]T-1M-1</DIM>
+      <DIMC>M-1T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/kg/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT_PER_KG_PER_HR</UOM_MDC>
+      <UCODE10>5842</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body weight</Dimension>
+      <DIM>[iU]T-1M-1</DIM>
+      <DIMC>M-1T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/kg/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MEGA_INTL_UNIT_PER_KG_PER_HR</UOM_MDC>
+      <UCODE10>5828</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body weight</Dimension>
+      <DIM>[iU]T-1M-1</DIM>
+      <DIMC>M-1T-1[iU]</DIMC>
+      <Symbol>i.u. kg-1 d-1</Symbol>
+      <UOM_UCUM>[iU]/kg/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_KG_PER_DAY</UOM_MDC>
+      <UCODE10>5856</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body weight</Dimension>
+      <DIM>[iU]T-1M-1</DIM>
+      <DIMC>M-1T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/kg/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT_PER_KG_PER_DAY</UOM_MDC>
+      <UCODE10>5874</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body weight</Dimension>
+      <DIM>[iU]T-1M-1</DIM>
+      <DIMC>M-1T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/kg/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MEGA_INTL_UNIT_PER_KG_PER_DAY</UOM_MDC>
+      <UCODE10>5860</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body weight</Dimension>
+      <DIM>[iU]T-1M-1</DIM>
+      <DIMC>M-1T-1[iU]</DIMC>
+      <Symbol>i.u. lb-1 min-1</Symbol>
+      <UOM_UCUM>[iU]/[lb_av]/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_LB_PER_MIN</UOM_MDC>
+      <UCODE10>6912</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body weight</Dimension>
+      <DIM>[iU]T-1M-1</DIM>
+      <DIMC>M-1T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/[lb_av]/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT_PER_LB_PER_MIN</UOM_MDC>
+      <UCODE10>6930</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body weight</Dimension>
+      <DIM>[iU]T-1M-1</DIM>
+      <DIMC>M-1T-1[iU]</DIMC>
+      <Symbol>i.u. lb-1 h-1</Symbol>
+      <UOM_UCUM>[iU]/[lb_av]/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_LB_PER_HR</UOM_MDC>
+      <UCODE10>6880</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body weight</Dimension>
+      <DIM>[iU]T-1M-1</DIM>
+      <DIMC>M-1T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/[lb_av]/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT_PER_LB_PER_HR</UOM_MDC>
+      <UCODE10>6898</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body surface area</Dimension>
+      <DIM>[iU]T-1L-2</DIM>
+      <DIMC>L-2T-1[iU]</DIMC>
+      <Symbol>i.u. m-2 sec-1</Symbol>
+      <UOM_UCUM>[iU]/m2/sec</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_M_SQ_PER_SEC</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body surface area</Dimension>
+      <DIM>[iU]T-1L-2</DIM>
+      <DIMC>L-2T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/m2/sec</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT_PER_M_SQ_PER_SEC</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body surface area</Dimension>
+      <DIM>[iU]T-1L-2</DIM>
+      <DIMC>L-2T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/m2/sec</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MEGA_INTL_UNIT_PER_M_SQ_PER_SEC</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body surface area</Dimension>
+      <DIM>[iU]T-1L-2</DIM>
+      <DIMC>L-2T-1[iU]</DIMC>
+      <Symbol>i.u. m-2 min-1</Symbol>
+      <UOM_UCUM>[iU]/m2/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_M_SQ_PER_MIN</UOM_MDC>
+      <UCODE10>6976</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body surface area</Dimension>
+      <DIM>[iU]T-1L-2</DIM>
+      <DIMC>L-2T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/m2/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT_PER_M_SQ_PER_MIN</UOM_MDC>
+      <UCODE10>6994</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body surface area</Dimension>
+      <DIM>[iU]T-1L-2</DIM>
+      <DIMC>L-2T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/m2/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MEGA_INTL_UNIT_PER_M_SQ_PER_MIN</UOM_MDC>
+      <UCODE10>6980</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body surface area</Dimension>
+      <DIM>[iU]T-1L-2</DIM>
+      <DIMC>L-2T-1[iU]</DIMC>
+      <Symbol>i.u. m-2 h-1</Symbol>
+      <UOM_UCUM>[iU]/m2/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_M_SQ_PER_HR</UOM_MDC>
+      <UCODE10>6944</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body surface area</Dimension>
+      <DIM>[iU]T-1L-2</DIM>
+      <DIMC>L-2T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/m2/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT_PER_M_SQ_PER_HR</UOM_MDC>
+      <UCODE10>6962</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body surface area</Dimension>
+      <DIM>[iU]T-1L-2</DIM>
+      <DIMC>L-2T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/m2/h</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MEGA_INTL_UNIT_PER_M_SQ_PER_HR</UOM_MDC>
+      <UCODE10>6948</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body surface area</Dimension>
+      <DIM>[iU]T-1L-2</DIM>
+      <DIMC>L-2T-1[iU]</DIMC>
+      <Symbol>i.u. m-2 d-1</Symbol>
+      <UOM_UCUM>[iU]/m2/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_INTL_UNIT_PER_M_SQ_PER_DAY</UOM_MDC>
+      <UCODE10>7200</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body surface area</Dimension>
+      <DIM>[iU]T-1L-2</DIM>
+      <DIMC>L-2T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/m2/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_INTL_UNIT_PER_M_SQ_PER_DAY</UOM_MDC>
+      <UCODE10>7218</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- IU dose rate per body surface area</Dimension>
+      <DIM>[iU]T-1L-2</DIM>
+      <DIMC>L-2T-1[iU]</DIMC>
+      <Symbol/>
+      <UOM_UCUM>m[iU]/m2/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MEGA_INTL_UNIT_PER_M_SQ_PER_DAY</UOM_MDC>
+      <UCODE10>7204</UCODE10>
+      <_UOM_GROUPS>_UOM_DOSE_RATE</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- Lung Resistance</Dimension>
+      <DIM>L-4MT-3</DIM>
+      <DIMC>L-4MT-3</DIMC>
+      <Symbol>cmH2O l-1s-1</Symbol>
+      <UOM_UCUM>cm[H2O]/L/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_CM_H2O_PER_L_PER_SEC</UOM_MDC>
+      <UCODE10>5920</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- HF Transport Coefficient</Dimension>
+      <DIM>L6T-1</DIM>
+      <DIMC>L6T-1</DIMC>
+      <Symbol>l2s-1</Symbol>
+      <UOM_UCUM>L2/s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_SQ_PER_SEC</UOM_MDC>
+      <UCODE10>5952</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- ratio of paO2 to FIO2</Dimension>
+      <DIM>L-1MT-2</DIM>
+      <DIMC>L-1MT-2</DIMC>
+      <Symbol>cmH2O %-1</Symbol>
+      <UOM_UCUM>cm[H2O]/%</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_CM_H2O_PER_PERCENT</UOM_MDC>
+      <UCODE10>5984</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- ratio of paO2 to FIO2</Dimension>
+      <DIM>L-1MT-2</DIM>
+      <DIMC>L-1MT-2</DIMC>
+      <Symbol>mmHg %-1</Symbol>
+      <UOM_UCUM>mm[Hg]/%</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MM_HG_PER_PERCENT</UOM_MDC>
+      <UCODE10>6176</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- ratio of paO2 to FIO2</Dimension>
+      <DIM>L-1MT-2</DIM>
+      <DIMC>L-1MT-2</DIMC>
+      <Symbol>Pa %-1</Symbol>
+      <UOM_UCUM>Pa/%</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_PA_PER_PERCENT</UOM_MDC>
+      <UCODE10>6208</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- Pulmonary/ Systemic Vascular Resistance Index</Dimension>
+      <DIM>L-4MT-1L-2</DIM>
+      <DIMC>L-6MT-1</DIMC>
+      <Symbol>dyne s m-2 cm-5</Symbol>
+      <UOM_UCUM>dyn.s/cm5/m2 dyn.s.cm-5.m-2 dyn.s.m2/cm5</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DYNE_SEC_PER_M_SQ_PER_CM_5</UOM_MDC>
+      <UCODE10>6016</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>- Pulmonary/ Systemic Vascular Resistance Index</Dimension>
+      <DIM>L-2MT-1</DIM>
+      <DIMC>L-2MT-1</DIMC>
+      <Symbol>dyne s m2 cm-5</Symbol>
+      <UOM_UCUM>dyn.s.m2/cm5 dyn.s.cm-5.m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DYNE_SEC_M_SQ_PER_CM_5</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>thermal calories</Dimension>
+      <DIM>L2MT-2</DIM>
+      <DIMC>L2MT-2</DIMC>
+      <Symbol>cal</Symbol>
+      <UOM_UCUM>cal</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_CAL</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>thermal calories</Dimension>
+      <DIM>L2MT-2</DIM>
+      <DIMC>L2MT-2</DIMC>
+      <Symbol>kcal</Symbol>
+      <UOM_UCUM>kcal</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_KILO_CAL</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>nutrition label calories</Dimension>
+      <DIM>L2MT-2</DIM>
+      <DIMC>L2MT-2</DIMC>
+      <Symbol>nutr cal ???</Symbol>
+      <UOM_UCUM>[Cal]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_NUTR_CAL</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>thermal caloric rate</Dimension>
+      <DIM>L2MT-3</DIM>
+      <DIMC>L2MT-3</DIMC>
+      <Symbol>cal per day</Symbol>
+      <UOM_UCUM>cal/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_CAL_PER_DAY</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>thermal caloric rate</Dimension>
+      <DIM>L2MT-3</DIM>
+      <DIMC>L2MT-3</DIMC>
+      <Symbol>kcal per day</Symbol>
+      <UOM_UCUM>kcal/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_KILO_CAL_PER_DAY</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Flow rate per body weight</Dimension>
+      <DIM>L3M-1T-1</DIM>
+      <DIMC>L3M-1T-1</DIMC>
+      <Symbol>L per kg per hour</Symbol>
+      <UOM_UCUM>L/kg/hr</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_KG_PER_HR</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Flow rate per body weight</Dimension>
+      <DIM>L3M-1T-1</DIM>
+      <DIMC>L3M-1T-1</DIMC>
+      <Symbol>mL per kg per hour</Symbol>
+      <UOM_UCUM>mL/kg/hr</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_L_PER_KG_PER_HR</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE_LIQUID</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Flow rate per body surface area</Dimension>
+      <DIM>L3L-2T-1</DIM>
+      <DIMC>LT-1</DIMC>
+      <Symbol>L per m2 per hour</Symbol>
+      <UOM_UCUM>L/m2/hr</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_M_SQ_PER_HR</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Flow rate per body surface area</Dimension>
+      <DIM>L3L-2T-1</DIM>
+      <DIMC>LT-1</DIMC>
+      <Symbol>mL per m2 per hour</Symbol>
+      <UOM_UCUM>mL/m2/hr</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_L_PER_M_SQ_PER_HR</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE_LIQUID</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Work of breathing (per breath)</Dimension>
+      <DIM>L2MT-2</DIM>
+      <DIMC>L2MT-2</DIMC>
+      <Symbol/>
+      <UOM_UCUM>J/{breath}</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_JOULES_PER_BREATH</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Work of breathing (per liter)</Dimension>
+      <DIM>L2MT-2L-3</DIM>
+      <DIMC>L-1MT-2</DIMC>
+      <Symbol/>
+      <UOM_UCUM>J/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_JOULES_PER_L</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Vascular Resistance</Dimension>
+      <DIM>L-4MT-1</DIM>
+      <DIMC>L-4MT-1</DIMC>
+      <Symbol>dyne s cm-5</Symbol>
+      <UOM_UCUM>dyn.s/cm5</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DYNE_SEC_PER_CM_5</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Vascular Resistance (Peripheral Reistance Unit)</Dimension>
+      <DIM>L-4MT-1</DIM>
+      <DIMC>L-4MT-1</DIMC>
+      <Symbol>PRU</Symbol>
+      <UOM_UCUM>[PRU] mm[Hg].s/mL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MMHG_SEC_PER_ML</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Vascular Resistance (Wood's unit, pediatric)</Dimension>
+      <DIM>L-4MT-1</DIM>
+      <DIMC>L-4MT-1</DIMC>
+      <Symbol>Woods Unit, WU, HRU</Symbol>
+      <UOM_UCUM>[wood'U] mm[Hg].min/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MMHG_MIN_PER_L</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Amount of information</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>bit, b</Symbol>
+      <UOM_UCUM>bit</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_BIT</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Amount of information</Dimension>
+      <DIM>1</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>byte, B</Symbol>
+      <UOM_UCUM>By</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_BYTE</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Volume concentration</Dimension>
+      <DIM>L3L-3</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>drops/L</Symbol>
+      <UOM_UCUM>[drp]/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DROPS_PER_X_L</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Volume concentration</Dimension>
+      <DIM>L3L-3</DIM>
+      <DIMC>1</DIMC>
+      <Symbol>drops/mL</Symbol>
+      <UOM_UCUM>[drp]/mL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DROPS_PER_MILLI_L</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Shallow Breathing Index (breath)</Dimension>
+      <DIM>L-3</DIM>
+      <DIMC>L-3</DIMC>
+      <Symbol>breaths/min/L</Symbol>
+      <UOM_UCUM>/min/L {breaths}/min/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_BREATHS_PER_MIN_PER_L</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Shallow Breathing Index (breaths squared)</Dimension>
+      <DIM>L-3</DIM>
+      <DIMC>L-3</DIMC>
+      <Symbol>breaths^2/min/L</Symbol>
+      <UOM_UCUM>/min/L {breaths-squared}/min/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_SQUARE_BREATHS_PER_MIN_PER_L</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Volume per minute per body weight</Dimension>
+      <DIM>L3T-1M-1</DIM>
+      <DIMC>L3M-1T-1</DIMC>
+      <Symbol>L/min/kg</Symbol>
+      <UOM_UCUM>L/min/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_MIN_PER_KG</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Volume per minute per body weight</Dimension>
+      <DIM>L3T-1M-1</DIM>
+      <DIMC>L3M-1T-1</DIMC>
+      <Symbol>mL/min/kg</Symbol>
+      <UOM_UCUM>mL/min/kg</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_L_PER_MIN_PER_KG</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Oxygen saturation-seconds</Dimension>
+      <DIM>T</DIM>
+      <DIMC>T</DIMC>
+      <Symbol>sat-sec</Symbol>
+      <UOM_UCUM>{sat}%.s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_O2_SAT_PERCENT_SEC</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>millimeters per millivolt  (display gain)</Dimension>
+      <DIM>L-1M-1T3I</DIM>
+      <DIMC>L-1M-1T3I</DIMC>
+      <Symbol>mm/mV</Symbol>
+      <UOM_UCUM>mm/mV m/V</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_M_PER_VOLT</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Cardiac stroke work</Dimension>
+      <DIM>L2MT-2</DIM>
+      <DIMC>L2MT-2</DIMC>
+      <Symbol>gf.m  [trad g.m]</Symbol>
+      <UOM_UCUM>gf.m</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_FORCE_M</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Cardiac stroke work</Dimension>
+      <DIM>L2MT-2</DIM>
+      <DIMC>L2MT-2</DIMC>
+      <Symbol>kgf.m  [trad kg.m]</Symbol>
+      <UOM_UCUM>kgf.m</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_KILO_G_FORCE_M</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Cardiac stroke work per liter of fluid</Dimension>
+      <DIM>L2MT-2L-3</DIM>
+      <DIMC>L-1MT-2</DIMC>
+      <Symbol>gf.m/L  [trad g.m/L]</Symbol>
+      <UOM_UCUM>gf.m/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_FORCE_M_PER_L</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Cardiac stroke work per liter of fluid</Dimension>
+      <DIM>L2MT-2L-3</DIM>
+      <DIMC>L-1MT-2</DIMC>
+      <Symbol>kgf.m/L  [trad kg.m/L]</Symbol>
+      <UOM_UCUM>kgf.m/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_KILO_G_FORCE_M_PER_L</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Cardiac Stroke Work per Body Surface Area</Dimension>
+      <DIM>L2MT-2L-2</DIM>
+      <DIMC>MT-2</DIMC>
+      <Symbol>gf.m/m2  [trad g.m/m2]</Symbol>
+      <UOM_UCUM>gf.m/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_G_FORCE_M_PER_M_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Cardiac Stroke Work per Body Surface Area</Dimension>
+      <DIM>L2MT-2L-2</DIM>
+      <DIMC>MT-2</DIMC>
+      <Symbol>kgf.m/m2  [trad kg.m/m2]</Symbol>
+      <UOM_UCUM>kgf.m/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_KILO_G_FORCE_M_PER_M_SQ</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM>L/min/m2</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_L_PER_MIN_PER_M_SQ</UOM_MDC>
+      <UCODE10>2848</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM>L/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_L_PER_MIN</UOM_MDC>
+      <UCODE10>3072</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM>dyn.s/cm5</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_DYNE_SEC_PER_CM5</UOM_MDC>
+      <UCODE10>4128</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM>g.m</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_G_M</UOM_MDC>
+      <UCODE10>1856</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM>g/dL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_G_PER_DL</UOM_MDC>
+      <UCODE10>2112</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM/>
+      <UOM_MDC>MDC_DIM_G_PER_L</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM>[in_i]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_INCH</UOM_MDC>
+      <UCODE10>1376</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM>g</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_G</UOM_MDC>
+      <UCODE10>1728</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM>[lb_av]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_LB</UOM_MDC>
+      <UCODE10>1760</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM>g/mL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_G_PER_ML</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM>[iU]/mL</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_INTL_UNIT_PER_ML</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM>s</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_SEC</UOM_MDC>
+      <UCODE10>685</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM>L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_L</UOM_MDC>
+      <UCODE10>1600</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM>[oz_av]</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_OZ</UOM_MDC>
+      <UCODE10>1792</UCODE10>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM>J/L</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_JOULES_PER_L</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM>mL</UOM_UCUM>
+      <UOM_MDC>DIM_MILLI_L</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension/>
+      <DIM/>
+      <DIMC/>
+      <Symbol/>
+      <UOM_UCUM>Ohm</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_OHM</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>L2MT-2 (energy, work)</Dimension>
+      <DIM>L2MT-2</DIM>
+      <DIMC></DIMC>
+      <Symbol></Symbol>
+      <UOM_UCUM>gf.m</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_G_FORCE_M</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS/>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Volume per minute per body surface area</Dimension>
+      <DIM>L3L-2T-1</DIM>
+      <DIMC>LT-1</DIMC>
+      <Symbol>l m-2 m-1</Symbol>
+      <UOM_UCUM>L/m2/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_X_L_PER_M_SQ_PER_MIN</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE_LIQUID</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Flow rate per body weight</Dimension>
+      <DIM>L3M-1T-1</DIM>
+      <DIMC>L3M-1T-1</DIMC>
+      <Symbol>mL per kg per minute</Symbol>
+      <UOM_UCUM>ml/kg/min</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_L_PER_KG_PER_MIN</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE_LIQUID</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Flow rate per body weight</Dimension>
+      <DIM>L3M-1T-1</DIM>
+      <DIMC>L3M-1T-1</DIMC>
+      <Symbol>mL per kg per day</Symbol>
+      <UOM_UCUM>ml/kg/d</UOM_UCUM>
+      <UOM_MDC>MDC_DIM_MILLI_L_PER_KG_PER_DAY</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE_LIQUID</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Flow rate per body surface area</Dimension>
+      <DIM>L3L-2T-1</DIM>
+      <DIMC>L3L-2T-1</DIMC>
+      <Symbol></Symbol>
+      <UOM_UCUM>L/m2/d</UOM_UCUM>
+      <UOM_MDC>MDCX_DIM_X_L_PER_M_SQ_PER_DAY</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE_LIQUID</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Flow rate per body surface area</Dimension>
+      <DIM>L3L-2T-1</DIM>
+      <DIMC>L3L-2T-1</DIMC>
+      <Symbol></Symbol>
+      <UOM_UCUM>ml/m2/min</UOM_UCUM>
+      <UOM_MDC>MDCX_DIM_MILLI_L_PER_M_SQ_PER_MIN</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE_LIQUID</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+    <term>
+      <Dimension>Flow rate per body surface area</Dimension>
+      <DIM>L3L-2T-1</DIM>
+      <DIMC>L3L-2T-1</DIMC>
+      <Symbol></Symbol>
+      <UOM_UCUM>ml/m2/d</UOM_UCUM>
+      <UOM_MDC>MDCX_DIM_MILLI_L_PER_M_SQ_PER_DAY</UOM_MDC>
+      <UCODE10/>
+      <_UOM_GROUPS>_UOM_DOSE_RATE_LIQUID</_UOM_GROUPS>
+      <Discussion/>
+    </term>
+  </Units>
+</RTM>
