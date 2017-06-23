@@ -1,0 +1,24 @@
+Woody:
+
+0.0 It is essential, in my opinion to establish early on that the difference between FHIR and "just another cute XML representation"
+is the previously stated objective to bind the FHIR resources to established Health Informatics foundations.  This means,
+I believe, the required mappings (as discussed when FHIR was proposed) to the HL7 RIm, plus, ISO data types (or Abstract DT R2).
+While these are possible in the current document, there is no commitment in this "book" to require and establish such mappings. 
+I suggest that the discussion of the FHIR Community in HL7 be extended to clearly make such a linkage.
+
+1.1 "extensibility" bullet - "cater for" should be either "cater to" or "allow for"
+
+1.1.1 roadmap is an excellent organizing idea BUT - the contents of the bullets (the section after the bullet "title" are BADLY mixed: about half are noun phrases (like the first three in 1.1.1.1; and the others are verb phrases (like the second three in 1.1.1.1. This makes for clumsy reading. Suggest using glossary-like noun phrases for all. 
+
+1.2.1 I stumbled through the notes the first three times I read it trying to decide if the description was of XML elements or pseudo-XML  elements. Needs an adjective (on "element" here and there to make it clear. For instance, I believe the third bullet should begin "To build a valid instance of a resource...." and if I am wrong, this is evidence of the confusion that arises from the text. 
+
+1.2.3 If FHIR is based on and mapped to HL7 RIM and datatypes, I believe dataAbsentReason values should be mapped to one (or set) of null favors. This should either appear here or be linked to from here. 
+
+1.2.4 bis "class base" UML diagram. This is interesting, but there is neither a caption to it nor a reference from either 1.2.3 or 1.2.4 It dangles and probably needs some annotation 
+ 
+---------------------------------------------------------------------------------------
+
+William Goosen:
+
+
+Comment:  The energy should go into v3 implementation improvements, not to another canibal in the HL7 ranks.

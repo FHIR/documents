@@ -1,0 +1,115 @@
+Ballot Submission,,,,,,,,,,,,,,,,,,Triage & Committee Resolution,,,,,,,,,,,,,,,,Ballot Comment Tracking,,,,,,,,,Comment Number,Ballot,Chapter,Section,Page #,Line #,Artifact ID,Resource(s),HTML Page name(s),URL,Vote and Type,Sub-category,Tracker #,Pubs,Existing Wording,Proposed Wording,Ballot Comment,Summary,In person resolution requested,Comment grouping,Schedule,Triage Note,Disposition WG,Disposition,Disposition Comment or Retract/Withdraw details,Disposition/Retract/ Withdrawal Date,Mover / seconder,For ,Against,Abstain,Retracted / Withdrawn,Disposition External Organization,Responsible Person,Change Applied,Substantive Change,Submitted By,Organization,On behalf of,Commenter Email,Submitter Tracking ID,Referred To,Received From,Notes
+1,FluentPath,,,,,,,index,http://www.hl7.org/fluentpath/2016Sept/index.html,NEG,Clarification,,,"Neutral Mapping Notation
+
+""FluentPath is a path based navigation and extraction language, somewhat like XPath. Operations are expressed in terms of the logical content of hierarchical data models, and support traversal, selection and filtering of data. Its design was influenced by the needs for path navigation, selection and formulation of invariants in both HL7 Fast Healthcare Interoperability Resources (FHIR) and HL7 Clinical Quality Language (CQL).""",FluentPath or FHIRPath,"First of all, this is great work so I would normally not vote negative. However, I would strongly recommend changing the name from Neutral Mapping Notation to the actual name on the specification - FluentPath or FHIRPath. Unfortunately, the current name seems to indicating a mapping language which FluentPath is not and is misleading. While it is true that FluentPath can be leveraged in a mapping language to specify nodes in a tree, it is not a mapping language from what I can tell. I added it to my review list thinking it was one thing and found out it was really something else (though equally important).",Change the name,,A,,,ITS,,,,,,,,,,,,,Claude Nanjo ,Cognitive Medical Systems ,Claude Nanjo ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2,FluentPath,,1.1,,,,,index,http://www.hl7.org/fluentpath/2016Sept/index.html,A-S,Clarification,,,,,"I would suggest comparing fluentpath to OCL which is also platform and technology independent. I think we need to be clear as to why we need this specification rather than leveraging something already out there. Note, I am not saying this is not needed. We just need to make it clear why it is needed.
+Also, ",Clarify and document justification for the language,,B,,,ITS,,,,,,,,,,,,,Claude Nanjo ,Cognitive Medical Systems ,Claude Nanjo ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+3,FluentPath,,3.2,,,,,index,http://www.hl7.org/fluentpath/2016Sept/index.html,A-S,Clarification,,,"The list of available types that can be passed as a parameter to the as and is functions is determined by the underlying data model.
+
+",,"Please provide an example that shows the delimiter used, syntax, etc",Provide example of is and as,,E,,,ITS,,,,,,,,,,,,,Claude Nanjo ,Cognitive Medical Systems ,Claude Nanjo ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+4,FluentPath,,3.3,,,,,index,http://www.hl7.org/fluentpath/2016Sept/index.html,A-Q,Clarification,,,Note: These structures are a subset of the abstract metamodel used by the Clinical Quality Language Tooling defined here: modelinfo.xsd.,,Should the ModelInfo schema and associated logical model thus be part of the FluentPath specification? ,Should model info be normative,,B,,,ITS,,,,,,,,,,,,,Claude Nanjo ,Cognitive Medical Systems ,Claude Nanjo ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+5,FluentPath,,9,,,,,index,http://www.hl7.org/fluentpath/2016Sept/index.html,A-S,Enhancement,,,"It is in fact ""safer"" to formulate such statements as either:
+
+Patient.name.select(given + ' ' + family)
+which would return a collection of concatenated first and last names, one for each name of a patient. Of course, if the patient turns out to have multiple given names, even this statement will fail and the author would need to choose the first name in each collection explicitly",,"I would recommend a table for each operator or function that clearly specifies the pre and post-conditions, arguments, etc? to make the specification clear on this front.","Pre and post conditions and arguments for each operator, presented as a table",,D,,,ITS,,,,,,,,,,,,,Claude Nanjo ,Cognitive Medical Systems ,Claude Nanjo ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+6,FluentPath,,,,,,,index,http://www.hl7.org/fluentpath/2016Sept/index.html,A-Q,Clarification,,,,,"How does FluentPath work with terminologies. For instance, could you provide examples where I am looking for the collection of nodes in a graph that have a code of X. Also, could FluentPath handle some terminology operations as well such as ""Find the collection of nodes in the graph that have a code that is subsumed by X or is X.",Clarify and document use of terminology in the language,,H,,,ITS,,,,,,,,,,,,,Claude Nanjo ,Cognitive Medical Systems ,Claude Nanjo ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+7,FluentPath,,,,,,,index,http://www.hl7.org/fluentpath/2016Sept/index.html,A-S,Clarification,,,,,"In some cases, good example of usage would help. I would also recommend a documentation format similar to the one used for CQL.",More examples of usage,,E,,,ITS,,,,,,,,,,,,,Claude Nanjo ,Cognitive Medical Systems ,Claude Nanjo ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+8,FluentPath,,1.1,,,,,index,,A-Q,Clarification,,,"Languages meeting these additional requirements also exist, such as Java, JavaScript, C#, and others. However, these languages are both tightly coupled to the platforms in which they operate, and, because they are general-purpose development languages, come with much heavier tooling and technology dependencies than is warranted or desirable.",,"This statement makes sense but should FluentPath define its own grammar or simply specify a constrained grammar derived from one of these languages (say, C# or Groovy). In cases where additional operators are needed, then these statements could be added to that minimal set. When I looked at the spec, it looked very close (but not the same) as some common programming languages. (Note that this was a suggestion masked as a question :) )",Clarify and document justification for the language,,B,,,ITS,,,,,,,,,,,,,Claude Nanjo ,Cognitive Medical Systems ,Claude Nanjo ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+9,FluentPath,,3.2. ,,,,,index,,A-S,Clarification,,,none,"add this :
+
+The 'as' function can be used to determine specify a given value is of a given type:",why:  inconsistent to describe the 'is' functino and not  the as function,Fix wording,,C,,,ITS,,,,,,,,,,,,,Eric Haas ,,Eric Haas ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+10,FluentPath,,3.4,,,,,index,,NEG,Clarification,,," There are two special cases: the outcome of operations like children() and descendants() cannot be assumed to be in any meaningful order, and first(), last(), tail(), skip() and take() should not be used on collections derived from these paths. N",,"The text uses the word ""like"" making it unclear what the two special cases are. ",Fix wording,,C,,,ITS,,,,,,,,,,,,,Eric Haas ,,Eric Haas ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+11,FluentPath,,4.5,,,,,index,,A-S,Clarification,,,,,Example here of an FHIR invarient would be great.,Example of FHIR invariant,,E,,,ITS,,,,,,,,,,,,,Eric Haas ,,Eric Haas ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+12,FluentPath,,5,,,,,index,,A-S,Clarification,,,"Optional parameters are enclosed in square brackets in the definition of a function. Note that the brackets are only used to indicate optionality in the signature, they are not part of the actual syntax of FluentPath.
+
+All functions return a collection, but if the function or operation will always produce a collection containing a single item of a predefined type, the description of the function will specify its output type explicitly, instead of just stating collection, e.g. all(??) : boo",,These two bullets are 'Notation'  description and should be identifed as such with a separate header or some other mechanism,Fix formatting,,C,,,ITS,,,,,,,,,,,,,Eric Haas ,,Eric Haas ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+13,FluentPath,,Appendix B,,,,,index,,A-S,Clarification,,,FluentPath is used in five places in the FHIR specifications: ,,"Add common examples for each of the 5 fhir use cases.  
+For Example for an invarient:
+obs-6: dataAbsentReason SHALL only be present if Observation.value[x] is not present (expression : dataAbsentReason.empty() or value.empty())
+",Examples of usage within FHIR,,E,,,ITS,,,,,,,,,,,,,Eric Haas ,,Eric Haas ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+14,FluentPath,,,,,,,index,,A-S,Enhancement,,,,,Add a link to a site that A list tools or application available that currently use fluentpath - like grahame's notebook++ add-on.,Implementation appendix,,D,,,ITS,,,,,,,,,,,,,Eric Haas ,,Eric Haas ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+15,FluentPath,,2,,,,,index,,A-T,Correction,,,Data is represented as a tree of labelled nodes.,Data are..,,Data are plural,,_Typo,,,ITS,,,,,,,,,,,,,George Cole ,,George Cole ,george.cole@allscripts.com ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+16,FluentPath,,Appendix A,,,,,index,,A-S,Enhancement,,,"DATETIME
+        : '@'
+            [0-9][0-9][0-9][0-9] // year
+            (
+                '-'[0-9][0-9] // month
+                (
+                    '-'[0-9][0-9] // day
+                    (
+                        'T'
+                            [0-9][0-9] (':'[0-9][0-9] (':'[0-9][0-9] ('.'[0-9]+)?)?)?
+                            ('Z' | ('+' | '-') [0-9][0-9]':'[0-9][0-9])? // timezone
+                    )?
+                 )?
+             )?
+             'Z'? // UTC specifier
+        ;
+TIME
+        : '@'
+            'T'
+                [0-9][0-9] (':'[0-9][0-9] (':'[0-9][0-9] ('.'[0-9]+)?)?)?
+                ('Z' | ('+' | '-') [0-9][0-9]':'[0-9][0-9])? // timezone
+        ;
+","suggest repackage so DATETIME and TIME both use same underlying definition of time:
+
+DATETIME
+        : '@'
+            [0-9][0-9][0-9][0-9] // year
+            (
+                '-'[0-9][0-9] // month
+                (
+                    '-'[0-9][0-9] // day
+                    (
+                        'T'
+                            time
+                    )?
+                 )?
+             )?
+             'Z'? // UTC specifier
+        ;
+
+TIME
+        : '@'
+            'T'
+                time
+        ;
+
+time
+ : [0-9][0-9] (':'[0-9][0-9] (':'[0-9][0-9] ('.'[0-9]+)?)?)?
+                ('Z' | ('+' | '-') [0-9][0-9]':'[0-9][0-9])? // timezone
+",Grammar simplification,Grammar simplification,,_Typo,,,ITS,,,,,,,,,,,,,George Cole ,,George Cole ,george.cole@allscripts.com ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+17,FluentPath,,,,,,,index,,A-T,Correction,,,,,% surround by quotes in example,% surround by quotes in example,,_Typo,,,ITS,,,,,,,,,,,,,Grahame Grieve ,Health Intersections Pty Ltd ,Grahame Grieve ,grahameg@gmail.com ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+18,FluentPath,,4.4 Null and Empty,,,,,index,,NEG,Clarification,,,,,"Since there is no concept of null in Fluentpath and There is ""propagation of empty results"" doesn't that make debugging fluentpath harder since I don't know if the empty set is because of no results or a bad expression. ",Clarify and document handling of empty results and error handling,,I,,,ITS,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Kanwarpreet Sethi ,kp.sethi@lantanagroup.com ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+19,FluentPath,,Existence,,,,,index,,A-S,Enhancement,,,"5.1.5. allTrue() : boolean
+Takes a collection of boolean values and returns true if all the items are true. If any items are false, the result is false. If the input is empty ({ }), the result is true.
+
+5.1.6. anyTrue() : boolean
+Takes a collection of boolean values and returns true if any of the items are true. If all the items are false, or if the input is empty ({ }), the result is false.",,I understand that anyFalse and AllFalse can be constructed using both these but suggest providing them for simplicity sake. ,Add anyFalse and allFalse operators,,F,,,ITS,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Kanwarpreet Sethi ,kp.sethi@lantanagroup.com ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+20,FluentPath,,Filtering and Projection,,,,,index,,A-S,Clarification,,,"5.2.2. select(projection: expression) : collection
+Evaluates the projection expression for each item in the input collection. The result of each evaluation is added to the output collection. If the evaluation results in a collection with multiple items, all items are added to the output collection (collections resulting from evaluation of projection are flattened). This means that if the evaluation for an element results in the empty collection ({ }), no element is added to the result, and that if the input collection is empty ({ }), the result is empty as well.",,an example would be helpful here. ,an example would be helpful here.,,E,,,ITS,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Kanwarpreet Sethi ,kp.sethi@lantanagroup.com ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+21,FluentPath,,General,,,,,index,,A-S,Clarification,,,,,Consider providing an example for all API methods for documentation completeness sake ,Provide examples for all operators,,E,,,ITS,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Kanwarpreet Sethi ,kp.sethi@lantanagroup.com ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+22,FluentPath,,toString(),,,,,index,,NEG,Clarification,,,"integer
+
+(-)?#0
+
+decimal
+
+(-)?0.0
+
+quantity
+
+(-)?0.0 '<unit>'",,Should provide an explanantion of the regex as well or examples to to avoid any misinterpretation,Explain regex notation for literals.,,C,,,ITS,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Kanwarpreet Sethi ,kp.sethi@lantanagroup.com ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+23,FluentPath,,,,,,,index,,A-Q,Clarification,,,,,Is the FluentPath grammar available to download as a ANTLR/grammar file? ,Make clear how to download grammar file,,D,,,ITS,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Kanwarpreet Sethi ,kp.sethi@lantanagroup.com ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+24,FluentPath,,Appendix C: Use of FluentPath in Clinical Quality Language (CQL),,,,,index,http://www.hl7.org/fluentpath/2016Sept/index.html#overview,NEG,Clarification,,,,,"C.3. Additional Operators
+This title does not accurately reflect the changes since the proposals are to eliminate some existing CQL Operators.  Regardless, I am concerned that while these new operators are valid, they will not be friendly in the human-readable Measure display.  We have to remember that while FHIR is basically being designed for computer interaction, there will be end-users such as measure developers, clinical decision support developers, and quality staff that need to be able to read FHIR documents (e.g., MeasureReport).  These staff will most likely be clinicians, statisticians, business analysts, and/or data analysts that will not have a technical and/or mathematically background to help them understand what they are seeing in their browser.  It cannot be expected that every provider, measure developer, CDS developer, etc develop an application to display a document (especially if CMS posts it on their eCQM Library webpage).  This is a general comment, I'm just using this as an example.",Discuss how the human-readable version of documents will look to the end-user and determine if changes need to be made.,Yes,G,,,ITS,,,,,,,,,,,,,Patty Craig ,The Joint Commisison ,Patty Craig ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+25,FluentPath,,Appendix C: Use of FluentPath in Clinical Quality Language (CQL),,,,,index,http://www.hl7.org/fluentpath/2016Sept/index.html#overview,A-Q,Clarification,,,,,Is it anticipated that FluentPath will be applied within CQL-based HQMF or will it only be applied within the FHIR MeasureReport?  Asking because it makes a difference on how we educate vendors concerning CQL-based HQMF - will another change big change be coming or once they implement will this component of quality measurement just be in maintenance mode...,Clarify whether FluentPath will appear within CQL-Based HQMF,Yes,G,,,ITS,,,,,,,,,,,,,Patty Craig ,The Joint Commisison ,Patty Craig ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+26,FluentPath,,,,,,,index,http://www.hl7.org/fluentpath/2016Sept/index.html#overview,A-C,Clarification,,,,,"Other than my concern above, I see no other immediate issue.  The concept of FluentPath makes sense; however, without actually trying to implement it I cannot say if there are other issues.  I look forward to hearing about Connectathon attempts related to this standard.",General comment,,G,,,ITS,,,,,,,,,,,,,Patty Craig ,The Joint Commisison ,Patty Craig ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+27,FluentPath,,,,,,,index,,NEG,Correction,,,,,The reconsilitation spreadsheet for the prior ballot is not posted to the ballot desktop.  ,The reconsilitation spreadsheet for the prior ballot is not posted to the ballot desktop.,,B,,,ITS,,,,,,,,,,,,,Scott Robertson ,Kaiser Permanente ,Scott Robertson ,scott.m.robertson@kp.org ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+28,FluentPath,,,,,,,index,,A-S,Correction,,,"HL7 Cross-Paradigm Specification: Neutral Mapping Notation, Release 1 (PI ID: 1237)","HL7 Cross-Paradigm Specification: Neutral Navigation Notation, Release 1 (PI ID: 1237)","The title of the ballot does not reflect the ballot material.  ""mapping"" implies ""between two models"" (structural, semantic, or otherwise).  ",Change the name,,A,,,ITS,,,,,,,,,,,,,Scott Robertson ,Kaiser Permanente ,Scott Robertson ,scott.m.robertson@kp.org ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+29,FluentPath,,6.3.1,,,,,index,,A-Q,Clarification,,,Patient.contained.all($this is Patient implies age > 10),,"It is unclear how this example demonstrates the ""is"" type operator.  Please add descriptive text or delete the example.","Clarify ""is"" example",,E,,,ITS,,,,,,,,,,,,,Scott Robertson ,Kaiser Permanente ,Scott Robertson ,scott.m.robertson@kp.org ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+30,FluentPath,,Introduction,,,,,index,,A-S,Enhancement,,,FluentPath,,The name FluentPath has existing IP conflicts such that pursuing a trademark on the name would be unlikely if not impossible. Suggest choosing a different name.,Change the name,,A,,,ITS,,,,,,,,,,,,,Zachary May ,"ESAC, Inc. ",Bryn Rhodes ,bryn@databaseconsultinggroup.com ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+31,FluentPath,,,,,,,index,,A-S,Enhancement,,,,,"The specification should define both a URI and the Media Types for the language. Suggest urn:hl7-org:fhirpath:r1, and text/fhirpath, respectively.",URI and Media Types,,F,,,ITS,,,,,,,,,,,,,Zachary May ,"ESAC, Inc. ",Bryn Rhodes ,bryn@databaseconsultinggroup.com ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+32,FluentPath,,,,,,,index,,A-S,Clarification,,,,,The specification does not explicitly document the case-sensitivity behavior of the language.,Case-sensitivity,,C,,,ITS,,,,,,,,,,,,,Zachary May ,"ESAC, Inc. ",Bryn Rhodes ,bryn@databaseconsultinggroup.com ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+33,FluentPath,,,,,,,index,,A-S,Correction,,,,,The casing for type names is inconsistent throughout the specification. Define the type names with case-sensitivity and apply it consistently.,Type-name case,,_Typo,,,ITS,,,,,,,,,,,,,Zachary May ,"ESAC, Inc. ",Bryn Rhodes ,bryn@databaseconsultinggroup.com ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+34,FluentPath,,6.4.1 | (union collections),,,,,index,,A-S,Enhancement,,,Merge the two collections... eliminating any duplicate values.,,The language should support the ability to merge two collections without eliminating duplicates. Suggest the addition of a .unionAll() operator (perhaps with a syntax of ||).,Union All operator,,F,,,ITS,,,,,,,,,,,,,Zachary May ,"ESAC, Inc. ",Bryn Rhodes ,bryn@databaseconsultinggroup.com ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -1,0 +1,61 @@
+Randy Bates:
+
+We are very excited about the potential of FHIR but feel that several areas should be addressed in this current ballot version: 1. Concerns for Standard Genetic Profile on Observation: - why did you restrict GeneID to HGNC instead of offering alternative terminology choices such as EntrezGene? EntrezGene IDs are commonplace in clinical genomic reporting contexts - There seems to be a large list of attributes but no guidance on which of these should be assembled together for individual Observations. Have you considered using the FHIR Slicing capability to define ways in which these attributes should be assembled - Consider expanding use cases significantly, for example how would you report a fusion gene such as BCR-ABL? 2. Concerns for FamilyMemberHistory: -needs additional use-cases and examples explicitly provided -it is not clear how the new FamilyMemberHistory resource will be utilized to convey meaning. seems that there will now also need a new resource for the familyHistory section of which FamilyMemberHistory will be used. -it is unclear how intrinsic identifiers will be utilized to make use of the genetic-pedigree profile to avoid ambiguity. 
+
+Chris Cioffi:
+
+Inadequate governance of profiles and extensions for USA federal and state regulations and policies
+
+Gary Dickinson:
+
+GForge Item 6303: Include full set of Record Lifecycle Events from ISO/HL7 10781, EHR System Functional Model R2 to Value Set for codes in http://hl7.org/fhir/object-lifecycle. AuditEventObjectLifecycle [requirement from Record Lifecycle Event Metadata project] GForge Item 6304: Need abstract allowing easy extract of Action who, what, when, where and why metadata attributes across all FHIR resources. Relies on consistent set of metadata attributes. [requirement from Record Lifecycle Event IG Project] Additionally, I've attached a set of comments from the 13606/FHIR Alignment Project, led by Helen Broberg of Sweden (HL7 PSS underway, coordinated by ISO TC215 WG1 and CEN TC251 WG1). My vote pertains to items 6303 and 6304 only.
+
+Christol Green:
+
+Major, inadequate governance of profiles and extensions for USA federal and state regulations and policies 
+
+Scott Hollington
+
+ patient reported medication dosing should not require a max dose or units. For more elucidation on this issue, please read my collegue Marla Albitz comment. 
+ 
+Lenel James
+ 
+See the Meg-Maj in the attached upload, issues with inadequate governance procedure to effectively manage the US-realm profiles and extensions for federal, staff and organizational regulations and policy for key healthcare industry stakeholders 
+
+Vincent McCauley
+
+Suggest that the Table of HL7 V2 tables forming part of the FHIR Terminology should specify the latest version rather than allow multiple versions 
+
+Bob Milius
+
+ The Standard Profile for Genetics is a good start for this domain, but it should be emphasized that it represents one view on reporting generic genetic results. Other profiles that represent specific use cases will no doubt reuse these extensions, but in specialized formats (e.g., histoimmunogenetics), and new extensions defined for those use cases. Separate resources/extensions that specifically define sequences and variants of those sequences will need to be created, that include metadata such as coordinate systems (0- or 1-based, and open and/or closed), which differ depending on use cases. Even in this single use case, the coordinate system is not defined which turns understanding the genomicstart and genomicstop coordinates into making trying to make an educated decision (e.g., default to whatever HGVS or VCF is using, or what BED, UCSC internal formats and Genomic Alliance standards are being used). 
+ 
+Zoran Milosevic
+ 
+ The main areas that need to be improved in DSTU2 are: 1. Conformance resource - the existing description seems to be developed ad-hoc. I would highly recommend a more structured and standards-based approach, such as the adoption of the different type of conformance points, namely interworking, programatic, perceptual and interchange reference points, as defined in the ISO/ITU-T standard, RM-ODP (ITU-T X.902 | ISO/IEC 10746-2), clause 15. 2. FHIR section 6.16.3 does not describe all UML classes and this needs to be completed. 3. The concept of profile needs further consolidation. Currently it is unclear what business value the separate provider and consumer profiles bring. 4. What is difference in semantics between a profile and implementation guide ? Looks like an FHIR IG is intended for publication purpose while Profile is for specification/implementation purposes. 5. How does FHIR fit as part of a broader architecture landscape? How does fit within HL7 SAIF specification? Many organisations find it useful to separate logical from implementable specifications as an insurance policy against change. It would be highly valuable to position FHIR as part of such a framework, which would also allow better inclusion of behaviour and policy constraints. Possibly section 3.1 can point to the HL7 SAIF 
+ 
+John Moerkhe
+ 
+Overall Affirmative vote. The core is looking good. A few constructive comments have been entered directly into eForge CP tracker. Number of resources and profiles are clearly not ready. Overall lack of comfort with maturity of concept relative to the necessary radical change in business processes to move from HL7 v2 model to FHIR model. 
+
+Frank Oemig
+
+It must be possible to download a version which can be read offline
+
+Penny Probst
+
+Inadequate governance of profiles and extensions for USA federal and state regulations and policies 
+
+Ioana
+
+Explain precisely how the security guidance should be applied to the operations including the use of Consent and Provenance to make access control decisions. 
+
+David Tucker
+
+Inadequate governance of profiles and extensions for USA federal and state regulations and policies 
+
+Mollie Ullman-Cullere
+
+for CIGAR, recommend making observed nucleotides differing from the reference UPPERCASE and the nucleotides which are the same as the reference lowercase
+
+  
