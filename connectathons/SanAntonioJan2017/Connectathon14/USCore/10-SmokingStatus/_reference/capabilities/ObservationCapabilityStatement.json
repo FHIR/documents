@@ -1,0 +1,31 @@
+{
+  "resourceType": "CapabilityStatement",
+  "rest": [
+    {
+      "mode": "server",
+      "resource": [
+        {
+          "type": "Observation",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "code",
+              "type": "token"
+            },
+            {
+              "name": "patient",
+              "type": "reference"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

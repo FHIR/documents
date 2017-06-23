@@ -1,0 +1,65 @@
+{
+  "resourceType": "ValueSet",
+  "url": "http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-4",
+  "identifier": [
+    {
+      "value": "extensional-case-4"
+    }
+  ],
+  "status": "draft",
+  "experimental": true,
+  "expansion": {
+    "contains": [
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "code": "emergency",
+        "display": "Emergency"
+      },
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "code": "family",
+        "display": "Family"
+      },
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "code": "guardian",
+        "display": "Guardian"
+      },
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "code": "friend",
+        "display": "Friend"
+      },
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "code": "partner",
+        "display": "Partner"
+      },
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "code": "work",
+        "display": "Work"
+      },
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "code": "parent",
+        "display": "Parent"
+      },
+      {
+        "system": "http://hl7.org/fhir/v3/RoleCode",
+        "code": "CHILD",
+        "display": "child"
+      },
+      {
+        "system": "http://hl7.org/fhir/v3/RoleCode",
+        "code": "FTH",
+        "display": "father"
+      },
+      {
+        "system": "http://hl7.org/fhir/v3/RoleCode",
+        "code": "MTH",
+        "display": "mother"
+      }
+    ]
+  }
+}

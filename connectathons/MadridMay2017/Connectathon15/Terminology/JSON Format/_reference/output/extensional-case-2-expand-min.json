@@ -1,0 +1,135 @@
+{
+  "resourceType": "ValueSet",
+  "url": "http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-2",
+  "identifier": [
+    {
+      "value": "extensional-case-2"
+    }
+  ],
+  "status": "draft",
+  "experimental": true,
+  "expansion": {
+    "contains": [
+      {
+        "system": "http://loinc.org",
+        "code": "11378-7",
+        "display": "Systolic blood pressure at First encounter"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8493-9",
+        "display": "Systolic blood pressure 10 hour minimum"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8494-7",
+        "display": "Systolic blood pressure 12 hour minimum"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8495-4",
+        "display": "Systolic blood pressure 24 hour minimum"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8450-9",
+        "display": "Systolic blood pressure--expiration"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8451-7",
+        "display": "Systolic blood pressure--inspiration"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8452-5",
+        "display": "Systolic blood pressure.inspiration - expiration"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8459-0",
+        "display": "Systolic blood pressure--sitting"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8460-8",
+        "display": "Systolic blood pressure--standing"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8461-6",
+        "display": "Systolic blood pressure--supine"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8479-8",
+        "display": "Systolic blood pressure by palpation"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8480-6",
+        "display": "Systolic blood pressure"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8481-4",
+        "display": "Systolic blood pressure 1 hour maximum"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8482-2",
+        "display": "Systolic blood pressure 8 hour maximum"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8483-0",
+        "display": "Systolic blood pressure 10 hour maximum"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8484-8",
+        "display": "Systolic blood pressure 12 hour maximum"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8485-5",
+        "display": "Systolic blood pressure 24 hour maximum"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8486-3",
+        "display": "Systolic blood pressure 1 hour mean"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8487-1",
+        "display": "Systolic blood pressure 8 hour mean"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8488-9",
+        "display": "Systolic blood pressure 10 hour mean"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8489-7",
+        "display": "Systolic blood pressure 12 hour mean"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8490-5",
+        "display": "Systolic blood pressure 24 hour mean"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8491-3",
+        "display": "Systolic blood pressure 1 hour minimum"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8492-1",
+        "display": "Systolic blood pressure 8 hour minimum"
+      }
+    ]
+  }
+}

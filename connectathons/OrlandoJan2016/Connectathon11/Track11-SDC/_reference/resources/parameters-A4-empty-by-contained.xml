@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../../../build/schema/parameters.xsd">
+  <parameter>
+    <name value="questionnaire"/>
+    <resource>
+${questionnaire}
+    </resource>
+  </parameter>
+  <parameter>
+    <name value="subject"/>
+    <valueReference>
+      <reference value="Patient/1"/>
+    </valueReference>
+  </parameter>
+</Parameters>

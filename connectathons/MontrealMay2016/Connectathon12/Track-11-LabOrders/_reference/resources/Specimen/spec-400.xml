@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Specimen xmlns="http://hl7.org/fhir">
+	<id value="spec-400"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b>Generated Narrative with Details</b>
+			</p>
+			<p>
+				<b>id</b>: spec-400</p>
+			<p>
+				<b>type</b>: Stool specimen 
+				<span style="background: LightGoldenRodYellow ">(Details : {SNOMED CT code "119339001" := "119339001", given as "Stool specimen"})</span>
+			</p>
+			<p>
+				<b>subject</b>: 
+				<a href="Patient/patient-uslab-example1">Todd Lerr</a>
+			</p>
+			<p>
+				<b>accessionIdentifier</b>: 21041205000001 (official)
+			</p>
+		</div>
+	</text>
+	<!--   a specimen identifier - e.g. assigned when the specimen was taken by the orderer/placer  use the accession number for the filling lab   -->
+	<!--  Placer ID  -->
+	<!--  Filler ID moved to accsession number
+	<identifier>
+		<use value="official"></use>
+		<label  value="Filler Specimen ID"></label>
+		<system value="http://lis.acmelabs.org/identifiers/specimen"/>
+		<value value="SID456"/>
+	</identifier>
+	-->
+	<!--   accession identifier - e.g. assigned by the labaratory when it is received.
+	This is common, unlike specimen identifier   -->
+	<accessionIdentifier>
+		<use value="official"/>
+		<system value="http://lis.acmelabs.org/identifiers/accession"/>
+		<value value="21041205000001"/>
+	</accessionIdentifier>
+	<!--  
+	Type is a loosely defined field because there is such a lot of variation in how it is used.
+	The principal variation is how much information that could be represented elsewhere is also
+	represented here. For instance, here's some possible types:
+	lithium heparin plasma   (+ .container.additive) (e.g. SNOMED CT 446272009)
+	transfusion bag of blood (+ container.type)
+	Peritoneal lavage        (+ collection.bodySite)
+	If the type includes other fields, it would be normal not to populate the other fields
+
+	Note that this practice is so widespread that it's pointless to try and stop it  :(   -->
+	<!--  choice of SNOMED CT concept code...  -->
+	<type>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="119339001"/>
+			<display value="Stool specimen"/>
+		</coding>
+		<text value="Stool specimen"/>
+	</type>
+	<!--  Patient is required from core   -->
+	<subject>
+		<reference value="Patient/patient-uslab-example1"/>
+		<display value="Todd Lerr"/>
+	</subject>
+	<collection>
+		<!--   the time of collection is required. Usually a point in time, but can be a period
+		(collectedPeriod) if it's a timed collection (e.g. a 24 hour urine)   -->
+		<collectedDateTime value="2014-12-05"/>
+	</collection>
+</Specimen>

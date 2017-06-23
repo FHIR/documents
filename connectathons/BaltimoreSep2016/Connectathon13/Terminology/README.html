@@ -1,0 +1,142 @@
+<html>
+<head>
+	<title>FHIR Connectathon 13 Testing - Terminology Services</title>
+</head>
+<body style="font-family:arial">
+	<h1>FHIR Connectathon 13 Testing - Terminology Services</h1>
+	<h3>Conventions Used</h3>
+	<p>
+		The execution of the TestScript resources contained in this folder are constrained by the following
+		conventions:
+	</p>
+	<ul>
+		<li>
+			<b>Fixtures</b> - All resource reference values can be either url paths or local local file system
+			paths. The convention for these TestScript resources use local file system paths where the
+			execution engine is expected to resolve this path based on the following:
+			<ul>
+				<li>
+					Leading '/' character - this is resolved as an absolute path based on a known root path
+				</li>
+				<li>
+					No leading '/' character - this is resolved as a relative path based on the location of the
+					TestScript resource file
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<hr width="100%"></hr>
+
+	<h2>FHIR Connectathon 13 Testing - Baltimore, MD - September 2016</h2>
+	<h3>Track 16 - Terminology Services</h3>
+	<p>
+		The TestScript resources in this folder represent an evolution** of the TestScript originally used at the
+		1st Terminology Services Connectathon held in Washington, February 2014 and then subsequently expanded
+		upon at the FHIR Connectathons 10 in Atlanta, GA; 11 in Orlando, FL; and 12 in Montreal, QC.
+	</p>
+	<p>
+		The current TestScript definitions have been separated into operation specific folders. In addition, for
+		the $expand and $validate-code operations the TestScripts have been sub-grouped into three variations where
+		the FHIR client or server assigns the resource id of the required ValueSet resources created in the setup,
+		or the FHIR server is expected to already have the named ValueSet resources in its repository.
+	</p>
+	<p>
+		The main reasons for this separation are:
+	</p>
+	<ul>
+		<li>
+			The current TestScript definition no longer contains the &lt;suite&gt; element. Without the &lt;suite&gt; element
+			as a grouping mechanism it made more sense to to break up the tests into separate TestScripts.
+		</li>
+		<li>
+			The overall separation of the original suite of tests into separate TestScript resources allows for a
+			finer execution control.
+		</li>
+		<li>
+			The &lt;setup&gt; from the original TestScript definition has been replicated to each of the new TestScript resources
+			in order to follow industry best practices of each TestScript remaining independently executable.
+		</li>
+	</ul>
+	<h3>Expand Operation - $expand</h3>
+	<div style="margin-left: 50px">
+		<h4>Client Assigned (Resource) Id</h4>
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>connectathon-13-ts-expand-client-id</td><td>Terminology tests for $expand where the FHIR client assigns the ValueSet resource id in the setup.</td></tr>
+			<tr><td>connectathon-13-ts-expand-filter-client-id</td><td>Terminology tests for $expand with filter options where the FHIR client assigns the ValueSet resource id in the setup.</td></tr>
+		</table>
+		<h4>Server Assigned (Resource) Id</h4>
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>connectathon-13-ts-expand-server-id</td><td>Terminology tests for $expand where the FHIR server assigns the ValueSet resource id in the setup.</td></tr>
+			<tr><td>connectathon-13-ts-expand-filter-server-id</td><td>Terminology tests for $expand with filter options where the FHIR server assigns the ValueSet resource id in the setup.</td></tr>
+		</table>
+		<h4>Use Expected Existing ValueSet Resources</h4>
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>connectathon-13-ts-expand-existing-id</td><td>Terminology tests for $expand where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
+			<tr><td>connectathon-13-ts-expand-filter-existing-id</td><td>Terminology tests for $expand with filter options where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
+		</table>
+	</div>
+	<h3>Validate Code Operation - $validate-code</h3>
+	<div style="margin-left: 50px">
+		<h4>Client Assigned (Resource) Id</h4>
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>connectathon-13-ts-validate-code-client-id</td><td>Terminology tests for $validate-code where the FHIR client assigns the ValueSet resource id in the setup.</td></tr>
+			<tr><td>connectathon-13-ts-validate-code-optional-client-id</td><td>Terminology tests for $validate-code with optional invocations where the FHIR client assigns the ValueSet resource id in the setup.</td></tr>
+		</table>
+		<h4>Server Assigned (Resource) Id</h4>
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>connectathon-13-ts-validate-code-server-id</td><td>Terminology tests for $validate-code where the FHIR server assigns the ValueSet resource id in the setup.</td></tr>
+			<tr><td>connectathon-13-ts-validate-code-optional-server-id</td><td>Terminology tests for $validate-code with optional invocations where the FHIR server assigns the ValueSet resource id in the setup.</td></tr>
+		</table>
+		<h4>Use Expected Existing ValueSet Resources</h4>
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>connectathon-13-ts-validate-code-server-id</td><td>Terminology tests for $validate-code where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
+			<tr><td>connectathon-13-ts-validate-code-optional-server-id</td><td>Terminology tests for $validate-code with optional invocations where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
+		</table>
+	</div>
+	<h3>Lookup Operation - $lookup</h3>
+	<div style="margin-left: 50px">
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>connectathon-13-ts-lookup-loinc-xml</td><td>Terminology tests for $lookup operations against the LOINC set of terminology codes.</td></tr>
+			<tr><td>connectathon-13-ts-lookup-snomed-xml</td><td>Terminology tests for $lookup operations against the SNOMED-CT set of terminology codes.</td></tr>
+		</table>
+	</div>
+	<h3>Subsumes Operation - $subsumes</h3>
+	<div style="margin-left: 50px">
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>connectathon-13-ts-subsumes-snomed-xml</td><td>Terminology tests for $subsumes operations against the SNOMED-CT set of terminology codes.</td></tr>
+		</table>
+	</div>
+	<h3>Translate Operation - $translate</h3>
+	<div style="margin-left: 50px">
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>connectathon-13-ts-translate-xml</td><td>Terminology tests for $translate operations against the ConceptMap for FHIR/v3 Address Use Mapping.</td></tr>
+		</table>
+	</div>
+	<h3>Closure Operation - $closure</h3>
+	<div style="margin-left: 50px">
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>TBD</td><td>To Be Developed</td></tr>
+		</table>
+	</div>
+	<p>
+		<b>**</b> <i>This representation of the Terminology Services tests is not meant to be diffinitive and complete. This is
+		one example of how these tests can be defined using the TestScript resource.
+		Constructive feedback, suggestions and critisms are welcome.</i>
+	</p>
+	<p>
+		Richard Ettema, AEGIS.net</br>
+		<a href="mailto:richard.ettema@aegis.net">richard.ettema@aegis.net</a>
+	</p>
+</body>
+</html>

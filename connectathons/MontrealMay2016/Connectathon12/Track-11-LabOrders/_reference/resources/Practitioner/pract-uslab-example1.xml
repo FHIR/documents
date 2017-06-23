@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir">
+	<id value="pract-uslab-example1"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b>Generated Narrative with Details</b>
+			</p>
+			<p>
+				<b>id</b>: pract-uslab-example1</p>
+			<p>
+				<b>identifier</b>: 4444444445 (OFFICIAL)</p>
+			<p>
+				<b>name</b>: Leanard T Bloodraw </p>
+			<p>
+				<b>telecom</b>: ph: (555)7771234 ext.11</p>
+		</div>
+	</text>
+	<identifier>
+		<use value="official"/>
+		<system value="http://hl7.org/fhir/sid/us-npi"/>
+		<!--   NPI  -->
+		<value value="4444444445"/>
+	</identifier>
+	<name>
+		<family value="Bloodraw"/>
+		<given value="Leanard"/>
+		<given value="T"/>
+		<suffix value="Jr"/>
+	</name>
+	<telecom>
+		<system value="phone"/>
+		<value value="(555)7771234 ext.11"/>
+	</telecom>
+</Practitioner>

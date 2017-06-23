@@ -1,0 +1,50 @@
+{
+  "resourceType": "CapabilityStatement",
+  "rest": [
+    {
+      "mode": "server",
+      "resource": [
+        {
+          "type": "Patient",
+          "interaction": [
+            {
+              "code": "create"
+            },
+            {
+              "code": "read"
+            },
+            {
+              "code": "vread"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "delete"
+            },
+            {
+              "code": "history-instance"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "family",
+              "type": "string"
+            },
+            {
+              "name": "given",
+              "type": "string"
+            },
+            {
+              "name": "identifier",
+              "type": "token"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

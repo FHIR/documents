@@ -1,0 +1,43 @@
+<RiskAssessment xmlns="http://hl7.org/fhir">
+ <id value="readiness-assessment"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Breastmilk Feeding Readiness Assessment</div>
+  </text>
+  <status value="final"/>
+  <code>
+	  <coding>
+		  <system value="http://example.org/dataelements"/>
+		  <code value="breastfeeding-intention"/>
+		  <display value="Breastfeeding Intention"/>
+	  </coding>
+	  <text value="Breastfeeding Intention"/>
+  </code>
+  <subject>
+	  <reference value="Patient/patient-mother"/>
+	  <display value="Jones, Mary"/>
+  </subject>
+  <occurrenceDateTime value="2016-03-07T23:01:00Z"/>
+  <!-- This seems like the correct "method", the risk assessment was obtained by administering a Breastmilk Feeding Readiness Assessment to the subject. -->
+  <method>
+    <coding>
+      <system value="http://example.org/documentationtemplates"/>
+      <code value="breastmilk-feeding-readiness-assessment"/>
+      <display value="Breastmilk Feeding Readiness Assessment"/>
+    </coding>
+  </method>
+  <basis>
+	  <reference value="QuestionnaireResponse/questionnaireresponse-breastfeeding-readiness-assessment"/>
+  </basis>
+  <!-- Seems wrong to call this a prediction... it's not a prediction, it's a specific response given by the subject -->
+  <prediction>
+    <outcome>
+      <coding>
+          <system value="http://example.org/codesystem-breastfeeding-intention"/>
+		  <code value="negative"/>
+		  <display value="Intention not to breast feed"/>
+      </coding>
+      <text value="Intention Not To Breast Feed"/>
+    </outcome>
+  </prediction>
+</RiskAssessment>

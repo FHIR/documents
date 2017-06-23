@@ -1,0 +1,36 @@
+<Patient xmlns="http://hl7.org/fhir">
+  <id value="patient-mother"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Mary Jones - Mother</div>
+  </text>
+  <identifier>
+    <use value="usual"/>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/v2/0203"/>
+        <code value="MR"/>
+      </coding>
+    </type>
+    <system value="urn:oid:1.2.36.146.595.217.0.1"/>
+    <value value="ACME-0000001"/>
+    <period>
+      <start value="2016-03-07"/>
+    </period>
+    <assigner>
+      <display value="Acme Healthcare"/>
+    </assigner>
+  </identifier>
+  <active value="true"/>
+  <name>
+    <use value="official"/>
+    <family value="Mary"/>
+    <given value="Peter"/>
+  </name>
+  <gender value="female"/>
+  <birthDate value="1984-02-24"/>
+  <deceasedBoolean value="false"/>
+  <managingOrganization>
+    <reference value="Organization/1"/>
+  </managingOrganization>
+</Patient>

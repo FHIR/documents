@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Apr 3, 2013 3:30:10 PM; Genetic analysis master panel; Preliminary</div>
+	</text>
+	<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNASequenceVariation">
+		<valueString value="NG_007726.3:g.146252T&gt;G"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNAVariationId">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://www.genenames.org"/>
+				<code value="rs587778247"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://www.genenames.org"/>
+				<code value="3236"/>
+				<display value="EGFR"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNARegionName">
+		<valueString value="Exon 21"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/LOINC-48002-0-answerlist"/>
+				<code value="LA6683-2"/>
+				<display value="germline"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+	<identifier>
+		<system value="http://happyvalley.com/observation"/>
+		<value value="${CD12}${D7}"/>
+	</identifier>
+	<status value="preliminary"/>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="55233-1"/>
+			<display value="Genetic analysis master panel"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/${createPatientId}"/>
+		<display value="Molecular Lab Patient ID: HOSP-23456"/>
+	</subject>
+	<effectiveDateTime value="2013-04-03T15:30:10+01:00"/>
+	<issued value="2013-04-03T15:30:10+01:00"/>
+	<performer>
+		<reference value="Practitioner/${createPractitionerId}"/>
+		<display value="Molecular Diagnostics Laboratory"/>
+	</performer>
+	<valueCodeableConcept>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="10828004"/>
+			<display value="Positive"/>
+		</coding>
+	</valueCodeableConcept>
+	<specimen>
+		<reference value="Specimen/${createSpecimenId}"/>
+		<display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+	</specimen>
+</Observation>

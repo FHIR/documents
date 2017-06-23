@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-15-location-locate-telecom-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-0-0/TestScript/connectathon-15-location-locate-telecom-xml"/>
+	<name value="FHIR Connectathon 15 - Provider Directory - Scenario 4 - Location Locate Telecom - XML"/>
+	<status value="draft"/>
+	<date value="2017-04-05"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Location search capabilities tests; resource format XML; validate telecom and physical address; test a FHIR server's Location search operation support using the parameters: name, address, address-city, address-postalcode and address-state. Default values for the search parameters are based on the Location Resource Example and can be modified to allow testing against other known Location resource instances."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Location read and search operations"/>
+			<link value="http://wiki.hl7.org/index.php?title=201705_Provider_Directories_and_Scheduling"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#read"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#search"/>
+			<capabilities>
+				<reference value="../../_reference/capabilities/LocationCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>	
+
+	<profile id="location-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Location" />
+	</profile>
+
+	<variable>
+		<name value="LocationSearchNameCriteria"/>
+		<defaultValue value="Health Level Seven International - Amherst"/>
+	</variable>
+	<variable>
+		<name value="LocationSearchAddressCityCriteria"/>
+		<defaultValue value="Amherst"/>
+	</variable>
+	<variable>
+		<name value="LocationSearchAddressPostalCodeCriteria"/>
+		<defaultValue value="01002"/>
+	</variable>
+	<variable>
+		<name value="LocationSearchAddressStateCriteria"/>
+		<defaultValue value="MA"/>
+	</variable>
+	<variable>
+		<name value="LocationResourceId"/>
+		<path value="Location/id" />
+		<sourceId value="search-response"/>
+	</variable>
+
+	<test id="01-LocationSearchName">
+		<name value="LocationSearchName"/>
+		<description value="Search Location using the name search parameter with the provided name data value."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Location"/>
+				<description value="Search for Location matches using the name search."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?name=${LocationSearchNameCriteria}"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. Although not expected, there could be other location records returned."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches the number of entries in the Bundle"/>
+				<direction value="response"/>
+				<expression value="Bundle.total = entry.count()"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Location"/>
+				<description value="Read the first Location found in the name search and verify the contents contain a telecom and physical address."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="/${LocationResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/xml+fhir'."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Location."/>
+				<direction value="response"/>
+				<resource value="Location"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Location conforms to the base FHIR specification. Warning only to allow for Example code systems."/>
+				<direction value="response"/>
+				<validateProfileId value="location-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Location contains a telecom value. Warning only to allow subsequent asserts to execute."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Location/telecom/value"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Location contains address-city value. Warning only to allow subsequent asserts to execute."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Location/address/city"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Location contains address-state value. Warning only to allow subsequent asserts to execute."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Location/address/state"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Location contains address-postalcode value. Warning only to allow subsequent asserts to execute."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Location/address/postalCode"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-LocationSearchAddress">
+		<name value="LocationSearchAddress"/>
+		<description value="Search Location using the address search parameter with the provided address.city data values."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Location"/>
+				<description value="Search for Location matches using the address search parameter."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?address=${LocationSearchAddressCityCriteria}"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. Although not expected, there could be other location records returned."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches the number of entries in the Bundle"/>
+				<direction value="response"/>
+				<expression value="Bundle.total = entry.count()"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Location"/>
+				<description value="Read the first Location found in the address search and verify the contents contain a telecom and physical address."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="/${LocationResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/xml+fhir'."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Location."/>
+				<direction value="response"/>
+				<resource value="Location"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Location conforms to the base FHIR specification. Warning only to allow for Example code systems."/>
+				<direction value="response"/>
+				<validateProfileId value="location-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Location contains a telecom value. Warning only to allow subsequent asserts to execute."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Location/telecom/value"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Location contains address-city value. Warning only to allow subsequent asserts to execute."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Location/address/city"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Location contains address-state value. Warning only to allow subsequent asserts to execute."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Location/address/state"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Location contains address-postalcode value. Warning only to allow subsequent asserts to execute."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Location/address/postalCode"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-LocationSearchAddressCityStatePostalCode">
+		<name value="LocationSearchAddressCityStatePostalCode"/>
+		<description value="Search Location using the address-city, address-state and address-postalcode search parameters with the provided address.city, address.state and address.postalCode data values."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Location"/>
+				<description value="Search for Location matches using the address-city, address-state and address-postalcode search parameters."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?address-city=${LocationSearchAddressCityCriteria}&amp;address-state=${LocationSearchAddressStateCriteria}&amp;address-postalcode=${LocationSearchAddressPostalCodeCriteria}"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. Although not expected, there could be other location records returned."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches the number of entries in the Bundle"/>
+				<direction value="response"/>
+				<expression value="Bundle.total = entry.count()"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Location"/>
+				<description value="Read the first Location found in the address-city, address-state and address-postalcode search and verify the contents contain a telecom and physical address."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="/${LocationResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/xml+fhir'."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Location."/>
+				<direction value="response"/>
+				<resource value="Location"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Location conforms to the base FHIR specification. Warning only to allow for Example code systems."/>
+				<direction value="response"/>
+				<validateProfileId value="location-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Location contains a telecom value. Warning only to allow subsequent asserts to execute."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Location/telecom/value"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Location contains address-city value. Warning only to allow subsequent asserts to execute."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Location/address/city"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Location contains address-state value. Warning only to allow subsequent asserts to execute."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Location/address/state"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Location contains address-postalcode value. Warning only to allow subsequent asserts to execute."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Location/address/postalCode"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

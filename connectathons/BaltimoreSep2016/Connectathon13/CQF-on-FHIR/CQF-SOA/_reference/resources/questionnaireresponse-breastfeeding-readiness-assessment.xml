@@ -1,0 +1,35 @@
+<QuestionnaireResponse xmlns="http://hl7.org/fhir">
+  <id value="questionnaireresponse-breastfeeding-readiness-assessment"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml"><pre>Exclusive Breastfeeding Intention: Negative</pre></div>
+  </text>
+  <questionnaire>
+	  <reference value="Questionnaire/questionnaire-breastfeeding-readiness-assessment"/>
+  </questionnaire>
+  <status value="completed"/>
+  <subject>
+    <reference value="Patient/patient-mother"/>
+  </subject>
+  <context>
+	  <reference value="Encounter/encounter-live-birth"/>
+  </context>
+  <author>
+    <reference value="Practitioner/practitioner-charge-nurse"/>
+  </author>
+  <authored value="2016-03-07T14:30:00-06:00"/>
+  <source>
+	  <reference value="Patient/patient-mother"/>
+  </source>
+  <item>
+	<linkId value="breastfeeding-intention"/>
+	<text value="Do you intend to exclusively breastfeed your infant for the next six months?"/>
+	<answer>
+		<valueCoding>
+			<system value="http://example.org/codesystem-breastfeeding-intention"/>
+			<code value="negative"/>
+			<display value="The mother does not intend to breastfeed exclusively."/>
+		</valueCoding>
+	</answer>
+  </item>
+</QuestionnaireResponse>

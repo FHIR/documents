@@ -1,0 +1,31 @@
+<Conformance xmlns="http://hl7.org/fhir">
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="Location"/>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<searchParam>
+				<name value="name"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="address"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="address-city"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="address-postalcode"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="address-state"/>
+				<type value="string"/>
+			</searchParam>
+		</resource>
+	</rest>
+</Conformance>

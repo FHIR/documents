@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<h3>Genetic test Report for Mary Chambers</h3>
+			<pre>
+				Gene                DNAVariation       Status        Interpretation
+				BRCA2                 185delAG        Positive         Pathogenic
+			</pre>
+			<p> Method: BRACAnalysis CDx Offered by Myriad Genetic Laboratories, Inc </p>
+			<p> Issued: 2015-05-26T15:30:10+01:00</p>
+			<p> FamilyMemeberHistory: Mother </p>
+			<pre>
+				Gene                 DNAVariation      Status
+				BRCA2                 185delAG        Positive
+			</pre>
+			<p> Method: BRACAnalysis CDx Offered by Myriad Genetic Laboratories, Inc </p>
+		</div>
+	</text>
+	<extension url="http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsFamilyMemberHistory">
+		<valueReference>
+			<reference value="FamilyMemberHistory/${createFamilyMemberHistoryId}"/>
+		</valueReference>
+	</extension>
+	<identifier>
+		<system value="http://happyvalley.com/diagnosticreport"/>
+		<value value="${CD7}${D11}"/>
+	</identifier>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="15220000"/>
+			<display value="Laboratory test"/>
+		</coding>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0074"/>
+			<code value="LAB"/>
+		</coding>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="55233-1"/>
+			<display value="Genetic analysis master panel"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/${createPatientId}"/>
+		<display value="Mary Chambers"/>
+	</subject>
+	<effectiveDateTime value="2015-05-26T15:30:10+01:00"/>
+	<issued value="2014-05-16T10:28:00+01:00"/>
+	<performer>
+		<reference value="Practitioner/${createPractitionerId}"/>
+		<display value="Molecular Diagnostic Laboratory"/>
+	</performer>
+	<specimen>
+		<reference value="Specimen/${createSpecimenId}"/>
+		<display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+	</specimen>
+	<result>
+		<reference value="Observation/${createObservationId}"/>
+		<display value="Genetic analysis for BRAC -2"/>
+	</result>
+</DiagnosticReport>

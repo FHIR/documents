@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GuidanceResponse xmlns="http://hl7.org/fhir">
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="a3fd7118-aed5-48fa-9f5f-3b2c57cd85b0" />
+			<patient>
+				<reference value="Patient/ECRSTEST100091071"/>
+			</patient>
+			<recommendation>
+				<date value="2016-08-30"/>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="PNEUMO" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1" />
+				<forecastStatus>
+					<coding>
+						<code value="due"/>
+					</coding>
+				</forecastStatus>
+				<dateCriterion>
+					<code>
+						<coding>
+							<code value="due"/>
+						</coding>
+					</code>
+					<value value="2016-08-30" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="c57417a3-659c-4606-8c21-6bf544588f50" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="ROTAVIRUS" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="0" />
+				<dateCriterion>
+					<value value="" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="c938dd01-b31c-4b5a-8caf-5501bf2d38d5" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="POLIO" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="0" />
+				<dateCriterion>
+					<value value="" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="c5ce9357-9969-407f-a067-35c9b2f634f5" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="MENING" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="0" />
+				<dateCriterion>
+					<value value="" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="cd5d7f5a-6f00-48c1-8e16-928627b6b491" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="VARICELLA" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="0" />
+				<dateCriterion>
+					<value value="" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="e74f52df-0311-4bb6-82ca-722f4a96ac65" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="ZOSTER" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="0" />
+				<dateCriterion>
+					<value value="" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="de277ad3-7ba5-4df6-b3e3-d9cc5f80b6b1" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="HepB" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="0" />
+				<dateCriterion>
+					<value value="" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="a06a2f9d-e2c4-40f1-b1af-dc3aa4f001b7" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="HepA" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="0" />
+				<dateCriterion>
+					<value value="" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="6179aa4d-e1ca-47c0-8a15-c2375cc3cc69" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="MMR" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="0" />
+				<dateCriterion>
+					<value value="" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="3526f18e-a4a1-4f78-a939-54af71c5d245" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="HPV" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="0" />
+				<dateCriterion>
+					<value value="" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="f75eae2f-3d6c-41ab-aea1-bf39ee3f9eb4" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="HIB" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="0" />
+				<dateCriterion>
+					<value value="" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="06cbc464-add2-4072-8662-e001c7b3497b" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="FLU" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="0" />
+				<dateCriterion>
+					<value value="" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="95d2dfac-560e-4621-b7b9-371899e4b883" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="DTAP_ALL" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="0" />
+				<dateCriterion>
+					<value value="" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<module>
+		<reference value="DecisionSupportServiceModule/ecrs-fhir-cdc-immunizations" />
+	</module>
+	<status value="success" />
+	<action>
+		<textEquivalent value="Please use clinical judgement for administering Pneumococcal vaccine" />
+		<type value="create" />
+		<resource>
+			<reference value="#a3fd7118-aed5-48fa-9f5f-3b2c57cd85b0" />
+			<display value="Please use clinical judgement for administering Pneumococcal vaccine" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Please use clinical judgement for administering Rotavirus Vaccine" />
+		<type value="create" />
+		<resource>
+			<reference value="#c57417a3-659c-4606-8c21-6bf544588f50" />
+			<display value="Please use clinical judgement for administering Rotavirus Vaccine" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Please use clinical judgement for administering Polio Vaccine" />
+		<type value="create" />
+		<resource>
+			<reference value="#c938dd01-b31c-4b5a-8caf-5501bf2d38d5" />
+			<display value="Please use clinical judgement for administering Polio Vaccine" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Please use clinical judgement for administering Meningococcal Vaccine" />
+		<type value="create" />
+		<resource>
+			<reference value="#c5ce9357-9969-407f-a067-35c9b2f634f5" />
+			<display value="Please use clinical judgement for administering Meningococcal Vaccine" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Please use clinical judgement for administering Varicella Vaccine" />
+		<type value="create" />
+		<resource>
+			<reference value="#cd5d7f5a-6f00-48c1-8e16-928627b6b491" />
+			<display value="Please use clinical judgement for administering Varicella Vaccine" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Please use clinical judgement for administering Varicella Zoster Vaccine" />
+		<type value="create" />
+		<resource>
+			<reference value="#e74f52df-0311-4bb6-82ca-722f4a96ac65" />
+			<display value="Please use clinical judgement for administering Varicella Zoster Vaccine" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Please use clinical judgement for administering HepB Vaccine" />
+		<type value="create" />
+		<resource>
+			<reference value="#de277ad3-7ba5-4df6-b3e3-d9cc5f80b6b1" />
+			<display value="Please use clinical judgement for administering HepB Vaccine" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Please use clinical judgement for administering Hepatitis A vaccine" />
+		<type value="create" />
+		<resource>
+			<reference value="#a06a2f9d-e2c4-40f1-b1af-dc3aa4f001b7" />
+			<display value="Please use clinical judgement for administering Hepatitis A vaccine" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Please use clinical judgement for administering MMR Vaccine" />
+		<type value="create" />
+		<resource>
+			<reference value="#6179aa4d-e1ca-47c0-8a15-c2375cc3cc69" />
+			<display value="Please use clinical judgement for administering MMR Vaccine" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Please use clinical judgement for administering HPV Vaccine" />
+		<type value="create" />
+		<resource>
+			<reference value="#3526f18e-a4a1-4f78-a939-54af71c5d245" />
+			<display value="Please use clinical judgement for administering HPV Vaccine" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Please use clinical judgement for administering HIB Vaccine" />
+		<type value="create" />
+		<resource>
+			<reference value="#f75eae2f-3d6c-41ab-aea1-bf39ee3f9eb4" />
+			<display value="Please use clinical judgement for administering HIB Vaccine" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Please use clinical judgement for administering the seasonal influenza vaccine" />
+		<type value="create" />
+		<resource>
+			<reference value="#06cbc464-add2-4072-8662-e001c7b3497b" />
+			<display value="Please use clinical judgement for administering the seasonal influenza vaccine" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Please use clinical judgement for administering the Tdap, DTaP, TD vaccine" />
+		<type value="create" />
+		<resource>
+			<reference value="#95d2dfac-560e-4621-b7b9-371899e4b883" />
+			<display value="Please use clinical judgement for administering the Tdap, DTaP, TD vaccine" />
+		</resource>
+	</action>
+</GuidanceResponse>

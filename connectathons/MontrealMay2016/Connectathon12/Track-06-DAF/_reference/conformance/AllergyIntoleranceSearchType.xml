@@ -1,0 +1,71 @@
+<Conformance xmlns="http://hl7.org/fhir">
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="AllergyIntolerance"/>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<searchParam>
+				<name value="status"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="onset"/>
+				<type value="date"/>
+			</searchParam>
+			<searchParam>
+				<name value="last-date"/>
+				<type value="date"/>
+			</searchParam>
+			<searchParam>
+				<name value="severity"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="type"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="date"/>
+				<type value="date"/>
+			</searchParam>
+			<searchParam>
+				<name value="reporter"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="substance"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="criticality"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="category"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="patient"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="recorder"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="route"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="identifier"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="manifestation"/>
+				<type value="token"/>
+			</searchParam>
+		</resource>
+	</rest>
+</Conformance>

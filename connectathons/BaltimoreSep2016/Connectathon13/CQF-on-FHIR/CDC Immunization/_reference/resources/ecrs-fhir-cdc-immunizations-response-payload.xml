@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GuidanceResponse xmlns="http://hl7.org/fhir" xmlns:ns2="http://www.w3.org/1999/xhtml">
+	<id value="d137f005-0d9f-4f72-802e-f6ab8fe06bab"/>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="6e252049-ca11-48a7-8a68-8e9f2b942a14"/>
+			<patient>
+				<reference value="Patient/example"/>
+			</patient>
+			<recommendation>
+				<date value="2016-08-29T13:16:16-04:00"/>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0"/>
+						<code value="HPV"/>
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1"/>
+				<forecastStatus>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.96"/>
+						<code value="410535002"/>
+					</coding>
+					<text value="Indicated without Precaution"/>
+				</forecastStatus>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="earliest"/>
+						</coding>
+						<text value="hard stop low"/>
+					</code>
+					<value value="2023-09-14T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="latest"/>
+						</coding>
+						<text value="hard stop high"/>
+					</code>
+					<value value="2041-09-14T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="recommended"/>
+						</coding>
+						<text value="suggested  administration date low"/>
+					</code>
+					<value value="2025-09-14T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="overdue"/>
+						</coding>
+						<text value="suggested  administration date high"/>
+					</code>
+					<value value="2026-09-14T00:00:00-04:00"/>
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="c9fbc59d-dc38-4ec0-9c1a-a95e487dcd63"/>
+			<patient>
+				<reference value="Patient/example"/>
+			</patient>
+			<recommendation>
+				<date value="2016-08-29T13:16:16-04:00"/>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0"/>
+						<code value="ROTAVIRUS"/>
+					</coding>
+				</vaccineCode>
+				<forecastStatus>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.96"/>
+						<code value="410534003"/>
+					</coding>
+					<text value="Not Indicated"/>
+				</forecastStatus>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="earliest"/>
+						</coding>
+						<text value="hard stop low"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="latest"/>
+						</coding>
+						<text value="hard stop high"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="recommended"/>
+						</coding>
+						<text value="suggested  administration date low"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="overdue"/>
+						</coding>
+						<text value="suggested  administration date high"/>
+					</code>
+					<value/>
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="e3a48da2-bbc1-4b7b-9d8d-951d4185c6ac"/>
+			<patient>
+				<reference value="Patient/example"/>
+			</patient>
+			<recommendation>
+				<date value="2016-08-29T13:16:16-04:00"/>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0"/>
+						<code value="MENING"/>
+					</coding>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59"/>
+						<code value="114"/>
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1"/>
+				<forecastStatus>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.96"/>
+						<code value="410535002"/>
+					</coding>
+					<text value="Indicated without Precaution"/>
+				</forecastStatus>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="earliest"/>
+						</coding>
+						<text value="hard stop low"/>
+					</code>
+					<value value="2025-09-14T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="latest"/>
+						</coding>
+						<text value="hard stop high"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="recommended"/>
+						</coding>
+						<text value="suggested  administration date low"/>
+					</code>
+					<value value="2025-09-14T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="overdue"/>
+						</coding>
+						<text value="suggested  administration date high"/>
+					</code>
+					<value value="2026-09-14T00:00:00-04:00"/>
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="20a44df2-5516-4567-8701-7b93b5bd5061"/>
+			<patient>
+				<reference value="Patient/example"/>
+			</patient>
+			<recommendation>
+				<date value="2016-08-29T13:16:16-04:00"/>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0"/>
+						<code value="HepA"/>
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1"/>
+				<forecastStatus>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.96"/>
+						<code value="410535002"/>
+					</coding>
+					<text value="Indicated without Precaution"/>
+				</forecastStatus>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="earliest"/>
+						</coding>
+						<text value="hard stop low"/>
+					</code>
+					<value value="2015-09-14T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="latest"/>
+						</coding>
+						<text value="hard stop high"/>
+					</code>
+					<value value="2016-09-14T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="recommended"/>
+						</coding>
+						<text value="suggested  administration date low"/>
+					</code>
+					<value value="2015-09-14T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="overdue"/>
+						</coding>
+						<text value="suggested  administration date high"/>
+					</code>
+					<value value="2016-03-14T00:00:00-04:00"/>
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="854c656d-eaef-4f52-b096-a8272fecdc4b"/>
+			<patient>
+				<reference value="Patient/example"/>
+			</patient>
+			<recommendation>
+				<date value="2016-08-29T13:16:16-04:00"/>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0"/>
+						<code value="POLIO"/>
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1"/>
+				<forecastStatus>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.96"/>
+						<code value="410535002"/>
+					</coding>
+					<text value="Indicated without Precaution"/>
+				</forecastStatus>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="earliest"/>
+						</coding>
+						<text value="hard stop low"/>
+					</code>
+					<value value="2014-10-26T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="latest"/>
+						</coding>
+						<text value="hard stop high"/>
+					</code>
+					<value value="2032-09-14T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="recommended"/>
+						</coding>
+						<text value="suggested  administration date low"/>
+					</code>
+					<value value="2014-11-14T00:00:00-05:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="overdue"/>
+						</coding>
+						<text value="suggested  administration date high"/>
+					</code>
+					<value/>
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="c096bf43-ffb3-4a17-bd50-0028f08c2be9"/>
+			<patient>
+				<reference value="Patient/example"/>
+			</patient>
+			<recommendation>
+				<date value="2016-08-29T13:16:16-04:00"/>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0"/>
+						<code value="ZOSTER"/>
+					</coding>
+				</vaccineCode>
+				<forecastStatus>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.96"/>
+						<code value="410534003"/>
+					</coding>
+					<text value="Not Indicated"/>
+				</forecastStatus>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="earliest"/>
+						</coding>
+						<text value="hard stop low"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="latest"/>
+						</coding>
+						<text value="hard stop high"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="recommended"/>
+						</coding>
+						<text value="suggested  administration date low"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="overdue"/>
+						</coding>
+						<text value="suggested  administration date high"/>
+					</code>
+					<value/>
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="2d8b0598-4c4f-4910-932e-f8ac8095f9be"/>
+			<patient>
+				<reference value="Patient/example"/>
+			</patient>
+			<recommendation>
+				<date value="2016-08-29T13:16:16-04:00"/>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0"/>
+						<code value="VARICELLA"/>
+					</coding>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59"/>
+						<code value="21"/>
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1"/>
+				<forecastStatus>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.96"/>
+						<code value="410535002"/>
+					</coding>
+					<text value="Indicated without Precaution"/>
+				</forecastStatus>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="earliest"/>
+						</coding>
+						<text value="hard stop low"/>
+					</code>
+					<value value="2015-09-14T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="latest"/>
+						</coding>
+						<text value="hard stop high"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="recommended"/>
+						</coding>
+						<text value="suggested  administration date low"/>
+					</code>
+					<value value="2015-09-14T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="overdue"/>
+						</coding>
+						<text value="suggested  administration date high"/>
+					</code>
+					<value value="2015-12-14T00:00:00-05:00"/>
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="38a4d43d-4522-4e2e-af3e-4403e0fbee45"/>
+			<patient>
+				<reference value="Patient/example"/>
+			</patient>
+			<recommendation>
+				<date value="2016-08-29T13:16:16-04:00"/>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0"/>
+						<code value="HIB"/>
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1"/>
+				<forecastStatus>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.96"/>
+						<code value="410535002"/>
+					</coding>
+					<text value="Indicated without Precaution"/>
+				</forecastStatus>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="earliest"/>
+						</coding>
+						<text value="hard stop low"/>
+					</code>
+					<value value="2014-10-26T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="latest"/>
+						</coding>
+						<text value="hard stop high"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="recommended"/>
+						</coding>
+						<text value="suggested  administration date low"/>
+					</code>
+					<value value="2014-11-14T00:00:00-05:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="overdue"/>
+						</coding>
+						<text value="suggested  administration date high"/>
+					</code>
+					<value/>
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="205867f0-e74b-48d7-95f0-c567b00bf8a3"/>
+			<patient>
+				<reference value="Patient/example"/>
+			</patient>
+			<recommendation>
+				<date value="2016-08-29T13:16:16-04:00"/>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0"/>
+						<code value="MMR"/>
+					</coding>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59"/>
+						<code value="03"/>
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1"/>
+				<forecastStatus>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.96"/>
+						<code value="410535002"/>
+					</coding>
+					<text value="Indicated without Precaution"/>
+				</forecastStatus>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="earliest"/>
+						</coding>
+						<text value="hard stop low"/>
+					</code>
+					<value value="2015-09-14T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="latest"/>
+						</coding>
+						<text value="hard stop high"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="recommended"/>
+						</coding>
+						<text value="suggested  administration date low"/>
+					</code>
+					<value value="2015-09-14T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="overdue"/>
+						</coding>
+						<text value="suggested  administration date high"/>
+					</code>
+					<value value="2015-12-14T00:00:00-05:00"/>
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="159ac64c-6f4c-4249-acf9-3900121737e7"/>
+			<patient>
+				<reference value="Patient/example"/>
+			</patient>
+			<recommendation>
+				<date value="2016-08-29T13:16:16-04:00"/>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0"/>
+						<code value="HepB"/>
+					</coding>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59"/>
+						<code value="08"/>
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1"/>
+				<forecastStatus>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.96"/>
+						<code value="410535002"/>
+					</coding>
+					<text value="Indicated without Precaution"/>
+				</forecastStatus>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="earliest"/>
+						</coding>
+						<text value="hard stop low"/>
+					</code>
+					<value value="2014-09-15T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="latest"/>
+						</coding>
+						<text value="hard stop high"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="recommended"/>
+						</coding>
+						<text value="suggested  administration date low"/>
+					</code>
+					<value value="2014-09-15T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="overdue"/>
+						</coding>
+						<text value="suggested  administration date high"/>
+					</code>
+					<value value="2014-10-14T00:00:00-04:00"/>
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="ed683cd0-43d2-4f0d-b08b-c24680f291e1"/>
+			<patient>
+				<reference value="Patient/example"/>
+			</patient>
+			<recommendation>
+				<date value="2016-08-29T13:16:16-04:00"/>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0"/>
+						<code value="DTAP_ALL"/>
+					</coding>
+				</vaccineCode>
+				<forecastStatus>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.96"/>
+						<code value="410536001"/>
+					</coding>
+					<text value="Contraindicated"/>
+				</forecastStatus>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="earliest"/>
+						</coding>
+						<text value="hard stop low"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="latest"/>
+						</coding>
+						<text value="hard stop high"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="recommended"/>
+						</coding>
+						<text value="suggested  administration date low"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="overdue"/>
+						</coding>
+						<text value="suggested  administration date high"/>
+					</code>
+					<value/>
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="ddbc3f71-15e7-4ca9-9351-7d33f2acf4cb"/>
+			<patient>
+				<reference value="Patient/example"/>
+			</patient>
+			<recommendation>
+				<date value="2016-08-29T13:16:16-04:00"/>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0"/>
+						<code value="PneumoPCV"/>
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1"/>
+				<forecastStatus>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.96"/>
+						<code value="410535002"/>
+					</coding>
+					<text value="Indicated without Precaution"/>
+				</forecastStatus>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="earliest"/>
+						</coding>
+						<text value="hard stop low"/>
+					</code>
+					<value value="2014-10-26T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="latest"/>
+						</coding>
+						<text value="hard stop high"/>
+					</code>
+					<value value="2020-09-14T00:00:00-04:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="recommended"/>
+						</coding>
+						<text value="suggested  administration date low"/>
+					</code>
+					<value value="2014-11-14T00:00:00-05:00"/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="overdue"/>
+						</coding>
+						<text value="suggested  administration date high"/>
+					</code>
+					<value value="2014-12-14T00:00:00-05:00"/>
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="c4cc43eb-ec94-4a16-bddd-7f58688b960a"/>
+			<patient>
+				<reference value="Patient/example"/>
+			</patient>
+			<recommendation>
+				<date value="2016-08-29T13:16:16-04:00"/>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0"/>
+						<code value="FLU"/>
+					</coding>
+				</vaccineCode>
+				<forecastStatus>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.96"/>
+						<code value="410534003"/>
+					</coding>
+					<text value="Not Indicated"/>
+				</forecastStatus>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="earliest"/>
+						</coding>
+						<text value="hard stop low"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="latest"/>
+						</coding>
+						<text value="hard stop high"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="recommended"/>
+						</coding>
+						<text value="suggested  administration date low"/>
+					</code>
+					<value/>
+				</dateCriterion>
+				<dateCriterion>
+					<code>
+						<coding>
+							<system value="http://hl7.org/fhir/immunization-recommendation-date-criterion"/>
+							<code value="overdue"/>
+						</coding>
+						<text value="suggested  administration date high"/>
+					</code>
+					<value/>
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<module>
+		<reference value="DecisionSupportServiceModule/ecrs-fhir-cdc-immunizations"/>
+	</module>
+	<status value="success"/>
+	<action>
+		<textEquivalent value="First dose of HPV Vaccine Due"/>
+		<type>
+			<code value="create"/>
+		</type>
+		<resource>
+			<reference value="#6e252049-ca11-48a7-8a68-8e9f2b942a14"/>
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Rotavirus Vaccine not indicated, Patient age exceeds 8 months old"/>
+		<type>
+			<code  value="create"/>
+		</type>
+		<resource>
+			<reference value="#c9fbc59d-dc38-4ec0-9c1a-a95e487dcd63"/>
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of Meningococcal MCV4 Vaccine Due"/>
+		<type>
+			<code  value="create"/>
+		</type>
+		<resource>
+			<reference value="#e3a48da2-bbc1-4b7b-9d8d-951d4185c6ac"/>
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of Hepatitis A vaccine is due"/>
+		<type>
+			<code  value="create"/>
+		</type>
+		<resource>
+			<reference value="#20a44df2-5516-4567-8701-7b93b5bd5061"/>
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of Polio Vaccine Due"/>
+		<type>
+			<code  value="create"/>
+		</type>
+		<resource>
+			<reference value="#854c656d-eaef-4f52-b096-a8272fecdc4b"/>
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Zoster Vaccine not indicated until patient is 60 years old"/>
+		<type>
+			<code  value="create"/>
+		</type>
+		<resource>
+			<reference value="#c096bf43-ffb3-4a17-bd50-0028f08c2be9"/>
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of Varicella Vaccine Due"/>
+		<type>
+			<code  value="create"/>
+		</type>
+		<resource>
+			<reference value="#2d8b0598-4c4f-4910-932e-f8ac8095f9be"/>
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of Hib Vaccine Due"/>
+		<type>
+			<code  value="create"/>
+		</type>
+		<resource>
+			<reference value="#38a4d43d-4522-4e2e-af3e-4403e0fbee45"/>
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of MMR Vaccine Due"/>
+		<type>
+			<code  value="create"/>
+		</type>
+		<resource>
+			<reference value="#205867f0-e74b-48d7-95f0-c567b00bf8a3"/>
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of HepB Vaccine Due. Monovalent HepB should be used for doses administered before age 6 weeks."/>
+		<type>
+			<code  value="create"/>
+		</type>
+		<resource>
+			<reference value="#159ac64c-6f4c-4249-acf9-3900121737e7"/>
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="DTaP vaccine contraindicated for this patient"/>
+		<type>
+			<code  value="create"/>
+		</type>
+		<resource>
+			<reference value="#ed683cd0-43d2-4f0d-b08b-c24680f291e1"/>
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of PCV vaccine is due"/>
+		<type>
+			<code  value="create"/>
+		</type>
+		<resource>
+			<reference value="#ddbc3f71-15e7-4ca9-9351-7d33f2acf4cb"/>
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Current date is not within influenza season"/>
+		<type>
+			<code  value="create"/>
+		</type>
+		<resource>
+			<reference value="#c4cc43eb-ec94-4a16-bddd-7f58688b960a"/>
+		</resource>
+	</action>
+</GuidanceResponse>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GuidanceResponse xmlns="http://hl7.org/fhir">
+	<contained>
+		<OperationOutcome>
+			<id value="23583913-7f76-42df-b9ae-580449af493b"/>
+			<issue>
+				<severity value="fatal"/>
+				<code value="business-rule"/>
+				<diagnostics value="General Exception thrown RulesService.executeRulesEx [Failed]"/>
+			</issue>
+		</OperationOutcome>
+	</contained>
+	<module>
+		<reference value="DecisionSupportServiceModule/ecrs-fhir-cdc-immunizations"/>
+	</module>
+	<status value="failure"/>
+	<evaluationMessage>
+		<reference value="#23583913-7f76-42df-b9ae-580449af493b"/>
+	</evaluationMessage>
+</GuidanceResponse>

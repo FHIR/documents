@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<identifier>
+		<value value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-1"/>
+	</identifier>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<expansion>
+		<!-- must be less than 5, but the actual contents aren't tested -->
+		<identifier />
+		<timestamp />
+		<contains>
+			<system value="http://hl7.org/fhir/patient-contact-relationship"/>
+			<code value="family"/>
+			<display value="Family"/>
+		</contains>
+		<contains>
+			<system value="http://hl7.org/fhir/patient-contact-relationship"/>
+			<code value="friend"/>
+			<display value="Friend"/>
+		</contains>
+	</expansion>
+</ValueSet>

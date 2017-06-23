@@ -1,0 +1,187 @@
+<?xml-stylesheet type="text/xsl" href="file:///C:/Users/Eric/Documents/HL7/FHIR/OO%20on%20FHIR/Connectathon/Track7-LabOrderLabReport/_reference/conformance/html.xslt"?>
+<Conformance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/fhir-all-xsd/conformance.xsd">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b>description: </b>LabOrderLabReport Connectathon Track Jan 2016</p>
+			<p>
+				<b>format: </b>xml</p>
+			<p>
+				<b>mode: </b>server</p>
+			<p>
+				<b>type: </b>DiagnosticOrder CRUD
+			 create read update delete</p>
+			<p>
+				<b>type: </b>DiagnosticReport CRUD
+			 create read update delete</p>
+			<p>
+				<b>type: </b>Observation CRUD
+			 create read update delete</p>
+			<p>
+				<b>type: </b>Order CRUD
+			 create read update delete</p>
+			<p>
+				<b>type: </b>OrderResponse CRUD
+			 create read update delete</p>
+			<p>
+				<b>type: </b>Organization CRUD
+			 create read update delete</p>
+			<p>
+				<b>type: </b>Patient CRUD
+			 create read update delete</p>
+			<p>
+				<b>type: </b>Practitioner CRUD
+			 create read update delete</p>
+			<p>
+				<b>type: </b>Specimen CRUD
+			 create read update delete</p>
+		</div>
+	</text>
+	<date value="2015-12-29"/>
+	<kind value="instance"/>
+	<implementation>
+		<description value="LabOrderLabReport Connectathon Track Jan 2016"/>
+	</implementation>
+	<fhirVersion value="2.1"/>
+	<acceptUnknown value="both"> </acceptUnknown>
+	<format value="xml"/>
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="DiagnosticOrder"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="delete"/>
+			</interaction>
+		</resource>
+		<resource>
+			<type value="DiagnosticReport"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="delete"/>
+			</interaction>
+		</resource>
+		<resource>
+			<type value="Observation"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="delete"/>
+			</interaction>
+		</resource>
+		<resource>
+			<type value="Order"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="delete"/>
+			</interaction>
+		</resource>
+		<resource>
+			<type value="OrderResponse"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="delete"/>
+			</interaction>
+		</resource>
+		<resource>
+			<type value="Organization"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="delete"/>
+			</interaction>
+		</resource>
+		<resource>
+			<type value="Patient"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="delete"/>
+			</interaction>
+		</resource>
+		<resource>
+			<type value="Practitioner"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="delete"/>
+			</interaction>
+		</resource>
+		<resource>
+			<type value="Specimen"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="delete"/>
+			</interaction>
+		</resource>
+	</rest>
+</Conformance>

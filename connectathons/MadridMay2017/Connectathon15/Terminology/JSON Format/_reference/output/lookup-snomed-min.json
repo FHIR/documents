@@ -1,0 +1,13 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "name",
+      "valueString": "SNOMED"
+    },
+    {
+      "name": "display",
+      "valueString": "Topical route (qualifier value)"
+    }
+  ]
+}

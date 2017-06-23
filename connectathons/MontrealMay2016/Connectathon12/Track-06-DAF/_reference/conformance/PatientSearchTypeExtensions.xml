@@ -1,0 +1,47 @@
+<Conformance xmlns="http://hl7.org/fhir">
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="Patient"/>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<searchParam>
+				<name value="birthdate"/>
+				<type value="date"/>
+			</searchParam>
+			<searchParam>
+				<name value="family"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="gender"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="given"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="identifier"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="name"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="ethnicity"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="mothersMaidenName"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="race"/>
+				<type value="token"/>
+			</searchParam>
+		</resource>
+	</rest>
+</Conformance>

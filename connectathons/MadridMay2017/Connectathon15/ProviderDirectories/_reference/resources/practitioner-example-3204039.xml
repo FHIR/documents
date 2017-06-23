@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir">
+	<id value="3204039"/>
+	<identifier>
+		<use value="official"/>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0203"/>
+				<code value="NPI"/>
+				<display value="National provider identifier"/>
+			</coding>
+			<text value="National Provider ID (NPI)"/>
+		</type>
+		<system value="http://hl7.org/fhir/sid/us-npi"/>
+		<value value="1265437362"/>
+	</identifier>
+	<name>
+		<use value="official"/>
+		<text value="GREGORY MULA"/>
+		<family value="MULA"/>
+		<given value="GREGORY"/>
+	</name>
+	<telecom>
+		<system value="phone"/>
+		<value value="9855421334"/>
+		<use value="work"/>
+	</telecom>
+	<gender value="male"/>
+	<qualification>
+		<code>
+			<coding> 
+				<system value="http://hl7.org/fhir/v2/0360/2.7"/>
+				<code value="MD"/>
+				<display value="Doctor of Medicine"/>
+			</coding>
+		</code>
+	</qualification>
+</Practitioner>

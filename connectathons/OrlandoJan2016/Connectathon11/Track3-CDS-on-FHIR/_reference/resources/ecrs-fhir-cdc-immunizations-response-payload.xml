@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GuidanceResponse xmlns="http://hl7.org/fhir">
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="459e1dd0-5a80-4cf7-8912-9e1b9968e8a2" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="HPV" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1" />
+				<dateCriterion>
+					<value value="20250914000000.000" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="c0b75271-1f22-4893-9630-96a275b43c05" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="ROTAVIRUS" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="0" />
+				<dateCriterion>
+					<value value="" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="7807d45b-41e9-4d63-add5-c7c3706d90c6" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="MENING" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1" />
+				<dateCriterion>
+					<value value="20250914000000.000" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="2acb99c0-7063-4a32-94fa-a4dcf46fa1a2" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="HepA" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1" />
+				<dateCriterion>
+					<value value="20150914000000.000" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="4a189569-080e-4cf7-9563-6da032d072a0" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="POLIO" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1" />
+				<dateCriterion>
+					<value value="20141114000000.000" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="8e8f4f48-b46f-4963-bcc6-e424ba9b4e5c" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="ZOSTER" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="0" />
+				<dateCriterion>
+					<value value="" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="c6b43a1d-a196-4029-90ef-e2f5081dbd3b" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="VARICELLA" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1" />
+				<dateCriterion>
+					<value value="20150914000000.000" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="ba65095f-bee5-4c2f-b28d-19992ec34780" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="HIB" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1" />
+				<dateCriterion>
+					<value value="20141114000000.000" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="a37c9110-f3f1-4906-9237-64964f079217" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="MMR" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1" />
+				<dateCriterion>
+					<value value="20150914000000.000" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="245b47b1-ddb5-45a8-93c6-0f4f86777891" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="HepB" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1" />
+				<dateCriterion>
+					<value value="20140915000000.000" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="e44c11b1-faa6-4d77-9e19-a52473d8b63f" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="DTAP" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1" />
+				<dateCriterion>
+					<value value="20141114000000.000" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="8abc76e5-0c78-4f03-a9a2-8377067fa7b9" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="PneumoPCV" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1" />
+				<dateCriterion>
+					<value value="20141114000000.000" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<contained>
+		<ImmunizationRecommendation>
+			<id value="d09328cb-09ec-4739-a97d-a7462d0815c1" />
+			<recommendation>
+				<vaccineCode>
+					<coding>
+						<system value="urn:oid:2.16.840.1.113883.6.59.0.0.0" />
+						<code value="FLU" />
+					</coding>
+				</vaccineCode>
+				<doseNumber value="1" />
+				<dateCriterion>
+					<value value="20160106171805.005" />
+				</dateCriterion>
+			</recommendation>
+		</ImmunizationRecommendation>
+	</contained>
+	<module>
+		<reference value="DecisionSupportServiceModule/ecrs-fhir-cdc-immunizations" />
+	</module>
+	<status value="success" />
+	<action>
+		<textEquivalent value="First dose of HPV Vaccine Due" />
+		<type value="create" />
+		<resource>
+			<reference value="#459e1dd0-5a80-4cf7-8912-9e1b9968e8a2" />
+			<display value="First dose of HPV Vaccine Due" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Rotavirus Vaccine not indicated, Patient age exceeds 8 months old" />
+		<type value="create" />
+		<resource>
+			<reference value="#c0b75271-1f22-4893-9630-96a275b43c05" />
+			<display value="Rotavirus Vaccine not indicated, Patient age exceeds 8 months old" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of Meningococcal Vaccine Due" />
+		<type value="create" />
+		<resource>
+			<reference value="#7807d45b-41e9-4d63-add5-c7c3706d90c6" />
+			<display value="First dose of Meningococcal Vaccine Due" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of Hepatitis A vaccine is due" />
+		<type value="create" />
+		<resource>
+			<reference value="#2acb99c0-7063-4a32-94fa-a4dcf46fa1a2" />
+			<display value="First dose of Hepatitis A vaccine is due" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of Polio Vaccine Due" />
+		<type value="create" />
+		<resource>
+			<reference value="#4a189569-080e-4cf7-9563-6da032d072a0" />
+			<display value="First dose of Polio Vaccine Due" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Zoster Vaccine not indicated until patient is 60 years old" />
+		<type value="create" />
+		<resource>
+			<reference value="#8e8f4f48-b46f-4963-bcc6-e424ba9b4e5c" />
+			<display value="Zoster Vaccine not indicated until patient is 60 years old" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of Varicella Vaccine Due" />
+		<type value="create" />
+		<resource>
+			<reference value="#c6b43a1d-a196-4029-90ef-e2f5081dbd3b" />
+			<display value="First dose of Varicella Vaccine Due" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of Hib Vaccine Due" />
+		<type value="create" />
+		<resource>
+			<reference value="#ba65095f-bee5-4c2f-b28d-19992ec34780" />
+			<display value="First dose of Hib Vaccine Due" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of MMR Vaccine Due" />
+		<type value="create" />
+		<resource>
+			<reference value="#a37c9110-f3f1-4906-9237-64964f079217" />
+			<display value="First dose of MMR Vaccine Due" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of HepB Vaccine Due" />
+		<type value="create" />
+		<resource>
+			<reference value="#245b47b1-ddb5-45a8-93c6-0f4f86777891" />
+			<display value="First dose of HepB Vaccine Due" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of DTaP Vaccine Due" />
+		<type value="create" />
+		<resource>
+			<reference value="#e44c11b1-faa6-4d77-9e19-a52473d8b63f" />
+			<display value="First dose of DTaP Vaccine Due" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="First dose of PCV vaccine is due" />
+		<type value="create" />
+		<resource>
+			<reference value="#8abc76e5-0c78-4f03-a9a2-8377067fa7b9" />
+			<display value="First dose of PCV vaccine is due" />
+		</resource>
+	</action>
+	<action>
+		<textEquivalent value="Seasonal influenza vaccination due. TIV Product only." />
+		<type value="create" />
+		<resource>
+			<reference value="#d09328cb-09ec-4739-a97d-a7462d0815c1" />
+			<display value="Seasonal influenza vaccination due. TIV Product only." />
+		</resource>
+	</action>
+</GuidanceResponse>

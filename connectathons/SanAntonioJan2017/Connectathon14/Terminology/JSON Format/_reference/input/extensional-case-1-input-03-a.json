@@ -1,0 +1,17 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "codeableConcept",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/patient-contact-relationship",
+            "code": "emergency",
+            "display": "Emergency"
+          }
+        ]
+      }
+    }
+  ]
+}

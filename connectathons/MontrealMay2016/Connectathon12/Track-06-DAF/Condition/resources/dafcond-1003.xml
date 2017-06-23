@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Condition xmlns="http://hl7.org/fhir">
+	<id value="dafcond-1003"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/daf-condition"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Depressive disorder</div>
+	</text>
+	<patient>
+		<reference value="Patient/dafpid-1001"/>
+	</patient>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="35489007"/>
+			<display value="Depressive disorder"/>
+		</coding>
+		<text value="Depressive disorder"/>
+	</code>
+	<clinicalStatus value="active"/>
+	<verificationStatus value="confirmed"/>
+	<!--causing validation so comment out and raised a tracker   [#9943] <onsetDateTime value="2015-10-01"/> -->
+</Condition>

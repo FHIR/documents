@@ -1,0 +1,17 @@
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="CodeSystem"/>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+		</resource>
+		<operation>
+			<name value="lookup"/>
+			<definition>
+				<reference value="http://hl7.org/fhir/OperationDefinition/codesystem-lookup"/>
+			</definition>
+		</operation>
+	</rest>
+</CapabilityStatement>

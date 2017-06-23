@@ -1,0 +1,666 @@
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="track2-terminology-ts-suite4-client-id"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				This is the setup test script for the Terminology Services Connectathon.
+			</p>
+			<p>
+				Suite 4: A set of membership tests for valueset #2. This suite is checking 
+				the various ways that the operation can be invoked. Overview of value sets:
+			</p>
+			<ul>
+				<li>extensional-case-1: An enumeration of codes from a FHIR defined code system</li>
+				<li>extensional-case-2: An enumeration of codes from LOINC</li>
+				<li>extensional-case-3: An enumeration of codes from SNOMED </li>
+				<li>extensional-case-4: An enumeration of codes the crosses code systems, with codes from a FHIR defined value set and the V3 Role code system</li>
+				<li>intensional-case-1: A selection of codes from LOINC by their system value</li>
+				<li>intensional-case-2: A selection of codes from SNOMED based on subsumption</li>
+				<li>intensional-case-3: All clinical findings from SNOMED (based on subsumption) - a value set that is too large to expand</li>
+			</ul>
+		</div>
+	</text>
+
+	<url value="http://wildfhir.aegis.net/fhir2/TestScript/track2-terminology-ts-suite4-client-id"/>
+	<name value="FHIR Connectathon 10 - Track 2 - Terminology Services - Suite 4"/>
+	<status value="draft"/>
+	<description value="FHIR Connectathon 10 - Track 2 - Terminology Services - Suite 4 - A set of membership validation tests with API variations for each of the 7 ValueSet fixtures. These tests check for API surface variations. All tests are the same as the first, but test different ways of passing the code. Setup creates the ValueSet resources with client defined resource ids."/>
+
+	<fixture id="extensional-case-1">
+		<resource>
+			<reference value="/Connectathon10/Track2-Terminology/_reference/resources/extensional-case-1.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-2">
+		<resource>
+			<reference value="/Connectathon10/Track2-Terminology/_reference/resources/extensional-case-2.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-3">
+		<resource>
+			<reference value="/Connectathon10/Track2-Terminology/_reference/resources/extensional-case-3.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-4">
+		<resource>
+			<reference value="/Connectathon10/Track2-Terminology/_reference/resources/extensional-case-4.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="intensional-case-1">
+		<resource>
+			<reference value="/Connectathon10/Track2-Terminology/_reference/resources/intensional-case-1.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="intensional-case-2">
+		<resource>
+			<reference value="/Connectathon10/Track2-Terminology/_reference/resources/intensional-case-2.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="intensional-case-3">
+		<resource>
+			<reference value="/Connectathon10/Track2-Terminology/_reference/resources/intensional-case-3.xml"/>
+		</resource>
+	</fixture>
+
+	<fixture id="extensional-case-1-input-4-2-a">
+		<resource>
+			<reference value="/Connectathon10/Track2-Terminology/_reference/input/extensional-case-1-input-4-2-a.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-1-input-4-2-b">
+		<resource>
+			<reference value="/Connectathon10/Track2-Terminology/_reference/input/extensional-case-1-input-4-2-a.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-1-input-4-3-a">
+		<resource>
+			<reference value="/Connectathon10/Track2-Terminology/_reference/input/extensional-case-1-input-4-3-a.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-1-input-4-3-b">
+		<resource>
+			<reference value="/Connectathon10/Track2-Terminology/_reference/input/extensional-case-1-input-4-3-a.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-1-input-4-4-a">
+		<resource>
+			<reference value="/Connectathon10/Track2-Terminology/_reference/input/extensional-case-1-input-4-4-a.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-1-input-4-4-b">
+		<resource>
+			<reference value="/Connectathon10/Track2-Terminology/_reference/input/extensional-case-1-input-4-4-a.xml"/>
+		</resource>
+	</fixture>
+
+	<fixture id="suite4-valid-min">
+		<resource>
+			<reference value="/Connectathon10/Track2-Terminology/_reference/output/suite4-valid-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="suite4-invalid-min">
+		<resource>
+			<reference value="/Connectathon10/Track2-Terminology/_reference/output/suite4-invalid-min.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="ParametersProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+	</profile>
+	<profile id="ValueSetProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+	</profile>
+<!--
+	<setup id="CreateRequiredResources">
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Create ValueSet extensional-case-1."/>
+				<accept value="xml"/>
+				<params value="/extensional-case-1"/>
+				<sourceId value="extensional-case-1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Create ValueSet extensional-case-2."/>
+				<accept value="xml"/>
+				<params value="/extensional-case-2"/>
+				<sourceId value="extensional-case-2"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Create ValueSet extensional-case-3."/>
+				<accept value="xml"/>
+				<params value="/extensional-case-3"/>
+				<sourceId value="extensional-case-3"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Create ValueSet extensional-case-4."/>
+				<accept value="xml"/>
+				<params value="/extensional-case-4"/>
+				<sourceId value="extensional-case-4"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Create ValueSet intensional-case-1."/>
+				<accept value="xml"/>
+				<params value="/intensional-case-1"/>
+				<sourceId value="intensional-case-1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Create ValueSet intensional-case-2."/>
+				<accept value="xml"/>
+				<params value="/intensional-case-2"/>
+				<sourceId value="intensional-case-2"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Create ValueSet intensional-case-3."/>
+				<accept value="xml"/>
+				<params value="/intensional-case-3"/>
+				<sourceId value="intensional-case-3"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+	</setup>
+-->
+	<test id="4-1-a-ValidateExtensionalCase1">
+		<name value="Test 4-1-a Validate extensional-case-1 valid - system/code/display url parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergency is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<code value="$validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate operation on ValueSet extensional-case-1 for a valid code."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code?system=http://hl7.org/fhir/patient-contact-relationship&amp;code=emergency&amp;display=Emergency"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in suite4-valid-min."/>
+				<minimumId value="suite4-valid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="4-1-b-ValidateExtensionalCase1">
+		<name value="Test 4-1-b Validate extensional-case-1 invalid display - system/code/display url parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/patient-contact-relationshipX}emergency is in the value set, but give the wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<code value="$validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate operation on ValueSet extensional-case-1 for an invalid display."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code?system=http://hl7.org/fhir/patient-contact-relationship&amp;code=emergency&amp;display=EmergencyX"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in suite4-invalid-min."/>
+				<minimumId value="suite4-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="4-2-a-ValidateExtensionalCase1">
+		<name value="Test 4-2-a Validate extensional-case-1 valid - valueCoding Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergency is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<code value="$validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate operation on ValueSet extensional-case-1 for a valid code."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code"/>
+				<sourceId value="extensional-case-1-input-4-2-a"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in suite4-valid-min."/>
+				<minimumId value="suite4-valid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="4-2-b-ValidateExtensionalCase1">
+		<name value="Test 4-2-b Validate extensional-case-1 invalid display - valueCoding Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/patient-contact-relationshipX}emergency is in the value set, but give the wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<code value="$validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate operation on ValueSet extensional-case-1 for an invalid display."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code"/>
+				<sourceId value="extensional-case-1-input-4-2-b"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in suite4-invalid-min."/>
+				<minimumId value="suite4-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="4-3-a-ValidateExtensionalCase1">
+		<name value="Test 4-3-a Validate extensional-case-1 valid - codeableConcept Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergency is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<code value="$validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate operation on ValueSet extensional-case-1 for a valid code."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code"/>
+				<sourceId value="extensional-case-1-input-4-3-a"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in suite4-valid-min."/>
+				<minimumId value="suite4-valid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="4-3-b-ValidateExtensionalCase1">
+		<name value="Test 4-3-b Validate extensional-case-1 invalid display - codeableConcept Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/patient-contact-relationshipX}emergency is in the value set, but give the wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<code value="$validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate operation on ValueSet extensional-case-1 for an invalid display."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code"/>
+				<sourceId value="extensional-case-1-input-4-3-b"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in suite4-invalid-min."/>
+				<minimumId value="suite4-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="4-4-a-ValidateExtensionalCase1">
+		<name value="Test 4-4-a Validate extensional-case-1 valid - system/code/display Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergency is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<code value="$validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate operation on ValueSet extensional-case-1 for a valid code."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code"/>
+				<sourceId value="extensional-case-1-input-4-4-a"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in suite4-valid-min."/>
+				<minimumId value="suite4-valid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="4-4-b-ValidateExtensionalCase1">
+		<name value="Test 4-4-b Validate extensional-case-1 invalid display - system/code/display Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/patient-contact-relationshipX}emergency is in the value set, but give the wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<code value="$validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate operation on ValueSet extensional-case-1 for an invalid display."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code"/>
+				<sourceId value="extensional-case-1-input-4-4-b"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in suite4-invalid-min."/>
+				<minimumId value="suite4-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+<!--
+	<teardown>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="ValueSet"/>
+				<params value="/extensional-case-1"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="ValueSet"/>
+				<params value="/extensional-case-2"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="ValueSet"/>
+				<params value="/extensional-case-3"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="ValueSet"/>
+				<params value="/extensional-case-4"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="ValueSet"/>
+				<params value="/intensional-case-1"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="ValueSet"/>
+				<params value="/intensional-case-2"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="ValueSet"/>
+				<params value="/intensional-case-3"/>
+			</operation>
+		</action>
+	</teardown>
+-->
+</TestScript>

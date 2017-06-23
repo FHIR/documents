@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<id value="dafpanel-1003"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-resultobs"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<xhtml:div>2005-07-05:Complete Urinalysis</xhtml:div>
+	</text>
+	<identifier>
+		<system value="http://hospital.smarthealthit.org"/>
+		<value value="dafpanel-1003"/>
+	</identifier>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="laboratory"/>
+			<display value="Laboratory"/>
+		</coding>
+		<text value="Laboratory"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="24356-8"/>
+			<display value="Urinalysis complete panel - Urine"/>
+		</coding>
+		<text value="Complete Urinalysis"/>
+	</code>
+	<subject>
+		<reference value="Patient/dafpid-1001"/>
+	</subject>
+	<effectiveDateTime value="2005-07-05"/>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1001"/>
+			<display value="COLOR=Yellow "/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1002"/>
+			<display value="APPEARANCE=Hazy "/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1003"/>
+			<display value="GLUCOSE=Negative "/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1004"/>
+			<display value="BILIRUBIN=Negative "/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1005"/>
+			<display value="KETONE=Negative "/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1006"/>
+			<display value="SPEC GRAV=1.0169999999999999 (USG)"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1007"/>
+			<display value="PH=6 (pH)"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1008"/>
+			<display value="PROTEIN=Negative "/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1009"/>
+			<display value="UROBILINOGEN=0.3 mg/dL"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1010"/>
+			<display value="NITRITE=Positive "/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1011"/>
+			<display value="BLOOD=Trace "/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1012"/>
+			<display value="LEUK ESTERASE=2+ "/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1013"/>
+			<display value="COMMENT=Recommend Urine Culture "/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1014"/>
+			<display value="BACTERIA=4+ "/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1015"/>
+			<display value="EPITHELIAL CELLS=1-5 cells/HPF"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1016"/>
+			<display value="WBC=20-30 cells/HPF"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1017"/>
+			<display value="RBC=Occasional cells/HPF"/>
+		</target>
+	</related>
+</Observation>

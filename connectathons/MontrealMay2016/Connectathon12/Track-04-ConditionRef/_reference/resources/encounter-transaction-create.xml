@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns="http://hl7.org/fhir">
+	<id value="20160113160203"/>
+	<type value="transaction"/>
+	<entry>
+		<fullUrl value="urn:uuid:c72aa430-2ddc-456e-7a09-dea8264671d8"/>
+		<resource>
+			<Encounter>
+				<identifier>
+					<use value="official"/>
+					<system value="http://healthcare.example.org/identifiers/encounter"/>
+					<value value="${D6}.${D7}"/>
+				</identifier>
+				<status value="in-progress"/>
+				<class value="inpatient"/>
+				<patient>
+					<reference value="Patient?identifier=urn:oid:2.16.840.1.113883.2.4.6.3|${D10}"/>
+				</patient>
+				<serviceProvider>
+					<reference value="Organization?identifier=urn:oid:2.16.840.1.113883.2.4.6.1|${D2}-${D7}"/>
+				</serviceProvider>
+			</Encounter>
+		</resource>
+		<request>
+			<method value="POST"/>
+			<url value="Encounter"/>
+		</request>
+	</entry>
+</Bundle>

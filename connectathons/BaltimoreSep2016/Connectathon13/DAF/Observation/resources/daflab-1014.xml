@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<id value="daflab-1014"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-resultobs"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<xhtml:div>2005-07-05:BACTERIA = 4+</xhtml:div>
+	</text>
+	<identifier>
+		<system value="http://hospital.smarthealthit.org"/>
+		<value value="daflab-1014"/>
+	</identifier>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="laboratory"/>
+			<display value="Laboratory"/>
+		</coding>
+		<text value="Laboratory"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="25145-4"/>
+			<display value="Bacteria [Presence] in Urine sediment by Light microscopy"/>
+		</coding>
+		<text value="BACTERIA"/>
+	</code>
+	<subject>
+		<reference value="Patient/dafpid-1001"/>
+	</subject>
+	<effectiveDateTime value="2005-07-05"/>
+	<valueCodeableConcept>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="260350009"/>
+			<display value="++++"/>
+		</coding>
+		<text value="4+"/>
+	</valueCodeableConcept>
+	<referenceRange>
+		<text value="0-1+"/>
+	</referenceRange>
+</Observation>

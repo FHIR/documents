@@ -1,0 +1,41 @@
+{
+  "resourceType": "Conformance",
+  "id": "healthwise-infobutton",
+  "text": {
+    "status": "generated",
+    "div": "<div>Limited FHIR Server to support InfoButton at September Connectathon</div>"
+  },
+  "url": "https://wandering-field.herokuapp.com/metadata",
+  "name": "Healthwise Infobutton on FHIR Conformance Statement",
+  "status": "draft",
+  "publisher": "Healthwise, Incorporated",
+  "copyright": "Copyright 2016 Healthwise, Incorporated. 1.800.706.9646",
+  "date": "2016-08-08T00:00:00+00:00",
+  "description": "Describes capabilities of this server",
+  "kind": "instance",
+  "fhirVersion": "1.6.0",
+  "acceptUnknown": "no",
+  "format": [
+    "json",
+    "xml"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "documentation": "",
+      "security": {
+        "cors": true
+      },
+      "resource": [
+        {
+          "type": "DecisionSupportServiceModule",
+          "interaction": [
+            {
+              "code": "read"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

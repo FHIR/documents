@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-15-patch-patient-peer2peer-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-0-0/TestScript/connectathon-15-patch-patient-peer2peer-xml"/>
+	<name value="FHIR Connectathon 15 - Patch - Peer to peer test of XML PATCH for Patient"/>
+	<status value="draft"/>
+	<date value="2017-03-15"/>
+	<publisher value="Cerner, AEGIS.net, Inc."/>
+	<contact>
+		<name value="Jenni Syed"/>
+		<telecom>
+			<system value="email"/>
+			<value value="jenni.syed@cerner.com"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Peer to peer test of XML PATCH to update the Patient.active value. The client will first perform a Patient search by name to the destination server. Then the client will update the first returned Patient in the returned searchset setting the Patient.active value to false."/>
+	<copyright value="© Cerner 2015+, © AEGIS.net, Inc. 2015+"/>
+
+	<origin>
+		<index value="1" />
+		<profile>
+			<system value="http://hl7.org/fhir/testscript-profile-origin-types"/>
+			<code value="FHIR-Client"/>
+		</profile>
+	</origin>
+	<destination>
+		<index value="1" />
+		<profile>
+			<system value="http://hl7.org/fhir/testscript-profile-destination-types"/>
+			<code value="FHIR-Server"/>
+		</profile>
+	</destination>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="MedicationStatement read, search and patch operations - patch is currently experimental so there is no formal definition within the conformance statement at this time."/>
+			<destination value="1"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#read"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#search"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#update"/>
+			<capabilities>
+				<reference value="../../_reference/capabilities/MedicationStatementPeer2PeerXML.xml" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<variable>
+		<name value="patientSearchReference"/>
+		<defaultValue value="Patient/example" />
+		<description value="Enter a patient reference for a known MedicationStatement on the destination system."/>
+	</variable>
+	<variable>
+		<name value="medicationStatementId"/>
+		<path value="MedicationStatement/id" />
+		<sourceId value="medicationstatement-search-response"/>
+	</variable>
+
+	<test id="Step1-SearchForMedicationStatement">
+		<name value="Step1-SearchForMedicationStatement"/>
+		<description value="Search for MedicationStatements using the criteria patient (supplied by user in patientSearchReference variable) and status=active. The first returned MedicationStatement will be the one that receives the patch operation."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<description value="Search for MedicationStatements using the criteria patient (supplied by user in patientSearchReference variable) and status=active."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<destination value="1" />
+				<origin value="1" />
+				<params value="?patient=${patientSearchReference}&amp;status=active"/>
+				<responseId value="medicationstatement-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client requested a Content-Type of xml."/>
+				<direction value="request"/>
+				<headerField value="Content-Type"/>
+				<operator value="contains"/>
+				<value value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other MedicationStatement records returned."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches the number of entries in the Bundle"/>
+				<expression value="Bundle.total = entry.count()"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2-PatchMedicationStatement">
+		<name value="Step2-PatchMedicationStatement"/>
+		<description value="Update the MedicationStatement status value to completed using XML PATCH"/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://touchstone.aegis.net/fhir/testscript-operation-codes-extended"/>
+					<code value="patch"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<destination value="1" />
+				<origin value="1" />
+				<params value="/${medicationStatementId}" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client requested an Accept of xml."/>
+				<direction value="request"/>
+				<headerField value="Accept"/>
+				<operator value="contains"/>
+				<value value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client requested a Content-Type of xml."/>
+				<direction value="request"/>
+				<headerField value="Content-Type"/>
+				<operator value="contains"/>
+				<value value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the patch is setting the status value to completed."/>
+				<direction value="request" />
+				<operator value="contains" />
+				<path value="diff/replace/@sel"/>
+				<value value="MedicationStatement/status"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<description value="Read the patched MedicationStatement back to verify contents."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<destination value="1" />
+				<params value="/${medicationStatementId}" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is MedicationStatement."/>
+				<resource value="MedicationStatement"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirmation that the MedicationStatement status was updated to the completed value."/>
+				<operator value="equals"/>
+				<path value="MedicationStatement/status"/>
+				<value value="completed"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

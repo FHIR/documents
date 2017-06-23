@@ -1,0 +1,25 @@
+{
+  "resourceType": "ValueSet",
+  "url": "http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-1",
+  "identifier": [
+    {
+      "value": "extensional-case-1"
+    }
+  ],
+  "status": "draft",
+  "experimental": true,
+  "expansion": {
+    "contains": [
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "code": "family",
+        "display": "Family"
+      },
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "code": "friend",
+        "display": "Friend"
+      }
+    ]
+  }
+}

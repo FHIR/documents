@@ -1,0 +1,17 @@
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="CodeSystem"/>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+		</resource>
+		<operation>
+			<name value="subsumes"/>
+			<definition>
+				<reference value="http://hl7.org/fhir/OperationDefinition/codesystem-subsumes"/>
+			</definition>
+		</operation>
+	</rest>
+</CapabilityStatement>

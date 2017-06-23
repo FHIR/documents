@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-14-ts-translate-json"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-14-ts-translate-json"/>
+	<name value="FHIR Connectathon 14 - Terminology Services - Translate - JSON"/>
+	<status value="active"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2017-01-11"/>
+	<description value="FHIR Connectathon 14 - Terminology Services - Translate - JSON Format - Simple translate tests against a known FHIR ConceptMap with source ValueSet 'http://hl7.org/fhir/ValueSet/address-use' and target ValueSet 'http://hl7.org/fhir/ValueSet/v3-AddressUse'."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="ConceptMap create, read and translate operations"/>
+			<link value="http://hl7.org/fhir/2017Jan/conceptmap-operations.html#translate"/>
+			<link value="http://hl7.org/fhir/2017Jan/conceptmap.html"/>
+			<capabilities>
+				<reference value="../_reference/capabilities/ConceptMapTranslateCapabilityStatement.json" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<fixture id="translate-conceptmap-min">
+		<resource>
+			<reference value="../_reference/output/translate-conceptmap-min.json"/>
+		</resource>
+	</fixture>
+	<fixture id="translate-conceptmap-input-02">
+		<resource>
+			<reference value="../_reference/input/translate-conceptmap-input-02.json"/>
+		</resource>
+	</fixture>
+	<fixture id="translate-conceptmap-input-03">
+		<resource>
+			<reference value="../_reference/input/translate-conceptmap-input-03.json"/>
+		</resource>
+	</fixture>
+
+	<profile id="ParametersProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+	</profile>
+
+	<test id="Test-01-SimpleConceptMapTranslateCase1">
+		<name value="Simple ConceptMap Translate Test for system, code and target using HTTP GET"/>
+		<description value="Simple ConceptMap $translate operation test using HTTP GET for system=http://hl7.org/fhir/address-use&amp;code=home&amp;source=http://hl7.org/fhir/ValueSet/address-use&amp;target=http://hl7.org/fhir/ValueSet/v3-AddressUse."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="translate"/>
+				</type>
+				<resource value="ConceptMap"/>
+				<description value="Test ConceptMap $translate operation using HTTP GET for system=http://hl7.org/fhir/address-use&amp;code=home&amp;target=http://hl7.org/fhir/ValueSet/v3-AddressUse."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/$translate?system=http://hl7.org/fhir/address-use&amp;code=home&amp;source=http://hl7.org/fhir/ValueSet/address-use&amp;target=http://hl7.org/fhir/ValueSet/v3-AddressUse"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter result with boolean value equal to true."/>
+				<expression value="Parameters.parameter.where($this.name = 'result' and ($this.value as boolean))"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-02-SimpleConceptMapTranslateCase2">
+		<name value="Simple ConceptMap Translate Test Case 2 for system, code and target using HTTP POST"/>
+		<description value="Simple ConceptMap $translate operation test using HTTP POST with Parameters coding parameter with system=http://hl7.org/fhir/address-use and code=home, source=http://hl7.org/fhir/ValueSet/address-use, and target parameter equal to http://hl7.org/fhir/ValueSet/v3-AddressUse."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="translate"/>
+				</type>
+				<description value="Test ConceptMap $translate operation using HTTP POST with Parameters coding parameter with system=http://hl7.org/fhir/address-use and code=home, source=http://hl7.org/fhir/ValueSet/address-use and target parameter equal to http://hl7.org/fhir/ValueSet/v3-AddressUse."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="ConceptMap/$translate"/>
+				<sourceId value="translate-conceptmap-input-02"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter result with boolean value equal to true."/>
+				<expression value="Parameters.parameter.where($this.name = 'result' and ($this.value as boolean))"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-03-SimpleConceptMapTranslateCase3">
+		<name value="Simple ConceptMap Translate Test Case 3 for system, code and target using HTTP POST"/>
+		<description value="Simple ConceptMap $translate operation test using HTTP POST with Parameters system=http://hl7.org/fhir/address-use, code=home, source=http://hl7.org/fhir/ValueSet/address-use and target=http://hl7.org/fhir/ValueSet/v3-AddressUse."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="translate"/>
+				</type>
+				<description value="Test ConceptMap $translate operation using HTTP POST with Parameters system=http://hl7.org/fhir/address-use, code=home, source=http://hl7.org/fhir/ValueSet/address-use and target=http://hl7.org/fhir/ValueSet/v3-AddressUse."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="ConceptMap/$translate"/>
+				<sourceId value="translate-conceptmap-input-03"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter result with boolean value equal to true."/>
+				<expression value="Parameters.parameter.where($this.name = 'result' and ($this.value as boolean))"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

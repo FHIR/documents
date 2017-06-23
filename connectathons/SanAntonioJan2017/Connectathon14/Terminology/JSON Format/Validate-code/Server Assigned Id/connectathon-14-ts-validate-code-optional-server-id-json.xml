@@ -1,0 +1,926 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-14-ts-validate-code-server-id-json"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				This is the setup test script for the Terminology Services Connectathon.
+			</p>
+			<p>
+				Suite 4: A set of membership tests for valueset #2. This suite is checking 
+				the various ways that the operation can be invoked. Overview of value sets:
+			</p>
+			<ul>
+				<li>extensional-case-1: An enumeration of codes from a FHIR defined code system</li>
+				<li>extensional-case-2: An enumeration of codes from LOINC</li>
+				<li>extensional-case-3: An enumeration of codes from SNOMED </li>
+				<li>extensional-case-4: An enumeration of codes the crosses code systems, with codes from a FHIR defined value set and the V3 Role code system</li>
+				<li>intensional-case-1: A selection of codes from LOINC by their system value</li>
+				<li>intensional-case-2: A selection of codes from SNOMED based on subsumption</li>
+				<li>intensional-case-3: All clinical findings from SNOMED (based on subsumption) - a value set that is too large to expand</li>
+			</ul>
+		</div>
+	</text>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-14-ts-validate-code-server-id-json"/>
+	<name value="FHIR Connectathon 14 - Terminology Services - Validate Code Optional - Server - JSON"/>
+	<status value="active"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-12-13"/>
+	<description value="FHIR Connectathon 14 - Terminology Services - Validate Code Optional - Server - JSON Format - A set of membership validation tests with API variations for each of the 7 ValueSet fixtures. These tests check for API surface variations. All tests are the same as the first, but test different ways of passing the code. Setup creates the ValueSet resources with server defined resource ids."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="ValueSet create, read and $validate-code operations"/>
+			<link value="http://hl7.org/fhir/2017Jan/http.html#create"/>
+			<link value="http://hl7.org/fhir/2017Jan/http.html#read"/>
+			<link value="http://hl7.org/fhir/2017Jan/valueset-operations.html#validate-code"/>
+			<link value="http://hl7.org/fhir/2017Jan/valueset.html"/>
+			<capabilities>
+				<reference value="../../_reference/capabilities/ValueSetValidateCodeServerCapabilityStatement.json" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<fixture id="extensional-case-1">
+		<resource>
+			<reference value="../../_reference/resources/extensional-case-1.json"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-2">
+		<resource>
+			<reference value="../../_reference/resources/extensional-case-2.json"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-3">
+		<resource>
+			<reference value="../../_reference/resources/extensional-case-3.json"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-4">
+		<resource>
+			<reference value="../../_reference/resources/extensional-case-4.json"/>
+		</resource>
+	</fixture>
+	<fixture id="intensional-case-1">
+		<resource>
+			<reference value="../../_reference/resources/intensional-case-1.json"/>
+		</resource>
+	</fixture>
+	<fixture id="intensional-case-2">
+		<resource>
+			<reference value="../../_reference/resources/intensional-case-2.json"/>
+		</resource>
+	</fixture>
+	<fixture id="intensional-case-3">
+		<resource>
+			<reference value="../../_reference/resources/intensional-case-3.json"/>
+		</resource>
+	</fixture>
+
+	<fixture id="extensional-case-1-input-02-a">
+		<resource>
+			<reference value="../../_reference/input/extensional-case-1-input-02-a.json"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-1-input-02-b">
+		<resource>
+			<reference value="../../_reference/input/extensional-case-1-input-02-b.json"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-1-input-03-a">
+		<resource>
+			<reference value="../../_reference/input/extensional-case-1-input-03-a.json"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-1-input-03-b">
+		<resource>
+			<reference value="../../_reference/input/extensional-case-1-input-03-b.json"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-1-input-04-a">
+		<resource>
+			<reference value="../../_reference/input/extensional-case-1-input-04-a.json"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-1-input-04-b">
+		<resource>
+			<reference value="../../_reference/input/extensional-case-1-input-04-b.json"/>
+		</resource>
+	</fixture>
+
+	<fixture id="validate-code-valid-min">
+		<resource>
+			<reference value="../../_reference/output/validate-code-valid-min.json"/>
+		</resource>
+	</fixture>
+	<fixture id="validate-code-invalid-min">
+		<resource>
+			<reference value="../../_reference/output/validate-code-invalid-min.json"/>
+		</resource>
+	</fixture>
+
+	<profile id="ParametersProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+	</profile>
+	<profile id="ValueSetProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+	</profile>
+
+	<variable>
+		<name value="extensional-case-1-id"/>
+		<path value="ValueSet/id" />
+		<sourceId value="extensional-case-1-search-response"/>
+	</variable>
+	<variable>
+		<name value="extensional-case-1-url"/>
+		<path value="ValueSet/url" />
+		<sourceId value="extensional-case-1"/>
+	</variable>
+	<variable>
+		<name value="extensional-case-2-id"/>
+		<path value="ValueSet/id" />
+		<sourceId value="extensional-case-2-search-response"/>
+	</variable>
+	<variable>
+		<name value="extensional-case-2-url"/>
+		<path value="ValueSet/url" />
+		<sourceId value="extensional-case-2"/>
+	</variable>
+	<variable>
+		<name value="extensional-case-3-id"/>
+		<path value="ValueSet/id" />
+		<sourceId value="extensional-case-3-search-response"/>
+	</variable>
+	<variable>
+		<name value="extensional-case-3-url"/>
+		<path value="ValueSet/url" />
+		<sourceId value="extensional-case-3"/>
+	</variable>
+	<variable>
+		<name value="extensional-case-4-id"/>
+		<path value="ValueSet/id" />
+		<sourceId value="extensional-case-4-search-response"/>
+	</variable>
+	<variable>
+		<name value="extensional-case-4-url"/>
+		<path value="ValueSet/url" />
+		<sourceId value="extensional-case-4"/>
+	</variable>
+	<variable>
+		<name value="intensional-case-1-id"/>
+		<path value="ValueSet/id" />
+		<sourceId value="intensional-case-1-search-response"/>
+	</variable>
+	<variable>
+		<name value="intensional-case-1-url"/>
+		<path value="ValueSet/url" />
+		<sourceId value="intensional-case-1"/>
+	</variable>
+	<variable>
+		<name value="intensional-case-2-id"/>
+		<path value="ValueSet/id" />
+		<sourceId value="intensional-case-2-search-response"/>
+	</variable>
+	<variable>
+		<name value="intensional-case-2-url"/>
+		<path value="ValueSet/url" />
+		<sourceId value="intensional-case-2"/>
+	</variable>
+	<variable>
+		<name value="intensional-case-3-id"/>
+		<path value="ValueSet/id" />
+		<sourceId value="intensional-case-3-search-response"/>
+	</variable>
+	<variable>
+		<name value="intensional-case-3-url"/>
+		<path value="ValueSet/url" />
+		<sourceId value="intensional-case-3"/>
+	</variable>
+
+	<setup id="CreateRequiredResources">
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<sourceId value="extensional-case-1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Search for the extensional-case-1 ValueSet by the url. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the url search parameter."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?url=${extensional-case-1-url}"/>
+				<responseId value="extensional-case-1-search-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<sourceId value="extensional-case-2"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Search for the extensional-case-2 ValueSet by the url. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the url search parameter."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?url=${extensional-case-2-url}"/>
+				<responseId value="extensional-case-2-search-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<sourceId value="extensional-case-3"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Search for the extensional-case-3 ValueSet by the url. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the url search parameter."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?url=${extensional-case-3-url}"/>
+				<responseId value="extensional-case-3-search-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<sourceId value="extensional-case-4"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Search for the extensional-case-4 ValueSet by the url. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the url search parameter."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?url=${extensional-case-4-url}"/>
+				<responseId value="extensional-case-4-search-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<sourceId value="intensional-case-1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Search for the intensional-case-1 ValueSet by the url. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the url search parameter."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?url=${intensional-case-1-url}"/>
+				<responseId value="intensional-case-1-search-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<sourceId value="intensional-case-2"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Search for the intensional-case-2 ValueSet by the url. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the url search parameter."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?url=${intensional-case-2-url}"/>
+				<responseId value="intensional-case-2-search-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<sourceId value="intensional-case-3"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Search for the intensional-case-3 ValueSet by the url. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the url search parameter."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?url=${intensional-case-3-url}"/>
+				<responseId value="intensional-case-3-search-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+	</setup>
+
+	<test id="Test-01-a-ValidateExtensionalCase1">
+		<name value="Test 01-a Validate extensional-case-1 valid - system/code/display url parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergency is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate operation on ValueSet extensional-case-1 for a valid code."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/${extensional-case-1-id}/$validate-code?system=http://hl7.org/fhir/patient-contact-relationship&amp;code=emergency&amp;display=Emergency"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-valid-min."/>
+				<minimumId value="validate-code-valid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-01-b-ValidateExtensionalCase1">
+		<name value="Test 01-b Validate extensional-case-1 invalid display - system/code/display url parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/patient-contact-relationshipX}emergency is in the value set, but give the wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate operation on ValueSet extensional-case-1 for an invalid display."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/${extensional-case-1-id}/$validate-code?system=http://hl7.org/fhir/patient-contact-relationship&amp;code=emergency&amp;display=EmergencyX"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-02-a-ValidateExtensionalCase1">
+		<name value="Test 02-a Validate extensional-case-1 valid - valueCoding Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergency is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate operation on ValueSet extensional-case-1 for a valid code."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/${extensional-case-1-id}/$validate-code"/>
+				<sourceId value="extensional-case-1-input-02-a"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-valid-min."/>
+				<minimumId value="validate-code-valid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-02-b-ValidateExtensionalCase1">
+		<name value="Test 02-b Validate extensional-case-1 invalid display - valueCoding Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergency is in the value set, but give the wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate operation on ValueSet extensional-case-1 for an invalid display."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/${extensional-case-1-id}/$validate-code"/>
+				<sourceId value="extensional-case-1-input-02-b"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-03-a-ValidateExtensionalCase1">
+		<name value="Test 03-a Validate extensional-case-1 valid - codeableConcept Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergency is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate operation on ValueSet extensional-case-1 for a valid code."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/${extensional-case-1-id}/$validate-code"/>
+				<sourceId value="extensional-case-1-input-03-a"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-valid-min."/>
+				<minimumId value="validate-code-valid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-03-b-ValidateExtensionalCase1">
+		<name value="Test 03-b Validate extensional-case-1 invalid display - codeableConcept Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergency is in the value set, but give the wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate operation on ValueSet extensional-case-1 for an invalid display."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/${extensional-case-1-id}/$validate-code"/>
+				<sourceId value="extensional-case-1-input-03-b"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-04-a-ValidateExtensionalCase1">
+		<name value="Test 04-a Validate extensional-case-1 valid - system/code/display Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergency is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate operation on ValueSet extensional-case-1 for a valid code."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/${extensional-case-1-id}/$validate-code"/>
+				<sourceId value="extensional-case-1-input-04-a"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-valid-min."/>
+				<minimumId value="validate-code-valid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-04-b-ValidateExtensionalCase1">
+		<name value="Test 04-b Validate extensional-case-1 invalid display - system/code/display Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/patient-contact-relationship}emergency is in the value set, but give the wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate operation on ValueSet extensional-case-1 for an invalid display."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/${extensional-case-1-id}/$validate-code"/>
+				<sourceId value="extensional-case-1-input-04-b"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<teardown>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="ValueSet"/>
+				<params value="/${extensional-case-1-id}"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="ValueSet"/>
+				<params value="/${extensional-case-2-id}"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="ValueSet"/>
+				<params value="/${extensional-case-3-id}"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="ValueSet"/>
+				<params value="/${extensional-case-4-id}"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="ValueSet"/>
+				<params value="/${intensional-case-1-id}"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="ValueSet"/>
+				<params value="/${intensional-case-2-id}"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="ValueSet"/>
+				<params value="/${intensional-case-3-id}"/>
+			</operation>
+		</action>
+	</teardown>
+</TestScript>

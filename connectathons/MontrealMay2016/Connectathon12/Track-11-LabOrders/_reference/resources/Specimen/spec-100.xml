@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Specimen xmlns="http://hl7.org/fhir">
+	<id value="spec-100"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b>Generated Narrative with Details</b>
+			</p>
+			<p>
+				<b>id</b>: spec-100</p>
+			<p>
+				<b>type</b>: Platelet-free plasma 
+				<span style="background: LightGoldenRodYellow ">(Details : {SNOMED CT code "708048008" := "708048008", given as "Plasma specimen with citrate"}; {http://ehr.goodhealthclinic.org/specimens/type code "PFP" := "PFP", given as "Platelet Free Plasma"})</span>
+			</p>
+			<p>
+				<b>subject</b>: 
+				<a href="Patient/patient-uslab-example1">Todd Lerr</a>
+			</p>
+			<p>
+				<b>accessionIdentifier</b>: spec-100 (official)
+			</p>
+		</div>
+	</text>
+	<!--Assume no specimen placer ID  for now
+	<identifier>
+		<use value="official"/>
+		<system value="http://ehr.goodhealthclinic.org/identifiers/specimen"/>
+		<value value="spec-100"/>
+	</identifier>
+	-->
+	<!--Filler ID moved to accsession number-->
+	<!--   accession identifier - e.g. assigned by the labaratory when it is received.
+	This is common, unlike specimen identifier   -->
+	<accessionIdentifier>
+		<use value="official"/>
+		<system value="http://lis.acmelabs.org/identifiers/accession"/>
+		<value value="spec-100"/>
+	</accessionIdentifier>
+	<!--  
+	Type is a loosely defined field because there is such a lot of variation in how it is used.
+	The principal variation is how much information that could be represented elsewhere is also
+	represented here. For instance, here's some possible types:
+	lithium heparin plasma   (+ .container.additive) (e.g. SNOMED CT 446272009)
+	transfusion bag of blood (+ container.type)
+	Peritoneal lavage        (+ collection.bodySite)
+	If the type includes other fields, it would be normal not to populate the other fields
+
+	Note that this practice is so widespread that it's pointless to try and stop it  :(   -->
+	<!--  choice of SNOMED CT concept code...  -->
+	<type>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<!--  EH: Note to balloters  - lots of choices for whole blood I chose this.  -->
+			<code value="708048008"/>
+			<display value="Plasma specimen with citrate"/>
+		</coding>
+		<!--   and or local code  -->
+		<coding>
+			<system value="http://ehr.goodhealthclinic.org/specimens/type"/>
+			<code value="PFP"/>
+			<display value="Platelet Free Plasma"/>
+		</coding>
+		<text value="Platelet-free plasma"/>
+	</type>
+	<!--  Patient is required from core   -->
+	<subject>
+		<reference value="Patient/patient-uslab-example1"/>
+		<display value="Todd Lerr"/>
+	</subject>
+	<collection>
+		<!--   the time of collection is required. Usually a point in time, but can be a period      (collectedPeriod) if it's a timed collection (e.g. a 24 hour urine)   Should be same a effective times in obs and dr-->
+		<collectedDateTime value="2014-12-05"/>
+		<!--  EH: Note to balloters  -  this is to demonstrate use of source for body site not really needed for blood draw.  -->
+		<!--  choice of SNOMED CT concept code and or local code  -->
+		<!--
+		<bodySite>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="53120007"/>
+				<display value="Arm"/>
+			</coding>
+			<coding>
+				<system value="http://ehr.goodhealthclinic.org"/>
+				<code value="ARM"/>
+				<display value="Arm"/>
+			</coding>
+			<text value="Drawn from Arm"/>
+		</bodySite>
+		-->
+	</collection>
+</Specimen>

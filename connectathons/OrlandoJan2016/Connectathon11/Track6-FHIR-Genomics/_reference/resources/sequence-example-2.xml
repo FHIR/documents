@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<Sequence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\sequence.xsd">
+    <id value="example-2"/>
+    <type value="DNA"/>
+    <variationID>
+        <coding>
+            <system value="http://www.ncbi.nlm.nih.gov/projects/SNP"/>
+            <code value="rs3729508"/>
+        </coding>
+        <text value="rs1201207"/>
+    </variationID>
+    <coordinate>
+        <chromosome>
+            <text value="17"/>
+        </chromosome>
+        <start value="26109030"/>
+        <end value="26109031"/>
+        <genomeBuild>
+            <text value="GRCh37"/>
+        </genomeBuild>
+    </coordinate>
+    <species>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="337915000"/>
+        </coding>
+        <text value="Homo sapiens"/>
+    </species>
+    <observedAllele value="C"/>
+    <referenceAllele value="T"/>
+</Sequence> 

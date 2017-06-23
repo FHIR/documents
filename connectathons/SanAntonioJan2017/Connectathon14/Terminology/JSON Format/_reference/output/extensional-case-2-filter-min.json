@@ -1,0 +1,40 @@
+{
+  "resourceType": "ValueSet",
+  "url": "http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-2",
+  "identifier": [
+    {
+      "value": "extensional-case-2"
+    }
+  ],
+  "status": "draft",
+  "experimental": true,
+  "expansion": {
+    "contains": [
+      {
+        "system": "http://loinc.org",
+        "code": "8486-3",
+        "display": "Systolic blood pressure 1 hour mean"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8487-1",
+        "display": "Systolic blood pressure 8 hour mean"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8488-9",
+        "display": "Systolic blood pressure 10 hour mean"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8489-7",
+        "display": "Systolic blood pressure 12 hour mean"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8490-5",
+        "display": "Systolic blood pressure 24 hour mean"
+      }
+    ]
+  }
+}

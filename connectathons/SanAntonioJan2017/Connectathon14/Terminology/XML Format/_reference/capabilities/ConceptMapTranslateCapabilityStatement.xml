@@ -1,0 +1,17 @@
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="ConceptMap"/>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+		</resource>
+		<operation>
+			<name value="translate"/>
+			<definition>
+				<reference value="http://hl7.org/fhir/OperationDefinition/conceptmap-translate"/>
+			</definition>
+		</operation>
+	</rest>
+</CapabilityStatement>

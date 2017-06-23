@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-14-practitioner-locate-telecom-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-14-practitioner-locate-telecom-xml"/>
+	<name value="FHIR Connectathon 14 - Provider Directory - Scenario 1 - Practitioner Locate Telecom - XML"/>
+	<status value="draft"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-12-13"/>
+	<description value="Practitioner search capabilities tests; resource format XML; validate telecom and physical location; test a FHIR server's Practitioner search operation support using the parameters: identifier, name (family and given) and specialty. Default values for the search parameters are based on the Practitioner Resource Example and can be modified to allow testing against other known Practitioner resource instances."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Practitioner read and search operations"/>
+			<link value="http://wiki.hl7.org/index.php?title=201609_Provider_Directories_and_Scheduling"/>
+			<link value="http://hl7.org/fhir/2017Jan/http.html#read"/>
+			<link value="http://hl7.org/fhir/2017Jan/http.html#search"/>
+			<capabilities>
+				<reference value="../_reference/capabilities/PractitionerCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>	
+
+	<profile id="practitionerProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+	</profile>
+
+	<variable>
+		<name value="PractitionerSearchIdentifierSystemCriteria"/>
+		<defaultValue value="http://hl7.org/fhir/sid/us-npi"/>
+	</variable>
+	<variable>
+		<name value="PractitionerSearchIdentifierValueCriteria"/>
+		<defaultValue value="1265437362"/>
+	</variable>
+	<variable>
+		<name value="PractitionerSearchNameFamilyCriteria"/>
+		<defaultValue value="MULA"/>
+	</variable>
+	<variable>
+		<name value="PractitionerSearchNameGivenCriteria"/>
+		<defaultValue value="GREGORY"/>
+	</variable>
+	<variable>
+		<name value="PractitionerSearchSpecialtySystemCriteria"/>
+		<defaultValue value="http://hl7.org/fhir/practitioner-specialty"/>
+	</variable>
+	<variable>
+		<name value="PractitionerSearchSpecialtyValueCriteria"/>
+		<defaultValue value="cardio"/>
+	</variable>
+	<variable>
+		<name value="PractitionerResourceId"/>
+		<path value="Practitioner/id" />
+		<sourceId value="search-response"/>
+	</variable>
+
+	<test id="01-PractitionerSearchIdentifier">
+		<name value="PractitionerSearchIdentifier"/>
+		<description value="Search for a practitioner using the identifier search parameter with the provided identifier.system and identifier.value data values."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="Search for a practitioner using the identifier search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${PractitionerSearchIdentifierSystemCriteria}|${PractitionerSearchIdentifierValueCriteria}"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. Although not expected, there could be other practitioner records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches the number of entries in the Bundle"/>
+				<expression value="Bundle.total = entry.count()"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="Read the first Practitioner found in the identifier search and verify the contents contain a telecom and physical location."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${PractitionerResourceId}"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/xml+fhir'."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Practitioner."/>
+				<resource value="Practitioner"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Practitioner conforms to the base FHIR specification. Warning only to allow for Example code systems."/>
+				<validateProfileId value="practitionerProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Practitioner contains a telecom value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="Practitioner/telecom/value"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Practitioner contains a location value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="Practitioner/role/location/reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-PractitionerSearchName">
+		<name value="PractitionerSearchName"/>
+		<description value="Search for a practitioner using the name search parameter with the provided name.family data value."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="Search for a practitioner using the name search. The name value used is the family portion of the name."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?name=${PractitionerSearchNameFamilyCriteria}"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. Although not expected, there could be other practitioner records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches the number of entries in the Bundle"/>
+				<expression value="Bundle.total = entry.count()"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="Read the first Practitioner found in the name search and verify the contents contain a telecom and physical location."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${PractitionerResourceId}"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/xml+fhir'."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Practitioner."/>
+				<resource value="Practitioner"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Practitioner conforms to the base FHIR specification. Warning only to allow for Example code systems."/>
+				<validateProfileId value="practitionerProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Practitioner contains a telecom value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="Practitioner/telecom/value"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Practitioner contains a location value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="Practitioner/role/location/reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-PractitionerSearchFamilyGiven">
+		<name value="PractitionerSearchFamilyGiven"/>
+		<description value="Search for a practitioner using the family and given search parameters with the provided name.family and name.given data values."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="Search for a practitioner using the family and given search parameters."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?family=${PractitionerSearchNameFamilyCriteria}&amp;given=${PractitionerSearchNameGivenCriteria}"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. Although not expected, there could be other practitioner records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches the number of entries in the Bundle"/>
+				<expression value="Bundle.total = entry.count()"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="Read the first Practitioner found in the family and given search and verify the contents contain a telecom and physical location."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${PractitionerResourceId}"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/xml+fhir'."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Practitioner."/>
+				<resource value="Practitioner"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Practitioner conforms to the base FHIR specification. Warning only to allow for Example code systems."/>
+				<validateProfileId value="practitionerProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Practitioner contains a telecom value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="Practitioner/telecom/value"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Practitioner contains a location value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="Practitioner/role/location/reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="04-PractitionerSearchSpecialty">
+		<name value="PractitionerSearchSpecialty"/>
+		<description value="Search for a practitioner using the specialty search parameter with the provided role.specialty.coding.system and role.specialty.coding.value data values."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="Search for a practitioner using the specialty search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?specialty=${PractitionerSearchSpecialtySystemCriteria}|${PractitionerSearchSpecialtyValueCriteria}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. Although not expected, there could be other practitioner records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches the number of entries in the Bundle"/>
+				<expression value="Bundle.total = entry.count()"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="Read the first Practitioner found in the specialty search and verify the contents contain a telecom and physical location."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${PractitionerResourceId}"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/xml+fhir'."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Practitioner."/>
+				<resource value="Practitioner"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Practitioner conforms to the base FHIR specification. Warning only to allow for Example code systems."/>
+				<validateProfileId value="practitionerProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Practitioner contains a telecom value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="Practitioner/telecom/value"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Practitioner contains a location value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="Practitioner/role/location/reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

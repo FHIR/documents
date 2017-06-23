@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-13-cqf-soa-evaluate-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-13-cqf-soa-evaluate-xml"/>
+	<name value="FHIR Connectathon 13 - CQF on FHIR - SOA Evaluate - XML"/>
+	<status value="draft"/>
+	<publisher value="Database Consulting Group, AEGIS.net, Inc."/>
+	<contact>
+		<name value="Bryn Rhodes"/>
+		<telecom>
+			<system value="email"/>
+			<value value="bryn@databaseconsultinggroup.com"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-06-22"/>
+	<description value="Evaluate Exclusive Breastmilk Feeding Scenario."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="DecisionSupportServiceModule Evaluate Operation"/>
+	<copyright value="Â© Database Consulting Group 2015+, Â© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<validated value="true"/>
+			<description value="DecisionSupportServiceModule $evaluate operation"/>
+			<link value="http://hl7.org/fhir/2016May/decisionsupportservicemodule-operations.html#evaluate"/>
+			<conformance>
+				<reference value="_reference/conformance/DecisionSupportServiceModule-Evaluate.xml"/>
+				<display value="Minimum supported resource types and operations to verify on the destination server"/>
+			</conformance>
+		</capability>
+	</metadata>	
+
+	<fixture id="breastmilk-feeding-intervention-request">
+		<resource>
+			<reference value="_reference/resources/breastmilk-feeding-intervention-request-payload.xml"/>
+			<display value="Evaluate request payload"/>
+		</resource>
+	</fixture>
+	<fixture id="breastmilk-feeding-intervention-response">
+		<resource>
+			<reference value="_reference/resources/breastmilk-feeding-intervention-response-payload.xml"/>
+			<display value="Evaluate response payload"/>
+		</resource>
+	</fixture>
+	<fixture id="breastmilk-feeding-intervention-response-min">
+		<resource>
+			<reference value="_reference/resources/breastmilk-feeding-intervention-response-payload-min.xml"/>
+			<display value="Evaluate response payload minimum contents for validation"/>
+		</resource>
+	</fixture>
+
+	<test id="evaluate-breastmilk-feeding">
+		<name value="EvaluateBreastmilkFeeding"/>
+		<description value="Test the $evaluate operation of the DecisionSupportServiceModule resource."/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="evaluate"/>
+				</type>
+				<description value="Test the $evaluate operation of the DecisionSupportServiceModule with Breastmilk Feeding payload. The destination server is expected to support the DecisionSupportServiceModule/Breastfeeding module."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="DecisionSupportServiceModule/Breastfeeding/$evaluate"/>
+				<responseId value="breastmilk-feeding-intervention-actual-response"/> <!-- Not needed until subsequent tests are defined that require this reference. -->
+				<sourceId value="breastmilk-feeding-intervention-request"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is GuidanceResponse."/>
+				<resource value="GuidanceResponse"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned GuidanceResponse contains the minimum expected content."/>
+				<minimumId value="breastmilk-feeding-intervention-response-min"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

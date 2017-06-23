@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-15-ts-expand-filter-client-id-xml"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				Setup: The setup section defines the 7 value sets that are used to test the API 
+				functionality. The 7 value sets span common extensional and intensional definition
+				styles and consequences.
+			</p>
+			<p>
+				Suite 2: the same 7 suite 1 tests, but with a text filter. The exact effect of 
+				the text filter is not specified by FHIR, but the tests require that the number 
+				of codes returned is less than that returned by the first set of expansions,
+				and that no new codes can be returned that are not contained in the unfiltered
+				expansions. A set of candidate matching codes is provided as a suggestive list.
+				Note: services can filter by text, or by synonyms / alternate designations etc.
+				Any form of text matching can be used. Overview of value sets:
+			</p>
+			<ul>
+				<li>extensional-case-1: An enumeration of codes from a FHIR defined code system</li>
+				<li>extensional-case-2: An enumeration of codes from LOINC</li>
+				<li>extensional-case-3: An enumeration of codes from SNOMED </li>
+				<li>extensional-case-4: An enumeration of codes the crosses code systems, with codes from a FHIR defined value set and the V3 Role code system</li>
+				<li>intensional-case-1: A selection of codes from LOINC by their system value</li>
+				<li>intensional-case-2: A selection of codes from SNOMED based on subsumption</li>
+				<li>intensional-case-3: All clinical findings from SNOMED (based on subsumption) - a value set that is too large to expand</li>
+			</ul>
+		</div>
+	</text>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-15-ts-expand-filter-client-id-xml"/>
+	<name value="FHIR Connectathon 15 - Terminology Services - Expand with Filter - Existing - XML"/>
+	<status value="active"/>
+	<date value="2017-03-25"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="FHIR Connectathon 15 - Terminology Services - Expand with Filter - Existing - XML Format - Expansion tests for each of the 7 ValueSet fixtures with a text filter. There is no setup and teardown as all ValueSet resources are expected to exist on the target system under test."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="ValueSet create, read and expand operations"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#create"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#read"/>
+			<link value="http://hl7.org/fhir/STU3/valueset-operations.html#expand"/>
+			<link value="http://hl7.org/fhir/STU3/valueset.html"/>
+			<capabilities>
+				<reference value="../../_reference/capabilities/ValueSetExpandExistingCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<fixture id="extensional-case-1">
+		<resource>
+			<reference value="../../_reference/resources/extensional-case-1.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-2">
+		<resource>
+			<reference value="../../_reference/resources/extensional-case-2.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-3">
+		<resource>
+			<reference value="../../_reference/resources/extensional-case-3.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-4">
+		<resource>
+			<reference value="../../_reference/resources/extensional-case-4.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="intensional-case-1">
+		<resource>
+			<reference value="../../_reference/resources/intensional-case-1.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="intensional-case-2">
+		<resource>
+			<reference value="../../_reference/resources/intensional-case-2.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="intensional-case-3">
+		<resource>
+			<reference value="../../_reference/resources/intensional-case-3.xml"/>
+		</resource>
+	</fixture>
+
+	<fixture id="extensional-case-1-filter-min">
+		<resource>
+			<reference value="../../_reference/output/extensional-case-1-filter-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-2-filter-min">
+		<resource>
+			<reference value="../../_reference/output/extensional-case-2-filter-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-3-filter-min">
+		<resource>
+			<reference value="../../_reference/output/extensional-case-3-filter-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-4-filter-min">
+		<resource>
+			<reference value="../../_reference/output/extensional-case-4-filter-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="intensional-case-1-filter-min">
+		<resource>
+			<reference value="../../_reference/output/intensional-case-1-filter-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="intensional-case-2-filter-min">
+		<resource>
+			<reference value="../../_reference/output/intensional-case-2-filter-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="intensional-case-3-filter-min">
+		<resource>
+			<reference value="../../_reference/output/intensional-case-3-filter-min.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="ValueSetProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+	</profile>
+
+	<test id="Test-01-ExpansionFilterExtensionalCase1">
+		<name value="Expansion with Filter Test extensional-case-1"/>
+		<description value="$expand operation with text filter test for ValueSet extensional-case-1."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test read operation for ValueSet extensional-case-1."/>
+				<accept value="xml"/>
+				<params value="/extensional-case-1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is ValueSet."/>
+				<resource value="ValueSet"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<validateProfileId value="ValueSetProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="expand"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $expand operation with text filter 'f' on ValueSet extensional-case-1."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$expand?filter=f"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is ValueSet."/>
+				<resource value="ValueSet"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned ValueSet conforms to the base FHIR specification."/>
+				<validateProfileId value="ValueSetProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned ValueSet contains the minimally expected expansion - checking for ('female')."/>
+				<expression value="ValueSet.expansion.contains.where(code='female')"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-02-ExpansionFilterExtensionalCase2">
+		<name value="Expansion with Filter Test extensional-case-2"/>
+		<description value="$expand operation with text filter test for ValueSet extensional-case-2."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test read operation for ValueSet extensional-case-2."/>
+				<accept value="xml"/>
+				<params value="/extensional-case-2"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is ValueSet."/>
+				<resource value="ValueSet"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<validateProfileId value="ValueSetProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="expand"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $expand operation with text filter 'mean' on ValueSet extensional-case-2."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-2/$expand?filter=mean"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is ValueSet."/>
+				<resource value="ValueSet"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned ValueSet conforms to the base FHIR specification."/>
+				<validateProfileId value="ValueSetProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned ValueSet contains the minimally expected expansion - checking for ('8487-1', '8488-9')."/>
+				<expression value="ValueSet.expansion.contains.where(code='8487-1') and ValueSet.expansion.contains.where(code='8488-9')"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-03-ExpansionFilterExtensionalCase3">
+		<name value="Expansion with Filter Test extensional-case-3"/>
+		<description value="$expand operation with text filter test for ValueSet extensional-case-3."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test read operation for ValueSet extensional-case-3."/>
+				<accept value="xml"/>
+				<params value="/extensional-case-3"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is ValueSet."/>
+				<resource value="ValueSet"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<validateProfileId value="ValueSetProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="expand"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $expand operation with text filter 'fail' on ValueSet extensional-case-3."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-3/$expand?filter=fail"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is ValueSet."/>
+				<resource value="ValueSet"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned ValueSet conforms to the base FHIR specification."/>
+				<validateProfileId value="ValueSetProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned ValueSet contains the minimally expected expansion - checking for ('417996009', '120871000119108')."/>
+				<expression value="ValueSet.expansion.contains.where(code='417996009') and ValueSet.expansion.contains.where(code='120871000119108')"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-04-ExpansionFilterExtensionalCase4">
+		<name value="Expansion with Filter Test extensional-case-4"/>
+		<description value="$expand operation with text filter test for ValueSet extensional-case-4."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test read operation for ValueSet extensional-case-4."/>
+				<accept value="xml"/>
+				<params value="/extensional-case-4"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is ValueSet."/>
+				<resource value="ValueSet"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<validateProfileId value="ValueSetProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="expand"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $expand operation with text filter 'f' on ValueSet extensional-case-4."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-4/$expand?filter=f"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is ValueSet."/>
+				<resource value="ValueSet"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned ValueSet conforms to the base FHIR specification."/>
+				<validateProfileId value="ValueSetProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned ValueSet contains the minimally expected expansion - checking for ('female', 'F')."/>
+				<expression value="ValueSet.expansion.contains.where(code='female') and ValueSet.expansion.contains.where(code='F')"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-05-ExpansionFilterIntensionalCase1">
+		<name value="Expansion with Filter Test intensional-case-1"/>
+		<description value="$expand operation with text filter test for ValueSet intensional-case-1."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test read operation for ValueSet intensional-case-1."/>
+				<accept value="xml"/>
+				<params value="/intensional-case-1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is ValueSet."/>
+				<resource value="ValueSet"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<validateProfileId value="ValueSetProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="expand"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $expand operation with text filter 'exp' on ValueSet intensional-case-1."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-1/$expand?filter=exp"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is ValueSet."/>
+				<resource value="ValueSet"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned ValueSet conforms to the base FHIR specification."/>
+				<validateProfileId value="ValueSetProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned ValueSet contains the minimally expected expansion - checking for ('8446-7', '8448-3')."/>
+				<expression value="ValueSet.expansion.contains.where(code='8446-7') and ValueSet.expansion.contains.where(code='8448-3')"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-06-ExpansionFilterIntensionalCase2">
+		<name value="Expansion with Filter Test intensional-case-2"/>
+		<description value="$expand operation with text filter test for ValueSet intensional-case-2."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test read operation for ValueSet intensional-case-2."/>
+				<accept value="xml"/>
+				<params value="/intensional-case-2"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is ValueSet."/>
+				<resource value="ValueSet"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<validateProfileId value="ValueSetProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="expand"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $expand operation with text filter 'chronic' on ValueSet intensional-case-2."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-2/$expand?filter=chronic"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is ValueSet."/>
+				<resource value="ValueSet"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned ValueSet conforms to the base FHIR specification."/>
+				<validateProfileId value="ValueSetProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned ValueSet contains the minimally expected expansion - checking for ('8218002', '8762007')."/>
+				<expression value="ValueSet.expansion.contains.where(code='8218002') and ValueSet.expansion.contains.where(code='8762007')"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-07-ExpansionFilterIntensionalCase3">
+		<name value="Expansion with Filter Test intensional-case-3"/>
+		<description value="$expand operation with text filter test for ValueSet intensional-case-3."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test read operation for ValueSet intensional-case-3."/>
+				<accept value="xml"/>
+				<params value="/intensional-case-3"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is ValueSet."/>
+				<resource value="ValueSet"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<validateProfileId value="ValueSetProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="expand"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $expand operation with text filter 'renin' on ValueSet intensional-case-3."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-3/$expand?filter=renin"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<operator value="equals"/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is ValueSet."/>
+				<resource value="ValueSet"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned ValueSet conforms to the base FHIR specification."/>
+				<validateProfileId value="ValueSetProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned ValueSet contains the minimally expected expansion - checking for ('57883007', '95583008')."/>
+				<expression value="ValueSet.expansion.contains.where(code='57883007') and ValueSet.expansion.contains.where(code='95583008')"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

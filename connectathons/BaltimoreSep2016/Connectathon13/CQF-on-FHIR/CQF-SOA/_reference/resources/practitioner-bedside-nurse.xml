@@ -1,0 +1,41 @@
+<Practitioner xmlns="http://hl7.org/fhir">
+  <id value="practitioner-bedside-nurse"/>
+
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>RN Alison Wright is a bedside nurse</p>
+    </div>
+  </text>
+
+  <identifier>
+    <system value="http://example.org/practitioners"/>
+    <value value="33"/>
+  </identifier>
+  <active value="true"/>
+  <name>
+    <family value="Wright"/>
+    <given value="Alison"/>
+    <prefix value="RN"/>
+  </name>
+ <role>
+  <organization>
+    <reference value="Organization/1"/>
+  </organization>
+
+  <code>
+    <coding>
+      <system value="	http://hl7.org/fhir/practitioner-role"/>
+      <code value="nurse"/>
+      <display value="Nurse"/>
+    </coding>
+  </code>
+   <location>
+     <reference value="Location/1"/>
+     <display value="South Wing, second floor"/>
+   </location>
+   <healthcareService>
+     <reference value="HealthcareService/example"/>
+   </healthcareService>
+ </role>
+</Practitioner>

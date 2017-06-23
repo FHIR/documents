@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir">
+	<id value="obs-407"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b>Generated Narrative with Details</b>
+			</p>
+			<p>
+				<b>id</b>: obs-407</p>
+			<p>
+				<b>identifier</b>: obs-407</p>
+			<p>
+				<b>status</b>: final</p>
+			<p>
+				<b>code</b>: Bacteria susceptibility 
+				<span style="background: LightGoldenRodYellow ">(Details : {LOINC code "50545-3" := "50545-3", given as "Bacterial susceptibility panel in Isolate by Minimum inhibitory concentration (MIC)"})</span>
+			</p>
+			<p>
+				<b>subject</b>: 
+				<a href="Patient/patient-uslab-example1">Todd Lerr</a>
+			</p>
+			<p>
+				<b>effective</b>: 12/5/2014</p>
+			<p>
+				<b>issued</b>: 12/6/2014 3:42:15 PM</p>
+			<p>
+				<b>specimen</b>: 
+				<a href="Specimen/spec-uslab-example1">Blood sample</a>
+			</p>
+		</div>
+	</text>
+	<identifier>
+		<system value="http://lis.acmelabs.org/identifiers/labtestresult"/>
+		<value value="obs-407"/>
+	</identifier>
+	<status value="final"/>
+	<!--   EH :  The local and /or LOINC test codes go here    -->
+	<code>
+		<!--    EH: LOINC code goes here   -->
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="50545-3"/>
+			<display value="Bacterial susceptibility panel in Isolate by Minimum inhibitory concentration (MIC)"/>
+			<!--    EH: Local code goes here   -->
+		</coding>
+		<text value="Bacteria susceptibility"/>
+	</code>
+	<subject>
+		<reference value="Patient/patient-uslab-example1"/>
+		<display value="Todd Lerr"/>
+	</subject>
+	<effectiveDateTime value="2014-12-05"/>
+	<!--    EH: Showing dateTime to ss with TZO although only needed to Day    -->
+	<issued value="2014-12-06T15:42:15-08:00"/>
+	<!--   no results since is a nested panel    -->
+	<!--     eH dataabsent reason  would go here if valueQuantity was empty e.g.:	<dataAbsentReason value="error"/>    -->
+	<specimen>
+		<reference value="Specimen/spec-uslab-example1"/>
+		<display value="Blood sample"/>
+	</specimen>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/obs-408"/>
+			<display value="Trimethoprim+Sulfamethoxazole MIC"/>
+		</target>
+	</related>
+</Observation>

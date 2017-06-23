@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AllergyIntolerance xmlns="http://hl7.org/fhir">
+	<id value="dafallerg-1001"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-allergyintolerance"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">No Known Allergies</div>
+	</text>
+	<identifier>
+		<system value="http://hospital.smarthealthit.org"/>
+		<value value="dafallerg-1001"/>
+	</identifier>
+	<status value="active"/>
+	<category value="medication"/>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="160244002"/>
+			<display value="No Known Allergies"/>
+		</coding>
+		<text value="No Known Allergies"/>
+	</code>
+	<patient>
+		<reference value="Patient/dafpid-1001"/>
+	</patient>
+	<attestedDate value="2016"/>
+</AllergyIntolerance>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir">
+	<id value="pract-uslab-example3"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b>Generated Narrative with Details</b>
+			</p>
+			<p>
+				<b>id</b>: pract-uslab-example3</p>
+			<p>
+				<b>identifier</b>: 1234567893 (official)</p>
+			<p>
+				<b>name</b>: Gregory F House </p>
+			<p>
+				<b>telecom</b>: ph: 555 777 1234 11</p>
+		</div>
+	</text>
+	<identifier>
+		<use value="official"/>
+		<system value="http://hl7.org/fhir/sid/us-npi"/>
+		<!--   NPI  -->
+		<value value="1234567893"/>
+	</identifier>
+	<name>
+		<family value="House"/>
+		<given value="Gregory"/>
+		<given value="F"/>
+		<suffix value="PhD"/>
+	</name>
+	<telecom>
+		<system value="phone"/>
+		<value value="555 777 1234 11"/>
+	</telecom>
+</Practitioner>

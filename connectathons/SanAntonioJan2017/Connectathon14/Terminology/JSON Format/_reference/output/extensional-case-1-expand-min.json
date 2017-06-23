@@ -1,0 +1,50 @@
+{
+  "resourceType": "ValueSet",
+  "url": "http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-1",
+  "identifier": [
+    {
+      "value": "extensional-case-1"
+    }
+  ],
+  "status": "draft",
+  "experimental": true,
+  "expansion": {
+    "contains": [
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "code": "emergency",
+        "display": "Emergency"
+      },
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "code": "family",
+        "display": "Family"
+      },
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "code": "guardian",
+        "display": "Guardian"
+      },
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "code": "friend",
+        "display": "Friend"
+      },
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "code": "partner",
+        "display": "Partner"
+      },
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "code": "work",
+        "display": "Work"
+      },
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "code": "parent",
+        "display": "Parent"
+      }
+    ]
+  }
+}

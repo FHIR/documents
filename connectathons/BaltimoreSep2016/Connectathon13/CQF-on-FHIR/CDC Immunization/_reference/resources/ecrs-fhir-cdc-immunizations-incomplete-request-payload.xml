@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Parameters xmlns="http://hl7.org/fhir" xmlns:ns2="http://www.w3.org/1999/xhtml">
+	<parameter>
+		<name value="patient"/>
+		<valueReference>
+			<reference value="Patient/ECRSTEST100091071"/>
+		</valueReference>
+	</parameter>
+	<parameter>
+		<name value="organizationId"/>
+		<valueId value="FHIR-CONNECT-A-THON"/>
+	</parameter>
+	<parameter>
+		<name value="inputData"/>
+		<resource>
+			<Patient>
+				<id value="ECRSTEST100091071"/>
+				<identifier>
+					<system value="urn:oid:1.3.6.1.4.1.16517"/>
+					<value value="ECRSTEST100091071"/>
+				</identifier>
+			</Patient>					
+		</resource>
+	</parameter>
+</Parameters>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Dr Leonard T Bloodraw Jr</div>
+	</text>
+	<identifier>
+		<use value="official"/>
+		<system value="http://hl7.org/fhir/sid/us-npi"/>
+		<value value="${D9}"/>
+	</identifier>
+	<name>
+		<family value="Bloodraw"/>
+		<given value="Leonard"/>
+		<given value="T"/>
+		<suffix value="Jr"/>
+	</name>
+	<telecom>
+		<system value="phone"/>
+		<value value="(555)7771234 ext.11"/>
+	</telecom>
+</Practitioner>

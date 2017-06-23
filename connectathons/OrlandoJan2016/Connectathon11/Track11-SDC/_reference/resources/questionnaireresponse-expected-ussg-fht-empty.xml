@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuestionnaireResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../../../build/schema/questionnaireresponse.xsd">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/sdc-response"/>
+  </meta>
+  <questionnaire>
+    <reference value="Questionnaire/54127-6"/>
+  </questionnaire>
+  <status value="in-progress"/>
+  <subject>
+    <reference value="http://hl7.org/fhir/Patient/1"/>
+    <display value="Eve Everywoman"/>
+  </subject>
+  <!--
+	<author>
+		<reference value="Device/123"/>
+	</author>-->
+  <authored value="2016-01-08"/>
+  <item>
+    <linkId value="0"/>
+    <item>
+      <linkId value="0.1"/>
+      <text value="Date Done"/>
+    </item>
+    <item>
+      <linkId value="0.2"/>
+      <text value="Time Done"/>
+    </item>
+    <item>
+      <linkId value="0.3"/>
+      <text value="Where Done"/>
+    </item>
+    <item>
+      <linkId value="0.4"/>
+      <text value="Comment"/>
+    </item>
+  </item>
+  <item>
+    <linkId value="1"/>
+    <text value="Your health information"/>
+    <item>
+      <linkId value="1.1.1"/>
+      <text value="Name"/>
+    </item>
+    <item>
+      <linkId value="1.1.2"/>
+      <text value="Gender"/>
+    </item>
+    <item>
+      <linkId value="1.1.3"/>
+      <text value="Date of Birth"/>
+    </item>
+    <item>
+      <linkId value="1.1.4"/>
+      <text value="Were you born a twin?"/>
+    </item>
+    <item>
+      <linkId value="1.1.5"/>
+      <text value="Were you adopted?"/>
+    </item>
+    <item>
+      <linkId value="1.1.6"/>
+      <text value="Are your parents related to each other in any way other than marriage?"/>
+    </item>
+    <item>
+      <linkId value="1.1.7"/>
+      <text value="Height"/>
+      <answer>
+        <item>
+          <linkId value="1.1.7.1.1"/>
+          <text value="Units"/>
+        </item>
+        <item>
+          <linkId value="1.1.7.2.1"/>
+          <text value="Mock-up item: Shown when Height &gt;= 10"/>
+        </item>
+      </answer>
+    </item>
+    <item>
+      <linkId value="1.1.8"/>
+      <text value="Weight"/>
+      <answer>
+        <item>
+          <linkId value="1.1.8.1.1"/>
+          <text value="Units"/>
+        </item>
+      </answer>
+    </item>
+    <item>
+      <linkId value="1.1.9"/>
+      <text value="Body mass index (BMI) [Ratio]"/>
+    </item>
+    <item>
+      <linkId value="1.1.10"/>
+      <text value="Race"/>
+    </item>
+    <item>
+      <linkId value="1.1.11"/>
+      <text value="Ethnicity"/>
+    </item>
+    <item>
+      <linkId value="1.2"/>
+      <text value="Your diseases history"/>
+      <item>
+        <linkId value="1.2.1"/>
+        <text value="Disease or Condition"/>
+      </item>
+      <item>
+        <linkId value="1.2.2"/>
+        <text value="Age at Diagnosis"/>
+      </item>
+    </item>
+  </item>
+  <item>
+    <linkId value="2"/>
+    <text value="Family member health information"/>
+    <item>
+      <linkId value="2.1.1"/>
+      <item>
+        <linkId value="2.1.1.1"/>
+        <text value="Relationship to you"/>
+      </item>
+      <item>
+        <linkId value="2.1.1.2"/>
+        <text value="Name"/>
+      </item>
+      <item>
+        <linkId value="2.1.1.3"/>
+        <text value="Gender"/>
+      </item>
+      <item>
+        <linkId value="2.1.1.4"/>
+        <text value="Living?"/>
+      </item>
+      <item>
+        <linkId value="2.1.1.5"/>
+        <text value="Was this person born a twin?"/>
+      </item>
+      <item>
+        <linkId value="2.1.1.6"/>
+        <text value="Was this person adopted?"/>
+      </item>
+      <item>
+        <linkId value="2.1.1.7"/>
+        <text value="Race"/>
+      </item>
+      <item>
+        <linkId value="2.1.1.8"/>
+        <text value="Ethnicity"/>
+      </item>
+    </item>
+    <item>
+      <linkId value="2.1.2"/>
+      <text value="This family member's history of disease"/>
+      <item>
+        <linkId value="2.1.2.1"/>
+        <text value="Disease or Condition"/>
+      </item>
+      <item>
+        <linkId value="2.1.2.2"/>
+        <text value="Age at Diagnosis"/>
+      </item>
+      <item>
+        <linkId value="2.1.2.3"/>
+        <text value="Mock-up item: Height"/>
+      </item>
+      <item>
+        <linkId value="2.1.2.4"/>
+        <text value="Mock-up item: Weight"/>
+      </item>
+      <item>
+        <linkId value="2.1.2.5"/>
+        <text value="Mock-up item: BMI"/>
+      </item>
+    </item>
+  </item>
+</QuestionnaireResponse>

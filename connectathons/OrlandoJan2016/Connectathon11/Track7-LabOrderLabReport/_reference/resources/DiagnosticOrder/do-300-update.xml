@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticOrder xmlns="http://hl7.org/fhir">
+  <id value="do-300-update"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        <b>Generated Narrative with Details</b>
+      </p>
+      <p>
+        <b>id</b>: do-300-update</p>
+      <p>
+        <b>subject</b>:
+        <a href="Patient/patient-uslab-example1">Todd G. Lerr</a>
+      </p>
+      <p>
+        <b>orderer</b>:
+        <a href="Practitioner/pract-uslab-example1">Leonard T Bloodraw</a>
+      </p>
+      <p>
+        <b>identifier</b>: PLAC = do-300-update</p>
+      <p>
+        <b>reason</b>: Other pneumonia, unspecified organism
+        <span style="background: LightGoldenRodYellow ">(Details : {http://hl7.org/fhir/sid/icd-10-us code "J18.8" := "J18.8", given as "Other pneumonia, unspecified organism"})</span>
+      </p>
+      <p>
+        <b>specimen</b>:
+        <a href="Specimen/spec-uslab-example1">Blood Specimen</a>
+      </p>
+      <p>
+        <b>status</b>: completed</p>
+      <p>
+        <b>priority</b>: routine</p>
+    </div>
+  </text>
+  <subject>
+    <reference value="Patient/patient-uslab-example1"/>
+    <display value="Todd G. Lerr"/>
+  </subject>
+  <orderer>
+    <reference value="Practitioner/pract-uslab-example1"/>
+    <display value="Leonard T Bloodraw"/>
+  </orderer>
+  <identifier>
+    <type>
+      <coding>
+        <code value="http://hl7.org/fhir/identifier-type"/>
+        <display value="PLAC"/>
+      </coding>
+    </type>
+    <system value="http://goodhealth.org/identifiers"/>
+    <value value="do-300-update"/>
+  </identifier>
+  <reason>
+    <coding>
+      <system value="http://hl7.org/fhir/sid/icd-10-us"/>
+      <code value="J18.8"/>
+      <display value="Other pneumonia, unspecified organism"/>
+    </coding>
+  </reason>
+  <specimen>
+    <reference value="Specimen/spec-uslab-example1"/>
+    <display value="Blood Specimen"/>
+  </specimen>
+  <status value="completed"/>
+  <priority value="routine"/>
+  <event>
+    <status value="requested"/>
+    <description>
+      <coding>
+        <code value="new-request"/>
+      </coding>
+    </description>
+    <dateTime value="2011-01-03T14:34:28-08:00"/>
+  </event>
+  <item>
+    <code>
+      <coding>
+        <system value="http://lis.acmelabs.org/codes"/>
+        <code value="300"/>
+        <display value="CBC_diff"/>
+      </coding>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="57021-8"/>
+        <display value="CBC W Auto Differential panel in Blood"/>
+      </coding>
+    </code>
+    <status value="requested"/>
+  </item>
+</DiagnosticOrder>

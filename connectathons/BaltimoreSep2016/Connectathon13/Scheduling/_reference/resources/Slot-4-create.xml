@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Slot xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">09 May 2016 1:00pm - 1:45pm: <b>Free</b></div>
+	</text>
+	<identifier>
+		<system value="http://happyvalley.com/slot"/>
+		<value value="${CD9}-20160508130000"/>
+	</identifier>
+	<serviceCategory>
+		<coding>
+			<system value="http://hl7.org/fhir/service-category"/>
+			<code value="17"/>
+			<display value="General Practice"/>
+		</coding>
+	</serviceCategory>
+	<serviceType>
+		<coding>
+			<system value="http://hl7.org/fhir/service-type"/>
+			<code value="51"/>
+			<display value="Blood Donation"/>
+		</coding>
+	</serviceType>
+	<serviceType>
+		<coding>
+			<system value="http://hl7.org/fhir/service-type"/>
+			<code value="161"/>
+			<display value="Pathology - Haematology"/>
+		</coding>
+	</serviceType>
+	<specialty>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="418652005"/>
+			<display value="Pediatric hematology"/>
+		</coding>
+	</specialty>
+	<schedule>
+		<reference value="Schedule/${createScheduleResourceId}"/>
+	</schedule>
+	<status value="free"/>
+	<start value="2016-05-09T13:00:00Z"/>
+	<end value="2016-05-09T13:45:00Z"/>
+	<overbooked value="false"/>
+	<comment value="A referral is recommended but not required."/>
+</Slot>

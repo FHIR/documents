@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-13-daf-patient-read-json"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-13-daf-patient-read-json"/>
+	<name value="FHIR Connectathon 13 - DAF - Read DAF Patient; format JSON; with bonus tests for History and Version Read"/>
+	<status value="active"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-08-29"/>
+	<description value="FHIR Connectathon 13 - DAF - Read DAF Patient; resource format JSON; with bonus tests for History and Version Read; validate against the FHIR Patient and DAF profiles."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="Patient Read, History Instance, Vread Operations"/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Patient read operation"/>
+			<link value="http://hl7.org/fhir/2016Sep/http.html#read"/>
+			<conformance>
+				<reference value="../_reference/conformance/PatientRead.xml" />
+			</conformance>
+		</capability>
+		<capability>
+			<required value="true"/>
+			<description value="Patient history instance and vread operations"/>
+			<link value="http://hl7.org/fhir/2016Sep/http.html#history"/>
+			<link value="http://hl7.org/fhir/2016Sep/http.html#vread"/>
+			<conformance>
+				<reference value="../_reference/conformance/PatientHistoryInstanceVread.xml" />
+			</conformance>
+		</capability>
+	</metadata>
+
+	<profile id="patientProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Patient" />
+	</profile>
+	<profile id="daf-patientProfile">
+		<reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-patient"/>
+	</profile>
+
+	<variable>
+		<name value="PatientResourceId"/>
+		<defaultValue value="dafpid-1001"/>
+	</variable>
+	<variable>
+		<name value="PatientVersionId"/>
+		<path value="Patient/meta/versionId" />
+		<sourceId value="read-response"/>
+	</variable>
+
+	<test id="01-DAFPatientRead">
+		<name value="01-DAFPatientRead"/>
+		<description value="FHIR Connectathon 13 - DAF - Patient read operation; validate against the FHIR Patient and DAF profiles."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Test read operation for a user identified Patient."/>
+				<accept value="json"/>
+				<params value="/${PatientResourceId}" />
+				<responseId value="read-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Patient."/>
+				<resource value="Patient"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Patient profile. Warning only at this time due to STU3 Ballot validation engine issues."/>
+				<validateProfileId value="patientProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>		
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the DAF Patient profile. Warning only at this time due to potential DAF profile issue within the current FHIR STU 3 Candidate specification."/>
+				<validateProfileId value="daf-patientProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-DAFPatientHistory">
+		<name value="02-DAFPatientHistory"/>
+		<description value="FHIR Connectathon 13 - DAF - Patient history instance operation; validate against the FHIR Patient and DAF profiles."/>
+
+		<action>
+			<operation>
+				<resource value="Patient"/>
+				<description value="Retrieve the history for a single, known patient using the known identifier."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${PatientResourceId}/_history"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-DAFPatientVersionRead">
+		<name value="03-DAFPatientVersionRead"/>
+		<description value="FHIR Connectathon 13 - DAF - Patient vread operation; validate against the FHIR Patient and DAF profiles."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="vread"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Retrieve the first created version of the Patient instance."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${PatientResourceId}/_history/${PatientVersionId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Patient."/>
+				<resource value="Patient"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Patient profile. Warning only at this time due to STU3 Ballot validation engine issues."/>
+				<validateProfileId value="patientProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>		
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the DAF Patient profile. Warning only at this time due to potential DAF profile issue within the current FHIR STU 3 Candidate specification."/>
+				<validateProfileId value="daf-patientProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

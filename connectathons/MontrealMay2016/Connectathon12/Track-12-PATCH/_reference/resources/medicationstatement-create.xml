@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationStatement xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>Patient ${patientId}; FHIR Test Medication; Dosage: 60.0 mg</p>
+		</div>
+	</text>
+	<contained>
+		<Medication>
+			<id value="123" />
+			<code>
+				<text value="FHIR Test Medication" />
+			</code>
+		</Medication>
+	</contained>
+	<identifier>
+		<system value="http://happyvalley.com/medicationstatement"/>
+		<value value="${CD8}${D8}"/>
+	</identifier>
+	<status value="active"/>
+	<medicationReference>
+		<reference value="#123"/>
+	</medicationReference>
+	<patient>
+		<reference value="Patient/${patientId}"/>
+	</patient>
+	<dosage>
+		<quantityQuantity>
+			<value value="60.0"/>
+			<unit value="mg"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="mg"/>
+		</quantityQuantity>
+	</dosage>
+</MedicationStatement>

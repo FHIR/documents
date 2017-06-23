@@ -1,0 +1,14 @@
+<Conformance xmlns="http://hl7.org/fhir">
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="Patient"/>
+			<interaction>
+				<code value="history-instance"/>
+			</interaction>
+			<interaction>
+				<code value="vread"/>
+			</interaction>
+		</resource>
+	</rest>
+</Conformance>

@@ -1,0 +1,32 @@
+{
+  "resourceType": "Bundle",
+  "id": "20160113160203",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:c72aa430-2ddc-456e-7a09-dea8264671d8",
+      "resource": {
+        "resourceType": "Encounter",
+        "identifier": [
+          {
+            "use": "official",
+            "system": "http://healthcare.example.org/identifiers/encounter",
+            "value": "${D6}.${D7}"
+          }
+        ],
+        "status": "in-progress",
+        "class": "inpatient",
+        "patient": {
+          "reference": "Patient?family=van%20de%20Heuvel${CD11}&given=Pieter${CD11}"
+        },
+        "serviceProvider": {
+          "reference": "Organization?identifier=urn:oid:2.16.840.1.113883.2.4.6.1|${D2}-${D7}"
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "Encounter"
+      }
+    }
+  ]
+}

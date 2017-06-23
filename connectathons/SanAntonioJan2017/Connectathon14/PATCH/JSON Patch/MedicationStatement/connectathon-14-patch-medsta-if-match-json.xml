@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-14-patch-medsta-if-match-json"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-14-patch-medsta-if-match-json"/>
+	<name value="FHIR Connectathon 14 - Patch - JSON PATCH for MedicationStatement with If-Match option"/>
+	<status value="draft"/>
+	<publisher value="Cerner, AEGIS.net, Inc."/>
+	<contact>
+		<name value="Jenni Syed"/>
+		<telecom>
+			<system value="email"/>
+			<value value="jenni.syed@cerner.com"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-08-31"/>
+	<description value="Send PATCH with If-Match option to EHR /MedicationStatement resource using JSON Patch format to update the MedicationStatement.status."/>
+	<copyright value="© Cerner 2015+, © AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Patient search operation and MedicationStatement create and patch operations - patch is currently experimental so there is no formal definition within the conformance statement at this time."/>
+			<link value="http://hl7.org/fhir/2017Jan/http.html#create"/>
+			<link value="http://hl7.org/fhir/2017Jan/http.html#update"/>
+			<link value="http://hl7.org/fhir/2017Jan/http.html#search"/>
+			<capabilities>
+				<reference value="../../_reference/capabilities/MedicationStatementJSON.xml" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<fixture id="medicationstatement-create">
+		<resource>
+			<reference value="../../_reference/resources/medicationstatement-create.json"/>
+		</resource>
+	</fixture>
+	<fixture id="medicationstatement-patch">
+		<resource>
+			<reference value="../../_reference/resources/medicationstatement-patch.json"/>
+		</resource>
+	</fixture>
+
+	<variable>
+		<name value="patientSearchName"/>
+		<description value="Enter a patient name to search on for a known Patient on the destination system."/>
+		<hint value="[Patient Name]" />
+	</variable>
+	<variable>
+		<name value="patientId"/>
+		<path value="Patient/id" />
+		<sourceId value="patient-search-response"/>
+	</variable>
+	<variable>
+		<name value="medicationStatementETag"/>
+		<headerField value="ETag"/>
+		<sourceId value="medicationstatement-create-response"/>
+	</variable>
+	<variable>
+		<name value="medicationStatementId"/>
+		<path value="MedicationStatement/id"/>
+		<sourceId value="medicationstatement-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamPatient"/>
+		<path value="MedicationStatement/subject/reference" />
+		<sourceId value="medicationstatement-create" />
+	</variable>
+	<variable>
+		<name value="searchParamStatus"/>
+		<path value="MedicationStatement/status" />
+		<sourceId value="medicationstatement-create" />
+	</variable>
+
+	<test id="Step1-SearchForPatient">
+		<name value="Step1-SearchForPatient"/>
+		<description value="Search for a Patient on which to create a MedicationStatement."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for the patient by name."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?name=${patientSearchName}"/>
+				<responseId value="patient-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other Patient records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches the number of entries in the Bundle"/>
+				<expression value="Bundle.total = entry.count()"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2-Create-MedicationStatement">
+		<name value="Step2-Create-MedicationStatement"/>
+		<description value="Create a MedicationStatement for the Patient found in step 1."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<responseId value="medicationstatement-create-response" />
+				<sourceId value="medicationstatement-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header ETag is present. Warning only as this is optional but servers are encouraged to return this."/>
+				<headerField value="ETag"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Location is present. Warning only as this is optional but servers are encouraged to return this."/>
+				<headerField value="Location"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<description value="Search for the created MedicationStatement by the known patient reference and status. This is necessary in order to determine the server assigned resource id and requires the destination server to also support the patient and status search parameters."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?subject=${searchParamPatient}&amp;status=${searchParamStatus}"/>
+				<responseId value="medicationstatement-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other MedicationStatement records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches the number of entries in the Bundle"/>
+				<expression value="Bundle.total = entry.count()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that bundle contains the created MedicationStatement. Warning only until this TestScript has been verified accurate."/>
+				<operator value="equals"/>
+				<path value="MedicationStatement/subject/reference"/>
+				<value value="Patient/${patientId}"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step3-PatchMedicationStatement">
+		<name value="Step3-PatchMedicationStatement"/>
+		<description value="Update the MedicationStatement to a 'completed' status using JSON PATCH"/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://touchstone.aegis.net/fhir/testscript-operation-codes-extended"/>
+					<code value="patch"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${medicationStatementId}"/>
+				<requestHeader>
+					<field value="If-Match"/>
+					<value value="${medicationStatementETag}"/>
+				</requestHeader>
+				<sourceId value="medicationstatement-patch"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the patch operation is a replace."/>
+				<direction value="request" />
+				<path value="[0].op"/>
+				<value value="replace"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the patch is replacing the status element value."/>
+				<direction value="request" />
+				<path value="[0].path"/>
+				<value value="/status"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the patch is setting the status value to completed."/>
+				<direction value="request" />
+				<path value="[0].value"/>
+				<value value="completed"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<description value="Read the patched MedicationStatement back to verify contents."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${medicationStatementId}" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is MedicationStatement."/>
+				<resource value="MedicationStatement"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirmation that the MedicationStatement status got updated to the completed value."/>
+				<operator value="equals"/>
+				<path value="MedicationStatement/status"/>
+				<value value="completed"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

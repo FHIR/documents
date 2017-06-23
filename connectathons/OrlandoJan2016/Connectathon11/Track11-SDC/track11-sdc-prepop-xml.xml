@@ -1,0 +1,142 @@
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="track11-sdc-prepop-xml"/>
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/track11-sdc-prepop-xml"/>
+	<name value="FHIR Connectathon 11 - Track 11 - SDC - Pre-population"/>
+	<status value="draft"/>
+	<description value="FHIR Connectathon 11 - Track 11 - SDC - XML Format - Test to pre-populate a QuestionnaireResponse from a CDA document."/>
+	<fixture id="questionnaire-create-ussg-fht">
+		<resource>
+			<reference value="/Connectathon11/Track11-SDC/_reference/resources/questionnaire-sdc-profile-example-ussg-fht.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="binary-create-ussg-ccda2_1-prepop">
+		<resource>
+			<reference value="/Connectathon11/Track11-SDC/_reference/C-CDA_R2-1_CCD-ussg.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="parameters-populate-A1-empty-on-instance">
+		<resource>
+			<reference value="/Connectathon11/Track11-SDC/_reference/resources/parameters-A1-empty-on-instance.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="parameters-populate-A2-empty-by-ref">
+		<resource>
+			<reference value="/Connectathon11/Track11-SDC/_reference/resources/parameters-A2-empty-by-ref.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="parameters-populate-A3-empty-by-identifier">
+		<resource>
+			<reference value="/Connectathon11/Track11-SDC/_reference/resources/parameters-A3-empty-by-identifier.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="parameters-populate-A4-empty-by-contained">
+		<resource>
+			<reference value="/Connectathon11/Track11-SDC/_reference/resources/parameters-A4-empty-by-contained.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="parameters-populate-B1-CCDA-on-instance">
+		<resource>
+			<reference value="/Connectathon11/Track11-SDC/_reference/resources/parameters-B1-CCDA-on-instance.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="parameters-populate-B2-CCDA-by-ref">
+		<resource>
+			<reference value="/Connectathon11/Track11-SDC/_reference/resources/parameters-B2-CCDA-by-ref.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="parameters-populate-B3-CCDA-by-identifier">
+		<resource>
+			<reference value="/Connectathon11/Track11-SDC/_reference/resources/parameters-B3-CCDA-by-identifier.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="parameters-populate-B4-CCDA-by-contained">
+		<resource>
+			<reference value="/Connectathon11/Track11-SDC/_reference/resources/parameters-B4-CCDA-by-contained.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="questionnaireresponse-expected-ussg-fht-empty">
+		<resource>
+			<reference value="/Connectathon11/Track11-SDC/_reference/resources/questionnaireresponse-expected-ussg-fht-empty.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="questionnaireresponse-expected-ussg-fht-CCDA">
+		<resource>
+			<reference value="/Connectathon11/Track11-SDC/_reference/resources/questionnaireresponse-expected-ussg-fht-CCDA.xml"/>
+		</resource>
+	</fixture>
+	<profile id="sdc-questionnaireresponse-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/sdc-response"/>
+	</profile>
+	<variable>
+		<name value="questionnaire"/>
+		<path value="Bundle/entry/resource/Questionnaire"/>
+		<sourceId value="questionnaire-create-ussg-fht"/>
+	</variable>
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="transaction"/>
+				</type>
+				<resource value="Bundle"/>
+				<description value="Ensure that the relevant questionnaire to generate the response from is present (along with referenced value sets, data elements and concept map"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="questionnaire-create-ussg-fht"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Binary"/>
+				<description value="Create the CCDA binary to use in pre-population (or ensure that it's updated to contain the right content)"/>
+				<accept value="xml"/>
+				<params value="/ccda21-prepop1"/>
+				<requestHeader>
+          <field value="Content-Type"/>
+          <value value="application/xml"/>
+        </requestHeader>
+				<sourceId value="binary-create-ussg-ccda2_1-prepop"/>
+			</operation>
+		</action>
+	</setup>
+	<test>
+		<name value="Prepopulate empty Questionnaire by resource invocation"/>
+		<description value="Perform pre-population of a questionnaire passing no data and invoking the operation on the specific resource id."/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="populate"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Generate questionnaire"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/54127-6/$populate"/>
+				<sourceId value="parameters-populate-A1-empty-on-instance"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<validateProfileId value="sdc-questionnaireresponse-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the response contains the populated questionnaire."/>
+				<minimumId value="questionnaireresponse-expected-ussg-fht-empty"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

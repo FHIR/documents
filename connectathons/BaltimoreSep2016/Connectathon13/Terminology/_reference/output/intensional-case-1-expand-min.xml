@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<url value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-1"/>
+	<identifier>
+		<value value="intensional-case-1"/>
+	</identifier>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<expansion>
+		<identifier />
+		<timestamp />
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="11328-2"/>
+			<display value="Heart rate at First encounter"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="11377-9"/>
+			<display value="Diastolic blood pressure at First encounter"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="11378-7"/>
+			<display value="Systolic blood pressure at First encounter"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="18708-8"/>
+			<display value="First Heart rate Set"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="34538-9"/>
+			<display value="Orthostatic blood pressure"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="34553-8"/>
+			<display value="Orthostatic blood pressure panel"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="45372-0"/>
+			<display value="Blood pressure systolic and diastolic--post phlebotomy"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="50402-7"/>
+			<display value="Blood pressure systolic and diastolic--after transfusion"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="50403-5"/>
+			<display value="Blood pressure systolic and diastolic--before transfusion"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="55284-4"/>
+			<display value="Blood pressure systolic and diastolic"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="55422-0"/>
+			<display value="Heart rate Encounter maximum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="55425-3"/>
+			<display value="Heart rate unspecified time mean by Pedometer"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="55426-1"/>
+			<display value="Heart rate unspecified time maximum by Pedometer"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="68999-2"/>
+			<display value="Heart rate --supine"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="69000-8"/>
+			<display value="Heart rate --sitting"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="69001-6"/>
+			<display value="Heart rate --standing"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="69408-3"/>
+			<display value="Orthostatic heart rate [Difference in rate]"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8446-7"/>
+			<display value="Diastolic blood pressure--expiration"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8447-5"/>
+			<display value="Diastolic blood pressure--inspiration"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8448-3"/>
+			<display value="Mean blood pressure--expiration"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8449-1"/>
+			<display value="Mean blood pressure--inspiration"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8450-9"/>
+			<display value="Systolic blood pressure--expiration"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8451-7"/>
+			<display value="Systolic blood pressure--inspiration"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8452-5"/>
+			<display value="Systolic blood pressure.inspiration - expiration"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8453-3"/>
+			<display value="Diastolic blood pressure--sitting"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8454-1"/>
+			<display value="Diastolic blood pressure--standing"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8455-8"/>
+			<display value="Diastolic blood pressure--supine"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8456-6"/>
+			<display value="Mean blood pressure--sitting"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8457-4"/>
+			<display value="Mean blood pressure--standing"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8458-2"/>
+			<display value="Mean blood pressure--supine"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8459-0"/>
+			<display value="Systolic blood pressure--sitting"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8460-8"/>
+			<display value="Systolic blood pressure--standing"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8461-6"/>
+			<display value="Systolic blood pressure--supine"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8462-4"/>
+			<display value="Diastolic blood pressure"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8463-2"/>
+			<display value="Diastolic blood pressure 1 hour maximum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8464-0"/>
+			<display value="Diastolic blood pressure 8 hour maximum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8465-7"/>
+			<display value="Diastolic blood pressure 10 hour maximum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8466-5"/>
+			<display value="Diastolic blood pressure 12 hour maximum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8467-3"/>
+			<display value="Diastolic blood pressure 24 hour maximum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8468-1"/>
+			<display value="Diastolic blood pressure 1 hour mean"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8469-9"/>
+			<display value="Diastolic blood pressure 8 hour mean"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8470-7"/>
+			<display value="Diastolic blood pressure 10 hour mean"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8471-5"/>
+			<display value="Diastolic blood pressure 12 hour mean"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8472-3"/>
+			<display value="Diastolic blood pressure 24 hour mean"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8473-1"/>
+			<display value="Diastolic blood pressure 1 hour minimum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8474-9"/>
+			<display value="Diastolic blood pressure 8 hour minimum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8475-6"/>
+			<display value="Diastolic blood pressure 10 hour minimum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8476-4"/>
+			<display value="Diastolic blood pressure 12 hour minimum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8477-2"/>
+			<display value="Diastolic blood pressure 24 hour minimum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8478-0"/>
+			<display value="Mean blood pressure"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8479-8"/>
+			<display value="Systolic blood pressure by palpation"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8480-6"/>
+			<display value="Systolic blood pressure"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8481-4"/>
+			<display value="Systolic blood pressure 1 hour maximum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8482-2"/>
+			<display value="Systolic blood pressure 8 hour maximum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8483-0"/>
+			<display value="Systolic blood pressure 10 hour maximum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8484-8"/>
+			<display value="Systolic blood pressure 12 hour maximum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8485-5"/>
+			<display value="Systolic blood pressure 24 hour maximum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8486-3"/>
+			<display value="Systolic blood pressure 1 hour mean"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8487-1"/>
+			<display value="Systolic blood pressure 8 hour mean"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8488-9"/>
+			<display value="Systolic blood pressure 10 hour mean"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8489-7"/>
+			<display value="Systolic blood pressure 12 hour mean"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8490-5"/>
+			<display value="Systolic blood pressure 24 hour mean"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8491-3"/>
+			<display value="Systolic blood pressure 1 hour minimum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8492-1"/>
+			<display value="Systolic blood pressure 8 hour minimum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8493-9"/>
+			<display value="Systolic blood pressure 10 hour minimum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8494-7"/>
+			<display value="Systolic blood pressure 12 hour minimum"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8495-4"/>
+			<display value="Systolic blood pressure 24 hour minimum"/>
+		</contains>
+	</expansion>
+</ValueSet>

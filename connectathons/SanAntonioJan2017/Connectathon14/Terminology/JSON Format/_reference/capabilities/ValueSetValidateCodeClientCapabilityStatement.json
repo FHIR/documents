@@ -1,0 +1,29 @@
+{
+  "resourceType": "CapabilityStatement",
+  "rest": [
+    {
+      "mode": "server",
+      "resource": [
+        {
+          "type": "ValueSet",
+          "interaction": [
+            {
+              "code": "update"
+            },
+            {
+              "code": "read"
+            }
+          ]
+        }
+      ],
+      "operation": [
+        {
+          "name": "validate-code",
+          "definition": {
+            "reference": "http://hl7.org/fhir/OperationDefinition/valueset-validate-code"
+          }
+        }
+      ]
+    }
+  ]
+}

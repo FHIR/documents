@@ -1,0 +1,60 @@
+{
+  "resourceType": "ValueSet",
+  "url": "http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-3",
+  "identifier": [
+    {
+      "value": "intensional-case-3"
+    }
+  ],
+  "status": "draft",
+  "experimental": true,
+  "expansion": {
+    "contains": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "57883007",
+        "display": "Renin test diet (finding)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "95583008",
+        "display": "Ectopic renin secretion (finding)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "102799005",
+        "display": "Normal renin secretion (finding)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "102800009",
+        "display": "Abnormal renin secretion (finding)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "102802001",
+        "display": "Decreased renin secretion (finding)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "102801008",
+        "display": "Increased renin secretion (finding)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "102803006",
+        "display": "Absence of renin secretion (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "124504004",
+        "display": "Deficiency of renin (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "307618001",
+        "display": "Juxtaglomerular tumor (disorder)"
+      }
+    ]
+  }
+}

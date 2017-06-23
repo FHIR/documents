@@ -1,0 +1,17 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "code",
+      "valueCode": "emergency"
+    },
+    {
+      "name": "system",
+      "valueUri": "http://hl7.org/fhir/patient-contact-relationship"
+    },
+    {
+      "name": "display",
+      "valueString": "Emergency"
+    }
+  ]
+}

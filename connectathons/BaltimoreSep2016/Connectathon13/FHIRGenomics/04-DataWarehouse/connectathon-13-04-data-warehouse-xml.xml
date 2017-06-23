@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-13-04-data-warehouse-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-13-04-data-warehouse-xml"/>
+	<name value="FHIR Connectathon 13 - FHIR Genomics - Scenario 04 - Clinical and Research Data Warehouses - XML"/>
+	<status value="draft"/>
+	<publisher value="Clinical Genomics Workgroup, AEGIS.net, Inc."/>
+	<contact>
+		<name value="Gil Alterovitz"/>
+		<telecom>
+			<system value="email"/>
+			<value value="gilusa@gmail.com"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-09-08"/>
+	<description value="Search for all genetic-profile-based Observations with a given observation-geneticsDNAVariationId extension equal to rs587778247. Resource format is XML."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="Observation, Patient, Practitioner and Specimen - Create, Delete, Read and Search Operation"/>
+	<copyright value="© Clinical Genomics Workgroup, © AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Observation, Patient, Practitioner and Specimen create, delete, read and search operations"/>
+			<link value="http://hl7.org/fhir/http.html#create"/>
+			<link value="http://hl7.org/fhir/http.html#delete"/>
+			<link value="http://hl7.org/fhir/http.html#read"/>
+			<link value="http://hl7.org/fhir/http.html#search"/>
+			<link value="http://hl7.org/fhir/2016Sep/observationforgenetics.html"/>
+			<link value="http://hl7.org/fhir/2016Sep/extension-observation-geneticsdnavariantid.html"/>
+			<conformance>
+				<reference value="_reference/conformance/DataWarehouseConformance.xml" />
+			</conformance>
+		</capability>
+	</metadata>
+
+	<fixture id="observation-create">
+		<resource>
+			<reference value="_reference/resources/observation-datawarehouse-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-create">
+		<resource>
+			<reference value="_reference/resources/patient-datawarehouse-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="practitioner-create">
+		<resource>
+			<reference value="_reference/resources/practitioner-datawarehouse-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="specimen-create">
+		<resource>
+			<reference value="_reference/resources/specimen-datawarehouse-create.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="observation-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+	</profile>
+	<profile id="observation-genetics-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/observationforgenetics"/>
+	</profile>
+
+	<variable>
+		<name value="createObservationId"/>
+		<path value="Observation/id" />
+		<sourceId value="create-observation-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamObservationIdentifier"/>
+		<path value="Observation/identifier/value" />
+		<sourceId value="observation-create" />
+	</variable>
+	<variable>
+		<name value="createPatientId"/>
+		<path value="Patient/id" />
+		<sourceId value="create-patient-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamPatientIdentifier"/>
+		<path value="Patient/identifier/value" />
+		<sourceId value="patient-create" />
+	</variable>
+	<variable>
+		<name value="createPractitionerId"/>
+		<path value="Practitioner/id" />
+		<sourceId value="create-practitioner-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamPractitionerIdentifier"/>
+		<path value="Practitioner/identifier/value" />
+		<sourceId value="practitioner-create" />
+	</variable>
+	<variable>
+		<name value="createSpecimenId"/>
+		<path value="Specimen/id" />
+		<sourceId value="create-specimen-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamSpecimenIdentifier"/>
+		<path value="Specimen/identifier/value" />
+		<sourceId value="specimen-create" />
+	</variable>
+
+	<rule id="RuleDNAVariationIdObservationInSearchResponse">
+		<resource>
+			<reference value="_reference/rule/response/body/RuleDNAVariationIdObservationInSearchResponse.groovy"/>
+		</resource>
+	</rule>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Observation"/>
+				<description value="Use a conditional delete operation to insure the Observation does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamObservationIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Specimen"/>
+				<description value="Use a conditional delete operation to insure the Specimen does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamSpecimenIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Use a conditional delete operation to insure the Patient does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPatientIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="Use a conditional delete operation to insure the Practitioner does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPractitionerIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+	</setup>
+
+	<test id="Step1-CreateNewDataWarehousePractitioner">
+		<name value="Step1-CreateNewDataWarehousePractitioner"/>
+		<description value="Create a new DataWarehouse Practitioner in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="practitioner-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="Search for the created DataWarehouse Practitioner by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPractitionerIdentifier}"/>
+				<responseId value="create-practitioner-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one Practitioner resource returned. Warning only as the server may contain another matching Practitioner."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2-CreateNewDataWarehousePatient">
+		<name value="Step2-CreateNewDataWarehousePatient"/>
+		<description value="Create a new DataWarehouse Patient in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="patient-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for the created DataWarehouse Patient by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPatientIdentifier}"/>
+				<responseId value="create-patient-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one Patient resource returned. Warning only as the server may contain another matching Patient."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step3-CreateNewDataWarehouseSpecimen">
+		<name value="Step3-CreateNewDataWarehouseSpecimen"/>
+		<description value="Create a new DataWarehouse Specimen in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="specimen-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Specimen"/>
+				<description value="Search for the created DataWarehouse Specimen by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamSpecimenIdentifier}"/>
+				<responseId value="create-specimen-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one Specimen resource returned. Warning only as the server may contain another matching Specimen."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step4-CreateNewDataWarehouseObservation">
+		<name value="Step4-CreateNewDataWarehouseObservation"/>
+		<description value="Create a new DataWarehouse Observation in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="observation-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step5-DNAVariationIdObservationSearch">
+		<name value="Step5-DNAVariationIdObservationSearch"/>
+		<description value="Search for all Observations for the DataWarehouse Patient. Examine search results for geneticsDNAVariationId extension equal to rs587778247."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Observation"/>
+				<description value="Search for patient observations using a known patient resource id reference"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?patient=Patient/${createPatientId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one observation record returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex rule assertion to evaluate Bundle searchset and determine if at least one Observation with expected geneticsDNAVariationId extension equal to rs587778247 is returned."/>
+				<rule>
+					<ruleId value="RuleDNAVariationIdObservationInSearchResponse" />
+				</rule>
+			</assert>
+		</action>
+	</test>
+</TestScript>

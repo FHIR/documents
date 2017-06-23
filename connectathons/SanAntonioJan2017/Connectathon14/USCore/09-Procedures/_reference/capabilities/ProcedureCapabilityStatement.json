@@ -1,0 +1,31 @@
+{
+  "resourceType": "CapabilityStatement",
+  "rest": [
+    {
+      "mode": "server",
+      "resource": [
+        {
+          "type": "Procedure",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "date",
+              "type": "date"
+            },
+            {
+              "name": "patient",
+              "type": "reference"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

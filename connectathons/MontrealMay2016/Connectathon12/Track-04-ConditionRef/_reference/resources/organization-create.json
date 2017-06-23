@@ -1,0 +1,43 @@
+{
+  "resourceType": "Organization",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\t\t\tBurgers University Medical Center            \n      <br/>Galapagosweg 91 Den Burg 9105 PZ NLD (WORK)            \n      <br/>ph: 022-655 2300(WORK)\t\t        \n    </div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "system": "urn:oid:2.16.840.1.113883.2.4.6.1",
+      "value": "${D2}-${D7}"
+    }
+  ],
+  "active": true,
+  "type": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/organization-type",
+        "code": "prov",
+        "display": "Healthcare Provider"
+      }
+    ]
+  },
+  "name": "Burgers University Medical Cente",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "022-655 2300",
+      "use": "work"
+    }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "line": [
+        "Galapagosweg 91"
+      ],
+      "city": "Den Burg",
+      "postalCode": "9105 PZ",
+      "country": "NLD"
+    }
+  ]
+}

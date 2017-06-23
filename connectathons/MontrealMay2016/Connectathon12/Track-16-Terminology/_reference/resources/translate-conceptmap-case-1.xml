@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConceptMap xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">FHIR/v3 Address Use Mapping - A mapping between the FHIR and HL7 v3 AddressUse Code systems</div>
+	</text>
+	<url value="http://hl7.org/fhir/ConceptMap/101"/>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:uuid:53cd62ee-033e-414c-9f58-3ca97b5ffc3b"/>
+	</identifier>
+	<version value="20120613"/>
+	<name value="FHIR/v3 Address Use Mapping"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<publisher value="HL7, Inc"/>
+	<contact>
+		<name value="FHIR project team (example)"/>
+		<telecom>
+			<system value="other"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<date value="2012-06-13"/>
+	<description value="A mapping between the FHIR and HL7 v3 AddressUse Code systems"/>
+	<useContext>
+		<text value="for CDA Usage"/>
+	</useContext>
+	<requirements value="To help implementers map from HL7 v3/CDA to FHIR"/>
+	<copyright value="Creative Commons 0"/>
+	<sourceUri value="http://hl7.org/fhir/address-use"/>
+	<targetUri value="http://hl7.org/fhir/v3/AddressUse"/>
+	<element>
+		<system value="http://hl7.org/fhir/address-use"/>
+		<code value="home"/>
+		<target>
+			<system value="http://hl7.org/fhir/v3/AddressUse"/>
+			<code value="H"/>
+			<equivalence value="equivalent"/>
+			<comments value=""/>
+		</target>
+	</element>
+	<element>
+		<system value="http://hl7.org/fhir/address-use"/>
+		<code value="work"/>
+		<target>
+			<system value="http://hl7.org/fhir/v3/AddressUse"/>
+			<code value="WP"/>
+			<equivalence value="equivalent"/>
+			<comments value=""/>
+		</target>
+	</element>
+	<element>
+		<system value="http://hl7.org/fhir/address-use"/>
+		<code value="temp"/>
+		<target>
+			<system value="http://hl7.org/fhir/v3/AddressUse"/>
+			<code value="TMP"/>
+			<equivalence value="equivalent"/>
+			<comments value=""/>
+		</target>
+	</element>
+	<element>
+		<system value="http://hl7.org/fhir/address-use"/>
+		<code value="old"/>
+		<target>
+			<system value="http://hl7.org/fhir/v3/AddressUse"/>
+			<code value="BAD"/>
+			<equivalence value="disjoint"/>
+			<comments value="In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there's no simple equivalent of flagging an address as old"/>
+		</target>
+	</element>
+</ConceptMap>

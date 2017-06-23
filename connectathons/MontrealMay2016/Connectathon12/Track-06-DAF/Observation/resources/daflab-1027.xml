@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<id value="daflab-1027"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<xhtml:div>2005-07-05:MCH = 37.2pg</xhtml:div>
+	</text>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="laboratory"/>
+			<display value="Laboratory"/>
+		</coding>
+		<text value="Laboratory"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="785-6"/>
+			<display value="Erythrocyte mean corpuscular hemoglobin [Entitic mass] by Automated count"/>
+		</coding>
+		<text value="MCH"/>
+	</code>
+	<subject>
+		<reference value="Patient/dafpid-1001"/>
+	</subject>
+	<effectiveDateTime value="2005-07-05"/>
+	<valueQuantity>
+		<value value="37.2"/>
+		<unit value="pg"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="pg"/>
+	</valueQuantity>
+	<referenceRange>
+		<low>
+			<value value="26.0"/>
+			<unit value="pg"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="pg"/>
+		</low>
+		<high>
+			<value value="34.0"/>
+			<unit value="pg"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="pg"/>
+		</high>
+	</referenceRange>
+</Observation>

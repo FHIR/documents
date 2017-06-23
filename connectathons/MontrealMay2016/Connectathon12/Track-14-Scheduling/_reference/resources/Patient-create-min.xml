@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+	<extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">
+		<valueCodeableConcept>
+			<coding>
+				<code value="2106-3"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/us-core-ethnicity">
+		<valueCodeableConcept>
+			<coding>
+				<code value="2135-2"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+	<!--    EH: limit to single identifier that orderer can match to patient system can be URL    -->
+	<identifier>
+		<use value="usual"/>
+		<system value="urn:oid:2.16.840.1.113883.3.72.5.30.2"/>
+		<value value="${D11}"/>
+	</identifier>
+	<!--   name use limited to official and anonymous   -->
+	<name>
+		<use value="official"/>
+		<family value="Lerr"/>
+		<given value="Todd"/>
+		<given value="G."/>
+		<suffix value="Jr"/>
+	</name>
+	<!--    use FHIR code system for male / female    -->
+	<gender value="male"/>
+	<birthDate value="1972-06-07"/>
+	<deceasedBoolean value="false"/>
+	<address>
+		<use value="home"/>
+		<line value="123 North 102nd Street"/>
+		<line value="Apt 4d"/>
+		<city value="Harrisburg"/>
+		<state value="PA"/>
+		<postalCode value="17102"/>
+		<country value="USA"/>
+	</address>
+</Patient>

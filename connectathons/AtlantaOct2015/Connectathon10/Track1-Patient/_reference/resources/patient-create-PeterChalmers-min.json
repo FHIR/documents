@@ -1,0 +1,45 @@
+{
+  "resourceType": "Patient",
+  "name": [
+    {
+      "use": "official",
+      "family": [
+        "Chalmers${C8}"
+      ],
+      "given": [
+        "Peter${C8}",
+        "James${C8}"
+      ]
+    },
+    {
+      "use": "usual",
+      "given": [
+        "Jim"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "use": "home"
+    },
+    {
+      "system": "phone",
+      "value": "(03) 5555 6473",
+      "use": "work"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1974-12-25",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "534 Erewhon${C9} St"
+      ],
+      "city": "PleasantVille",
+      "state": "Vic",
+      "postalCode": "${D4}"
+    }
+  ]
+}

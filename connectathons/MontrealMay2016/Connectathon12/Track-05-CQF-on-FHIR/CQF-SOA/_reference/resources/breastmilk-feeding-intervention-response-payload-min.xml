@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GuidanceResponse xmlns="http://hl7.org/fhir" xmlns:ns2="http://www.w3.org/1999/xhtml">
+	<contained>
+		<ProcedureRequest>
+			<subject>
+				<reference value="Patient/patient-mother"/>
+			</subject>
+			<code>
+				<coding>
+					<system value="http://example.org/documentation-templates"/>
+					<code value="breastfeeding-readiness-assessment"/>
+				</coding>
+			</code>
+			<status value="proposed"/>
+		</ProcedureRequest>
+	</contained>
+	<contained>
+		<CommunicationRequest>
+			<recipient>
+				<reference value="Practitioner/primary-provider"/>
+			</recipient>
+			<payload>
+				<contentString value="A Breastfeeding Readiness Assessment is recommended, please authorize or reject the order."/>
+			</payload>
+			<status value="proposed"/>
+			<subject>
+				<reference value="Patient/patient-mother"/>
+			</subject>
+		</CommunicationRequest>
+	</contained>
+	<module>
+		<reference value="DecisionSupportServiceModule/ecrs-fhir-exclusive-breastfeeding-scenario"/>
+	</module>
+	<status value="success"/>
+	<action>
+		<textEquivalent value="Breastfeeding Readiness Assessment"/>
+		<type value="create"/>
+	</action>
+	<action>
+		<type value="create"/>
+	</action>
+</GuidanceResponse>

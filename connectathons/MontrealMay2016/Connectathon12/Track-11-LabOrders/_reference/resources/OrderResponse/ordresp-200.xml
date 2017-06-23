@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OrderResponse xmlns="http://hl7.org/fhir">
+	<id value="ordresp-200"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b>Generated Narrative with Details</b>
+			</p>
+			<p>
+				<b>id</b>: ordresp-200</p>
+			<p>
+				<b>identifier</b>: FILL = ordresp-200</p>
+			<p>
+				<b>request</b>: 
+				<a href="Order/order-200">Order/order-200</a>
+			</p>
+			<p>
+				<b>date</b>: 12/15/2015 7:36:25 AM</p>
+			<p>
+				<b>who</b>: 
+				<a href="Organization/org-uslab-example3">Acme Labs</a>
+			</p>
+			<p>
+				<b>orderStatus</b>: accepted</p>
+		</div>
+	</text>
+	<identifier>
+		<type>
+			<coding>
+				<code value="http://hl7.org/fhir/identifier-type"/>
+				<display value="FILL"/>
+			</coding>
+		</type>
+		<system value="http://lis.acmelabs.org/identifiers"/>
+		<value value="ordresp-200"/>
+	</identifier>
+	<!--  
+    this should be a response to the example request, 
+	but we don't yet have all the resource types in 
+	place to make this happen
+	
+	So for now, although the Order message referred to 
+	here contains a prescription resource, this example
+	response contains lab reports
+   -->
+	<request>
+		<reference value="Order/order-200"/>
+	</request>
+	<date value="2015-12-15T07:36:25Z"/>
+	<!--  made by the lab  -->
+	<who>
+		<reference value="Organization/org-uslab-example3"/>
+		<display value="Acme Labs"/>
+	</who>
+	<!--  
+    there's a loose relationship between the status of 
+    the order, and status information on the fulfillment
+    resources. For instance, in the case of a lab, it probably
+    wouldn't make sense to claim that the response is anything
+    but completed when the report is marked as "final" (as it is 
+    in this case). However due to the diversity of business 
+    practices in the order/fulfillment cycle, there's no formal
+    rules about what is allowed
+   -->
+	<orderStatus value="accepted"/>
+	<!--  
+    the lab report that the lab provides as a token of its 
+    fulfillment for this order 
+
+    In the case of a lab order, the report is usually the real/only
+    outcome. However in a case such as a medication administration,
+    the actual administration is the fulfillment - the MedicationAdministration
+    resource is only a token of the fulfillment of the order
+   -->
+	<!--<fulfillment>
+		<reference value="DiagnosticReport/101"/>
+	</fulfillment>-->
+</OrderResponse>

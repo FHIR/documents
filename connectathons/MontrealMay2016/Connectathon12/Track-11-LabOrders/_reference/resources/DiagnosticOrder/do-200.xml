@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticOrder xmlns="http://hl7.org/fhir">
+	<id value="do-200"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b>Generated Narrative with Details</b>
+			</p>
+			<p>
+				<b>id</b>: do-200</p>
+			<p>
+				<b>subject</b>: 
+        <a href="Patient/patient-uslab-example1">Todd Lerr</a>
+			</p>
+			<p>
+				<b>orderer</b>: 
+        <a href="Practitioner/pract-uslab-example1">Dr Leonard T Bloodraw Jr</a>
+			</p>
+			<p>
+				<b>identifier</b>: PLAC = do-200</p>
+			<p>
+				<b>reason</b>: Abnormal lead level in blood 
+        <span style="background: LightGoldenRodYellow ">(Details : {http://www.icd10data.com/icd10pcs code "R78.71" := "R78.71", given as "Abnormal lead level in blood"})</span>
+			</p>
+			<p>
+				<b>supportingInformation</b>: , 
+        <a href="Condition/cond-uslab-example1">Lead Exposure</a>
+			</p>
+			<p>
+				<b>status</b>: requested</p>
+			<p>
+				<b>priority</b>: routine</p>
+			<p>
+				<b>note</b>: Annontation: patient is afraid of needles</p>
+		</div>
+	</text>
+	<identifier>
+		<type>
+			<coding>
+				<code value="http://hl7.org/fhir/identifier-type"/>
+				<display value="PLAC"/>
+			</coding>
+		</type>
+		<system value="http://goodhealth.org/identifiers"/>
+		<value value="do-200"/>
+	</identifier>
+	<!--   EH this is set to 'requested' by the Placer  -->
+	<status value="requested"/>
+	<priority value="routine"/>
+	<subject>
+		<reference value="Patient/patient-uslab-example1"/>
+		<display value="Todd Lerr"/>
+	</subject>
+	<orderer>
+		<reference value="Practitioner/pract-uslab-example1"/>
+		<display value="Dr Leonard T Bloodraw Jr"/>
+	</orderer>
+	<reason>
+		<coding>
+			<system value="http://www.icd10data.com/icd10pcs"/>
+			<code value="R78.71"/>
+			<display value="Abnormal lead level in blood"/>
+		</coding>
+		<text value="Abnormal lead level in blood"/>
+	</reason>
+	<supportingInformation>
+		<reference value="Observation/obs-uslab-example1"/>
+		<display value="Prior Results Observation"/>
+	</supportingInformation>
+	<supportingInformation>
+		<reference value="Condition/cond-uslab-example1"/>
+		<display value="Lead Exposure"/>
+	</supportingInformation>
+	<!--    EH this specimen is for when lab has existing
+	<specimen>
+		<reference value="Specimen/uslab-example1"/>
+		<display value="Whole blood"/>
+	</specimen>
+	-->
+	<event>
+		<!--   EH this is set to 'requested' by the Placer is required element in core resource  -->
+		<status value="requested"/>
+		<!--   EH:bound to closed value setUSLAB Diagnostic Order Event Codes  -->
+		<description>
+			<coding>
+				<code value="new-request"/>
+			</coding>
+		</description>
+		<!--   EH: Showing dateTime to ss with TZO although only needed to Day   -->
+		<dateTime value="2014-12-04T15:42:15-08:00"/>
+		<!--   EH:  the event is the order placer requesting a test  -->
+	</event>
+	<item>
+		<!--  EH :  The local and /or LOINC test codes go here   -->
+		<code>
+			<!--   EH: LOINC code gos here  -->
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="5671-3"/>
+				<display value="Lead [Mass/volume] in Blood"/>
+				<!--   EH: LOINC code gos here  -->
+			</coding>
+			<coding>
+				<system value="http://lis.acmelabs.org/codes"/>
+				<code value="200"/>
+				<display value="Blood Lead"/>
+			</coding>
+			<text value="Blood Lead"/>
+		</code>
+		<specimen>
+			<reference value="Specimen/spec-uslab-example1"/>
+			<display value="Whole blood"/>
+		</specimen>
+		<!--   EH this is set to 'requested' by the Placer   -->
+		<status value="requested"/>
+	</item>
+	<note>
+		<text value="patient is afraid of needles"/>
+	</note>
+</DiagnosticOrder>

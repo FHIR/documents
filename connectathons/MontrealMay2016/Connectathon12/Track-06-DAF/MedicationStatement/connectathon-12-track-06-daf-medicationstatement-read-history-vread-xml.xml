@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-12-track-06-daf-medicationstatement-read-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-12-track-06-daf-medicationstatement-read-xml"/>
+	<name value="FHIR Connectathon 12 - Track 06 - DAF - Read DAF MedicationStatement; format XML; with bonus tests for History and Version Read"/>
+	<status value="active"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-04-07"/>
+	<description value="FHIR Connectathon 12 - Track 06 - DAF - Read DAF MedicationStatement; resource format XML; with bonus tests for History and Version Read; validate against the FHIR MedicationStatement and DAF profiles."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="MedicationStatement Read, History Instance, Vread Operations"/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="MedicationStatement read operation"/>
+			<link value="http://hl7.org/fhir/http.html#read"/>
+			<conformance>
+				<reference value="../_reference/conformance/MedicationStatementRead.xml" />
+			</conformance>
+		</capability>
+		<capability>
+			<required value="true"/>
+			<description value="MedicationStatement history instance and vread operations"/>
+			<link value="http://hl7.org/fhir/http.html#history"/>
+			<link value="http://hl7.org/fhir/http.html#vread"/>
+			<conformance>
+				<reference value="../_reference/conformance/MedicationStatementHistoryInstanceVread.xml" />
+			</conformance>
+		</capability>
+	</metadata>
+
+	<profile id="medicationstatementProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/MedicationStatement" />
+	</profile>
+	<profile id="daf-medicationstatementProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/daf-medicationstatement"/>
+	</profile>
+
+	<variable>
+		<name value="MedicationStatementResourceId"/>
+		<defaultValue value="[Resource Id]"/>
+	</variable>
+
+	<test id="01-DAFMedicationStatementRead">
+		<name value="01-DAFMedicationStatementRead"/>
+		<description value="FHIR Connectathon 12 - Track 06 - DAF - MedicationStatement read operation; validate against the FHIR MedicationStatement and DAF profiles."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<description value="Test read operation for a user identified MedicationStatement."/>
+				<accept value="xml"/>
+				<params value="/${MedicationStatementResourceId}" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is MedicationStatement."/>
+				<resource value="MedicationStatement"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR MedicationStatement profile."/>
+				<validateProfileId value="medicationstatementProfile"/>
+			</assert>
+		</action>		
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the DAF MedicationStatement profile. Warning only at this time due to potential DAF profile issue within the current FHIR STU 3 Candidate specification."/>
+				<validateProfileId value="daf-medicationstatementProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-DAFMedicationStatementHistory">
+		<name value="02-DAFMedicationStatementHistory"/>
+		<description value="FHIR Connectathon 12 - Track 06 - DAF - MedicationStatement history instance operation; validate against the FHIR MedicationStatement and DAF profiles."/>
+
+		<action>
+			<operation>
+				<resource value="MedicationStatement"/>
+				<description value="Retrieve the history for a single, known medicationstatement using the known identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${MedicationStatementResourceId}/_history"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-DAFMedicationStatementVersionRead">
+		<name value="03-DAFMedicationStatementVersionRead"/>
+		<description value="FHIR Connectathon 12 - Track 06 - DAF - MedicationStatement vread operation; validate against the FHIR MedicationStatement and DAF profiles."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="vread"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<description value="Retrieve the first created version of the MedicationStatement instance."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${MedicationStatementResourceId}/_history/1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is MedicationStatement."/>
+				<resource value="MedicationStatement"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR MedicationStatement profile."/>
+				<validateProfileId value="medicationstatementProfile"/>
+			</assert>
+		</action>		
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the DAF MedicationStatement profile. Warning only at this time due to potential DAF profile issue within the current FHIR STU 3 Candidate specification."/>
+				<validateProfileId value="daf-medicationstatementProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

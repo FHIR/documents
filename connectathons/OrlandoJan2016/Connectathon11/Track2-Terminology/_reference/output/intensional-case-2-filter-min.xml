@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<identifier>
+		<value value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-2"/>
+	</identifier>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<expansion>
+		<!-- must be less than 18 (arbitrary number: there must be some filtering), but the actual contents aren't tested -->
+		<identifier />
+		<timestamp />
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="8218002"/>
+			<display value="Chronic hypertension complicating AND/OR reason for care during childbirth"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="8762007"/>
+			<display value="Chronic hypertension in obstetric context (disorder)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="24042004"/>
+			<display value="Chronic hypertension complicating AND/OR reason for care during puerperium (disorder)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="37618003"/>
+			<display value="Chronic hypertension complicating AND/OR reason for care during pregnancy (disorder)"/>
+		</contains>
+	</expansion>
+</ValueSet>

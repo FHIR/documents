@@ -1,0 +1,201 @@
+Scenario 1 (PT+ INR)
+
+=============DiagnosticOrder Details==========================
+
+id: do-300
+
+subject:Todd G. Lerr
+
+orderer:Leonard T Bloodraw
+
+identifier: PLAC = do-300
+
+reason: Other pneumonia, unspecified organism(Details : {http://hl7.org/fhir/sid/icd-10-us code "J18.8" := "J18.8", given as "Other pneumonia, unspecified organism"})
+
+specimen:Blood Specimen ()
+
+status: requested
+
+priority: routine
+
+ordered test: 300
+
+
+
+=============Order(ActionRequest) Details==========================
+
+id: order-300
+
+identifier: PLAC = order-300
+
+date: 12/15/2015 7:36:25 AM
+
+subject:Todd G. Lerr
+
+source:Leonard T Bloodraw
+
+detail:DiagnosticOrder/do-300
+
+
+
+=============OrderResponse(ActionResponse) Details==========================
+
+id: ordresp-300
+
+identifier: FILL = ordresp-300
+
+request:Order/order-300
+
+date: 12/15/2015 7:36:25 AM
+
+who:Acme Labs
+
+orderStatus: accepted
+
+
+
+=============DiagnosticReport Details==========================
+
+Generated Narrative with Details
+
+id: dr-300
+
+identifier: , Placer Identifier = do-300
+
+status: final
+
+code: CBC_diff(Details : {http://lis.acmelabs.org/codes code "300" := "300", given as "CBC_diff"}; {LOINC code "57021-8" := "57021-8", given as "CBC W Auto Differential panel in Blood"})
+
+subject:Todd G. Lerr
+
+effective: 9/25/2015
+
+issued: 9/26/2015
+
+performer:Acme Labs
+
+request:DiagnosticOrder/do-300
+
+specimen:Blood Sample
+
+result:
+
+Erythrocytes
+Leukocytes
+Neutrophils
+Platelet Count
+Hematocrit
+
+=============Observation details==========================
+
+id: obs-300
+
+identifier: obs-300
+
+status: final
+
+code: Erythrocytes(Details : {LOINC code "26453-1" := "26453-1", given as "Erythrocytes [#/volume] in Blood"})
+
+subject:Todd Lerr
+
+effective: 12/5/2014
+
+issued: 12/6/2014 3:42:15 PM
+
+value: 4.41X10(12)/L(Details: http://unitsofmeasure.org code 10*6/uL := "10*6/uL")
+
+interpretation: Normal(Details : {http://hl7.org/fhir/v2/0078 code "N" := "Normal)
+
+specimen:Blood sample
+
+=============Observation details==========================
+
+id: obs-301
+
+identifier: obs-301
+
+status: final
+
+code: Leukocytes(Details : {LOINC code "26464-8" := "26464-8", given as "Leukocytes [#/volume] in Blood"})
+
+subject:Todd Lerr
+
+effective: 12/5/2014
+
+issued: 12/6/2014 3:42:15 PM
+
+value: 105600/uL(Details: http://unitsofmeasure.org code {cells}/uL := "{cells}/uL")
+
+interpretation: Critically high(Details : {http://hl7.org/fhir/v2/0078 code "HH" := "Critically high)
+
+specimen:Blood sample
+
+=============Observation details==========================
+
+id: obs-302
+
+identifier: obs-302
+
+status: final
+
+code: Neutrophils(Details : {LOINC code "26499-4" := "26499-4", given as "Neutrophils [#/volume] in Blood"})
+
+subject:Todd Lerr
+
+effective: 12/5/2014
+
+issued: 12/6/2014 3:42:15 PM
+
+value: 58000/uL(Details: http://unitsofmeasure.org code {cells}/uL := "{cells}/uL")
+
+interpretation: Critically high(Details : {http://hl7.org/fhir/v2/0078 code "HH" := "Critically high)
+
+specimen:Blood sample
+
+=============Observation details==========================
+
+
+id: obs-303
+
+identifier: obs-303
+
+status: final
+
+code: Platelet Count(Details : {LOINC code "26515-7" := "26515-7", given as "Platelet Count [#/volume] in Blood"})
+
+subject:Todd Lerr
+
+effective: 12/5/2014
+
+issued: 12/6/2014 3:42:15 PM
+
+value: 210000/uL(Details: http://unitsofmeasure.org code {cells}/uL := "{cells}/uL")
+
+interpretation: Normal(Details : {http://hl7.org/fhir/v2/0078 code "N" := "Normal)
+
+specimen:Blood sample
+
+
+
+=============Observation details==========================
+
+id: obs-304
+
+identifier: obs-304
+
+status: final
+
+code: Hematocrit(Details : {LOINC code "20570-8" := "20570-8", given as "Hematocrit [Volume Fraction] of Blood"})
+
+subject:Todd Lerr
+
+effective: 12/5/2014
+
+issued: 12/6/2014 3:42:15 PM
+
+value: 41%(Details: http://unitsofmeasure.org code % := "%")
+
+interpretation: Normal(Details : {http://hl7.org/fhir/v2/0078 code "N" := "Normal)
+
+specimen:Blood sample
+

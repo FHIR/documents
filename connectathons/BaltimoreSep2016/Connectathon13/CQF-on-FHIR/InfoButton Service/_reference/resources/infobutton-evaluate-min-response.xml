@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<GuidanceResponse xmlns="http://hl7.org/fhir" xmlns:hw="http://www.healthwise.org/2009/DocumentInfo" xmlns:atom="http://www.w3.org/2005/Atom">
+	<id value="InfoButtonResponse3"/>
+	<requestId value="InfoButtonRequest2"/>
+	<module>
+		<reference value="DecisionSupportServiceModule/infobutton"/>
+	</module>
+	<status value="success"/>
+</GuidanceResponse>

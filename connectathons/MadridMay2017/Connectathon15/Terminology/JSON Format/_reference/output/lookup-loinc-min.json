@@ -1,0 +1,13 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "name",
+      "valueString": "LOINC"
+    },
+    {
+      "name": "display",
+      "valueString": "Bicarbonate [Moles/volume] in Serum"
+    }
+  ]
+}

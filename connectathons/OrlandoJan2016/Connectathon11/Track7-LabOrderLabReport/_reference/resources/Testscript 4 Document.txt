@@ -1,0 +1,310 @@
+Scenario 2 (Blood Lead)
+
+=============DiagnosticOrder Details==========================
+
+id: do-400
+
+subject:Todd G. Lerr
+
+orderer:Leonard T Bloodraw
+
+identifier: PLAC = do-400
+
+reason: DIARRHEA(Details : {http://hl7.org/fhir/sid/icd-10-us code "R19.7" := "R19.7", given as "Diarrhea, unspecified"})
+
+specimen:Stool Specimen
+
+status: requested
+
+priority: routine
+
+ordered test: 400
+
+
+=============Order(ActionRequest) Details==========================
+
+id: order-300
+
+identifier: PLAC = order-300
+
+date: 12/15/2015 7:36:25 AM
+
+subject:Todd G. Lerr
+
+source:Leonard T Bloodraw
+
+detail:DiagnosticOrder/do-300
+
+
+
+
+=============OrderResponse(ActionResponse) Details==========================
+
+
+id: ordresp-400
+
+identifier: FILL = ordresp-400
+
+request:Order/order-400
+
+date: 12/15/2015 7:36:25 AM
+
+who:Acme Labs
+
+orderStatus: accepted
+                 
+
+=============DiagnosticReport Details==========================
+
+Generated Narrative with Details
+
+id: dr-400
+
+identifier: , Placer Identifier = do-400
+
+status: final
+
+code: Stool Culture with Susceptibility Reflex(Details : {http://lis.acmelabs.org/codes code "400" := "400", given as "Stool culture with Susceptibility"})
+
+subject:Todd G. Lerr
+
+effective: 9/25/2015
+
+issued: 9/26/2015
+
+performer:Acme Labs
+
+request:DiagnosticOrder/do-400
+
+specimen:Stool Sample
+
+result:
+
+isolate 1
+isolate 2
+isolate 3
+
+=============Observation details==========================
+
+
+id: obs-400
+
+identifier: obs-400
+
+status: final
+
+code: Stool Culture(Details : {LOINC code "625-4" := "625-4", given as "Bacteria identified in Stool by Culture"})
+
+subject:Todd Lerr
+
+effective: 12/5/2014
+
+issued: 12/6/2014 3:42:15 PM
+
+value: Shiga toxin producing E. coli O157:H7 isolated(Details : {SNOMED CT code "103429008" := "103429008", given as "Enterohemorrhagic Escherichia coli, serotype O157:H7"})
+
+interpretation: Abnormal(Details : {http://hl7.org/fhir/v2/0078 code "A" := "Abnormal)
+
+comments: Susceptibility testing for E.coli is not performed, because antibiotics should not be used to treat this infection
+
+specimen:Blood sample
+
+=============Observation details==========================
+Generated Narrative with Details
+
+id: obs-401
+
+identifier: obs-401
+
+status: final
+
+code: Stool Culture(Details : {LOINC code "625-4" := "625-4", given as "Bacteria identified in Stool by Culture"})
+
+subject:Todd Lerr
+
+effective: 12/5/2014
+
+issued: 12/6/2014 3:42:15 PM
+
+value: Salmonella I, group O:4 isolated(Details : {SNOMED CT code "398567006" := "398567006", given as "Salmonella I, group O:4"})
+
+interpretation: Abnormal(Details : {http://hl7.org/fhir/v2/0078 code "A" := "Abnormal)
+
+comments: Salmonella gastrointestinal infections usually resolve in 5-7 days and most do not require treatment other than oral fluids. Persons with severe diarrhea may require rehydration with intravenous fluids. Antibiotic therapy can prolong the duration of excretion of non-typhoidal Salmonella and is recommended only for patients with severe illness (e.g., those with severe diarrhea, high fever, bloodstream infection, or who need hospitalization) or those at risk of severe disease or complications, including young infants, older adults (over 65 years old) and immunocompromised persons. Antibiotic resistance is increasing among some Salmonella bacteria; therefore, susceptibility testing can help guide appropriate therapy. Choices for antibiotic therapy for severe infections include fluoroquinolones, third-generation cephalosporins, and ampicillin (for susceptible infections).
+
+specimen:Blood sample
+
+related observation ""
+Observation/obs-403
+ Bacterial susceptibility panel (MIC)
+
+
+=============Observation details==========================
+
+id: obs-402
+
+identifier: obs-402
+
+status: final
+
+code: Stool Culture(Details : {LOINC code "625-4" := "625-4", given as "Bacteria identified in Stool by Culture"})
+
+subject:Todd Lerr
+
+effective: 12/5/2014
+
+issued: 12/6/2014 3:42:15 PM
+
+value: Shigella flexneri isolated(Details : {SNOMED CT code "85729005" := "85729005", given as "Shigella flexneri"})
+
+interpretation: Abnormal(Details : {http://hl7.org/fhir/v2/0078 code "A" := "Abnormal)
+
+comments: Antibiotic treatment is recommended for patients with severe disease, bloody diarrhea, or compromised immune systems. Resistance to traditional first-line drugs like ampicillin and trimethoprim-sulfamethoxazole is common, and resistance to some other antibiotics is increasing. With this in mind, antibiotic susceptibility testing can help guide appropriate therapy. When an ampicillin- or trimethroprim-sulfamethoxazole-resistant strain is isolated, choices for therapy include fluoroquinolones, ceftriaxone, and azithromycin.
+
+specimen:Blood sample
+
+related observation ""
+Observation/obs-407
+ Bacterial susceptibility panel (MIC)
+
+=============Observation details==========================
+
+id: obs-403
+
+identifier: obs-403
+
+status: final
+
+code: Bacteria susceptibility(Details : {LOINC code "50545-3" := "50545-3", given as "Bacterial susceptibility panel in Isolate by Minimum inhibitory concentration (MIC)"})
+
+subject:Todd Lerr
+
+effective: 12/5/2014
+
+issued: 12/6/2014 3:42:15 PM
+
+specimen:Blood sample
+
+related observation "has-member"
+
+Observation/obs-404
+ Ampicillin MIC
+
+Observation/obs-405
+Gentamicin MIC
+
+Observation/obs-406
+Ciprofloxacin MIC
+
+
+=============Observation details==========================
+
+id: obs-404
+
+identifier: obs-404
+
+status: final
+
+code: Ampicillin (MIC)(Details : {LOINC code "28-1" := "28-1", given as "Ampicillin [Susceptibility] by Minimum inhibitory concentration (MIC)"})
+
+subject:Todd Lerr
+
+effective: 12/5/2014
+
+issued: 12/6/2014 3:42:15 PM
+
+value:<0.06ug/mL(Details: http://unitsofmeasure.org code ug/mL := "ug/mL")
+
+interpretation: Susceptible(Details : {http://hl7.org/fhir/v2/0078 code "S" := "Susceptible)
+
+specimen:Blood sample
+
+=============Observation details==========================
+
+id: obs-405
+
+identifier: obs-405
+
+status: final
+
+code: Gentamicin (MIC)(Details : {LOINC code "267-5" := "267-5", given as "Gentamicin [Susceptibility] by Minimum inhibitory concentration (MIC)"})
+
+subject:Todd Lerr
+
+effective: 12/5/2014
+
+issued: 12/6/2014 3:42:15 PM
+
+value: 0.05ug/mL(Details: http://unitsofmeasure.org code ug/mL := "ug/mL")
+
+interpretation: Susceptible(Details : {http://hl7.org/fhir/v2/0078 code "S" := "Susceptible)
+
+specimen:Blood sample
+
+=============Observation details==========================
+id: obs-406
+
+identifier: obs-406
+
+status: final
+
+code: Ciprofloxacin (MIC)(Details : {LOINC code "185-9" := "185-9", given as "Ciprofloxacin [Susceptibility] by Minimum inhibitory concentration (MIC)"})
+
+subject:Todd Lerr
+
+effective: 12/5/2014
+
+issued: 12/6/2014 3:42:15 PM
+
+value: 0.05ug/mL(Details: http://unitsofmeasure.org code ug/mL := "ug/mL")
+
+interpretation: Susceptible(Details : {http://hl7.org/fhir/v2/0078 code "S" := "Susceptible)
+
+specimen:Blood sample
+
+
+=============Observation details==========================
+id: obs-407
+
+identifier: obs-407
+
+status: final
+
+code: Bacteria susceptibility(Details : {LOINC code "50545-3" := "50545-3", given as "Bacterial susceptibility panel in Isolate by Minimum inhibitory concentration (MIC)"})
+
+subject:Todd Lerr
+
+effective: 12/5/2014
+
+issued: 12/6/2014 3:42:15 PM
+
+specimen:Blood sample
+
+Observation/obs-408
+Trimethoprim+Sulfamethoxazole MIC
+=============Observation details==========================
+
+id: obs-408
+
+identifier: obs-408
+
+status: final
+
+code: Trimethoprim+Sulfamethoxazole (MIC)(Details : {LOINC code "516-5" := "516-5", given as "Trimethoprim+Sulfamethoxazole [Susceptibility] by Minimum inhibitory concentration (MIC)"})
+
+subject:Todd Lerr
+
+effective: 12/5/2014
+
+issued: 12/6/2014 3:42:15 PM
+
+value:<=10ug/mL(Details: http://unitsofmeasure.org code ug/mL := "ug/mL")
+
+interpretation: Susceptible(Details : {http://hl7.org/fhir/v2/0078 code "S" := "Susceptible)
+
+specimen:Blood sample
+
+
+
+
+                                    

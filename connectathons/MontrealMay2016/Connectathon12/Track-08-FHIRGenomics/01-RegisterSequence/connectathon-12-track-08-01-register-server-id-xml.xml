@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-12-track-08-01-register-server-id-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-12-track-08-01-register-server-id-xml"/>
+	<name value="FHIR Connectathon 12 - Track 08 - FHIR Genomics - Scenario 01 - Register New Sequence and Observation Tests - XML - Server Id"/>
+	<status value="draft"/>
+	<publisher value="Clinical Genomics Workgroup, AEGIS.net, Inc."/>
+	<contact>
+		<name value="Gil Alterovitz"/>
+		<telecom>
+			<system value="email"/>
+			<value value="gilusa@gmail.com"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-05-08"/>
+	<description value="Scenario 01 - Register New Sequence and Observation Tests - XML - Server Assigned Resource Id - Create and verify new Sequence and Observation resources representing genetics data and interpretations (DNA variant, RNA sequence, structural variant, etc.)"/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="Observation, Patient, Practitioner, Sequence and Specimen - Create, Delete, Read and Search Operation"/>
+	<copyright value="© Clinical Genomics Workgroup, © AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Observation, Patient, Practitioner, Sequence and Specimen create, delete, read and search operations"/>
+			<link value="http://hl7.org/fhir/http.html#create"/>
+			<link value="http://hl7.org/fhir/http.html#delete"/>
+			<link value="http://hl7.org/fhir/http.html#read"/>
+			<link value="http://hl7.org/fhir/http.html#search"/>
+			<conformance>
+				<reference value="_reference/conformance/RegisterSequenceConformance.xml" />
+			</conformance>
+		</capability>
+	</metadata>
+
+	<fixture id="observation-create">
+		<resource>
+			<reference value="_reference/resources/observation-register-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-create">
+		<resource>
+			<reference value="_reference/resources/patient-register-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="practitioner-create">
+		<resource>
+			<reference value="_reference/resources/practitioner-register-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="sequence-create">
+		<resource>
+			<reference value="_reference/resources/sequence-register-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="specimen-create">
+		<resource>
+			<reference value="_reference/resources/specimen-register-create.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="observation-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+	</profile>
+	<profile id="observation-genetics-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/observationforgenetics"/>
+	</profile>
+	<profile id="sequence-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Sequence"/>
+	</profile>
+
+	<variable>
+		<name value="createObservationId"/>
+		<path value="Observation/id" />
+		<sourceId value="create-observation-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamObservationIdentifier"/>
+		<path value="Observation/identifier/value" />
+		<sourceId value="observation-create" />
+	</variable>
+	<variable>
+		<name value="createPatientId"/>
+		<path value="Patient/id" />
+		<sourceId value="create-patient-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamPatientIdentifier"/>
+		<path value="Patient/identifier/value" />
+		<sourceId value="patient-create" />
+	</variable>
+	<variable>
+		<name value="createPractitionerId"/>
+		<path value="Practitioner/id" />
+		<sourceId value="create-practitioner-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamPractitionerIdentifier"/>
+		<path value="Practitioner/identifier/value" />
+		<sourceId value="practitioner-create" />
+	</variable>
+	<variable>
+		<name value="createSequenceResourceId"/>
+		<path value="Sequence/id" />
+		<sourceId value="create-sequence-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchSequenceParamPatient"/>
+		<path value="Sequence/patient/reference" />
+		<sourceId value="sequence-create" />
+	</variable>
+	<variable>
+		<name value="createSpecimenId"/>
+		<path value="Specimen/id" />
+		<sourceId value="create-specimen-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamSpecimenIdentifier"/>
+		<path value="Specimen/identifier/value" />
+		<sourceId value="specimen-create" />
+	</variable>
+
+	<!-- No Setup -->
+
+	<test id="Step1-CreateNewRegisterPractitioner">
+		<name value="Step1-CreateNewRegisterPractitioner"/>
+		<description value="Create a new Register Practitioner in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="practitioner-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="Search for the created Register Practitioner by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPractitionerIdentifier}"/>
+				<responseId value="create-practitioner-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one Practitioner resource returned. Warning only as the server may contain another matching Practitioner."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2-CreateNewRegisterPatient">
+		<name value="Step2-CreateNewRegisterPatient"/>
+		<description value="Create a new Register Patient in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="patient-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for the created Register Patient by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPatientIdentifier}"/>
+				<responseId value="create-patient-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one Patient resource returned. Warning only as the server may contain another matching Patient."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step3-CreateNewRegisterSpecimen">
+		<name value="Step3-CreateNewRegisterSpecimen"/>
+		<description value="Create a new Register Specimen in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="specimen-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Specimen"/>
+				<description value="Search for the created Register Specimen by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamSpecimenIdentifier}"/>
+				<responseId value="create-specimen-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one Specimen resource returned. Warning only as the server may contain another matching Specimen."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step4-RegisterNewSequence">
+		<name value="Step1-RegisterNewSequence"/>
+		<description value="Register (create) a new Sequence in XML format with server assigned resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Sequence"/>
+				<description value="Register (create) a new Sequence resource."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="sequence-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Location is present. Warning only as this is optional but servers are encouraged to return this."/>
+				<headerField value="Location"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Sequence"/>
+				<description value="Search for the created Sequence by the patient reference. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the patient search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?patient=${searchSequenceParamPatient}"/>
+				<responseId value="create-sequence-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Sequence"/>
+				<description value="Read the created Sequence and test for conformance to the FHIR Sequence profile."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${createSequenceResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Sequence."/>
+				<resource value="Sequence"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Sequence profile."/>
+				<validateProfileId value="sequence-profile"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step5-RegisterNewObservation">
+		<name value="Step5-RegisterNewObservation"/>
+		<description value="Register (create) a new Observation in XML format with server assigned resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Observation"/>
+				<description value="Register (create) a new Observation resource."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="observation-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Location is present. Warning only as this is optional but servers are encouraged to return this."/>
+				<headerField value="Location"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Observation"/>
+				<description value="Search for the created Observation by the unique identifier. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the patient search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamObservationIdentifier}"/>
+				<responseId value="create-observation-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Observation"/>
+				<description value="Read the created Observation and test for conformance to the Observation For Genetics profile."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${createObservationId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Observation."/>
+				<resource value="Observation"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Observation profile."/>
+				<validateProfileId value="observation-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Observation For Genetics profile."/>
+				<validateProfileId value="observation-genetics-profile"/>
+			</assert>
+		</action>
+	</test>
+
+	<teardown>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="Observation"/>
+				<params value="/${createObservationId}"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="Sequence"/>
+				<params value="/${createSequenceId}"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="Specimen"/>
+				<params value="/${createSpecimenId}"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<params value="/${createPatientId}"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="Practitioner"/>
+				<params value="/${createPractitionerId}"/>
+			</operation>
+		</action>
+	</teardown>
+</TestScript>

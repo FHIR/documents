@@ -1,0 +1,39 @@
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="Patient"/>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<updateCreate value="true"/>
+			<searchParam>
+				<name value="birthDate"/>
+				<type value="date"/>
+			</searchParam>
+			<searchParam>
+				<name value="family"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="gender"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="given"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="identifier"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="name"/>
+				<type value="string"/>
+			</searchParam>
+		</resource>
+	</rest>
+</CapabilityStatement>

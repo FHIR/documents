@@ -1,0 +1,87 @@
+{
+  "resourceType": "ConceptMap",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">FHIR/v3 Address Use Mapping - A mapping between the FHIR and HL7 v3 AddressUse Code systems</div>"
+  },
+  "url": "http://hl7.org/fhir/ConceptMap/101",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:53cd62ee-033e-414c-9f58-3ca97b5ffc3b"
+  },
+  "version": "20120613",
+  "name": "FHIR/v3 Address Use Mapping",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "HL7, Inc",
+  "contact": [
+    {
+      "name": "FHIR project team (example)",
+      "telecom": [
+        {
+          "system": "other",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "date": "2012-06-13",
+  "description": "A mapping between the FHIR and HL7 v3 AddressUse Code systems",
+  "copyright": "Creative Commons 0",
+  "sourceReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/address-use"
+  },
+  "targetReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/v3-AddressUse"
+  },
+  "group": [
+    {
+      "source": "http://hl7.org/fhir/address-use",
+      "target": "http://hl7.org/fhir/v3/AddressUse",
+      "element": [
+        {
+          "code": "home",
+          "target": [
+            {
+              "code": "H"
+            }
+          ]
+        },
+        {
+          "code": "home",
+          "target": [
+            {
+              "code": "H"
+            }
+          ]
+        },
+        {
+          "code": "work",
+          "target": [
+            {
+              "code": "WP"
+            }
+          ]
+        },
+        {
+          "code": "temp",
+          "target": [
+            {
+              "code": "TMP"
+            }
+          ]
+        },
+        {
+          "code": "old",
+          "target": [
+            {
+              "code": "BAD",
+              "equivalence": "disjoint",
+              "comments": "In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there's no simple equivalent of flagging an address as old"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

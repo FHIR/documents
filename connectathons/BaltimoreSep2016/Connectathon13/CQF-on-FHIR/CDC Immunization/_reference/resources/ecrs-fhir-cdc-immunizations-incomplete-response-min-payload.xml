@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GuidanceResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../../FHIR-Dev/schema/guidanceresponse.xsd">
+	<module>
+		<reference value="DecisionSupportServiceModule/ecrs-fhir-cdc-immunizations" />
+	</module>
+	<status value="success" />
+</GuidanceResponse>

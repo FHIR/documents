@@ -1,0 +1,62 @@
+<html>
+<head>
+	<title>FHIR Connectathon 12 Testing - Track 04 - Conditional Reference (in Transaction)</title>
+</head>
+<body style="font-family:arial">
+	<h1>FHIR Connectathon 12 Testing - Track 04 - Conditional Reference (in Transaction)</h1>
+	<h2>FHIR STU3 (Pre-Ballot) TestScript - Execution Details</h2>
+	<h3>Conventions Used</h3>
+	<p>
+		The execution of the TestScript resources contained in this folder are constrained by the following
+		conventions:
+	</p>
+	<ul>
+		<li>
+			<b>Fixtures</b> - All resource reference values can be either url paths or local file system
+			paths. The convention for these TestScript resources use local file system paths where the
+			execution engine is expected to resolve this path based on the following:
+			<ul>
+				<li>
+					Leading '/' character - this is resolved as an absolute path based on a known root path
+				</li>
+				<li>
+					No leading '/' character - this is resolved as a relative path based on the location of the
+					TestScript resource file
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<hr width="100%"></hr>
+
+	<h2>FHIR Connectathon 12 Testing - Montreal, QC - May 2016</h2>
+	<h3>Track 04 - Conditional Reference (in Transaction)</h3>
+	<p>
+		The TestScript resource in this folder represents initial examples of an Encounter resource create via a
+		transaction operation where the Patient and Organization references are defined using conditional parameters.
+	</p>
+	<h4>Encounter Conditional Reference - JSON Format</h4>
+	<table border="1" cellpadding="3" cellspacing="1">
+		<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+		<tr><td>connectathon-12-track-04-condref-encounter-match-json</td><td>JSON Format - Test conditional reference transaction update of an Encounter resource. Referenced Patient and Organization resources are first created on the destination server.</td></tr>
+		<tr><td>connectathon-12-track-04-condref-encounter-multimatch-json</td><td>JSON Format - Test conditional reference transaction create of an Encounter resource. Referenced Patient and Organization resources are first created on the destination server. Multiple matching Patient resources are expected to cause the Encounter create to fail.</td></tr>
+		<tr><td>connectathon-12-track-04-condref-encounter-nomatch-json</td><td>JSON Format - Test conditional reference transaction create of an Encounter resource. Referenced Organization resource is first created on the destination server. No matching Patient resources are expected to cause the Encounter create to fail.</td></tr>
+	</table>
+	<h4>Encounter Conditional Reference - XML Format</h4>
+	<table border="1" cellpadding="3" cellspacing="1">
+		<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+		<tr><td>connectathon-12-track-04-condref-encounter-match-xml</td><td>XML Format - Test conditional reference transaction update of an Encounter resource. Referenced Patient and Organization resources are first created on the destination server.</td></tr>
+		<tr><td>connectathon-12-track-04-condref-encounter-multimatch-xml</td><td>XML Format - Test conditional reference transaction create of an Encounter resource. Referenced Patient and Organization resources are first created on the destination server. Multiple matching Patient resources are expected to cause the Encounter create to fail.</td></tr>
+		<tr><td>connectathon-12-track-04-condref-encounter-nomatch-xml</td><td>XML Format - Test conditional reference transaction create of an Encounter resource. Referenced Organization resource is first created on the destination server. No matching Patient resources are expected to cause the Encounter create to fail.</td></tr>
+	</table>
+	<p>
+		<b>**</b> <i>This representation of the Track 04 - Conditional Reference (in Transaction) tests is not
+		meant to be diffinitive and complete. This is one example of how these tests can be defined in the current
+		STU 3 Candidate format of the TestScript resource. Constructive feedback, suggestions and critisms are welcome.</i>
+	</p>
+	<p>
+		Richard Ettema, AEGIS.net</br>
+		<a href="mailto:richard.ettema@aegis.net">richard.ettema@aegis.net</a>
+	</p>
+</body>
+</html>

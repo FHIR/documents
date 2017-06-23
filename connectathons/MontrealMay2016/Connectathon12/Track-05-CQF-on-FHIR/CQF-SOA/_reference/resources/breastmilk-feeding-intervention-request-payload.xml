@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Parameters xmlns="http://hl7.org/fhir" xmlns:ns2="http://www.w3.org/1999/xhtml">
+	<id value="breastmilk-feeding-intervention-request"/>
+	<parameter>
+		<name value="patient"/>
+		<valueReference>
+			<reference value="Patient/patient-infant"/>
+		</valueReference>
+	</parameter>
+	<parameter>
+		<name value="encounter"/>
+		<valueReference>
+			<reference value="Encounter/encounter-live-birth"/>
+		</valueReference>
+	</parameter>
+	<parameter>
+		<name value="inputParameters"/>
+		<resource>
+			<Parameters>
+				<parameter>
+					<name value="organizationId"/>
+					<valueId value="FHIR_CONNECT_A_THON"/>
+				</parameter>
+				<parameter>
+					<name value="mother"/>
+					<valueReference>
+						<reference value="Patient/patient-mother"/>
+					</valueReference>
+				</parameter>
+			</Parameters>
+		</resource>
+	</parameter>
+	<parameter>
+		<name value="inputData"/>
+		<resource>
+			<Patient xmlns="http://hl7.org/fhir">
+				<id value="patient-mother"/>
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">Mary Jones - Mother</div>
+				</text>
+				<identifier>
+					<use value="usual"/>
+					<type>
+						<coding>
+							<system value="http://hl7.org/fhir/v2/0203"/>
+							<code value="MR"/>
+						</coding>
+					</type>
+					<system value="urn:oid:1.2.36.146.595.217.0.1"/>
+					<value value="ACME-0000001"/>
+					<period>
+						<start value="2016-03-07"/>
+					</period>
+					<assigner>
+						<display value="Acme Healthcare"/>
+					</assigner>
+				</identifier>
+				<active value="true"/>
+				<name>
+					<use value="official"/>
+					<family value="Mary"/>
+					<given value="Peter"/>
+				</name>
+				<gender value="female"/>
+				<birthDate value="1984-02-24"/>
+				<deceasedBoolean value="false"/>
+				<managingOrganization>
+					<reference value="Organization/1"/>
+				</managingOrganization>
+			</Patient>
+		</resource>
+	</parameter>
+	<parameter>
+		<name value="inputData"/>
+		<resource>
+			<Patient xmlns="http://hl7.org/fhir">
+				<id value="patient-infant"/>
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">Peter Jones - Newborn</div>
+				</text>
+				<identifier>
+					<use value="usual"/>
+					<type>
+						<coding>
+							<system value="http://hl7.org/fhir/v2/0203"/>
+							<code value="MR"/>
+						</coding>
+					</type>
+					<system value="urn:oid:1.2.36.146.595.217.0.1"/>
+					<value value="ACME-0000002"/>
+					<period>
+						<start value="2016-03-07"/>
+					</period>
+					<assigner>
+						<display value="Acme Healthcare"/>
+					</assigner>
+				</identifier>
+				<active value="true"/>
+				<name>
+					<use value="official"/>
+					<family value="Jones"/>
+					<given value="Peter"/>
+				</name>
+				<gender value="male"/>
+				<birthDate value="2016-03-07">
+					<extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+						<valueDateTime value="2016-03-07T14:35:45-06:00"/>
+					</extension>
+				</birthDate>
+				<deceasedBoolean value="false"/>
+				<contact>
+					<relationship>
+						<coding>
+							<system value="http://hl7.org/fhir/patient-contact-relationship"/>
+							<code value="parent"/>
+						</coding>
+					</relationship>
+					<name>
+						<family value="Jones"/>
+						<given value="Mary"/>
+					</name>
+					<gender value="female"/>
+				</contact>
+				<managingOrganization>
+					<reference value="Organization/1"/>
+				</managingOrganization>
+			</Patient>
+		</resource>
+	</parameter>
+	<parameter>
+		<name value="inputData"/>
+		<resource>
+			<Condition xmlns="http://hl7.org/fhir">
+				<id value="condition-single-live-birth"/>
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">Single live birth</div>
+				</text>
+				<!-- The patient here is the infant, how do we relate this to the mother? -->
+				<patient>
+					<reference value="Patient/patient-infant"/>
+				</patient>
+				<encounter>
+					<reference value="Encounter/encounter-live-birth"/>
+				</encounter>
+				<asserter>
+					<reference value="Practitioner/practitioner-primary-provider"/>
+				</asserter>
+				<code>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="169826009"/>
+						<display value="Single live birth (finding)"/>
+					</coding>
+					<text value="Single live birth"/>
+				</code>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/condition-category"/>
+						<code value="finding"/>
+						<display value="Finding"/>
+					</coding>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="404684003"/>
+						<display value="Clinical finding (finding)"/>
+					</coding>
+					<text value="Clinical finding"/>
+				</category>
+				<verificationStatus value="confirmed"/>
+				<onsetDateTime value="2016-03-07T14:30:00-06:00"/>
+			</Condition>
+		</resource>
+	</parameter>
+	<parameter>
+		<name value="inputData"/>
+		<resource>
+			<RiskAssessment xmlns="http://hl7.org/fhir">
+				<id value="readiness-assessment"/>
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">Breastmilk Feeding Readiness Assessment</div>
+				</text>
+				<!-- NOTE: This is being modeled as an extension because there doesn't seem to be a good way to indicate on the RiskAssessment what "kind" of assessment it is. -->
+				<!-- Tracker #7869 is a proposal to add a type to risk assessment. http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=7869 -->
+				<extension>
+					<url value="http://example.org/extensions/riskassessment-type"/>
+					<valueCodeableConcept>
+						<coding>
+							<system value="http://example.org/dataelements"/>
+							<code value="breastfeeding-intention"/>
+							<display value="Breastfeeding Intention"/>
+						</coding>
+						<text value="Breastfeeding Intention"/>
+					</valueCodeableConcept>
+				</extension>
+				<subject>
+					<reference value="Patient/patient-mother"/>
+					<display value="Jones, Mary"/>
+				</subject>
+				<date value="2016-03-07T23:01:00Z"/>
+				<!-- This seems like the correct "method", the risk assessment was obtained by administering a Breastmilk Feeding Readiness Assessment to the subject. -->
+				<method>
+					<coding>
+						<system value="http://example.org/documentationtemplates"/>
+						<code value="breastmilk-feeding-readiness-assessment"/>
+						<display value="Breastmilk Feeding Readiness Assessment"/>
+					</coding>
+				</method>
+				<basis>
+					<reference value="QuestionnaireResponse/questionnaireresponse-breastfeeding-readiness-assessment"/>
+				</basis>
+				<!-- Seems wrong to call this a prediction... it's not a prediction, it's a specific response given by the subject -->
+				<prediction>
+					<outcome>
+						<text value="Intention Not To Breast Feed"/>
+						<coding>
+							<code value="negative"/>
+							<display value="Intention not to breast feed"/>
+						</coding>
+					</outcome>
+				</prediction>
+			</RiskAssessment>
+		</resource>
+	</parameter>
+	<parameter>
+		<name value="inputData"/>
+		<resource>
+			<Procedure xmlns="http://hl7.org/fhir">
+				<id value="procedure-breastfeeding-readiness-assessment"/>
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">Administration of Breastfeeding Readiness Assessment</div>
+				</text>
+				<subject>
+					<reference value="Patient/patient-mother"/>
+				</subject>
+				<status value="completed"/>
+				<code>
+					<coding>
+						<system value="http://example.org/documentation-templates"/>
+						<code value="breastfeeding-readiness-assessment"/>
+						<display value="Breastfeeding Readiness Assessment"/>
+					</coding>
+				</code>
+				<reasonReference>
+					<reference value="Condition/condition-single-live-birth"/>
+				</reasonReference>
+				<performer>
+					<actor>
+						<reference value="Practitioner/practitioner-charge-nurse"/>
+						<display value="RN Cynthia Good"/>
+					</actor>
+				</performer>
+				<performedDateTime value="2016-03-07"/>
+				<encounter>
+					<reference value="Encounter/encounter-live-birth"/>
+				</encounter>
+				<request>
+					<reference value="ProcedureRequest/procedurerequest-breastfeeding-readiness-assessment"/>
+				</request>
+			</Procedure>
+		</resource>
+	</parameter>
+</Parameters>

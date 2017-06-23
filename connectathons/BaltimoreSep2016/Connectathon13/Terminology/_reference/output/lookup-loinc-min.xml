@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<parameter>
+		<name value="name"/>
+		<valueString value="LOINC"/>
+	</parameter>
+	<parameter>
+		<name value="display"/>
+		<valueString value="Bicarbonate [Moles/volume] in Serum"/>
+	</parameter>
+</Parameters>

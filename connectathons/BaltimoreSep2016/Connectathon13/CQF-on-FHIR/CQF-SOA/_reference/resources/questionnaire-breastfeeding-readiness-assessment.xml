@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Questionnaire xmlns="http://hl7.org/fhir">
+  <id value="questionnaire-breastfeeding-readiness-assessment"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/cqif-questionnaire"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Breastfeeding Readiness Assessment</div>
+  </text>
+  <!-- Identifier -->
+  <identifier>
+    <use value="official"/>
+    <value value="breastfeeding-readiness-assessment"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <status value="published"/>
+  <!-- Why was this element removed? -->
+  <!--experimental value="true"/-->
+  <title value="Breastfeeding Readiness Assessment"/>
+	<concept>
+	  <system value="http://example.org/documentation-templates"/>
+	  <code value="breastfeeding-readiness-assessment"/>
+	  <display value="Breastfeeding Readiness Assessment"/>
+	</concept>  
+  <subjectType value="Patient"/>
+  <item>
+    <linkId value="breastfeeding-intention"/>
+    <concept>
+      <system value="http://example.org/dataelements"/>
+	  <code value="breastfeeding-intention"/>
+    </concept>
+    <text value="Do you intend to exclusively breastfeed your infant for the next six months?"/>
+    <type value="choice"/>
+    <required value="true"/>
+    <options>
+      <reference value="ValueSet/valueset-breastfeeding-intention"/>
+    </options>
+  </item>
+</Questionnaire>

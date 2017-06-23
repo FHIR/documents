@@ -1,0 +1,35 @@
+{
+  "resourceType": "ValueSet",
+  "url": "http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-1",
+  "identifier": [
+    {
+      "value": "intensional-case-1"
+    }
+  ],
+  "status": "draft",
+  "experimental": true,
+  "expansion": {
+    "contains": [
+      {
+        "system": "http://loinc.org",
+        "code": "8446-7",
+        "display": "Diastolic blood pressure--expiration"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8448-3",
+        "display": "Mean blood pressure--expiration"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8450-9",
+        "display": "Systolic blood pressure--expiration"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "8452-5",
+        "display": "Systolic blood pressure.inspiration - expiration"
+      }
+    ]
+  }
+}

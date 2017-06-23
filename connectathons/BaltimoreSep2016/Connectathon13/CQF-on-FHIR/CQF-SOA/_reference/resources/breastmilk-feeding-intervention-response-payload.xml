@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GuidanceResponse xmlns="http://hl7.org/fhir" xmlns:ns2="http://www.w3.org/1999/xhtml">
+    <id value="0d84b360-b48c-4c0c-bda1-27863a85b273"/>
+    <contained>
+        <ProcedureRequest>
+            <id value="05e0fbb9-be1e-45f0-b278-3e5b421cccdc.0"/>
+            <subject>
+                <reference value="Patient/patient-mother"/>
+            </subject>
+            <code>
+                <coding>
+                    <system value="http://example.org/documentation-templates"/>
+                    <code value="breastfeeding-readiness-assessment"/>
+                </coding>
+            </code>
+            <scheduledDateTime value="2016-08-29T13:23:47-04:00"/>
+            <status value="proposed"/>
+        </ProcedureRequest>
+    </contained>
+    <contained>
+        <CommunicationRequest>
+            <id value="05e0fbb9-be1e-45f0-b278-3e5b421cccdc.1"/>
+            <recipient>
+                <reference value="Practitioner/primary-provider"/>
+            </recipient>
+            <payload>
+                <contentString value="A Breastfeeding Readiness Assessment is recommended, please authorize or reject the order."/>
+            </payload>
+            <status value="proposed"/>
+            <subject>
+                <reference value="Patient/patient-mother"/>
+            </subject>
+        </CommunicationRequest>
+    </contained>
+    <module>
+        <reference value="DecisionSupportServiceModule/ecrs-fhir-exclusive-breastfeeding-scenario"/>
+    </module>
+    <status value="success"/>
+    <action>
+        <textEquivalent value="Breastfeeding Readiness Assessment"/>
+        <type>
+			<code value="create"/>
+        </type>
+        <resource>
+            <reference value="#05e0fbb9-be1e-45f0-b278-3e5b421cccdc.0"/>
+        </resource>
+    </action>
+    <action>
+        <type>
+			<code value="create"/>
+        </type>
+        <resource>
+            <reference value="#05e0fbb9-be1e-45f0-b278-3e5b421cccdc.1"/>
+        </resource>
+    </action>
+</GuidanceResponse>

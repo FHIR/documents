@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-15-ts-lookup-loinc-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-15-ts-lookup-loinc-xml"/>
+	<name value="FHIR Connectathon 15 - Terminology Services - Lookup - LOINC - XML"/>
+	<status value="active"/>
+	<date value="2017-03-25"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="FHIR Connectathon 15 - Terminology Services - Lookup - LOINC - XML Format - Simple lookup tests against a known LOINC code."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="CodeSystem create, read and lookup operations"/>
+			<link value="http://hl7.org/fhir/STU3/codesystem-operations.html#lookup"/>
+			<link value="http://hl7.org/fhir/STU3/codesystem.html"/>
+			<capabilities>
+				<reference value="../_reference/capabilities/CodeSystemLookupCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<fixture id="lookup-loinc-min">
+		<resource>
+			<reference value="../_reference/output/lookup-loinc-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="lookup-loinc-input-02">
+		<resource>
+			<reference value="../_reference/input/lookup-loinc-input-02.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="lookup-loinc-input-03">
+		<resource>
+			<reference value="../_reference/input/lookup-loinc-input-03.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="ParametersProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+	</profile>
+
+	<test id="Test-01-SimpleLOINCLookupCase1">
+		<name value="Simple Lookup Test for LOINC system and code using HTTP GET"/>
+		<description value="Simple $lookup operation test for LOINC lookup using HTTP GET for system=http://loinc.org&amp;code=1963-8."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="lookup"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="Test lookup operation for LOINC lookup using HTTP GET for system=http://loinc.org&amp;code=1963-8."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$lookup?system=http://loinc.org&amp;code=1963-8"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<!--
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected minimum contents."/>
+				<minimumId value="lookup-loinc-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		-->
+	</test>
+
+	<test id="Test-02-SimpleLOINCLookupCase2">
+		<name value="Simple Lookup Test Case 2 for LOINC system and code using HTTP POST"/>
+		<description value="Simple $lookup operation test for LOINC lookup using HTTP POST with Parameters coding parameter with system=http://loinc.org and code=1963-8."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="lookup"/>
+				</type>
+				<description value="Test lookup operation for LOINC lookup using HTTP POST with Parameters coding parameter with system=http://loinc.org and code=1963-8."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="CodeSystem/$lookup"/>
+				<sourceId value="lookup-loinc-input-02"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<!--
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected minimum contents."/>
+				<minimumId value="lookup-loinc-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		-->
+	</test>
+
+	<test id="Test-03-SimpleLOINCLookupCase3">
+		<name value="Simple Lookup Test Case 3 for LOINC system and code using HTTP POST"/>
+		<description value="Simple $lookup operation test for LOINC lookup using HTTP POST with Parameters system=http://loinc.org and code=1963-8 parameters."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="lookup"/>
+				</type>
+				<description value="Test lookup operation for LOINC lookup using HTTP POST with Parameters system=http://loinc.org and code=1963-8 parameters."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="CodeSystem/$lookup"/>
+				<sourceId value="lookup-loinc-input-03"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<!--
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected minimum contents."/>
+				<minimumId value="lookup-loinc-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		-->
+	</test>
+</TestScript>

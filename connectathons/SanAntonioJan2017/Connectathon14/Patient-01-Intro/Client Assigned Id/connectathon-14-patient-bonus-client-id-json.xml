@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-14-patient-bonus-client-id-json"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-14-patient-bonus-client-id-json"/>
+	<name value="FHIR Connectathon 14 - Patient - JSON - Client Assigned Resource Id (Bonus)"/>
+	<status value="active"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-12-10"/>
+	<description value="Baseline Bonus tests using the JSON format to create, update, retrieve history and search a patient with extensions where the client assigns the resource id. The destination server must support conditional create."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Patient read, update, delete, history-instance and search-type operations"/>
+			<link value="http://hl7.org/fhir/207Jan/http.html#read"/>
+			<link value="http://hl7.org/fhir/207Jan/http.html#update"/>
+			<link value="http://hl7.org/fhir/207Jan/http.html#delete"/>
+			<link value="http://hl7.org/fhir/207Jan/http.html#history"/>
+			<link value="http://hl7.org/fhir/207Jan/http.html#search"/>
+			<link value="http://hl7.org/fhir/207Jan/patient.html"/>
+			<capabilities>
+				<reference value="../_reference/capabilities/PatientCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<fixture id="patient-create-bonus-PeterChalmers">
+		<resource>
+			<reference value="../_reference/resources/patient-create-client-id-bonus-PeterChalmers.json"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-create-bonus-PeterChalmers-min">
+		<resource>
+			<reference value="../_reference/resources/patient-create-bonus-PeterChalmers-min.json"/>
+		</resource>
+	</fixture>
+
+	<fixture id="patient-update-bonus1-PeterChalmers">
+		<resource>
+			<reference value="../_reference/resources/patient-update-bonus1-PeterChalmers.json"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-update-bonus1-PeterChalmers-min">
+		<resource>
+			<reference value="../_reference/resources/patient-update-bonus1-PeterChalmers-min.json"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-update-bonus2-PeterChalmers">
+		<resource>
+			<reference value="../_reference/resources/patient-update-bonus2-PeterChalmers.json"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-update-bonus2-PeterChalmers-min">
+		<resource>
+			<reference value="../_reference/resources/patient-update-bonus2-PeterChalmers-min.json"/>
+		</resource>
+	</fixture>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+	<profile id="patient-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+	</profile>
+
+	<variable>
+		<name value="createResourceId"/>
+		<path value="Patient/id"/>
+		<sourceId value="patient-read-PeterChalmers"/>
+	</variable>
+	<variable>
+		<name value="createIdentifier"/>
+		<path value="Patient/identifier/value"/>
+		<sourceId value="patient-create-bonus-PeterChalmers"/>
+	</variable>
+	<variable>
+		<name value="searchFamilyName"/>
+		<path value="Patient/name/family"/>
+		<sourceId value="patient-create-bonus-PeterChalmers"/>
+	</variable>
+	<variable>
+		<name value="searchGivenName"/>
+		<path value="Patient/name/given"/>
+		<sourceId value="patient-create-bonus-PeterChalmers"/>
+	</variable>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the patient does not exist on the server."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?given=${searchGivenName}&amp;family=${searchFamilyName}"/>
+			</operation>
+		</action>
+	</setup>
+
+	<test id="Step1-RegisterNewPatient">
+		<name value="RegisterNewPatient"/>
+		<description value="Create a new patient, with extensions where the client assigns the resource id using JSON."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Create patient with client assigned resource id."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createIdentifier}"/>
+				<responseId value="create-bonus-response" />
+				<sourceId value="patient-create-bonus-PeterChalmers"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON.. Warning only as the server may not support the return of response content."/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server may not support versioning."/>
+				<headerField value="Last-Modified"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header ETag is present. Warning only as the server may not support versioning."/>
+				<headerField value="ETag"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Location is present. Warning only as this is optional but servers are encouraged to return this."/>
+				<headerField value="Location"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Read using params element"/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createIdentifier}"/>
+				<responseId value="patient-read-PeterChalmers" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Patient."/>
+				<resource value="Patient"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Patient profile."/>
+				<validateProfileId value="patient-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected retained elements and values. Warning only to provide users with reviewable results."/>
+				<minimumId value="patient-create-bonus-PeterChalmers-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the resource version is present. Warning only as the server may not support versioning."/>
+				<operator value="notEmpty"/>
+				<path value="Patient/meta/versionId"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2a-Bonus1-UpdatePatient">
+		<name value="Step2a-Bonus1-UpdatePatient"/>
+		<description value="Update the patient's address city, the birth datetime extension remains unchanged."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createResourceId}"/>
+				<responseId value="update-bonus1-response" />
+				<sourceId value="patient-update-bonus1-PeterChalmers"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON.. Warning only as the server may not support the return of response content."/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server may not support versioning."/>
+				<headerField value="Last-Modified"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header ETag is present. Warning only as the server may not support versioning."/>
+				<headerField value="ETag"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Location is present. Warning only as this is optional but servers are encouraged to return this."/>
+				<headerField value="Location"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createResourceId}"/>
+				<responseId value="read-update-bonus1-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Patient."/>
+				<resource value="Patient"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Patient profile."/>
+				<validateProfileId value="patient-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that read returns updated version and that update did not delete previously created fields. Warning only to provide users with reviewable results."/>
+				<minimumId value="patient-update-bonus1-PeterChalmers-min"/>
+				<sourceId value="read-update-bonus1-response"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the resource version is present. Warning only as the server may not support versioning."/>
+				<operator value="notEmpty"/>
+				<path value="Patient/meta/versionId"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Additional confirmation that the address city got updated to the expected value."/>
+				<path value=".address[0].city"/>
+				<value value="Pleasant Valley"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2b-Bonus2-UpdatePatient">
+		<name value="Step2b-Bonus2-UpdatePatient"/>
+		<description value="Update the patient's birth datetime as an extension."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createResourceId}"/>
+				<responseId value="update-bonus2-response" />
+				<sourceId value="patient-update-bonus2-PeterChalmers"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON.. Warning only as the server may not support the return of response content."/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server may not support versioning."/>
+				<headerField value="Last-Modified"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header ETag is present. Warning only as the server may not support versioning."/>
+				<headerField value="ETag"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Location is present. Warning only as this is optional but servers are encouraged to return this."/>
+				<headerField value="Location"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createResourceId}"/>
+				<responseId value="read-update-bonus2-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Patient."/>
+				<resource value="Patient"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Patient profile."/>
+				<validateProfileId value="patient-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that read returns updated version and that update did not delete previously created fields. Warning only to provide users with reviewable results."/>
+				<minimumId value="patient-update-bonus2-PeterChalmers-min"/>
+				<sourceId value="read-update-bonus2-response"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the resource version is present. Warning only as the server may not support versioning."/>
+				<operator value="notEmpty"/>
+				<path value="Patient/meta/versionId"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Additional confirmation that birthDate extension patient-birthTime got updated to the expected value."/>
+				<operator value="contains"/>
+				<path value="_birthDate.extension[?(@.url == 'http://hl7.org/fhir/StructureDefinition/patient-birthTime')].valueDateTime"/>
+				<value value="1975-01-02"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step3-PatientHistory">
+		<name value="Step3-PatientHistory"/>
+		<description value="Retrieve the patient's history."/>
+
+		<action>
+			<operation>
+				<resource value="Patient"/>
+				<description value="Retrieve the history for a single, known patient using the known identifier."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createResourceId}/_history"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle.type is history."/>
+				<path value="/Bundle/type"/>
+				<value value="history"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there are more than two patient history resource returned. Warning only as the server may not support versioning."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="2"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches or is greater than the number of entries in the Bundle. Warning only to provide users with reviewable results."/>
+				<expression value="Bundle.total.toInteger() &gt;= entry.count()"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that bundle contains the most recent updated version (bonus 2) of the patient. Warning only to provide users with reviewable results."/>
+				<minimumId value="patient-update-bonus2-PeterChalmers-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step4-PatientSearch">
+		<name value="Step4-PatientSearch"/>
+		<description value="Search for a patient with the name 'James Chalmers'."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for the patient James Chalmers. The destination server must support the family and given search parameters."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?given=${searchGivenName}&amp;family=${searchFamilyName}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle.type is searchset."/>
+				<path value="/Bundle/type"/>
+				<value value="searchset"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other patient records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches or is greater than the number of entries in the Bundle. Warning only to provide users with reviewable results."/>
+				<expression value="Bundle.total.toInteger() &gt;= entry.count()"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that bundle contains the most recent updated version (bonus 2) of the patient. Warning only to provide users with reviewable results."/>
+				<minimumId value="patient-update-bonus2-PeterChalmers-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step5-PatientDelete">
+		<name value="Step5-PatientDelete"/>
+		<description value="Delete the patient James Chalmers. Execute a subsequent read with an expected response of gone or not found."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Delete the patient James Chalmers on the destination server in order to leave the server in the same state before this test execution."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Read deleted patient resource with an expected response of gone or not found"/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 404(Not Found) or 410(Gone)."/>
+				<operator value="in"/>
+				<responseCode value="404,410"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

@@ -1,0 +1,40 @@
+<Condition xmlns="http://hl7.org/fhir">
+	<id value="condition-single-live-birth"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Single live birth</div>
+	</text>
+	<verificationStatus value="confirmed"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/condition-category"/>
+			<code value="finding"/>
+			<display value="Finding"/>
+		</coding>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="404684003"/>
+			<display value="Clinical finding (finding)"/>
+		</coding>
+		<text value="Clinical finding"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="169826009"/>
+			<display value="Single live birth (finding)"/>
+		</coding>
+		<text value="Single live birth"/>
+	</code>
+	<!-- The patient here is the infant, how do we relate this to the mother? -->
+	<subject>
+		<reference value="Patient/patient-infant"/>
+	</subject>
+	<context>
+		<reference value="Encounter/encounter-live-birth"/>
+	</context>
+	<onsetDateTime value="2016-03-07T14:30:00-06:00"/>
+	<asserter>
+		<reference value="Practitioner/practitioner-primary-provider"/>
+	</asserter>
+</Condition>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Sequence xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Type: DNA; Species: Homo sapiens; ReferenceSeqId Start: 55227970, End:55227980</div>
+	</text>
+	<type value="DNA"/>
+	<patient>
+		<reference value="Patient/${createPatientId}"/>
+	</patient>
+	<species>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="337915000"/>
+		</coding>
+		<text value="Homo sapiens"/>
+	</species>
+	<referenceSeq>
+		<referenceSeqId>
+			<coding>
+				<system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
+				<code value="NC_000007.14"/>
+			</coding>
+		</referenceSeqId>
+		<windowStart value="55227970"/>
+		<windowEnd value="55227980"/>
+	</referenceSeq>
+	<variation>
+		<start value="55227976"/>
+		<end value="55227977"/>
+		<observedAllele value="T"/>
+		<referenceAllele value="A"/>
+	</variation>
+	<quality>
+		<start value="55227976"/>
+		<end value="55227977"/>
+		<score>
+			<value value="1.0"/>
+		</score>
+	</quality>
+	<repository>
+		<url value="https://www.googleapis.com/genomics/v1beta2"/>
+		<name value="ga4gh"/>
+		<variantId value="A1A2"/>
+	</repository>
+</Sequence>

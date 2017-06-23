@@ -1,0 +1,17 @@
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+	<rest>
+		<mode value="server"/>
+		<security>
+			<extension url="http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris">
+				<extension url="authorize" />
+				<extension url="token" />
+			</extension>
+			<service>
+				<coding>
+					<system value="http://hl7.org/fhir/restful-security-service"/>
+					<code value="SMART-on-FHIR"/>
+				</coding>
+			</service>
+		</security>
+	</rest>
+</CapabilityStatement>

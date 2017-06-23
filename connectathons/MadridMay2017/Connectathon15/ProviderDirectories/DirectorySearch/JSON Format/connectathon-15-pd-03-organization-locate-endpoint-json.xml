@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-15-organization-locate-endpoint-json"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-0-0/TestScript/connectathon-15-organization-locate-endpoint-json"/>
+	<name value="FHIR Connectathon 15 - Provider Directory - Scenario 3 - Organization Locate Endpoint - JSON"/>
+	<status value="draft"/>
+	<date value="2017-04-05"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Organization search capabilities tests; resource format JSON; validate telecom and endpoint; Endpoint resource expected to be contained; test a FHIR server's Organization search operation support using the parameters: identifier and name. Default values for the search parameters are based on the Organization Resource Example and can be modified to allow testing against other known Organization resource instances."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Organization read and search operations"/>
+			<link value="http://wiki.hl7.org/index.php?title=201705_Provider_Directories_and_Scheduling"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#read"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#search"/>
+			<capabilities>
+				<reference value="../../_reference/capabilities/OrganizationCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>	
+
+	<profile id="organization-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Organization" />
+	</profile>
+
+	<variable>
+		<name value="OrganizationSearchIdentifierSystemCriteria"/>
+		<defaultValue value="http://hl7.org/fhir/sid/us-npi"/>
+	</variable>
+	<variable>
+		<name value="OrganizationSearchIdentifierValueCriteria"/>
+		<defaultValue value="1063494177"/>
+	</variable>
+	<variable>
+		<name value="OrganizationSearchNameCriteria"/>
+		<defaultValue value="Saint Luke''s Hospital of Kansas City"/>
+	</variable>
+	<variable>
+		<name value="OrganizationResourceId"/>
+		<path value="Organization/id" />
+		<sourceId value="search-response"/>
+	</variable>
+
+	<test id="01-OrganizationSearchIdentifier">
+		<name value="OrganizationSearchIdentifier"/>
+		<description value="Search Organization using the identifier search parameter with the provided identifier.system and identifier.value data values."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Organization"/>
+				<description value="Search for Organization matches using the identifier search parameter."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<params value="?identifier=${OrganizationSearchIdentifierSystemCriteria}|${OrganizationSearchIdentifierValueCriteria}"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. Although not expected, there could be other Organization resources returned."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches the number of entries in the Bundle"/>
+				<direction value="response"/>
+				<expression value="Bundle.total = entry.count()"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Organization"/>
+				<description value="Read the first Organization found in the identifier search and verify the contents contain a telecom and endpoint."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<params value="/${OrganizationResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/json+fhir'."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Organization."/>
+				<direction value="response"/>
+				<resource value="Organization"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Organization conforms to the base FHIR specification. Warning only to allow for Example code systems."/>
+				<direction value="response"/>
+				<validateProfileId value="organization-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Organization contains a telecom value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="Organization/telecom/value"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Organization contains an endpoint value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="Organization/endpoint/reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-OrganizationSearchName">
+		<name value="OrganizationSearchName"/>
+		<description value="Search Organization using the name search parameter with the provided name data value."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Organization"/>
+				<description value="Search for Organization matches using the name search."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<params value="?name=${OrganizationSearchNameCriteria}"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. Although not expected, there could be other Organization resources returned."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches the number of entries in the Bundle"/>
+				<direction value="response"/>
+				<expression value="Bundle.total = entry.count()"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Organization"/>
+				<description value="Read the first Organization found in the name search and verify the contents contain a telecom and endpoint."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<params value="/${OrganizationResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/json+fhir'."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Organization."/>
+				<direction value="response"/>
+				<resource value="Organization"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Organization conforms to the base FHIR specification. Warning only to allow for Example code systems."/>
+				<direction value="response"/>
+				<validateProfileId value="organization-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Organization contains a telecom value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="Organization/telecom/value"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Organization contains an endpoint value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="Organization/endpoint/reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

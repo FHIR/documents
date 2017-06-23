@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationStatement xmlns="http://hl7.org/fhir">
+	<id value="dafmed-1001"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/daf-medicationstatement"/>
+	</meta>
+	<!--     The Human readible version of the medication statement    -->
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>lisinopril oral 10 mg</p>
+		</div>
+	</text>
+	<status value="active"/>
+	<!--     a coded value or reference to the medication being prescribed. As described earlier, this could be contained , separately
+        within a bundle or simply a reference to a remote server.   -->
+	<medicationCodeableConcept>
+		<coding>
+			<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+			<code value="206765"/>
+			<display value="Lisinopril 10 MG Oral Tablet [Prinivil]"/>
+		</coding>
+		<text value="lisinopril oral 10 mg"/>
+	</medicationCodeableConcept>
+	<patient>
+		<reference value="Patient/dafpid-1001"/>
+	</patient>
+	<effectivePeriod>
+	<start value="2010-05-01"></start></effectivePeriod>
+	<dateAsserted value="2016-05-01T16:13:03Z"/>
+</MedicationStatement>

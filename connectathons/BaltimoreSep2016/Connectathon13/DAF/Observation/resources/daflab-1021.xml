@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<id value="daflab-1021"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-resultobs"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<xhtml:div>2005-07-05:SODIUM = 137.0mmol/L</xhtml:div>
+	</text>
+	<identifier>
+		<system value="http://hospital.smarthealthit.org"/>
+		<value value="daflab-1021"/>
+	</identifier>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="laboratory"/>
+			<display value="Laboratory"/>
+		</coding>
+		<text value="Laboratory"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="2951-2"/>
+			<display value="Sodium [Moles/volume] in Serum or Plasma"/>
+		</coding>
+		<text value="SODIUM"/>
+	</code>
+	<subject>
+		<reference value="Patient/dafpid-1001"/>
+	</subject>
+	<effectiveDateTime value="2005-07-05"/>
+	<valueQuantity>
+		<value value="137.0"/>
+		<unit value="mmol/L"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="mmol/L"/>
+	</valueQuantity>
+	<referenceRange>
+		<low>
+			<value value="137.0"/>
+			<unit value="mmol/L"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="mmol/L"/>
+		</low>
+		<high>
+			<value value="145.0"/>
+			<unit value="mmol/L"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="mmol/L"/>
+		</high>
+	</referenceRange>
+</Observation>

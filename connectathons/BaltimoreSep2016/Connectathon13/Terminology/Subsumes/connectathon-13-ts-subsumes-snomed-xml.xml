@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-13-ts-subsumes-snomed-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-13-ts-subsumes-snomed-xml"/>
+	<name value="FHIR Connectathon 13 - Terminology Services - Subsumes - SNOMED"/>
+	<status value="active"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-09-10"/>
+	<description value="FHIR Connectathon 13 - Terminology Services - Subsumes - SNOMED - Simple subsumes tests against known SNOMED codes."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="CodeSystem Subsumes Operation"/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="CodeSystem subsumes operation"/>
+			<link value="http://hl7.org/fhir/2016Sep/codesystem-operations.html#subsumes"/>
+			<link value="http://hl7.org/fhir/2016Sep/codesystem.html"/>
+			<conformance>
+				<reference value="../_reference/conformance/CodeSystemSubsumesConformance.xml" />
+			</conformance>
+		</capability>
+	</metadata>
+
+	<fixture id="subsumed-by-snomed-min">
+		<resource>
+			<reference value="../_reference/output/subsumes-snomed-3738000-235856003-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="not-subsumed-snomed-min">
+		<resource>
+			<reference value="../_reference/output/subsumes-snomed-22298006-399211009-min.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="ParametersProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+	</profile>
+
+	<test id="Test-01-SimpleSNOMEDSubsumesCase1">
+		<name value="Simple Subsumes Test Case 1 for SNOMED system and code using HTTP GET with expected outcome of subsumed-by"/>
+		<description value="Simple CodeSystem $subsumes operation test for SNOMED system and code using HTTP GET for system=http://snomed.info/sct&amp;codeA=3738000&amp;codeB=235856003."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="Test CodeSystem $subsumes operation for SNOMED system and code."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes?system=http://snomed.info/sct&amp;codeA=3738000&amp;codeB=235856003"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected minimum contents; parameter name with value of outcome, parameter valueCode with value of subsumes."/>
+				<minimumId value="subsumed-by-snomed-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-02-SimpleSNOMEDNotSubsumedCase2">
+		<name value="Simple Subsumes Test Case 2 for SNOMED system and code using HTTP GET with expected outcome of not-subsumed"/>
+		<description value="Simple CodeSystem $subsumes operation test for SNOMED system and code using HTTP GET for system=http://snomed.info/sct&amp;codeA=22298006&amp;codeB=399211009."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="Test CodeSystem $subsumes operation for SNOMED system and code."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes?system=http://snomed.info/sct&amp;codeA=22298006&amp;codeB=399211009"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected minimum contents; parameter name with value of outcome, parameter valueCode with value of not-subsumed."/>
+				<minimumId value="not-subsumed-snomed-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

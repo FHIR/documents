@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">All Snomed codes that are subsumed by 38341003 (Hypertensive disorder, systemic arterial)</div>
+	</text>
+	<url value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-2"/>
+	<identifier>
+		<value value="intensional-case-2"/>
+	</identifier>
+	<name value="Terminology Services Connectation #1 Intensional case #2"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<publisher value="Grahame Grieve"/>
+	<contact>
+		<telecom>
+			<system value="email"/>
+			<value value="grahame@healthintersections.com.au"/>
+		</telecom>
+	</contact>
+	<description value="All Snomed codes that are subsumed by 38341003 (Hypertensive disorder, systemic arterial)"/>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
+			<filter>
+				<property value="concept"/>
+				<op value="is-a"/>
+				<value value="38341003"/>
+			</filter>
+		</include>
+	</compose>
+</ValueSet>

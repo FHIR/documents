@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<id value="dafpanel-1001"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<xhtml:div>2005-07-05:Blood Chemistry</xhtml:div>
+	</text>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="laboratory"/>
+			<display value="Laboratory"/>
+		</coding>
+		<text value="Laboratory"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="24323-8"/>
+			<display value="Comprehensive metabolic 2000 panel - Serum or Plasma"/>
+		</coding>
+		<text value="Blood Chemistry"/>
+	</code>
+	<subject>
+		<reference value="Patient/dafpid-1001"/>
+	</subject>
+	<effectiveDateTime value="2005-07-05"/>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1018"/>
+			<display value="CREATININE=1 mg/dL"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1020"/>
+			<display value="POTASSIUM=4.2 mmol/L"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1021"/>
+			<display value="SODIUM=137 mmol/L"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1022"/>
+			<display value="BUN=10 mg/dL"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1023"/>
+			<display value="CARBON DIOXIDE, TOTAL=24 mmol/L"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1024"/>
+			<display value="CHLORIDE=105 mmol/L"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1028"/>
+			<display value="CALCIUM=7.7 mg/dL"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1029"/>
+			<display value="GLUCOSE=76 mg/dL"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1030"/>
+			<display value="BILIRUBIN.TOTAL=0.3 mg/dL"/>
+		</target>
+	</related>
+</Observation>

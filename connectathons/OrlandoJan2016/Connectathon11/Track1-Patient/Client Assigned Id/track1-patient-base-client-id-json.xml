@@ -1,0 +1,348 @@
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="track1-patient-base-client-id-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/track1-patient-base-client-id-xml"/>
+	<name value="FHIR Connectathon 11 - Track 1 - Patient - Register a new patient"/>
+	<status value="draft"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2015-12-30"/>
+	<description value="FHIR Connectathon 11 - Track 1 - Patient - JSON Format - Baseline tests to create, update, retrieve history and search a patient, no extensions with client assigned resource id."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="Patient Create, Read, Update, Delete, and History Instance Operations"/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Patient create, read, update, delete, history-instance and search-type operations"/>
+			<link value="http://hl7.org/fhir/2016Jan/http.html#create"/>
+			<link value="http://hl7.org/fhir/2016Jan/http.html#read"/>
+			<link value="http://hl7.org/fhir/2016Jan/http.html#update"/>
+			<link value="http://hl7.org/fhir/2016Jan/http.html#delete"/>
+			<link value="http://hl7.org/fhir/2016Jan/http.html#history"/>
+			<link value="http://hl7.org/fhir/2016Jan/http.html#search"/>
+			<link value="http://hl7.org/fhir/2016Jan/patient.html"/>
+			<conformance>
+				<reference value="/Connectathon11/Track1-Patient/_reference/conformance/PatientConformance.xml" />
+			</conformance>
+		</capability>
+	</metadata>
+
+	<fixture id="patient-create-PeterChalmers">
+		<resource>
+			<reference value="/Connectathon11/Track1-Patient/_reference/resources/patient-create-PeterChalmers.json"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-create-PeterChalmers-min">
+		<resource>
+			<reference value="/Connectathon11/Track1-Patient/_reference/resources/patient-create-PeterChalmers-min.json"/>
+		</resource>
+	</fixture>
+
+	<fixture id="patient-update-PeterChalmers">
+		<resource>
+			<reference value="/Connectathon11/Track1-Patient/_reference/resources/patient-update-PeterChalmers.json"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-update-PeterChalmers-min">
+		<resource>
+			<reference value="/Connectathon11/Track1-Patient/_reference/resources/patient-update-PeterChalmers-min.json"/>
+		</resource>
+	</fixture>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+	<profile id="patient-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+	</profile>
+
+	<variable>
+		<name value="createIdentifier"/>
+		<path value="Patient/identifier/value"/>
+		<sourceId value="patient-create-PeterChalmers"/>
+	</variable>
+	<variable>
+		<name value="searchFamilyName"/>
+		<path value="Patient/name/family"/>
+		<sourceId value="patient-create-PeterChalmers"/>
+	</variable>
+	<variable>
+		<name value="searchGivenName"/>
+		<path value="Patient/name/given"/>
+		<sourceId value="patient-create-PeterChalmers"/>
+	</variable>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Use a conditional delete operation to insure the patient does not exist on the server."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?given=${searchGivenName}&amp;family=${searchFamilyName}"/>
+			</operation>
+		</action>
+	</setup>
+
+	<test id="Step1-RegisterNewPatient">
+		<name value="RegisterNewPatient"/>
+		<description value="Create a new patient, no extensions where the client assigns the resource id using JSON."/>
+
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Create patient with client assigned resource id."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createIdentifier}"/>
+				<responseId value="create-response" />
+				<sourceId value="patient-create-PeterChalmers"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Read using params element"/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<validateProfileId value="patient-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the response contains the created version of the patient."/>
+				<minimumId value="patient-create-PeterChalmers-min"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that version of resource is 1 after the create. Warning only as the server may re-establish this resource id from a previous deletion."/>
+				<path value="Patient/meta/versionId"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2-UpdatePatient">
+		<name value="Step2-UpdatePatient"/>
+		<description value="Update the patient's birth date, no extensions."/>
+
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createIdentifier}"/>
+				<responseId value="update-birth-response" />
+				<sourceId value="patient-update-PeterChalmers"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<headerField value="Location"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<validateProfileId value="patient-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>		
+		<action>
+			<assert>
+				<description value="Confirm that read returns updated version and that update did not delete previously created fields."/>
+				<minimumId value="patient-update-PeterChalmers-min"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that version of resource is greater than 1 after the update. Warning only as the server may not support versioning."/>
+				<operator value="greaterThan"/>
+				<path value="Patient/meta/versionId"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Additional confirmation that birthDate got updated to expected value."/>
+				<path value="fhir:Patient/fhir:birthDate"/>
+				<value value="1975-01-02"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step3-PatientHistory">
+		<name value="Step3-PatientHistory"/>
+		<description value="Retrieve the patient's history."/>
+
+		<action>
+			<operation>
+				<resource value="Patient"/>
+				<description value="Retrieve the history for a single, known patient using the known identifier."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="/${createIdentifier}/_history"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is more than one record returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that bundle contains the most recent updated version of the patient."/>
+				<minimumId value="patient-update-PeterChalmers-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step4-PatientSearch">
+		<name value="Step4-PatientSearch"/>
+		<description value="Search for a patient with the name 'James Chalmers'."/>
+
+		<action>
+			<operation>
+				<type>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for the patient James Chalmers."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?given=${searchGivenName}&amp;family=${searchFamilyName}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other patient records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that bundle contains the most recent updated version of the patient."/>
+				<minimumId value="patient-update-PeterChalmers-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<teardown>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<params value="/${createIdentifier}"/>
+			</operation>
+		</action>
+	</teardown>
+</TestScript>

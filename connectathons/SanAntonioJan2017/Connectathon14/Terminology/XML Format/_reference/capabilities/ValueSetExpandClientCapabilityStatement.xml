@@ -1,0 +1,20 @@
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="ValueSet"/>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+		</resource>
+		<operation>
+			<name value="expand"/>
+			<definition>
+				<reference value="http://hl7.org/fhir/OperationDefinition/valueset-expand"/>
+			</definition>
+		</operation>
+	</rest>
+</CapabilityStatement>

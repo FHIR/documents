@@ -1,0 +1,138 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "3204039-1",
+  "contained": [
+    {
+      "resourceType": "Location",
+      "id": "location-1",
+      "address": {
+        "use": "work",
+        "type": "physical",
+        "line": [
+          "16061 DOCTORS BLVD"
+        ],
+        "city": "HAMMOND",
+        "state": "LA",
+        "postalCode": "704031479",
+        "country": "US"
+      }
+    },
+    {
+      "resourceType": "Endpoint",
+      "id": "endpoint-1",
+      "status": "active",
+      "connectionType": {
+        "code": "email"
+      },
+      "name": "GREGORY MULA",
+      "managingOrganization": {
+        "reference": "Organization/393872"
+      },
+      "payloadType": [
+        {
+          "coding": [
+            {
+              "system": "urn:oid:1.3.6.1.4.1.19376.1.2.3",
+              "code": "urn:hl7-org:sdwg:ccda-structuredBody:1.1"
+            }
+          ]
+        }
+      ],
+      "payloadMimeType": [
+        "*/*"
+      ],
+      "address": "mailto:GREGORY.MULA@directnppes.com"
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://www.acme.org/practitioners",
+      "value": "23"
+    }
+  ],
+  "active": true,
+  "period": {
+    "start": "2017-01-01",
+    "end": "2017-12-31"
+  },
+  "practitioner": {
+    "reference": "Practitioner/3204039",
+    "display": "Dr GREGORY MULA"
+  },
+  "organization": {
+    "reference": "Organization/393872"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/v2/0286",
+          "code": "RP"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "394579002",
+          "display": "Cardiology"
+        }
+      ]
+    }
+  ],
+  "location": [
+    {
+      "reference": "#location-1",
+      "display": "16061 DOCTORS BLVD, HAMMOND LA"
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "9855421334",
+      "use": "work"
+    },
+    {
+      "system": "email",
+      "value": "gregory.mula@example.org",
+      "use": "work"
+    }
+  ],
+  "availableTime": [
+    {
+      "daysOfWeek": [
+        "mon",
+        "tue",
+        "wed"
+      ],
+      "availableStartTime": "09:00:00",
+      "availableEndTime": "16:30:00"
+    },
+    {
+      "daysOfWeek": [
+        "thu",
+        "fri"
+      ],
+      "availableStartTime": "09:00:00",
+      "availableEndTime": "12:00:00"
+    }
+  ],
+  "notAvailable": [
+    {
+      "description": "Adam will be on extended leave during May 2017",
+      "during": {
+        "start": "2017-05-01",
+        "end": "2017-05-20"
+      }
+    }
+  ],
+  "availabilityExceptions": "Dr MULA is generally unavailable on public holidays and during the Christmas/New Year break",
+  "endpoint": [
+    {
+      "reference": "#endpoint-1"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+<Conformance xmlns="http://hl7.org/fhir">
+	<profile>
+		<reference value="http://hl7.org/fhir/StructureDefinition/gao-extension-score"/>
+	</profile>
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="DecisionSupportServiceModule"/>
+		</resource>
+		<operation>
+			<name value="Decision Support Service Module Evaluate"/>
+			<definition>
+				<reference value="http://hl7.org/fhir/OperationDefinition/decisionsupportservicemodule-evaluate"/>
+			</definition>
+		</operation>
+	</rest>
+</Conformance>

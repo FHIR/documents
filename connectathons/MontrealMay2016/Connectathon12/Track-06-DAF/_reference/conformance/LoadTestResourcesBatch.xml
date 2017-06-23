@@ -1,0 +1,53 @@
+<Conformance xmlns="http://hl7.org/fhir">
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="AllergyIntolerance"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+		</resource>
+		<resource>
+			<type value="Condition"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+		</resource>
+		<resource>
+			<type value="MedicationStatement"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+		</resource>
+		<resource>
+			<type value="Observation"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+		</resource>
+		<resource>
+			<type value="Patient"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+		</resource>
+		<interaction>
+			<code value="transaction"/>
+		</interaction>
+	</rest>
+</Conformance>

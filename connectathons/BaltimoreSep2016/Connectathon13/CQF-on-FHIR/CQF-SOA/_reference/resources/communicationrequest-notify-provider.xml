@@ -1,0 +1,39 @@
+<CommunicationRequest xmlns="http://hl7.org/fhir">
+	<id value="communicationrequest-notify-provider"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Notify the primary provider that a breastfeeding readiness assessment has been ordered and needs approval.</div>
+	</text>
+	<sender>
+		<reference value="Device/device-cds-system"/>
+	</sender>
+	<recipient>
+		<reference value="Practitioner/practitioner-primary-provider"/>
+	</recipient>
+	<payload>
+		<contentString value="A Breastfeeding Readiness Assessment is recommended, please authorize or reject the order."/>
+	</payload>
+	<payload>
+		<contentReference>
+			<reference value="ProcedureRequest/procedurerequest-breastfeeding-readiness-assessment"/>
+		</contentReference>
+	</payload>
+	<status value="proposed"/>
+	<encounter>
+		<reference value="Encounter/encounter-live-birth"/>
+	</encounter>
+	<scheduledDateTime value="2016-03-07T14:30:00-06:00"/>
+	<!-- Why was reasonReference removed? It can only be a codeableConcept now? -->
+	<!--reasonReference>
+	  <reference value="Condition/condition-single-live-birth"/>
+  </reasonReference-->
+	<requestedOn value="2016-03-07T14:30:00-06:00"/>
+	<subject>
+		<reference value="Patient/patient-mother"/>
+	</subject>
+	<priority>
+		<coding>
+			<code value="routine"/>
+		</coding>
+	</priority>
+</CommunicationRequest>

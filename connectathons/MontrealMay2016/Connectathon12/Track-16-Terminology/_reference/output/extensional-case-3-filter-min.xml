@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<url value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-3"/>
+	<identifier>
+		<value value="extensional-case-3"/>
+	</identifier>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<expansion>
+		<!-- must be less than 25 (arbitrary number: there must be some filtering), but the actual contents aren't tested -->
+		<identifier />
+		<timestamp />
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="417996009"/>
+			<display value="Systolic heart failure (disorder)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="120871000119108"/>
+			<display value="Systolic heart failure stage B (disorder)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="120851000119104"/>
+			<display value="Systolic heart failure stage D (disorder)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="120861000119102"/>
+			<display value="Systolic heart failure stage C (disorder)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="609556008"/>
+			<display value="Systolic heart failure stage A (finding)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="443254009"/>
+			<display value="Acute systolic heart failure (disorder)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="441481004"/>
+			<display value="Chronic systolic heart failure (disorder)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="443253003"/>
+			<display value="Acute on chronic systolic heart failure (disorder)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="426263006"/>
+			<display value="Congestive heart failure due to left ventricular systolic dysfunction (disorder)"/>
+		</contains>
+	</expansion>
+</ValueSet>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<url value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-2"/>
+	<identifier>
+		<value value="extensional-case-2"/>
+	</identifier>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<expansion>
+		<!-- must be less than 18 (arbitrary number: there must be some filtering), but the actual contents aren't tested -->
+		<identifier />
+		<timestamp />
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8486-3"/>
+			<display value="Systolic blood pressure 1 hour mean"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8487-1"/>
+			<display value="Systolic blood pressure 8 hour mean"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8488-9"/>
+			<display value="Systolic blood pressure 10 hour mean"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8489-7"/>
+			<display value="Systolic blood pressure 12 hour mean"/>
+		</contains>
+		<contains>
+			<system value="http://loinc.org"/>
+			<code value="8490-5"/>
+			<display value="Systolic blood pressure 24 hour mean"/>
+		</contains>
+	</expansion>
+</ValueSet>

@@ -1,0 +1,50 @@
+<ReferralRequest xmlns="http://hl7.org/fhir">
+  <id value="referralrequest-lactation-consult"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Request a referral for a lactation consult.</div>
+  </text>
+
+  <status value="draft"/>
+  <category value="proposal"/>
+  <type>
+	  <coding>
+		  <system value="http://example.org/consultations"/>
+		  <code value="lactation-consult"/>
+		  <display value="Lactation Consult"/>
+	  </coding>
+  </type>
+  <priority>
+	  <coding>
+		  <code value="routine"/>
+	  </coding>
+  </priority>
+
+  <patient>
+    <reference value="Patient/patient-mother"/>
+  </patient>
+  
+  <context>
+	  <reference value="Encounter/encounter-live-birth"/>
+  </context>
+  
+  <fulfillmentTime>
+	  <start value="2016-03-07T14:30:00-06:00"/>
+  </fulfillmentTime>
+  <authored value="2016-03-07T14:30:00-06:00"/>
+
+  <requester>
+	  <reference value="Practitioner/practitioner-primary-provider"/>
+  </requester>
+  
+  <reason>
+      <coding>
+          <system value="http://example.org/codesystem-breastfeeding-intention"/>
+		  <code value="negative"/>
+		  <display value="Intention not to breast feed"/>
+      </coding>
+  </reason>
+  
+  <description value="Mother has declared an intention not to breastfeed, despite being given appropriate education regarding the benefits of exclusive breastmilk feeding."/>
+  
+</ReferralRequest>

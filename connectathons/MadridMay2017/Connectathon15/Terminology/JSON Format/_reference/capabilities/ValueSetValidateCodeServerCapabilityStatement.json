@@ -1,0 +1,38 @@
+{
+  "resourceType": "CapabilityStatement",
+  "status": "draft",
+  "date": "2017-03-25T09:00:00-05:00",
+  "description": "FHIR CapabilityStatement",
+  "kind": "capability",
+  "fhirVersion": "3.0.0",
+  "acceptUnknown": "both",
+  "format": [
+    "json"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "resource": [
+        {
+          "type": "ValueSet",
+          "interaction": [
+            {
+              "code": "create"
+            },
+            {
+              "code": "read"
+            }
+          ]
+        }
+      ],
+      "operation": [
+        {
+          "name": "validate-code",
+          "definition": {
+            "reference": "http://hl7.org/fhir/OperationDefinition/valueset-validate-code"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "resourceType": "ValueSet",
+  "url": "http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-4",
+  "identifier": [
+    {
+      "value": "extensional-case-4"
+    }
+  ],
+  "status": "draft",
+  "experimental": true,
+  "expansion": {
+    "contains": [
+      {
+        "system": "http://hl7.org/fhir/administrative-gender",
+        "code": "female",
+        "display": "Female"
+      },
+      {
+        "system": "http://hl7.org/fhir/v2/0001",
+        "code": "F",
+        "display": "Female"
+      }
+    ]
+  }
+}

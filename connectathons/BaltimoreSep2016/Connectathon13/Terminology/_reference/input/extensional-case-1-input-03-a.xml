@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<parameter>
+		<name value="codeableConcept"/>
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/patient-contact-relationship"/>
+				<code value="emergency"/>
+				<display value="Emergency"/>
+			</coding>
+		</valueCodeableConcept>
+	</parameter>
+</Parameters>

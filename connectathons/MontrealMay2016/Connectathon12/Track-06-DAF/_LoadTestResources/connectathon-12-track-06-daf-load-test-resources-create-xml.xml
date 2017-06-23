@@ -1,0 +1,1370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-12-track-06-daf-load-test-resources-create-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-12-track-06-daf-load-test-resources-create-xml"/>
+	<name value="FHIR Connectathon 12 - Track 06 - DAF - Load Test Resources - XML - Create"/>
+	<status value="draft"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-05-03"/>
+	<description value="[OPTIONAL] Load (create) DAF test resources using the create (PUT) operation of the target FHIR server for use in FHIR Connectathon 12 Track 06 DAF tests. All resource ids are pre-defined. The target FHIR server is expected to support resource create via the update (PUT) operation for client assigned ids."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="AllergyIntolerance, Condition, MedicationStatement, Observation and Patient Batch, Create and Update Operations"/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Create and Update Operations"/>
+			<link value="http://hl7.org/fhir/http.html#create"/>
+			<link value="http://hl7.org/fhir/http.html#update"/>
+			<conformance>
+				<reference value="../_reference/conformance/LoadTestResourcesCreate.xml" />
+			</conformance>
+		</capability>
+	</metadata>	
+
+	<fixture id="dafallerg-1001">
+		<resource>
+			<reference value="../AllergyIntolerance/resources/dafallerg-1001.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="dafcond-1001">
+		<resource>
+			<reference value="../Condition/resources/dafcond-1001.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="dafcond-1002">
+		<resource>
+			<reference value="../Condition/resources/dafcond-1002.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="dafcond-1003">
+		<resource>
+			<reference value="../Condition/resources/dafcond-1003.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="dafmed-1001">
+		<resource>
+			<reference value="../MedicationStatement/resources/dafmed-1001.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="dafmed-1002">
+		<resource>
+			<reference value="../MedicationStatement/resources/dafmed-1002.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="dafmed-1003">
+		<resource>
+			<reference value="../MedicationStatement/resources/dafmed-1003.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1001">
+		<resource>
+			<reference value="../Observation/resources/daflab-1001.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1002">
+		<resource>
+			<reference value="../Observation/resources/daflab-1002.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1003">
+		<resource>
+			<reference value="../Observation/resources/daflab-1003.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1004">
+		<resource>
+			<reference value="../Observation/resources/daflab-1004.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1005">
+		<resource>
+			<reference value="../Observation/resources/daflab-1005.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1006">
+		<resource>
+			<reference value="../Observation/resources/daflab-1006.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1007">
+		<resource>
+			<reference value="../Observation/resources/daflab-1007.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1008">
+		<resource>
+			<reference value="../Observation/resources/daflab-1008.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1009">
+		<resource>
+			<reference value="../Observation/resources/daflab-1009.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1010">
+		<resource>
+			<reference value="../Observation/resources/daflab-1010.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1011">
+		<resource>
+			<reference value="../Observation/resources/daflab-1011.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1012">
+		<resource>
+			<reference value="../Observation/resources/daflab-1012.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1013">
+		<resource>
+			<reference value="../Observation/resources/daflab-1013.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1014">
+		<resource>
+			<reference value="../Observation/resources/daflab-1014.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1015">
+		<resource>
+			<reference value="../Observation/resources/daflab-1015.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1016">
+		<resource>
+			<reference value="../Observation/resources/daflab-1016.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1017">
+		<resource>
+			<reference value="../Observation/resources/daflab-1017.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1018">
+		<resource>
+			<reference value="../Observation/resources/daflab-1018.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1019">
+		<resource>
+			<reference value="../Observation/resources/daflab-1019.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1020">
+		<resource>
+			<reference value="../Observation/resources/daflab-1020.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1021">
+		<resource>
+			<reference value="../Observation/resources/daflab-1021.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1022">
+		<resource>
+			<reference value="../Observation/resources/daflab-1022.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1023">
+		<resource>
+			<reference value="../Observation/resources/daflab-1023.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1024">
+		<resource>
+			<reference value="../Observation/resources/daflab-1024.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1025">
+		<resource>
+			<reference value="../Observation/resources/daflab-1025.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1026">
+		<resource>
+			<reference value="../Observation/resources/daflab-1026.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1027">
+		<resource>
+			<reference value="../Observation/resources/daflab-1027.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1028">
+		<resource>
+			<reference value="../Observation/resources/daflab-1028.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1029">
+		<resource>
+			<reference value="../Observation/resources/daflab-1029.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1030">
+		<resource>
+			<reference value="../Observation/resources/daflab-1030.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="daflab-1031">
+		<resource>
+			<reference value="../Observation/resources/daflab-1031.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="dafpanel-1001">
+		<resource>
+			<reference value="../Observation/resources/dafpanel-1001.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="dafpanel-1002">
+		<resource>
+			<reference value="../Observation/resources/dafpanel-1002.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="dafpanel-1003">
+		<resource>
+			<reference value="../Observation/resources/dafpanel-1003.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="dafpid-1001">
+		<resource>
+			<reference value="../Patient/resources/dafpid-1001.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="dafpid-1002">
+		<resource>
+			<reference value="../Patient/resources/dafpid-1002.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="dafpid-1003">
+		<resource>
+			<reference value="../Patient/resources/dafpid-1003.xml"/>
+		</resource>
+	</fixture>
+
+	<variable>
+		<name value="dafallerg-1001-id"/>
+		<path value="AllergyIntolerance/id"/>
+		<sourceId value="dafallerg-1001"/>
+	</variable>
+	<variable>
+		<name value="dafcond-1001-id"/>
+		<path value="Condition/id"/>
+		<sourceId value="dafcond-1001"/>
+	</variable>
+	<variable>
+		<name value="dafcond-1002-id"/>
+		<path value="Condition/id"/>
+		<sourceId value="dafcond-1002"/>
+	</variable>
+	<variable>
+		<name value="dafcond-1003-id"/>
+		<path value="Condition/id"/>
+		<sourceId value="dafcond-1003"/>
+	</variable>
+	<variable>
+		<name value="dafmed-1001-id"/>
+		<path value="MedicationStatement/id"/>
+		<sourceId value="dafmed-1001"/>
+	</variable>
+	<variable>
+		<name value="dafmed-1002-id"/>
+		<path value="MedicationStatement/id"/>
+		<sourceId value="dafmed-1002"/>
+	</variable>
+	<variable>
+		<name value="dafmed-1003-id"/>
+		<path value="MedicationStatement/id"/>
+		<sourceId value="dafmed-1003"/>
+	</variable>
+	<variable>
+		<name value="daflab-1001-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1001"/>
+	</variable>
+	<variable>
+		<name value="daflab-1002-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1002"/>
+	</variable>
+	<variable>
+		<name value="daflab-1003-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1003"/>
+	</variable>
+	<variable>
+		<name value="daflab-1004-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1004"/>
+	</variable>
+	<variable>
+		<name value="daflab-1005-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1005"/>
+	</variable>
+	<variable>
+		<name value="daflab-1006-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1006"/>
+	</variable>
+	<variable>
+		<name value="daflab-1007-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1007"/>
+	</variable>
+	<variable>
+		<name value="daflab-1008-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1008"/>
+	</variable>
+	<variable>
+		<name value="daflab-1009-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1009"/>
+	</variable>
+	<variable>
+		<name value="daflab-1010-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1010"/>
+	</variable>
+	<variable>
+		<name value="daflab-1011-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1011"/>
+	</variable>
+	<variable>
+		<name value="daflab-1012-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1012"/>
+	</variable>
+	<variable>
+		<name value="daflab-1013-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1013"/>
+	</variable>
+	<variable>
+		<name value="daflab-1014-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1014"/>
+	</variable>
+	<variable>
+		<name value="daflab-1015-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1015"/>
+	</variable>
+	<variable>
+		<name value="daflab-1016-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1016"/>
+	</variable>
+	<variable>
+		<name value="daflab-1017-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1017"/>
+	</variable>
+	<variable>
+		<name value="daflab-1018-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1018"/>
+	</variable>
+	<variable>
+		<name value="daflab-1019-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1019"/>
+	</variable>
+	<variable>
+		<name value="daflab-1020-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1020"/>
+	</variable>
+	<variable>
+		<name value="daflab-1021-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1021"/>
+	</variable>
+	<variable>
+		<name value="daflab-1022-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1022"/>
+	</variable>
+	<variable>
+		<name value="daflab-1023-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1023"/>
+	</variable>
+	<variable>
+		<name value="daflab-1024-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1024"/>
+	</variable>
+	<variable>
+		<name value="daflab-1025-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1025"/>
+	</variable>
+	<variable>
+		<name value="daflab-1026-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1026"/>
+	</variable>
+	<variable>
+		<name value="daflab-1027-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1027"/>
+	</variable>
+	<variable>
+		<name value="daflab-1028-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1028"/>
+	</variable>
+	<variable>
+		<name value="daflab-1029-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1029"/>
+	</variable>
+	<variable>
+		<name value="daflab-1030-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1030"/>
+	</variable>
+	<variable>
+		<name value="daflab-1031-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="daflab-1031"/>
+	</variable>
+	<variable>
+		<name value="dafpanel-1001-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="dafpanel-1001"/>
+	</variable>
+	<variable>
+		<name value="dafpanel-1002-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="dafpanel-1002"/>
+	</variable>
+	<variable>
+		<name value="dafpanel-1003-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="dafpanel-1003"/>
+	</variable>
+	<variable>
+		<name value="dafpid-1001-id"/>
+		<path value="Patient/id"/>
+		<sourceId value="dafpid-1001"/>
+	</variable>
+	<variable>
+		<name value="dafpid-1002-id"/>
+		<path value="Patient/id"/>
+		<sourceId value="dafpid-1002"/>
+	</variable>
+	<variable>
+		<name value="dafpid-1003-id"/>
+		<path value="Patient/id"/>
+		<sourceId value="dafpid-1003"/>
+	</variable>
+
+	<!-- No Setup -->
+
+	<test id="Step1-LoadTestResourceCreate">
+		<name value="Step1-LoadTestResourceCreate"/>
+		<description value="[OPTIONAL] Load (create) DAF test resources using the create (PUT) operation of the target FHIR server for use in FHIR Connectathon 12 Track 06 DAF tests."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${dafpid-1001-id}"/>
+				<sourceId value="dafpid-1001"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${dafpid-1002-id}"/>
+				<sourceId value="dafpid-1002"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${dafpid-1003-id}"/>
+				<sourceId value="dafpid-1003"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="AllergyIntolerance"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${dafallerg-1001-id}"/>
+				<sourceId value="dafallerg-1001"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Condition"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${dafcond-1001-id}"/>
+				<sourceId value="dafcond-1001"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Condition"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${dafcond-1002-id}"/>
+				<sourceId value="dafcond-1002"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Condition"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${dafcond-1003-id}"/>
+				<sourceId value="dafcond-1003"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${dafmed-1001-id}"/>
+				<sourceId value="dafmed-1001"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${dafmed-1002-id}"/>
+				<sourceId value="dafmed-1002"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${dafmed-1003-id}"/>
+				<sourceId value="dafmed-1003"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1001-id}"/>
+				<sourceId value="daflab-1001"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1002-id}"/>
+				<sourceId value="daflab-1002"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1003-id}"/>
+				<sourceId value="daflab-1003"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1004-id}"/>
+				<sourceId value="daflab-1004"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1005-id}"/>
+				<sourceId value="daflab-1005"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1006-id}"/>
+				<sourceId value="daflab-1006"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1007-id}"/>
+				<sourceId value="daflab-1007"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1008-id}"/>
+				<sourceId value="daflab-1008"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1009-id}"/>
+				<sourceId value="daflab-1009"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1010-id}"/>
+				<sourceId value="daflab-1010"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1011-id}"/>
+				<sourceId value="daflab-1011"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1012-id}"/>
+				<sourceId value="daflab-1012"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1013-id}"/>
+				<sourceId value="daflab-1013"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1014-id}"/>
+				<sourceId value="daflab-1014"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1015-id}"/>
+				<sourceId value="daflab-1015"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1016-id}"/>
+				<sourceId value="daflab-1016"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1017-id}"/>
+				<sourceId value="daflab-1017"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1018-id}"/>
+				<sourceId value="daflab-1018"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1019-id}"/>
+				<sourceId value="daflab-1019"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1020-id}"/>
+				<sourceId value="daflab-1020"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1021-id}"/>
+				<sourceId value="daflab-1021"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1022-id}"/>
+				<sourceId value="daflab-1022"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1023-id}"/>
+				<sourceId value="daflab-1023"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1024-id}"/>
+				<sourceId value="daflab-1024"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1025-id}"/>
+				<sourceId value="daflab-1025"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1026-id}"/>
+				<sourceId value="daflab-1026"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1027-id}"/>
+				<sourceId value="daflab-1027"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1028-id}"/>
+				<sourceId value="daflab-1028"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1029-id}"/>
+				<sourceId value="daflab-1029"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1030-id}"/>
+				<sourceId value="daflab-1030"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${daflab-1031-id}"/>
+				<sourceId value="daflab-1031"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${dafpanel-1001-id}"/>
+				<sourceId value="dafpanel-1001"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${dafpanel-1002-id}"/>
+				<sourceId value="dafpanel-1002"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${dafpanel-1003-id}"/>
+				<sourceId value="dafpanel-1003"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

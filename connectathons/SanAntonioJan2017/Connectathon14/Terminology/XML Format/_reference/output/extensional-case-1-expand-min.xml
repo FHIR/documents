@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<url value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-1"/>
+	<identifier>
+		<value value="extensional-case-1"/>
+	</identifier>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<expansion>
+		<identifier />
+		<timestamp />
+		<contains>
+			<system value="http://hl7.org/fhir/patient-contact-relationship"/>
+			<code value="emergency"/>
+			<display value="Emergency"/>
+		</contains>
+		<contains>
+			<system value="http://hl7.org/fhir/patient-contact-relationship"/>
+			<code value="family"/>
+			<display value="Family"/>
+		</contains>
+		<contains>
+			<system value="http://hl7.org/fhir/patient-contact-relationship"/>
+			<code value="guardian"/>
+			<display value="Guardian"/>
+		</contains>
+		<contains>
+			<system value="http://hl7.org/fhir/patient-contact-relationship"/>
+			<code value="friend"/>
+			<display value="Friend"/>
+		</contains>
+		<contains>
+			<system value="http://hl7.org/fhir/patient-contact-relationship"/>
+			<code value="partner"/>
+			<display value="Partner"/>
+		</contains>
+		<contains>
+			<system value="http://hl7.org/fhir/patient-contact-relationship"/>
+			<code value="work"/>
+			<display value="Work"/>
+		</contains>
+		<contains>
+			<system value="http://hl7.org/fhir/patient-contact-relationship"/>
+			<code value="parent"/>
+			<display value="Parent"/>
+		</contains>
+	</expansion>
+</ValueSet>

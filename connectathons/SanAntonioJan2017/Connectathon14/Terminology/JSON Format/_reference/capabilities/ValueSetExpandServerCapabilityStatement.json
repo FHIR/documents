@@ -1,0 +1,29 @@
+{
+  "resourceType": "CapabilityStatement",
+  "rest": [
+    {
+      "mode": "server",
+      "resource": [
+        {
+          "type": "ValueSet",
+          "interaction": [
+            {
+              "code": "create"
+            },
+            {
+              "code": "read"
+            }
+          ]
+        }
+      ],
+      "operation": [
+        {
+          "name": "expand",
+          "definition": {
+            "reference": "http://hl7.org/fhir/OperationDefinition/valueset-expand"
+          }
+        }
+      ]
+    }
+  ]
+}

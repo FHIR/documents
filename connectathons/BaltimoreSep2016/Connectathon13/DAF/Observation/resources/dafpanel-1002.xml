@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<id value="dafpanel-1002"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-resultobs"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<xhtml:div>2005-07-05:CBC</xhtml:div>
+	</text>
+	<identifier>
+		<system value="http://hospital.smarthealthit.org"/>
+		<value value="dafpanel-1002"/>
+	</identifier>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="laboratory"/>
+			<display value="Laboratory"/>
+		</coding>
+		<text value="Laboratory"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="58410-2"/>
+			<display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
+		</coding>
+		<text value="CBC"/>
+	</code>
+	<subject>
+		<reference value="Patient/dafpid-1001"/>
+	</subject>
+	<effectiveDateTime value="2005-07-05"/>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1019"/>
+			<display value="HEMOGLOBIN=17 g/dL"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1025"/>
+			<display value="ERYTHROCYTES=4.58 10*6/uL"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1026"/>
+			<display value="MCHC=34.700000000000003 g/dL"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1027"/>
+			<display value="MCH=37.200000000000003 pg"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/daflab-1031"/>
+			<display value="NEUTROPHILS=40 %"/>
+		</target>
+	</related>
+</Observation>

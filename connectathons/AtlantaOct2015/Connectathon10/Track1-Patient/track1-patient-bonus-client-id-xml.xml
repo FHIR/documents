@@ -1,0 +1,384 @@
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="track1-patient-bonus-client-id-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir2/TestScript/track1-patient-bonus-client-id-xml"/>
+	<name value="FHIR Connectathon 10 - Track 1 - Patient - Register a new patient (Bonus)"/>
+	<status value="draft"/>
+	<description value="FHIR Connectathon 10 - Track 1 - Patient - XML Format - Baseline (Bonus) tests to create, update, retrieve history and search a patient, with extensions and client assigned resource id."/>
+
+	<fixture id="patient-create-bonus-PeterChalmers">
+		<resource>
+			<reference value="/Connectathon10/Track1-Patient/_reference/resources/patient-create-bonus-PeterChalmers.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-create-bonus-PeterChalmers-min">
+		<resource>
+			<reference value="/Connectathon10/Track1-Patient/_reference/resources/patient-create-bonus-PeterChalmers-min.xml"/>
+		</resource>
+	</fixture>
+
+	<fixture id="patient-update-bonus1-PeterChalmers">
+		<resource>
+			<reference value="/Connectathon10/Track1-Patient/_reference/resources/patient-update-bonus1-PeterChalmers.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-update-bonus1-PeterChalmers-min">
+		<resource>
+			<reference value="/Connectathon10/Track1-Patient/_reference/resources/patient-update-bonus1-PeterChalmers-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-update-bonus2-PeterChalmers">
+		<resource>
+			<reference value="/Connectathon10/Track1-Patient/_reference/resources/patient-update-bonus2-PeterChalmers.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-update-bonus2-PeterChalmers-min">
+		<resource>
+			<reference value="/Connectathon10/Track1-Patient/_reference/resources/patient-update-bonus2-PeterChalmers-min.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+	<profile id="patient-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+	</profile>
+
+	<variable>
+		<name value="createIdentifier"/>
+		<path value="Patient/identifier/value"/>
+		<sourceId value="patient-create-bonus-PeterChalmers"/>
+	</variable>
+	<variable>
+		<name value="searchFamilyName"/>
+		<path value="Patient/name/family"/>
+		<sourceId value="patient-create-bonus-PeterChalmers"/>
+	</variable>
+	<variable>
+		<name value="searchGivenName"/>
+		<path value="Patient/name/given"/>
+		<sourceId value="patient-create-bonus-PeterChalmers"/>
+	</variable>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Use a conditional delete operation to insure the patient does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?given=${searchGivenName}&amp;family=${searchFamilyName}"/>
+			</operation>
+		</action>
+	</setup>
+
+	<test id="Step1-RegisterNewPatient">
+		<name value="RegisterNewPatient"/>
+		<description value="Create a new patient, with extensions where the client assigns the resource id using XML."/>
+
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Create patient with client assigned resource id."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${createIdentifier}"/>
+				<responseId value="create-bonus-response" />
+				<sourceId value="patient-create-bonus-PeterChalmers"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Read using params element"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${createIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<validateProfileId value="patient-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the response contains the created version of the patient."/>
+				<minimumId value="patient-create-bonus-PeterChalmers-min"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that version of resource is 1 after the create. Warning only as the server may re-establish this resource id from a previous deletion."/>
+				<path value="Patient/meta/versionId"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2a-Bonus1-UpdatePatient">
+		<name value="Step2a-Bonus1-UpdatePatient"/>
+		<description value="Update the patient's address city, the birth datetime extension remains unchanged."/>
+
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${createIdentifier}"/>
+				<responseId value="update-bonus1-response" />
+				<sourceId value="patient-update-bonus1-PeterChalmers"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<headerField value="Location"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${createIdentifier}"/>
+				<responseId value="read-update-bonus1-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<validateProfileId value="patient-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>		
+		<action>
+			<assert>
+				<description value="Confirm that read returns updated version and that update did not delete previously created fields."/>
+				<minimumId value="patient-update-bonus1-PeterChalmers-min"/>
+				<sourceId value="read-update-bonus1-response"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that version of resource is 2 after the update. Warning only as the server may have re-established this resource id from a previous deletion."/>
+				<path value="Patient/meta/versionId"/>
+				<sourceId value="read-update-bonus1-response"/>
+				<value value="2"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2b-Bonus2-UpdatePatient">
+		<name value="Step2b-Bonus2-UpdatePatient"/>
+		<description value="Update the patient's birth datetime as an extension."/>
+
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${createIdentifier}"/>
+				<responseId value="update-bonus2-response" />
+				<sourceId value="patient-update-bonus2-PeterChalmers"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<headerField value="Location"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${createIdentifier}"/>
+				<responseId value="read-update-bonus2-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<validateProfileId value="patient-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>		
+		<action>
+			<assert>
+				<description value="Confirm that read returns updated version and that update did not delete previously created fields."/>
+				<minimumId value="patient-update-bonus2-PeterChalmers-min"/>
+				<sourceId value="read-update-bonus2-response"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that version of resource is 3 after the update. Warning only as the server may have re-established this resource id from a previous deletion."/>
+				<path value="Patient/meta/versionId"/>
+				<sourceId value="read-update-bonus2-response"/>
+				<value value="3"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step3-PatientHistory">
+		<name value="Step3-PatientHistory"/>
+		<description value="Retrieve the patient's history."/>
+
+		<action>
+			<operation>
+				<resource value="Patient"/>
+				<description value="Retrieve the history for a single, known patient using the known identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${createIdentifier}/_history"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there are more than two records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="2"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that bundle contains the bonus 2 updated version of the patient."/>
+				<minimumId value="patient-update-bonus2-PeterChalmers-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step4-PatientSearch">
+		<name value="Step4-PatientSearch"/>
+		<description value="Search for a patient with the name 'James Chalmers'."/>
+
+		<action>
+			<operation>
+				<type>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for the patient James Chalmers."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?given=${searchGivenName}&amp;family=${searchFamilyName}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other patient records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that bundle contains the most recent updated version of the patient."/>
+				<minimumId value="patient-update-bonus2-PeterChalmers-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<teardown>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<params value="/${createIdentifier}"/>
+			</operation>
+		</action>
+	</teardown>
+</TestScript>

@@ -1,0 +1,2565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<type value="batch"/>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f00"/>
+		<resource>
+			<AllergyIntolerance>
+				<id value="dafallerg-1001"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">No Known Allergies</div>
+				</text>
+				<status value="unconfirmed"/>
+				<category value="medication"/>
+				<substance>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="160244002"/>
+						<display value="No Known Allergies"/>
+					</coding>
+					<text value="No Known Allergies"/>
+				</substance>
+				<patient>
+					<reference value="Patient/dafpid-1001"/>
+				</patient>
+				<recordedDate value="2016"/>
+			</AllergyIntolerance>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="AllergyIntolerance/dafallerg-1001"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f01"/>
+		<resource>
+			<Condition>
+				<id value="dafcond-1001"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-condition"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">Hypertensive disorder</div>
+				</text>
+				<patient>
+					<reference value="Patient/dafpid-1001"/>
+				</patient>
+				<code>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="38341003"/>
+						<display value="Hypertensive disorder"/>
+					</coding>
+					<text value="Hypertensive disorder"/>
+				</code>
+				<clinicalStatus value="active"/>
+				<verificationStatus value="confirmed"/>
+				<!--causing validation so comment out and raised a tracker   [#9943] <onsetDateTime value="2007-12-19"/>-->
+			</Condition>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Condition/dafcond-1001"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f02"/>
+		<resource>
+			<Condition>
+				<id value="dafcond-1002"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-condition"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">Hyperlipidemia</div>
+				</text>
+				<patient>
+					<reference value="Patient/dafpid-1001"/>
+				</patient>
+				<code>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="55822004"/>
+						<display value="Hyperlipidemia"/>
+					</coding>
+					<text value="Hyperlipidemia"/>
+				</code>
+				<clinicalStatus value="active"/>
+				<verificationStatus value="confirmed"/>
+				<!--causing validation so comment out and raised a tracker   [#9943] <onsetDateTime value="2012-12-12"/> -->
+			</Condition>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Condition/dafcond-1002"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f03"/>
+		<resource>
+			<Condition>
+				<id value="dafcond-1003"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-condition"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">Depressive disorder</div>
+				</text>
+				<patient>
+					<reference value="Patient/dafpid-1001"/>
+				</patient>
+				<code>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="35489007"/>
+						<display value="Depressive disorder"/>
+					</coding>
+					<text value="Depressive disorder"/>
+				</code>
+				<clinicalStatus value="active"/>
+				<verificationStatus value="confirmed"/>
+				<!--causing validation so comment out and raised a tracker   [#9943] <onsetDateTime value="2015-10-01"/> -->
+			</Condition>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Condition/dafcond-1003"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f04"/>
+		<resource>
+			<MedicationStatement>
+				<id value="dafmed-1001"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-medicationstatement"/>
+				</meta>
+				<!--     The Human readible version of the medication statement    -->
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<p>lisinopril oral 10 mg</p>
+					</div>
+				</text>
+				<status value="active"/>
+				<!--     a coded value or reference to the medication being prescribed. As described earlier, this could be contained , separately
+        within a bundle or simply a reference to a remote server.   -->
+				<medicationCodeableConcept>
+					<coding>
+						<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+						<code value="206765"/>
+						<display value="Lisinopril 10 MG Oral Tablet [Prinivil]"/>
+					</coding>
+					<text value="lisinopril oral 10 mg"/>
+				</medicationCodeableConcept>
+				<patient>
+					<reference value="Patient/dafpid-1001"/>
+				</patient>
+				<effectivePeriod>
+					<start value="2010-05-01"/>
+				</effectivePeriod>
+				<dateAsserted value="2016-05-01T16:13:03Z"/>
+			</MedicationStatement>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="MedicationStatement/dafmed-1001"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f05"/>
+		<resource>
+			<MedicationStatement>
+				<id value="dafmed-1002"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-medicationstatement"/>
+				</meta>
+				<!--     The Human readible version of the medication statement    -->
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<p>simvastatin oral 20 mg</p>
+					</div>
+				</text>
+				<status value="active"/>
+				<!--     a coded value or reference to the medication being prescribed. As described earlier, this could be contained , separately
+        within a bundle or simply a reference to a remote server.   -->
+				<medicationCodeableConcept>
+					<coding>
+						<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+						<code value="312961"/>
+						<display value="Simvastatin 20 MG Oral Tablet"/>
+					</coding>
+					<text value="simvastatin oral 20 mg"/>
+				</medicationCodeableConcept>
+				<patient>
+					<reference value="Patient/dafpid-1001"/>
+				</patient>
+				<effectivePeriod>
+					<start value="2012-12-12"/>
+				</effectivePeriod>
+				<dateAsserted value="2016-05-01T16:13:03Z"/>
+			</MedicationStatement>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="MedicationStatement/dafmed-1002"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f06"/>
+		<resource>
+			<MedicationStatement>
+				<id value="dafmed-1003"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-medicationstatement"/>
+				</meta>
+				<!--     The Human readible version of the medication statement    -->
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<p>sertraline (Zoloft) 100mg</p>
+					</div>
+				</text>
+				<status value="active"/>
+				<!--     a coded value or reference to the medication being prescribed. As described earlier, this could be contained , separately
+        within a bundle or simply a reference to a remote server.   -->
+				<medicationCodeableConcept>
+					<coding>
+						<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+						<code value="208149"/>
+						<display value="Sertraline 100 MG Oral Tablet [Zoloft]"/>
+					</coding>
+					<text value="sertraline (Zoloft) 100mg"/>
+				</medicationCodeableConcept>
+				<patient>
+					<reference value="Patient/dafpid-1001"/>
+				</patient>
+				<effectivePeriod>
+					<start value="2015-10-01"/>
+					<end value="2016-01-01"/>
+				</effectivePeriod>
+				<dateAsserted value="2016-05-01T16:13:03Z"/>
+			</MedicationStatement>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="MedicationStatement/dafmed-1003"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f07"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1001"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:COLOR = Yellow</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="5778-6"/>
+						<display value="Color of Urine"/>
+					</coding>
+					<text value="COLOR"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="371244009"/>
+						<display value="Yellow"/>
+					</coding>
+					<text value="Yellow"/>
+				</valueCodeableConcept>
+				<referenceRange>
+					<text value="Yellow"/>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1001"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f08"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1002"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:APPEARANCE = Hazy</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="32167-9"/>
+						<display value="Clarity of Urine"/>
+					</coding>
+					<text value="APPEARANCE"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="81858005"/>
+						<display value="Cloudy"/>
+					</coding>
+					<text value="Hazy"/>
+				</valueCodeableConcept>
+				<referenceRange>
+					<text value="Clear"/>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1002"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f09"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1003"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:GLUCOSE = Negative</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="25428-4"/>
+						<display value="Glucose [Presence] in Urine by Test strip"/>
+					</coding>
+					<text value="GLUCOSE"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="260385009"/>
+						<display value="Negative"/>
+					</coding>
+					<text value="Negative"/>
+				</valueCodeableConcept>
+				<referenceRange>
+					<text value="Negative"/>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1003"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f0a"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1004"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:BILIRUBIN = Negative</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="5770-3"/>
+						<display value="Bilirubin.total [Presence] in Urine by Test strip"/>
+					</coding>
+					<text value="BILIRUBIN"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="260385009"/>
+						<display value="Negative"/>
+					</coding>
+					<text value="Negative"/>
+				</valueCodeableConcept>
+				<referenceRange>
+					<text value="Negative"/>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1004"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f0b"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1005"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:KETONE = Negative</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="2514-8"/>
+						<display value="Ketones [Presence] in Urine by Test strip"/>
+					</coding>
+					<text value="KETONE"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="260385009"/>
+						<display value="Negative"/>
+					</coding>
+					<text value="Negative"/>
+				</valueCodeableConcept>
+				<referenceRange>
+					<text value="Negative"/>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1005"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f0c"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1006"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:SPEC GRAV = 1.017(USG)</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="5811-5"/>
+						<display value="Specific gravity of Urine by Test strip"/>
+					</coding>
+					<text value="SPEC GRAV"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="1.017"/>
+					<unit value="(USG)"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="{urine specific gravity}"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="1.003"/>
+						<unit value="(USG)"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="{urine specific gravity}"/>
+					</low>
+					<high>
+						<value value="1.035"/>
+						<unit value="(USG)"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="{urine specific gravity}"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1006"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f0d"/>
+		<resource>
+			<Observation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/fhir-all-xsd%20(2)/observation.xsd">
+				<id value="daflab-1007"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:PH = 6.0(pH)</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="5803-2"/>
+						<display value="pH of Urine by Test strip"/>
+					</coding>
+					<text value="PH"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="6.0"/>
+					<unit value="(pH)"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="[pH]"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="5.0"/>
+						<unit value="(pH)"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="[pH]"/>
+					</low>
+					<high>
+						<value value="8.0"/>
+						<unit value="(pH)"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="[pH]"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1007"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f0e"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1008"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:PROTEIN = Negative</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="20454-5"/>
+						<display value="Protein [Presence] in Urine by Test strip"/>
+					</coding>
+					<text value="PROTEIN"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="260385009"/>
+						<display value="Negative"/>
+					</coding>
+					<text value="Negative"/>
+				</valueCodeableConcept>
+				<referenceRange>
+					<text value="Negative"/>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1008"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f10"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1009"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:UROBILINOGEN = 0.3mg/dL</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="20405-7"/>
+						<display value="Urobilinogen [Mass/volume] in Urine by Test strip"/>
+					</coding>
+					<text value="UROBILINOGEN"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="0.3"/>
+					<unit value="mg/dL"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="mg/dL"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="0.1"/>
+						<unit value="mg/dL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mg/dL"/>
+					</low>
+					<high>
+						<value value="1.0"/>
+						<unit value="mg/dL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mg/dL"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1009"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f11"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1010"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:NITRITE = Positive</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="5802-4"/>
+						<display value="Nitrite [Presence] in Urine by Test strip"/>
+					</coding>
+					<text value="NITRITE"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="10828004"/>
+						<display value="Positive"/>
+					</coding>
+					<text value="Positive"/>
+				</valueCodeableConcept>
+				<referenceRange>
+					<text value="Negative"/>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1010"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f12"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1011"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:BLOOD = Trace</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="5794-3"/>
+						<display value="Hemoglobin [Presence] in Urine by Test strip"/>
+					</coding>
+					<text value="BLOOD"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="260405006"/>
+						<display value="Trace"/>
+					</coding>
+					<text value="Trace"/>
+				</valueCodeableConcept>
+				<referenceRange>
+					<text value="Negative"/>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1011"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f13"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1012"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:LEUK ESTERASE = 2+</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="5799-2"/>
+						<display value="Leukocyte esterase [Presence] in Urine by Test strip"/>
+					</coding>
+					<text value="LEUK ESTERASE"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="260348001"/>
+						<display value="++"/>
+					</coding>
+					<text value="2+"/>
+				</valueCodeableConcept>
+				<referenceRange>
+					<text value="Negative"/>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1012"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f14"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1013"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:COMMENT = Recommend Urine Culture</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="11279-7"/>
+						<display value="Urine sediment comments by Light microscopy Narrative"/>
+					</coding>
+					<text value="COMMENT"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueString value="Recommend Urine Culture"/>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1013"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f15"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1014"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:BACTERIA = 4+</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="25145-4"/>
+						<display value="Bacteria [Presence] in Urine sediment by Light microscopy"/>
+					</coding>
+					<text value="BACTERIA"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="260350009"/>
+						<display value="++++"/>
+					</coding>
+					<text value="4+"/>
+				</valueCodeableConcept>
+				<referenceRange>
+					<text value="0-1+"/>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1014"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f16"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1015"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:EPITHELIAL CELLS = 1 -5  cells/HPF</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="5787-7"/>
+						<display value="Epithelial cells [#/area] in Urine sediment by Microscopy high power field"/>
+					</coding>
+					<text value="EPITHELIAL CELLS"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueRange>
+					<low>
+						<value value="1"/>
+						<unit value="cells/HPF"/>
+						<system value=" http://unitsofmeasure.org"/>
+						<code value="/[HPF]"/>
+					</low>
+					<high>
+						<value value="5"/>
+						<unit value="cells/HPF"/>
+						<system value=" http://unitsofmeasure.org"/>
+						<code value="/[HPF]"/>
+					</high>
+				</valueRange>
+				<referenceRange>
+					<text value="None Seen/HPF"/>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1015"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f17"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1016"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:WBC = 20 -30  cells/HPF</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="5821-4"/>
+						<display value="Leukocytes [#/area] in Urine sediment by Microscopy high power field"/>
+					</coding>
+					<text value="WBC"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueRange>
+					<low>
+						<value value="20"/>
+						<unit value="cells/HPF"/>
+						<system value=" http://unitsofmeasure.org"/>
+						<code value="/[HPF]"/>
+					</low>
+					<high>
+						<value value="30"/>
+						<unit value="cells/HPF"/>
+						<system value=" http://unitsofmeasure.org"/>
+						<code value="/[HPF]"/>
+					</high>
+				</valueRange>
+				<referenceRange>
+					<text value="None Seen/HPF"/>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1016"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f18"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1017"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:RBC = Occasional</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="13945-1"/>
+						<display value="Erythrocytes [#/area] in Urine sediment by Microscopy high power field"/>
+					</coding>
+					<text value="RBC"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="84638005"/>
+						<display value="Occasional"/>
+					</coding>
+					<text value="Occasional"/>
+				</valueCodeableConcept>
+				<referenceRange>
+					<text value="None Seen/HPF"/>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1017"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f19"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1018"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:CREATININE = 1.0mg/dL</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="2160-0"/>
+						<display value="Creatinine [Mass/volume] in Serum or Plasma"/>
+					</coding>
+					<text value="CREATININE"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="1.0"/>
+					<unit value="mg/dL"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="mg/dL"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="0.5"/>
+						<unit value="mg/dL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mg/dL"/>
+					</low>
+					<high>
+						<value value="0.9"/>
+						<unit value="mg/dL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mg/dL"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1018"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f1a"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1019"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:HEMOGLOBIN = 17.0g/dL</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="718-7"/>
+						<display value="Hemoglobin [Mass/volume] in Blood"/>
+					</coding>
+					<text value="HEMOGLOBIN"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="17.0"/>
+					<unit value="g/dL"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="g/dL"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="14.0"/>
+						<unit value="g/dL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="g/dL"/>
+					</low>
+					<high>
+						<value value="18.0"/>
+						<unit value="g/dL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="g/dL"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1019"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f1b"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1020"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:POTASSIUM = 4.2mmol/L</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="2823-3"/>
+						<display value="Potassium [Moles/volume] in Serum or Plasma"/>
+					</coding>
+					<text value="POTASSIUM"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="4.2"/>
+					<unit value="mmol/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="mmol/L"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="3.5"/>
+						<unit value="mmol/L"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mmol/L"/>
+					</low>
+					<high>
+						<value value="5.5"/>
+						<unit value="mmol/L"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mmol/L"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1020"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f1c"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1021"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:SODIUM = 137.0mmol/L</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="2951-2"/>
+						<display value="Sodium [Moles/volume] in Serum or Plasma"/>
+					</coding>
+					<text value="SODIUM"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="137.0"/>
+					<unit value="mmol/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="mmol/L"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="137.0"/>
+						<unit value="mmol/L"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mmol/L"/>
+					</low>
+					<high>
+						<value value="145.0"/>
+						<unit value="mmol/L"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mmol/L"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1021"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f1d"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1022"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:BUN = 10.0mg/dL</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="3094-0"/>
+						<display value="Urea nitrogen [Mass/volume] in Serum or Plasma"/>
+					</coding>
+					<text value="BUN"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="10.0"/>
+					<unit value="mg/dL"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="mg/dL"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="6.0"/>
+						<unit value="mg/dL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mg/dL"/>
+					</low>
+					<high>
+						<value value="23.0"/>
+						<unit value="mg/dL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mg/dL"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1022"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f1e"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1023"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:CARBON DIOXIDE, TOTAL = 24.0mmol/L</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="2028-9"/>
+						<display value="Carbon dioxide, total [Moles/volume] in Serum or Plasma"/>
+					</coding>
+					<text value="CARBON DIOXIDE, TOTAL"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="24.0"/>
+					<unit value="mmol/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="mmol/L"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="22.0"/>
+						<unit value="mmol/L"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mmol/L"/>
+					</low>
+					<high>
+						<value value="29.0"/>
+						<unit value="mmol/L"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mmol/L"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1023"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f20"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1024"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:CHLORIDE = 105.0mmol/L</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="2075-0"/>
+						<display value="Chloride [Moles/volume] in Serum or Plasma"/>
+					</coding>
+					<text value="CHLORIDE"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="105.0"/>
+					<unit value="mmol/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="mmol/L"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="98.0"/>
+						<unit value="mmol/L"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mmol/L"/>
+					</low>
+					<high>
+						<value value="107.0"/>
+						<unit value="mmol/L"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mmol/L"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1024"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f21"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1025"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:ERYTHROCYTES = 4.5810*6/uL</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="789-8"/>
+						<display value="Erythrocytes [#/volume] in Blood by Automated count"/>
+					</coding>
+					<text value="ERYTHROCYTES"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="4.58"/>
+					<unit value="10*6/uL"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="10*6/uL"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="4.2"/>
+						<unit value="10*6/uL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="10*6/uL"/>
+					</low>
+					<high>
+						<value value="5.4"/>
+						<unit value="10*6/uL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="10*6/uL"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1025"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f22"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1026"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:MCHC = 34.7g/dL</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="786-4"/>
+						<display value="Erythrocyte mean corpuscular hemoglobin concentration [Mass/volume] by Automated count"/>
+					</coding>
+					<text value="MCHC"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="34.7"/>
+					<unit value="g/dL"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="g/dL"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="32.0"/>
+						<unit value="g/dL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="g/dL"/>
+					</low>
+					<high>
+						<value value="36.0"/>
+						<unit value="g/dL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="g/dL"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1026"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f23"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1027"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:MCH = 37.2pg</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="785-6"/>
+						<display value="Erythrocyte mean corpuscular hemoglobin [Entitic mass] by Automated count"/>
+					</coding>
+					<text value="MCH"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="37.2"/>
+					<unit value="pg"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="pg"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="26.0"/>
+						<unit value="pg"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="pg"/>
+					</low>
+					<high>
+						<value value="34.0"/>
+						<unit value="pg"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="pg"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1027"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f24"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1028"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:CALCIUM = 7.7mg/dL</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="17861-6"/>
+						<display value="Calcium [Mass/volume] in Serum or Plasma"/>
+					</coding>
+					<text value="CALCIUM"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="7.7"/>
+					<unit value="mg/dL"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="mg/dL"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="8.6"/>
+						<unit value="mg/dL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mg/dL"/>
+					</low>
+					<high>
+						<value value="10.5"/>
+						<unit value="mg/dL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mg/dL"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1028"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f25"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1029"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:GLUCOSE = 76.0mg/dL</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="2339-0"/>
+						<display value="Glucose [Mass/volume] in Blood"/>
+					</coding>
+					<text value="GLUCOSE"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="76.0"/>
+					<unit value="mg/dL"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="mg/dL"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="70.0"/>
+						<unit value="mg/dL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mg/dL"/>
+					</low>
+					<high>
+						<value value="105.0"/>
+						<unit value="mg/dL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mg/dL"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1029"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f26"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1030"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:BILIRUBIN.TOTAL = 0.3mg/dL</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="1975-2"/>
+						<display value="Bilirubin.total [Mass/volume] in Serum or Plasma"/>
+					</coding>
+					<text value="BILIRUBIN.TOTAL"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="0.3"/>
+					<unit value="mg/dL"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="mg/dL"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="0.0"/>
+						<unit value="mg/dL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mg/dL"/>
+					</low>
+					<high>
+						<value value="1.0"/>
+						<unit value="mg/dL"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mg/dL"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1030"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f27"/>
+		<resource>
+			<Observation>
+				<id value="daflab-1031"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:NEUTROPHILS = 40.0%</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="770-8"/>
+						<display value="Neutrophils/100 leukocytes in Blood by Automated count"/>
+					</coding>
+					<text value="NEUTROPHILS"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<valueQuantity>
+					<value value="40.0"/>
+					<unit value="%"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="%"/>
+				</valueQuantity>
+				<referenceRange>
+					<low>
+						<value value="48.0"/>
+						<unit value="%"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="%"/>
+					</low>
+					<high>
+						<value value="82.0"/>
+						<unit value="%"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="%"/>
+					</high>
+				</referenceRange>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/daflab-1031"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f28"/>
+		<resource>
+			<Observation>
+				<id value="dafpanel-1001"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:Blood Chemistry</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="24323-8"/>
+						<display value="Comprehensive metabolic 2000 panel - Serum or Plasma"/>
+					</coding>
+					<text value="Blood Chemistry"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1018"/>
+						<display value="CREATININE=1 mg/dL"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1020"/>
+						<display value="POTASSIUM=4.2 mmol/L"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1021"/>
+						<display value="SODIUM=137 mmol/L"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1022"/>
+						<display value="BUN=10 mg/dL"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1023"/>
+						<display value="CARBON DIOXIDE, TOTAL=24 mmol/L"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1024"/>
+						<display value="CHLORIDE=105 mmol/L"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1028"/>
+						<display value="CALCIUM=7.7 mg/dL"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1029"/>
+						<display value="GLUCOSE=76 mg/dL"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1030"/>
+						<display value="BILIRUBIN.TOTAL=0.3 mg/dL"/>
+					</target>
+				</related>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/dafpanel-1001"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f29"/>
+		<resource>
+			<Observation>
+				<id value="dafpanel-1002"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:CBC</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="58410-2"/>
+						<display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
+					</coding>
+					<text value="CBC"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1019"/>
+						<display value="HEMOGLOBIN=17 g/dL"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1025"/>
+						<display value="ERYTHROCYTES=4.58 10*6/uL"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1026"/>
+						<display value="MCHC=34.700000000000003 g/dL"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1027"/>
+						<display value="MCH=37.200000000000003 pg"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1031"/>
+						<display value="NEUTROPHILS=40 %"/>
+					</target>
+				</related>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/dafpanel-1002"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f2a"/>
+		<resource>
+			<Observation>
+				<id value="dafpanel-1003"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<xhtml:div>2005-07-05:Complete Urinalysis</xhtml:div>
+				</text>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/observation-category"/>
+						<code value="laboratory"/>
+						<display value="Laboratory"/>
+					</coding>
+					<text value="Laboratory"/>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="24356-8"/>
+						<display value="Urinalysis complete panel - Urine"/>
+					</coding>
+					<text value="Complete Urinalysis"/>
+				</code>
+				<subject>
+					<reference value="Patient/dafpid-1001"/>
+				</subject>
+				<effectiveDateTime value="2005-07-05"/>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1001"/>
+						<display value="COLOR=Yellow "/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1002"/>
+						<display value="APPEARANCE=Hazy "/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1003"/>
+						<display value="GLUCOSE=Negative "/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1004"/>
+						<display value="BILIRUBIN=Negative "/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1005"/>
+						<display value="KETONE=Negative "/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1006"/>
+						<display value="SPEC GRAV=1.0169999999999999 (USG)"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1007"/>
+						<display value="PH=6 (pH)"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1008"/>
+						<display value="PROTEIN=Negative "/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1009"/>
+						<display value="UROBILINOGEN=0.3 mg/dL"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1010"/>
+						<display value="NITRITE=Positive "/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1011"/>
+						<display value="BLOOD=Trace "/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1012"/>
+						<display value="LEUK ESTERASE=2+ "/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1013"/>
+						<display value="COMMENT=Recommend Urine Culture "/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1014"/>
+						<display value="BACTERIA=4+ "/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1015"/>
+						<display value="EPITHELIAL CELLS=1-5 cells/HPF"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1016"/>
+						<display value="WBC=20-30 cells/HPF"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/daflab-1017"/>
+						<display value="RBC=Occasional cells/HPF"/>
+					</target>
+				</related>
+			</Observation>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Observation/dafpanel-1003"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f2b"/>
+		<resource>
+			<Patient>
+				<id value="dafpid-1001"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-patient"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<p>Amy Shaw</p>
+					</div>
+				</text>
+				<extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">
+					<valueCodeableConcept>
+						<coding>
+							<system value="http://hl7.org/fhir/v3/Race"/>
+							<code value="2106-3"/>
+							<display value="White"/>
+						</coding>
+						<text value="White"/>
+					</valueCodeableConcept>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/us-core-ethnicity">
+					<valueCodeableConcept>
+						<coding>
+							<system value="http://hl7.org/fhir/v3/Ethnicity"/>
+							<code value="2186-5"/>
+							<display value="Not Hispanic or Latino"/>
+						</coding>
+						<text value="Not Hispanic or Latino"/>
+					</valueCodeableConcept>
+				</extension>
+				<identifier>
+					<use value="usual"/>
+					<type>
+						<coding>
+							<system value="http://hl7.org/fhir/v2/0203"/>
+							<code value="MR"/>
+							<display value="Medical record number"/>
+						</coding>
+						<text value="Medical record number"/>
+					</type>
+					<system value="http://hospital.smarthealthit.org"/>
+					<value value="1032702"/>
+				</identifier>
+				<active value="true"/>
+				<name>
+					<use value="official"/>
+					<family value="Shaw"/>
+					<given value="Amy"/>
+					<given value="V."/>
+				</name>
+				<telecom>
+					<system value="phone"/>
+					<value value="800-782-6765"/>
+					<use value="mobile"/>
+				</telecom>
+				<telecom>
+					<system value="email"/>
+					<value value="amy.shaw@example.com"/>
+				</telecom>
+				<gender value="female"/>
+				<birthDate value="2007-03-20"/>
+				<address>
+					<use value="home"/>
+					<line value="49 Meadow St"/>
+					<city value="Mounds"/>
+					<state value="OK"/>
+					<postalCode value="74047"/>
+					<country value="USA"/>
+				</address>
+			</Patient>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Patient/dafpid-1001"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f2c"/>
+		<resource>
+			<Patient>
+				<id value="dafpid-1002"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-patient"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<p>Joseph Ross</p>
+					</div>
+				</text>
+				<extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">
+					<valueCodeableConcept>
+						<coding>
+							<system value="http://hl7.org/fhir/v3/Race"/>
+							<code value="2106-3"/>
+							<display value="White"/>
+						</coding>
+						<text value="White"/>
+					</valueCodeableConcept>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/us-core-ethnicity">
+					<valueCodeableConcept>
+						<coding>
+							<system value="http://hl7.org/fhir/v3/Ethnicity"/>
+							<code value="2186-5"/>
+							<display value="Not Hispanic or Latino"/>
+						</coding>
+						<text value="Not Hispanic or Latino"/>
+					</valueCodeableConcept>
+				</extension>
+				<identifier>
+					<use value="usual"/>
+					<type>
+						<coding>
+							<system value="http://hl7.org/fhir/v2/0203"/>
+							<code value="MR"/>
+							<display value="Medical record number"/>
+						</coding>
+						<text value="Medical record number"/>
+					</type>
+					<system value="http://hospital.smarthealthit.org"/>
+					<value value="1081332"/>
+				</identifier>
+				<active value="true"/>
+				<name>
+					<use value="official"/>
+					<family value="Ross"/>
+					<given value="Joseph"/>
+					<given value="I."/>
+				</name>
+				<telecom>
+					<system value="phone"/>
+					<value value="800-960-9294"/>
+					<use value="mobile"/>
+				</telecom>
+				<telecom>
+					<system value="email"/>
+					<value value="joseph.ross@example.com"/>
+				</telecom>
+				<gender value="male"/>
+				<birthDate value="2003-10-02"/>
+				<address>
+					<use value="home"/>
+					<line value="19 Church StApt 29"/>
+					<city value="Tulsa"/>
+					<state value="OK"/>
+					<postalCode value="74108"/>
+					<country value="USA"/>
+				</address>
+			</Patient>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Patient/dafpid-1002"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:61ebe359-bfdc-4613-8bf2-c5e300945f2d"/>
+		<resource>
+			<Patient>
+				<id value="dafpid-1003"/>
+				<meta>
+					<profile value="http://hl7.org/fhir/StructureDefinition/daf-patient"/>
+				</meta>
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<p>Robert Hill</p>
+					</div>
+				</text>
+				<extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">
+					<valueCodeableConcept>
+						<coding>
+							<system value="http://hl7.org/fhir/v3/Race"/>
+							<code value="2106-3"/>
+							<display value="White"/>
+						</coding>
+						<text value="White"/>
+					</valueCodeableConcept>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/us-core-ethnicity">
+					<valueCodeableConcept>
+						<coding>
+							<system value="http://hl7.org/fhir/v3/Ethnicity"/>
+							<code value="2186-5"/>
+							<display value="Not Hispanic or Latino"/>
+						</coding>
+						<text value="Not Hispanic or Latino"/>
+					</valueCodeableConcept>
+				</extension>
+				<identifier>
+					<use value="usual"/>
+					<type>
+						<coding>
+							<system value="http://hl7.org/fhir/v2/0203"/>
+							<code value="MR"/>
+							<display value="Medical record number"/>
+						</coding>
+						<text value="Medical record number"/>
+					</type>
+					<system value="http://hospital.smarthealthit.org"/>
+					<value value="1098667"/>
+				</identifier>
+				<active value="true"/>
+				<name>
+					<use value="official"/>
+					<family value="Hill"/>
+					<given value="Robert"/>
+					<given value="P."/>
+				</name>
+				<telecom>
+					<system value="email"/>
+					<value value="robert.hill@example.com"/>
+				</telecom>
+				<gender value="male"/>
+				<birthDate value="1953-10-27"/>
+				<address>
+					<use value="home"/>
+					<line value="42 Park St"/>
+					<city value="Bixby"/>
+					<state value="OK"/>
+					<postalCode value="74008"/>
+					<country value="USA"/>
+				</address>
+			</Patient>
+		</resource>
+		<request>
+			<method value="PUT"/>
+			<url value="Patient/dafpid-1003"/>
+		</request>
+	</entry>
+</Bundle>

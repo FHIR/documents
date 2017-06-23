@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-13-organization-locate-endpoint-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-13-organization-locate-endpoint-xml"/>
+	<name value="FHIR Connectathon 13 - Provider Directory - Scenario 3 - Organization Locate Endpoint - XML"/>
+	<status value="draft"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-09-01"/>
+	<description value="Organization search capabilities tests; resource format XML; validate telecom and endpoint; Endpoint resource expected to be contained; test a FHIR server's Organization search operation support using the parameters: identifier and name. Default values for the search parameters are based on the Organization Resource Example and can be modified to allow testing against other known Organization resource instances."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="Organization Read and Search Operations"/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Organization read and search operations"/>
+			<link value="http://wiki.hl7.org/index.php?title=201609_Provider_Directories_and_Scheduling"/>
+			<link value="http://hl7.org/fhir/http.html#read"/>
+			<link value="http://hl7.org/fhir/http.html#search"/>
+			<conformance>
+				<reference value="../_reference/conformance/OrganizationConformance.xml" />
+			</conformance>
+		</capability>
+	</metadata>	
+
+	<profile id="organizationProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Organization" />
+	</profile>
+
+	<variable>
+		<name value="OrganizationSearchIdentifierSystemCriteria"/>
+		<defaultValue value="http://hl7.org/fhir/sid/us-npi"/>
+	</variable>
+	<variable>
+		<name value="OrganizationSearchIdentifierValueCriteria"/>
+		<defaultValue value="1063494177"/>
+	</variable>
+	<variable>
+		<name value="OrganizationSearchNameCriteria"/>
+		<defaultValue value="Saint Luke''s Hospital of Kansas City"/>
+	</variable>
+	<variable>
+		<name value="OrganizationResourceId"/>
+		<path value="Organization/id" />
+		<sourceId value="search-response"/>
+	</variable>
+
+	<test id="01-OrganizationSearchIdentifier">
+		<name value="OrganizationSearchIdentifier"/>
+		<description value="Search for an organization using the identifier search parameter with the provided identifier.system and identifier.value data values."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Organization"/>
+				<description value="Search for an organization using the identifier search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${OrganizationSearchIdentifierSystemCriteria}|${OrganizationSearchIdentifierValueCriteria}"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. Although not expected, there could be other organization records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Organization"/>
+				<description value="Read the first Organization found in the identifier search and verify the contents contain a telecom and endpoint."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${OrganizationResourceId}"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/xml+fhir'."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Organization."/>
+				<resource value="Organization"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Organization conforms to the base FHIR specification. Warning only to allow for Example code systems."/>
+				<validateProfileId value="organizationProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Organization contains a telecom value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="Organization/telecom/value"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Organization contains an endpoint value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="Organization/endpoint/reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-OrganizationSearchName">
+		<name value="OrganizationSearchName"/>
+		<description value="Search for an organization using the name search parameter with the provided name data value."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Organization"/>
+				<description value="Search for an organization using the name search."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?name=${OrganizationSearchNameCriteria}"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. Although not expected, there could be other organization records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Organization"/>
+				<description value="Read the first Organization found in the identifier search and verify the contents contain a telecom and endpoint."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${OrganizationResourceId}"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/xml+fhir'."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Organization."/>
+				<resource value="Organization"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Organization conforms to the base FHIR specification. Warning only to allow for Example code systems."/>
+				<validateProfileId value="organizationProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Organization contains a telecom value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="Organization/telecom/value"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned Organization contains an endpoint value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="Organization/endpoint/reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

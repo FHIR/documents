@@ -1,0 +1,170 @@
+<TestScript xmlns="http://hl7.org/fhir">
+    <id value="track1-fhir-genomics-client-id"/>
+
+	<url value="???"/>
+	<name value="FHIR Connectathon 11 - Track 6 - FHIR Genomics"/>
+	<status value="draft"/>
+	<publisher value="Clinical Genomics Workgroup"/>
+	<date value="2015-12-21"/>
+	<description value="FHIR Connectathon 11 - Track 6 - FHIR Genomics - JSON Format - Baseline tests to create, update, retrieve history and search with client assigned resource id."/>
+    
+    <fixture id="sequence-example-1">
+        <resource>
+            <reference value="/Connectathon11/Track-FHIR-Genomics/_reference/resources/sequence-example-1.json"/>
+        </resource>
+    </fixture>
+    <fixture id="sequence-example-2">
+        <resource>
+            <reference value="/Connectathon11/Track-FHIR-Genomics/_reference/resources/sequence-example-2.json"/>
+        </resource>
+    </fixture>
+    
+    <setup>
+        <action>
+            <operation>
+                <type>
+                    <code value="delete"/>
+                </type>
+                <resource value="Sequence"/>
+                <description value="Use a conditional delete operation to insure the patient does not exist on the server."/>
+                <accept value="json"/>
+                <contentType value="json"/>
+                <params value="/${createIdentifier}"/>
+            </operation>
+        </action>
+    </setup>
+    
+    <profile id="bundle-profile">
+     <reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+    <profile id="patient-profile">
+        <reference value="http://hl7.org/fhir/StructureDefinition/Sequence"/>
+    </profile>
+    
+    <variable>
+        <name value="createIdentifier"/>
+        <path value="Sequence/identifier/value"/>
+    </variable>
+    <variable>
+        <name value="searchVariantID"/>
+        <path value="Sequence/variantID/coding/code"/>
+    </variable>
+
+    <test id="Step1-RegisterNewSequence">
+        <name value="RegisterNewSequence"/>
+        <description value="Create a new Sequence where the client assigns the resource id using JSON."/>
+        
+        <action>
+            <operation>
+                <type>
+                    <code value="update"/>
+                </type>
+                <resource value="Sequence"/>
+                <description value="Create patient with client assigned resource id."/>
+                <accept value="json"/>
+                <contentType value="json"/>
+                <params value="/${createIdentifier}"/>
+                <responseId value="create-response" />
+                <sourceId value="sequence-example"/>
+            </operation>
+        </action>
+        <action>
+            <assert>
+                <operator value="in"/>
+                <responseCode value="200,201"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <contentType value="json"/>
+                <warningOnly value="true"/>
+            </assert>
+        </action>
+        
+        <action>
+            <operation>
+                <type>
+                    <code value="read"/>
+                </type>
+                <resource value="Sequence"/>
+                <description value="Read using params element"/>
+                <accept value="json"/>
+                <contentType value="json"/>
+                <params value="/${createIdentifier}"/>
+            </operation>
+        </action>
+        <action>
+            <assert>
+                <validateProfileId value="sequence-profile"/>
+                <warningOnly value="true"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <description value="Confirm that the response contains the created version of the sequence."/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <description value="Confirm that version of resource is 1 after the create. Warning only as the server may re-establish this resource id from a previous deletion."/>
+                <path value="Patient/meta/versionId"/>
+                <value value="1"/>
+                <warningOnly value="true"/>
+            </assert>
+        </action>
+    </test>
+    
+    <test id="Step2-SequenceSearch">
+        <name value="Step2-SequenceSearch"/>
+        <description value="Search for a patient with the name 'James Chalmers'."/>
+        
+        <action>
+            <operation>
+                <type>
+                    <code value="search"/>
+                </type>
+                <resource value="Sequence"/>
+                <description value="Search for the Sequence with variant rs1201207."/>
+                <accept value="json"/>
+                <contentType value="json"/>
+                <params value="?variantID=${searchVariantID}"/>
+            </operation>
+        </action>
+        <action>
+            <assert>
+                <response value="okay"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <contentType value="json"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <resource value="Bundle"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <description value="Confirm that there is at least one record returned. There could be other sequence records returned."/>
+                <operator value="greaterThan"/>
+                <path value="/Bundle/total"/>
+                <value value="0"/>
+                <warningOnly value="true"/>
+            </assert>
+        </action>
+    </test>
+    
+    <teardown>
+        <action>
+            <operation>
+                <type>
+                    <code value="delete"/>
+                </type>
+                <resource value="Sequence"/>
+                <params value="/${createIdentifier}"/>
+            </operation>
+        </action>
+    </teardown>
+</TestScript>

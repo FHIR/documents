@@ -1,0 +1,101 @@
+<DataElement xmlns="http://hl7.org/fhir">
+	<id value="dataelement-breastfeeding-intention"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b>Breastfeeding Intention</b>: Documentation of the intention of a mother regarding exclusive breastfeeding.
+      </p>
+			<table>
+				<tbody>
+					<tr>
+						<th>Code</th>
+						<th>Display</th>
+						<th>Definition</th>
+					</tr>
+					<tr>
+						<td>negative</td>
+						<td>Negative</td>
+						<td>The mother does not intend to breastfeed exclusively.</td>
+					</tr>
+					<tr>
+						<td>positive</td>
+						<td>Positive</td>
+						<td>The mother intends to breastfeed exclusively.</td>
+					</tr>
+				</tbody>
+			</table>
+			<ul>
+				<li/>
+			</ul>
+		</div>
+	</text>
+	<contained>
+		<CodeSystem>
+			<id value="codesystem-breastfeeding-intention"/>
+			<url value="http://example.org/codesystem-breastfeeding-intention"/>
+			<version value="1.0.0"/>
+			<name value="Breastfeeding Intention Code System"/>
+			<status value="active"/>
+			<description value="All codes representing the exclusive breastfeeding intention of the mother."/>
+			<caseSensitive value="true"/>
+			<content value="complete"/>
+			<concept>
+				<code value="positive"/>
+			</concept>
+			<concept>
+				<code value="negative"/>
+			</concept>
+		</CodeSystem>
+	</contained>
+	<contained>
+		<ValueSet>
+			<id value="valueset-breastfeeding-intention"/>
+			<url value="http://example.org/valueset-breastfeeding-intention"/>
+			<version value="1.0.0"/>
+			<name value="Breastfeeding Intention Code"/>
+			<status value="active"/>
+			<description value="All codes representing the exclusive breastfeeding intention of the mother."/>
+			<compose>
+				<include>
+					<system value="http://example.org/codesystem-breastfeeding-intention"/>
+					<concept>
+						<code value="positive"/>
+					</concept>
+					<concept>
+						<code value="negative"/>
+					</concept>
+				</include>
+			</compose>
+		</ValueSet>
+	</contained>
+	<url value="http://example.org/dataelements/breastfeeding-intention"/>
+	<identifier>
+		<value value="breastfeeding-intention"/>
+	</identifier>
+	<version value="1.0.0"/>
+	<status value="active"/>
+	<experimental value="true"/>
+	<publisher value="DCP"/>
+	<name value="Breastfeeding Intention"/>
+	<element>
+		<extension url="http://hl7.org/fhir/StructureDefinition/minLength">
+			<valueInteger value="1"/>
+		</extension>
+		<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
+			<valueString value="Breastfeeding Intention"/>
+		</extension>
+		<path value="breastfeedingIntention"/>
+		<definition value="The exclusive breastfeeding intention of the mother."/>
+		<type>
+			<code value="CodeableConcept"/>
+		</type>
+		<maxLength value="13"/>
+		<binding>
+			<strength value="required"/>
+			<valueSetReference>
+				<reference value="#valueset-breastfeeding-intention"/>
+			</valueSetReference>
+		</binding>
+	</element>
+</DataElement>

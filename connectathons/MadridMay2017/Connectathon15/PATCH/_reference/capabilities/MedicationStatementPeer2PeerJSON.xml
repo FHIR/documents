@@ -1,0 +1,33 @@
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+	<status value="draft"/>
+	<date value="2017-03-21T09:00:00-05:00"/>
+	<description value="FHIR CapabilityStatement"/>
+	<kind value="capability"/>
+	<fhirVersion value="3.0.0"/>
+	<acceptUnknown value="both"/>
+	<format value="json"/>
+	<patchFormat value="application/json-patch+json"/>
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="MedicationStatement"/>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<searchParam>
+				<name value="patient"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="status"/>
+				<type value="token"/>
+			</searchParam>
+		</resource>
+	</rest>
+</CapabilityStatement>

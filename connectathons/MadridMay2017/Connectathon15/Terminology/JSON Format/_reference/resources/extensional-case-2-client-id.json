@@ -1,0 +1,134 @@
+{
+  "resourceType": "ValueSet",
+  "id": "extensional-case-2",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">A selection of codes from http://loinc.org</div>"
+  },
+  "url": "http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-2",
+  "identifier": [
+    {
+      "value": "extensional-case-2"
+    }
+  ],
+  "name": "Terminology Services Connectation #1 Extensional case #2",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "Grahame Grieve",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "email",
+          "value": "grahame@healthintersections.com.au"
+        }
+      ]
+    }
+  ],
+  "description": "an enumeration of codes defined by LOINC",
+  "compose": {
+    "include": [
+      {
+        "system": "http://loinc.org",
+        "concept": [
+          {
+            "code": "11378-7",
+            "display": "Systolic blood pressure at First encounter"
+          },
+          {
+            "code": "8493-9",
+            "display": "Systolic blood pressure 10 hour minimum"
+          },
+          {
+            "code": "8494-7",
+            "display": "Systolic blood pressure 12 hour minimum"
+          },
+          {
+            "code": "8495-4",
+            "display": "Systolic blood pressure 24 hour minimum"
+          },
+          {
+            "code": "8450-9",
+            "display": "Systolic blood pressure--expiration"
+          },
+          {
+            "code": "8451-7",
+            "display": "Systolic blood pressure--inspiration"
+          },
+          {
+            "code": "8452-5",
+            "display": "Systolic blood pressure.inspiration - expiration"
+          },
+          {
+            "code": "8459-0",
+            "display": "Systolic blood pressure--sitting"
+          },
+          {
+            "code": "8460-8",
+            "display": "Systolic blood pressure--standing"
+          },
+          {
+            "code": "8461-6",
+            "display": "Systolic blood pressure--supine"
+          },
+          {
+            "code": "8479-8",
+            "display": "Systolic blood pressure by palpation"
+          },
+          {
+            "code": "8480-6",
+            "display": "Systolic blood pressure"
+          },
+          {
+            "code": "8481-4",
+            "display": "Systolic blood pressure 1 hour maximum"
+          },
+          {
+            "code": "8482-2",
+            "display": "Systolic blood pressure 8 hour maximum"
+          },
+          {
+            "code": "8483-0",
+            "display": "Systolic blood pressure 10 hour maximum"
+          },
+          {
+            "code": "8484-8",
+            "display": "Systolic blood pressure 12 hour maximum"
+          },
+          {
+            "code": "8485-5",
+            "display": "Systolic blood pressure 24 hour maximum"
+          },
+          {
+            "code": "8486-3",
+            "display": "Systolic blood pressure 1 hour mean"
+          },
+          {
+            "code": "8487-1",
+            "display": "Systolic blood pressure 8 hour mean"
+          },
+          {
+            "code": "8488-9",
+            "display": "Systolic blood pressure 10 hour mean"
+          },
+          {
+            "code": "8489-7",
+            "display": "Systolic blood pressure 12 hour mean"
+          },
+          {
+            "code": "8490-5",
+            "display": "Systolic blood pressure 24 hour mean"
+          },
+          {
+            "code": "8491-3",
+            "display": "Systolic blood pressure 1 hour minimum"
+          },
+          {
+            "code": "8492-1",
+            "display": "Systolic blood pressure 8 hour minimum"
+          }
+        ]
+      }
+    ]
+  }
+}

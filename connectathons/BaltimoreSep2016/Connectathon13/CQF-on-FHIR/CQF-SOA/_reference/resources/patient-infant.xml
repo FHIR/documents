@@ -1,0 +1,53 @@
+<Patient xmlns="http://hl7.org/fhir">
+  <id value="patient-infant"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Peter Jones - Newborn</div>
+  </text>
+  <identifier>
+    <use value="usual"/>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/v2/0203"/>
+        <code value="MR"/>
+      </coding>
+    </type>
+    <system value="urn:oid:1.2.36.146.595.217.0.1"/>
+    <value value="ACME-0000002"/>
+    <period>
+      <start value="2016-03-07"/>
+    </period>
+    <assigner>
+      <display value="Acme Healthcare"/>
+    </assigner>
+  </identifier>
+  <active value="true"/>
+  <name>
+    <use value="official"/>
+    <family value="Jones"/>
+    <given value="Peter"/>
+  </name>
+  <gender value="male"/>
+  <birthDate value="2016-03-07">
+    <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+      <valueDateTime value="2016-03-07T14:35:45-06:00"/>
+    </extension>
+  </birthDate>
+  <deceasedBoolean value="false"/>
+  <contact>
+    <relationship>
+      <coding>
+        <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+        <code value="parent"/>
+      </coding>
+    </relationship>
+    <name>
+      <family value="Jones"/>
+      <given value="Mary"/>
+    </name>
+    <gender value="female"/>
+  </contact>
+  <managingOrganization>
+    <reference value="Organization/1"/>
+  </managingOrganization>
+</Patient>

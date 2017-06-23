@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir">
+	<id value="obs-101"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b>Generated Narrative with Details</b>
+			</p>
+			<p>
+				<b>id</b>: obs-101</p>
+			<p>
+				<b>identifier</b>: obs-101</p>
+			<p>
+				<b>status</b>: final</p>
+			<p>
+				<b>code</b>: 12 
+				<span style="background: LightGoldenRodYellow ">(Details : {http://lis.acmelabs.org/codes code "12" := "12)</span>
+			</p>
+			<p>
+				<b>subject</b>: 
+				<a href="Patient/patient-uslab-example1">Todd G. Lerr</a>
+			</p>
+			<p>
+				<b>value</b>: 1{INR}
+				<span style="background: LightGoldenRodYellow ">(Details: http://unitsofmeasure.org code {INR} := "{INR}")</span>
+			</p>
+			<p>
+				<b>specimen</b>: 
+				<a href="Specimen/spec-100">spec-100</a>
+			</p>
+		</div>
+	</text>
+	<identifier>
+		<system value="http://lis.acmelabs.org/identifiers"/>
+		<value value="obs-101"/>
+	</identifier>
+	<status value="final"/>
+	<code>
+		<coding>
+			<system value="http://lis.acmelabs.org/codes"/>
+			<code value="12"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/patient-uslab-example1"/>
+		<display value="Todd G. Lerr"/>
+	</subject>
+	<valueQuantity>
+		<value value="1"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="{INR}"/>
+	</valueQuantity>
+	<specimen>
+		<reference value="Specimen/spec-100"/>
+		<display value="spec-100"/>
+	</specimen>
+</Observation>

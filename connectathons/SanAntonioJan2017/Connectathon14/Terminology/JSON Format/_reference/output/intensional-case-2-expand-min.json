@@ -1,0 +1,640 @@
+{
+  "resourceType": "ValueSet",
+  "url": "http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-2",
+  "identifier": [
+    {
+      "value": "intensional-case-2"
+    }
+  ],
+  "status": "draft",
+  "experimental": true,
+  "expansion": {
+    "contains": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "1201005",
+        "display": "Benign essential hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "8218002",
+        "display": "Chronic hypertension complicating AND/OR reason for care during childbirth (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "8762007",
+        "display": "Chronic hypertension in obstetric context (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "9901000",
+        "display": "Essential hypertension complicating AND/OR reason for care during puerperium (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "10562009",
+        "display": "Malignant hypertension complicating AND/OR reason for care during childbirth (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "10725009",
+        "display": "Benign hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "14973001",
+        "display": "Renal sclerosis with hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "15394000",
+        "display": "Toxemia of pregnancy (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "18416000",
+        "display": "Essential hypertension complicating AND/OR reason for care during childbirth (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "19769006",
+        "display": "High-renin essential hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "23130000",
+        "display": "Paroxysmal hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "23717007",
+        "display": "Benign essential hypertension complicating AND/OR reason for care during pregnancy (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "23786008",
+        "display": "Malignant hypertension complicating AND/OR reason for care during puerperium (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "24042004",
+        "display": "Chronic hypertension complicating AND/OR reason for care during puerperium (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "26078007",
+        "display": "Hypertension secondary to renal disease complicating AND/OR reason for care during childbirth (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "28119000",
+        "display": "Renal hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "29259002",
+        "display": "Malignant hypertension complicating AND/OR reason for care during pregnancy (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "31407004",
+        "display": "Pre-existing hypertension complicating AND/OR reason for care during puerperium (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "31992008",
+        "display": "Secondary hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "34694006",
+        "display": "Pre-existing hypertension complicating AND/OR reason for care during childbirth (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "35303009",
+        "display": "Benign essential hypertension complicating AND/OR reason for care during puerperium (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "37618003",
+        "display": "Chronic hypertension complicating AND/OR reason for care during pregnancy (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "39018007",
+        "display": "Renal arterial hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "39727004",
+        "display": "Hypertension secondary to renal disease complicating AND/OR reason for care during puerperium (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "41114007",
+        "display": "Mild pre-eclampsia (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "46481004",
+        "display": "Low-renin essential hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "46764007",
+        "display": "Severe pre-eclampsia (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "48146000",
+        "display": "Diastolic hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "48194001",
+        "display": "Pregnancy-induced hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "48552006",
+        "display": "Hypertension secondary to renal disease complicating AND/OR reason for care during pregnancy (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "52698002",
+        "display": "Transient hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "56218007",
+        "display": "Systolic hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "57684003",
+        "display": "Parenchymal renal hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "59621000",
+        "display": "Essential hypertension"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "59720008",
+        "display": "Sustained diastolic hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "59997006",
+        "display": "Endocrine hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "62275004",
+        "display": "Hypertensive episode (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "63287004",
+        "display": "Benign essential hypertension in obstetric context (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "65402008",
+        "display": "Pre-existing hypertension complicating AND/OR reason for care during pregnancy (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "65518004",
+        "display": "Labile diastolic hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "67359005",
+        "display": "Pre-eclampsia added to pre-existing hypertension"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "69909000",
+        "display": "Eclampsia added to pre-existing hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "70272006",
+        "display": "Malignant hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "71874008",
+        "display": "Benign essential hypertension complicating AND/OR reason for care during childbirth (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "72022006",
+        "display": "Essential hypertension in obstetric context (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "73410007",
+        "display": "Benign secondary renovascular hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "74451002",
+        "display": "Secondary diastolic hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "78808002",
+        "display": "Essential hypertension complicating AND/OR reason for care during pregnancy (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "78975002",
+        "display": "Malignant essential hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "81626002",
+        "display": "Malignant hypertension in obstetric context (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "84094009",
+        "display": "Rebound hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "86041002",
+        "display": "Pre-existing hypertension in obstetric context (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "89242004",
+        "display": "Accelerated secondary hypertension"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "95605009",
+        "display": "Hemolysis-elevated liver enzymes-low platelet count syndrome (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "111438007",
+        "display": "Hypertension secondary to renal disease in obstetric context (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "123799005",
+        "display": "Hypertension due to renovascular disease"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "123800009",
+        "display": "Goldblatt hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "169465000",
+        "display": "Hypertension induced by oral contraceptive pill (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "194783001",
+        "display": "Secondary malignant renovascular hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "194785008",
+        "display": "Secondary benign hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "194788005",
+        "display": "Hypertension secondary to endocrine disorder (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "194791005",
+        "display": "Hypertension secondary to drug (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198941007",
+        "display": "Hypertension complicating pregnancy, childbirth and the puerperium (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198942000",
+        "display": "Benign essential hypertension complicating pregnancy, childbirth and the puerperium (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198944004",
+        "display": "Benign essential hypertension complicating pregnancy, childbirth and the puerperium - delivered (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198945003",
+        "display": "Benign essential hypertension complicating pregnancy, childbirth and the puerperium - delivered with postnatal complication (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198946002",
+        "display": "Benign essential hypertension complicating pregnancy, childbirth and the puerperium - not delivered (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198947006",
+        "display": "Benign essential hypertension complicating pregnancy, childbirth and the puerperium with postnatal complication (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198949009",
+        "display": "Renal hypertension complicating pregnancy, childbirth and the puerperium (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198951008",
+        "display": "Renal hypertension complicating pregnancy, childbirth and the puerperium - delivered (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198952001",
+        "display": "Renal hypertension complicating pregnancy, childbirth and the puerperium - delivered with postnatal complication (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198953006",
+        "display": "Renal hypertension complicating pregnancy, childbirth and the puerperium - not delivered (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198954000",
+        "display": "Renal hypertension complicating pregnancy, childbirth and the puerperium with postnatal complication (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198965005",
+        "display": "Transient hypertension of pregnancy - delivered (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198966006",
+        "display": "Transient hypertension of pregnancy - delivered with postnatal complication (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198967002",
+        "display": "Transient hypertension of pregnancy - not delivered (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198968007",
+        "display": "Transient hypertension of pregnancy with postnatal complication (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198983002",
+        "display": "Severe pre-eclampsia - delivered (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198984008",
+        "display": "Severe pre-eclampsia - delivered with postnatal complication (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198985009",
+        "display": "Severe pre-eclampsia - not delivered (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198986005",
+        "display": "Severe pre-eclampsia with postnatal complication (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198997005",
+        "display": "Pre-eclampsia or eclampsia with pre-existing hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "198999008",
+        "display": "Pre-eclampsia or eclampsia with pre-existing hypertension - delivered (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "199000005",
+        "display": "Pre-eclampsia or eclampsia with pre-existing hypertension - delivered with postnatal complication (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "199002002",
+        "display": "Pre-eclampsia or eclampsia with pre-existing hypertension - not delivered (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "199003007",
+        "display": "Pre-eclampsia or eclampsia with pre-existing hypertension with postnatal complication (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "199005000",
+        "display": "Pre-existing hypertension complicating pregnancy, childbirth and puerperium (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "199007008",
+        "display": "Pre-existing hypertensive heart and renal disease complicating pregnancy, childbirth and the puerperium (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "199008003",
+        "display": "Pre-existing secondary hypertension complicating pregnancy, childbirth and puerperium (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "206596003",
+        "display": "Neonatal hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "237279007",
+        "display": "Transient hypertension of pregnancy (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "237281009",
+        "display": "Moderate proteinuric hypertension of pregnancy (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "237282002",
+        "display": "Impending eclampsia (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "288250001",
+        "display": "Maternal hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "307632004",
+        "display": "Non-proteinuric hypertension of pregnancy (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "367390009",
+        "display": "Hypertension in the obstetric context (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "371125006",
+        "display": "Labile essential hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "397748008",
+        "display": "Hypertension with albuminuria (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "398254007",
+        "display": "PE - Pre-eclampsia"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "427889009",
+        "display": "Hypertension associated with transplantation (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "428575007",
+        "display": "Hypertension secondary to kidney transplant (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "429198000",
+        "display": "Exertional hypertension"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "429457004",
+        "display": "Systolic essential hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "443482000",
+        "display": "Hypertensive urgency (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "697929007",
+        "display": "Intermittent hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "697930002",
+        "display": "Labile hypertension due to being in a clinical environment (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "698638005",
+        "display": "Pregnancy induced hypertension with pulmonary edema (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "698640000",
+        "display": "Hypertension in the puerperium with pulmonary edema (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "706882009",
+        "display": "Hypertensive crisis (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "541000119105",
+        "display": "Hypertension complicating pregnancy, childbirth and the puerperium, antepartum (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "5501000119106",
+        "display": "Postoperative hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "40511000119107",
+        "display": "Postpartum pre-existing essential hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "40521000119100",
+        "display": "Postpartum pregnancy-induced hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "71421000119105",
+        "display": "Hypertension in chronic kidney disease due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "71701000119105",
+        "display": "Hypertension in chronic kidney disease due to type 1 diabetes mellitus (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "118781000119108",
+        "display": "Pre-existing hypertensive chronic kidney disease in mother complicating pregnancy (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "132721000119104",
+        "display": "Hypertensive emergency (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "140101000119109",
+        "display": "Hypertension in chronic kidney disease stage 5 due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "140111000119107",
+        "display": "Hypertension in chronic kidney disease stage 4 due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "140121000119100",
+        "display": "Hypertension in chronic kidney disease stage 3 due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "140131000119102",
+        "display": "Hypertension in chronic kidney disease stage 2 due to type 2 diabetes mellitus (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "434711000124103",
+        "display": "Perioperative hypertension (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "10752641000119102",
+        "display": "Eclampsia with pre-existing hypertension in childbirth (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "10757401000119104",
+        "display": "Pre-existing hypertensive heart and chronic kidney disease in mother complicating childbirth (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "10757481000119107",
+        "display": "Pre-existing hypertensive heart and chronic kidney disease in mother complicating pregnancy (disorder)"
+      }
+    ]
+  }
+}

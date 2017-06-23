@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Condition xmlns="http://hl7.org/fhir">
+	<id value="dafcond-1002"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-condition"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Hyperlipidemia</div>
+	</text>
+	<identifier>
+		<system value="http://hospital.smarthealthit.org"/>
+		<value value="dafcond-1002"/>
+	</identifier>
+	<clinicalStatus value="active"/>
+	<verificationStatus value="confirmed"/>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="55822004"/>
+			<display value="Hyperlipidemia"/>
+		</coding>
+		<text value="Hyperlipidemia"/>
+	</code>
+	<subject>
+		<reference value="Patient/dafpid-1001"/>
+	</subject>
+	<!--causing validation so comment out and raised a tracker   [#9943] <onsetDateTime value="2012-12-12"/> -->
+</Condition>

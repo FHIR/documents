@@ -1,0 +1,66 @@
+{
+  "resourceType": "ValueSet",
+  "id": "extensional-case-1",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">A selection of codes from http://hl7.org/fhir/patient-contact-relationship</div>"
+  },
+  "url": "http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-1",
+  "identifier": [
+    {
+      "value": "extensional-case-1"
+    }
+  ],
+  "name": "Terminology Services Connectation #1 Extensional case #1",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "Grahame Grieve",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "email",
+          "value": "grahame@healthintersections.com.au"
+        }
+      ]
+    }
+  ],
+  "description": "an enumeration of codes defined by FHIR itself",
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/patient-contact-relationship",
+        "concept": [
+          {
+            "code": "emergency",
+            "display": "Emergency"
+          },
+          {
+            "code": "family",
+            "display": "Family"
+          },
+          {
+            "code": "guardian",
+            "display": "Guardian"
+          },
+          {
+            "code": "friend",
+            "display": "Friend"
+          },
+          {
+            "code": "partner",
+            "display": "Partner"
+          },
+          {
+            "code": "work",
+            "display": "Work"
+          },
+          {
+            "code": "parent",
+            "display": "Parent"
+          }
+        ]
+      }
+    ]
+  }
+}

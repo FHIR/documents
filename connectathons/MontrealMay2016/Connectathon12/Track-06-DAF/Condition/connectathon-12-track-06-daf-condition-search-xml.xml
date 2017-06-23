@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-12-track-06-daf-condition-search-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-12-track-06-daf-condition-search-xml"/>
+	<name value="FHIR Connectathon 12 - Track 06 - DAF - Search DAF Condition; format XML"/>
+	<status value="active"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-05-10"/>
+	<description value="FHIR Connectathon 12 - Track 06 - DAF - Search DAF Condition; resource format XML; test a FHIR server's Condition search operation for the DAF search parameters."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="Condition Read and DAF Profile Search Operations"/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Condition read operation"/>
+			<link value="http://hl7.org/fhir/http.html#read"/>
+			<conformance>
+				<reference value="../_reference/conformance/ConditionRead.xml" />
+			</conformance>
+		</capability>
+		<capability>
+			<required value="true"/>
+			<description value="Condition search operation with DAF extensions"/>
+			<link value="http://hl7.org/fhir/http.html#search"/>
+			<link value="http://hl7.org/fhir/daf/condition-daf.html"/>
+			<conformance>
+				<reference value="../_reference/conformance/ConditionSearchType.xml" />
+			</conformance>
+		</capability>
+	</metadata>	
+
+	<profile id="conditionProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Condition" />
+	</profile>
+	<profile id="daf-conditionProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/daf-condition"/>
+	</profile>
+
+	<variable>
+		<name value="ConditionResourceId"/>
+		<defaultValue value="[Resource Id]"/>
+	</variable>
+	<variable>
+		<name value="searchParamClinicalStatus"/>
+		<path value="Condition/clinicalStatus" />
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamCode"/>
+		<path value="Condition/code/coding/code" />
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamPatient"/>
+		<path value="Condition/patient/reference" />
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamVerificationStatus"/>
+		<path value="Condition/verificationStatus" />
+		<sourceId value="read-response"/>
+	</variable>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Condition"/>
+				<description value="Setup performs an initial read operation for the user-defined Condition in the destination server. All search criteria parameter values are populated from this Condition resource."/>
+				<accept value="xml"/>
+				<params value="/${ConditionResourceId}" />
+				<responseId value="read-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Condition."/>
+				<resource value="Condition"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource type conforms to the base FHIR Condition profile."/>
+				<validateProfileId value="conditionProfile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource type conforms to the DAF Condition profile. Warning only at this time due to potential DAF profile issue within the current FHIR STU 3 Candidate specification."/>
+				<validateProfileId value="daf-conditionProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Condition resource contains a clinicalStatus value."/>
+				<operator value="notEmpty"/>
+				<path value="Condition/clinicalStatus"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Condition resource contains a code value."/>
+				<operator value="notEmpty"/>
+				<path value="Condition/code/coding/code"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Condition resource contains a patient value."/>
+				<operator value="notEmpty"/>
+				<path value="Condition/patient/reference"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Condition resource contains a verificationStatus value."/>
+				<operator value="notEmpty"/>
+				<path value="Condition/verificationStatus"/>
+			</assert>
+		</action>
+	</setup>
+
+	<test id="01-DAFsearchParamClinicalStatus">
+		<name value="01-DAFsearchParamClinicalStatus"/>
+		<description value="FHIR Connectathon 12 - Track 06 - DAF - Condition search operation using the clinicalstatus search parameter."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Condition"/>
+				<description value="Search for conditions using the clinicalstatus search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?clinicalstatus=${searchParamClinicalStatus}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other Condition records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-DAFsearchParamCode">
+		<name value="02-DAFsearchParamCode"/>
+		<description value="FHIR Connectathon 12 - Track 06 - DAF - Condition search operation using the code search parameter."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Condition"/>
+				<description value="Search for conditions using the code search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?code=${searchParamCode}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other Condition records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-DAFsearchParamPatient">
+		<name value="03-DAFsearchParamPatient"/>
+		<description value="FHIR Connectathon 12 - Track 06 - DAF - Condition search operation using the patient search parameter."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Condition"/>
+				<description value="Search for conditions using the patient search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?patient=${searchParamPatient}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other Condition records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

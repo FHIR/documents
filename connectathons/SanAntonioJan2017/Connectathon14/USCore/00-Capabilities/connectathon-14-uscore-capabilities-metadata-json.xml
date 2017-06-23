@@ -1,0 +1,89 @@
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-14-uscore-capabilities-metadata-json"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-14-uscore-capabilities-metadata-json"/>
+	<name value="FHIR Connectathon 14 - US Core - Capabilities - Metadata- JSON"/>
+	<status value="draft"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-12-20"/>
+	<description value="US Core Capabilities using HTTP GET metadata operation; resource format JSON; validate the FHIR server returns a valid CapabilityStatement resource containing the SMART on FHIR security endpoint discovery extensions to enable the OAuth 2.0 process."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<profile id="capabilities-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement" />
+	</profile>
+
+	<test id="01-CapabilityStatementMetadataJSON">
+		<name value="01-CapabilityStatementMetadata"/>
+		<description value="Test capabilities operation against a server using GET metadata. The expected response content is the found CapabilityStatement resource in JSON format containing the SMART on FHIR security extensions."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://touchstone.com/fhir/testscript-operation-codes-extended"/>
+					<code value="metadata"/>
+				</type>
+				<description value="Test capabilities operation using GET metadata with expected response format of JSON. Test basic operation conformance and return of the SMART on FHIR security extensions."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<params value="metadata"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is CapabilityStatement."/>
+				<resource value="CapabilityStatement"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned CapabilityStatement conforms to the base FHIR specification."/>
+				<validateProfileId value="capabilities-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned CapabilityStatement resource minimally contains the declaration of security with the SMART-on-FHIR extension with an authorize extension."/>
+				<operator value="notEmpty"/>
+				<path value=".rest[?(@.mode == 'server')].security.extension[?(@.url == 'http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris')].extension[?(@.url=='authorize')].url"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned CapabilityStatement resource minimally contains the declaration of security with the SMART-on-FHIR extension with an token extension."/>
+				<operator value="notEmpty"/>
+				<path value=".rest[?(@.mode == 'server')].security.extension[?(@.url == 'http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris')].extension[?(@.url=='token')].url"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned CapabilityStatement resource minimally contains the declaration of service with a coding that contains the SMART-on-FHIR setting."/>
+				<operator value="notEmpty"/>
+				<path value="$.rest[?(@.mode == 'server')].*.service[*].coding.[?(@.system == 'http://hl7.org/fhir/restful-security-service' &amp;&amp; @.code == 'SMART-on-FHIR')]"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

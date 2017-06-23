@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-13-daf-allergyintolerance-search-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-13-daf-allergyintolerance-search-xml"/>
+	<name value="FHIR Connectathon 13 - DAF - Search DAF AllergyIntolerance; format XML"/>
+	<status value="active"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-08-29"/>
+	<description value="FHIR Connectathon 13 - DAF - Search DAF AllergyIntolerance; resource format XML; test a FHIR server's AllergyIntolerance search operation for the DAF search parameters."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="AllergyIntolerance Read and DAF Profile Search Operations"/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="AllergyIntolerance read operation"/>
+			<link value="http://hl7.org/fhir/2016Sep/http.html#read"/>
+			<conformance>
+				<reference value="../_reference/conformance/AllergyIntoleranceRead.xml" />
+			</conformance>
+		</capability>
+		<capability>
+			<required value="true"/>
+			<description value="AllergyIntolerance search operation with DAF extensions"/>
+			<link value="http://hl7.org/fhir/2016Sep/http.html#search"/>
+			<link value="http://hl7.org/fhir/us/daf/2016Sep/daf-core-allergyintolerance-daf.html"/>
+			<conformance>
+				<reference value="../_reference/conformance/AllergyIntoleranceSearchType.xml" />
+			</conformance>
+		</capability>
+	</metadata>	
+
+	<profile id="allergyintoleranceProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" />
+	</profile>
+	<profile id="daf-allergyintoleranceProfile">
+		<reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-allergyintolerance"/>
+	</profile>
+
+	<variable>
+		<name value="AllergyIntoleranceResourceId"/>
+		<defaultValue value="dafallerg-1001"/>
+	</variable>
+	<variable>
+		<name value="searchParamCategory"/>
+		<path value="AllergyIntolerance/category" />
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamDate"/>
+		<path value="AllergyIntolerance/attestedDate" />
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamPatient"/>
+		<path value="AllergyIntolerance/patient/reference" />
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamStatus"/>
+		<path value="AllergyIntolerance/status" />
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamCode"/>
+		<path value="AllergyIntolerance/code/coding/code" />
+		<sourceId value="read-response"/>
+	</variable>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="AllergyIntolerance"/>
+				<description value="Setup performs an initial read operation for the user-defined AllergyIntolerance in the destination server. All search criteria parameter values are populated from this AllergyIntolerance resource."/>
+				<accept value="xml"/>
+				<params value="/${AllergyIntoleranceResourceId}" />
+				<responseId value="read-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is AllergyIntolerance."/>
+				<resource value="AllergyIntolerance"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource type conforms to the base FHIR AllergyIntolerance profile. Warning only at this time due to STU3 Ballot validation engine issues."/>
+				<validateProfileId value="allergyintoleranceProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource type conforms to the DAF AllergyIntolerance profile. Warning only at this time due to potential DAF profile issue within the current FHIR STU 3 Candidate specification."/>
+				<validateProfileId value="daf-allergyintoleranceProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned AllergyIntolerance resource contains a category value."/>
+				<operator value="notEmpty"/>
+				<path value="AllergyIntolerance/category"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned AllergyIntolerance resource contains a attestedDate value."/>
+				<operator value="notEmpty"/>
+				<path value="AllergyIntolerance/attestedDate"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned AllergyIntolerance resource contains a patient value."/>
+				<operator value="notEmpty"/>
+				<path value="AllergyIntolerance/patient/reference"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned AllergyIntolerance resource contains a status value."/>
+				<operator value="notEmpty"/>
+				<path value="AllergyIntolerance/status"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned AllergyIntolerance resource contains a code value."/>
+				<operator value="notEmpty"/>
+				<path value="AllergyIntolerance/code/coding/code"/>
+			</assert>
+		</action>
+	</setup>
+
+	<test id="01-DAFsearchParamCategory">
+		<name value="01-DAFsearchParamCategory"/>
+		<description value="FHIR Connectathon 13 - DAF - AllergyIntolerance search operation using the category search parameter."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="AllergyIntolerance"/>
+				<description value="Search for AllergyIntolerance resources using the category search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?category=${searchParamCategory}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other AllergyIntolerance records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-DAFsearchParamDate">
+		<name value="02-DAFsearchParamDate"/>
+		<description value="FHIR Connectathon 13 - DAF - AllergyIntolerance search operation using the date search parameters."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="AllergyIntolerance"/>
+				<description value="Search for AllergyIntolerance resources using the date search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?date=${searchParamDate}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other AllergyIntolerance records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-DAFsearchParamIdentifierPatient">
+		<name value="03-DAFsearchParamIdentifierPatient"/>
+		<description value="FHIR Connectathon 13 - DAF - AllergyIntolerance search operation using the patient search parameter."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="AllergyIntolerance"/>
+				<description value="Search for AllergyIntolerance resources using the patient search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?patient=${searchParamPatient}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other AllergyIntolerance records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="04-DAFsearchParamStatus">
+		<name value="04-DAFsearchParamStatus"/>
+		<description value="FHIR Connectathon 13 - DAF - AllergyIntolerance search operation using the status search parameter."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="AllergyIntolerance"/>
+				<description value="Search for AllergyIntolerance resources using the status search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?status=${searchParamStatus}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other AllergyIntolerance records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="05-DAFsearchParamCode">
+		<name value="05-DAFsearchParamCode"/>
+		<description value="FHIR Connectathon 13 - DAF - AllergyIntolerance search operation using the code search parameter."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="AllergyIntolerance"/>
+				<description value="Search for AllergyIntolerance resources using the code search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?code=${searchParamCode}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other AllergyIntolerance records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

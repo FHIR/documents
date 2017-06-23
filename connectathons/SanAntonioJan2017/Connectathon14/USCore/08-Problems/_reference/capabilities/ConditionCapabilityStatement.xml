@@ -1,0 +1,27 @@
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="Condition"/>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<updateCreate value="true"/>
+			<searchParam>
+				<name value="category"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="clinicalstatus"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="patient"/>
+				<type value="reference"/>
+			</searchParam>
+		</resource>
+	</rest>
+</CapabilityStatement>

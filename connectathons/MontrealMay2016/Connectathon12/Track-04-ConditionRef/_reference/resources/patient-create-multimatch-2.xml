@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			Pieter van de Heuvel<br/>Van Egmondkade 23 Amsterdam 1024 RJ NLD (HOME)<br/>ph: 0648352638(MOBILE)
+		</div>
+	</text>
+	<identifier>
+		<use value="usual"/>
+		<system value="urn:oid:2.16.840.1.113883.2.4.6.3"/>
+		<value value="${D12}"/>
+	</identifier>
+	<active value="true"/>
+	<name>
+		<use value="usual"/>
+		<family value="van de Heuvel${CD11}"/>
+		<given value="Pieter${CD11}"/>
+		<suffix value="MSc"/>
+	</name>
+	<telecom>
+		<system value="phone"/>
+		<value value="0648352638"/>
+		<use value="mobile"/>
+	</telecom>
+	<gender value="male"/>
+	<birthDate value="1944-11-17"/>
+	<address>
+		<use value="home"/>
+		<line value="Van Egmondkade 23"/>
+		<city value="Amsterdam"/>
+		<postalCode value="1024 RJ"/>
+		<country value="NLD"/>
+	</address>
+</Patient>

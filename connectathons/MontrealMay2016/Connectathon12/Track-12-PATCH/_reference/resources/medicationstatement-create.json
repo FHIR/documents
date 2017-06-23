@@ -1,0 +1,39 @@
+{
+  "resourceType":"MedicationStatement",
+  "text": {
+    "status": "generated",
+    "div": "<div>Patient ${patientId}; FHIR Test Medication; Dosage: 60.0 mg</div>"
+  },
+  "contained":[
+    {
+      "resourceType":"Medication",
+      "id":"123",
+      "code":{
+        "text":"FHIR Test Medication"
+      }
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://happyvalley.com/medicationstatement",
+      "value": "${CD8}${D8}"
+    }
+  ],
+  "status":"active",
+  "medicationReference":{
+    "reference":"#123"
+  },
+  "patient":{
+    "reference":"Patient/${patientId}"
+  },
+  "dosage":[
+    {
+      "quantityQuantity":{
+        "value":60.0,
+        "unit":"mg",
+        "system":"http://unitsofmeasure.org",
+        "code":"mg"
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationStatement xmlns="http://hl7.org/fhir">
+	<id value="dafmed-1003"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/daf-medicationstatement"/>
+	</meta>
+	<!--     The Human readible version of the medication statement    -->
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>sertraline (Zoloft) 100mg</p>
+		</div>
+	</text>
+	<status value="active"/>
+	<!--     a coded value or reference to the medication being prescribed. As described earlier, this could be contained , separately
+        within a bundle or simply a reference to a remote server.   -->
+	<medicationCodeableConcept>
+		<coding>
+			<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+			<code value="208149"/>
+			<display value="Sertraline 100 MG Oral Tablet [Zoloft]"/>
+		</coding>
+		<text value="sertraline (Zoloft) 100mg"/>
+	</medicationCodeableConcept>
+	<patient>
+		<reference value="Patient/dafpid-1001"/>
+	</patient>
+	<effectivePeriod>
+		<start value="2015-10-01"/>
+		<end value="2016-01-01"/>
+	</effectivePeriod>
+	<dateAsserted value="2016-05-01T16:13:03Z"/>
+</MedicationStatement>

@@ -1,0 +1,33 @@
+{
+  "resourceType": "CapabilityStatement",
+  "rest": [
+    {
+      "mode": "server",
+      "security": {
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "authorize"
+              },
+              {
+                "url": "token"
+              }
+            ],
+            "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris"
+          }
+        ],
+        "service": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/restful-security-service",
+                "code": "SMART-on-FHIR"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

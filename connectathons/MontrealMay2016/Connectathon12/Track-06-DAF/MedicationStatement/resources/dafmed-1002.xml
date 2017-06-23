@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationStatement xmlns="http://hl7.org/fhir">
+	<id value="dafmed-1002"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/daf-medicationstatement"/>
+	</meta>
+	<!--     The Human readible version of the medication statement    -->
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>simvastatin oral 20 mg</p>
+		</div>
+	</text>
+	<status value="active"/>
+	<!--     a coded value or reference to the medication being prescribed. As described earlier, this could be contained , separately
+        within a bundle or simply a reference to a remote server.   -->
+	<medicationCodeableConcept>
+		<coding>
+			<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+			<code value="312961"/>
+			<display value="Simvastatin 20 MG Oral Tablet"/>
+		</coding>
+		<text value="simvastatin oral 20 mg"/>
+	</medicationCodeableConcept>
+	<patient>
+		<reference value="Patient/dafpid-1001"/>
+	</patient>
+	<effectivePeriod>
+	<start value="2012-12-12"></start></effectivePeriod>
+	<dateAsserted value="2016-05-01T16:13:03Z"/>
+</MedicationStatement>

@@ -1,0 +1,26 @@
+{
+  "resourceType": "CapabilityStatement",
+  "rest": [
+    {
+      "mode": "server",
+      "resource": [
+        {
+          "type": "ConceptMap",
+          "interaction": [
+            {
+              "code": "read"
+            }
+          ]
+        }
+      ],
+      "operation": [
+        {
+          "name": "translate",
+          "definition": {
+            "reference": "http://hl7.org/fhir/OperationDefinition/conceptmap-translate"
+          }
+        }
+      ]
+    }
+  ]
+}

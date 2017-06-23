@@ -1,0 +1,11 @@
+<Conformance xmlns="http://hl7.org/fhir">
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="ValueSet"/>
+			<interaction>
+				<code value="lookup"/>
+			</interaction>
+		</resource>
+	</rest>
+</Conformance>

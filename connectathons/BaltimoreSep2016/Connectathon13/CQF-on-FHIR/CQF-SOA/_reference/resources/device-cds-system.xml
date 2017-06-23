@@ -1,0 +1,17 @@
+<Device xmlns="http://hl7.org/fhir">
+  <id value="device-cds-system"/>
+  <text><status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: software</p><p><b>identifier</b>: device-cds-system</p><p><b>type</b>: CDS <span>(Details )</span></p><p><b>manufacturer</b>: CDS Systems, Inc</p><p><b>version</b>: 10.23-23423</p><p><b>contact</b>: http://cdssystems.com</p><p><b>url</b>: <a>http://cdssystems.com/cdssystem</a></p></div></text><identifier>
+    <system value="http://cdssystems.com"/>
+    <value value="cdssystem"/>
+  </identifier>
+  <type>
+    <text value="CDS"/>
+  </type>
+  <manufacturer value="CDS Systems, Inc"/>
+  <version value="10.23-23423"/>
+  <contact>
+    <system value="other"/>
+    <value value="http://cdssystems.com"/>
+  </contact>
+  <url value="http://cdssystems.com/cdssystem"/>
+</Device>

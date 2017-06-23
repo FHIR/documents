@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Location xmlns="http://hl7.org/fhir">
+	<id value="hl7east"/>
+	<contained>
+		<Endpoint>
+			<id value="endpoint-1001"/>
+			<status value="active"/>
+			<name value="GREGORY MULA"/>
+			<connectionType>
+				<code value="email"/>
+			</connectionType>
+			<address value="mailto:GREGORY.MULA@directnppes.com"/>
+			<payloadFormat value="*/*"/>
+			<payloadType>
+				<coding>
+					<system value="urn:oid:1.3.6.1.4.1.19376.1.2.3"/>
+					<code value="urn:hl7-org:sdwg:ccda-structuredBody:1.1"/>
+				</coding>
+			</payloadType>
+		</Endpoint>
+	</contained>
+	<identifier>
+		<system value="http://www.acme.org/location"/>
+		<value value="29"/>
+	</identifier>
+	<status value="active"/>
+	<name value="Health Level Seven International - Amherst"/>
+	<description value="HL7 Headquarters - East"/>
+	<mode value="instance"/>
+	<type>
+		<coding>
+			<system value="http://hl7.org/fhir/v3/RoleCode"/>
+			<code value="SLEEP"/>
+			<display value="Sleep disorders unit"/>
+		</coding>
+	</type>
+	<telecom>
+		<system value="phone"/>
+		<value value="(+1) 734-677-7777"/>
+	</telecom>
+	<telecom>
+		<system value="fax"/>
+		<value value="(+1) 734-677-6622"/>
+	</telecom>
+	<telecom>
+		<system value="email"/>
+		<value value="hq@HL7.org"/>
+	</telecom>
+	<address>
+		<line value="3300 Washtenaw Avenue, Suite 227"/>
+		<city value="Amherst"/>
+		<state value="MA"/>
+		<postalCode value="01002"/>
+		<country value="USA"/>
+	</address>
+	<physicalType>
+		<coding>
+			<system value="http://hl7.org/fhir/location-physical-type"/>
+			<code value="bu"/>
+			<display value="Building"/>
+		</coding>
+	</physicalType>
+	<position>
+		<longitude value="-72.519854"/>
+		<latitude value="42.373222"/>
+	</position>
+	<endpoint>
+		<reference value="#endpoint-1001"/>
+	</endpoint>
+</Location>

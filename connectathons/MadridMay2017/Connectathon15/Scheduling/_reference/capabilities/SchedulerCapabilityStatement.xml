@@ -1,0 +1,459 @@
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+	<status value="draft"/>
+	<date value="2017-03-21T09:00:00-05:00"/>
+	<description value="FHIR CapabilityStatement"/>
+	<kind value="capability"/>
+	<fhirVersion value="3.0.0"/>
+	<acceptUnknown value="both"/>
+	<format value="xml"/>
+	<format value="json"/>
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="Appointment"/>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="vread"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="delete"/>
+			</interaction>
+			<interaction>
+				<code value="history-instance"/>
+			</interaction>
+			<interaction>
+				<code value="history-type"/>
+			</interaction>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<searchParam>
+				<name value="patient"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="service-type"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="practitioner"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="location"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="status"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="appointment-type"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="part-status"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="actor"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="date"/>
+				<type value="date"/>
+			</searchParam>
+			<searchParam>
+				<name value="identifier"/>
+				<type value="token"/>
+			</searchParam>
+		</resource>
+		<resource>
+			<type value="AppointmentResponse"/>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="vread"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="delete"/>
+			</interaction>
+			<interaction>
+				<code value="history-instance"/>
+			</interaction>
+			<interaction>
+				<code value="history-type"/>
+			</interaction>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<searchParam>
+				<name value="patient"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="practitioner"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="location"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="part-status"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="actor"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="identifier"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="appointment"/>
+				<type value="reference"/>
+			</searchParam>
+		</resource>
+		<resource>
+			<type value="Patient"/>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="vread"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="delete"/>
+			</interaction>
+			<interaction>
+				<code value="history-instance"/>
+			</interaction>
+			<interaction>
+				<code value="history-type"/>
+			</interaction>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<searchParam>
+				<name value="phone"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="phonetic"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="link"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="animal-species"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="organization"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="address-city"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="given"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="careprovider"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="family"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="death-date"/>
+				<type value="date"/>
+			</searchParam>
+			<searchParam>
+				<name value="name"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="telecom"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="birthdate"/>
+				<type value="date"/>
+			</searchParam>
+			<searchParam>
+				<name value="gender"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="deceased"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="animal-breed"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="address-country"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="address-state"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="address"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="email"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="address-use"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="active"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="language"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="identifier"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="address-postalcode"/>
+				<type value="string"/>
+			</searchParam>
+		</resource>
+		<resource>
+			<type value="Practitioner"/>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="vread"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="delete"/>
+			</interaction>
+			<interaction>
+				<code value="history-instance"/>
+			</interaction>
+			<interaction>
+				<code value="history-type"/>
+			</interaction>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<searchParam>
+				<name value="phone"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="phonetic"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="location"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="communication"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="address-country"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="organization"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="address-city"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="address-state"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="given"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="email"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="address"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="address-use"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="family"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="name"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="telecom"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="role"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="gender"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="specialty"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="identifier"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="address-postalcode"/>
+				<type value="string"/>
+			</searchParam>
+		</resource>
+		<resource>
+			<type value="Schedule"/>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="vread"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="delete"/>
+			</interaction>
+			<interaction>
+				<code value="history-instance"/>
+			</interaction>
+			<interaction>
+				<code value="history-type"/>
+			</interaction>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<searchParam>
+				<name value="actor"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="date"/>
+				<type value="date"/>
+			</searchParam>
+			<searchParam>
+				<name value="type"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="identifier"/>
+				<type value="token"/>
+			</searchParam>
+		</resource>
+		<resource>
+			<type value="Slot"/>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="vread"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="delete"/>
+			</interaction>
+			<interaction>
+				<code value="history-instance"/>
+			</interaction>
+			<interaction>
+				<code value="history-type"/>
+			</interaction>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<searchParam>
+				<name value="schedule"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="status"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="start"/>
+				<type value="date"/>
+			</searchParam>
+			<searchParam>
+				<name value="slot-type"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="identifier"/>
+				<type value="token"/>
+			</searchParam>
+		</resource>
+	</rest>
+</CapabilityStatement>

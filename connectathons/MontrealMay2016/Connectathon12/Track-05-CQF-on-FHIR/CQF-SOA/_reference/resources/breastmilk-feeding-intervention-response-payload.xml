@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GuidanceResponse xmlns="http://hl7.org/fhir" xmlns:ns2="http://www.w3.org/1999/xhtml">
+	<id value="0313925e-3bd2-4eb1-a4e8-b582d3ec63c0"/>
+	<contained>
+		<ProcedureRequest>
+			<id value="c2e06ea0-5f68-407d-8499-bab8afa11d28.0"/>
+			<subject>
+				<reference value="Patient/patient-mother"/>
+			</subject>
+			<code>
+				<coding>
+					<system value="http://example.org/documentation-templates"/>
+					<code value="breastfeeding-readiness-assessment"/>
+				</coding>
+			</code>
+			<scheduledDateTime value="2016-05-08T11:57:56-04:00"/>
+			<status value="proposed"/>
+		</ProcedureRequest>
+	</contained>
+	<contained>
+		<CommunicationRequest>
+			<id value="c2e06ea0-5f68-407d-8499-bab8afa11d28.1"/>
+			<recipient>
+				<reference value="Practitioner/primary-provider"/>
+			</recipient>
+			<payload>
+				<contentString value="A Breastfeeding Readiness Assessment is recommended, please authorize or reject the order."/>
+			</payload>
+			<status value="proposed"/>
+			<subject>
+				<reference value="Patient/patient-mother"/>
+			</subject>
+		</CommunicationRequest>
+	</contained>
+	<module>
+		<reference value="DecisionSupportServiceModule/ecrs-fhir-exclusive-breastfeeding-scenario"/>
+	</module>
+	<status value="success"/>
+	<action>
+		<textEquivalent value="Breastfeeding Readiness Assessment"/>
+		<type value="create"/>
+		<resource>
+			<reference value="#c2e06ea0-5f68-407d-8499-bab8afa11d28.0"/>
+		</resource>
+	</action>
+	<action>
+		<type value="create"/>
+		<resource>
+			<reference value="#c2e06ea0-5f68-407d-8499-bab8afa11d28.1"/>
+		</resource>
+	</action>
+</GuidanceResponse>

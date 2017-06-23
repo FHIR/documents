@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<parameter>
+		<name value="result"/>
+		<valueBoolean value="true"/>
+	</parameter>
+	<parameter>
+		<name value="match"/>
+		<part>
+			<name value="concept"/>
+			<valueCoding>
+				<system value="http://hl7.org/fhir/v3/AddressUse"/>
+				<code value="H"/>
+			</valueCoding>
+		</part>
+	</parameter>
+</Parameters>

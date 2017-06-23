@@ -1,0 +1,67 @@
+<Conformance xmlns="http://hl7.org/fhir">
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="Condition"/>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<searchParam>
+				<name value="date-recorded"/>
+				<type value="date"/>
+			</searchParam>
+			<searchParam>
+				<name value="asserter"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="onset"/>
+				<type value="date"/>
+			</searchParam>
+			<searchParam>
+				<name value="evidence"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="body-site"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="onset-info"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="severity"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="code"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="encounter"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="stage"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="category"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="patient"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="clinicalstatus"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="identifier"/>
+				<type value="token"/>
+			</searchParam>
+		</resource>
+	</rest>
+</Conformance>

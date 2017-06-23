@@ -1,0 +1,52 @@
+{
+  "resourceType": "Practitioner",
+  "id": "3204039",
+  "identifier": [
+    {
+      "use": "official",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "NPI",
+            "display": "National provider identifier"
+          }
+        ],
+        "text": "National Provider ID (NPI)"
+      },
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1265437362"
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "text": "GREGORY MULA",
+      "family": "MULA",
+      "given": [
+        "GREGORY"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "9855421334",
+      "use": "work"
+    }
+  ],
+  "gender": "male",
+  "qualification": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0360/2.7",
+            "code": "MD",
+            "display": "Doctor of Medicine"
+          }
+        ]
+      }
+    }
+  ]
+}

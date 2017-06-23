@@ -1,0 +1,635 @@
+<TestScript xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/fhir-all-xsd/conformance.xsd">
+	<id value="track7-laborder400-xml"/>
+	<url value="http://wildfhir.aegis.net/dstu2/TestScript/track7-laborder400-xml"/>
+	<version value="1.0"/>
+	<name value="FHIR Connectathon 11 - Track 7 - Lab Order Lab Report - XML Format - Test Order Number 400"/>
+	<status value="draft"/>
+	<publisher value="Health eData Inc, AEGIS.net, Inc."/>
+	<contact>
+		<name value="Eric M Haas"/>
+		<telecom>
+			<system value="email"/>
+			<value value="ehaas@healthedatainc@gmail.com"/>
+			<use value="temp"/>
+		</telecom>
+	</contact>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2015-12-17"/>
+	<description value="FHIR Connectathon 11 - Track 7 - Lab Order Lab Report - Test Order Number 400; resource format XML; Baseline DiagnosticOrder, Order, OrderResponse, DiagnosticReport, Observation, Specimen, Patient = Todd Lerr, Practitioner = Leonard BloodDraw, Practitioner = Gregory F House, Organization = Acme Labs to create, update, retrieve history and search with client assigned resource id."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="DiagnosticOrder, Order, OrderResponse, DiagnosticReport, Observation, Specimen and Patient Operations"/>
+	<copyright value="© Health eData Inc, © AEGIS.net, Inc. 2015+"/>
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Create, Read, Update and Delete Operations for all required resource types"/>
+			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#create"/>
+			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#read"/>
+			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#update"/>
+			<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#delete"/>
+			<conformance>
+				<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/conformance/LabOrderLabReport-CreateDeleteReadUpdate.xml"/>
+				<display value="Minimum supported resource types and operations to verify on the destination server"/>
+			</conformance>
+		</capability>
+	</metadata>
+	<fixture id="do-400">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/DiagnosticOrder/do-400.xml"/>
+			<display value="Diagnostic Order 400"/>
+		</resource>
+	</fixture>
+	<fixture id="do-400-update">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/DiagnosticOrder/do-400-update.xml"/>
+			<display value="Diagnostic Order 400 Updated status"/>
+		</resource>
+	</fixture>
+	<fixture id="order-400">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Order/order-400.xml"/>
+			<display value="Order 400"/>
+		</resource>
+	</fixture>
+	<fixture id="ordresp-400">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/OrderResponse/ordresp-400.xml"/>
+			<display value="Order Response 400"/>
+		</resource>
+	</fixture>
+	<fixture id="ordresp-410">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/OrderResponse/ordresp-410.xml"/>
+			<display value="Order Response 400 Updated status"/>
+		</resource>
+	</fixture>
+	<fixture id="org-uslab-example3">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Organization/org-uslab-example3.xml"/>
+			<display value="Acme Labs"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-uslab-example1">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Patient/patient-uslab-example1.xml"/>
+			<display value="Todd Lerr"/>
+		</resource>
+	</fixture>
+	<fixture id="pract-uslab-example1">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Practitioner/pract-uslab-example1.xml"/>
+			<display value="Leonard BloodDraw"/>
+		</resource>
+	</fixture>
+	<fixture id="pract-uslab-example3">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Practitioner/pract-uslab-example3.xml"/>
+			<display value="Gregory F House"/>
+		</resource>
+	</fixture>
+	<fixture id="spec-100">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Specimen/spec-100.xml"/>
+			<display value="Plasma Specimen"/>
+		</resource>
+	</fixture>
+	<fixture id="spec-400">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Specimen/spec-400.xml"/>
+			<display value="Stool Specimen"/>
+		</resource>
+	</fixture>
+	<fixture id="spec-uslab-example1">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Specimen/spec-uslab-example1.xml"/>
+			<display value="Blood"/>
+		</resource>
+	</fixture>
+	<fixture id="dr-400">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/DiagnosticReport/dr-400.xml"/>
+			<display value="Diagnostic Report 400"/>
+		</resource>
+	</fixture>
+	<fixture id="obs-400">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Observation/obs-400.xml"/>
+			<display value="Observation 400"/>
+		</resource>
+	</fixture>
+	<fixture id="obs-401">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Observation/obs-401.xml"/>
+			<display value="Observation 401"/>
+		</resource>
+	</fixture>
+	<fixture id="obs-407">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Observation/obs-407.xml"/>
+			<display value="Observation 407"/>
+		</resource>
+	</fixture>
+	<fixture id="obs-406">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Observation/obs-406.xml"/>
+			<display value="Observation 406"/>
+		</resource>
+	</fixture>
+	<fixture id="obs-405">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Observation/obs-405.xml"/>
+			<display value="Observation 405"/>
+		</resource>
+	</fixture>
+	<fixture id="obs-404">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Observation/obs-404.xml"/>
+			<display value="Observation 404"/>
+		</resource>
+	</fixture>
+	<fixture id="obs-402">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Observation/obs-402.xml"/>
+			<display value="Observation 402"/>
+		</resource>
+	</fixture>
+	<fixture id="obs-408">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Observation/obs-408.xml"/>
+			<display value="Observation 408"/>
+		</resource>
+	</fixture>
+	<fixture id="obs-403">
+		<resource>
+			<reference value="/Connectathon11/Track7-LabOrderLabReport/_reference/resources/Observation/obs-403.xml"/>
+			<display value="Observation 403"/>
+		</resource>
+	</fixture>
+	<!--
+	<profile id="patient-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+	</profile>
+	-->
+	<variable>
+		<name value="do-400-resourceId"/>
+		<path value="DiagnosticOrder/id"/>
+		<sourceId value="do-400"/>
+	</variable>
+	<variable>
+		<name value="do-400-identifier"/>
+		<path value="DiagnosticOrder/identifier/value"/>
+		<sourceId value="do-400"/>
+	</variable>
+	<variable>
+		<name value="do-400-update-resourceId"/>
+		<path value="DiagnosticOrder/id"/>
+		<sourceId value="do-400-update"/>
+	</variable>
+	<variable>
+		<name value="do-400-update-identifier"/>
+		<path value="DiagnosticOrder/identifier/value"/>
+		<sourceId value="do-400-update"/>
+	</variable>
+	<variable>
+		<name value="dr-400-resourceId"/>
+		<path value="DiagnosticReport/id"/>
+		<sourceId value="dr-400"/>
+	</variable>
+	<variable>
+		<name value="dr-400-identifier"/>
+		<path value="DiagnosticReport/identifier/value"/>
+		<sourceId value="dr-400"/>
+	</variable>
+	<variable>
+		<name value="order-400-resourceId"/>
+		<path value="Order/id"/>
+		<sourceId value="order-400"/>
+	</variable>
+	<variable>
+		<name value="order-400-identifier"/>
+		<path value="Order/identifier/value"/>
+		<sourceId value="order-400"/>
+	</variable>
+	<variable>
+		<name value="ordresp-400-resourceId"/>
+		<path value="OrderResponse/id"/>
+		<sourceId value="ordresp-400"/>
+	</variable>
+	<variable>
+		<name value="ordresp-400-identifier"/>
+		<path value="OrderResponse/identifier/value"/>
+		<sourceId value="ordresp-400"/>
+	</variable>
+	<variable>
+		<name value="ordresp-410-resourceId"/>
+		<path value="OrderResponse/id"/>
+		<sourceId value="ordresp-410"/>
+	</variable>
+	<variable>
+		<name value="ordresp-410-identifier"/>
+		<path value="OrderResponse/identifier/value"/>
+		<sourceId value="ordresp-410"/>
+	</variable>
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="DiagnosticOrder"/>
+				<description value="Use a conditional delete operation to insure the DiagnosticOrder do-400 does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${do-400-identifier}"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="Order"/>
+				<description value="Use a conditional delete operation to insure the Order order-400 does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${order-400-identifier}"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="DiagnosticOrder"/>
+				<description value="Use a conditional delete operation to insure the DiagnosticOrder do-400-update does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${do-400-update-identifier}"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="OrderResponse"/>
+				<description value="Use a conditional delete operation to insure the OrderResponse ordresp -400 does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${ordresp-400-identifier}"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="OrderResponse"/>
+				<description value="Use a conditional delete operation to insure the OrderResponce ordresp -410 does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${ordresp-410-identifier}"/>
+			</operation>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="delete"/>
+				</type>
+				<resource value="DiagnosticResponse"/>
+				<description value="Use a conditional delete operation to insure the DiagnosticResponse dr-400 does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${dr-400-identifier}"/>
+			</operation>
+		</action>
+	</setup>
+	<test id="Step1-OrderNewLabTest">
+		<name value="Step1-OrderNewLabTest"/>
+		<description value="Order Client posts DiagnosticOrder to Order Manager Server, and Order Client posts Order containing a reference to DiagnosticOrder to the OM Server saying 'Do this' (i.e. have a laboratory perform the test"/>
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="DiagnosticOrder"/>
+				<description value="Step 1.1 - Create DiagnosticOrder do-400 with client assigned resource id."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${do-400-resourceId}"/>
+				<sourceId value="do-400"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is either 200(OK) or 201(CREATED)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML. Warning only until this TestScript has been verified accurate."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="Order"/>
+				<description value="Step 1.2 - Create Order order-400 with client assigned resource id."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${order-400-resourceId}"/>
+				<sourceId value="order-400"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is either 200(OK) or 201(CREATED)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML. Warning only until this TestScript has been verified accurate."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+	<test id="Step2-AcceptNewLabOrder">
+		<name value="Step2-AcceptNewLabOrder"/>
+		<description value="Fulfillment Client monitors OM server for Order resources (and changes to them) assigned to them via poll, Fulfillment Client posts OrderResponse to OM Server referencing Order and agreeing to fulfill DiagnosticOrder , and Order Client monitors OM Server for OrderResponse resources pointing to Orders they own via polling. and gets OrderResponse as part of query response "/>
+		<action>
+			<operation>
+				<type>
+					<code value="read"/>
+				</type>
+				<resource value="Order"/>
+				<description value="Step 2.1 - Fulfillment Client reads assigned Order order-400."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${order-400-resourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="OrderResponse"/>
+				<description value="Step 2.2 - Fulfillment Client posts OrderResponse ordresp-400 to OM Server referencing Order and agreeing to fulfill DiagnosticOrder do-400."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${ordresp-400-resourceId}"/>
+				<sourceId value="ordresp-400"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is either 200(OK) or 201(CREATED)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML. Warning only until this TestScript has been verified accurate."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="search"/>
+				</type>
+				<resource value="OrderResponse"/>
+				<description value="Step 2.3 - Order Client monitors (searches) OM Server for OrderResponse resources pointing to Orders they own via polling and gets OrderResponse ordresp-400 as part of query response."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?request=Order/${order-400-resourceId}&amp;code=accepted"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML. Warning only until this TestScript has been verified accurate."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle. Warning only until this TestScript has been verified accurate."/>
+				<resource value="Bundle"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other order response records returned. Warning only until this TestScript has been verified accurate."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that bundle contains the first OrderResponse. Warning only until this TestScript has been verified accurate."/>
+				<operator value="equals"/>
+				<path value="OrderResponse/id"/>
+				<value value="ordresp-400"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+	<test id="Step3-FulfillLabOrder">
+		<name value="Step3-FulfillLabOrder"/>
+		<description value=" Fulfillment Client posts DiagnosticReport to OM Server referencing DiagnosticOrder, Fulfillment Client posts OrderResponse referencing the DiagnosticReport and Order and indicating they believe order is fulfilled to the OM Server. "/>
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="DiagnosticReport"/>
+				<description value="Step 3.1 - Fulfillment Client posts DiagnosticReport dr-400 to OM Server referencing DiagnosticOrder do-400."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${dr-400-resourceId}"/>
+				<sourceId value="dr-400"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is either 200(OK) or 201(CREATED)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML. Warning only until this TestScript has been verified accurate."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="OrderResponse"/>
+				<description value="Step 3.2 - Fulfillment Client posts OrderResponse referencing the DiagnosticReport and Order and indicating they believe order is fulfilled to the OM Server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${ordresp-410-resourceId}"/>
+				<sourceId value="ordresp-410"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is either 200(OK) or 201(CREATED)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML. Warning only until this TestScript has been verified accurate."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+	<test id="Step4-ReceiveLabResults">
+		<name value="Step4-ReceiveLabResults"/>
+		<description value=" Order Client monitors OM Server for OrderResponse resources pointing to Orders they own via polling. Order Client gets 2nd OrderResponse as part of query. Order Client retrieves DiagnosticReport. Order Client updates DiagnosticOrder to indicate they are completed."/>
+		<action>
+			<operation>
+				<type>
+					<code value="search"/>
+				</type>
+				<resource value="OrderResponse"/>
+				<description value="Step 4.1 - Order Client monitors OM Server for OrderResponse resources pointing to Orders they own via polling. Order Client gets 2nd OrderResponse as part of query."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?request=Order/${order-400-resourceId}&amp;code=completed"/>
+				<!--is this a chained request on OR-->
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML. Warning only until this TestScript has been verified accurate."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle. Warning only until this TestScript has been verified accurate."/>
+				<resource value="Bundle"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other order response records returned. Warning only until this TestScript has been verified accurate."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that bundle contains the second OrderResponse. Warning only until this TestScript has been verified accurate."/>
+				<operator value="equals"/>
+				<path value="OrderResponse/id"/>
+				<value value="ordresp-410"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="read"/>
+				</type>
+				<resource value="DiagnosticReport"/>
+				<description value="Step 4.2 - Order Client retrieves DiagnosticReport."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${dr-400-resourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<operation>
+				<type>
+					<code value="update"/>
+				</type>
+				<resource value="DiagnosticOrder"/>
+				<description value="Step 4.3 - Order Client updates DiagnosticOrder to indicate they are completed."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${do-400-resourceId}"/>
+				<sourceId value="do-400-update"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is either 200(OK) or 201(CREATED)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML. Warning only until this TestScript has been verified accurate."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

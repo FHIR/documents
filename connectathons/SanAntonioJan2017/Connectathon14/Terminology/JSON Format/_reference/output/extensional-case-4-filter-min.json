@@ -1,0 +1,30 @@
+{
+  "resourceType": "ValueSet",
+  "url": "http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-4",
+  "identifier": [
+    {
+      "value": "extensional-case-4"
+    }
+  ],
+  "status": "draft",
+  "experimental": true,
+  "expansion": {
+    "contains": [
+      {
+        "system": "http://hl7.org/fhir/v3/RoleCode",
+        "code": "CHILD",
+        "display": "child"
+      },
+      {
+        "system": "http://hl7.org/fhir/v3/RoleCode",
+        "code": "FTH",
+        "display": "father"
+      },
+      {
+        "system": "http://hl7.org/fhir/v3/RoleCode",
+        "code": "MTH",
+        "display": "mother"
+      }
+    ]
+  }
+}

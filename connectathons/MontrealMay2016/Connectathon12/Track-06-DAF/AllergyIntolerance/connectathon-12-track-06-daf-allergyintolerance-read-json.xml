@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-12-track-06-daf-allergyintolerance-read-json"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-12-track-06-daf-allergyintolerance-read-json"/>
+	<name value="FHIR Connectathon 12 - Track 06 - DAF - Read DAF AllergyIntolerance; format JSON"/>
+	<status value="active"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-04-07"/>
+	<description value="FHIR Connectathon 12 - Track 06 - DAF - Read DAF AllergyIntolerance; resource format JSON; validate against the FHIR AllergyIntolerance and DAF profiles."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="AllergyIntolerance Read Operation"/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="AllergyIntolerance read operation"/>
+			<link value="http://hl7.org/fhir/http.html#read"/>
+			<conformance>
+				<reference value="../_reference/conformance/AllergyIntoleranceRead.xml" />
+			</conformance>
+		</capability>
+	</metadata>
+
+	<profile id="allergyintoleranceProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" />
+	</profile>
+	<profile id="daf-allergyintoleranceProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/daf-allergyintolerance"/>
+	</profile>
+
+	<variable>
+		<name value="AllergyIntoleranceResourceId"/>
+		<defaultValue value="[Resource Id]"/>
+	</variable>
+
+	<test id="01-DAFAllergyIntoleranceRead">
+		<name value="01-DAFAllergyIntoleranceRead"/>
+		<description value="FHIR Connectathon 12 - Track 06 - DAF - AllergyIntolerance read operation; validate against the FHIR AllergyIntolerance and DAF profiles."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="AllergyIntolerance"/>
+				<description value="Test read operation for a user identified AllergyIntolerance."/>
+				<accept value="json"/>
+				<params value="/${AllergyIntoleranceResourceId}" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is AllergyIntolerance."/>
+				<resource value="AllergyIntolerance"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR AllergyIntolerance profile."/>
+				<validateProfileId value="allergyintoleranceProfile"/>
+			</assert>
+		</action>		
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the DAF AllergyIntolerance profile. Warning only at this time due to potential DAF profile issue within the current FHIR STU 3 Candidate specification."/>
+				<validateProfileId value="daf-allergyintoleranceProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

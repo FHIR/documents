@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Sequence xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Type: DNA; ReferenceSeqId Start: 55227970, End:55227980</div>
+	</text>
+	<identifier>
+		<system value="http://happyvalley.com/sequence"/>
+		<value value="${CD8}${D10}"/>
+	</identifier>
+	<type value="DNA"/>
+	<coordinateSystem value="0"/>
+	<patient>
+		<reference value="Patient/${createPatientId}"/>
+	</patient>
+	<referenceSeq>
+		<referenceSeqId>
+			<coding>
+				<system value="http://www.ncbi.nlm.nih.gov/nuccore"/>
+				<code value="NC_000007.14"/>
+			</coding>
+		</referenceSeqId>
+		<strand value="1"/>
+		<windowStart value="55227970"/>
+		<windowEnd value="55227980"/>
+	</referenceSeq>
+	<variant>
+		<start value="55227976"/>
+		<end value="55227977"/>
+		<observedAllele value="T"/>
+		<referenceAllele value="A"/>
+	</variant>
+	<quality>
+		<start value="55227976"/>
+		<end value="55227977"/>
+		<score>
+			<value value="1.0"/>
+		</score>
+	</quality>
+	<repository>
+		<url value="https://www.googleapis.com/genomics/v1beta2"/>
+		<name value="ga4gh"/>
+		<variantId value="A1A2"/>
+	</repository>
+</Sequence>

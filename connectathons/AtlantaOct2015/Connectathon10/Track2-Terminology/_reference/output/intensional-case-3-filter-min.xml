@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<identifier>
+		<value value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-3"/>
+	</identifier>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<expansion>
+		<!-- must be less than 100 (arbitrary number: there must be some filtering), but the actual contents aren't tested -->
+		<identifier />
+		<timestamp />
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="57883007"/>
+			<display value="Renin test diet (finding)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="95583008"/>
+			<display value="Ectopic renin secretion (finding)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="102799005"/>
+			<display value="Normal renin secretion (finding)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="102800009"/>
+			<display value="Abnormal renin secretion (finding)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="102802001"/>
+			<display value="Decreased renin secretion (finding)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="102801008"/>
+			<display value="Increased renin secretion (finding)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="102803006"/>
+			<display value="Absence of renin secretion (disorder)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="124504004"/>
+			<display value="Deficiency of renin (disorder)"/>
+		</contains>
+		<contains>
+			<system value="http://snomed.info/sct"/>
+			<code value="307618001"/>
+			<display value="Juxtaglomerular tumor (disorder)"/>
+		</contains>
+	</expansion>
+</ValueSet>

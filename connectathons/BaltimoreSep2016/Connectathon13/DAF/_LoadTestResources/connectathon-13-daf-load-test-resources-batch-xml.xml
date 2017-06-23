@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-13-daf-load-test-resources-batch-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-13-daf-load-test-resources-batch-xml"/>
+	<name value="FHIR Connectathon 13 - DAF - Load Test Resources - XML - Batch"/>
+	<status value="draft"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-08-29"/>
+	<description value="[OPTIONAL] Load (create) DAF test resources using the batch operation of the target FHIR server for use in FHIR Connectathon 12 Track 06 DAF tests. All resource ids are pre-defined. The target FHIR server is expected to support resource create via the update (PUT) operation for client assigned ids."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="AllergyIntolerance, Condition, MedicationStatement, Observation and Patient Batch, Create and Update Operations"/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Batch, Create and Update Operations"/>
+			<link value="http://hl7.org/fhir/2016Sep/http.html#create"/>
+			<link value="http://hl7.org/fhir/2016Sep/http.html#transaction"/>
+			<link value="http://hl7.org/fhir/2016Sep/http.html#update"/>
+			<conformance>
+				<reference value="../_reference/conformance/LoadTestResourcesBatch.xml" />
+			</conformance>
+		</capability>
+	</metadata>	
+
+	<fixture id="loadtestresources-batch">
+		<resource>
+			<reference value="BatchBundle.xml"/>
+		</resource>
+	</fixture>
+
+
+	<!-- No Setup -->
+
+	<test id="Step1-LoadTestResourceBatch">
+		<name value="Step1-LoadTestResourceBatch"/>
+		<description value="[OPTIONAL] Load (create) DAF test resources using the batch operation of the target FHIR server for use in FHIR Connectathon 12 Track 06 DAF tests."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="batch"/>
+				</type>
+				<description value="[OPTIONAL] Load (create) DAF test resources using the batch operation."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="loadtestresources-batch"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle is of type batch-response."/>
+				<operator value="equals"/>
+				<path value="/Bundle/type"/>
+				<value value="batch-response"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

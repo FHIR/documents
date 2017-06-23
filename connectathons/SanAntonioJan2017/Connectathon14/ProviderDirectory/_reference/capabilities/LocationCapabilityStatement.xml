@@ -1,0 +1,39 @@
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+	<status value="draft"/>
+	<date value="2016-12-06T09:48:00-05:00"/>
+	<description value="FHIR CapabilityStatement"/>
+	<kind value="capability"/>
+	<fhirVersion value="1.8.0"/>
+	<acceptUnknown value="both"/>
+	<format value="xml"/>
+	<format value="json"/>
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="Location"/>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<searchParam>
+				<name value="name"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="address"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="address-city"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="address-postalcode"/>
+				<type value="string"/>
+			</searchParam>
+			<searchParam>
+				<name value="address-state"/>
+				<type value="string"/>
+			</searchParam>
+		</resource>
+	</rest>
+</CapabilityStatement>

@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-12-track-05-cqf-cdc-imm-evaluate-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-12-track-05-cqf-cdc-imm-evaluate-xml"/>
+	<name value="FHIR Connectathon 12 - Track 05 - CQF on FHIR - Evaluate CDC Immunization - XML"/>
+	<status value="draft"/>
+	<publisher value="Database Consulting Group, AEGIS.net, Inc."/>
+	<contact>
+		<name value="Bryn Rhodes"/>
+		<telecom>
+			<system value="email"/>
+			<value value="bryn@databaseconsultinggroup.com"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-04-20"/>
+	<description value="Evaluate CDC Immunization tests against the DecisionSupportServiceModule. Variations of tests include valid, incomplete and malformed payloads, and unauthorized requests."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="DecisionSupportServiceModule Evaluate Operation"/>
+	<copyright value="Â© Database Consulting Group 2015+, Â© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<validated value="true"/>
+			<description value="DecisionSupportServiceModule $evaluate operation"/>
+			<link value="http://hl7.org/fhir/2016May/decisionsupportservicemodule-operations.html#evaluate"/>
+			<conformance>
+				<reference value="_reference/conformance/DecisionSupportServiceModule-Evaluate.xml"/>
+				<display value="Minimum supported resource types and operations to verify on the destination server"/>
+			</conformance>
+		</capability>
+	</metadata>	
+
+	<fixture id="ecrs-fhir-cdc-immunizations-incomplete-request-payload">
+		<resource>
+			<reference value="_reference/resources/ecrs-fhir-cdc-immunizations-incomplete-request-payload.xml"/>
+			<display value="Incomplete CDC Immunization request payload"/>
+		</resource>
+	</fixture>
+	<fixture id="ecrs-fhir-cdc-immunizations-incomplete-response-min-payload">
+		<resource>
+			<reference value="_reference/resources/ecrs-fhir-cdc-immunizations-incomplete-response-min-payload.xml"/>
+			<display value="Incomplete CDC Immunization response payload"/>
+		</resource>
+	</fixture>
+	<fixture id="ecrs-fhir-cdc-immunizations-incomplete-response-payload">
+		<resource>
+			<reference value="_reference/resources/ecrs-fhir-cdc-immunizations-incomplete-response-payload.xml"/>
+			<display value="Incomplete CDC Immunization response payload"/>
+		</resource>
+	</fixture>
+	<fixture id="ecrs-fhir-cdc-immunizations-malformed-request-payload">
+		<resource>
+			<reference value="_reference/resources/ecrs-fhir-cdc-immunizations-malformed-request-payload.xml"/>
+			<display value="Malformed CDC Immunization request payload"/>
+		</resource>
+	</fixture>
+	<fixture id="ecrs-fhir-cdc-immunizations-malformed-response-min-payload">
+		<resource>
+			<reference value="_reference/resources/ecrs-fhir-cdc-immunizations-malformed-response-min-payload.xml"/>
+			<display value="Malformed CDC Immunization response payload"/>
+		</resource>
+	</fixture>
+	<fixture id="ecrs-fhir-cdc-immunizations-malformed-response-payload">
+		<resource>
+			<reference value="_reference/resources/ecrs-fhir-cdc-immunizations-malformed-response-payload.xml"/>
+			<display value="Malformed CDC Immunization response payload"/>
+		</resource>
+	</fixture>
+	<fixture id="ecrs-fhir-cdc-immunizations-request-payload">
+		<resource>
+			<reference value="_reference/resources/ecrs-fhir-cdc-immunizations-request-payload.xml"/>
+			<display value="CDC Immunization request payload"/>
+		</resource>
+	</fixture>
+	<fixture id="ecrs-fhir-cdc-immunizations-response-min-payload">
+		<resource>
+			<reference value="_reference/resources/ecrs-fhir-cdc-immunizations-response-min-payload.xml"/>
+			<display value="CDC Immunization response payload"/>
+		</resource>
+	</fixture>
+	<fixture id="ecrs-fhir-cdc-immunizations-response-payload">
+		<resource>
+			<reference value="_reference/resources/ecrs-fhir-cdc-immunizations-response-payload.xml"/>
+			<display value="CDC Immunization response payload"/>
+		</resource>
+	</fixture>
+	<fixture id="ecrs-fhir-cdc-immunizations-unauthorized-request-payload">
+		<resource>
+			<reference value="_reference/resources/ecrs-fhir-cdc-immunizations-unauthorized-request-payload.xml"/>
+			<display value="Unauthorized CDC Immunization request payload"/>
+		</resource>
+	</fixture>
+	<fixture id="ecrs-fhir-cdc-immunizations-unauthorized-response-min-payload">
+		<resource>
+			<reference value="_reference/resources/ecrs-fhir-cdc-immunizations-unauthorized-response-min-payload.xml"/>
+			<display value="Unauthorized CDC Immunization response payload"/>
+		</resource>
+	</fixture>
+	<fixture id="ecrs-fhir-cdc-immunizations-unauthorized-response-payload">
+		<resource>
+			<reference value="_reference/resources/ecrs-fhir-cdc-immunizations-unauthorized-response-payload.xml"/>
+			<display value="Unauthorized CDC Immunization response payload"/>
+		</resource>
+	</fixture>
+
+	<test id="01-evaluate-cdc-immunization">
+		<name value="EvaluateWithCDCImmunizationPayload"/>
+		<description value="Test the $evaluate operation of the DecisionSupportServiceModule resource."/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="evaluate"/>
+				</type>
+				<description value="Test the $evaluate operation of the DecisionSupportServiceModule with CDC Immunization payload. The destination server is expected to have the DecisionSupportServiceModule/ecrs-fhir-cdc-immunizations instance in its repository."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="DecisionSupportServiceModule/ecrs-fhir-cdc-immunizations/$evaluate"/>
+				<responseId value="evaluate-actual-response-payload"/> <!-- Not needed until subsequent tests are defined that require this reference. -->
+				<sourceId value="ecrs-fhir-cdc-immunizations-request-payload"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is GuidanceResponse."/>
+				<resource value="GuidanceResponse"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned GuidanceResponse contains the minimum expected content."/>
+				<minimumId value="ecrs-fhir-cdc-immunizations-response-min-payload"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-evaluate-cdc-immunization-incomplete">
+		<name value="EvaluateWithIncompleteCDCImmunizationPayload"/>
+		<description value="Test the $evaluate operation of the DecisionSupportServiceModule resource."/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="evaluate"/>
+				</type>
+				<description value="Test the $evaluate operation of the DecisionSupportServiceModule with an incomplete CDC Immunization payload. The destination server is expected to have the DecisionSupportServiceModule/ecrs-fhir-cdc-immunizations instance in its repository."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="DecisionSupportServiceModule/ecrs-fhir-cdc-immunizations/$evaluate"/>
+				<responseId value="evaluate-actual-response-payload"/> <!-- Not needed until subsequent tests are defined that require this reference. -->
+				<sourceId value="ecrs-fhir-cdc-immunizations-incomplete-request-payload"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is GuidanceResponse."/>
+				<resource value="GuidanceResponse"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned GuidanceResponse contains the minimum expected content."/>
+				<minimumId value="ecrs-fhir-cdc-immunizations-incomplete-response-min-payload"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-evaluate-cdc-immunization-malformed">
+		<name value="EvaluateWithMalformedCDCImmunizationPayload"/>
+		<description value="Test the $evaluate operation of the DecisionSupportServiceModule resource."/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="evaluate"/>
+				</type>
+				<description value="Test the $evaluate operation of the DecisionSupportServiceModule with a malformed CDC Immunization payload. The destination server is expected to have the DecisionSupportServiceModule/ecrs-fhir-cdc-immunizations instance in its repository."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="DecisionSupportServiceModule/ecrs-fhir-cdc-immunizations/$evaluate"/>
+				<responseId value="evaluate-actual-response-payload"/> <!-- Not needed until subsequent tests are defined that require this reference. -->
+				<sourceId value="ecrs-fhir-cdc-immunizations-malformed-request-payload"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is GuidanceResponse."/>
+				<resource value="GuidanceResponse"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned GuidanceResponse contains the minimum expected content."/>
+				<minimumId value="ecrs-fhir-cdc-immunizations-malformed-response-min-payload"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="04-evaluate-cdc-immunization-unauthorized">
+		<name value="EvaluateWithUnauthorizedCDCImmunizationPayload"/>
+		<description value="Test the $evaluate operation of the DecisionSupportServiceModule resource."/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="evaluate"/>
+				</type>
+				<description value="Test the $evaluate operation of the DecisionSupportServiceModule with an unauthorized CDC Immunization payload. The destination server is expected to have the DecisionSupportServiceModule/ecrs-fhir-cdc-immunizations instance in its repository."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="DecisionSupportServiceModule/ecrs-fhir-cdc-immunizations/$evaluate"/>
+				<responseId value="evaluate-actual-response-payload"/> <!-- Not needed until subsequent tests are defined that require this reference. -->
+				<sourceId value="ecrs-fhir-cdc-immunizations-unauthorized-request-payload"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<resource value="OperationOutcome"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned GuidanceResponse contains the minimum expected content."/>
+				<minimumId value="ecrs-fhir-cdc-immunizations-unauthorized-response-min-payload"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

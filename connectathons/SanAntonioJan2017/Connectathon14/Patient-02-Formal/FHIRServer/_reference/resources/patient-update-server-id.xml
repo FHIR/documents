@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+	<id value="${patientResourceId}"/>
+	<identifier>
+		<use value="usual"/>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0203"/>
+				<code value="MR"/>
+			</coding>
+		</type>
+		<system value="urn:oid:1.2.36.146.595.217.0.1"/>
+		<value value="${CD12}${D6}"/>
+		<period>
+			<start value="2001-05-06"/>
+		</period>
+		<assigner>
+			<display value="Acme Healthcare"/>
+		</assigner>
+	</identifier>
+	<active value="true"/>
+	<name>
+		<use value="official"/>
+		<family value="Chalmers${C6}"/>
+		<given value="Peter${C6}"/>
+	</name>
+	<telecom>
+		<system value="phone"/>
+		<value value="(0${D1}) ${D4} ${D4}"/>
+		<use value="work"/>
+	</telecom>
+	<gender value="male"/>
+	<birthDate value="1973-12-25"/>
+	<deceasedBoolean value="false"/>
+	<address>
+		<use value="home"/>
+		<line value="${D3} Erewhon${C6} St"/>
+		<city value="PleasantVille${C6}"/>
+		<state value="Vic${C6}"/>
+		<postalCode value="3999"/>
+	</address>
+	<contact>
+		<relationship>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0131"/>
+				<code value="CP"/>
+			</coding>
+		</relationship>
+		<name>
+			<family value="du Marché"/>
+			<given value="Bénédicte"/>
+		</name>
+		<telecom>
+			<system value="phone"/>
+			<value value="+33 (237) 998327"/>
+		</telecom>
+		<gender value="female"/>
+		<period>
+			<start value="2012"/>
+		</period>
+	</contact>
+</Patient>

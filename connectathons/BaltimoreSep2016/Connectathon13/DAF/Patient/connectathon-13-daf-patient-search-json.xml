@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-13-daf-patient-search-json"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-13-daf-patient-search-json"/>
+	<name value="FHIR Connectathon 13 - DAF - Search DAF Patient; format JSON"/>
+	<status value="active"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-08-29"/>
+	<description value="FHIR Connectathon 13 - DAF - Search DAF Patient; resource format JSON; test a FHIR server's Patient search operation for the DAF search parameters: race and ethnicity, and the required minimum search parameters: name, family, given, identifier, gender, and birthdate."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="Patient Read and DAF Profile Search Operations"/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Patient read operation"/>
+			<link value="http://hl7.org/fhir/2016Sep/http.html#read"/>
+			<conformance>
+				<reference value="../_reference/conformance/PatientRead.xml"/>
+			</conformance>
+		</capability>
+		<capability>
+			<required value="true"/>
+			<description value="Patient search operation with DAF extensions"/>
+			<link value="http://hl7.org/fhir/2016Sep/http.html#search"/>
+			<link value="http://hl7.org/fhir/us/daf/2016Sep/daf-core-patient.html"/>
+			<conformance>
+				<reference value="../_reference/conformance/PatientSearchTypeExtensions.xml"/>
+			</conformance>
+		</capability>
+	</metadata>
+
+	<profile id="patientProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+	</profile>
+	<profile id="daf-patientProfile">
+		<reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-patient"/>
+	</profile>
+
+	<variable>
+		<name value="PatientResourceId"/>
+		<defaultValue value="dafpid-1001"/>
+	</variable>
+	<variable>
+		<name value="searchParamBirthdate"/>
+		<path value="Patient/birthDate"/>
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamEthnicity"/>
+		<path value="$.extension[?(@.url='http://hl7.org/fhir/StructureDefinition/us-core-ethnicity')].valueCodeableConcept.coding[0].code"/>
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamFamily"/>
+		<path value="Patient/name/family"/>
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamGender"/>
+		<path value="Patient/gender"/>
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamGiven"/>
+		<path value="Patient/name/given"/>
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamIdentifier"/>
+		<path value="Patient/identifier/value"/>
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamRace"/>
+		<path value="$.extension[?(@.url='http://hl7.org/fhir/StructureDefinition/us-core-race')].valueCodeableConcept.coding[0].code"/>
+		<sourceId value="read-response"/>
+	</variable>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Setup performs an initial read operation for the user-defined Patient in the destination server. All search criteria parameter values are populated from this Patient resource."/>
+				<accept value="json"/>
+				<params value="/${PatientResourceId}"/>
+				<responseId value="read-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Patient."/>
+				<resource value="Patient"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource type conforms to the base FHIR Patient profile. Warning only at this time due to STU3 Ballot validation engine issues."/>
+				<validateProfileId value="patientProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource type conforms to the DAF Patient profile. Warning only at this time due to potential DAF profile issue within the current FHIR STU 3 Candidate specification."/>
+				<validateProfileId value="daf-patientProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Patient resource contains a birthDate value."/>
+				<operator value="notEmpty"/>
+				<path value="Patient/birthDate"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Patient resource contains a name/family value."/>
+				<operator value="notEmpty"/>
+				<path value="Patient/name/family"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Patient resource contains a gender value."/>
+				<operator value="notEmpty"/>
+				<path value="Patient/gender"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Patient resource contains a name/given value."/>
+				<operator value="notEmpty"/>
+				<path value="Patient/name/given"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Patient resource contains an identifier/value value."/>
+				<operator value="notEmpty"/>
+				<path value="Patient/identifier/value"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Patient resource contains an ethnicity extension value."/>
+				<operator value="notEmpty"/>
+				<path value="$.extension[?(@.url='http://hl7.org/fhir/StructureDefinition/us-core-ethnicity')].valueCodeableConcept.coding[0].code"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Patient resource contains a race extension value."/>
+				<operator value="notEmpty"/>
+				<path value="$.extension[?(@.url='http://hl7.org/fhir/StructureDefinition/us-core-race')].valueCodeableConcept.coding[0].code"/>
+			</assert>
+		</action>
+	</setup>
+
+	<test id="01-DAFsearchParamName">
+		<name value="01-DAFsearchParamName"/>
+		<description value="FHIR Connectathon 13 - DAF - Patient search operation using the name search parameter."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for patients using the name search parameter. The actual value used is the family portion of the name."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?name=${searchParamFamily}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other patient records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-DAFsearchParamFamilyGiven">
+		<name value="02-DAFsearchParamFamilyGiven"/>
+		<description value="FHIR Connectathon 13 - DAF - Patient search operation using the family and given search parameters."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for patients using the family and given search parameters."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?given=${searchParamGiven}&amp;family=${searchParamFamily}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other patient records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-DAFsearchParamIdentifier">
+		<name value="03-DAFsearchParamIdentifier"/>
+		<description value="FHIR Connectathon 13 - DAF - Patient search operation using the identifier search parameter."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for patients using the identifier search parameter."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?identifier=${searchParamIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other patient records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="04-DAFsearchParamGenderBirthdate">
+		<name value="04-DAFDAFsearchParamGenderBirthdate"/>
+		<description value="FHIR Connectathon 13 - DAF - Patient search operation using the gender and birthdate search parameters."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for patients using the gender and birthdate search parameters."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?gender=${searchParamGender}&amp;birthdate=${searchParamBirthdate}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other patient records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="05-DAFsearchParamIdentifierRaceEthnicity">
+		<name value="05-DAFsearchParamIdentifierRaceEthnicity"/>
+		<description value="FHIR Connectathon 13 - DAF - Patient search operation using the identifier search parameter and the DAF race and ethnicity search parameters."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for patients using the identifier search parameter and the DAF race and ethnicity search parameters."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<params value="?identifier=${searchParamIdentifier}&amp;race=${searchParamRace}&amp;ethnicity=${searchParamEthnicity}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other patient records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

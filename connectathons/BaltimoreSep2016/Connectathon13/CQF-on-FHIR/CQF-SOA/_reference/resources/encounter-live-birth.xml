@@ -1,0 +1,72 @@
+<Encounter xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Encounter with patient Mary Jones.</div>
+  </text> 
+  <status value="in-progress"/>
+ <class>
+	 <code value="inpatient"/>
+  </class>
+  <type>
+	  <coding>
+		  <system value="http://snomed.info/sct"/>
+		  <code value="32485007"/>
+		  <display value="Hospital admission (procedure)"/>
+	  </coding>
+	  <text value="Hospital admission"/>
+  </type>
+  <patient>
+    <reference value="Patient/patient-mother"/>
+  </patient>
+  <participant>
+	  <type>
+		  <coding>
+			  <system value="http://hl7.org/fhir/participant-type"/>
+			  <code value="PPRF"/>
+			  <display value="Primary performer"/>
+		  </coding>
+		  <text value="Primary performer"/>
+	  </type>
+	  <individual>
+		  <reference value="Practitioner/practitioner-primary-provider"/>
+	  </individual>
+  </participant>
+  <participant>
+	  <type>
+		  <coding>
+			  <system value="http://hl7.org/fhir/participant-type"/>
+			  <code value="SPRF"/>
+			  <display value="Secondary performer"/>
+		  </coding>
+		  <text value="Secondary performer"/>
+	  </type>
+	  <individual>
+		  <reference value="Practitioner/practitioner-charge-nurse"/>
+	  </individual>
+  </participant>
+  <participant>
+	  <type>
+		  <coding>
+			  <system value="http://hl7.org/fhir/participant-type"/>
+			  <code value="ATND"/>
+			  <display value="Attender"/>
+		  </coding>
+		  <text value="Attender"/>
+	  </type>
+	  <individual>
+		  <reference value="Practitioner/practitioner-bedside-nurse"/>
+	  </individual>
+  </participant>
+  <reason> 
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="169826009"/>
+      <display value="Single live birth (finding)"/>
+    </coding>
+    <text value="Single live birth"/>
+  </reason>
+  <indication>
+	  <reference value="Condition/condition-single-live-birth"/>
+  </indication>
+</Encounter>

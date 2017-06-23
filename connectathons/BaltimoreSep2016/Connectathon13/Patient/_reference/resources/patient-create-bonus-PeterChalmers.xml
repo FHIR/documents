@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<table>
+				<tbody>
+					<tr>
+						<td>Name</td>
+						<td>Peter James <b>Chalmers</b> (&quot;Jim&quot;)</td>
+					</tr>
+					<tr>
+						<td>Address</td>
+						<td>534 Erewhon, Pleasantville, Vic, 3999</td>
+					</tr>
+					<tr>
+						<td>Contacts</td>
+						<td>Home: unknown. Work: (03) 5555 6473</td>
+					</tr>
+					<tr>
+						<td>Id</td>
+						<td>MR: 12345 (Acme Healthcare)</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</text>
+	<!--	MR assigned by ACME healthcare on 6-May 2001	-->
+	<identifier>
+		<use value="usual"/>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0203"/>
+				<code value="MR"/>
+			</coding>
+		</type>
+		<system value="urn:oid:1.2.36.146.595.217.0.1"/>
+		<value value="${CD16}"/>
+		<period>
+			<start value="2001-05-06"/>
+		</period>
+		<assigner>
+			<display value="Acme Healthcare"/>
+		</assigner>
+	</identifier>
+
+	<active value="true"/>
+
+	<!--	Peter James Chalmers, but called "Jim"	-->
+	<name>
+		<use value="official"/>
+		<family value="Chalmers${C8}"/>
+		<given value="Peter${C8}"/>
+		<given value="James${C8}"/>
+	</name>
+	<name>
+		<use value="usual"/>
+		<given value="Jim"/>
+	</name>
+
+	<telecom>
+		<use value="home"/>
+		<!--	home communication details aren't known	-->
+	</telecom>
+	<telecom>
+		<system value="phone"/>
+		<value value="(03) 5555 6473"/>
+		<use value="work"/>
+	</telecom>
+
+	<!--	use FHIR code system for male / female	-->
+	<gender value="male"/>
+	<birthDate value="1974-12-25">
+		<extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+			<valueDateTime value="1974-12-25T14:35:45Z"/>
+		</extension>
+	</birthDate>
+	<deceasedBoolean value="false"/>
+
+	<address>
+		<use value="home"/>
+		<line value="534 Erewhon${C9} St"/>
+		<city value="PleasantVille"/>
+		<state value="Vic"/>
+		<postalCode value="${D4}"/>
+	</address>
+
+	<contact>
+		<relationship>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0131"/>
+				<code value="C"/>
+			</coding>
+		</relationship>
+
+		<name>
+			<family value="du"/>
+			<family value="Marché"/>
+			<given value="Bénédicte"/>
+		</name>
+
+		<telecom>
+			<system value="phone"/>
+			<value value="+33 (237) 998327"/>
+		</telecom>
+	</contact>
+
+</Patient>

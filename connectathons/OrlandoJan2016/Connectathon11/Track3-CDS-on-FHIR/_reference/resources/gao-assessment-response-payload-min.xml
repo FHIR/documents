@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GuidanceResponse xmlns="http://hl7.org/fhir">
+	<contained>
+		<Parameters>
+			<id value="outputParameters1"/>
+			<parameter>
+				<name value="result"/>
+				<resource>
+					<Basic>
+						<extension url="http://hl7.org/fhir/StructureDefinition/result-gao-score">
+							<valueDecimal value="7"/>
+						</extension>
+						<code>
+							<coding>
+								<code value="within"/>
+								<display value="Order is within identified guidelines"/>
+							</coding>
+						</code>
+					</Basic>
+				</resource>
+			</parameter>
+		</Parameters>
+	</contained>
+	<requestId value="guidanceRequest1"/>
+	<module>
+		<reference value="DecisionSupportServiceModule/example"/>
+	</module>
+	<status value="success"/>
+	<outputParameters>
+		<reference value="#outputParameters1"/>
+	</outputParameters>
+</GuidanceResponse>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-15-ts-lookup-snomed-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-15-ts-lookup-snomed-xml"/>
+	<name value="FHIR Connectathon 15 - Terminology Services - Lookup - SNOMED - XML"/>
+	<status value="active"/>
+	<date value="2017-03-25"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="FHIR Connectathon 15 - Terminology Services - Lookup - SNOMED - XML Format - Simple lookup tests against a known SNOMED code."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="CodeSystem create, read and lookup operations"/>
+			<link value="http://hl7.org/fhir/STU3/codesystem-operations.html#lookup"/>
+			<link value="http://hl7.org/fhir/STU3/codesystem.html"/>
+			<capabilities>
+				<reference value="../_reference/capabilities/CodeSystemLookupCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<fixture id="lookup-snomed-min">
+		<resource>
+			<reference value="../_reference/output/lookup-snomed-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="lookup-snomed-input-02">
+		<resource>
+			<reference value="../_reference/input/lookup-snomed-input-02.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="lookup-snomed-input-03">
+		<resource>
+			<reference value="../_reference/input/lookup-snomed-input-03.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="ParametersProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+	</profile>
+
+	<test id="Test-01-SimpleSNOMEDLookupCase1">
+		<name value="Simple Lookup Test for SNOMED system and code using HTTP GET"/>
+		<description value="Simple $lookup operation test for SNOMED lookup using HTTP GET for system=http://snomed.info/sct&amp;code=6064005."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="lookup"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="Test lookup operation for SNOMED lookup using HTTP GET for system=http://snomed.info/sct&amp;code=6064005."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$lookup?system=http://snomed.info/sct&amp;code=6064005"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<!--
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected minimum contents."/>
+				<minimumId value="lookup-snomed-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		-->
+	</test>
+
+	<test id="Test-02-SimpleSNOMEDLookupCase2">
+		<name value="Simple Lookup Test Case 2 for SNOMED system and code using HTTP POST"/>
+		<description value="Simple $lookup operation test for SNOMED lookup using HTTP POST with Parameters coding parameter with system=http://snomed.info/sct and code=6064005."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="lookup"/>
+				</type>
+				<description value="Test lookup operation for SNOMED lookup using HTTP POST with Parameters coding parameter with system=http://snomed.info/sct and code=6064005."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="CodeSystem/$lookup"/>
+				<sourceId value="lookup-snomed-input-02"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<!--
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected minimum contents."/>
+				<minimumId value="lookup-snomed-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		-->
+	</test>
+
+	<test id="Test-03-SimpleSNOMEDLookupCase3">
+		<name value="Simple Lookup Test Case 3 for SNOMED system and code using HTTP POST"/>
+		<description value="Simple $lookup operation test for SNOMED lookup using HTTP POST with Parameters system=http://snomed.info/sct and code=6064005 parameters."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="lookup"/>
+				</type>
+				<description value="Test lookup operation for SNOMED lookup using HTTP POST with Parameters system=http://snomed.info/sct and code=6064005 parameters."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="CodeSystem/$lookup"/>
+				<sourceId value="lookup-snomed-input-03"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<!--
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected minimum contents."/>
+				<minimumId value="lookup-snomed-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		-->
+	</test>
+</TestScript>

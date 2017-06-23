@@ -1,0 +1,36 @@
+<Conformance xmlns="http://hl7.org/fhir">
+	<format value="xml"/>
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="Patient"/>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<searchParam>
+				<name value="name"/>
+				<type value="string"/>
+			</searchParam>
+		</resource>
+		<resource>
+			<type value="MedicationStatement"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<searchParam>
+				<name value="patient"/>
+				<type value="reference"/>
+			</searchParam>
+			<searchParam>
+				<name value="status"/>
+				<type value="token"/>
+			</searchParam>
+		</resource>
+	</rest>
+</Conformance>

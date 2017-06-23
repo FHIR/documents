@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir">
+	<id value="dr-400"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b>Generated Narrative with Details</b>
+			</p>
+			<p>
+				<b>id</b>: dr-400</p>
+			<p>
+				<b>identifier</b>: , Placer Identifier = do-400</p>
+			<p>
+				<b>status</b>: final</p>
+			<p>
+				<b>code</b>: Stool Culture with Susceptibility Reflex 
+				<span style="background: LightGoldenRodYellow ">(Details : {http://lis.acmelabs.org/codes code "400" := "400", given as "Stool culture with Susceptibility"})</span>
+			</p>
+			<p>
+				<b>subject</b>: 
+				<a href="Patient/patient-uslab-example1">Todd G. Lerr</a>
+			</p>
+			<p>
+				<b>effective</b>: 9/25/2015</p>
+			<p>
+				<b>issued</b>: 9/26/2015</p>
+			<p>
+				<b>performer</b>: 
+				<a href="Organization/org-uslab-example3">Acme Labs</a>
+			</p>
+			<p>
+				<b>request</b>: 
+				<a href="DiagnosticOrder/do-400">DiagnosticOrder/do-400</a>
+			</p>
+			<p>
+				<b>specimen</b>: 
+				<a href="Specimen/spec-400">Stool Sample</a>
+			</p>
+			<p>
+				<b>result</b>: </p>
+			<ul>
+				<li>
+					<a href="Observation/obs-400">isolate 1</a>
+				</li>
+				<li>
+					<a href="Observation/obs-401">isolate 2</a>
+				</li>
+				<li>
+					<a href="Observation/obs-402">isolate 3</a>
+				</li>
+				<li>
+					<a href="Observation/obs-402">sensitivity panel for isolate 3</a>
+				</li>
+			</ul>
+		</div>
+	</text>
+	<identifier>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/identifier-type"/>
+				<code value="FILL"/>
+			</coding>
+		</type>
+		<system value="http://lis.acmelabs.org/identifiers"/>
+		<value value="dr-400"/>
+	</identifier>
+	<identifier>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/identifier-type"/>
+				<code value="PLAC"/>
+			</coding>
+		</type>
+		<system value="http://goodhealth.org/identifiers"/>
+		<value value="do-400"/>
+	</identifier>
+	<status value="final"/>
+	<code>
+		<coding>
+			<system value="http://lis.acmelabs.org/codes"/>
+			<code value="400"/>
+			<display value="Stool culture with Susceptibility"/>
+		</coding>
+		<text value="Stool Culture with Susceptibility Reflex"/>
+	</code>
+	<subject>
+		<reference value="Patient/patient-uslab-example1"/>
+		<display value="Todd G. Lerr"/>
+	</subject>
+	<effectiveDateTime value="2015-09-25"/>
+	<issued value="2015-09-26T00:00:00Z"/>
+	<performer>
+		<reference value="Organization/org-uslab-example3"/>
+		<display value="Acme Labs"/>
+	</performer>
+	<request>
+		<reference value="DiagnosticOrder/do-400"/>
+		<display value="DiagnosticOrder/do-400"/>
+	</request>
+	<specimen>
+		<reference value="Specimen/spec-400"/>
+		<display value="Stool Sample"/>
+	</specimen>
+	<result>
+		<reference value="Observation/obs-400"/>
+		<display value="isolate 1"/>
+	</result>
+	<result>
+		<reference value="Observation/obs-401"/>
+		<display value="isolate 2"/>
+	</result>
+	<result>
+		<reference value="Observation/obs-402"/>
+		<display value="isolate 3"/>
+	</result>
+	<result>
+		<reference value="Observation/obs-402"/>
+		<display value="sensitivity panel for isolate 3"/>
+	</result>
+</DiagnosticReport>

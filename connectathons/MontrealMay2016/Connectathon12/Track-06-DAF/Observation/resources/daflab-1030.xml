@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<id value="daflab-1030"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/daf-resultobs"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<xhtml:div>2005-07-05:BILIRUBIN.TOTAL = 0.3mg/dL</xhtml:div>
+	</text>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="laboratory"/>
+			<display value="Laboratory"/>
+		</coding>
+		<text value="Laboratory"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="1975-2"/>
+			<display value="Bilirubin.total [Mass/volume] in Serum or Plasma"/>
+		</coding>
+		<text value="BILIRUBIN.TOTAL"/>
+	</code>
+	<subject>
+		<reference value="Patient/dafpid-1001"/>
+	</subject>
+	<effectiveDateTime value="2005-07-05"/>
+	<valueQuantity>
+		<value value="0.3"/>
+		<unit value="mg/dL"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="mg/dL"/>
+	</valueQuantity>
+	<referenceRange>
+		<low>
+			<value value="0.0"/>
+			<unit value="mg/dL"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="mg/dL"/>
+		</low>
+		<high>
+			<value value="1.0"/>
+			<unit value="mg/dL"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="mg/dL"/>
+		</high>
+	</referenceRange>
+</Observation>

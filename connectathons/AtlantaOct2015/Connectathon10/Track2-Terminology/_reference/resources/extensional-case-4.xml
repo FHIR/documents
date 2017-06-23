@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A selection of codes from http://hl7.org/fhir/patient-contact-relationship</div>
+	</text>
+	<identifier>
+		<value value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-4"/>
+	</identifier>
+	<name value="Terminology Services Connectation #1 Extensional case #4"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<publisher value="Grahame Grieve"/>
+	<contact>
+		<telecom>
+			<system value="email"/>
+			<value value="grahame@healthintersections.com.au"/>
+		</telecom>
+	</contact>
+	<description value="A mixed enumeration of codes from FHIR, and from V3 role code"/>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/patient-contact-relationship"/>
+			<concept>
+				<code value="emergency"/>
+				<display value="Emergency"/>
+			</concept>
+			<concept>
+				<code value="family"/>
+				<display value="Family"/>
+			</concept>
+			<concept>
+				<code value="guardian"/>
+				<display value="Guardian"/>
+			</concept>
+			<concept>
+				<code value="friend"/>
+				<display value="Friend"/>
+			</concept>
+			<concept>
+				<code value="partner"/>
+				<display value="Partner"/>
+			</concept>
+			<concept>
+				<code value="work"/>
+				<display value="Work"/>
+			</concept>
+		</include>
+		<include>
+			<system value="http://hl7.org/fhir/v3/RoleCode"/>
+			<concept>
+				<code value="CHILD"/>
+				<display value="child"/>
+			</concept>
+			<concept>
+				<code value="FTH"/>
+				<display value="father"/>
+			</concept>
+			<concept>
+				<code value="MTH"/>
+				<display value="mother"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>

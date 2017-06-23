@@ -1,0 +1,65 @@
+{
+  "resourceType": "ValueSet",
+  "url": "http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-4",
+  "identifier": [
+    {
+      "value": "extensional-case-4"
+    }
+  ],
+  "status": "draft",
+  "experimental": true,
+  "expansion": {
+    "contains": [
+      {
+        "system": "http://hl7.org/fhir/administrative-gender",
+        "code": "male",
+        "display": "Male"
+      },
+      {
+        "system": "http://hl7.org/fhir/administrative-gender",
+        "code": "female",
+        "display": "Female"
+      },
+      {
+        "system": "http://hl7.org/fhir/administrative-gender",
+        "code": "other",
+        "display": "Other"
+      },
+      {
+        "system": "http://hl7.org/fhir/administrative-gender",
+        "code": "unknown",
+        "display": "Unknown"
+      },
+      {
+        "system": "http://hl7.org/fhir/v2/0001",
+        "code": "A",
+        "display": "Ambiguous"
+      },
+      {
+        "system": "http://hl7.org/fhir/v2/0001",
+        "code": "F",
+        "display": "Female"
+      },
+      {
+        "system": "http://hl7.org/fhir/v2/0001",
+        "code": "M",
+        "display": "Male"
+      },
+      {
+        "system": "http://hl7.org/fhir/v2/0001",
+        "code": "N",
+        "display": "Not applicable"
+      },
+      {
+        "system": "http://hl7.org/fhir/v2/0001",
+        "code": "O",
+        "display": "Other"
+      },
+      {
+        "system": "http://hl7.org/fhir/v2/0001",
+        "code": "U",
+        "display": "Unknown"
+      }
+    ]
+  }
+}

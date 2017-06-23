@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<url value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-4"/>
+	<identifier>
+		<value value="extensional-case-4"/>
+	</identifier>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<expansion>
+		<identifier />
+		<timestamp />
+		<contains>
+			<system value="http://hl7.org/fhir/administrative-gender"/>
+			<code value="male"/>
+			<display value="Male"/>
+		</contains>
+		<contains>
+			<system value="http://hl7.org/fhir/administrative-gender"/>
+			<code value="female"/>
+			<display value="Female"/>
+		</contains>
+		<contains>
+			<system value="http://hl7.org/fhir/administrative-gender"/>
+			<code value="other"/>
+			<display value="Other"/>
+		</contains>
+		<contains>
+			<system value="http://hl7.org/fhir/administrative-gender"/>
+			<code value="unknown"/>
+			<display value="Unknown"/>
+		</contains>
+		<contains>
+			<system value="http://hl7.org/fhir/v2/0001"/>
+			<code value="A"/>
+			<display value="Ambiguous"/>
+		</contains>
+		<contains>
+			<system value="http://hl7.org/fhir/v2/0001"/>
+			<code value="F"/>
+			<display value="Female"/>
+		</contains>
+		<contains>
+			<system value="http://hl7.org/fhir/v2/0001"/>
+			<code value="M"/>
+			<display value="Male"/>
+		</contains>
+		<contains>
+			<system value="http://hl7.org/fhir/v2/0001"/>
+			<code value="N"/>
+			<display value="Not applicable"/>
+		</contains>
+		<contains>
+			<system value="http://hl7.org/fhir/v2/0001"/>
+			<code value="O"/>
+			<display value="Other"/>
+		</contains>
+		<contains>
+			<system value="http://hl7.org/fhir/v2/0001"/>
+			<code value="U"/>
+			<display value="Unknown"/>
+		</contains>
+	</expansion>
+</ValueSet>

@@ -1,0 +1,35 @@
+{
+  "resourceType": "CapabilityStatement",
+  "rest": [
+    {
+      "mode": "server",
+      "resource": [
+        {
+          "type": "Condition",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "category",
+              "type": "token"
+            },
+            {
+              "name": "clinicalstatus",
+              "type": "token"
+            },
+            {
+              "name": "patient",
+              "type": "reference"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

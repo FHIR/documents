@@ -1,0 +1,34 @@
+<Procedure xmlns="http://hl7.org/fhir">
+  <id value="procedure-breastfeeding-readiness-assessment"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Administration of Breastfeeding Readiness Assessment</div>
+  </text>
+  <subject>
+    <reference value="Patient/patient-mother"/>
+  </subject>
+  <status value="completed"/>
+  <code>
+    <coding>
+      <system value="http://example.org/documentation-templates"/>
+      <code value="breastfeeding-readiness-assessment"/>
+      <display value="Breastfeeding Readiness Assessment"/>
+    </coding>  
+  </code>
+  <reasonReference>
+	  <reference value="Condition/condition-single-live-birth"/>
+  </reasonReference>
+  <performer>
+    <actor>
+      <reference value="Practitioner/practitioner-charge-nurse"/>
+      <display value="RN Cynthia Good"/>
+    </actor>
+  </performer>
+  <performedDateTime value="2016-03-07"/>
+  <encounter>
+	  <reference value="Encounter/encounter-live-birth"/>
+  </encounter>
+  <request>
+	  <reference value="ProcedureRequest/procedurerequest-breastfeeding-readiness-assessment"/>
+  </request>
+</Procedure>

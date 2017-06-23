@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Slot xmlns="http://hl7.org/fhir">
+	<identifier>
+		<system value="http://happyvalley.com/slot"/>
+		<value value="${CD9}-20160508100000"/>
+	</identifier>
+	<serviceCategory>
+		<coding>
+			<system value="http://hl7.org/fhir/service-category"/>
+			<code value="17"/>
+			<display value="General Practice"/>
+		</coding>
+	</serviceCategory>
+	<serviceType>
+		<coding>
+			<system value="http://hl7.org/fhir/service-type"/>
+			<code value="51"/>
+			<display value="Blood Donation"/>
+		</coding>
+	</serviceType>
+	<serviceType>
+		<coding>
+			<system value="http://hl7.org/fhir/service-type"/>
+			<code value="161"/>
+			<display value="Pathology - Haematology"/>
+		</coding>
+	</serviceType>
+	<specialty>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="418652005"/>
+			<display value="Pediatric hematology"/>
+		</coding>
+	</specialty>
+	<status value="free"/>
+	<start value="2016-05-09T10:00:00Z"/>
+	<end value="2016-05-09T10:45:00Z"/>
+	<overbooked value="false"/>
+	<comment value="A referral is recommended but not required."/>
+</Slot>

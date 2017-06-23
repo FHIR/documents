@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-12-track-04-condref-encounter-multimatch-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-12-track-04-condref-encounter-multimatch-xml"/>
+	<name value="FHIR Connectathon 12 - Track 04 - Conditional Reference in Transactions - Encounter - Muliple Match - XML"/>
+	<status value="active"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-04-12"/>
+	<description value="Test conditional reference transaction create of an Encounter resource. Referenced Patient and Organization resources are first created on the destination server. Multiple matching Patient resources are expected to cause the Encounter create to fail."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="Encounter Delete, Search and Update; Organization Delete, Create and Search; Patient Delete, Create and Search Operations; Server Transaction"/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Encounter delete, read and update; Organization delete, create and search; Patient delete, create and search operations; Server transaction"/>
+			<link value="http://hl7.org/fhir/2016May/http.html#create"/>
+			<link value="http://hl7.org/fhir/2016May/http.html#update"/>
+			<link value="http://hl7.org/fhir/2016May/http.html#delete"/>
+			<link value="http://hl7.org/fhir/2016May/http.html#search"/>
+			<link value="http://hl7.org/fhir/2016May/encounter.html"/>
+			<link value="http://hl7.org/fhir/2016May/organization.html"/>
+			<link value="http://hl7.org/fhir/2016May/patient.html"/>
+			<conformance>
+				<reference value="../_reference/conformance/EncounterConditionalReferenceMultiMatchConformance.xml" />
+			</conformance>
+		</capability>
+	</metadata>
+
+	<fixture id="encounter-transaction-create-multimatch">
+		<resource>
+			<reference value="../_reference/resources/encounter-transaction-create-multimatch.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="organization-create">
+		<resource>
+			<reference value="../_reference/resources/organization-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="organization-create-min">
+		<resource>
+			<reference value="../_reference/resources/organization-create-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-create-multimatch-1">
+		<resource>
+			<reference value="../_reference/resources/patient-create-multimatch-1.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-create-multimatch-1-min">
+		<resource>
+			<reference value="../_reference/resources/patient-create-multimatch-1-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-create-multimatch-2">
+		<resource>
+			<reference value="../_reference/resources/patient-create-multimatch-2.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-create-multimatch-2-min">
+		<resource>
+			<reference value="../_reference/resources/patient-create-multimatch-2-min.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+	<profile id="encounter-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+	</profile>
+	<profile id="operationoutcome-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+	</profile>
+	<profile id="organization-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+	</profile>
+	<profile id="patient-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+	</profile>
+
+	<variable>
+		<name value="encounterMultiMatchIdentifier"/>
+		<path value="Encounter/identifier/value"/>
+		<sourceId value="encounter-transaction-create-multimatch"/>
+	</variable>
+	<variable>
+		<name value="organizationIdentifier"/>
+		<path value="Organization/identifier/value"/>
+		<sourceId value="organization-create"/>
+	</variable>
+	<variable>
+		<name value="organizationResourceId"/>
+		<path value="Organization/id" />
+		<sourceId value="organization-create-search-response"/>
+	</variable>
+	<variable>
+		<name value="patientMultiMatch1Identifier"/>
+		<path value="Patient/identifier/value"/>
+		<sourceId value="patient-create-multimatch-1"/>
+	</variable>
+	<variable>
+		<name value="patientMultiMatch1ResourceId"/>
+		<path value="Patient/id" />
+		<sourceId value="patient-create-multimatch-1-search-response"/>
+	</variable>
+	<variable>
+		<name value="patientMultiMatch2Identifier"/>
+		<path value="Patient/identifier/value"/>
+		<sourceId value="patient-create-multimatch-2"/>
+	</variable>
+	<variable>
+		<name value="patientMultiMatch2ResourceId"/>
+		<path value="Patient/id" />
+		<sourceId value="patient-create-multimatch-2-search-response"/>
+	</variable>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Encounter"/>
+				<description value="Use a conditional delete operation to insure the encounter does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${encounterMultiMatchIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Organization"/>
+				<description value="Use a conditional delete operation to insure the organization does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${organizationIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Use a conditional delete operation to insure the first patient does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${patientMultiMatch1Identifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Use a conditional delete operation to insure the second patient does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${patientMultiMatch2Identifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+	</setup>
+
+	<test id="Step1-PatientMultiMatch1Create">
+		<name value="Step1-PatientMultiMatch1Create"/>
+		<description value="Create the first new patient that will be the conditional reference in the subsequent transaction creation of an encounter."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<description value="Create the first patient for the subsequent transaction creation of an encounter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="patient-create-multimatch-1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Location is present. Warning only as this is optional but servers are encouraged to return this."/>
+				<headerField value="Location"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for the first new patient by the unique patient identifier. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the identifier search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${patientMultiMatch1Identifier}"/>
+				<responseId value="patient-create-multimatch-1-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected retained elements and values."/>
+				<minimumId value="patient-create-multimatch-1-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2-PatientMultiMatch2Create">
+		<name value="Step1-PatientMultiMatch2Create"/>
+		<description value="Create the second new patient that will be the conditional reference in the subsequent transaction creation of an encounter."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<description value="Create the second patient for the subsequent transaction creation of an encounter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="patient-create-multimatch-2"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Location is present. Warning only as this is optional but servers are encouraged to return this."/>
+				<headerField value="Location"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for the second new patient by the unique patient identifier. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the identifier search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${patientMultiMatch2Identifier}"/>
+				<responseId value="patient-create-multimatch-2-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected retained elements and values."/>
+				<minimumId value="patient-create-multimatch-2-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step3-OrganizationCreate">
+		<name value="Step3-OrganizationCreate"/>
+		<description value="Create a new organization that will be the conditional reference in the subsequent transaction creation of an encounter."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<description value="Create the organization for the subsequent transaction creation of an encounter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="organization-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Location is present. Warning only as this is optional but servers are encouraged to return this."/>
+				<headerField value="Location"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Organization"/>
+				<description value="Search for the new organization by the unique organization identifier. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the identifier search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${organizationIdentifier}"/>
+				<responseId value="organization-create-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected retained elements and values."/>
+				<minimumId value="organization-create-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step4-EncounterTransactionCreateMultiMatch">
+		<name value="Step4-EncounterTransactionCreateMultiMatch"/>
+		<description value="Create a new encounter using the FHIR transaction operation. The Encounter resource contains conditional references to the Patient and Organization created in steps 1 and 2. Multiple matching Patient resources are expected to cause the Encounter create to fail."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="transaction"/>
+				</type>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="encounter-transaction-create-multimatch"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML. Warning only to allow for servers that may not return an OperationOutcome and/or a response payload."/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome. Warning only to allow for servers that may not return an OperationOutcome and/or a response payload."/>
+				<resource value="OperationOutcome"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR OperationOutcome profile. Warning only to allow for servers that may not return an OperationOutcome and/or a response payload."/>
+				<validateProfileId value="operationoutcome-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 412(Precondition Failed)."/>
+				<response value="preconditionFailed"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Encounter"/>
+				<description value="Search for the new encounter by the unique encounter identifier. This is necessary in order to confirm that the encounter did not get created."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${encounterMultiMatchIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there are no Encounter resources returned."/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

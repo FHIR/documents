@@ -1,0 +1,35 @@
+{
+  "resourceType": "ValueSet",
+  "url": "http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-2",
+  "identifier": [
+    {
+      "value": "intensional-case-2"
+    }
+  ],
+  "status": "draft",
+  "experimental": true,
+  "expansion": {
+    "contains": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "8218002",
+        "display": "Chronic hypertension complicating AND/OR reason for care during childbirth (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "8762007",
+        "display": "Chronic hypertension in obstetric context (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "24042004",
+        "display": "Chronic hypertension complicating AND/OR reason for care during puerperium (disorder)"
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "code": "37618003",
+        "display": "Chronic hypertension complicating AND/OR reason for care during pregnancy (disorder)"
+      }
+    ]
+  }
+}

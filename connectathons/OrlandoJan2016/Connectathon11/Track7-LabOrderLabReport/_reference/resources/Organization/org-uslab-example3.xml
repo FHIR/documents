@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization xmlns="http://hl7.org/fhir">
+  <id value="org-uslab-example3"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        <b>Generated Narrative with Details</b>
+      </p>
+      <p>
+        <b>id</b>: org-uslab-example3</p>
+      <p>
+        <b>identifier</b>: 01D1111111 (official)</p>
+      <p>
+        <b>name</b>: Acme Labs</p>
+      <p>
+        <b>address</b>: Firstcare Way Building 2 Harrisburg PA 42043 USA (work)</p>
+    </div>
+  </text>
+  <identifier>
+    <use value="official"/>
+    <system value="http://www.cms.gov/Regulations-and-Guidance/Legislation/CLIA/index.html"/>
+    <!--    CLIA    -->
+    <value value="01D1111111"/>
+  </identifier>
+  <name value="Acme Labs"/>
+  <address>
+    <!--    EH extension for us county    -->
+    <extension url="http://hl7.org/fhir/StructureDefinition/us-core-county">
+      <valueString value="42043"/>
+    </extension>
+    <use value="work"/>
+    <line value="Firstcare Way"/>
+    <line value="Building 2"/>
+    <city value="Harrisburg"/>
+    <state value="PA"/>
+    <postalCode value="42043"/>
+    <country value="USA"/>
+  </address>
+  <contact>
+    <name>
+      <family value="House"/>
+      <given value="Gregory"/>
+      <given value="F"/>
+      <prefix value="Dr"/>
+      <suffix value="PhD"/>
+    </name>
+  </contact>
+</Organization>

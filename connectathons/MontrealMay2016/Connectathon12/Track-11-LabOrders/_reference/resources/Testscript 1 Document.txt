@@ -1,0 +1,122 @@
+Scenario 1 (PT+ INR)
+
+=============DiagnosticOrder Details==========================
+
+id: do-100
+
+subject:Todd G. Lerr
+
+orderer:Leonard T Bloodraw
+
+identifier: PLAC = do-100
+
+reason: I48.2(Details : {http://hl7.org/fhir/sid/icd-10-us code "I48.2" := "I48.2)
+
+status: requested
+
+ordered test: 100
+
+
+
+=============Order(ActionRequest) Details==========================
+
+id: order-100
+
+identifier: PLAC = order-100
+
+date: 12/15/2015 7:36:25 AM
+
+subject:Todd G. Lerr
+
+source:Leonard T Bloodraw
+
+detail:DiagnosticOrder/do-100
+
+
+=============OrderResponse(ActionResponse) Details==========================
+
+id: ordresp-100
+
+identifier: FILL = ordresp-100
+
+request:Order/order-100
+
+date: 12/15/2015 7:36:25 AM
+
+who:Acme Labs
+
+orderStatus: accepted
+
+
+=============DiagnosticReport Details==========================
+
+Generated Narrative with Details
+
+id: dr-100
+
+identifier: Filler Identifier = fill-id-100
+
+status: final
+
+code: PT+INR(Details : {http://lis.acmelabs.org/ordercodes code "100" := "100)
+
+subject:Todd G. Lerr()
+
+effective: 9/25/2015
+
+issued: 9/26/2015
+
+performer:Acme Labs()
+
+request:DiagnosticOrder/do-100()
+
+specimen:Specimen/spec-100()
+
+result:
+
+Observation/obs-100()
+Observation/obs-101()
+
+=============Observation details==========================
+
+Generated Narrative with Details
+
+id: obs-102
+
+identifier: obs-102
+
+status: final
+
+code: 11(Details : {http://lis.acmelabs.org/codes code "11" := "11)
+
+subject:Todd G. Lerr
+
+value: 10.5s(Details: http://unitsofmeasure.org code s := "s")
+
+specimen:spec-100
+
+=============Observation details==========================
+
+Generated Narrative with Details
+
+id: obs-101
+
+identifier: obs-101
+
+status: final
+
+code: 12(Details : {http://lis.acmelabs.org/codes code "12" := "12)
+
+subject:Todd G. Lerr
+
+value: 1{INR}(Details: http://unitsofmeasure.org code {INR} := "{INR}")
+
+specimen:spec-100
+
+
+
+
+
+
+
+

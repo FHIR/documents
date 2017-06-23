@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-13-daf-medicationstatement-search-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-13-daf-medicationstatement-search-xml"/>
+	<name value="FHIR Connectathon 13 - DAF - Search DAF MedicationStatement; format XML"/>
+	<status value="active"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<date value="2016-08-29"/>
+	<description value="FHIR Connectathon 13 - DAF - Search DAF MedicationStatement; resource format XML; test a FHIR server's MedicationStatement search operation for the DAF search parameters."/>
+	<useContext>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</useContext>
+	<requirements value="MedicationStatement Read and DAF Profile Search Operations"/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="MedicationStatement read operation"/>
+			<link value="http://hl7.org/fhir/2016Sep/http.html#read"/>
+			<conformance>
+				<reference value="../_reference/conformance/MedicationStatementRead.xml" />
+			</conformance>
+		</capability>
+		<capability>
+			<required value="true"/>
+			<description value="MedicationStatement search operation with DAF extensions"/>
+			<link value="http://hl7.org/fhir/2016Sep/http.html#search"/>
+			<link value="http://hl7.org/fhir/us/daf/2016Sep/daf-core-medicationstatement.html"/>
+			<conformance>
+				<reference value="../_reference/conformance/MedicationStatementSearchType.xml" />
+			</conformance>
+		</capability>
+	</metadata>	
+
+	<profile id="medicationstatementProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/MedicationStatement" />
+	</profile>
+	<profile id="daf-medicationstatementProfile">
+		<reference value="http://hl7.org/fhir/us/daf/StructureDefinition/daf-core-medicationstatement"/>
+	</profile>
+
+	<variable>
+		<name value="MedicationStatementResourceId"/>
+		<defaultValue value="dafmed-1001"/>
+	</variable>
+	<variable>
+		<name value="searchParamEffectiveDate"/>
+		<path value="MedicationStatement/effectivePeriod/start" />
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamIdentifier"/>
+		<path value="MedicationStatement/identifier/value" />
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamPatient"/>
+		<path value="MedicationStatement/patient/reference" />
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamSource"/>
+		<path value="MedicationStatement/informationSource/reference" />
+		<sourceId value="read-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamStatus"/>
+		<path value="MedicationStatement/status" />
+		<sourceId value="read-response"/>
+	</variable>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<description value="Setup performs an initial read operation for the user-defined MedicationStatement in the destination server. All search criteria parameter values are populated from this MedicationStatement resource."/>
+				<accept value="xml"/>
+				<params value="/${MedicationStatementResourceId}" />
+				<responseId value="read-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is MedicationStatement."/>
+				<resource value="MedicationStatement"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource type conforms to the base FHIR MedicationStatement profile. Warning only at this time due to STU3 Ballot validation engine issues."/>
+				<validateProfileId value="medicationstatementProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource type conforms to the DAF MedicationStatement profile. Warning only at this time due to potential DAF profile issue within the current FHIR STU 3 Candidate specification."/>
+				<validateProfileId value="daf-medicationstatementProfile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned MedicationStatement resource contains an effectivePeriod start value."/>
+				<operator value="notEmpty"/>
+				<path value="/MedicationStatement/effectivePeriod/start"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned MedicationStatement resource contains an identifier value."/>
+				<operator value="notEmpty"/>
+				<path value="/MedicationStatement/identifier/value"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned MedicationStatement resource contains a patient value."/>
+				<operator value="notEmpty"/>
+				<path value="/MedicationStatement/patient/reference"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned MedicationStatement resource contains a source value."/>
+				<operator value="notEmpty"/>
+				<path value="/MedicationStatement/informationSource/reference"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned MedicationStatement resource contains a status value."/>
+				<operator value="notEmpty"/>
+				<path value="/MedicationStatement/status"/>
+			</assert>
+		</action>
+	</setup>
+
+	<test id="01-DAFsearchParamIdentifier">
+		<name value="01-DAFsearchParamIdentifier"/>
+		<description value="FHIR Connectathon 13 - DAF - MedicationStatement search operation using the identifier search parameter."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<description value="Search for medicationstatements using the name identifier parameter"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other medicationstatement records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-DAFsearchParamIdentifierEffectiveDate">
+		<name value="02-DAFsearchParamIdentifierEffectiveDate"/>
+		<description value="FHIR Connectathon 13 - DAF - MedicationStatement search operation using the identifier and effective search parameters."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<description value="Search for medicationstatements using the identifier and effectivedate search parameters."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamIdentifier}&amp;effective=${searchParamEffectiveDate}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other medicationstatement records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-DAFsearchParamIdentifierPatient">
+		<name value="04-DAFsearchParamIdentifierPatient"/>
+		<description value="FHIR Connectathon 13 - DAF - MedicationStatement search operation using the identifier and patient search parameters."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<description value="Search for medicationstatements using the identifier and patient search parameters."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamIdentifier}&amp;patient=${searchParamPatient}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other medicationstatement records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="04-DAFsearchParamIdentifierSource">
+		<name value="05-DAFsearchParamIdentifierSource"/>
+		<description value="FHIR Connectathon 13 - DAF - MedicationStatement search operation using the identifier and source search parameters."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<description value="Search for medicationstatements using the identifier and source search parameters."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamIdentifier}&amp;source=${searchParamSource}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other medicationstatement records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="05-DAFsearchParamIdentifierStatus">
+		<name value="06-DAFsearchParamIdentifierStatus"/>
+		<description value="FHIR Connectathon 13 - DAF - MedicationStatement search operation using the identifier and status search parameters."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="MedicationStatement"/>
+				<description value="Search for medicationstatements using the identifier and status search parameters."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamIdentifier}&amp;status=${searchParamStatus}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other medicationstatement records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

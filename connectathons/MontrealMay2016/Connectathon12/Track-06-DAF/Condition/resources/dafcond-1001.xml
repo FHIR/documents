@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Condition xmlns="http://hl7.org/fhir">
+<id value="dafcond-1001"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/daf-condition"/>
+	</meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Hypertensive disorder</div>
+  </text>
+  <patient>
+    <reference value="Patient/dafpid-1001"/>
+  </patient>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="38341003"/>
+      <display value="Hypertensive disorder"/>
+    </coding>
+    <text value="Hypertensive disorder"/>
+  </code>
+  <clinicalStatus value="active"/>
+  <verificationStatus value="confirmed"/>
+<!--causing validation so comment out and raised a tracker   [#9943] <onsetDateTime value="2007-12-19"/>-->
+</Condition>

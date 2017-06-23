@@ -1,0 +1,22 @@
+<Conformance xmlns="http://hl7.org/fhir">
+	<format value="json"/>
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="Patient"/>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<searchParam>
+				<name value="name"/>
+				<type value="string"/>
+			</searchParam>
+		</resource>
+	</rest>
+</Conformance>

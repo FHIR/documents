@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+	<status value="draft"/>
+	<date value="2017-03-21T09:00:00-05:00"/>
+	<description value="FHIR CapabilityStatement"/>
+	<kind value="capability"/>
+	<fhirVersion value="3.0.0"/>
+	<acceptUnknown value="both"/>
+	<format value="xml"/>
+	<format value="json"/>
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="Location"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+		</resource>
+		<resource>
+			<type value="Organization"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+		</resource>
+		<resource>
+			<type value="Practitioner"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+		</resource>
+		<resource>
+			<type value="PractitionerRole"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="update"/>
+			</interaction>
+		</resource>
+	</rest>
+</CapabilityStatement>

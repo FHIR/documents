@@ -1,0 +1,12 @@
+{
+  "resourceType": "Encounter",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://healthcare.example.org/identifiers/encounter",
+      "value": "${D6}.${D7}"
+    }
+  ],
+  "status": "in-progress",
+  "class": "inpatient"
+}
