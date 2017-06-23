@@ -1,0 +1,11 @@
+http://spark.furore.com/fhir/Patient?birthdate=>=1960&birthdate=<=1980&gender=male&_summary=true
+http://fhir-dev.healthintersections.com.au/open/Patient?birthdate=>1959-12-31&birthdate=<1981-01-01&gender=male&_summary=true
+
+http://fhir-dev.healthintersections.com.au/open/Patient?provider.name=Health%20Level%20Seven
+
+http://fhir-dev.healthintersections.com.au/open/Observation?code=http%3A%2F%2Floinc.org%7C3141-9&_sort:desc=date&_count=1
+http://spark.furore.com/fhir/Observation?name:text=weight&_sort:desc=date&_count=1
+
+http://fhir-dev.healthintersections.com.au/open/Observation?subject.name=van%20de%20Heuvel&code=http%3A%2F%2Floinc.org|30350-3&value-quantity=%3E6.0|http%3A%2F%2Funitsofmeasure.org|g%2FdL
+
+http://fhir-dev.healthintersections.com.au/open/Condition?code:text=asthma&status=confirmed&_include=subject

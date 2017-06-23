@@ -1,0 +1,15 @@
+Blood Pressure: Observation (referencing other observations)
+Dictated Sound Clip: Media
+Cheek swab: Specimen
+Laboratory: Oganization
+Home visit: Encounter
+Problem List: List (of Condition)
+Audit Record: Security Event
+Clinical Document: Document bundle (starting w/ Composition)
+Contracted taxi driver: Practitioner
+Study subject: Patient
+Record of narcotic use: MedicationAdministration or MedicationStatement
+Password change reminder: Alert
+Group smoking cessation workshop: Procedure
+Females over 35: Group
+Referral: Other

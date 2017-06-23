@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir C:\Users\office\Documents\Projects\HL7Generator\FHIR2\build\publish\fhir-all.xsd">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        <b>Donald Duck</b> 80 year old male duck</p>
+      <p>Phone: 1 407-939-6244</p>
+      <p>Email: d.duck@disney.com</p>
+    </div>
+  </text>
+  <contained>
+    <Practitioner id="1">
+      <name>
+        <family value="Primary"/>
+        <given value="Patricia"/>
+      </name>
+    </Practitioner>
+  </contained>
+  <identifier>
+    <label value="SIN"/>
+    <system value="http://hl7.org/fhir/sid/us-ssn"/>
+    <value value="123456789"/>
+  </identifier>
+  <name>
+    <family value="Duck"/>
+    <given value="Donald"/>
+  </name>
+  <telecom>
+    <system value="phone"/>
+    <value value="1 407-939-6244"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="d.duck@disney.com"/>
+  </telecom>
+  <gender>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+      <code value="M"/>
+      <display value="Male"/>
+    </coding>
+    <text value="male"/>
+  </gender>
+  <birthDate value="1934-06-09"/>
+  <deceasedBoolean value="false"/>
+  <contact>
+    <relationship>
+      <text value="Next of Kin"/>
+    </relationship>
+    <name>
+      <family value="Duck"/>
+      <given value="Daisy"/>
+    </name>
+  </contact>
+  <animal>
+    <species>
+      <text value="Duck"/>
+    </species>
+  </animal>
+  <communication>
+    <coding>
+      <system value="urn:ietf:rfc:5646"/>
+      <code value="en-US"/>
+    </coding>
+  </communication>
+  <careProvider>
+    <reference value="#1"/>
+    <display value="Patricia Primary"/>
+  </careProvider>
+  <active value="true"/>
+</Patient>

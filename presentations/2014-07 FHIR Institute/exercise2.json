@@ -1,0 +1,97 @@
+{
+  "resourceType" : "Patient",
+  "text" : {
+    "status" : "generated",
+    "div" : "\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">&#x0A;      &#x0A;      \r\n  <p>&#x0A;        \r\n    <b>Donald Duck</b> 80 year old male duck</p>&#x0A;      &#x0A;      \r\n  <p>Phone: 1 407-939-6244</p>&#x0A;      &#x0A;      \r\n  <p>Email: d.duck@disney.com</p>&#x0A;    </div>"
+  },
+  "contained" : [
+    {
+      "resourceType" : "Practitioner",
+      "id" : "1",
+      "name" : {
+        "family" : [
+          "Primary"
+        ],
+        "given" : [
+          "Patricia"
+        ]
+      }
+    }
+  ],
+  "identifier" : [
+    {
+      "label" : "SSN",
+      "system" : "http://hl7.org/fhir/sid/us-ssn",
+      "value" : "123456789"
+    }
+  ],
+  "name" : [
+    {
+      "family" : [
+        "Duck"
+      ],
+      "given" : [
+        "Donald"
+      ]
+    }
+  ],
+  "telecom" : [
+    {
+      "system" : "phone",
+      "value" : "1 407-939-6244"
+    },
+    {
+      "system" : "email",
+      "value" : "d.duck@disney.com"
+    }
+  ],
+  "gender" : {
+    "coding" : [
+      {
+        "system" : "http://hl7.org/fhir/v3/AdministrativeGender",
+        "code" : "M",
+        "display" : "Male"
+      }
+    ],
+    "text" : "male"
+  },
+  "birthDate" : "1934-06-09",
+  "deceasedBoolean" : false,
+  "contact" : [
+    {
+      "relationship" : {
+        "text" : "Next of Kin"
+      }
+      "name" : {
+        "family" : [
+          "Duck"
+        ],
+        "given" : [
+          "Daisy"
+        ]
+      }
+    }
+  ],
+  "animal" : {
+    "species" : {
+      "text" : "Duck"
+    }
+  },
+  "communication" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:ietf:rfc:5646",
+          "code" : "en-US"
+        }
+      ]
+    }
+  ],
+  "careProvider" : [
+    {
+      "reference" : "#1",
+      "display" : "Patricia Primary"
+    }
+  ],
+  "active" : true
+}
