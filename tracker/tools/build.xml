@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="org.hl7.fhir.tracker" default="Wait">
+  <tstamp>
+    <format property="date.now" pattern="yyyy-MM-dd"/>
+  </tstamp>
+  <!-- Directories-->
+  <property name="dir.base" location=".."/>
+  <property name="dir.lib" location="${dir.base}/lib"/>
+  <property name="dir.output" location="${dir.base}/output"/>
+  <property name="dir.shared" location="${dir.base}/shared"/>
+  <property name="dir.sql" location="${dir.base}/sql"/>
+  <property name="dir.temp" location="${dir.base}/temp"/>
+  <property name="dir.tools" location="${dir.base}/tools"/>
+  <property name="dir.csvs" location="${dir.temp}"/>
+  <!--Variables-->
+  <property name="email.admin" value="lloyd@lmckenzie.com"/>
+  <!-- Parameter dbpw must be passed in when invoking Ant file -->
+  <property name="db.password" value="${dbpw}"/>
+  <property name="db.userid" value="hl7_reports"/>
+  <property name="db.url" value="jdbc:postgresql://gforge.hl7.org:5432/gforge"/>
+  <property name="db.driver" value="org.postgresql.Driver"/>
+  <property name="db.driverpath" location="${dir.lib}/postgresql-9.4-1201.jdbc4.jar"/>
+  <!-- Parameter mailpw must be passed in when invoking Ant file -->
+  <property name="mail.pw" value="${mailpw}"/>
+  <property name="mail.host" value="smtp.gmail.com"/>
+  <property name="mail.user" value="hl7fhirbot@gmail.com"/>
+  <property name="mail.from" value="hl7fhirbot@gmail.com"/>  
+  <!-- Source SQL files -->
+  <property name="sql.assign" location="${dir.sql}/FHIR_Query_Tracker_assignee.sql"/>
+  <property name="sql.date" location="${dir.sql}/FHIR_Query_date.sql"/>
+  <property name="sql.tracker" location="${dir.sql}/FHIR_Query_Tracker.sql"/>
+  <property name="sql.comments" location="${dir.sql}/FHIR_Query_Tracker_comments.sql"/>
+  <property name="sql.custom" location="${dir.sql}/FHIR_Query_Tracker_custom.sql"/>
+  <property name="sql.extrafields" location="${dir.sql}/FHIR_Query_Tracker_extra_fields.sql"/>
+  <property name="sql.extra" location="${dir.sql}/FHIR_Query_extra_fields.sql"/>
+  <property name="sql.user" location="${dir.sql}/FHIR_Query_Tracker_user.sql"/>
+  <property name="sql.audit" location="${dir.sql}/FHIR_Query_audit.sql"/>
+  <property name="sql.duplicate" location="${dir.sql}/FHIR_Query_Tracker_duplicate.sql"/>
+  <!-- Source CSV files -->
+  <property name="csv.assign" location="${dir.csvs}/FHIR_Query_Tracker_assignee.csv"/>
+  <property name="csv.date" location="${dir.csvs}/FHIR_Query_date.csv"/>
+  <property name="csv.tracker" location="${dir.csvs}/FHIR_Query_Tracker.csv"/>
+  <property name="csv.comments" location="${dir.csvs}/FHIR_Query_Tracker_comments.csv"/>
+  <property name="csv.custom" location="${dir.csvs}/FHIR_Query_Tracker_custom.csv"/>
+  <property name="csv.extrafields" location="${dir.csvs}/FHIR_Query_Tracker_extra_fields.csv"/>
+  <property name="csv.extra" location="${dir.csvs}/FHIR_Query_extra_fields.csv"/>
+  <property name="csv.user" location="${dir.csvs}/FHIR_Query_Tracker_user.csv"/>
+  <property name="csv.audit" location="${dir.csvs}/FHIR_Query_audit.csv"/>
+  <property name="csv.duplicate" location="${dir.csvs}/FHIR_Query_Tracker_duplicate.csv"/>
+  <!-- temporary files -->
+  <property name="xml.csvfiles" location="${dir.temp}/csvs.xml"/>
+  <property name="xml.processedFiles" location="${dir.temp}/processed.xml"/>
+  <property name="properties.tracker" location="${dir.temp}/properties.txt"/>
+  <property name="txt.interestedEmails" location="${dir.temp}/interestedEmails.txt"/>
+  <property name="txt.issueEmails" location="${dir.temp}/issueEmails.txt"/>
+  <property name="txt.waitingOnEmails" location="${dir.temp}/waitingOnEmails.txt"/>
+  <!-- output files -->
+  <property name="xml.tracker" location="${dir.output}/tracker.xml"/>
+  <property name="xml.issues" location="${dir.output}/issues.xml"/>
+  <property name="html.interested" location="${dir.output}/interestReport.html"/>
+  <property name="html.issues" location="${dir.output}/issues.html"/>
+  <property name="html.publish" location="${dir.output}/publishIssues.html"/>
+  <property name="html.summarydy" location="${dir.output}/summary-1day.html"/>
+  <property name="html.summarywk" location="${dir.output}/summary-1week.html"/>
+  <property name="html.waitingOn" location="${dir.output}/waitingOnReport.html"/>
+<!--  <property name="html.ballot" location="${dir.base}/ballotResults.html"/>-->
+  <!-- Saxon files -->
+  <path id="saxon.path">
+    <pathelement path="${dir.lib}/Saxon-B-9.0.jar"/>
+  </path>
+  <property name="saxon.classname" value="net.sf.saxon.TransformerFactoryImpl"/>
+  <!-- Initial setup process -->
+  <target name="Setup">
+    <mkdir dir="${dir.output}"/>
+    <mkdir dir="${dir.temp}"/>
+  </target>
+  <target name="Queries" depends="Setup">
+    <sql driver="${db.driver}" classpath="${db.driverpath}" url="${db.url}" userid="${db.userid}" password="${db.password}" print="true" showTrailers="false" escapeprocessing="true" showWarnings="true" csvQuoteCharacter="&quot;" src="${sql.date}" output="${csv.date}"/>
+    <sql driver="${db.driver}" classpath="${db.driverpath}" url="${db.url}" userid="${db.userid}" password="${db.password}" print="true" showTrailers="false" escapeprocessing="true" showWarnings="true" csvQuoteCharacter="&quot;" src="${sql.tracker}" output="${csv.tracker}"/>
+    <sql driver="${db.driver}" classpath="${db.driverpath}" url="${db.url}" userid="${db.userid}" password="${db.password}" print="true" showTrailers="false" escapeprocessing="true" showWarnings="true" csvQuoteCharacter="&quot;" src="${sql.comments}" output="${csv.comments}"/>
+    <sql driver="${db.driver}" classpath="${db.driverpath}" url="${db.url}" userid="${db.userid}" password="${db.password}" print="true" showTrailers="false" escapeprocessing="true" showWarnings="true" csvQuoteCharacter="&quot;" src="${sql.custom}" output="${csv.custom}"/>
+    <sql driver="${db.driver}" classpath="${db.driverpath}" url="${db.url}" userid="${db.userid}" password="${db.password}" print="true" showTrailers="false" escapeprocessing="true" showWarnings="true" csvQuoteCharacter="&quot;" src="${sql.extrafields}" output="${csv.extrafields}"/>
+    <sql driver="${db.driver}" classpath="${db.driverpath}" url="${db.url}" userid="${db.userid}" password="${db.password}" print="true" showTrailers="false" escapeprocessing="true" showWarnings="true" csvQuoteCharacter="&quot;" src="${sql.extra}" output="${csv.extra}"/>
+    <sql driver="${db.driver}" classpath="${db.driverpath}" url="${db.url}" userid="${db.userid}" password="${db.password}" print="true" showTrailers="false" escapeprocessing="true" showWarnings="true" csvQuoteCharacter="&quot;" src="${sql.user}" output="${csv.user}"/>
+    <sql driver="${db.driver}" classpath="${db.driverpath}" url="${db.url}" userid="${db.userid}" password="${db.password}" print="true" showTrailers="false" escapeprocessing="true" showWarnings="true" csvQuoteCharacter="&quot;" src="${sql.audit}" output="${csv.audit}"/>
+    <sql driver="${db.driver}" classpath="${db.driverpath}" url="${db.url}" userid="${db.userid}" password="${db.password}" print="true" showTrailers="false" escapeprocessing="true" showWarnings="true" csvQuoteCharacter="&quot;" src="${sql.duplicate}" output="${csv.duplicate}"/>
+    <sql driver="${db.driver}" classpath="${db.driverpath}" url="${db.url}" userid="${db.userid}" password="${db.password}" print="true" showTrailers="false" escapeprocessing="true" showWarnings="true" csvQuoteCharacter="&quot;" src="${sql.assign}" output="${csv.assign}"/>
+  </target>
+  <!-- Turn CSVs into XML -->
+  <target name="NormalizeCsvs" depends="Queries">
+    <concat destfile="${xml.csvfiles}">
+      <resources>
+        <file name="${csv.date}"/>
+        <file name="${csv.extrafields}"/>
+        <file name="${csv.extra}"/>
+        <file name="${csv.user}"/>
+        <file name="${csv.tracker}"/>
+        <file name="${csv.comments}"/>
+        <file name="${csv.custom}"/>
+        <file name="${csv.audit}"/>
+        <file name="${csv.duplicate}"/>
+        <file name="${csv.assign}"/>
+      </resources>
+      <header filtering="no">&lt;?xml version="1.0" encoding="iso-8859-1" standalone="no"?&gt;&lt;files&gt;&lt;file&gt;</header>
+      <filterchain>
+        <striplinebreaks/>
+        <tokenfilter>
+          <replacestring from="&amp;" to="&amp;amp;"/>
+          <replacestring from="&lt;" to="&amp;lt;"/>
+          <replacestring from="===," to="&#x0a;"/>
+          <replacestring from="*start*," to="&lt;/file&gt;&lt;file&gt;"/>
+          <replacestring from="amp;rdquo;" to="amp;quot;"/>
+          <replacestring from="amp;ldquo;" to="amp;quot;"/>
+          <replacestring from="amp;rsquo;" to="amp;apos;"/>
+          <replacestring from="amp;lsquo;" to="amp;apos;"/>
+          <replacestring from="amp;bull;" to="amp;#x95;"/>
+          <replacestring from="amp;nbsp;" to="amp;#xA0;"/>
+          <replacestring from="amp;ndash;" to="amp;#x96;"/>
+          <replacestring from="amp;hellip;" to="amp;#x85;"/>
+          <replacestring from="amp;auml;" to="amp;#xC4;"/>
+          <replacestring from="amp;uuml;" to="amp;#xDC;"/>
+          <replacestring from="amp;copy;" to="amp;#xA9;"/>
+          <replacestring from="amp;sect;" to="amp;#xA7;"/>
+          <replacestring from="&#xC2;" to=""/>
+        </tokenfilter>
+      </filterchain>
+      <footer filtering="no">&lt;/file&gt;&lt;/files&gt;</footer>
+    </concat>
+  </target>
+
+  <target name="TrackerXML" depends="NormalizeCsvs">
+    <xslt in="${xml.csvfiles}" out="${xml.processedFiles}" style="${dir.tools}/trackersToXML.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+    <xslt in="${xml.processedFiles}" out="${xml.tracker}" style="${dir.tools}/normalizeTrackerInfo.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+  </target>
+
+  <target name="ContinuousReports" depends="TrackerXML">
+    <xslt in="${xml.tracker}" out="${xml.issues}" style="${dir.tools}/trackerIssues.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+    <xslt in="${xml.issues}" out="${html.issues}" style="${dir.tools}/renderTrackerIssues.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+    <xslt in="${xml.tracker}" out="${html.publish}" style="${dir.tools}/publishIssues.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+  </target>
+
+  <target name="TimeBasedReports-Setup" depends="ContinuousReports">
+    <propertyfile file="${properties.tracker}">
+      <entry key="date.day" type="string" default="A${date.now}"/>
+      <entry key="date.week" type="string" default="A${date.now}"/>
+    </propertyfile>
+    <property file="${properties.tracker}"/>
+    <condition property="do-daily">
+      <equals arg1="A${date.now}" arg2="${date.day}"/>
+    </condition>
+    <condition property="do-weekly">
+      <equals arg1="A${date.now}" arg2="${date.week}"/>
+    </condition>
+  </target>
+  
+  <target name="DailyReports" depends="TimeBasedReports-Setup" if="do-daily">
+    <echo message="==Doing Daily Reports=="/>
+    <tstamp>
+      <format property="date.daynew" pattern="yyyy-MM-dd" offset="1" unit="day"/>
+    </tstamp>
+    <propertyfile file="${properties.tracker}">
+      <entry key="date.day" type="string" operation="=" value="A${date.daynew}"/>
+    </propertyfile>
+    <xslt in="${xml.tracker}" out="${html.summarydy}" style="${dir.tools}/trackerSummary.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+      <param name="days" expression="1"/>
+    </xslt>
+  </target>  
+  
+  <target name="WeeklyReports" depends="TimeBasedReports-Setup" if="do-weekly">
+    <echo message="==Doing Weekly Reports=="/>
+    <tstamp>
+      <format property="date.weeknew" pattern="yyyy-MM-dd" offset="1" unit="week"/>
+    </tstamp>
+    <propertyfile file="${properties.tracker}">
+      <entry key="date.week" type="string" operation="=" value="A${date.weeknew}"/>
+    </propertyfile>
+    <xslt in="${xml.tracker}" out="${html.summarywk}" style="${dir.tools}/trackerSummary.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+      <param name="days" expression="7"/>
+      <param name="baseDir" expression="${dir.base}"/>
+      <param name="interestedEmailFileName" expression="${txt.interestedEmails}"/>
+      <param name="interestedReportFileName" expression="${html.interested}"/>
+    </xslt>
+    <xslt in="${xml.tracker}" out="${html.waitingOn}" style="${dir.tools}/trackerToWaitingOn.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+      <param name="baseDir" expression="${dir.base}"/>
+      <param name="emailFileName" expression="${txt.waitingOnEmails}"/>
+    </xslt>
+    <xslt in="${xml.issues}" out="${txt.issueEmails}" style="${dir.tools}/issueEmails.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+<!--<property name="tolist.issues" value="lloyd@lmckenzie.com"/>
+<property name="tolist.waitingOn" value="lloyd@lmckenzie.com"/>
+<property name="tolist.interested" value="lloyd@lmckenzie.com"/>-->
+    <property file="${txt.interestedEmails}"/>
+    <property file="${txt.issueEmails}"/>
+    <property file="${txt.waitingOnEmails}"/>
+<!--<echo message="${tolist.issues}"/>
+<echo message="${tolist.interested}"/>
+<echo message="${tolist.waitingOn}"/>-->
+    <mail mailhost="${mail.host}" enableStartTLS="yes" ssl="yes" failonerror="false" ignoreInvalidRecipients="false" user="${mail.user}" password="${mail.pw}" subject="Weekly FHIR Tracker Update" 
+      messagefileinputencoding="utf-8" charset="utf-8" encoding="mime"
+      message="Please find attached a summary of the changes to the FHIR gForge tracker over the past week">
+      <from address="${mail.from}"/>
+<!--      <to address="lloyd@lmckenzie.com"/>-->
+      <to address="fhir@lists.hl7.org"/>
+      <fileset file="${html.summarywk}"/>
+    </mail>
+    <mail mailhost="${mail.host}" enableStartTLS="yes" ssl="yes" failonerror="false" ignoreInvalidRecipients="false" user="${mail.user}" password="${mail.pw}" tolist="${tolist.issues}" subject="FHIR Tracker validation issues" 
+      message="Your email is associated with the most recent changes to elements on one or more tracker items that have resulted in those items failing validation rules.  Please review the tracker issues listed beneath your name in the attached file and address them if possible.  If you have any questions, send an email to ${email.admin}.">
+      <from address="${mail.from}"/>
+      <fileset file="${html.issues}"/>
+    </mail>
+    <mail mailhost="${mail.host}" enableStartTLS="yes" ssl="yes" failonerror="false" ignoreInvalidRecipients="false" user="${mail.user}" password="${mail.pw}" tolist="${tolist.waitingOn}" subject="FHIR Tracker items are waiting for you" 
+      message="Your email is listed in at least one tracker item as 'Waiting on'.  This is just a friendly reminder to progress your assigned items as you are able.  Details on your assigned items can be found in the attached file.  If you feel your email address is listed inappropriately, please contact a co-chair of the relevant work group or ${email.admin}.">
+      <from address="${mail.from}"/>
+      <fileset file="${html.waitingOn}"/>
+    </mail>
+    <mail mailhost="${mail.host}" enableStartTLS="yes" ssl="yes" failonerror="false" ignoreInvalidRecipients="false" user="${mail.user}" password="${mail.pw}" tolist="${tolist.interested}" subject="FHIR Tracker items of interest" 
+      message="One or more tracker items associated with resources, pages or implementation guides you identified as 'of interest' have changed in the past week.  Please find attached a report listing those items.">
+      <from address="${mail.from}"/>
+      <fileset file="${html.interested}"/>
+    </mail>
+  </target>  
+
+  <target name="TimeBasedReports" depends="DailyReports,WeeklyReports"/>
+
+  <target name="Copy" depends="ContinuousReports,TimeBasedReports">
+    <copy todir="${dir.shared}">
+      <fileset dir="${dir.output}"/>
+    </copy>
+  </target>
+
+  <target name="Wait" depends="Copy">
+<!--    <sleep minutes="13"/> -->
+  </target>
+
+<!--  <target name="BallotResults" depends="TrackerXML">
+    <xslt in="${xml.tracker}" out="${html.ballot}" style="${dir.tools}/ballotResults.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+  </target>-->
+</project>

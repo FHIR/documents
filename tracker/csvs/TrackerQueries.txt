@@ -1,0 +1,32 @@
+FHIR_Query_Tracker_user.csv:
+SELECT '===' AS start, t1.user_id, t1.firstname, t1.lastname, t1.email
+FROM "user" t1
+
+FHIR_Query_extra_fields.csv
+SELECT '===' AS start, t1.element_id, t1.tracker_extra_field_id, t1.element_name
+FROM tracker_extra_field_element t1 INNER JOIN tracker_extra_field t2 ON t1.tracker_extra_field_id = t2.tracker_extra_field_id 
+WHERE t2.tracker_id=677
+
+FHIR_Query_Tracker.csv:
+SELECT '===' AS start, t1.tracker_item_id, t1.priority, t1.open_date, t1.close_date, T1.summary, t1.details, t1.submitted_by, t1.last_modified_date, t1.last_modified_by
+FROM tracker_item t1 
+WHERE t1.tracker_id=677 ORDER BY t1.tracker_item_id
+
+FHIR_Query_Tracker_custom.csv:
+SELECT '===' AS start, t1.tracker_item_id, t2.field_name, t2.field_type, t1.field_data, t1.tracker_extra_field_id
+FROM tracker_item t0 
+INNER JOIN tracker_extra_field_data t1 ON t0.tracker_item_id=t1.tracker_item_id 
+INNER JOIN tracker_extra_field t2 ON t1.tracker_extra_field_id=t2.tracker_extra_field_id
+WHERE t0.tracker_id=677 ORDER BY t1.tracker_item_id, t2.field_order
+
+FHIR_Query_Tracker_comments.csv:
+SELECT '===' AS start, t1.tracker_item_id, t1.adddate AS comment_date, t1.body AS comment, t1.submitted_by
+FROM tracker_item t0
+INNER JOIN tracker_item_message t1 ON t0.tracker_item_id=t1.tracker_item_id
+WHERE t0.tracker_id=677 ORDER BY t1.tracker_item_id, t1.adddate
+
+FHIR_Query_audit.csv:
+SELECT '===' AS start, t1.ref_id AS tracker_item_id, t1.change_date, t1.field_name, t1.old_value, t1.new_value, t1.user_id
+FROM tracker_item t0 
+INNER JOIN audit_trail t1 ON t0.tracker_item_id=t1.ref_id
+WHERE t0.tracker_id=677 ORDER BY t1.ref_id, t1.change_date

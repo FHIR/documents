@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interestedParties xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="tools/InterestedParties.xsd">
+  <workGroup name="CBCC">
+    <resource name="Contract"/>
+  </workGroup>
+	<workGroup name="CGIT">
+    <resource name="StructureDefinition"/>
+    <resource name="ImplementationGuide"/>
+    <resource name="Conformance"/>
+    <resource name="TestScript"/>
+    <page name="compatibility"/>
+    <page name="conformance-rules"/>
+    <page name="profiling"/>
+	</workGroup>
+	<workGroup name="Clinical Decision Support">
+    <resource name="BodySite"/>
+    <resource name="Communication"/>
+    <resource name="CommunicationRequest"/>
+  </workGroup>
+  <workGroup name="Clinical Genomics">
+    <resource name="FamilyMemberHistory"/>
+    <resource name="Observation"/>
+  </workGroup>
+	<workGroup name="Devices">
+    <resource name="Device"/>
+  </workGroup>
+  <workGroup name="Electronic Health Record">
+    <resource name="AuditEvent"/>
+    <resource name="Provenance"/>
+  </workGroup>
+  <workGroup name="Financial Mgmt">
+    <resource name="Account"/>
+    <resource name="EpisodeOfCare"/>
+    <resource name="ReferralRequest"/>
+  </workGroup>
+  <workGroup name="Healthcare Standards Integration">
+    <resource name="AuditEvent"/>
+    <resource name="DocumentManifest"/>
+    <resource name="DocumentReference"/>
+    <resource name="Provenance"/>
+  </workGroup>
+	<workGroup name="Imaging Integration">
+    <resource name="Media"/>
+  </workGroup>
+  <workGroup name="ITS">
+    <page name="http"/>  
+  </workGroup>
+  <workGroup name="Infrastructure &amp; Messaging">
+    <resource name="MessageHeader"/>
+  </workGroup>
+  <workGroup name="Orders and Observations">
+    <resource name="Questionnaire"/>
+    <resource name="QuestionnaireResponse"/>
+  </workGroup>
+  <workGroup name="Patient Administration">
+    <resource name="Coverage"/>
+  </workGroup>
+	<workGroup name="Patient Care">
+    <resource name="BodySite"/>
+    <resource name="DeviceUseRequest"/>
+    <resource name="DeviceUseStatement"/>
+    <resource name="EpisodeOfCare"/>
+    <resource name="List"/>
+  </workGroup>
+  <workGroup name="Pharmacy">
+    <resource name="BodySite"/>
+    <resource name="Immunization"/>
+    <resource name="Substance"/>
+  </workGroup>
+  <workGroup name="Public Health">
+    <resource name="Group"/>
+  </workGroup>
+  <workGroup name="RCRIM">
+    <resource name="DataElement"/>
+    <resource name="Group"/>
+  </workGroup>
+  <workGroup name="Service Oriented Architecture">
+    <resource name="OperationDefinition"/>
+    <page name="operations"/>
+  </workGroup>
+  <workGroup name="Structured Documents">
+    <resource name="List"/>
+  </workGroup>
+  <workGroup name="Vocabulary">
+    <resource name="NamingSystem"/>
+  </workGroup>
+  <individual name="Lloyd McKenzie" email="lloyd@lmckenzie.com" newItems="true">
+    <resource name="StructureDefinition"/>
+    <resource name="ImplementationGuide"/>
+  </individual>
+  <individual name="Grahame Grieve" email="grahame@healthintersections.com.au" newItems="true">
+    <resource name="StructureDefinition"/>
+    <resource name="ImplementationGuide"/>
+  </individual>
+</interestedParties>

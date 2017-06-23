@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="interestedParties">
+    <xs:annotation>
+      <xs:documentation>A file that lists work groups and individuals and their interest in particular resources.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="workGroup" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>The name of a group that has interest in tracker items</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:group ref="MonitoredContent" maxOccurs="unbounded"/>
+            <xs:attribute name="name" type="WorkGroupName" use="required">
+              <xs:annotation>
+                <xs:documentation>The name of the work group</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+          <xs:unique name="WGResourceNameUnique">
+            <xs:selector xpath="resource"/>
+            <xs:field xpath="@name"/>
+          </xs:unique>
+          <xs:unique name="WGPageNameUnique">
+            <xs:selector xpath="page"/>
+            <xs:field xpath="@name"/>
+          </xs:unique>
+          <xs:unique name="WGGuideNameUnique">
+            <xs:selector xpath="guide"/>
+            <xs:field xpath="@name"/>
+          </xs:unique>
+        </xs:element>
+        <xs:element name="individual" minOccurs="0" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>An individual who is interested in receiving notifications about creation or changes to a class of tracker items</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:group ref="MonitoredContent" maxOccurs="unbounded"/>
+            <xs:attribute name="name" type="xs:string" use="required">
+              <xs:annotation>
+                <xs:documentation>The name of the individual</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="email" type="xs:string" use="required">
+              <xs:annotation>
+                <xs:documentation>The email address to which notifications should be sent</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="newItems" type="xs:boolean" default="false">
+              <xs:annotation>
+                <xs:documentation>If set to true, will include links to all newly created items</xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+          <xs:unique name="IndividualResourceNameUnique">
+            <xs:selector xpath="resource"/>
+            <xs:field xpath="@name"/>
+          </xs:unique>
+          <xs:unique name="IndividualPageNameUnique">
+            <xs:selector xpath="page"/>
+            <xs:field xpath="@name"/>
+          </xs:unique>
+          <xs:unique name="IndividualGuideNameUnique">
+            <xs:selector xpath="guide"/>
+            <xs:field xpath="@name"/>
+          </xs:unique>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:unique name="WGNameUnique">
+      <xs:selector xpath="workGroup"/>
+      <xs:field xpath="@name"/>
+    </xs:unique>
+    <xs:unique name="IndividualNameUnique">
+      <xs:selector xpath="individual"/>
+      <xs:field xpath="@name"/>
+    </xs:unique>
+    <xs:unique name="IndividualEmailUnique">
+      <xs:selector xpath="individual"/>
+      <xs:field xpath="@email"/>
+    </xs:unique>
+  </xs:element>
+  <xs:group name="MonitoredContent">
+    <xs:choice>
+      <xs:element name="resource">
+        <xs:annotation>
+          <xs:documentation>A resource of interest to a work group or individual</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="name" type="ResourceNames" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="page">
+        <xs:annotation>
+          <xs:documentation>A FHIR HTML page of interest to a work group or individual</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="name" type="PageNames" use="required"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="guide">
+        <xs:annotation>
+          <xs:documentation>An implementation guide of interest to a work group or individual</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:attribute name="name" type="ImplementationGuideNames" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:group>
+  <xs:simpleType name="ResourceNames">
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="Account"/>
+      <xs:enumeration value="AllergyIntolerance"/>
+      <xs:enumeration value="Appointment"/>
+      <xs:enumeration value="AppointmentResponse"/>
+      <xs:enumeration value="AuditEvent"/>
+      <xs:enumeration value="BaseResource"/>
+      <xs:enumeration value="Basic"/>
+      <xs:enumeration value="Binary"/>
+      <xs:enumeration value="BodySite"/>
+      <xs:enumeration value="Bundle"/>
+      <xs:enumeration value="CarePlan"/>
+      <xs:enumeration value="Claim"/>
+      <xs:enumeration value="ClaimResponse"/>
+      <xs:enumeration value="ClinicalImpression"/>
+      <xs:enumeration value="Communication"/>
+      <xs:enumeration value="CommunicationRequest"/>
+      <xs:enumeration value="Composition"/>
+      <xs:enumeration value="ConceptMap"/>
+      <xs:enumeration value="Condition"/>
+      <xs:enumeration value="Conformance"/>
+      <xs:enumeration value="Contract"/>
+      <xs:enumeration value="Contraindication"/>
+      <xs:enumeration value="Coverage"/>
+      <xs:enumeration value="DataElement"/>
+      <xs:enumeration value="Device"/>
+      <xs:enumeration value="DeviceComponent"/>
+      <xs:enumeration value="DeviceMetric"/>
+      <xs:enumeration value="DeviceUseRequest"/>
+      <xs:enumeration value="DeviceUseStatement"/>
+      <xs:enumeration value="DiagnosticOrder"/>
+      <xs:enumeration value="DiagnosticReport"/>
+      <xs:enumeration value="DocumentManifest"/>
+      <xs:enumeration value="DocumentReference"/>
+      <xs:enumeration value="DomainResource"/>
+      <xs:enumeration value="EligibilityRequest"/>
+      <xs:enumeration value="EligibilityResponse"/>
+      <xs:enumeration value="Encounter"/>
+      <xs:enumeration value="EnrollmentRequest"/>
+      <xs:enumeration value="EnrollmentResponse"/>
+      <xs:enumeration value="EpisodeOfCare"/>
+      <xs:enumeration value="ExplanationOfBenefit"/>
+      <xs:enumeration value="FamilyMemberHistory"/>
+      <xs:enumeration value="Flag"/>
+      <xs:enumeration value="Goal"/>
+      <xs:enumeration value="Group"/>
+      <xs:enumeration value="HealthcareService"/>
+      <xs:enumeration value="ImagingObjectSelection"/>
+      <xs:enumeration value="ImagingStudy"/>
+      <xs:enumeration value="Immunization"/>
+      <xs:enumeration value="ImmunizationRecommendation"/>
+      <xs:enumeration value="ImplementationGuide"/>
+      <xs:enumeration value="List"/>
+      <xs:enumeration value="Location"/>
+      <xs:enumeration value="Media"/>
+      <xs:enumeration value="Medication"/>
+      <xs:enumeration value="MedicationAdministration"/>
+      <xs:enumeration value="MedicationDispense"/>
+      <xs:enumeration value="MedicationOrder"/>
+      <xs:enumeration value="MedicationStatement"/>
+      <xs:enumeration value="MessageHeader"/>
+      <xs:enumeration value="NamingSystem"/>
+      <xs:enumeration value="NutritionOrder"/>
+      <xs:enumeration value="Observation"/>
+      <xs:enumeration value="OperationDefinition"/>
+      <xs:enumeration value="OperationOutcome"/>
+      <xs:enumeration value="Order"/>
+      <xs:enumeration value="OrderResponse"/>
+      <xs:enumeration value="Organization"/>
+      <xs:enumeration value="Parameters"/>
+      <xs:enumeration value="Patient"/>
+      <xs:enumeration value="PaymentNotice"/>
+      <xs:enumeration value="PaymentReconciliation"/>
+      <xs:enumeration value="Individual"/>
+      <xs:enumeration value="Practitioner"/>
+      <xs:enumeration value="Procedure"/>
+      <xs:enumeration value="ProcedureRequest"/>
+      <xs:enumeration value="ProcessRequest"/>
+      <xs:enumeration value="ProcessResponse"/>
+      <xs:enumeration value="Provenance"/>
+      <xs:enumeration value="Questionnaire"/>
+      <xs:enumeration value="QuestionnaireResponse"/>
+      <xs:enumeration value="ReferralRequest"/>
+      <xs:enumeration value="RelatedIndividual"/>
+      <xs:enumeration value="RiskAssessment"/>
+      <xs:enumeration value="Schedule"/>
+      <xs:enumeration value="SearchParameter"/>
+      <xs:enumeration value="Slot"/>
+      <xs:enumeration value="Specimen"/>
+      <xs:enumeration value="StructureDefinition"/>
+      <xs:enumeration value="Subscription"/>
+      <xs:enumeration value="Substance"/>
+      <xs:enumeration value="Supply"/>
+      <xs:enumeration value="TestScript"/>
+      <xs:enumeration value="ValueSet"/>
+      <xs:enumeration value="VisionPrescription"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PageNames">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="(methodology)"/>
+      <xs:enumeration value="(profiles)"/>
+      <xs:enumeration value="(schemas/schematrons)"/>
+      <xs:enumeration value="administration"/>
+      <xs:enumeration value="argnonauts"/>
+      <xs:enumeration value="backboneelement"/>
+      <xs:enumeration value="ballot-intro"/>
+      <xs:enumeration value="book"/>
+      <xs:enumeration value="cda-intro"/>
+      <xs:enumeration value="change"/>
+      <xs:enumeration value="changelist"/>
+      <xs:enumeration value="clinical"/>
+      <xs:enumeration value="comparison"/>
+      <xs:enumeration value="compatibility"/>
+      <xs:enumeration value="conformance-rules"/>
+      <xs:enumeration value="credits"/>
+      <xs:enumeration value="datatypes"/>
+      <xs:enumeration value="defining-extensions"/>
+      <xs:enumeration value="directory"/>
+      <xs:enumeration value="documentation"/>
+      <xs:enumeration value="documents"/>
+      <xs:enumeration value="downloads"/>
+      <xs:enumeration value="ehr-fm"/>
+      <xs:enumeration value="element"/>
+      <xs:enumeration value="elementdefinition"/>
+      <xs:enumeration value="extensibility"/>
+      <xs:enumeration value="extras"/>
+      <xs:enumeration value="financial"/>
+      <xs:enumeration value="formats"/>
+      <xs:enumeration value="history"/>
+      <xs:enumeration value="http"/>
+      <xs:enumeration value="iglist"/>
+      <xs:enumeration value="infrastructure"/>
+      <xs:enumeration value="implementation"/>
+      <xs:enumeration value="index"/>
+      <xs:enumeration value="integrated-examples"/>
+      <xs:enumeration value="json"/>
+      <xs:enumeration value="license"/>
+      <xs:enumeration value="lifecycle"/>
+      <xs:enumeration value="managing"/>
+      <xs:enumeration value="messaging"/>
+      <xs:enumeration value="narrative"/>
+      <xs:enumeration value="operations"/>
+      <xs:enumeration value="overview"/>
+      <xs:enumeration value="profilelist"/>
+      <xs:enumeration value="profiling"/>
+      <xs:enumeration value="pushpull"/>
+      <xs:enumeration value="qa"/>
+      <xs:enumeration value="references"/>
+      <xs:enumeration value="resourcelist"/>
+      <xs:enumeration value="resources"/>
+      <xs:enumeration value="sc"/>
+      <xs:enumeration value="search"/>
+      <xs:enumeration value="security"/>
+      <xs:enumeration value="security-labels"/>
+      <xs:enumeration value="services"/>
+      <xs:enumeration value="signatures"/>
+      <xs:enumeration value="soa"/>
+      <xs:enumeration value="summary"/>
+      <xs:enumeration value="support"/>
+      <xs:enumeration value="terminologies"/>
+      <xs:enumeration value="terminologies-conceptmaps"/>
+      <xs:enumeration value="terminologies-systems"/>
+      <xs:enumeration value="terminologies-v2"/>
+      <xs:enumeration value="terminologies-v3"/>
+      <xs:enumeration value="terminologies-valuesets"/>
+      <xs:enumeration value="terminology-service"/>
+      <xs:enumeration value="timelines"/>
+      <xs:enumeration value="toc"/>
+      <xs:enumeration value="todo"/>
+      <xs:enumeration value="updates"/>
+      <xs:enumeration value="use"/>
+      <xs:enumeration value="usecases"/>
+      <xs:enumeration value="w5"/>
+      <xs:enumeration value="xml"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ImplementationGuideNames">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Argonaut"/>
+      <xs:enumeration value="Clinical Quality Information Framework (CQIF)"/>
+      <xs:enumeration value="Data Access Framework (DAF)"/>
+      <xs:enumeration value="QI Core"/>
+      <xs:enumeration value="Structured Data Capture (SDC)"/>
+      <xs:enumeration value="US Lab"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="WorkGroupName">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Anatomic Pathology"/>
+      <xs:enumeration value="Anesthesia"/>
+      <xs:enumeration value="Attachments"/>
+      <xs:enumeration value="BRIDG"/>
+      <xs:enumeration value="Child Health"/>
+      <xs:enumeration value="Clinical Decision Support"/>
+      <xs:enumeration value="Clinical Genomics"/>
+      <xs:enumeration value="CIMI"/>
+      <xs:enumeration value="Clinical Interoperability Council"/>
+      <xs:enumeration value="Clinical Quality Information"/>
+      <xs:enumeration value="CBCC"/>
+      <xs:enumeration value="CGIT"/>
+      <xs:enumeration value="Electronic Health Record"/>
+      <xs:enumeration value="Emergency Care"/>
+      <xs:enumeration value="FHIR Infrastructure"/>
+      <xs:enumeration value="Financial Mgmt"/>
+      <xs:enumeration value="Devices"/>
+      <xs:enumeration value="DICOM"/>
+      <xs:enumeration value="Healthcare Standards Integration"/>
+      <xs:enumeration value="Imaging Integration"/>
+      <xs:enumeration value="ITS"/>
+      <xs:enumeration value="Infrastructure &amp; Messaging"/>
+      <xs:enumeration value="Learning Health Systems"/>
+      <xs:enumeration value="Mobile Health"/>
+      <xs:enumeration value="Modeling &amp; Methodology"/>
+      <xs:enumeration value="Orders and Observations"/>
+      <xs:enumeration value="Patient Administration"/>
+      <xs:enumeration value="Patient Care"/>
+      <xs:enumeration value="Pharmacy"/>
+      <xs:enumeration value="Public Health"/>
+      <xs:enumeration value="Publishing"/>
+      <xs:enumeration value="RCRIM"/>
+      <xs:enumeration value="Security"/>
+      <xs:enumeration value="Service Oriented Architecture"/>
+      <xs:enumeration value="Structured Documents"/>
+      <xs:enumeration value="Templates"/>
+      <xs:enumeration value="US Realm Task Force"/>
+      <xs:enumeration value="Vocabulary"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
