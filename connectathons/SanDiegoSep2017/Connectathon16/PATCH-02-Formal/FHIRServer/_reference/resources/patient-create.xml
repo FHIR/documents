@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+	<identifier>
+		<system value="http://example.org"/>
+		<value value="patch-${D6}-${D7}"/>
+	</identifier>
+	<identifier>
+		<system value="http://example.org"/>
+		<value value="patch-me"/>
+	</identifier>
+	<active value="false"/>
+	<name>
+		<use value="official"/>
+		<family value="Last${CD6}"/>
+		<given value="First${CD7}"/>
+		<given value="PatchMe"/>
+	</name>
+	<name>
+		<use value="usual"/>
+		<family value="Last${CD6}"/>
+		<given value="Patrick"/>
+	</name>
+	<gender value="male"/>
+	<birthDate value="1994-07-05"/>
+	<deceasedBoolean value="true"/>
+	<generalPractitioner>
+		<display value="Dr Patch Me"/>
+	</generalPractitioner>
+</Patient>

@@ -1,0 +1,9 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "max",
+      "valueInteger": "3"
+    }
+  ]
+}

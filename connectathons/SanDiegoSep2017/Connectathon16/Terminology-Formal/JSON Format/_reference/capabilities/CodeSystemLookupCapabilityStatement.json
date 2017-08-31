@@ -1,0 +1,35 @@
+{
+  "resourceType": "CapabilityStatement",
+  "status": "draft",
+  "date": "2017-03-25T09:00:00-05:00",
+  "description": "FHIR CapabilityStatement",
+  "kind": "capability",
+  "fhirVersion": "3.0.1",
+  "acceptUnknown": "both",
+  "format": [
+    "json"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "resource": [
+        {
+          "type": "CodeSystem",
+          "interaction": [
+            {
+              "code": "read"
+            }
+          ]
+        }
+      ],
+      "operation": [
+        {
+          "name": "lookup",
+          "definition": {
+            "reference": "http://hl7.org/fhir/OperationDefinition/codesystem-lookup"
+          }
+        }
+      ]
+    }
+  ]
+}

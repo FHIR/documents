@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-16-ts-lookup-loinc-01-ok-get-simple-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-16-ts-lookup-loinc-01-ok-get-simple-xml"/>
+	<name value="FHIR Connectathon 16 - Terminology Services - Lookup - LOINC - OK - GET - Simple - XML"/>
+	<status value="active"/>
+	<date value="2017-08-28"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="CodeSystem $lookup simple tests against known LOINC codes where the expected outcome is a successful response with valid name and display value. All $lookup operations are performed using the FHIR Operation Framework HTTP GET method."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="CodeSystem create, read and lookup operations"/>
+			<link value="http://hl7.org/fhir/STU3/codesystem-operations.html#lookup"/>
+			<link value="http://hl7.org/fhir/STU3/codesystem.html"/>
+			<capabilities>
+				<reference value="../_reference/capabilities/CodeSystemLookupCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<profile id="ParametersProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+	</profile>
+
+	<test id="01-LOINC-LookupBicarbonateSerum">
+		<name value="LOINC-LookupBicarbonateSerum"/>
+		<description value="Lookup test for LOINC system and code using HTTP GET; 1963-8 (Bicarbonate [Moles/volume] in Serum). Expected response is 200 (OK) with a Parameters payload containing the name of the terminology and correct display value."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="lookup"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $lookup operation for LOINC system and code for Bicarbonate [Moles/volume] in Serum."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$lookup?system=http://loinc.org&amp;code=1963-8"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<direction value="response"/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="ParametersProfile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter name with valueString of LOINC."/>
+				<direction value="response"/>
+				<expression value="Parameters.parameter.where(name = 'name').valueString.contains('LOINC')"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter display with valueString of Bicarbonate."/>
+				<direction value="response"/>
+				<expression value="Parameters.parameter.where(name = 'display').valueString.contains('Bicarbonate')"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

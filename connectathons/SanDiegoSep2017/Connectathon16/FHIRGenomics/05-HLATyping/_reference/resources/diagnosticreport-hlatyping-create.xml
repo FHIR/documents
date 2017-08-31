@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticReport xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b>Generated Narrative with Details</b>
+			</p>
+			<p>
+				<b>status</b>: final</p>
+			<p>
+				<b>code</b>: HLA genotyping results <span>(Details )</span>
+			</p>
+			<p>
+				<b>subject</b>: <a>Molecular Lab Patient ID: HOSP-${CD9}${D9}</a>
+			</p>
+			<p>
+				<b>effective</b>: May 26, 2015 3:30:10 PM</p>
+			<p>
+				<b>issued</b>: May 26, 2015 3:30:10 PM</p>
+			<p>
+				<b>performer</b>: <a>Molecular Diagnostic Laboratory</a>
+			</p>
+			<p>
+				<b>specimen</b>: <a>Molecular Specimen ID: MLD45-Z4-1234</a>
+			</p>
+		</div>
+	</text>
+	<extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsGlstring">
+		<extension url="text">
+			<valueString value="HLA-A*01:01:01+HLA-A*24:02:01"/>
+		</extension>
+	</extension>
+	<identifier>
+		<system value="http://acme.com/lab/reports"/>
+		<value value="${CD9}-${D7}"/>
+	</identifier>
+	<status value="final"/>
+	<code>
+		<text value="HLA genotyping results"/>
+	</code>
+	<subject>
+		<reference value="Patient/${createPatientId}"/>
+		<display value="Molecular Lab Patient ID: HOSP-${CD9}${D9}"/>
+	</subject>
+	<effectiveDateTime value="2015-05-26T15:30:10+01:00"/>
+	<issued value="2015-05-26T15:30:10+01:00"/>
+	<performer>
+		<actor>
+			<reference value="Practitioner/${createPractitionerId}"/>
+			<display value="Molecular Diagnostic Laboratory"/>
+		</actor>
+	</performer>
+	<specimen>
+		<reference value="Specimen/${createSpecimenId}"/>
+		<display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+	</specimen>
+</DiagnosticReport>

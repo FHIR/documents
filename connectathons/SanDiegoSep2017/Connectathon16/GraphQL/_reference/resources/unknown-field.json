@@ -1,0 +1,3 @@
+{
+  "query" : "{identifier{system,value,something}active,name{text,given,family}}"
+}

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-16-patch-patient-fhirpath-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-0-1/TestScript/connectathon-16-patch-patient-fhirpath-xml"/>
+	<name value="FHIR Connectathon 16 - Patch - FHIR Path PATCH for Patient using XML format"/>
+	<status value="active"/>
+	<date value="2017-07-05"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Send PATCH to EHR Patient resource with FHIR Path Patch to update the Patient.active value using XML format."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Patient read, search and patch operations"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#read"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#search"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#patch"/>
+			<capabilities>
+				<reference value="../../_reference/capabilities/Patient-patch-fhirpath-xml.xml" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<fixture id="patient-patch">
+		<resource>
+			<reference value="../../_reference/resources/patient-patch-fhirpath.xml"/>
+		</resource>
+	</fixture>
+
+	<variable>
+		<name value="patientSearchName"/>
+		<description value="Enter a patient name to search on for a known Patient on the destination system."/>
+		<hint value="[Patient Name]" />
+	</variable>
+	<variable>
+		<name value="patientId"/>
+		<path value="Patient/id" />
+		<sourceId value="patient-search-response"/>
+	</variable>
+
+	<test id="Step1-SearchForPatient">
+		<name value="Step1-SearchForPatient"/>
+		<description value="Search for Patients using the criteria name (supplied by user in patientSearchName variable). The first returned Patient will be the one that receives the patch operation."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for Patients using the criteria name (supplied by user in patientSearchName variable)."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?name=${patientSearchName}"/>
+				<responseId value="patient-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other Patient records returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2-PatchPatient">
+		<name value="Step2-PatchPatient"/>
+		<description value="Update the Patient active value to false using XML PATCH"/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="patch"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${patientId}"/>
+				<sourceId value="patient-patch"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the patch operation is a replace."/>
+				<direction value="request" />
+				<path value="[0].op"/>
+				<value value="replace"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the patch is replacing the active element value."/>
+				<direction value="request" />
+				<path value="[0].path"/>
+				<value value="/active"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the patch is setting the status value to false."/>
+				<direction value="request" />
+				<path value="[0].value"/>
+				<value value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Read the patched Patient back to verify contents."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="/${patientId}" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Patient."/>
+				<resource value="Patient"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirmation that the Patient active value was updated to the false value."/>
+				<operator value="equals"/>
+				<path value="Patient/active"/>
+				<value value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

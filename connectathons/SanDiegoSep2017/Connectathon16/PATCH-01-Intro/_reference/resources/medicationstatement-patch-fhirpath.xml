@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<parameter>
+		<name value="operation"/>
+		<part>
+			<name value="type"/>
+			<valueCode value="replace"/>
+		</part>
+		<part>
+			<name value="path"/>
+			<valueString value="MedicationStatement.status"/>
+		</part>
+		<part>
+			<name value="value"/>
+			<valueCode value="completed"/>
+		</part>
+	</parameter>
+</Parameters>

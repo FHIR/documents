@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-16-03-familymemberhistory-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-16-03-familymemberhistory-xml"/>
+	<name value="FHIR Connectathon 16 - FHIR Genomics - Scenario 03 - Family Member History - XML"/>
+	<status value="draft"/>
+	<date value="2017-06-16"/>
+	<publisher value="Clinical Genomics Workgroup, AEGIS.net, Inc."/>
+	<contact>
+		<name value="Gil Alterovitz"/>
+		<telecom>
+			<system value="email"/>
+			<value value="gilusa@gmail.com"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Get the genetics DiagnosticReports of a given patient getting the FamilyMemberHistory's resource id reference from the DiagnosticReport Genetics Family Member History extension. Get the FamilyMemberHistory instance and get the Observation resource id reference from the FamilyMemberHistory Genetics Observation extension. Get the Observation instance and verify it contains the Observation Gene extension. Resource format is XML."/>
+	<copyright value="© Clinical Genomics Workgroup, © AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="DiagnosticReport, FamilyMemberHistory, Observation, Patient, Practitioner and Specimen create, delete, read and search operations"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#create"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#delete"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#read"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#search"/>
+			<link value="http://hl7.org/fhir/STU3/diagnosticreport-genetics.html"/>
+			<link value="http://hl7.org/fhir/STU3/familymemberhistory-genetic.html"/>
+			<link value="http://hl7.org/fhir/STU3/observation-genetics.html"/>
+			<capabilities>
+				<reference value="_reference/capabilities/FamilyHistoryCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<fixture id="diagnosticreport-create">
+		<resource>
+			<reference value="_reference/resources/diagnosticreport-familyhistory-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="familymemberhistory-create">
+		<resource>
+			<reference value="_reference/resources/familymemberhistory-familyhistory-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="observation-create">
+		<resource>
+			<reference value="_reference/resources/observation-familyhistory-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-create">
+		<resource>
+			<reference value="_reference/resources/patient-familyhistory-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="practitioner-create">
+		<resource>
+			<reference value="_reference/resources/practitioner-familyhistory-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="specimen-create">
+		<resource>
+			<reference value="_reference/resources/specimen-familyhistory-create.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="diagnosticreport-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+	</profile>
+	<profile id="diagnosticreport-genetics-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/diagnosticreport-genetics"/>
+	</profile>
+	<profile id="familymemberhistory-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
+	</profile>
+	<profile id="familymemberhistory-genetics-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/familymemberhistory-genetic"/>
+	</profile>
+	<profile id="observation-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+	</profile>
+	<profile id="observation-genetics-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/observation-genetics"/>
+	</profile>
+
+	<variable>
+		<name value="createDiagnosticReportId"/>
+		<path value="DiagnosticReport/id" />
+		<sourceId value="create-diagnosticreport-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamDiagnosticReportIdentifier"/>
+		<path value="DiagnosticReport/identifier/value" />
+		<sourceId value="diagnosticreport-create" />
+	</variable>
+	<variable>
+		<name value="createFamilyMemberHistoryId"/>
+		<path value="FamilyMemberHistory/id" />
+		<sourceId value="create-familymemberhistory-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamFamilyMemberHistoryIdentifier"/>
+		<path value="FamilyMemberHistory/identifier/value" />
+		<sourceId value="familymemberhistory-create" />
+	</variable>
+	<variable>
+		<name value="createObservationId"/>
+		<path value="Observation/id" />
+		<sourceId value="create-observation-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamObservationIdentifier"/>
+		<path value="Observation/identifier/value" />
+		<sourceId value="observation-create" />
+	</variable>
+	<variable>
+		<name value="createPatientId"/>
+		<path value="Patient/id" />
+		<sourceId value="create-patient-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamPatientIdentifier"/>
+		<path value="Patient/identifier/value" />
+		<sourceId value="patient-create" />
+	</variable>
+	<variable>
+		<name value="createPractitionerId"/>
+		<path value="Practitioner/id" />
+		<sourceId value="create-practitioner-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamPractitionerIdentifier"/>
+		<path value="Practitioner/identifier/value" />
+		<sourceId value="practitioner-create" />
+	</variable>
+	<variable>
+		<name value="createSpecimenId"/>
+		<path value="Specimen/id" />
+		<sourceId value="create-specimen-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamSpecimenIdentifier"/>
+		<path value="Specimen/identifier/value" />
+		<sourceId value="specimen-create" />
+	</variable>
+	<variable>
+		<name value="familyMemberHistoryReference"/>
+		<expression value="DiagnosticReport.extension('http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsFamilyMemberHistory').select(value as Reference).reference.replace('FamilyMemberHistory/','')" />
+		<sourceId value="diagnosticreport-genetics-read-response"/>
+	</variable>
+	<variable>
+		<name value="observationReference"/>
+		<expression value="FamilyMemberHistory.extension('http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-observation').select(value as Reference).reference.replace('Observation/','')" />
+		<sourceId value="familymemberhistory-genetics-read-response"/>
+	</variable>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="DiagnosticReport"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the DiagnosticReport does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamDiagnosticReportIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="FamilyMemberHistory"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the FamilyMemberHistory does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamFamilyMemberHistoryIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Observation"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the Observation does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamObservationIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Specimen"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the Specimen does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamSpecimenIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the Patient does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPatientIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the Practitioner does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPractitionerIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+	</setup>
+
+	<test id="Step1-CreateNewFamilyHistoryPractitioner">
+		<name value="Step1-CreateNewFamilyHistoryPractitioner"/>
+		<description value="Create a new FamilyHistory Practitioner in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Practitioner"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="practitioner-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="Search for the created FamilyHistory Practitioner by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPractitionerIdentifier}"/>
+				<responseId value="create-practitioner-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one Practitioner resource returned. Warning only as the server may contain another matching Practitioner."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2-CreateNewFamilyHistoryPatient">
+		<name value="Step2-CreateNewFamilyHistoryPatient"/>
+		<description value="Create a new FamilyHistory Patient in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="patient-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for the created FamilyHistory Patient by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPatientIdentifier}"/>
+				<responseId value="create-patient-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one Patient resource returned. Warning only as the server may contain another matching Patient."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step3-CreateNewFamilyHistorySpecimen">
+		<name value="Step3-CreateNewFamilyHistorySpecimen"/>
+		<description value="Create a new FamilyHistory Specimen in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Specimen"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="specimen-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Specimen"/>
+				<description value="Search for the created FamilyHistory Specimen by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamSpecimenIdentifier}"/>
+				<responseId value="create-specimen-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one Specimen resource returned. Warning only as the server may contain another matching Specimen."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step4-CreateNewFamilyHistoryObservation">
+		<name value="Step4-CreateNewFamilyHistoryObservation"/>
+		<description value="Create a new FamilyHistory Observation in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="observation-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Observation"/>
+				<description value="Search for the created FamilyHistory Observation by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamObservationIdentifier}"/>
+				<responseId value="create-observation-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one Observation resource returned. Warning only as the server may contain another matching Observation."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step5-CreateNewFamilyHistoryFamilyMemberHistory">
+		<name value="Step5-CreateNewFamilyHistoryFamilyMemberHistory"/>
+		<description value="Create a new FamilyHistory FamilyMemberHistory in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="FamilyMemberHistory"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="familymemberhistory-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="FamilyMemberHistory"/>
+				<description value="Search for the created FamilyHistory FamilyMemberHistory by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamFamilyMemberHistoryIdentifier}"/>
+				<responseId value="create-familymemberhistory-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one FamilyMemberHistory resource returned. Warning only as the server may contain another matching FamilyMemberHistory."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step6-CreateNewFamilyHistoryDiagnosticReport">
+		<name value="Step6-CreateNewFamilyHistoryDiagnosticReport"/>
+		<description value="Create a new FamilyHistory DiagnosticReport in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="DiagnosticReport"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="diagnosticreport-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="DiagnosticReport"/>
+				<description value="Search for the created FamilyHistory DiagnosticReport by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamDiagnosticReportIdentifier}"/>
+				<responseId value="create-diagnosticreport-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one DiagnosticReport resource returned. Warning only as the server may contain another matching DiagnosticReport."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step7-ReadGeneticsDiagnosticReport">
+		<name value="Step7-ReadGeneticsDiagnosticReport"/>
+		<description value="Read the genetics DiagnosticReport. Extract the first FamilyMemberHistory's resource id reference from the DiagnosticReport Genetics Family Member History extension."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="DiagnosticReport"/>
+				<description value="Read the genetics DiagnosticReport"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${createDiagnosticReportId}"/>
+				<responseId value="diagnosticreport-genetics-read-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is DiagnosticReport."/>
+				<resource value="DiagnosticReport"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR DiagnosticReport profile."/>
+				<validateProfileId value="diagnosticreport-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the FHIR DiagnosticReport for Genetics profile."/>
+				<validateProfileId value="diagnosticreport-genetics-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the DiagnosticReport resource contains a DiagnosticReport-geneticsFamilyMemberHistory extension value."/>
+				<operator value="notEmpty"/>
+				<path value="DiagnosticReport/extension[@url='http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsFamilyMemberHistory']/valueReference/reference"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step8-ReadGeneticsFamilyMemberHistory">
+		<name value="Step8-ReadGeneticsFamilyMemberHistory"/>
+		<description value="Read the FamilyMemberHistory instance and get the Observation resource id reference from the FamilyMemberHistory Genetics Observation extension."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="FamilyMemberHistory"/>
+				<description value="Get the FamilyMemberHistory instance referenced within the found genetics DiagnosticReport."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${familyMemberHistoryReference}" />
+				<responseId value="familymemberhistory-genetics-read-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is FamilyMemberHistory."/>
+				<resource value="FamilyMemberHistory"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource type conforms to the base FHIR FamilyMemberHistory profile."/>
+				<validateProfileId value="familymemberhistory-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the FHIR FamilyMemberHistory for Genetics profile."/>
+				<validateProfileId value="familymemberhistory-genetics-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned FamilyMemberHistory resource contains a family-member-history-genetics-observation extension value."/>
+				<operator value="notEmpty"/>
+				<path value="FamilyMemberHistory/extension[@url='http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-observation']/valueReference/reference"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step9-ReadGeneticsObservation">
+		<name value="Step9-ReadGeneticsObservation"/>
+		<description value="Read the Observation instance and verify it contains the Observation Gene extension. Resource format is XML."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Observation"/>
+				<description value="Get the Observation instance referenced within the found genetics FamilyMemberHistory."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${observationReference}" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Observation."/>
+				<resource value="Observation"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource type conforms to the base FHIR Observation profile."/>
+				<validateProfileId value="observation-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the FHIR Observation for Genetics profile."/>
+				<validateProfileId value="observation-genetics-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Observation resource contains a observation-geneticsGene extension value."/>
+				<operator value="notEmpty"/>
+				<path value="Observation/extension[@url='http://hl7.org/fhir/StructureDefinition/observation-geneticsGene']/valueCodeableConcept/coding/code"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

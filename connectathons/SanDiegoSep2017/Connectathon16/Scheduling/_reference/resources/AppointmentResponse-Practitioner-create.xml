@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AppointmentResponse xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Dr Leonard T Bloodraw Jr accept appointment 09 May 2016 9:00am - 9:45am</div>
+	</text>
+	<identifier>
+		<system value="http://happyvalley.com/appointmentresponse"/>
+		<value value="ATND-${CD9}-20160508090000"/>
+	</identifier>
+	<appointment>
+		<reference value="Appointment/APP-${D10}-${Slot-1-identifier}"/>
+	</appointment>
+	<start value="2016-05-09T09:00:00Z"/>
+	<end value="2016-05-09T09:45:00Z"/>
+	<participantType>
+		<coding>
+			<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+			<code value="ATND"/>
+			<display value="attender"/>
+		</coding>
+	</participantType>
+	<actor>
+		<reference value="Practitioner/${createPractitionerResourceId}"/>
+		<display value="Dr Leonard T Bloodraw Jr"/>
+	</actor>
+	<participantStatus value="accepted"/>
+	<comment value="Dr Leonard T Bloodraw Jr accept appointment"/>
+</AppointmentResponse>

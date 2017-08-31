@@ -1,0 +1,31 @@
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+	<status value="draft"/>
+	<date value="2017-06-16T09:00:00-05:00"/>
+	<description value="FHIR CapabilityStatement"/>
+	<kind value="capability"/>
+	<fhirVersion value="3.0.1"/>
+	<acceptUnknown value="both"/>
+	<format value="xml"/>
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="Observation"/>
+			<searchParam>
+				<name value="category"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="code"/>
+				<type value="token"/>
+			</searchParam>
+			<searchParam>
+				<name value="patient"/>
+				<type value="reference"/>
+			</searchParam>
+		</resource>
+		<operation>
+			<name value="lastn"/>
+			<definition value="http://hl7.org/fhir/OperationDefinition/Observation-lastn"/>
+		</operation>
+	</rest>
+</CapabilityStatement>

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-16-graphql-gql"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-0-1/TestScript/connectathon-16-graphql-gql"/>
+	<name value="FHIR Connectathon 16 - GraphQL - GQL"/>
+	<status value="active"/>
+	<date value="2017-07-20"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="GraphQL Tests using HTTP POST with application/graphql formatted payloads."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Patient $graphql extended operation"/>
+			<link value="http://build.fhir.org/graphql.html"/>
+			<capabilities>
+				<reference value="./_reference/capabilities/GraphQLCapabilityStatement.json" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<fixture id="graphql-simple-gql">
+		<resource>
+			<reference value="./_reference/resources/simple.gql"/>
+		</resource>
+	</fixture>
+	<fixture id="graphql-filter-fhirpath-gql">
+		<resource>
+			<reference value="./_reference/resources/filter-fhirpath.gql"/>
+		</resource>
+	</fixture>
+	<fixture id="graphql-unknown-field-gql">
+		<resource>
+			<reference value="./_reference/resources/unknown-field.gql"/>
+		</resource>
+	</fixture>
+
+	<test id="01-PatientGraphQLSimple-GQL">
+		<name value="01-PatientGraphQLSimple-GQL"/>
+		<description value="Query the Patient example resource for James Chalmers via the GraphQL operation with a simple graph in a graphql formatted file using HTTP POST to return the Patient identifier, active and name elements. The expected response code is 200 (OK) with a payload of the non-FHIR JSON formatted contents."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://touchstone.aegis.net/fhir/testscript-operation-codes-extended"/>
+					<code value="graphql"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Query the Patient example resource for James Chalmers via the GraphQL operation with a simple graph in a graphql formatted file using HTTP POST."/>
+				<params value="/example/$graphql"/>
+				<requestHeader>
+					<field value="Accept" />
+					<value value="application/json; charset=utf-8" />
+				</requestHeader>
+				<requestHeader>
+					<field value="Content-Type" />
+					<value value="application/graphql; charset=utf-8" />
+				</requestHeader>
+				<sourceId value="graphql-simple-gql"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is non-FHIR JSON."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="contains"/>
+				<value value="application/json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Patient identifier.system element is present."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".data.identifier[0].system"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Patient identifier.value element is present."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".data.identifier[0].value"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Patient active element is present."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".data.active"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Patient name.family element is present."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".data.name[0].family"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Patient name.given element is present."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".data.name[0].given[0]"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-PatientGraphQLFilterFHIRPath-GQL">
+		<name value="02-PatientGraphQLFilterFHIRPath-GQL"/>
+		<description value="Query the Patient example resource for James Chalmers via the GraphQL operation with a graph and FHIRPath filter in a graphql formatted file using HTTP POST to return the Patient identifier, active and name elements. The expected response code is 200 (OK) with a payload of the non-FHIR JSON formatted contents."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://touchstone.aegis.net/fhir/testscript-operation-codes-extended"/>
+					<code value="graphql"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Query the Patient example resource for James Chalmers via the GraphQL operation with a graph and FHIRPath filter in a graphql formatted file using HTTP POST."/>
+				<params value="/example/$graphql"/>
+				<requestHeader>
+					<field value="Accept" />
+					<value value="application/json; charset=utf-8" />
+				</requestHeader>
+				<requestHeader>
+					<field value="Content-Type" />
+					<value value="application/graphql; charset=utf-8" />
+				</requestHeader>
+				<sourceId value="graphql-filter-fhirpath-gql"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is non-FHIR JSON."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="contains"/>
+				<value value="application/json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Patient identifier.system element is present."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".data.identifier[0].system"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Patient identifier.value element is present."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".data.identifier[0].value"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Patient active element is present."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".data.active"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Patient name.family element is present."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".data.name[0].family"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Patient name.given element is present."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".data.name[0].given[0]"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-PatientGraphQLUnknownField-GQL">
+		<name value="03-PatientGraphQLUnknownField-GQL"/>
+		<description value="Query the Patient example resource for James Chalmers via the GraphQL operation with a graph containing an unknown field name in a graphql formatted file using HTTP POST to return the Patient identifier, active and name elements. The expected response code is an error 4xx or 5xx with a payload of an OperationOutcome."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://touchstone.aegis.net/fhir/testscript-operation-codes-extended"/>
+					<code value="graphql"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Query the Patient example resource for James Chalmers via the GraphQL operation with a graph containing an unknown field name in a graphql formatted file using HTTP POST."/>
+				<params value="/example/$graphql"/>
+				<requestHeader>
+					<field value="Accept" />
+					<value value="application/json; charset=utf-8" />
+				</requestHeader>
+				<requestHeader>
+					<field value="Content-Type" />
+					<value value="application/graphql; charset=utf-8" />
+				</requestHeader>
+				<sourceId value="graphql-unknown-field-gql"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx or 5xx indicating an error."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is FHIR."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="contains"/>
+				<value value="application/fhir"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

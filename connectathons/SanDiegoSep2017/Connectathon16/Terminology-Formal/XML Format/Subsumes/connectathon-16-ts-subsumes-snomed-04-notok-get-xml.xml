@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-16-ts-subsumes-snomed-04-notok-get-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-16-ts-subsumes-snomed-04-notok-get-xml"/>
+	<name value="FHIR Connectathon 16 - Terminology Services - Subsumes - SNOMED - NOT OK - GET - XML"/>
+	<status value="active"/>
+	<date value="2017-08-28"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="CodeSystem $subsumes tests against known and unknown SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP GET method."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="CodeSystem subsumes operation"/>
+			<link value="http://hl7.org/fhir/STU3/codesystem-operations.html#subsumes"/>
+			<link value="http://hl7.org/fhir/STU3/codesystem.html"/>
+			<capabilities>
+				<reference value="../_reference/capabilities/CodeSystemSubsumesCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<profile id="OperationOutcomeProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+	</profile>
+
+	<test id="01-SNOMED-InvalidSystemValue">
+		<name value="SNOMED-InvalidSystemValue"/>
+		<description value="Subsumes test for an invalid (SNOMED) system and codes using HTTP GET; 3738000 (viral hepatitis) subsumed-by 235856003 (disorder of the liver). Expected response is 4xx/5xx with an OperationOutcome payload containing at least one error issue."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $subsumes operation for invalid (SNOMED) system and valid codes."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes?system=http://snomed.info/sctx&amp;codeA=3738000&amp;codeB=235856003"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx/5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-SNOMED-InvalidCodeAValue">
+		<name value="SNOMED-InvalidCodeAValue"/>
+		<description value="Subsumes test for the SNOMED system and an invalid codeA value using HTTP GET; 3738000X (invalid) subsumed-by 235856003 (disorder of the liver). Expected response is 4xx/5xx with an OperationOutcome payload containing at least one error issue."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $subsumes operation for SNOMED system and an invalid codeA value."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes?system=http://snomed.info/sct&amp;codeA=3738000X&amp;codeB=235856003"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx/5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-SNOMED-InvalidCodeBValue">
+		<name value="SNOMED-InvalidCodeBValue"/>
+		<description value="Subsumes test for the SNOMED system and an invalid codeB value using HTTP GET; 3738000 (viral hepatitis) subsumed-by 235856003X (invalid). Expected response is 4xx/5xx with an OperationOutcome payload containing at least one error issue."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $subsumes operation for SNOMED system and an invalid codeB value."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes?system=http://snomed.info/sct&amp;codeA=3738000&amp;codeB=235856003X"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx/5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="04-SNOMED-InvalidSystemCodeACodeBValues">
+		<name value="SNOMED-InvalidSystemCodeACodeBValues"/>
+		<description value="Subsumes test for invalid (SNOMED) system, codeA, and codeB values using HTTP GET; 3738000X (invalid) subsumed-by 235856003X (invalid). Expected response is 4xx/5xx with an OperationOutcome payload containing at least one error issue."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $subsumes operation for invalid (SNOMED) system, codeA, and codeB values."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes?system=http://snomed.info/sctx&amp;codeA=3738000X&amp;codeB=235856003X"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx/5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="05-SNOMED-MissingParameterCodeB">
+		<name value="SNOMED-MissingParameterCodeB"/>
+		<description value="Subsumes test for the SNOMED system and a missing codeB parameter using HTTP GET; 3738000 (viral hepatitis) subsumed-by (missing). Expected response is 4xx/5xx with an OperationOutcome payload containing at least one error issue."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $subsumes operation for SNOMED system and a missing codeB parameter."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes?system=http://snomed.info/sct&amp;codeA=3738000"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx/5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="06-SNOMED-IncorrectParameterCode">
+		<name value="SNOMED-IncorrectParameterCode"/>
+		<description value="Subsumes test for the SNOMED system and an incorrect code parameter using HTTP GET; 3738000 (viral hepatitis) subsumed-by 235856003 (disorder of the liver). Expected response is 4xx/5xx with an OperationOutcome payload containing at least one error issue."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $subsumes operation for SNOMED system and an incorrect code parameter."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes?system=http://snomed.info/sct&amp;codeA=3738000&amp;code=235856003"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx/5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

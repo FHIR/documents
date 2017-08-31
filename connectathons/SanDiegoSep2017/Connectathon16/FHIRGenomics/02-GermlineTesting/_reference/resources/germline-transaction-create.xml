@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns="http://hl7.org/fhir">
+	<type value="transaction"/>
+	<entry>
+		<fullUrl value="urn:uuid:bffa75ef-f950-46e3-bbba-25c65833d041"/>
+		<resource>
+			<Practitioner xmlns="http://hl7.org/fhir">
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<p>
+							<b>Generated Narrative with Details</b>
+						</p>
+						<p>
+							<b>identifier</b>: ${CD11}${D4} (OFFICIAL)</p>
+						<p>
+							<b>name</b>: Leanard T Bloodraw </p>
+						<p>
+							<b>telecom</b>: ph: (555)7771234 ext.11</p>
+					</div>
+				</text>
+				<identifier>
+					<use value="official"/>
+					<system value="http://happyvalley.com/practitioner"/>
+					<value value="${CD11}${D4}"/>
+				</identifier>
+				<name>
+					<family value="Bloodraw"/>
+					<given value="Leanard"/>
+					<given value="T"/>
+					<suffix value="Jr"/>
+				</name>
+				<telecom>
+					<system value="phone"/>
+					<value value="(555)7771234 ext.11"/>
+				</telecom>
+			</Practitioner>
+		</resource>
+		<request>
+			<method value="POST"/>
+			<url value="Practitioner"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:4e0d1300-09f8-41c6-a99f-0c63bcfa10f8"/>
+		<resource>
+			<Patient xmlns="http://hl7.org/fhir">
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<p>
+							<b>Generated Narrative with Details</b>
+						</p>
+						<p>
+							<b>identifier</b>: HOSP-${CD8}${D6} (USUAL)</p>
+						<p>
+							<b>name</b>: Todd G. Lerr (OFFICIAL)</p>
+						<p>
+							<b>gender</b>: male</p>
+						<p>
+							<b>birthDate</b>: Jun 7, 2012</p>
+						<p>
+							<b>deceased</b>: false</p>
+						<p>
+							<b>address</b>: 123 North 102nd Street Apt 4d Harrisburg PA 17102 USA (HOME)</p>
+					</div>
+				</text>
+				<identifier>
+					<use value="usual"/>
+					<system value="http://happyvalley.com/patient"/>
+					<value value="HOSP-${CD8}${D6}"/>
+				</identifier>
+				<name>
+					<use value="official"/>
+					<family value="Lerr"/>
+					<given value="Todd"/>
+					<given value="G."/>
+					<suffix value="Jr"/>
+				</name>
+				<gender value="male"/>
+				<birthDate value="2012-06-07"/>
+				<deceasedBoolean value="false"/>
+				<address>
+					<use value="home"/>
+					<line value="123 North 102nd Street"/>
+					<line value="Apt 4d"/>
+					<city value="Harrisburg"/>
+					<state value="PA"/>
+					<postalCode value="17102"/>
+					<country value="USA"/>
+				</address>
+			</Patient>
+		</resource>
+		<request>
+			<method value="POST"/>
+			<url value="Patient"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:f1d1385d-217f-4899-8421-d3af04c80476"/>
+		<resource>
+			<Specimen xmlns="http://hl7.org/fhir">
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<p>
+							<b>Generated Narrative with Details</b>
+						</p>
+						<p>
+							<b>identifier</b>: ${CD10}${D5} (official)</p>
+						<p>
+							<b>type</b>: Blood sample <span style="background: LightGoldenRodYellow ">(Details : {SNOMED CT code "122555007" := "122555007", given as "Venous blood specimen"}; {http://lis.acmelabs.org/codes code "BLD" := "BLD", given as "Blood"})</span>
+						</p>
+						<p>
+							<b>subject</b>: <a href="Patient/${createPatientId}">Todd Lerr</a>
+						</p>
+						<p>
+							<b>accessionIdentifier</b>: 21041205000001 (official)
+						</p>
+					</div>
+				</text>
+				<identifier>
+					<use value="official"/>
+					<system value="http://happyvalley.com/specimen"/>
+					<value value="${CD10}${D5}"/>
+				</identifier>
+				<accessionIdentifier>
+					<use value="official"/>
+					<system value="http://lis.acmelabs.org/identifiers/accession"/>
+					<value value="21041205000001"/>
+				</accessionIdentifier>
+				<type>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="122555007"/>
+						<display value="Venous blood specimen"/>
+					</coding>
+					<coding>
+						<system value="http://lis.acmelabs.org/codes"/>
+						<code value="BLD"/>
+						<display value="Blood"/>
+					</coding>
+					<text value="Blood sample"/>
+				</type>
+				<subject>
+					<reference value="urn:uuid:4e0d1300-09f8-41c6-a99f-0c63bcfa10f8"/>
+					<display value="Todd Lerr"/>
+				</subject>
+				<collection>
+					<collectedDateTime value="2014-12-05"/>
+				</collection>
+			</Specimen>
+		</resource>
+		<request>
+			<method value="POST"/>
+			<url value="Specimen"/>
+		</request>
+	</entry>
+	<entry>
+		<fullUrl value="urn:uuid:7790389e-789f-44f8-9b05-abeba83e7281"/>
+		<resource>
+			<Observation xmlns="http://hl7.org/fhir">
+				<text>
+					<status value="generated"/>
+					<div xmlns="http://www.w3.org/1999/xhtml">Apr 3, 2013 3:30:10 PM; Genetic analysis master panel; Preliminary</div>
+				</text>
+				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNASequenceVariation">
+					<valueString value="NG_007726.3:g.146252T&gt;G"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNAVariationId">
+					<valueCodeableConcept>
+						<coding>
+							<system value="http://www.genenames.org"/>
+							<code value="rs587778247"/>
+						</coding>
+					</valueCodeableConcept>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
+					<valueCodeableConcept>
+						<coding>
+							<system value="http://www.genenames.org"/>
+							<code value="3236"/>
+							<display value="EGFR"/>
+						</coding>
+					</valueCodeableConcept>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsDNARegionName">
+					<valueString value="Exon 21"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGenomicSourceClass">
+					<valueCodeableConcept>
+						<coding>
+							<system value="http://hl7.org/fhir/LOINC-48002-0-answerlist"/>
+							<code value="LA6683-2"/>
+							<display value="germline"/>
+						</coding>
+					</valueCodeableConcept>
+				</extension>
+				<identifier>
+					<system value="http://happyvalley.com/observation"/>
+					<value value="${CD9}${D7}"/>
+				</identifier>
+				<status value="preliminary"/>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="55233-1"/>
+						<display value="Genetic analysis master panel"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="urn:uuid:4e0d1300-09f8-41c6-a99f-0c63bcfa10f8"/>
+				</subject>
+				<effectiveDateTime value="2013-04-03T15:30:10+01:00"/>
+				<issued value="2013-04-03T15:30:10+01:00"/>
+				<performer>
+					<reference value="urn:uuid:bffa75ef-f950-46e3-bbba-25c65833d041"/>
+				</performer>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="10828004"/>
+						<display value="Positive"/>
+					</coding>
+				</valueCodeableConcept>
+				<specimen>
+					<reference value="urn:uuid:f1d1385d-217f-4899-8421-d3af04c80476"/>
+				</specimen>
+			</Observation>
+		</resource>
+		<request>
+			<method value="POST"/>
+			<url value="Observation"/>
+		</request>
+	</entry>
+</Bundle>

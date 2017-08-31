@@ -1,0 +1,3 @@
+{
+  "query" : "{identifier{system,value}active,name(fhirpath:\"family.exists()\"){text,given,family}}"
+}

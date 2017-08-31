@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-16-08-sequence-quality-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir/TestScript/connectathon-16-08-sequence-quality-xml"/>
+	<name value="FHIR Connectathon 16 - FHIR Genomics - Scenario 08 - Sequence Quality - XML"/>
+	<status value="draft"/>
+	<date value="2017-06-16"/>
+	<publisher value="Clinical Genomics Workgroup, AEGIS.net, Inc."/>
+	<contact>
+		<name value="Gil Alterovitz"/>
+		<telecom>
+			<system value="email"/>
+			<value value="gilusa@gmail.com"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Create a new Sequence instance for a known Patient and with a known quality score, the search for all Sequence instances of that Patient and verify that a quality score value is defined for at least one instance. Resource format is XML."/>
+	<copyright value="© Clinical Genomics Workgroup, © AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Patient and Sequence create, delete, read and search operations"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#create"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#delete"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#read"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#search"/>
+			<capabilities>
+				<reference value="_reference/capabilities/SequenceQualityCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<fixture id="patient-create">
+		<resource>
+			<reference value="_reference/resources/patient-sequencequality-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="sequence-create">
+		<resource>
+			<reference value="_reference/resources/sequence-sequencequality-create.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+
+	<variable>
+		<name value="createPatientId"/>
+		<path value="Patient/id" />
+		<sourceId value="create-patient-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamPatientIdentifier"/>
+		<path value="Patient/identifier/value" />
+		<sourceId value="patient-create" />
+	</variable>
+	<variable>
+		<name value="searchParamSequenceStart"/>
+		<path value="Sequence/referenceSeq/windowStart" />
+		<sourceId value="sequence-create" />
+	</variable>
+	<variable>
+		<name value="searchParamSequenceEnd"/>
+		<path value="Sequence/referenceSeq/windowEnd" />
+		<sourceId value="sequence-create" />
+	</variable>
+	<variable>
+		<name value="searchParamSequencePatient"/>
+		<path value="Sequence/patient/reference" />
+		<sourceId value="create-sequence-search-response" />
+	</variable>
+
+	<rule id="RuleSequenceQualityInSearchResponse">
+		<resource>
+			<reference value="_reference/rule/response/body/RuleSequenceQualityInSearchResponse.groovy"/>
+		</resource>
+	</rule>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Sequence"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the Sequence does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?start=${searchParamSequenceStart}&amp;end=${searchParamSequenceEnd}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the Patient does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPatientIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+	</setup>
+
+	<test id="Step1-CreateNewSequenceQualityPatient">
+		<name value="Step1-CreateNewSequenceQualityPatient"/>
+		<description value="Create a new Sequence Quality Patient in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="patient-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for the created Sequence Quality Patient by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPatientIdentifier}"/>
+				<responseId value="create-patient-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one Patient resource returned. Warning only as the server may contain another matching Patient."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2-CreateNewSequenceQualitySequence">
+		<name value="Step2-CreateNewSequenceQualitySequence"/>
+		<description value="Create a new Sequence Quality Sequence in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Sequence"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="sequence-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Sequence"/>
+				<description value="Search for the created Sequence Quality Sequence by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?patient=${createPatientId}&amp;start=${searchParamSequenceStart}&amp;end=${searchParamSequenceEnd}"/>
+				<responseId value="create-sequence-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm at least one Sequence resource returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step3-SequenceQualitySearch">
+		<name value="Step3-SequenceQualitySearch"/>
+		<description value="Search for all Sequence instances for a known Patient and verify that a quality score value is defined for at least one instance."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Sequence"/>
+				<description value="Search for all Sequence instances of a known Patient checking for a quality score value in at least one instance."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?patient=${searchParamSequencePatient}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one Sequence record returned."/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex rule assertion to evaluate Bundle searchset and determine if at least one Sequence resource returned defines a quality score value."/>
+				<rule>
+					<ruleId value="RuleSequenceQualityInSearchResponse" />
+				</rule>
+			</assert>
+		</action>
+	</test>
+</TestScript>

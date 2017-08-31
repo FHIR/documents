@@ -1,0 +1,44 @@
+{
+  "resourceType": "CapabilityStatement",
+  "status": "draft",
+  "date": "2017-06-16T09:00:00-05:00",
+  "description": "FHIR CapabilityStatement",
+  "kind": "capability",
+  "fhirVersion": "3.0.1",
+  "acceptUnknown": "both",
+  "format": [
+    "json"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "resource": [
+        {
+          "type": "Observation",
+          "searchParam": [
+            {
+              "name": "category",
+              "type": "token"
+            },
+            {
+              "name": "code",
+              "type": "token"
+            },
+            {
+              "name": "patient",
+              "type": "reference"
+            }
+          ]
+        }
+      ],
+      "operation": [
+        {
+          "name": "lastn",
+          "definition": {
+            "reference": "http://hl7.org/fhir/OperationDefinition/Observation-lastn"
+          }
+        }
+      ]
+    }
+  ]
+}

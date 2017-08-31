@@ -1,0 +1,127 @@
+<RuleSet>
+	<description value="Contains common rules for validating $expand TooCostly or OK related response headers and body." />
+	<rule id="assertContentTypeIfBody">
+		<required value="true" />
+		<reference value="/FHIRCommon/_reference/rule/AssertHeaderIfBody.groovy"/>
+		<param>
+			<name value="header" />
+			<value value="Content-Type" />
+		</param>
+		<param>
+			<name value="headerOperator" />
+			<value value="notEmpty" />
+		</param>
+		<param>
+			<name value="bodyOperator" />
+			<value value="notEmpty" />
+		</param>
+	</rule>
+	<rule id="assertValueSetOrOperationOutcomeIfBody">
+		<required value="true" />
+		<reference value="/FHIRCommon/_reference/rule/AssertResourceIfBody.groovy"/>
+		<param>
+			<name value="resource" />
+			<value value="ValueSet,OperationOutcome" />
+		</param>
+		<param>
+			<name value="resourceOperator" />
+			<value value="in" />
+		</param>
+		<param>
+			<name value="bodyOperator" />
+			<value value="notEmpty" />
+		</param>
+	</rule>
+	<rule id="assertNotOKIfOperationOutcome">
+		<required value="true" />
+		<reference value="/FHIRCommon/_reference/rule/AssertResponseCodeIfResource.groovy"/>
+		<param>
+			<name value="responseCode" />
+			<value value="200" />
+		</param>
+		<param>
+			<name value="responseCodeOperator" />
+			<value value="notEquals" />
+		</param>
+		<param>
+			<name value="resource" />
+			<value value="OperationOutcome" />
+		</param>
+		<param>
+			<name value="resourceOperator" />
+			<value value="equals" />
+		</param>
+	</rule>
+	<rule id="assertProfileIfOperationOutcome">
+		<required value="true" />
+		<reference value="/FHIRCommon/_reference/rule/AssertProfileIfResource.groovy"/>
+		<param>
+			<name value="resource" />
+			<value value="OperationOutcome" />
+		</param>
+		<param>
+			<name value="resourceOperator" />
+			<value value="equals" />
+		</param>
+	</rule>
+	<rule id="assertIssueSeverityIfOperationOutcome">
+		<required value="true" />
+		<reference value="/FHIRCommon/_reference/rule/AssertPathIfResource.groovy"/>
+		<param>
+			<name value="xPath" />
+			<value value="OperationOutcome/issue/severity/@value" />
+		</param>
+		<param>
+			<name value="jsonPath" />
+			<value value=".issue.severity" />
+		</param>
+		<param>
+			<name value="pathOperator" />
+			<value value="in" />
+		</param>					
+		<param>
+			<name value="pathExpectedValue" />
+			<value value="fatal,error" />
+		</param>
+		<param>
+			<name value="resource" />
+			<value value="OperationOutcome" />
+		</param>
+		<param>
+			<name value="resourceOperator" />
+			<value value="equals" />
+		</param>
+	</rule>
+	<rule id="assertOKIfValueSet">
+		<required value="true" />
+		<reference value="/FHIRCommon/_reference/rule/AssertResponseCodeIfResource.groovy"/>
+		<param>
+			<name value="responseCode" />
+			<value value="200" />
+		</param>
+		<param>
+			<name value="responseCodeOperator" />
+			<value value="equals" />
+		</param>
+		<param>
+			<name value="resource" />
+			<value value="ValueSet" />
+		</param>
+		<param>
+			<name value="resourceOperator" />
+			<value value="equals" />
+		</param>
+	</rule>
+	<rule id="assertProfileIfResourceValueSet">
+		<required value="true" />
+		<reference value="/FHIRCommon/_reference/rule/AssertProfileIfResource.groovy"/>
+		<param>
+			<name value="resource" />
+			<value value="ValueSet" />
+		</param>
+		<param>
+			<name value="resourceOperator" />
+			<value value="equals" />
+		</param>
+	</rule>
+</RuleSet>
