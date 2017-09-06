@@ -84,14 +84,18 @@
 			<assert>
 				<description value="Confirm that the returned Parameters resource contains the expected parameter name with valueString of LOINC."/>
 				<direction value="response"/>
-				<expression value="Parameters.parameter.where(name = 'name').valueString.contains('LOINC')"/>
+				<operator value="contains"/>
+				<path value="Parameters/parameter[name/@value='name']/valueString"/>
+				<value value="LOINC"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<description value="Confirm that the returned Parameters resource contains the expected parameter display with valueString of Bicarbonate."/>
 				<direction value="response"/>
-				<expression value="Parameters.parameter.where(name = 'display').valueString.contains('Bicarbonate')"/>
+				<operator value="contains"/>
+				<path value="Parameters/parameter[name/@value='display']/valueString"/>
+				<value value="Bicarbonate"/>
 			</assert>
 		</action>
 	</test>

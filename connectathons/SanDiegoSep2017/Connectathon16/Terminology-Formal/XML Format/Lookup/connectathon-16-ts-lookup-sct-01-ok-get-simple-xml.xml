@@ -84,14 +84,18 @@
 			<assert>
 				<description value="Confirm that the returned Parameters resource contains the expected parameter name with valueString of SNOMED."/>
 				<direction value="response"/>
-				<expression value="Parameters.parameter.where(name = 'name').valueString.contains('SNOMED')"/>
+				<operator value="contains"/>
+				<path value="Parameters/parameter[name/@value='name']/valueString"/>
+				<value value="SNOMED"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<description value="Confirm that the returned Parameters resource contains the expected parameter display with valueString of Topical route."/>
 				<direction value="response"/>
-				<expression value="Parameters.parameter.where(name = 'display').valueString.contains('Topical route')"/>
+				<operator value="contains"/>
+				<path value="Parameters/parameter[name/@value='display']/valueString"/>
+				<value value="Topical route"/>
 			</assert>
 		</action>
 	</test>
@@ -146,14 +150,18 @@
 			<assert>
 				<description value="Confirm that the returned Parameters resource contains the expected parameter name with valueString of SNOMED."/>
 				<direction value="response"/>
-				<expression value="Parameters.parameter.where(name = 'name').valueString.contains('SNOMED')"/>
+				<operator value="contains"/>
+				<path value="Parameters/parameter[name/@value='name']/valueString"/>
+				<value value="SNOMED"/>
 			</assert>
 		</action>
 		<action>
 			<assert>
 				<description value="Confirm that the returned Parameters resource contains the expected parameter display with valueString of Drug interaction."/>
 				<direction value="response"/>
-				<expression value="Parameters.parameter.where(name = 'display').valueString.contains('Drug interaction')"/>
+				<operator value="contains"/>
+				<path value="Parameters/parameter[name/@value='display']/valueString"/>
+				<value value="Drug interaction"/>
 			</assert>
 		</action>
 	</test>

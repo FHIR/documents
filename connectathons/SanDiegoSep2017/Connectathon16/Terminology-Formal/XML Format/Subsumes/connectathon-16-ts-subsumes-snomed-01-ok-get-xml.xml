@@ -85,7 +85,7 @@
 				<description value="Confirm that the returned Parameters resource contains the expected parameter name with value of outcome."/>
 				<direction value="response"/>
 				<operator value="equals"/>
-				<path value=".parameter[0].name"/>
+				<path value="Parameters/parameter[1]/name"/>
 				<value value="outcome"/>
 			</assert>
 		</action>
@@ -94,7 +94,7 @@
 				<description value="Confirm that the returned Parameters resource contains the expected parameter valueCode with value of subsumed-by."/>
 				<direction value="response"/>
 				<operator value="equals"/>
-				<path value=".parameter[0].valueCode"/>
+				<path value="Parameters/parameter[1]/valueCode"/>
 				<value value="subsumed-by"/>
 			</assert>
 		</action>
@@ -147,7 +147,7 @@
 				<description value="Confirm that the returned Parameters resource contains the expected parameter name with value of outcome."/>
 				<direction value="response"/>
 				<operator value="equals"/>
-				<path value=".parameter[0].name"/>
+				<path value="Parameters/parameter[1]/name"/>
 				<value value="outcome"/>
 			</assert>
 		</action>
@@ -156,7 +156,7 @@
 				<description value="Confirm that the returned Parameters resource contains the expected parameter valueCode with value of subsumes."/>
 				<direction value="response"/>
 				<operator value="equals"/>
-				<path value=".parameter[0].valueCode"/>
+				<path value="Parameters/parameter[1]/valueCode"/>
 				<value value="subsumes"/>
 			</assert>
 		</action>
@@ -209,7 +209,7 @@
 				<description value="Confirm that the returned Parameters resource contains the expected parameter name with value of outcome."/>
 				<direction value="response"/>
 				<operator value="equals"/>
-				<path value=".parameter[0].name"/>
+				<path value="Parameters/parameter[1]/name"/>
 				<value value="outcome"/>
 			</assert>
 		</action>
@@ -218,7 +218,7 @@
 				<description value="Confirm that the returned Parameters resource contains the expected parameter valueCode with value of not-subsumed."/>
 				<direction value="response"/>
 				<operator value="equals"/>
-				<path value=".parameter[0].valueCode"/>
+				<path value="Parameters/parameter[1]/valueCode"/>
 				<value value="not-subsumed"/>
 			</assert>
 		</action>
@@ -271,7 +271,7 @@
 				<description value="Confirm that the returned Parameters resource contains the expected parameter name with value of outcome."/>
 				<direction value="response"/>
 				<operator value="equals"/>
-				<path value=".parameter[0].name"/>
+				<path value="Parameters/parameter[1]/name"/>
 				<value value="outcome"/>
 			</assert>
 		</action>
@@ -280,7 +280,7 @@
 				<description value="Confirm that the returned Parameters resource contains the expected parameter valueCode with value of equivalent."/>
 				<direction value="response"/>
 				<operator value="equals"/>
-				<path value=".parameter[0].valueCode"/>
+				<path value="Parameters/parameter[1]/valueCode"/>
 				<value value="equivalent"/>
 			</assert>
 		</action>
