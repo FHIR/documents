@@ -1,0 +1,49 @@
+{
+  "resourceType": "CapabilityStatement",
+  "status": "draft",
+  "date": "2017-08-31T09:00:00-05:00",
+  "description": "FHIR CapabilityStatement",
+  "kind": "capability",
+  "fhirVersion": "3.0.1",
+  "acceptUnknown": "both",
+  "format": [
+    "xml",
+    "json"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "resource": [
+        {
+          "type": "ProcedureRequest",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "category",
+              "type": "token"
+            },
+            {
+              "name": "code",
+              "type": "token"
+            },
+            {
+              "name": "patient",
+              "type": "reference"
+            },
+            {
+              "name": "subject",
+              "type": "reference"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
