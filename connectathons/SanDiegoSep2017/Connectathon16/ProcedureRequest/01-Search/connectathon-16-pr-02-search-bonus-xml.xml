@@ -231,8 +231,8 @@
 			<assert>
 				<description value="Confirm that the number of entries in the Bundle is only 1."/>
 				<direction value="response"/>
-				<operator value="equals"/>
 				<expression value="Bundle.entry.count()"/>
+				<operator value="equals"/>
 				<value value="1"/>
 			</assert>
 		</action>
