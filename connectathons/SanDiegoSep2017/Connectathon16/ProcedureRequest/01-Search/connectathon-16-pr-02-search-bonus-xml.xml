@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-16-pr-search-bonus-xml"/>
+	<url value="http://wildfhir.aegis.net/fhir3-0-1/TestScript/connectathon-16-pr-search-bonus-xml"/>
+	<name value="FHIR Connectathon 16 - ProcedureRequest - Search - Bonus - XML"/>
+	<status value="active"/>
+	<date value="2017-09-06"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="ProcedureRequest Track - test a FHIR Server's search capability using the XML format to search for ProcedureRequest resource instances for a specific Patient. BONUS Tests: ProcedureRequest read and search by resource id."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="ProcedureRequest search operation"/>
+			<link value="http://hl7.org/fhir/STU3/http.html#search"/>
+			<link value="http://hl7.org/fhir/STU3/procedurerequest.html"/>
+			<capabilities>
+				<reference value="../_reference/capabilities/ProcedureRequestCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+	<profile id="procedurerequest-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/ProcedureRequest"/>
+	</profile>
+
+	<variable>
+		<name value="searchPatientId"/>
+		<description value="Enter a resource id for a valid Patient resource on the destination system."/>
+		<hint value="[Valid Resource Id]"/>
+	</variable>
+	<variable>
+		<name value="procedureRequestResourceId"/>
+		<path value="/Bundle/entry[1]/resource/ProcedureRequest/id" />
+		<sourceId value="procedurerequest-search-response"/>
+	</variable>
+
+	<test id="01-SearchByPatient">
+		<name value="SearchByPatient"/>
+		<description value="Test the ProcedureRequest search operation for specific Patient using the patient parameter with XML returned content. The expected response code is 200 (OK). The expected response content is a searchset Bundle resource in XML format containing at least one matching ProcedureRequest resource entry."/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="ProcedureRequest"/>
+				<description value="Search for all ProcedureRequest resources belonging to a specific Patient using the patient parameter."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?patient=${searchPatientId}"/>
+				<responseId value="procedurerequest-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/fhir+xml'."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle conforms to the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type is searchset."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/type"/>
+				<value value="searchset"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned searchset Bundle contains at least 1 entry."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value="Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches or is greater than the number of entries in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.total.toInteger() &gt;= entry.count()"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-ReadByResourceId">
+		<name value="ReadByResourceId"/>
+		<description value="Read the ProcedureRequest by resource id with XML returned content. The expected response code is 200 (OK). The expected response payload is the ProcedureRequest resource in XML format."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="ProcedureRequest"/>
+				<description value="Read the ProcedureRequest returned as the first entry from the first test."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="/${procedureRequestResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is ProcedureRequest."/>
+				<direction value="response"/>
+				<resource value="ProcedureRequest"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR ProcedureRequest profile."/>
+				<direction value="response"/>
+				<validateProfileId value="procedurerequest-profile"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-SearchByResourceId">
+		<name value="SearchByResourceId"/>
+		<description value="Search the ProcedureRequest by resource id using the _id parameter with XML returned content. The expected response code is 200 (OK). The expected response content is a searchset Bundle resource in XML format containing only the one matching ProcedureRequest resource entry."/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="ProcedureRequest"/>
+				<description value="Search the ProcedureRequest returned as the first entry from the first test."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?_id=${procedureRequestResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/fhir+xml'."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle conforms to the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type is searchset."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/type"/>
+				<value value="searchset"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned searchset Bundle contains only 1 entry."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/total"/>
+				<value value="1"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the number of entries in the Bundle is only 1."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.count()"/>
+				<operator value="equals"/>
+				<value value="1"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

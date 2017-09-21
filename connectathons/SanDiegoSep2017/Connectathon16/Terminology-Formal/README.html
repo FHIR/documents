@@ -112,7 +112,12 @@
 	<div style="margin-left: 50px">
 		<table border="1" cellpadding="3" cellspacing="1">
 			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
-			<tr><td>connectathon-16-ts-translate-xml</td><td>Terminology tests for $translate operations against the ConceptMap for FHIR/v3 Address Use Mapping.</td></tr>
+			<tr><td>connectathon-16-ts-translate-01-ok-get</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>connectathon-16-ts-translate-02-ok-post-code</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
+			<tr><td>connectathon-16-ts-translate-03-ok-post-coding</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
+			<tr><td>connectathon-16-ts-translate-04-notok-get</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>connectathon-16-ts-translate-05-notok-post-code</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
+			<tr><td>connectathon-16-ts-translate-06-notok-post-coding</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
 		</table>
 	</div>
 	<h3>Closure Operation - $closure</h3>
