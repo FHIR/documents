@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<parameter>
+		<name value="coding"/>
+		<valueCoding>
+			<system value="http://hl7.org/fhir/address-use"/>
+			<code value="old"/>
+		</valueCoding>
+	</parameter>
+	<parameter>
+		<name value="source"/>
+		<valueUri value="http://hl7.org/fhir/ValueSet/address-use"/>
+	</parameter>
+	<parameter>
+		<name value="target"/>
+		<valueUri value="http://hl7.org/fhir/ValueSet/v3-AddressUse"/>
+	</parameter>
+</Parameters>

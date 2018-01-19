@@ -1,0 +1,34 @@
+{
+  "resourceType": "FamilyMemberHistory",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Recording Genetic Observations of a patient's mother</div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-observation",
+      "valueReference": {
+        "reference": "Observation/${createObservationId}"
+      }
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://happyvalley.com/familymemberhistory",
+      "value": "${CD6}${D9}"
+    }
+  ],
+  "status": "completed",
+  "patient": {
+    "reference": "Patient/${createPatientId}"
+  },
+  "relationship": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v3/RoleCode",
+        "code": "MTH",
+        "display": "Mother"
+      }
+    ]
+  }
+}

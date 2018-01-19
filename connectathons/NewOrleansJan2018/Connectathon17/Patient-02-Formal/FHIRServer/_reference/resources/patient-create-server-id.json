@@ -1,0 +1,85 @@
+{
+  "resourceType": "Patient",
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "MR"
+          }
+        ]
+      },
+      "system": "urn:oid:1.2.36.146.595.217.0.1",
+      "value": "${CD12}${D6}",
+      "period": {
+        "start": "2001-05-06"
+      },
+      "assigner": {
+        "display": "Acme Healthcare"
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Chalmers${C6}",
+      "given": [
+        "Peter${C6}"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(0${D1}) ${D4} ${D4}",
+      "use": "work"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1974-12-25",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "${D3} Erewhon${C6} St"
+      ],
+      "city": "PleasantVille${C6}",
+      "state": "Vic${C6}",
+      "postalCode": "3999"
+    }
+  ],
+  "contact": [
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v2/0131",
+              "code": "C"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "family": "du Marché",
+        "given": [
+          "Bénédicte"
+        ]
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "+33 (237) 998327"
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2012"
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "3204040",
+  "identifier": [
+    {
+      "system": "http://www.acme.org/practitioners",
+      "value": "23"
+    }
+  ],
+  "active": true,
+  "period": {
+    "start": "2018-01-01",
+    "end": "2018-12-31"
+  },
+  "practitioner": {
+    "reference": "Practitioner/3204039",
+    "display": "Dr GREGORY MULA"
+  },
+  "organization": {
+    "reference": "Organization/393872"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/v2/0286",
+          "code": "RP"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "394579002",
+          "display": "Cardiology"
+        }
+      ]
+    }
+  ],
+  "location": [
+    {
+      "reference": "Location/3204041",
+      "display": "16061 DOCTORS BLVD, HAMMOND LA"
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "9855421334",
+      "use": "work"
+    },
+    {
+      "system": "email",
+      "value": "gregory.mula@example.org",
+      "use": "work"
+    }
+  ],
+  "availableTime": [
+    {
+      "daysOfWeek": [
+        "mon",
+        "tue",
+        "wed"
+      ],
+      "availableStartTime": "09:00:00",
+      "availableEndTime": "16:30:00"
+    },
+    {
+      "daysOfWeek": [
+        "thu",
+        "fri"
+      ],
+      "availableStartTime": "09:00:00",
+      "availableEndTime": "12:00:00"
+    }
+  ],
+  "notAvailable": [
+    {
+      "description": "Adam will be on extended leave during May 2018",
+      "during": {
+        "start": "2018-05-01",
+        "end": "2018-05-20"
+      }
+    }
+  ],
+  "availabilityExceptions": "Dr MULA is generally unavailable on public holidays and during the Christmas/New Year break",
+  "endpoint": [
+    {
+      "reference": "Endpoint/3319045"
+    }
+  ]
+}

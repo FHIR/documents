@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b>Generated Narrative with Details</b>
+			</p>
+			<p>
+				<b>identifier</b>: HOSP-${CD9}${D5} (USUAL)</p>
+			<p>
+				<b>name</b>: Mary Chambers (OFFICIAL)</p>
+			<p>
+				<b>gender</b>: female</p>
+			<p>
+				<b>birthDate</b>: Aug 17, 1972</p>
+			<p>
+				<b>deceased</b>: false</p>
+			<p>
+				<b>address</b>: 123 North 102nd Street Apt 4d Harrisburg PA 17102 USA (HOME)</p>
+		</div>
+	</text>
+	<identifier>
+		<use value="usual"/>
+		<system value="http://happyvalley.com/patient"/>
+		<value value="HOSP-${CD9}${D5}"/>
+	</identifier>
+	<name>
+		<use value="official"/>
+		<family value="Chambers"/>
+		<given value="Mary"/>
+	</name>
+	<gender value="female"/>
+	<birthDate value="1972-08-17"/>
+	<deceasedBoolean value="false"/>
+	<address>
+		<use value="home"/>
+		<line value="123 North 102nd Street"/>
+		<line value="Apt 4d"/>
+		<city value="Harrisburg"/>
+		<state value="PA"/>
+		<postalCode value="17102"/>
+		<country value="USA"/>
+	</address>
+</Patient>

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-17-pd-load-resources-create-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-2-0/TestScript/connectathon-17-pd-load-resources-create-xml"/>
+	<name value="FHIR Connectathon 17 - Provider Directories - Load Test Resources - Create - XML"/>
+	<status value="draft"/>
+	<date value="2018-01-11"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="[OPTIONAL] Load (create) Provider Directories test resources using the update (PUT) operation of the target FHIR server for use in FHIR Connectathon 15 Provider Directories Track tests. All resource ids are pre-defined. The target FHIR server is expected to support resource create via the update (PUT) operation for client assigned ids."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Location, Organization, Practitioner and PractitionerRole update Operation"/>
+			<link value="http://hl7.org/fhir/2018Jan/http.html#update"/>
+			<link value="http://hl7.org/fhir/2018Jan/location.html"/>
+			<link value="http://hl7.org/fhir/2018Jan/organization.html"/>
+			<link value="http://hl7.org/fhir/2018Jan/practitioner.html"/>
+			<link value="http://hl7.org/fhir/2018Jan/practitionerrole.html"/>
+			<capabilities>
+				<reference value="../_reference/capabilities/LoadTestResourcesCapabilitiesStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>	
+
+	<fixture id="endpoint-example-3319045">
+		<resource>
+			<reference value="../_reference/resources/endpoint-example-3319045.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="endpoint-example-3319227">
+		<resource>
+			<reference value="../_reference/resources/endpoint-example-3319227.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="location-example-3204041">
+		<resource>
+			<reference value="../_reference/resources/location-example-3204041.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="location-example-hl7east">
+		<resource>
+			<reference value="../_reference/resources/location-example-hl7east.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="organization-example-393872">
+		<resource>
+			<reference value="../_reference/resources/organization-example-393872.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="practitioner-example-3204039">
+		<resource>
+			<reference value="../_reference/resources/practitioner-example-3204039.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="practitionerrole-example-3204040">
+		<resource>
+			<reference value="../_reference/resources/practitionerrole-example-3204040.xml"/>
+		</resource>
+	</fixture>
+
+	<variable>
+		<name value="endpoint-example-3319045-id"/>
+		<path value="Endpoint/id"/>
+		<sourceId value="endpoint-example-3319045"/>
+	</variable>
+	<variable>
+		<name value="endpoint-example-3319227-id"/>
+		<path value="Endpoint/id"/>
+		<sourceId value="endpoint-example-3319227"/>
+	</variable>
+	<variable>
+		<name value="location-example-3204041-id"/>
+		<path value="Location/id"/>
+		<sourceId value="location-example-3204041"/>
+	</variable>
+	<variable>
+		<name value="location-example-hl7east-id"/>
+		<path value="Location/id"/>
+		<sourceId value="location-example-hl7east"/>
+	</variable>
+	<variable>
+		<name value="organization-example-393872-id"/>
+		<path value="Organization/id"/>
+		<sourceId value="organization-example-393872"/>
+	</variable>
+	<variable>
+		<name value="practitioner-example-3204039-id"/>
+		<path value="Practitioner/id"/>
+		<sourceId value="practitioner-example-3204039"/>
+	</variable>
+	<variable>
+		<name value="practitionerrole-example-3204040-id"/>
+		<path value="PractitionerRole/id"/>
+		<sourceId value="practitionerrole-example-3204040"/>
+	</variable>
+
+	<!-- No Setup -->
+
+	<test id="Step1-LoadTestResourceCreate">
+		<name value="Step1-LoadTestResourceCreate"/>
+		<description value="[OPTIONAL] Load (create) Provider Directories test resources using the update (PUT) operation of the target FHIR server for use in FHIR Connectathon 15 Provider Directories Track tests."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Endpoint"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${endpoint-example-3319045-id}"/>
+				<sourceId value="endpoint-example-3319045"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Endpoint"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${endpoint-example-3319227-id}"/>
+				<sourceId value="endpoint-example-3319227"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Location"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${location-example-3204041-id}"/>
+				<sourceId value="location-example-3204041"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Location"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${location-example-hl7east-id}"/>
+				<sourceId value="location-example-hl7east"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Organization"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${organization-example-393872-id}"/>
+				<sourceId value="organization-example-393872"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Practitioner"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${practitioner-example-3204039-id}"/>
+				<sourceId value="practitioner-example-3204039"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="PractitionerRole"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${practitionerrole-example-3204040-id}"/>
+				<sourceId value="practitionerrole-example-3204040"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

@@ -1,0 +1,55 @@
+{
+  "resourceType": "Slot",
+  "identifier": [
+    {
+      "system": "http://happyvalley.com/slot",
+      "value": "SLOT-${CD9}-20180115150000"
+    }
+  ],
+  "serviceCategory": {
+    "coding": [
+      {
+        "system": "http://example.org/service-category",
+        "code": "gp",
+        "display": "General Practice"
+      }
+    ]
+  },
+  "serviceType": [
+    {
+      "coding": [
+        {
+          "system": "http://example.org/service-type",
+          "code": "bd",
+          "display": "Blood Donation"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "system": "http://example.org/service-type",
+          "code": "ph",
+          "display": "Pathology - Haematology"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "418652005",
+          "display": "Pediatric hematology"
+        }
+      ]
+    }
+  ],
+  "schedule": {
+    "reference": "Schedule/${createScheduleResourceId}"
+  },
+  "status": "free",
+  "overbooked": false,
+  "comment": "A referral is recommended but not required."
+}

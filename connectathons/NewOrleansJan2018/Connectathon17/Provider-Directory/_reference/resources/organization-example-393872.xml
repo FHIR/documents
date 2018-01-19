@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization xmlns="http://hl7.org/fhir">
+	<id value="393872"/>
+	<identifier>
+		<system value="http://hl7.org/fhir/sid/us-npi"/>
+		<value value="1063494177"/>
+	</identifier>
+	<identifier>
+		<system value="http://hl7.org/fhir/us/argo/sid/us-ein"/>
+		<value value="00-0000000"/>
+	</identifier>
+	<active value="true"/>
+	<name value="Saint Luke's Hospital of Kansas City"/>
+	<telecom>
+		<system value="phone"/>
+		<value value="(816)932-2000"/>
+		<use value="work"/>
+	</telecom>
+	<telecom>
+		<system value="other"/>
+		<value value="http://www.saintlukeshealthsystem.org/locations/saint-lukes-hospital-kansas-city"/>
+		<use value="work"/>
+	</telecom>
+	<address>
+		<line value="4401 Wornall Rd,"/>
+		<city value="Amherst"/>
+		<state value="MA"/>
+		<postalCode value="64111"/>
+	</address>
+	<endpoint>
+		<reference value="Endpoint/3319227"/>
+	</endpoint>
+</Organization>

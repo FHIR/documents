@@ -1,0 +1,21 @@
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="Sequence"/>
+			<interaction>
+				<code value="create"/>
+			</interaction>
+			<interaction>
+				<code value="delete"/>
+			</interaction>
+			<interaction>
+				<code value="search-type"/>
+			</interaction>
+			<searchParam>
+				<name value="patient"/>
+				<type value="reference"/>
+			</searchParam>
+		</resource>
+	</rest>
+</CapabilityStatement>

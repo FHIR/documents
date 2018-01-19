@@ -1,0 +1,82 @@
+{
+  "resourceType": "Appointment",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Todd G. Lerr blood donation</div>"
+  },
+  "identifier": [
+    {
+      "system": "http://happyvalley.com/appointment",
+      "value": "APP-${CD9}-20180115090000"
+    }
+  ],
+  "status": "pending",
+  "serviceCategory": {
+    "coding": [
+      {
+        "system": "http://example.org/service-category",
+        "code": "gp",
+        "display": "General Practice"
+      }
+    ]
+  },
+  "serviceType": [
+    {
+      "coding": [
+        {
+          "system": "http://example.org/service-type",
+          "code": "bd",
+          "display": "Blood Donation"
+        }
+      ]
+    }
+  ],
+  "appointmentType": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v2/0276",
+        "code": "ROUTINE",
+        "display": "Routine appointment - default if not valued"
+      }
+    ]
+  },
+  "priority": 5,
+  "description": "Patient is donating blood",
+  "start": "2018-01-15T09:00:00Z",
+  "end": "2018-01-15T09:45:00Z",
+  "minutesDuration": 45,
+  "slot": [
+    {
+      "reference": "Slot/${createSlot1ResourceId}"
+    }
+  ],
+  "participant": [
+    {
+      "actor": {
+        "reference": "Patient/${createPatientResourceId}",
+        "display": "Todd G. Lerr"
+      },
+      "required": "required",
+      "status": "needs-action"
+    },
+    {
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/v3/ParticipationType",
+              "code": "ATND",
+              "display": "attender"
+            }
+          ]
+        }
+      ],
+      "actor": {
+        "reference": "Practitioner/${createPractitionerResourceId}",
+        "display": "Dr Leonard T Bloodraw Jr"
+      },
+      "required": "required",
+      "status": "needs-action"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "resourceType": "DiagnosticReport",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>status</b>: final</p><p><b>code</b>: HLA genotyping results <span>(Details )</span></p><p><b>subject</b>: <a>Molecular Lab Patient ID: HOSP-${CD9}${D9}</a></p><p><b>effective</b>: May 26, 2015 3:30:10 PM</p><p><b>issued</b>: May 26, 2015 3:30:10 PM</p><p><b>performer</b>: <a>Molecular Diagnostic Laboratory</a></p><p><b>specimen</b>: <a>Molecular Specimen ID: MLD45-Z4-1234</a></p></div>"
+  },
+  "extension": [
+    {
+      "extension": [
+        {
+          "url": "text",
+          "valueString": "HLA-A*01:01:01+HLA-A*24:02:01"
+        }
+      ],
+      "url": "http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-glstring"
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://acme.com/lab/reports",
+      "value": "${CD9}-${D7}"
+    }
+  ],
+  "status": "final",
+  "code": {
+    "text": "HLA genotyping results"
+  },
+  "subject": {
+    "reference": "Patient/${createPatientId}",
+    "display": "Molecular Lab Patient ID: HOSP-${CD9}${D9}"
+  },
+  "effectiveDateTime": "2015-05-26T15:30:10+01:00",
+  "issued": "2015-05-26T15:30:10+01:00",
+  "performer": [
+    {
+      "reference": "Practitioner/${createPractitionerId}",
+      "display": "Molecular Diagnostic Laboratory"
+    }
+  ],
+  "specimen": [
+    {
+      "reference": "Specimen/${createSpecimenId}",
+      "display": "Molecular Specimen ID: MLD45-Z4-1234"
+    }
+  ]
+}

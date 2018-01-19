@@ -1,0 +1,352 @@
+{
+  "resourceType": "DiagnosticReport",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">comprehensive bone marrow report</div>"
+  },
+  "contained": [
+    {
+      "resourceType": "Observation",
+      "id": "o1",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "26464-8",
+            "display": "Leukocytes [#/volume] in Blood"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 31.9,
+        "unit": "K/ul"
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "o2",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "20570-8",
+            "display": "Hematocrit [Volume Fraction] of Blood"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 27,
+        "unit": "%"
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "o3",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "26515-7",
+            "display": "Platelets [#/volume] in Blood"
+          }
+        ]
+      },
+      "valueQuantity": {
+        "value": 84,
+        "unit": "K/ul"
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "o4",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "75034-9",
+            "display": "NPM1 gene mutations found [Identifier] in Bone marrow by Molecular genetics method Nominal"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "10828004",
+            "display": "Positive"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "o5",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "54447-8",
+            "display": "FLT3 gene mutation analysis in Bone marrow by Molecular genetics method Narrative"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "260385009",
+            "display": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "o6",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "55201-8",
+            "display": "KIT gene mutation analysis in Bone marrow by Molecular genetics method Narrative"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "260385009",
+            "display": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "o7",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "30444-4",
+            "display": "Myeloblasts [#/volume] in Blood"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "10828004",
+            "display": "Positive"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "o8",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "47016-1",
+            "display": "CD4 Ag [Presence] in Tissue by Immune stain"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "10828004",
+            "display": "Positive"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "o9",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "49464-1",
+            "display": "CD13 Ag [Presence] in Tissue by Immune stain"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "10828004",
+            "display": "Positive"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "o10",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "49466-6",
+            "display": "CD2 Ag [Presence] in Tissue by Immune stain"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "260385009",
+            "display": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "o11",
+      "status": "final",
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "33893-9",
+            "display": "Karyotype [Identifier] in Bone marrow Nominal"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "text": "46,XX[20]"
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "o12",
+      "status": "final",
+      "code": {
+        "text": "MDS-associated genetic abnormalities"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "260385009",
+            "display": "Negative"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "Observation",
+      "id": "o13",
+      "status": "final",
+      "code": {
+        "text": "AML-associated genetic abnormalities"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "260385009",
+            "display": "Negative"
+          }
+        ]
+      }
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsAssessedCondition",
+      "valueReference": {
+        "reference": "Condition/${createConditionId}"
+      }
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://happyvalley.com/diagnosticreport",
+      "value": "${CD10}-${D8}"
+    }
+  ],
+  "status": "final",
+  "code": {
+    "text": "comprehensive bone marrow report"
+  },
+  "subject": {
+    "reference": "Patient/${createPatientId}",
+    "display": "Everywoman, Eve A, MRN: HOSP-${CD14}${D4}"
+  },
+  "effectiveDateTime": "2015-01-02T13:20:10+01:00",
+  "issued": "2015-01-06T13:20:10+01:00",
+  "performer": [
+    {
+      "reference": "Practitioner/${createPractitionerId}",
+      "display": "Molecular Diagnostic Laboratory"
+    }
+  ],
+  "specimen": [
+    {
+      "reference": "Specimen/${createSpecimenId}",
+      "display": "Bone marrow ID: MLD45-Z4-1234"
+    }
+  ],
+  "result": [
+    {
+      "reference": "#o1"
+    },
+    {
+      "reference": "#o2"
+    },
+    {
+      "reference": "#o3"
+    },
+    {
+      "reference": "#o4"
+    },
+    {
+      "reference": "#o5"
+    },
+    {
+      "reference": "#o6"
+    },
+    {
+      "reference": "#o7"
+    },
+    {
+      "reference": "#o8"
+    },
+    {
+      "reference": "#o9"
+    },
+    {
+      "reference": "#o10"
+    },
+    {
+      "reference": "#o11"
+    },
+    {
+      "reference": "#o12"
+    },
+    {
+      "reference": "#o13"
+    }
+  ]
+}

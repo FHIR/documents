@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AppointmentResponse xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Todd G. Lerr accept appointment 15 January 2018 9:00am - 9:45am</div>
+	</text>
+	<identifier>
+		<system value="http://happyvalley.com/appointmentresponse"/>
+		<value value="PAT-${CD8}-20180115090000"/>
+	</identifier>
+	<appointment>
+		<reference value="Appointment/APP-${D10}-${Slot-1-identifier}"/>
+	</appointment>
+	<start value="2018-01-15T09:00:00Z"/>
+	<end value="2018-01-15T09:45:00Z"/>
+	<actor>
+		<reference value="Patient/${createPatientResourceId}"/>
+		<display value="Todd G. Lerr"/>
+	</actor>
+	<participantStatus value="accepted"/>
+	<comment value="Todd G. Lerr accept appointment"/>
+</AppointmentResponse>

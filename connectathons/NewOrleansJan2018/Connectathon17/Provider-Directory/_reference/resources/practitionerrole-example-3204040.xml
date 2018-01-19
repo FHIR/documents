@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PractitionerRole xmlns="http://hl7.org/fhir">
+	<id value="3204040" />
+	<identifier>
+		<system value="http://www.acme.org/practitioners" />
+		<value value="23" />
+	</identifier>
+	<active value="true" />
+	<period>
+		<start value="2018-01-01" />
+		<end value="2018-12-31" />
+	</period>
+	<practitioner>
+		<reference value="Practitioner/3204039" />
+		<display value="Dr GREGORY MULA" />
+	</practitioner>
+	<organization>
+		<reference value="Organization/393872" />
+	</organization>
+	<code>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0286" />
+			<code value="RP" />
+		</coding>
+	</code>
+	<specialty>
+		<coding>
+			<system value="http://snomed.info/sct" />
+			<code value="394579002" />
+			<display value="Cardiology" />
+		</coding>
+	</specialty>
+	<location>
+		<reference value="Location/3204041" />
+		<display value="16061 DOCTORS BLVD, HAMMOND LA" />
+	</location>
+	<telecom>
+		<system value="phone" />
+		<value value="9855421334" />
+		<use value="work" />
+	</telecom>
+	<telecom>
+		<system value="email" />
+		<value value="gregory.mula@example.org" />
+		<use value="work" />
+	</telecom>
+	<availableTime>
+		<daysOfWeek value="mon" />
+		<daysOfWeek value="tue" />
+		<daysOfWeek value="wed" />
+		<availableStartTime value="09:00:00" />
+		<availableEndTime value="16:30:00" />
+	</availableTime>
+	<availableTime>
+		<daysOfWeek value="thu" />
+		<daysOfWeek value="fri" />
+		<availableStartTime value="09:00:00" />
+		<availableEndTime value="12:00:00" />
+	</availableTime>
+	<notAvailable>
+		<description value="Adam will be on extended leave during May 2018" />
+		<during>
+			<start value="2018-05-01" />
+			<end value="2018-05-20" />
+		</during>
+	</notAvailable>
+	<availabilityExceptions value="Dr MULA is generally unavailable on public holidays and during the Christmas/New Year break" />
+	<endpoint>
+		<reference value="Endpoint/3319045" />
+	</endpoint>
+</PractitionerRole>

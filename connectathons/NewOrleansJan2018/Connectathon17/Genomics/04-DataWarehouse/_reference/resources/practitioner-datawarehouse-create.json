@@ -1,0 +1,32 @@
+{
+  "resourceType": "Practitioner",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>identifier</b>: ${CD13}${D5} (OFFICIAL)</p><p><b>name</b>: Leanard T Bloodraw </p><p><b>telecom</b>: ph: (555)7771234 ext.11</p></div>"
+  },
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://happyvalley.com/practitioner",
+      "value": "${CD13}${D5}"
+    }
+  ],
+  "name": [
+    {
+      "family": "Bloodraw",
+      "given": [
+        "Leanard",
+        "T"
+      ],
+      "suffix": [
+        "Jr"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(555)7771234 ext.11"
+    }
+  ]
+}

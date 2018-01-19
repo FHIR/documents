@@ -1,0 +1,15 @@
+{
+  "resourceType": "Location",
+  "id": "3204041",
+  "address": {
+    "use": "work",
+    "type": "physical",
+    "line": [
+      "16061 DOCTORS BLVD"
+    ],
+    "city": "HAMMOND",
+    "state": "LA",
+    "postalCode": "70403-1479",
+    "country": "US"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "resourceType": "Observation",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">BRCA2 gene mutation analysis</div>"
+  },
+  "extension": [
+    {
+      "extension": [
+        {
+          "url": "Name",
+          "valueCodeableConcept": {
+            "text": "185delAG"
+          }
+        }
+      ],
+      "url": "http://hl7.org/fhir/StructureDefinition/observation-geneticsVariant"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/observation-geneticsGene",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.genenames.org",
+            "code": "1101",
+            "display": "BRCA2"
+          }
+        ]
+      }
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://happyvalley.com/observation",
+      "value": "${CD10}${D6}"
+    }
+  ],
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "38530-2",
+        "display": "BRCA2 gene mutation analysis"
+      }
+    ]
+  },
+  "effectiveDateTime": "2015-05-26T15:30:10+01:00",
+  "method": {
+    "coding": [
+      {
+        "system": "http://www.ncbi.nlm.nih.gov/gtr/",
+        "code": "GTR000521311.1",
+        "display": "BRACAnalysis CDx Offered by Myriad Genetic Laboratories, Inc"
+      }
+    ]
+  },
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "38530-2",
+            "display": "BRCA2 gene mutation analysis"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "LA6668-3",
+            "display": "Pathogenic"
+          }
+        ]
+      }
+    }
+  ]
+}

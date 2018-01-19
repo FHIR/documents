@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-17-ts-lookup-sct-03-ok-post-coding-simple-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-2-0/TestScript/connectathon-17-ts-lookup-sct-03-ok-post-coding-simple-xml"/>
+	<name value="FHIR Connectathon 17 - Terminology Services - Lookup - SNOMED - OK - POST - Coding - Simple - XML"/>
+	<status value="active"/>
+	<date value="2018-01-10"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="CodeSystem $lookup simple tests against known SNOMED codes where the expected outcome is a successful response with valid name and display value. All $lookup operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of coding."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="CodeSystem create, read and lookup operations"/>
+			<link value="http://hl7.org/fhir/2018Jan/codesystem-operations.html#lookup"/>
+			<link value="http://hl7.org/fhir/2018Jan/codesystem.html"/>
+			<capabilities>
+				<reference value="../_reference/capabilities/CodeSystemLookupCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<fixture id="lookup-snomed-input-01">
+		<resource>
+			<reference value="../_reference/input/lookup-snomed-input-coding-01.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="lookup-snomed-input-02">
+		<resource>
+			<reference value="../_reference/input/lookup-snomed-input-coding-02.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="ParametersProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+	</profile>
+
+	<test id="01-SNOMED-LookupTopicalRoute">
+		<name value="SNOMED-LookupTopicalRoute"/>
+		<description value="Lookup test for SNOMED system and code using HTTP POST with coding parameter; 6064005 (Topical route). Expected response is 200 (OK) with a Parameters payload containing the name of the terminology and correct display value."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="lookup"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $lookup operation for SNOMED system and code for Topical route."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$lookup"/>
+				<sourceId value="lookup-snomed-input-01"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<direction value="response"/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="ParametersProfile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter name with valueString of SNOMED."/>
+				<direction value="response"/>
+				<operator value="contains"/>
+				<path value="Parameters/parameter[name/@value='name']/valueString"/>
+				<value value="SNOMED"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter display with valueString of Topical route."/>
+				<direction value="response"/>
+				<operator value="contains"/>
+				<path value="Parameters/parameter[name/@value='display']/valueString"/>
+				<value value="Topical route"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-SNOMED-LookupDrugInteraction">
+		<name value="SNOMED-LookupDrugInteraction"/>
+		<description value="Lookup test for SNOMED system and code using HTTP POST with coding parameter; 79899007 (Drug interaction). Expected response is 200 (OK) with a Parameters payload containing the name of the terminology and correct display value."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="lookup"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $lookup operation for SNOMED system and code for Drug interaction."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$lookup"/>
+				<sourceId value="lookup-snomed-input-02"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<direction value="response"/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="ParametersProfile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter name with valueString of SNOMED."/>
+				<direction value="response"/>
+				<operator value="contains"/>
+				<path value="Parameters/parameter[name/@value='name']/valueString"/>
+				<value value="SNOMED"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter display with valueString of Drug interaction."/>
+				<direction value="response"/>
+				<operator value="contains"/>
+				<path value="Parameters/parameter[name/@value='display']/valueString"/>
+				<value value="Drug interaction"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

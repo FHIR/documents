@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schedule xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Dr Leonard T Bloodraw Jr One Day Schedule 15 January 2018 9:00am to 4:00pm</div>
+	</text>
+	<identifier>
+		<use value="usual"/>
+		<system value="http://happyvalley.com/schedule"/>
+		<value value="${D15}"/>
+	</identifier>
+	<serviceCategory>
+		<coding>
+			<system value="http://example.org/service-category"/>
+			<code value="gp"/>
+			<display value="General Practice"/>
+		</coding>
+	</serviceCategory>
+	<serviceType>
+		<coding>
+			<system value="http://example.org/service-type"/>
+			<code value="bd"/>
+			<display value="Blood Donation"/>
+		</coding>
+	</serviceType>
+	<serviceType>
+		<coding>
+			<system value="http://example.org/service-type"/>
+			<code value="ph"/>
+			<display value="Pathology - Haematology"/>
+		</coding>
+	</serviceType>
+	<specialty>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="418652005"/>
+			<display value="Pediatric hematology"/>
+		</coding>
+	</specialty>
+	<actor>
+		<reference value="Practitioner/${createPractitionerResourceId}"/>
+		<display value="Dr Leonard T Bloodraw Jr"/>
+	</actor>
+	<planningHorizon>
+		<start value="2018-01-15T09:00:00Z"/>
+		<end value="2018-01-15T16:00:00Z"/>
+	</planningHorizon>
+	<comment value="Referrals are recommended but not required."/>
+</Schedule>

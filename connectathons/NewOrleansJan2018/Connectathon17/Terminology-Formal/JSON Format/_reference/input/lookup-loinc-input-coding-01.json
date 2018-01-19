@@ -1,0 +1,12 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "coding",
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "1963-8"
+      }
+    }
+  ]
+}
