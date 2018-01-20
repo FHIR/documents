@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-17-version-api-discovery-01-ok-json"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-2-0/TestScript/connectathon-17-version-api-discovery-01-ok-json"/>
+	<name value="FHIR Connectathon 17 - Versioned API - Version Discovery - Ok Test Suite - JSON"/>
+	<status value="active"/>
+	<date value="2018-01-20"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Versioned API - Version Discovery - Test suite using the JSON format for the FHIR global operation 'versions'."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<profile id="parameters-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+	</profile>
+
+	<test id="01-VersionDiscovery-Parameters">
+		<name value="VersionDiscovery-Parameters"/>
+		<description value="Execute the FHIR global operation 'versions' with the HTTP Accept FHIR JSON mime-type value. The expected response code is 200 (OK) with a payload of a Parameters resource in JSON format with one or more versions parameters populated."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://touchstone.com/fhir/extended-operation-codes"/>
+					<code value="versions"/>
+				</type>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<params value="/$versions"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type is present."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="notEmpty"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/fhir+json'."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="contains"/>
+				<value value="application/fhir+json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains 'charset=utf-8'."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="contains"/>
+				<value value="charset=utf-8"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<direction value="response"/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters conforms to the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="parameters-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter versions with a valueString."/>
+				<direction value="response"/>
+				<expression value="Parameters.parameter.where($this.name = 'version' and ($this.value as string) = 'r4').exists()"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-VersionDiscovery-JSON">
+		<name value="02-VersionDiscovery-JSON"/>
+		<description value="Execute the FHIR global operation 'versions' with the HTTP Accept JSON mime-type value (e.g. 'text/json'). The expected response code is 200 (OK) with a payload of a JSON document with a versions array element containing one or more values."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://touchstone.com/fhir/extended-operation-codes"/>
+					<code value="versions"/>
+				</type>
+				<contentType value="json"/>
+				<params value="/$versions"/>
+				<requestHeader>
+					<field value="Accept"/>
+					<value value="text/json"/>
+				</requestHeader>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type is present."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="notEmpty"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'text/json'."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="contains"/>
+				<value value="text/json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the versions array element is present with at least one value."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".versions[0]"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>
