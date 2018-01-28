@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Subscription xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated" />
+		<div xmlns="http://www.w3.org/1999/xhtml">Monitor Vital Signs - BMI</div>
+	</text>
+	<status value="requested" />
+	<contact>
+		<system value="url" />
+		<value value="http://example.org" />
+	</contact>
+	<end value="2021-01-01T00:00:00Z" />
+	<reason value="Monitor Vital Signs - BMI" />
+	<criteria value="Observation?code=http://loinc.org|39156-5" />
+	<channel>
+		<type value="rest-hook" />
+		<endpoint value="${subscriptionUrl}" />
+		<payload value="application/fhir+xml" />
+	</channel>
+	<tag>
+		<system value="http://example.org/fhir/cs/internal" />
+		<code value="bmi-done" />
+	</tag>
+</Subscription>

@@ -1,0 +1,25 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "resource",
+      "resource": {
+        "resourceType": "Patient",
+        "active": true,
+        "name": [
+          {
+            "family": "Notsowell${D7}"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1974-12-25",
+        "address": [
+          {
+            "city": "Harrisburg",
+            "state": "PA"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -113,7 +113,7 @@
 					<code value="validate-code"/>
 				</type>
 				<resource value="ValueSet"/>
-				<description value="Test $validate operation on ValueSet extensional-case-1 for a valid code."/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for a valid code."/>
 				<accept value="json"/>
 				<encodeRequestUrl value="false"/>
 				<params value="/extensional-case-1/$validate-code?system=http://hl7.org/fhir/administrative-gender&amp;code=male&amp;display=Male"/>
@@ -156,7 +156,7 @@
 					<code value="validate-code"/>
 				</type>
 				<resource value="ValueSet"/>
-				<description value="Test $validate operation on ValueSet extensional-case-1 for an invalid display."/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for an invalid display."/>
 				<accept value="json"/>
 				<encodeRequestUrl value="false"/>
 				<params value="/extensional-case-1/$validate-code?system=http://hl7.org/fhir/administrative-gender&amp;code=male&amp;display=MaleX"/>
@@ -199,7 +199,7 @@
 					<code value="validate-code"/>
 				</type>
 				<resource value="ValueSet"/>
-				<description value="Test $validate operation on ValueSet extensional-case-1 for a valid code."/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for a valid code."/>
 				<accept value="json"/>
 				<encodeRequestUrl value="false"/>
 				<params value="/extensional-case-1/$validate-code"/>
@@ -243,7 +243,7 @@
 					<code value="validate-code"/>
 				</type>
 				<resource value="ValueSet"/>
-				<description value="Test $validate operation on ValueSet extensional-case-1 for an invalid display."/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for an invalid display."/>
 				<accept value="json"/>
 				<encodeRequestUrl value="false"/>
 				<params value="/extensional-case-1/$validate-code"/>
@@ -287,7 +287,7 @@
 					<code value="validate-code"/>
 				</type>
 				<resource value="ValueSet"/>
-				<description value="Test $validate operation on ValueSet extensional-case-1 for a valid code."/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for a valid code."/>
 				<accept value="json"/>
 				<encodeRequestUrl value="false"/>
 				<params value="/extensional-case-1/$validate-code"/>
@@ -331,7 +331,7 @@
 					<code value="validate-code"/>
 				</type>
 				<resource value="ValueSet"/>
-				<description value="Test $validate operation on ValueSet extensional-case-1 for an invalid display."/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for an invalid display."/>
 				<accept value="json"/>
 				<encodeRequestUrl value="false"/>
 				<params value="/extensional-case-1/$validate-code"/>
@@ -375,7 +375,7 @@
 					<code value="validate-code"/>
 				</type>
 				<resource value="ValueSet"/>
-				<description value="Test $validate operation on ValueSet extensional-case-1 for a valid code."/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for a valid code."/>
 				<accept value="json"/>
 				<encodeRequestUrl value="false"/>
 				<params value="/extensional-case-1/$validate-code"/>
@@ -419,7 +419,7 @@
 					<code value="validate-code"/>
 				</type>
 				<resource value="ValueSet"/>
-				<description value="Test $validate operation on ValueSet extensional-case-1 for an invalid display."/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for an invalid display."/>
 				<accept value="json"/>
 				<encodeRequestUrl value="false"/>
 				<params value="/extensional-case-1/$validate-code"/>

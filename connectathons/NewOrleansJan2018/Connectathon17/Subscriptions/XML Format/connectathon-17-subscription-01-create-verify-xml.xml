@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-17-subscription-01-create-verify-xml"/>
+
+	<url value="http://touchstone.aegis.net/fhir/TestScript/connectathon-17-subscription-01-create-verify-xml"/>
+	<name value="FHIR Connectathon 17 - Subscriptions - 01 - Create Verify - XML"/>
+	<status value="draft"/>
+	<date value="2017-01-22"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="FHIR Subscriptions Track - test a Subscriptions FHIR Server capability to create and correctly process a new Subscription resource in XML format. The destination server must support the create (POST) operation, search operation and conditional delete to insure the Subscription resource does not exist or is removed prior to test execution."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<fixture id="subscription-create">
+		<resource>
+			<reference value="../_reference/resources/Subscription-create.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="operationoutcome-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+	</profile>
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+	<profile id="subscription-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Subscription"/>
+	</profile>
+
+	<variable>
+		<name value="subscriptionResourceId"/>
+		<path value="/Bundle/entry[1]/resource/Subscription/id"/>
+		<sourceId value="subscription-search-response"/>
+	</variable>
+	<variable>
+		<name value="subscriptionEnd"/>
+		<path value="/Subscription/end"/>
+		<sourceId value="subscription-create"/>
+	</variable>
+	<variable>
+		<name value="subscriptionReason"/>
+		<path value="/Subscription/reason"/>
+		<sourceId value="subscription-create"/>
+	</variable>
+	<variable>
+		<name value="subscriptionCriteria"/>
+		<path value="/Subscription/criteria"/>
+		<sourceId value="subscription-create"/>
+	</variable>
+	<variable>
+		<name value="subscriptionType"/>
+		<path value="/Subscription/channel/type"/>
+		<sourceId value="subscription-create"/>
+	</variable>
+	<variable>
+		<name value="subscriptionUrl"/>
+		<description value="Enter the rest-hook endpoint url for the Subscribing Client system." />
+		<hint value="[Rest-hook URL]" />
+	</variable>
+
+	<ruleset id="ruleset-versioning-headers">
+		<resource>
+			<reference value="/FHIRCommon/_reference/ruleset/RuleSet-VersioningHeaders-Groovy.xml"/>
+		</resource>
+		<rule>
+			<ruleId value="assertETagIfSupported" />
+			<param>
+				<name value="resource" />
+				<value value="Subscription" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertLastModifiedIfSupported" />
+			<param>
+				<name value="resource" />
+				<value value="Subscription" />
+			</param>
+		</rule>
+	</ruleset>
+	<ruleset id="ruleset-createok-headers-body">
+		<resource>
+			<reference value="/FHIRCommon/_reference/ruleset/RuleSet-CreateOkHeadersBody-Groovy.xml"/>
+		</resource>
+		<rule>
+			<ruleId value="assertContentTypeIfBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertContentTypeCharsetIfBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertResourceTypesIfBody" />
+			<param>
+				<name value="resource" />
+				<value value="Subscription,OperationOutcome" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertProfileIfOperationOutcome" />
+			<param>
+				<name value="validateProfileId" />
+				<value value="operationoutcome-profile" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertProfileIfResource" />
+			<param>
+				<name value="resource" />
+				<value value="Subscription" />
+			</param>
+			<param>
+				<name value="validateProfileId" />
+				<value value="subscription-profile" />
+			</param>
+		</rule>
+	</ruleset>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Subscription"/>
+				<description value="System-generated search and delete operations from conditional delete on type and url to insure the Subscription does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?type=${subscriptionType}&amp;url=${subscriptionUrl}"/>
+			</operation>
+		</action>
+	</setup>
+
+	<test id="01-CreateSubscription">
+		<name value="CreateSubscription"/>
+		<description value="Create a new subscription with a rest-hook channel using XML formatted fixture. The expected response is 201 (Created). The expected response content is the created Subscription resource in XML format. An OperationOutcome or empty response is also allowed."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Subscription"/>
+				<description value="Create a new subscription with a rest-hook channel."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="subscription-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<direction value="response"/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers"/>
+				</ruleset>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected create ok response HTTP Headers and body."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-createok-headers-body"/>
+					<rule>
+						<ruleId value="assertContentTypeMimeTypeIfBody" />
+						<param>
+							<name value="headerExpectedValue" />
+							<value value="application/fhir+xml" />
+						</param>
+					</rule>
+				</ruleset>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-SearchSubscription">
+		<name value="SearchSubscription"/>
+		<description value="Search for the created subscription using the search parameters type and url XML format. The expected response is 200 (OK). The expected response content is a searchset Bundle with the created Subscription resource in XML format."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Subscription"/>
+				<description value="Search for the created Subscription by the type and url values and validate the contents."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?type=${subscriptionType}&amp;url=${subscriptionUrl}"/>
+				<responseId value="subscription-search-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is the FHIR XML format."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type is searchset."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/type"/>
+				<value value="searchset"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other Subscription records returned; however, the first entry is expected to contain the created Patient."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value="Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches or is greater than the number of entries in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.total.toInteger() &gt;= entry.count()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected retained end element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Subscription/end"/>
+				<value value="${subscriptionEnd}"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected retained reason element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Subscription/reason"/>
+				<value value="${subscriptionReason}"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected retained criteria element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Subscription/criteria"/>
+				<value value="${subscriptionCriteria}"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected retained channel.type element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Subscription/channel/type"/>
+				<value value="${subscriptionType}"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected retained channel.endpoint element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Subscription/channel/endpoint"/>
+				<value value="${subscriptionUrl}"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected updated status element and value of 'active'. Warning only for initial testing."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Subscription/status"/>
+				<value value="active"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-ReadSubscription">
+		<name value="ReadSubscription"/>
+		<description value="Read the created subscription using the XML format. The expected response is 200 (OK). The expected response content is the created Subscription resource in XML format."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Subscription"/>
+				<description value="Read the created Subscription and validate the contents."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="/${subscriptionResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type is present."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="notEmpty"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/fhir+xml'."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers"/>
+				</ruleset>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Patient."/>
+				<direction value="response"/>
+				<resource value="Subscription"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Subscription conforms to the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="subscription-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected retained end element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Subscription/end"/>
+				<value value="${subscriptionEnd}"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected retained reason element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Subscription/reason"/>
+				<value value="${subscriptionReason}"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected retained criteria element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Subscription/criteria"/>
+				<value value="${subscriptionCriteria}"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected retained channel.type element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Subscription/channel/type"/>
+				<value value="${subscriptionType}"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected retained channel.endpoint element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Subscription/channel/endpoint"/>
+				<value value="${subscriptionUrl}"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected updated status element and value of 'active'. Warning only for initial testing."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Subscription/status"/>
+				<value value="active"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

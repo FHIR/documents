@@ -82,7 +82,7 @@
 		</action>
 		<action>
 			<assert>
-				<description value="Confirm that the returned Parameters resource contains the expected parameter name with valueString of LOINC."/>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter name with valueString containing SNOMED."/>
 				<direction value="response"/>
 				<operator value="contains"/>
 				<path value=".parameter[?(@.name=='name')].valueString" />
@@ -91,11 +91,9 @@
 		</action>
 		<action>
 			<assert>
-				<description value="Confirm that the returned Parameters resource contains the expected parameter display with valueString of Bicarbonate."/>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter display set to any of the Preferred or Acceptable SNOMED display strings."/>
 				<direction value="response"/>
-				<operator value="contains"/>
-				<path value=".parameter[?(@.name=='display')].valueString" />
-				<value value="Topical route"/>
+				<expression value="Parameters.parameter.where(name = 'display').value.where($this = 'Topical route (qualifier value)' or $this = 'Topical route' or $this = 'Topical use')"/>
 			</assert>
 		</action>
 	</test>
@@ -157,11 +155,9 @@
 		</action>
 		<action>
 			<assert>
-				<description value="Confirm that the returned Parameters resource contains the expected parameter display with valueString of Drug interaction."/>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter display set to any of the Preferred or Acceptable SNOMED display strings."/>
 				<direction value="response"/>
-				<operator value="contains"/>
-				<path value=".parameter[?(@.name=='display')].valueString" />
-				<value value="Drug interaction"/>
+				<expression value="Parameters.parameter.where(name = 'display').value.where($this = 'Drug interaction (finding)' or $this = 'Medication interaction' or $this = 'Drug interaction')"/>
 			</assert>
 		</action>
 	</test>

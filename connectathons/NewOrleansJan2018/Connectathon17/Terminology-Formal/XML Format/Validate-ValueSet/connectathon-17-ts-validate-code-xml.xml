@@ -764,7 +764,7 @@
 
 	<test id="Test-04-d-ValidateExtensionalCase4">
 		<name value="Test 04-d Validate extensional-case-4 invalid code"/>
-		<description value="Check that the code {http://hl7.org/fhir/v2/0001}a is not in the value set (note: this coding system is case sensitive, so 'A' is valid, but 'a' is not."/>
+		<description value="Check that the code {http://hl7.org/fhir/v2/0001}x is not in the value set."/>
 
 		<action>
 			<operation>
@@ -776,7 +776,7 @@
 				<description value="Test $validate-code operation on ValueSet extensional-case-4 for a code not in the value set."/>
 				<accept value="xml"/>
 				<encodeRequestUrl value="false"/>
-				<params value="/extensional-case-4/$validate-code?system=http://hl7.org/fhir/v2/0001&amp;code=a"/>
+				<params value="/extensional-case-4/$validate-code?system=http://hl7.org/fhir/v2/0001&amp;code=x"/>
 			</operation>
 		</action>
 		<action>

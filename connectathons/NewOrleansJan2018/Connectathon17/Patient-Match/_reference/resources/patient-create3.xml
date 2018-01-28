@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated" />
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<table>
+				<tbody>
+					<tr>
+						<td>Name</td>
+						<td>Steve${D6} <b>Notsowell${D7}</b> (DECEASED)
+						</td>
+					</tr>
+					<tr>
+						<td>Address</td>
+						<td>${D4} Orchard Lane, Harrisburg, PA 17102</td>
+					</tr>
+					<tr>
+						<td>Contacts</td>
+						<td>Home: (717) 305 ${D4}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</text>
+	<active value="true" />
+	<name>
+		<use value="official" />
+		<family value="Notsowell${D7}" />
+		<given value="Steve${D6}" />
+	</name>
+	<telecom>
+		<system value="phone" />
+		<value value="(717) 305 ${D4}" />
+		<use value="home" />
+	</telecom>
+	<gender value="male" />
+	<birthDate value="1974-12-25" />
+	<deceasedBoolean value="true" />
+	<address>
+		<use value="home" />
+		<line value="${D4} Orchard Lane" />
+		<city value="Harrisburg" />
+		<state value="PA" />
+		<postalCode value="17102" />
+		<country value="USA" />
+	</address>
+	<generalPractitioner>
+		<display value="Dr Adam Careful" />
+	</generalPractitioner>
+	<managingOrganization>
+		<display value="ACME Healthcare, Inc" />
+	</managingOrganization>
+</Patient>

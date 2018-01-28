@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<parameter>
+		<name value="resource"/>
+		<resource>
+			<Patient>
+				<text>
+					<status value="generated" />
+					<div xmlns="http://www.w3.org/1999/xhtml">
+						<table>
+							<tbody>
+								<tr>
+									<td>Name</td>
+									<td>Stephen${D6} <b>Notsowell${D7}</b> (DECEASED)
+									</td>
+								</tr>
+								<tr>
+									<td>Address</td>
+									<td>${D6} North 102nd Street, Apt 4d, Harrisburg, PA 17102</td>
+								</tr>
+								<tr>
+									<td>Contacts</td>
+									<td>Work: (${D3}) ${D3} ${D4}</td>
+								</tr>
+								<tr>
+									<td>Id</td>
+									<td>MRN: ${D9} (Acme Healthcare)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</text>
+				<identifier>
+					<system value="http://www.goodhealth.org/identifiers/mrn" />
+					<value value="${D9}" />
+				</identifier>
+				<active value="true" />
+				<name>
+					<use value="official" />
+					<family value="Notsowell${D7}" />
+					<given value="Stephen${D6}" />
+				</name>
+				<telecom>
+					<system value="phone" />
+					<value value="(${D3}) ${D3} ${D4}" />
+					<use value="work" />
+				</telecom>
+				<gender value="male" />
+				<birthDate value="1974-12-25" />
+				<deceasedBoolean value="true" />
+				<address>
+					<use value="home" />
+					<line value="${D6} North 102nd Street" />
+					<line value="Apt 4d" />
+					<city value="Harrisburg" />
+					<state value="PA" />
+					<postalCode value="17102" />
+					<country value="USA" />
+				</address>
+				<generalPractitioner>
+					<display value="Dr Adam Careful" />
+				</generalPractitioner>
+				<managingOrganization>
+					<display value="ACME Healthcare, Inc" />
+				</managingOrganization>
+			</Patient>
+		</resource>
+	</parameter>
+</Parameters>
