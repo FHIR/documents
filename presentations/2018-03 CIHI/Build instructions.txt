@@ -1,0 +1,19 @@
+1. Go to "https://www.visualstudio.com/products/visual-studio-community-vs" and download and install Visual Studio (limited free version) if you don't already have another version
+2. If you don't need otherwise, configure VS to optimize for C# as that's what the reference implementation is written in
+3. Download one or more of the "fhir starter" projects from "https://github.com/furore-fhir/fhirstarters/trunk/dotnet"
+- you'll need to check it out using GIT or SVN or will need to download each file individually
+4. Select "open project" from within Visual Studio and select one of the FHIR-starter projects
+5. Click "start" to import the relevant Nuget packages and start running
+
+
+1. Download and unzip the "Eclipse IDE for Java Developers" version of Eclipse from "http://www.eclipse.org/"
+2. Download hapi-fhir-1.4-standard-distribution.zip from "https://github.com/jamesagnew/hapi-fhir/releases" and unzip it to a folder
+- You can find this like from the HAPI download page: http://jamesagnew.github.io/hapi-fhir/download.html.  Click on the "Documentation" tab to get lots of documentation
+3. Download one or more of the "fhir starter" projects from "https://github.com/furore-fhir/fhirstarters/trunk/java"
+- you'll need to check it out using GIT or SVN or will need to download each file individually
+4. Create a new Java project in Eclipse
+5. Import File System content from the fhirstarter folder you downloaded
+6. Right-click on your project and select "properties"
+7. Click "Add external jars" and select all of the hapi jars you unzipped
+8. You may need to edit the package name(s) of your source files and/or save as UTF-8
+9. Run the test application.  (You may need to edit the resource ids to reflect resources that actually exist)
