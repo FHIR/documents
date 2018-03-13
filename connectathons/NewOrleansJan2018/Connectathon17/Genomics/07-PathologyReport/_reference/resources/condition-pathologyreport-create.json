@@ -1,0 +1,65 @@
+{
+  "resourceType": "Condition",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Dec 12, 2012: Body Site - Bone structure of femur</div>"
+  },
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://happyvalley.com/condition",
+      "value": "${CD15}"
+    }
+  ],
+  "clinicalStatus": "active",
+  "verificationStatus": "confirmed",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/condition-category",
+          "code": "encounter-diagnosis"
+        }
+      ]
+    }
+  ],
+  "severity": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "24484000",
+        "display": "Severe"
+      }
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "363346000",
+        "display": "Malignant neoplastic disease"
+      }
+    ]
+  },
+  "bodySite": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "71341001",
+          "display": "Bone structure of femur"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/${createPatientId}"
+  },
+  "onsetAge": {
+    "value": 52,
+    "unit": "yr",
+    "system": "http://unitsofmeasure.org",
+    "code": "a"
+  },
+  "assertedDate": "2012-12-01"
+}

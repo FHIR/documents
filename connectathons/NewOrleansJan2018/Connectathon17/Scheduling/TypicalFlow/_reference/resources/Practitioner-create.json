@@ -1,0 +1,32 @@
+{
+  "resourceType": "Practitioner",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Dr Leonard T Bloodraw Jr</div>"
+  },
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "${D12}"
+    }
+  ],
+  "name": [
+    {
+      "family": "Bloodraw",
+      "given": [
+        "Leonard",
+        "T"
+      ],
+      "suffix": [
+        "Jr"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(555)7771234 ext.11"
+    }
+  ]
+}

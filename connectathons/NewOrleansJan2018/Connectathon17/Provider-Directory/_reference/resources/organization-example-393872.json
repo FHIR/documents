@@ -1,0 +1,43 @@
+{
+  "resourceType": "Organization",
+  "id": "393872",
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1063494177"
+    },
+    {
+      "system": "http://hl7.org/fhir/us/argo/sid/us-ein",
+      "value": "00-0000000"
+    }
+  ],
+  "active": true,
+  "name": "Saint Luke's Hospital of Kansas City",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(816)932-2000",
+      "use": "work"
+    },
+    {
+      "system": "other",
+      "value": "http://www.saintlukeshealthsystem.org/locations/saint-lukes-hospital-kansas-city",
+      "use": "work"
+    }
+  ],
+  "address": [
+    {
+      "line": [
+        "4401 Wornall Rd,"
+      ],
+      "city": "Amherst",
+      "state": "MA",
+      "postalCode": "64111"
+    }
+  ],
+  "endpoint": [
+    {
+      "reference": "Endpoint/3319227"
+    }
+  ]
+}

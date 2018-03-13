@@ -1,0 +1,28 @@
+{
+  "resourceType": "Subscription",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Monitor Vital Signs - BMI</div>"
+  },
+  "status": "requested",
+  "contact": [
+    {
+      "system": "url",
+      "value": "http://example.org"
+    }
+  ],
+  "end": "2021-01-01T00:00:00Z",
+  "reason": "Monitor Vital Signs - BMI",
+  "criteria": "Observation?code=http://loinc.org|39156-5",
+  "channel": {
+    "type": "rest-hook",
+    "endpoint": "${subscriptionUrl}",
+    "payload": "application/fhir+json"
+  },
+  "tag": [
+    {
+      "system": "http://example.org/fhir/cs/internal",
+      "code": "bmi-done"
+    }
+  ]
+}

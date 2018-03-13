@@ -1,0 +1,39 @@
+{
+  "resourceType": "Patient",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>identifier</b>: HOSP-${CD9}${D5} (USUAL)</p><p><b>name</b>: Mary Chambers (OFFICIAL)</p><p><b>gender</b>: female</p><p><b>birthDate</b>: Aug 17, 1972</p><p><b>deceased</b>: false</p><p><b>address</b>: 123 North 102nd Street Apt 4d Harrisburg PA 17102 USA (HOME)</p></div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "system": "http://happyvalley.com/patient",
+      "value": "HOSP-${CD9}${D5}"
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": "Chambers",
+      "given": [
+        "Mary"
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1972-08-17",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "123 North 102nd Street",
+        "Apt 4d"
+      ],
+      "city": "Harrisburg",
+      "state": "PA",
+      "postalCode": "17102",
+      "country": "USA"
+    }
+  ]
+}

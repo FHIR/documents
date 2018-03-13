@@ -1,0 +1,20 @@
+{
+  "resourceType": "AppointmentResponse",
+  "identifier": [
+    {
+      "system": "http://happyvalley.com/appointmentresponse",
+      "value": "PAT-${CD9}-20180115090000"
+    }
+  ],
+  "appointment": {
+    "reference": "Appointment/APP-${D10}-${Slot-1-identifier}"
+  },
+  "start": "2018-01-15T09:00:00Z",
+  "end": "2018-01-15T09:45:00Z",
+  "actor": {
+    "reference": "Patient/${createPatientResourceId}",
+    "display": "Todd G. Lerr"
+  },
+  "participantStatus": "accepted",
+  "comment": "Todd G. Lerr accept appointment"
+}

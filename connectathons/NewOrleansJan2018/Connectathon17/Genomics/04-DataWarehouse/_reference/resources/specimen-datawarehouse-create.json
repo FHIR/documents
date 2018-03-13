@@ -1,0 +1,41 @@
+{
+  "resourceType": "Specimen",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>identifier</b>: ${CD5}${D11} (official)</p><p><b>type</b>: Blood sample \n\t\t\t\t<span style=\"background: LightGoldenRodYellow \">(Details : {SNOMED CT code &quot;122555007&quot; := &quot;122555007&quot;, given as &quot;Venous blood specimen&quot;}; {http://lis.acmelabs.org/codes code &quot;BLD&quot; := &quot;BLD&quot;, given as &quot;Blood&quot;})</span></p><p><b>subject</b>: \n\t\t\t\t<a href=\"Patient/${createPatientId}\">Todd Lerr</a></p><p><b>accessionIdentifier</b>: 21041205000001 (official)\n\t\t\t</p></div>"
+  },
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://happyvalley.com/specimen",
+      "value": "${CD5}${D11}"
+    }
+  ],
+  "accessionIdentifier": {
+    "use": "official",
+    "system": "http://lis.acmelabs.org/identifiers/accession",
+    "value": "21041205000001"
+  },
+  "type": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "122555007",
+        "display": "Venous blood specimen"
+      },
+      {
+        "system": "http://lis.acmelabs.org/codes",
+        "code": "BLD",
+        "display": "Blood"
+      }
+    ],
+    "text": "Blood sample"
+  },
+  "subject": {
+    "reference": "Patient/${createPatientId}",
+    "display": "Todd Lerr"
+  },
+  "collection": {
+    "collectedDateTime": "2014-12-05"
+  }
+}

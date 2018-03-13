@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-17-ts-translate-04-notok-get-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-2-0/TestScript/connectathon-17-ts-translate-04-notok-get-xml"/>
+	<name value="FHIR Connectathon 17 - Terminology Services - Translate - NOT OK - GET - XML"/>
+	<status value="active"/>
+	<date value="2018-01-10"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP GET method."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="ConceptMap create, read and translate operations"/>
+			<link value="http://hl7.org/fhir/2018Jan/conceptmap-operations.html#translate"/>
+			<link value="http://hl7.org/fhir/2018Jan/conceptmap.html"/>
+			<capabilities>
+				<reference value="../_reference/capabilities/ConceptMapTranslateCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<profile id="OperationOutcomeProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+	</profile>
+
+	<test id="01-AddressUseTranslateInvalidCode">
+		<name value="AddressUseTranslateInvalidCode"/>
+		<description value="ConceptMap $translate operation test for an invalid code using HTTP GET; http://hl7.org/fhir/address-use|xxx, target http://hl7.org/fhir/ValueSet/v3-AddressUse. Expected response is 4xx/5xx with an OperationOutcome payload containing at least one error issue."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="translate"/>
+				</type>
+				<resource value="ConceptMap"/>
+				<description value="Test ConceptMap $translate operation for an invalid code."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="/$translate?system=http://hl7.org/fhir/address-use&amp;code=xxx&amp;source=http://hl7.org/fhir/ValueSet/address-use&amp;target=http://hl7.org/fhir/ValueSet/v3-AddressUse"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx/5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-AddressUseTranslateInvalidSystemSource">
+		<name value="AddressUseTranslateInvalidSystemSource"/>
+		<description value="ConceptMap $translate operation test for an invalid code and source system using HTTP GET; http://hl7.org/fhir/address-useX|old, target http://hl7.org/fhir/ValueSet/v3-AddressUse. Expected response is 4xx/5xx with an OperationOutcome payload containing at least one error issue."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="translate"/>
+				</type>
+				<resource value="ConceptMap"/>
+				<description value="Test ConceptMap $translate operation for an invalid code and source system."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="/$translate?system=http://hl7.org/fhir/address-useX&amp;code=old&amp;source=http://hl7.org/fhir/ValueSet/address-useX&amp;target=http://hl7.org/fhir/ValueSet/v3-AddressUse"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx/5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-AddressUseTranslateInvalidTarget">
+		<name value="AddressUseTranslateInvalidTarget"/>
+		<description value="ConceptMap $translate operation test for an invalid target system using HTTP GET; http://hl7.org/fhir/address-useX|old, target http://hl7.org/fhir/ValueSet/v3-AddressUse. Expected response is 4xx/5xx with an OperationOutcome payload containing at least one error issue."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="translate"/>
+				</type>
+				<resource value="ConceptMap"/>
+				<description value="Test ConceptMap $translate operation for an invalid target system."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="/$translate?system=http://hl7.org/fhir/address-use&amp;code=home&amp;source=http://hl7.org/fhir/ValueSet/address-use&amp;target=http://hl7.org/fhir/ValueSet/v3-AddressUseX"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx/5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

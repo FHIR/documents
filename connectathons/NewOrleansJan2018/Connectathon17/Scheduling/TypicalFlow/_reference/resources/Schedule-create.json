@@ -1,0 +1,65 @@
+{
+  "resourceType": "Schedule",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Dr Leonard T Bloodraw Jr One Day Schedule 15 January 2018 9:00am to 4:00pm</div>"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "system": "http://happyvalley.com/schedule",
+      "value": "${D16}"
+    }
+  ],
+  "serviceCategory": {
+    "coding": [
+      {
+        "system": "http://example.org/service-category",
+        "code": "gp",
+        "display": "General Practice"
+      }
+    ]
+  },
+  "serviceType": [
+    {
+      "coding": [
+        {
+          "system": "http://example.org/service-type",
+          "code": "bd",
+          "display": "Blood Donation"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "system": "http://example.org/service-type",
+          "code": "ph",
+          "display": "Pathology - Haematology"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "418652005",
+          "display": "Pediatric hematology"
+        }
+      ]
+    }
+  ],
+  "actor": [
+    {
+      "reference": "Practitioner/${createPractitionerResourceId}",
+      "display": "Dr Leonard T Bloodraw Jr"
+    }
+  ],
+  "planningHorizon": {
+    "start": "2018-01-15T09:00:00Z",
+    "end": "2018-01-15T16:00:00Z"
+  },
+  "comment": "Referrals are recommended but not required."
+}

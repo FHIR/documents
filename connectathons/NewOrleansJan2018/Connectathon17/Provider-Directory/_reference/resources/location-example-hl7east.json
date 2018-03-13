@@ -1,0 +1,64 @@
+{
+  "resourceType": "Location",
+  "id": "hl7east",
+  "identifier": [
+    {
+      "system": "http://www.acme.org/location",
+      "value": "29"
+    }
+  ],
+  "status": "active",
+  "name": "Health Level Seven International - Amherst",
+  "description": "HL7 Headquarters - East",
+  "mode": "instance",
+  "type": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/v3/RoleCode",
+        "code": "SLEEP",
+        "display": "Sleep disorders unit"
+      }
+    ]
+  },
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(+1) 734-677-7777"
+    },
+    {
+      "system": "fax",
+      "value": "(+1) 734-677-6622"
+    },
+    {
+      "system": "email",
+      "value": "hq@HL7.org"
+    }
+  ],
+  "address": {
+    "line": [
+      "3300 Washtenaw Avenue, Suite 227"
+    ],
+    "city": "Amherst",
+    "state": "MA",
+    "postalCode": "01002",
+    "country": "USA"
+  },
+  "physicalType": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/location-physical-type",
+        "code": "bu",
+        "display": "Building"
+      }
+    ]
+  },
+  "position": {
+    "longitude": -72.519854,
+    "latitude": 42.373222
+  },
+  "endpoint": [
+    {
+      "reference": "Endpoint/3319045"
+    }
+  ]
+}

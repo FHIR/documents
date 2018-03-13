@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schedule xmlns="http://hl7.org/fhir">
+	<identifier>
+		<use value="usual"/>
+		<system value="http://happyvalley.com/schedule"/>
+		<value value="${D15}"/>
+	</identifier>
+	<serviceCategory>
+		<coding>
+			<system value="http://example.org/service-category"/>
+			<code value="gp"/>
+			<display value="General Practice"/>
+		</coding>
+	</serviceCategory>
+	<serviceType>
+		<coding>
+			<system value="http://example.org/service-type"/>
+			<code value="bd"/>
+			<display value="Blood Donation"/>
+		</coding>
+	</serviceType>
+	<serviceType>
+		<coding>
+			<system value="http://example.org/service-type"/>
+			<code value="ph"/>
+			<display value="Pathology - Haematology"/>
+		</coding>
+	</serviceType>
+	<specialty>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="418652005"/>
+			<display value="Pediatric hematology"/>
+		</coding>
+	</specialty>
+	<actor>
+		<display value="Dr Leonard T Bloodraw Jr"/>
+	</actor>
+	<comment value="Referrals are recommended but not required."/>
+</Schedule>

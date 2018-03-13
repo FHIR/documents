@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Appointment xmlns="http://hl7.org/fhir">
+	<identifier>
+		<system value="http://happyvalley.com/appointment"/>
+		<value value="APP-${CD8}-20180115090000"/>
+	</identifier>
+	<status value="pending"/>
+	<serviceCategory>
+		<coding>
+			<system value="http://example.org/service-category"/>
+			<code value="gp"/>
+			<display value="General Practice"/>
+		</coding>
+	</serviceCategory>
+	<serviceType>
+		<coding>
+			<system value="http://example.org/service-type"/>
+			<code value="bd"/>
+			<display value="Blood Donation"/>
+		</coding>
+	</serviceType>
+	<appointmentType>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0276"/>
+			<code value="ROUTINE"/>
+			<display value="Routine appointment - default if not valued"/>
+		</coding>
+	</appointmentType>
+	<priority value="5"/>
+	<description value="Patient is donating blood"/>
+	<start value="2018-01-15T09:00:00Z"/>
+	<end value="2018-01-15T09:45:00Z"/>
+	<minutesDuration value="45"/>
+	<participant>
+		<actor>
+			<display value="Todd G. Lerr"/>
+		</actor>
+		<required value="required"/>
+		<status value="needs-action"/>
+	</participant>
+	<participant>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+				<code value="ATND"/>
+				<display value="attender"/>
+			</coding>
+		</type>
+		<actor>
+			<display value="Dr Leonard T Bloodraw Jr"/>
+		</actor>
+		<required value="required"/>
+		<status value="needs-action"/>
+	</participant>
+</Appointment>

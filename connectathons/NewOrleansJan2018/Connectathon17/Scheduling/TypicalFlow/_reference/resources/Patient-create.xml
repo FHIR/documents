@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				<b>identifier</b>: ${D10} (USUAL)</p>
+			<p>
+				<b>name</b>: Todd G. Lerr (OFFICIAL)</p>
+			<p>
+				<b>gender</b>: male</p>
+			<p>
+				<b>birthDate</b>: Jun 7, 1972</p>
+			<p>
+				<b>deceased</b>: false</p>
+			<p>
+				<b>address</b>: 123 North 102nd Street Apt 4d Harrisburg PA 17102 USA (HOME)</p>
+		</div>
+	</text>
+	<identifier>
+		<use value="usual"/>
+		<system value="urn:oid:2.16.840.1.113883.3.72.5.30.2"/>
+		<value value="${D10}"/>
+	</identifier>
+	<name>
+		<use value="official"/>
+		<family value="Lerr"/>
+		<given value="Todd"/>
+		<given value="G."/>
+		<suffix value="Jr"/>
+	</name>
+	<gender value="male"/>
+	<birthDate value="1972-06-07"/>
+	<deceasedBoolean value="false"/>
+	<address>
+		<use value="home"/>
+		<line value="123 North 102nd Street"/>
+		<line value="Apt 4d"/>
+		<city value="Harrisburg"/>
+		<state value="PA"/>
+		<postalCode value="17102"/>
+		<country value="USA"/>
+	</address>
+</Patient>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Endpoint xmlns="http://hl7.org/fhir">
+	<id value="3319227"/>
+	<status value="active"/>
+	<connectionType>
+		<system value="http://hl7.org/fhir/subscription-channel-type"/>
+		<code value="email"/>
+	</connectionType>
+	<name value="Saint Luke's Hospital of Kansas City"/>
+	<managingOrganization>
+		<reference value="Organization/393872"/>
+	</managingOrganization>
+	<payloadType>
+		<coding>
+			<system value="urn:oid:1.3.6.1.4.1.19376.1.2.3"/>
+			<code value="urn:ihe:pcc:xphr:2007"/>
+			<display value="HL7 CCD Document"/>
+		</coding>
+	</payloadType>
+	<payloadType>
+		<coding>
+			<system value="urn:oid:1.3.6.1.4.1.19376.1.2.3"/>
+			<code value="urn:ihe:pcc:xds-ms:2007"/>
+			<display value="XDS Medical Summaries"/>
+		</coding>
+	</payloadType>
+	<payloadType>
+		<coding>
+			<system value="urn:oid:1.3.6.1.4.1.19376.1.2.3"/>
+			<code value="urn:hl7-org:sdwg:ccda-structuredBody:1.1"/>
+			<display value="C-CDA constraints using a structured body"/>
+		</coding>
+	</payloadType>
+	<payloadType>
+		<coding>
+			<system value="urn:oid:1.3.6.1.4.1.19376.1.2.3"/>
+			<code value="urn:hl7-org:sdwg:ccda-nonXMLBody:1.1"/>
+			<display value="C-CDA constraints using a non structured body."/>
+		</coding>
+	</payloadType>
+	<payloadMimeType value="*/*"/>
+	<address value="mailto:stluke101@operations.cernerdirect.com"/>
+</Endpoint>

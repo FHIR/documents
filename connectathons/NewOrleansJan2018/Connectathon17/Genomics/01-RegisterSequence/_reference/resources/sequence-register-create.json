@@ -1,0 +1,58 @@
+{
+  "resourceType": "Sequence",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Type: DNA; Species: Homo sapiens; ReferenceSeqId Start: 55227970, End:55227980</div>"
+  },
+  "identifier": [
+    {
+      "system": "http://happyvalley.com/sequence",
+      "value": "${CD7}${D11}"
+    }
+  ],
+  "type": "dna",
+  "coordinateSystem": 0,
+  "patient": {
+    "reference": "Patient/${createPatientId}"
+  },
+  "referenceSeq": {
+    "referenceSeqId": {
+      "coding": [
+        {
+          "system": "http://www.ncbi.nlm.nih.gov/nuccore",
+          "code": "NC_000007.14"
+        }
+      ]
+    },
+    "strand": 1,
+    "windowStart": 55227970,
+    "windowEnd": 55227980
+  },
+  "variant": [
+    {
+      "start": 55227976,
+      "end": 55227977,
+      "observedAllele": "T",
+      "referenceAllele": "A",
+      "cigar": "${CD15}"
+    }
+  ],
+  "quality": [
+    {
+      "type": "snp",
+      "start": 55227976,
+      "end": 55227977,
+      "score": {
+        "value": 1.0
+      }
+    }
+  ],
+  "repository": [
+    {
+      "type": "openapi",
+      "url": "https://www.googleapis.com/genomics/v1beta2",
+      "name": "ga4gh",
+      "variantsetId": "A1A2"
+    }
+  ]
+}

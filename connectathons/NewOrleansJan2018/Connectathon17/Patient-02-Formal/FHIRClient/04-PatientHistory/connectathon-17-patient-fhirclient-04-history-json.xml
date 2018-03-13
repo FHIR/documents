@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-17-patient-fhirclient-04-history-json"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-2-0/TestScript/connectathon-17-patient-fhirclient-04-history-json"/>
+	<name value="FHIR Connectathon 17 - Patient - Formal Testing - FHIR Client - History - JSON"/>
+	<status value="draft"/>
+	<date value="2018-01-10"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Patient Track - Formal Testing - tests external FHIR Client and Server to retrieve the history of a JSON formatted Patient with minimum data elements: identifier, name.family, name.given, gender and birthDate. The origin and destination systems must support the history operation."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<origin>
+		<index value="1" />
+		<profile>
+			<system value="http://hl7.org/fhir/testscript-profile-origin-types"/>
+			<code value="FHIR-Client"/>
+		</profile>
+	</origin>
+	<destination>
+		<index value="1" />
+		<profile>
+			<system value="http://hl7.org/fhir/testscript-profile-destination-types"/>
+			<code value="FHIR-Server"/>
+		</profile>
+	</destination>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Patient history operation"/>
+			<destination value="1" />
+			<link value="http://hl7.org/fhir/2018Jan/http.html#history"/>
+			<link value="http://hl7.org/fhir/2018Jan/patient.html"/>
+			<capabilities>
+				<reference value="../_reference/capabilities/PatientCapabilityStatement.json" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+
+	<variable>
+		<name value="patientResourceId"/>
+		<description value="Enter the patient FHIR resource id the origin system will send to the destination system."/>
+		<hint value="[Resource Id]" />
+	</variable>
+
+	<test id="01-PatientHistory">
+		<name value="PatientHistory"/>
+		<description value="Test the history-instance operation with JSON content. The expected response content is a history Bundle resource containing all versions of the Patient resource in JSON format."/>
+
+		<action>
+			<operation>
+				<resource value="Patient"/>
+				<description value="Retrieve the history Bundle for the Patient and verify the contents."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<destination value="1" />
+				<origin value="1" />
+				<params value="/${patientResourceId}/_history"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client requested an Accept of the FHIR JSON mime type 'application/fhir+json'."/>
+				<direction value="request"/>
+				<headerField value="Accept"/>
+				<operator value="contains"/>
+				<value value="application/fhir+json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client did not request a Content-Type. Warning only to allow for systems that automatically send Content-Type."/>
+				<direction value="request"/>
+				<headerField value="Content-Type"/>
+				<operator value="empty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type is present."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="notEmpty"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/fhir+json'."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle conforms to the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type is history."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/type"/>
+				<value value="history"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned history Bundle contains at least 1 entry."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value="Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches or is greater than the number of entries in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.total.toInteger() &gt;= entry.count()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains a Patient meta versionId element and value."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".entry[0].resource.meta.versionId"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains a Patient identifier element and value."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".entry[0].resource.identifier[0].value"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains a Patient family name element and value."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".entry[0].resource.name[0].family"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains a Patient given name element and value."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".entry[0].resource.name[0].given[0]"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains a Patient retained gender element and value."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".entry[0].resource.gender"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains a Patient updated birthDate element and value."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value=".entry[0].resource.birthDate"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

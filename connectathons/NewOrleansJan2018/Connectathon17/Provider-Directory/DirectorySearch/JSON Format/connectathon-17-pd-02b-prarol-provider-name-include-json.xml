@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-17-pd-02b-prarol-provider-name-include-json"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-2-0/TestScript/connectathon-17-pd-02b-prarol-provider-name-include-json"/>
+	<name value="FHIR Connectathon 17 - Provider Directory - Scenario 2b - PractitionerRole Provider Name Include - JSON"/>
+	<status value="draft"/>
+	<date value="2018-01-11"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="PractitionerRole search capabilities tests; resource format JSON; validate telecom and physical location are present; test a FHIR server's PractitionerRole search operation support using the parameters: practitioner.name, practitioner.family and practitioner.given and _include of Practitioner, Organization and Endpoint. Default values for the search parameters are based on the Practitioner Resource Example and can be modified to allow testing against other known PractitionerRole and Practitioner resource instances."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="PractitionerRole read and search operations"/>
+			<link value="http://wiki.hl7.org/index.php?title=201801_Provider_Directory"/>
+			<link value="http://hl7.org/fhir/2018Jan/http.html#read"/>
+			<link value="http://hl7.org/fhir/2018Jan/http.html#search"/>
+			<capabilities>
+				<reference value="../../_reference/capabilities/PractitionerRoleCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>	
+
+	<profile id="practitionerrole-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/PractitionerRole" />
+	</profile>
+
+	<variable>
+		<name value="PractitionerSearchNameFamilyCriteria"/>
+		<defaultValue value="MULA"/>
+	</variable>
+	<variable>
+		<name value="PractitionerSearchNameGivenCriteria"/>
+		<defaultValue value="GREGORY"/>
+	</variable>
+	<variable>
+		<name value="PractitionerRoleResourceId"/>
+		<expression value="Bundle.entry.select(resource as PractitionerRole).id[0]" />
+		<sourceId value="search-response"/>
+	</variable>
+
+	<test id="01-PractitionerRoleSearchPractitionerName">
+		<name value="PractitionerRoleSearchPractitionerName"/>
+		<description value="Search PractitionerRole using the practitioner.name search parameter with the provided name.family data value and _include of Practitioner, Organization and Endpoint."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="PractitionerRole"/>
+				<description value="Search for PractitionerRole matches using the practitioner.name search. The name value used is the family portion of the name."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<params value="?practitioner.name=${PractitionerSearchNameFamilyCriteria}&amp;_include=PractitionerRole:practitioner&amp;_include=PractitionerRole:organization&amp;_include=PractitionerRole:endpoint"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. Although not expected, there could be other PractitionerRole records returned."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value=".total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one entry in the Bundle. Although not expected, there could be other PractitionerRole records returned."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.count() &gt; 0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one Practitioner entry in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Practitioner).exists()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one Organization entry in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Organization).exists()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one Endpoint entry in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Endpoint).exists()"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="PractitionerRole"/>
+				<description value="Read the first PractitionerRole found in the practitioner.name search and verify the contents contain a telecom and physical location."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<params value="/${PractitionerRoleResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/json+fhir'."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is PractitionerRole."/>
+				<direction value="response"/>
+				<resource value="PractitionerRole"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned PractitionerRole conforms to the base FHIR specification. Warning only to allow for Example code systems."/>
+				<direction value="response"/>
+				<validateProfileId value="practitionerrole-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned PractitionerRole contains a telecom value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value=".telecom.value"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned PractitionerRole contains a location value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value=".location.reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-PractitionerRoleSearchPractitionerFamilyGiven">
+		<name value="PractitionerRoleSearchPractitionerFamilyGiven"/>
+		<description value="Search PractitionerRole using the practitioner.family and practitioner.given search parameters with the provided name.family and name.given data values and _include of Practitioner, Organization and Endpoint."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="PractitionerRole"/>
+				<description value="Search PractitionerRole matches using the practitioner.family and practitioner.given search parameters."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<params value="?practitioner.family=${PractitionerSearchNameFamilyCriteria}&amp;practitioner.given=${PractitionerSearchNameGivenCriteria}&amp;_include=PractitionerRole:practitioner&amp;_include=PractitionerRole:organization&amp;_include=PractitionerRole:endpoint"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. Although not expected, there could be other PractitionerRole records returned."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value=".total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one entry in the Bundle. Although not expected, there could be other PractitionerRole records returned."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.count() &gt; 0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one Practitioner entry in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Practitioner).exists()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one Organization entry in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Organization).exists()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one Endpoint entry in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Endpoint).exists()"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="PractitionerRole"/>
+				<description value="Read the first PractitionerRole found in the practitioner.family and practitioner.given search and verify the contents contain a telecom and physical location."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<params value="/${PractitionerRoleResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/json+fhir'."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is PractitionerRole."/>
+				<direction value="response"/>
+				<resource value="PractitionerRole"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned PractitionerRole conforms to the base FHIR specification. Warning only to allow for Example code systems."/>
+				<direction value="response"/>
+				<validateProfileId value="practitionerrole-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned PractitionerRole contains a telecom value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value=".telecom.value"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned PractitionerRole contains a location value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value=".location.reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

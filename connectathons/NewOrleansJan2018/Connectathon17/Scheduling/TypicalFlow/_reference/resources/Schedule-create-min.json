@@ -1,0 +1,56 @@
+{
+  "resourceType": "Schedule",
+  "identifier": [
+    {
+      "use": "usual",
+      "system": "http://happyvalley.com/schedule",
+      "value": "${D16}"
+    }
+  ],
+  "serviceCategory": {
+    "coding": [
+      {
+        "system": "http://example.org/service-category",
+        "code": "gp",
+        "display": "General Practice"
+      }
+    ]
+  },
+  "serviceType": [
+    {
+      "coding": [
+        {
+          "system": "http://example.org/service-type",
+          "code": "bd",
+          "display": "Blood Donation"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "system": "http://example.org/service-type",
+          "code": "ph",
+          "display": "Pathology - Haematology"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "418652005",
+          "display": "Pediatric hematology"
+        }
+      ]
+    }
+  ],
+  "actor": [
+    {
+      "display": "Dr Leonard T Bloodraw Jr"
+    }
+  ],
+  "comment": "Referrals are recommended but not required."
+}

@@ -1,0 +1,35 @@
+{
+  "resourceType": "AppointmentResponse",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Dr Leonard T Bloodraw Jr accept appointment 15 January 2018 9:00am - 9:45am</div>"
+  },
+  "identifier": [
+    {
+      "system": "http://happyvalley.com/appointmentresponse",
+      "value": "ATND-${CD9}-20180115090000"
+    }
+  ],
+  "appointment": {
+    "reference": "Appointment/APP-${D10}-${Slot-1-identifier}"
+  },
+  "start": "2018-01-15T09:00:00Z",
+  "end": "2018-01-15T09:45:00Z",
+  "participantType": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/v3/ParticipationType",
+          "code": "ATND",
+          "display": "attender"
+        }
+      ]
+    }
+  ],
+  "actor": {
+    "reference": "Practitioner/${createPractitionerResourceId}",
+    "display": "Dr Leonard T Bloodraw Jr"
+  },
+  "participantStatus": "accepted",
+  "comment": "Dr Leonard T Bloodraw Jr accept appointment"
+}

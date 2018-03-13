@@ -1,0 +1,68 @@
+{
+  "resourceType": "DiagnosticReport",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h3>Genetic test Report for Mary Chambers</h3><pre>\n\t\t\t\tGene                DNAVariation       Status        Interpretation\n\t\t\t\tBRCA2                 185delAG        Positive         Pathogenic\n\t\t\t</pre><p> Method: BRACAnalysis CDx Offered by Myriad Genetic Laboratories, Inc </p><p> Issued: 2015-05-26T15:30:10+01:00</p><p> FamilyMemeberHistory: Mother </p><pre>\n\t\t\t\tGene                 DNAVariation      Status\n\t\t\t\tBRCA2                 185delAG        Positive\n\t\t\t</pre><p> Method: BRACAnalysis CDx Offered by Myriad Genetic Laboratories, Inc </p></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsFamilyMemberHistory",
+      "valueReference": {
+        "reference": "FamilyMemberHistory/${createFamilyMemberHistoryId}"
+      }
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://happyvalley.com/diagnosticreport",
+      "value": "${CD7}${D11}"
+    }
+  ],
+  "status": "final",
+  "category": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "15220000",
+        "display": "Laboratory test"
+      },
+      {
+        "system": "http://hl7.org/fhir/v2/0074",
+        "code": "LAB"
+      }
+    ]
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "55233-1",
+        "display": "Genetic analysis master panel"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/${createPatientId}",
+    "display": "Mary Chambers"
+  },
+  "effectiveDateTime": "2015-05-26T15:30:10+01:00",
+  "issued": "2014-05-16T10:28:00+01:00",
+  "performer": [
+    {
+      "reference": "Practitioner/${createPractitionerId}",
+      "display": "Molecular Diagnostic Laboratory"
+    }
+  ],
+  "specimen": [
+    {
+      "reference": "Specimen/${createSpecimenId}",
+      "display": "Molecular Specimen ID: MLD45-Z4-1234"
+    }
+  ],
+  "result": [
+    {
+      "reference": "Observation/${createObservationId}",
+      "display": "Genetic analysis for BRAC -2"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">BRCA2 gene mutation analysis</div>
+	</text>
+	<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariant">
+		<extension url="Name">
+			<valueCodeableConcept>
+				<text value="185delAG"/>
+			</valueCodeableConcept>
+		</extension>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://www.genenames.org"/>
+				<code value="1101"/>
+				<display value="BRCA2"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+	<identifier>
+		<system value="http://happyvalley.com/observation"/>
+		<value value="${CD10}${D6}"/>
+	</identifier>
+	<status value="final"/>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="38530-2"/>
+			<display value="BRCA2 gene mutation analysis"/>
+		</coding>
+	</code>
+	<effectiveDateTime value="2015-05-26T15:30:10+01:00"/>
+	<method>
+		<coding>
+			<system value="http://www.ncbi.nlm.nih.gov/gtr/"/>
+			<code value="GTR000521311.1"/>
+			<display value="BRACAnalysis CDx Offered by Myriad Genetic Laboratories, Inc"/>
+		</coding>
+	</method>
+	<component>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="38530-2"/>
+				<display value="BRCA2 gene mutation analysis"/>
+			</coding>
+		</code>
+		<valueCodeableConcept>
+			<coding>
+				<code value="LA6668-3"/>
+				<display value="Pathogenic"/>
+			</coding>
+		</valueCodeableConcept>
+	</component>
+</Observation>

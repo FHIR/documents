@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-17-05-hla-typing-report-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-2-0/TestScript/connectathon-17-05-hla-typing-report-xml"/>
+	<name value="FHIR Connectathon 17 - FHIR Genomics - Scenario 05 - HLA Typing - XML - Server Id"/>
+	<status value="draft"/>
+	<date value="2018-01-16"/>
+	<publisher value="Clinical Genomics Workgroup, AEGIS.net, Inc."/>
+	<contact>
+		<name value="Gil Alterovitz"/>
+		<telecom>
+			<system value="email"/>
+			<value value="gilusa@gmail.com"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Create an HLA genotyping genetics DiagnosticReport. Read and verify conformance to the Profile for HLA Genotyping Results. Resource format is XML with a Server Assigned Resource Id."/>
+	<copyright value="© Clinical Genomics Workgroup, © AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="DiagnosticReport, Observation, Patient, Practitioner and Specimen create, delete, read and search operations"/>
+			<link value="http://hl7.org/fhir/2018Jan/http.html#create"/>
+			<link value="http://hl7.org/fhir/2018Jan/http.html#delete"/>
+			<link value="http://hl7.org/fhir/2018Jan/http.html#read"/>
+			<link value="http://hl7.org/fhir/2018Jan/http.html#search"/>
+			<link value="http://hl7.org/fhir/2018Jan/hlaresult.html"/>
+			<capabilities>
+				<reference value="_reference/capabilities/HLATypingCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>
+
+	<fixture id="diagnosticreport-create">
+		<resource>
+			<reference value="_reference/resources/diagnosticreport-hlatyping-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="observation-create">
+		<resource>
+			<reference value="_reference/resources/observation-hlatyping-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-create">
+		<resource>
+			<reference value="_reference/resources/patient-hlatyping-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="practitioner-create">
+		<resource>
+			<reference value="_reference/resources/practitioner-hlatyping-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="specimen-create">
+		<resource>
+			<reference value="_reference/resources/specimen-hlatyping-create.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="diagnosticreport-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+	</profile>
+	<profile id="diagnosticreport-hlaresult-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/hlaresult"/>
+	</profile>
+
+	<variable>
+		<name value="createDiagnosticReportId"/>
+		<path value="DiagnosticReport/id" />
+		<sourceId value="create-diagnosticreport-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamDiagnosticReportIdentifier"/>
+		<path value="DiagnosticReport/identifier/value" />
+		<sourceId value="diagnosticreport-create" />
+	</variable>
+	<variable>
+		<name value="createObservationId"/>
+		<path value="Observation/id" />
+		<sourceId value="create-observation-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamObservationIdentifier"/>
+		<path value="Observation/identifier/value" />
+		<sourceId value="observation-create" />
+	</variable>
+	<variable>
+		<name value="createPatientId"/>
+		<path value="Patient/id" />
+		<sourceId value="create-patient-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamPatientIdentifier"/>
+		<path value="Patient/identifier/value" />
+		<sourceId value="patient-create" />
+	</variable>
+	<variable>
+		<name value="createPractitionerId"/>
+		<path value="Practitioner/id" />
+		<sourceId value="create-practitioner-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamPractitionerIdentifier"/>
+		<path value="Practitioner/identifier/value" />
+		<sourceId value="practitioner-create" />
+	</variable>
+	<variable>
+		<name value="createSpecimenId"/>
+		<path value="Specimen/id" />
+		<sourceId value="create-specimen-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamSpecimenIdentifier"/>
+		<path value="Specimen/identifier/value" />
+		<sourceId value="specimen-create" />
+	</variable>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="DiagnosticReport"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the DiagnosticReport does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamDiagnosticReportIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Observation"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the Observation does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamObservationIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Specimen"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the Specimen does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamSpecimenIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the Patient does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPatientIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the Practitioner does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPractitionerIdentifier}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+			</assert>
+		</action>
+	</setup>
+
+	<test id="Step1-CreateNewHLATypingPractitioner">
+		<name value="Step1-CreateNewHLATypingPractitioner"/>
+		<description value="Create a new HLATyping Practitioner in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Practitioner"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="practitioner-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="Search for the created HLATyping Practitioner by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPractitionerIdentifier}"/>
+				<responseId value="create-practitioner-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one Practitioner resource returned. Warning only as the server may contain another matching Practitioner."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2-CreateNewHLATypingPatient">
+		<name value="Step2-CreateNewHLATypingPatient"/>
+		<description value="Create a new HLATyping Patient in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="patient-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for the created HLATyping Patient by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPatientIdentifier}"/>
+				<responseId value="create-patient-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one Patient resource returned. Warning only as the server may contain another matching Patient."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step3-CreateNewHLATypingSpecimen">
+		<name value="Step3-CreateNewHLATypingSpecimen"/>
+		<description value="Create a new HLATyping Specimen in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Specimen"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="specimen-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Specimen"/>
+				<description value="Search for the created HLATyping Specimen by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamSpecimenIdentifier}"/>
+				<responseId value="create-specimen-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one Specimen resource returned. Warning only as the server may contain another matching Specimen."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step4-CreateNewHLATypingObservation">
+		<name value="Step4-CreateNewHLATypingObservation"/>
+		<description value="Create a new HLATyping Observation in XML format where the server assigns the resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="observation-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Observation"/>
+				<description value="Search for the created HLATyping Observation by the unique identifier."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamObservationIdentifier}"/>
+				<responseId value="create-observation-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one Observation resource returned. Warning only as the server may contain another matching Observation."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step5-CreateHLATypingDiagnosticReport">
+		<name value="Step5-CreateHLATypingDiagnosticReport"/>
+		<description value="Create a new HLA Typing DiagnosticReport in XML format with server assigned resource id."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="DiagnosticReport"/>
+				<description value="Create a new HLA Typing DiagnosticReport."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="diagnosticreport-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Location is present. Warning only as this is optional but servers are encouraged to return this."/>
+				<headerField value="Location"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="DiagnosticReport"/>
+				<description value="Search for the created DiagnosticReport by the unique identifier. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the indentifier search parameter."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamDiagnosticReportIdentifier}"/>
+				<responseId value="create-diagnosticreport-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm one Observation resource returned. Warning only as the server may contain another matching Observation."/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step6-VerifyHLATypingDiagnosticReport">
+		<name value="Step6-VerifyHLATypingDiagnosticReport"/>
+		<description value="Read the new HLA Typing DiagnosticReport and verify its conformance to the Profile for HLA Genotyping Results."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="DiagnosticReport"/>
+				<description value="Read the new HLA Typing DiagnosticReport and test for conformance to the Profile for HLA Genotyping Results."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${createDiagnosticReportId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is DiagnosticReport."/>
+				<resource value="DiagnosticReport"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR DiagnosticReport profile."/>
+				<validateProfileId value="diagnosticreport-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the FHIR DiagnosticReport Profile for HLA Genotyping Results."/>
+				<validateProfileId value="diagnosticreport-hlaresult-profile"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

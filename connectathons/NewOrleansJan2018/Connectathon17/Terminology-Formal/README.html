@@ -1,0 +1,166 @@
+<html>
+<head>
+	<title>FHIR Connectathon 17 - Terminology Services Test Track - Formal - FHIR R4 v3.2.0</title>
+</head>
+<body style="font-family:arial">
+	<h1>FHIR Connectathon 17 - Terminology Services Test Track - Formal</h1>
+	<h2>FHIR R4 v3.2.0 TestScript - Execution Details</h2>
+	<h3>Conventions Used</h3>
+	<p>
+		The execution of the TestScript resources contained in this folder are constrained by the following
+		conventions:
+	</p>
+	<ul>
+		<li>
+			<b>Fixtures</b> - All resource reference values can be either url paths or local local file system
+			paths. The convention for these TestScript resources use local file system paths where the
+			execution engine is expected to resolve this path based on the following:
+			<ul>
+				<li>
+					Leading '/' character - this is resolved as an absolute path based on a known root path
+				</li>
+				<li>
+					No leading '/' character - this is resolved as a relative path based on the location of the
+					TestScript resource file
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<hr width="100%"></hr>
+
+	<h2>FHIR Connectathon 17 - New Orleans, LA - January 2018</h2>
+	<h3>Terminology Services Test Track - Formal</h3>
+	<p>
+		The TestScript resources in this folder represent an evolution** of the TestScript originally used at the
+		1st Terminology Services Connectathon held in Washington, February 2014 and then subsequently expanded
+		upon since the FHIR Connectathon 10 event in Atlanta, GA.
+	</p>
+	<p>
+		The current TestScript definitions have been separated into format and operation specific folders. In addition, for
+		the $expand and $validate-code operations the TestScripts have been sub-grouped into three variations where
+		the FHIR client or server assigns the resource id of the required ValueSet resources created in the setup,
+		or the FHIR server is expected to already have the named ValueSet resources in its repository.
+	</p>
+	<p>
+		The main reasons for this separation are:
+	</p>
+	<ul>
+		<li>
+			The current TestScript definition no longer contains the &lt;suite&gt; element. Without the &lt;suite&gt; element
+			as a grouping mechanism it made more sense to to break up the tests into separate TestScripts.
+		</li>
+		<li>
+			The overall separation of the original suite of tests into separate TestScript resources allows for finer
+			execution control.
+		</li>
+		<li>
+			The &lt;setup&gt; from the original TestScript definition has been removed from each of the new TestScript resources
+			in favor of introducing the pre-requisite requirement that the Terminology Server under test already contain / host
+			the various ValueSet, CodeSystem and ConceptMap resource instances needed by the TestScripts.
+		</li>
+	</ul>
+	<h3>Supported Formats</h3>
+	<div style="margin-left: 50px">
+		<h4>JSON Format</h4>
+		<p>
+			The 'JSON Format' folder contains the TestScripts and Fixtures that support all operations executed using the JSON
+			(Javascript Object Notation) syntax.
+		</p>
+		<h4>XML Format</h4>
+		<p>
+			The 'XML Format' folder contains the TestScripts and Fixtures that support all operations executed using the XML
+			(Extensible Markup Language) syntax.
+		</p>
+	</div>
+	<h3>Expand Operation - $expand</h3>
+	<div style="margin-left: 50px">
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>connectathon-17-ts-expand</td><td>Terminology tests for $expand where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
+			<tr><td>connectathon-17-ts-expand-filter</td><td>Terminology tests for $expand with filter options where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
+		</table>
+	</div>
+	<h3>Lookup Operation - $lookup</h3>
+	<div style="margin-left: 50px">
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>connectathon-17-ts-lookup-loinc</td><td>Terminology tests for $lookup operations against the LOINC set of terminology codes.</td></tr>
+			<tr><td>connectathon-17-ts-lookup-snomed</td><td>Terminology tests for $lookup operations against the SNOMED-CT set of terminology codes.</td></tr>
+		</table>
+	</div>
+	<h3>Subsumes Operation - $subsumes</h3>
+	<div style="margin-left: 50px">
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>connectathon-17-ts-subsumes-snomed-01-ok-get</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a successful response with a valid outcome code value. All $subsumes operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>connectathon-17-ts-subsumes-snomed-02-ok-post-code</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a successful response with a valid outcome code value. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
+			<tr><td>connectathon-17-ts-subsumes-snomed-03-ok-post-coding</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a successful response with a valid outcome code value. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
+			<tr><td>connectathon-17-ts-subsumes-snomed-04-notok-get</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>connectathon-17-ts-subsumes-snomed-05-notok-post-code</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
+			<tr><td>connectathon-17-ts-subsumes-snomed-06-notok-post-coding</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
+		</table>
+	</div>
+	<h3>Translate Operation - $translate</h3>
+	<div style="margin-left: 50px">
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>connectathon-17-ts-translate-01-ok-get</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>connectathon-17-ts-translate-02-ok-post-code</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
+			<tr><td>connectathon-17-ts-translate-03-ok-post-coding</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
+			<tr><td>connectathon-17-ts-translate-04-notok-get</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>connectathon-17-ts-translate-05-notok-post-code</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
+			<tr><td>connectathon-17-ts-translate-06-notok-post-coding</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
+		</table>
+	</div>
+	<h3>CodeSystem - Validate Code Operation - $validate-code</h3>
+	<div style="margin-left: 50px">
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>connectathon-17-ts-validate-cs-loinc-01-ok-get</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>connectathon-17-ts-validate-cs-loinc-02-ok-post-code</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP POST method with Parameters of url, code and display.</td></tr>
+			<tr><td>connectathon-17-ts-validate-cs-loinc-02-ok-post-coding</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP POST method with Parameters of url and coding.</td></tr>
+			<tr><td>connectathon-17-ts-validate-cs-loinc-04-notok-get</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>connectathon-17-ts-validate-cs-loinc-05-notok-post-code</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP POST method with Parameters of url, code and display.</td></tr>
+			<tr><td>connectathon-17-ts-validate-cs-loinc-06-notok-post-coding</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP POST method with Parameters of url and coding.</td></tr>
+			<tr><td>connectathon-17-ts-validate-cs-sct-01-ok-get</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>connectathon-17-ts-validate-cs-sct-02-ok-post-code</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP POST method with Parameters of url, code and display.</td></tr>
+			<tr><td>connectathon-17-ts-validate-cs-sct-02-ok-post-coding</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP POST method with Parameters of url and coding.</td></tr>
+			<tr><td>connectathon-17-ts-validate-cs-sct-04-notok-get</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>connectathon-17-ts-validate-cs-sct-05-notok-post-code</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP POST method with Parameters of url, code and display.</td></tr>
+			<tr><td>connectathon-17-ts-validate-cs-sct-06-notok-post-coding</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP POST method with Parameters of url and coding.</td></tr>
+		</table>
+	</div>
+	<h3>ValueSet - Validate Code Operation - $validate-code</h3>
+	<div style="margin-left: 50px">
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>connectathon-17-ts-validate-code</td><td>Terminology tests for $validate-code where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
+			<tr><td>connectathon-17-ts-validate-code-optional</td><td>Terminology tests for $validate-code with optional invocations where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
+		</table>
+	</div>
+	<h3>Closure Operation - $closure</h3>
+	<div style="margin-left: 50px">
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>TBD</td><td>To Be Developed</td></tr>
+		</table>
+	</div>
+	<h3>Compose Operation - $compose</h3>
+	<div style="margin-left: 50px">
+		<table border="1" cellpadding="3" cellspacing="1">
+			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+			<tr><td>TBD</td><td>To Be Developed</td></tr>
+		</table>
+	</div>
+	<p>
+		<b>**</b> <i>This representation of the Terminology Services tests is not meant to be diffinitive and complete. This is
+		one example of how these tests can be defined using the TestScript resource.
+		Constructive feedback, suggestions and critisms are welcome.</i>
+	</p>
+	<p>
+		Richard Ettema, AEGIS.net</br>
+		<a href="mailto:richard.ettema@aegis.net">richard.ettema@aegis.net</a>
+	</p>
+</body>
+</html>

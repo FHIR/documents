@@ -1,0 +1,1742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-17-scheduling-typical-flow-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-2-0/TestScript/connectathon-17-scheduling-typical-flow-xml"/>
+	<name value="FHIR Connectathon 17 - Scheduling - Typical Appointment Flow Tests - XML - Server Id"/>
+	<status value="draft"/>
+	<date value="2018-01-17"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="FHIR Scheduling Services Tests - XML - Server Assigned Resource Id - Typical flow of statuses for an appointment."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<metadata>
+		<capability>
+			<required value="true"/>
+			<description value="Create, Delete, Read, Update Operations"/>
+			<link value="http://hl7.org/fhir/2018Jan/appointment.html#status-flow"/>
+			<link value="http://hl7.org/fhir/2018Jan/http.html#create"/>
+			<link value="http://hl7.org/fhir/2018Jan/http.html#delete"/>
+			<link value="http://hl7.org/fhir/2018Jan/http.html#read"/>
+			<link value="http://hl7.org/fhir/2018Jan/http.html#update"/>
+			<link value="http://hl7.org/fhir/2018Jan/http.html#search"/>
+			<capabilities>
+				<reference value="../_reference/capabilities/SchedulerCapabilityStatement.xml" />
+			</capabilities>
+		</capability>
+	</metadata>	
+
+	<fixture id="practitioner-create">
+		<resource>
+			<reference value="_reference/resources/Practitioner-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="practitioner-create-min">
+		<resource>
+			<reference value="_reference/resources/Practitioner-create-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-create">
+		<resource>
+			<reference value="_reference/resources/Patient-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-create-min">
+		<resource>
+			<reference value="_reference/resources/Patient-create-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="schedule-create">
+		<resource>
+			<reference value="_reference/resources/Schedule-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="schedule-create-min">
+		<resource>
+			<reference value="_reference/resources/Schedule-create-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="slot-1-create">
+		<resource>
+			<reference value="_reference/resources/Slot-1-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="slot-1-create-min">
+		<resource>
+			<reference value="_reference/resources/Slot-1-create-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="slot-2-create">
+		<resource>
+			<reference value="_reference/resources/Slot-2-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="slot-2-create-min">
+		<resource>
+			<reference value="_reference/resources/Slot-2-create-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="slot-3-create">
+		<resource>
+			<reference value="_reference/resources/Slot-3-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="slot-3-create-min">
+		<resource>
+			<reference value="_reference/resources/Slot-3-create-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="slot-4-create">
+		<resource>
+			<reference value="_reference/resources/Slot-4-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="slot-4-create-min">
+		<resource>
+			<reference value="_reference/resources/Slot-4-create-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="slot-5-create">
+		<resource>
+			<reference value="_reference/resources/Slot-5-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="slot-5-create-min">
+		<resource>
+			<reference value="_reference/resources/Slot-5-create-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="slot-6-create">
+		<resource>
+			<reference value="_reference/resources/Slot-6-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="slot-6-create-min">
+		<resource>
+			<reference value="_reference/resources/Slot-6-create-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="appointment-create">
+		<resource>
+			<reference value="_reference/resources/Appointment-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="appointmentresponse-practitioner-create">
+		<resource>
+			<reference value="_reference/resources/AppointmentResponse-Practitioner-create.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="appointmentresponse-patient-create">
+		<resource>
+			<reference value="_reference/resources/AppointmentResponse-Patient-create.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="appointment-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+	</profile>
+	<profile id="appointmentresponse-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/AppointmentResponse"/>
+	</profile>
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+	<profile id="operationoutcome-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+	</profile>
+	<profile id="patient-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+	</profile>
+	<profile id="practitioner-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+	</profile>
+	<profile id="schedule-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Schedule"/>
+	</profile>
+	<profile id="slot-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Slot"/>
+	</profile>
+
+	<variable>
+		<name value="createPractitionerResourceId"/>
+		<path value="Practitioner/id" />
+		<sourceId value="create-practitioner-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamPractitionerIdentifier"/>
+		<path value="Practitioner/identifier/value" />
+		<sourceId value="practitioner-create" />
+	</variable>
+	<variable>
+		<name value="createPatientResourceId"/>
+		<path value="Patient/id" />
+		<sourceId value="create-patient-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamPatientIdentifier"/>
+		<path value="Patient/identifier/value" />
+		<sourceId value="patient-create" />
+	</variable>
+	<variable>
+		<name value="createScheduleResourceId"/>
+		<path value="Schedule/id" />
+		<sourceId value="create-schedule-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamScheduleIdentifier"/>
+		<path value="Schedule/identifier/value" />
+		<sourceId value="schedule-create" />
+	</variable>
+	<variable>
+		<name value="createSlot1ResourceId"/>
+		<path value="Slot/id" />
+		<sourceId value="create-slot-1-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamSlot1Identifier"/>
+		<path value="Slot/identifier/value" />
+		<sourceId value="slot-1-create" />
+	</variable>
+	<variable>
+		<name value="createSlot2ResourceId"/>
+		<path value="Slot/id" />
+		<sourceId value="create-slot-2-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamSlot2Identifier"/>
+		<path value="Slot/identifier/value" />
+		<sourceId value="slot-2-create" />
+	</variable>
+	<variable>
+		<name value="createSlot3ResourceId"/>
+		<path value="Slot/id" />
+		<sourceId value="create-slot-3-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamSlot3Identifier"/>
+		<path value="Slot/identifier/value" />
+		<sourceId value="slot-3-create" />
+	</variable>
+	<variable>
+		<name value="createSlot4ResourceId"/>
+		<path value="Slot/id" />
+		<sourceId value="create-slot-4-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamSlot4Identifier"/>
+		<path value="Slot/identifier/value" />
+		<sourceId value="slot-4-create" />
+	</variable>
+	<variable>
+		<name value="createSlot5ResourceId"/>
+		<path value="Slot/id" />
+		<sourceId value="create-slot-5-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamSlot5Identifier"/>
+		<path value="Slot/identifier/value" />
+		<sourceId value="slot-5-create" />
+	</variable>
+	<variable>
+		<name value="createSlot6ResourceId"/>
+		<path value="Slot/id" />
+		<sourceId value="create-slot-6-search-response"/>
+	</variable>
+	<variable>
+		<name value="searchParamSlot6Identifier"/>
+		<path value="Slot/identifier/value" />
+		<sourceId value="slot-6-create" />
+	</variable>
+	
+	<ruleset id="ruleset-versioning-headers-practitioner">
+		<resource>
+			<reference value="/FHIRCommon/_reference/ruleset/RuleSet-VersioningHeaders-Groovy.xml"/>
+		</resource>
+		<rule>
+			<ruleId value="assertETagIfSupported" />
+			<param>
+				<name value="resource" />
+				<value value="Practitioner" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertLastModifiedIfSupported" />
+			<param>
+				<name value="resource" />
+				<value value="Practitioner" />
+			</param>
+		</rule>
+	</ruleset>
+	<ruleset id="ruleset-createok-headers-body-practitioner">
+		<resource>
+			<reference value="/FHIRCommon/_reference/ruleset/RuleSet-CreateOkHeadersBody-Groovy.xml"/>
+		</resource>
+		<rule>
+			<ruleId value="assertContentTypeIfBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertContentTypeCharsetIfBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertResourceTypesIfBody" />
+			<param>
+				<name value="resource" />
+				<value value="Practitioner,OperationOutcome" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertProfileIfOperationOutcome" />
+			<param>
+				<name value="validateProfileId" />
+				<value value="operationoutcome-profile" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertProfileIfResource" />
+			<param>
+				<name value="resource" />
+				<value value="Practitioner" />
+			</param>
+			<param>
+				<name value="validateProfileId" />
+				<value value="practitioner-profile" />
+			</param>
+		</rule>
+	</ruleset>
+	<ruleset id="ruleset-versioning-headers-patient">
+		<resource>
+			<reference value="/FHIRCommon/_reference/ruleset/RuleSet-VersioningHeaders-Groovy.xml"/>
+		</resource>
+		<rule>
+			<ruleId value="assertETagIfSupported" />
+			<param>
+				<name value="resource" />
+				<value value="Patient" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertLastModifiedIfSupported" />
+			<param>
+				<name value="resource" />
+				<value value="Patient" />
+			</param>
+		</rule>
+	</ruleset>
+	<ruleset id="ruleset-createok-headers-body-patient">
+		<resource>
+			<reference value="/FHIRCommon/_reference/ruleset/RuleSet-CreateOkHeadersBody-Groovy.xml"/>
+		</resource>
+		<rule>
+			<ruleId value="assertContentTypeIfBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertContentTypeCharsetIfBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertResourceTypesIfBody" />
+			<param>
+				<name value="resource" />
+				<value value="Patient,OperationOutcome" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertProfileIfOperationOutcome" />
+			<param>
+				<name value="validateProfileId" />
+				<value value="operationoutcome-profile" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertProfileIfResource" />
+			<param>
+				<name value="resource" />
+				<value value="Patient" />
+			</param>
+			<param>
+				<name value="validateProfileId" />
+				<value value="patient-profile" />
+			</param>
+		</rule>
+	</ruleset>
+	<ruleset id="ruleset-versioning-headers-schedule">
+		<resource>
+			<reference value="/FHIRCommon/_reference/ruleset/RuleSet-VersioningHeaders-Groovy.xml"/>
+		</resource>
+		<rule>
+			<ruleId value="assertETagIfSupported" />
+			<param>
+				<name value="resource" />
+				<value value="Schedule" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertLastModifiedIfSupported" />
+			<param>
+				<name value="resource" />
+				<value value="Schedule" />
+			</param>
+		</rule>
+	</ruleset>
+	<ruleset id="ruleset-createok-headers-body-schedule">
+		<resource>
+			<reference value="/FHIRCommon/_reference/ruleset/RuleSet-CreateOkHeadersBody-Groovy.xml"/>
+		</resource>
+		<rule>
+			<ruleId value="assertContentTypeIfBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertContentTypeCharsetIfBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertResourceTypesIfBody" />
+			<param>
+				<name value="resource" />
+				<value value="Schedule,OperationOutcome" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertProfileIfOperationOutcome" />
+			<param>
+				<name value="validateProfileId" />
+				<value value="operationoutcome-profile" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertProfileIfResource" />
+			<param>
+				<name value="resource" />
+				<value value="Schedule" />
+			</param>
+			<param>
+				<name value="validateProfileId" />
+				<value value="schedule-profile" />
+			</param>
+		</rule>
+	</ruleset>
+	<ruleset id="ruleset-versioning-headers-slot">
+		<resource>
+			<reference value="/FHIRCommon/_reference/ruleset/RuleSet-VersioningHeaders-Groovy.xml"/>
+		</resource>
+		<rule>
+			<ruleId value="assertETagIfSupported" />
+			<param>
+				<name value="resource" />
+				<value value="Slot" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertLastModifiedIfSupported" />
+			<param>
+				<name value="resource" />
+				<value value="Slot" />
+			</param>
+		</rule>
+	</ruleset>
+	<ruleset id="ruleset-createok-headers-body-slot">
+		<resource>
+			<reference value="/FHIRCommon/_reference/ruleset/RuleSet-CreateOkHeadersBody-Groovy.xml"/>
+		</resource>
+		<rule>
+			<ruleId value="assertContentTypeIfBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertContentTypeCharsetIfBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertResourceTypesIfBody" />
+			<param>
+				<name value="resource" />
+				<value value="Slot,OperationOutcome" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertProfileIfOperationOutcome" />
+			<param>
+				<name value="validateProfileId" />
+				<value value="operationoutcome-profile" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertProfileIfResource" />
+			<param>
+				<name value="resource" />
+				<value value="Slot" />
+			</param>
+			<param>
+				<name value="validateProfileId" />
+				<value value="slot-profile" />
+			</param>
+		</rule>
+	</ruleset>
+	
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the Patient does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?identifier=${searchParamPatientIdentifier}"/>
+			</operation>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the Practitioner does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="?identifier=${searchParamPractitionerIdentifier}"/>
+			</operation>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="System-generated search and delete operations from conditional delete to insure Slot 6 does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?identifier=${searchParamSlot6Identifier}"/>
+			</operation>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="System-generated search and delete operations from conditional delete to insure Slot 5 does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?identifier=${searchParamSlot5Identifier}"/>
+			</operation>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="System-generated search and delete operations from conditional delete to insure Slot 4 does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?identifier=${searchParamSlot4Identifier}"/>
+			</operation>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="System-generated search and delete operations from conditional delete to insure Slot 3 does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?identifier=${searchParamSlot3Identifier}"/>
+			</operation>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="System-generated search and delete operations from conditional delete to insure Slot 2 does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?identifier=${searchParamSlot2Identifier}"/>
+			</operation>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="System-generated search and delete operations from conditional delete to insure Slot 1 does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?identifier=${searchParamSlot1Identifier}"/>
+			</operation>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Schedule"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the Schedule does not exist on the server."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?date=2018-01-15&amp;type=http://example.org/service-type|bp"/>
+			</operation>
+		</action>
+	</setup>
+
+	<test id="Step1-CreateSupportingResources">
+		<name value="Step1-CreateSupportingResources"/>
+		<description value="Create the Practitioner and Patient resource to be used as the schedule actors and appointment participants."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="Step 1.1 - Create the Practitioner resource to be the Schedule's actor and Appointment's participant."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="practitioner-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<direction value="response"/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers-practitioner"/>
+				</ruleset>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected create ok response HTTP Headers and body."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-createok-headers-body-practitioner"/>
+					<rule>
+						<ruleId value="assertContentTypeMimeTypeIfBody" />
+						<param>
+							<name value="headerExpectedValue" />
+							<value value="application/fhir+xml" />
+						</param>
+					</rule>
+				</ruleset>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Practitioner"/>
+				<description value="Step 1.1a - Search for the created Practitioner by the unique identifier. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the identifier search parameter."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?identifier=${searchParamPractitionerIdentifier}"/>
+				<responseId value="create-practitioner-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned bundle first entry contains the created version of the Practitioner."/>
+				<direction value="response"/>
+				<minimumId value="practitioner-create-min"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Step 1.2 - Create the Patient resource to be the Appointment's participant."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="patient-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<direction value="response"/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers-patient"/>
+				</ruleset>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected create ok response HTTP Headers and body."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-createok-headers-body-patient"/>
+					<rule>
+						<ruleId value="assertContentTypeMimeTypeIfBody" />
+						<param>
+							<name value="headerExpectedValue" />
+							<value value="application/fhir+xml" />
+						</param>
+					</rule>
+				</ruleset>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Step 1.2a - Search for the created Patient by the unique identifier. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the identifier search parameter."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?identifier=${searchParamPatientIdentifier}"/>
+				<responseId value="create-patient-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned bundle first entry contains the created version of the Patient."/>
+				<direction value="response"/>
+				<minimumId value="patient-create-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2-CreateTheSchedule">
+		<name value="Step2-CreateTheSchedule"/>
+		<description value="Create the Schedule and Slot resources to be referenced by the Appointment."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Schedule"/>
+				<description value="Step 2.1 - Create a Schedule resource for the Practitioner for one day."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="schedule-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<direction value="response"/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers-schedule"/>
+				</ruleset>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected create ok response HTTP Headers and body."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-createok-headers-body-schedule"/>
+					<rule>
+						<ruleId value="assertContentTypeMimeTypeIfBody" />
+						<param>
+							<name value="headerExpectedValue" />
+							<value value="application/fhir+xml" />
+						</param>
+					</rule>
+				</ruleset>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Schedule"/>
+				<description value="Step 2.1a - Search for the created Schedule by the unique identifier. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the identifier search parameter."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?identifier=${searchParamScheduleIdentifier}"/>
+				<responseId value="create-schedule-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned bundle first entry contains the created version of the Schedule."/>
+				<direction value="response"/>
+				<minimumId value="schedule-create-min"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="Step 2.2.1 - Create the Slot 1 resource for the Schedule for 9:00am."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="slot-1-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<direction value="response"/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers-slot"/>
+				</ruleset>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected create ok response HTTP Headers and body."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-createok-headers-body-slot"/>
+					<rule>
+						<ruleId value="assertContentTypeMimeTypeIfBody" />
+						<param>
+							<name value="headerExpectedValue" />
+							<value value="application/fhir+xml" />
+						</param>
+					</rule>
+				</ruleset>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="Step 2.2.1a - Search for the created Slot 1 by the unique identifier. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the identifier search parameter."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?identifier=${searchParamSlot1Identifier}"/>
+				<responseId value="create-slot-1-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned bundle first entry contains the created version of the Slot."/>
+				<direction value="response"/>
+				<minimumId value="slot-1-create-min"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned bundle first entry contains the expected start datetime value."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Slot).start.first() = @2018-01-15T09:00:00Z"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned bundle first entry contains the expected end datetime value."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Slot).end.first() = @2018-01-15T09:45:00Z"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="Step 2.2.2 - Create the Slot 2 resource for the Schedule for 10:00am."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="slot-2-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<direction value="response"/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers-slot"/>
+				</ruleset>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected create ok response HTTP Headers and body."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-createok-headers-body-slot"/>
+					<rule>
+						<ruleId value="assertContentTypeMimeTypeIfBody" />
+						<param>
+							<name value="headerExpectedValue" />
+							<value value="application/fhir+xml" />
+						</param>
+					</rule>
+				</ruleset>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="Step 2.2.2a - Search for the created Slot 2 by the unique identifier. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the identifier search parameter."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?identifier=${searchParamSlot2Identifier}"/>
+				<responseId value="create-slot-2-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned bundle first entry contains the created version of the Slot."/>
+				<direction value="response"/>
+				<minimumId value="slot-2-create-min"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned bundle first entry contains the expected start datetime value."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Slot).start.first() = @2018-01-15T10:00:00Z"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned bundle first entry contains the expected end datetime value."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Slot).end.first() = @2018-01-15T10:45:00Z"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="Step 2.2.3 - Create the Slot 3 resource for the Schedule for 11:00am."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="slot-3-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<direction value="response"/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers-slot"/>
+				</ruleset>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected create ok response HTTP Headers and body."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-createok-headers-body-slot"/>
+					<rule>
+						<ruleId value="assertContentTypeMimeTypeIfBody" />
+						<param>
+							<name value="headerExpectedValue" />
+							<value value="application/fhir+xml" />
+						</param>
+					</rule>
+				</ruleset>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="Step 2.2.3a - Search for the created Slot 3 by the unique identifier. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the identifier search parameter."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?identifier=${searchParamSlot3Identifier}"/>
+				<responseId value="create-slot-3-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned bundle first entry contains the created version of the Slot."/>
+				<direction value="response"/>
+				<minimumId value="slot-3-create-min"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned bundle first entry contains the expected start datetime value."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Slot).start.first() = @2018-01-15T11:00:00Z"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned bundle first entry contains the expected end datetime value."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Slot).end.first() = @2018-01-15T11:45:00Z"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="Step 2.2.4 - Create the Slot 4 resource for the Schedule for 1:00pm."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="slot-4-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<direction value="response"/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers-slot"/>
+				</ruleset>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected create ok response HTTP Headers and body."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-createok-headers-body-slot"/>
+					<rule>
+						<ruleId value="assertContentTypeMimeTypeIfBody" />
+						<param>
+							<name value="headerExpectedValue" />
+							<value value="application/fhir+xml" />
+						</param>
+					</rule>
+				</ruleset>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="Step 2.2.4a - Search for the created Slot 4 by the unique identifier. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the identifier search parameter."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?identifier=${searchParamSlot4Identifier}"/>
+				<responseId value="create-slot-4-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned bundle first entry contains the created version of the Slot."/>
+				<direction value="response"/>
+				<minimumId value="slot-4-create-min"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned bundle first entry contains the expected start datetime value."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Slot).start.first() = @2018-01-15T13:00:00Z"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned bundle first entry contains the expected end datetime value."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Slot).end.first() = @2018-01-15T13:45:00Z"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="Step 2.2.5 - Create the Slot 5 resource for the Schedule for 2:00pm."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="slot-5-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<direction value="response"/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers-slot"/>
+				</ruleset>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected create ok response HTTP Headers and body."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-createok-headers-body-slot"/>
+					<rule>
+						<ruleId value="assertContentTypeMimeTypeIfBody" />
+						<param>
+							<name value="headerExpectedValue" />
+							<value value="application/fhir+xml" />
+						</param>
+					</rule>
+				</ruleset>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="Step 2.2.5a - Search for the created Slot 5 by the unique identifier. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the identifier search parameter."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?identifier=${searchParamSlot5Identifier}"/>
+				<responseId value="create-slot-5-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned bundle first entry contains the created version of the Slot."/>
+				<direction value="response"/>
+				<minimumId value="slot-5-create-min"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned bundle first entry contains the expected start datetime value."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Slot).start.first() = @2018-01-15T14:00:00Z"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned bundle first entry contains the expected end datetime value."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Slot).end.first() = @2018-01-15T14:45:00Z"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="Step 2.2.6 - Create the Slot 6 resource for the Schedule for 3:00pm."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<sourceId value="slot-6-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<direction value="response"/>
+				<response value="created"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers-slot"/>
+				</ruleset>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected create ok response HTTP Headers and body."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-createok-headers-body-slot"/>
+					<rule>
+						<ruleId value="assertContentTypeMimeTypeIfBody" />
+						<param>
+							<name value="headerExpectedValue" />
+							<value value="application/fhir+xml" />
+						</param>
+					</rule>
+				</ruleset>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="Step 2.2.6a - Search for the created Slot 6 by the unique identifier. This is necessary in order to determine the server assigned resource id and requires the desination server to also support the identifier search parameter."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?identifier=${searchParamSlot6Identifier}"/>
+				<responseId value="create-slot-6-search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned bundle first entry contains the created version of the Slot."/>
+				<direction value="response"/>
+				<minimumId value="slot-6-create-min"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned bundle first entry contains the expected start datetime value."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Slot).start.first() = @2018-01-15T15:00:00Z"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned bundle first entry contains the expected end datetime value."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Slot).end.first() = @2018-01-15T15:45:00Z"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step3-SearchForFirstFreeSlot">
+		<name value="Step3-SearchForFirstFreeSlot"/>
+		<description value="Search for first free Slot. The search for a free Slot is the precursor to creating a new Appointment."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Schedule"/>
+				<description value="Step 3.1 - Prior to searching for a free Slot, the correct Schedule must be found via a search. Parameters are Practitioner, Date and Service Type."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?actor=Practitioner/${createPractitionerResourceId}&amp;date=2018-01-15&amp;type=http://example.org/service-type|bd"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is one record returned. The Schedule created in Step 2 is expected to be the only match."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="/Bundle/total"/>
+				<value value="1"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches the number of entries in the Bundle"/>
+				<direction value="response"/>
+				<expression value="Bundle.total.toInteger() = entry.count()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned bundle first entry contains the expected and matched Schedule."/>
+				<direction value="response"/>
+				<minimumId value="schedule-create-min"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Slot"/>
+				<description value="Step 3.2 - Search for a free Slot within the found Schedule. Parameters are Schedule, Slot Type and Status."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<params value="?schedule=Schedule/${createScheduleResourceId}&amp;slot-type=http://example.org/service-type|bd&amp;status=free"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. All Slots created in Step 2 are expected to match."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches the number of entries in the Bundle"/>
+				<direction value="response"/>
+				<expression value="Bundle.total.toInteger() = entry.count()"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<parameter>
+		<name value="resource"/>
+		<resource>
+			<Patient>
+				<active value="true" />
+				<name>
+					<family value="Notsowell${D7}" />
+				</name>
+				<gender value="male" />
+				<birthDate value="1974-12-25" />
+				<address>
+					<city value="Harrisburg" />
+					<state value="PA" />
+				</address>
+			</Patient>
+		</resource>
+	</parameter>
+</Parameters>

@@ -1,0 +1,234 @@
+{
+  "resourceType": "ValueSet",
+  "id": "extensional-case-3",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">A selection of codes from http://snomed.info/sct</div>"
+  },
+  "url": "http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-3",
+  "identifier": [
+    {
+      "value": "extensional-case-3"
+    }
+  ],
+  "name": "Terminology Services Connectation #1 Extensional case #3",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "Grahame Grieve",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "email",
+          "value": "grahame@healthintersections.com.au"
+        }
+      ]
+    }
+  ],
+  "description": "an enumeration of codes defined by SNOMED",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "371037005",
+            "display": "Systolic dysfunction"
+          },
+          {
+            "code": "56218007",
+            "display": "Systolic hypertension"
+          },
+          {
+            "code": "271657009",
+            "display": "Systolic cardiac thrill"
+          },
+          {
+            "code": "429457004",
+            "display": "Systolic essential hypertension"
+          },
+          {
+            "code": "417996009",
+            "display": "Systolic heart failure"
+          },
+          {
+            "code": "44623008",
+            "display": "Systolic ejection sound"
+          },
+          {
+            "code": "248677002",
+            "display": "Systolic flow murmur"
+          },
+          {
+            "code": "31574009",
+            "display": "Systolic murmur"
+          },
+          {
+            "code": "120871000119108",
+            "display": "Systolic heart failure stage B"
+          },
+          {
+            "code": "120851000119104",
+            "display": "Systolic heart failure stage D"
+          },
+          {
+            "code": "120861000119102",
+            "display": "Systolic heart failure stage C"
+          },
+          {
+            "code": "609556008",
+            "display": "Systolic heart failure stage A"
+          },
+          {
+            "code": "61926008",
+            "display": "Basal systolic thrill"
+          },
+          {
+            "code": "248672008",
+            "display": "Soft systolic murmur"
+          },
+          {
+            "code": "65254001",
+            "display": "Late systolic murmur"
+          },
+          {
+            "code": "89985004",
+            "display": "Early systolic murmur"
+          },
+          {
+            "code": "248692001",
+            "display": "Mid-systolic click"
+          },
+          {
+            "code": "248678007",
+            "display": "Mitral late systolic murmur"
+          },
+          {
+            "code": "443254009",
+            "display": "Acute systolic heart failure"
+          },
+          {
+            "code": "441481004",
+            "display": "Chronic systolic heart failure"
+          },
+          {
+            "code": "48965007",
+            "display": "Single non-ejection systolic click"
+          },
+          {
+            "code": "68519006",
+            "display": "Multiple non-ejection systolic clicks"
+          },
+          {
+            "code": "134401001",
+            "display": "Left ventricular systolic dysfunction"
+          },
+          {
+            "code": "416158002",
+            "display": "Right ventricular systolic dysfunction"
+          },
+          {
+            "code": "68494000",
+            "display": "Mid-systolic murmur"
+          },
+          {
+            "code": "442304009",
+            "display": "Combined systolic and diastolic dysfunction"
+          },
+          {
+            "code": "18352002",
+            "display": "Abnormal systolic arterial pressure"
+          },
+          {
+            "code": "407596008",
+            "display": "Echocardiogram shows left ventricular systolic dysfunction"
+          },
+          {
+            "code": "371857005",
+            "display": "Normal left ventricular systolic function and wall motion"
+          },
+          {
+            "code": "430396006",
+            "display": "Chronic systolic dysfunction of left ventricle"
+          },
+          {
+            "code": "12929001",
+            "display": "Normal systolic arterial pressure"
+          },
+          {
+            "code": "275285009",
+            "display": "On examination - systolic murmur"
+          },
+          {
+            "code": "443253003",
+            "display": "Acute on chronic systolic heart failure"
+          },
+          {
+            "code": "371862006",
+            "display": "Depression of left ventricular systolic function"
+          },
+          {
+            "code": "81010002",
+            "display": "Decreased systolic arterial pressure"
+          },
+          {
+            "code": "163030003",
+            "display": "On examination - Systolic BP reading"
+          },
+          {
+            "code": "163069009",
+            "display": "On examination - systolic cardiac thrill"
+          },
+          {
+            "code": "18050000",
+            "display": "Increased systolic arterial pressure"
+          },
+          {
+            "code": "163094005",
+            "display": "On examination - pulmonary systolic murmur"
+          },
+          {
+            "code": "426263006",
+            "display": "Congestive heart failure due to left ventricular systolic dysfunction"
+          },
+          {
+            "code": "417081007",
+            "display": "Systolic anterior movement of mitral valve"
+          },
+          {
+            "code": "248679004",
+            "display": "Mitral pansystolic murmur"
+          },
+          {
+            "code": "248687003",
+            "display": "Presystolic mitral murmur"
+          },
+          {
+            "code": "248688008",
+            "display": "Presystolic tricuspid murmur"
+          },
+          {
+            "code": "71201008",
+            "display": "Pansystolic murmur"
+          },
+          {
+            "code": "23795000",
+            "display": "Presystolic murmur"
+          },
+          {
+            "code": "23795000",
+            "display": "Presystolic murmur"
+          },
+          {
+            "code": "248680001",
+            "display": "Tricuspid inspiratory pansystolic murmur"
+          },
+          {
+            "code": "248681002",
+            "display": "Left parasternal pansystolic murmur"
+          }
+        ]
+      }
+    ]
+  }
+}

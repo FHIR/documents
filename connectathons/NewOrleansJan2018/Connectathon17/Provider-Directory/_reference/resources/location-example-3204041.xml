@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Location xmlns="http://hl7.org/fhir">
+	<id value="3204041"/>
+	<address>
+		<use value="work"/>
+		<type value="physical"/>
+		<line value="16061 DOCTORS BLVD"/>
+		<city value="HAMMOND"/>
+		<state value="LA"/>
+		<postalCode value="70403-1479"/>
+		<country value="US"/>
+	</address>
+</Location>
+

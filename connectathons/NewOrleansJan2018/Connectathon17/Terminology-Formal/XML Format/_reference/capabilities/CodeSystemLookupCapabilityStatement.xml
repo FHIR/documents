@@ -1,0 +1,24 @@
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+	<status value="draft"/>
+	<date value="2017-12-22T09:00:00-05:00"/>
+	<description value="FHIR CapabilityStatement"/>
+	<kind value="capability"/>
+	<fhirVersion value="3.2.0"/>
+	<acceptUnknown value="both"/>
+	<format value="xml"/>
+	<rest>
+		<mode value="server"/>
+		<resource>
+			<type value="CodeSystem"/>
+			<interaction>
+				<code value="read"/>
+			</interaction>
+		</resource>
+		<operation>
+			<name value="lookup"/>
+			<definition>
+				<reference value="http://hl7.org/fhir/OperationDefinition/codesystem-lookup"/>
+			</definition>
+		</operation>
+	</rest>
+</CapabilityStatement>

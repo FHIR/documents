@@ -1,0 +1,55 @@
+{
+  "resourceType": "Endpoint",
+  "id": "3319227",
+  "status": "active",
+  "connectionType": {
+    "system": "http://hl7.org/fhir/subscription-channel-type",
+    "code": "email"
+  },
+  "name": "Saint Luke's Hospital of Kansas City",
+  "managingOrganization": {
+    "reference": "Organization/393872"
+  },
+  "payloadType": [
+    {
+      "coding": [
+        {
+          "system": "urn:oid:1.3.6.1.4.1.19376.1.2.3",
+          "code": "urn:ihe:pcc:xphr:2007",
+          "display": "HL7 CCD Document"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "system": "urn:oid:1.3.6.1.4.1.19376.1.2.3",
+          "code": "urn:ihe:pcc:xds-ms:2007",
+          "display": "XDS Medical Summaries"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "system": "urn:oid:1.3.6.1.4.1.19376.1.2.3",
+          "code": "urn:hl7-org:sdwg:ccda-structuredBody:1.1",
+          "display": "C-CDA constraints using a structured body"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "system": "urn:oid:1.3.6.1.4.1.19376.1.2.3",
+          "code": "urn:hl7-org:sdwg:ccda-nonXMLBody:1.1",
+          "display": "C-CDA constraints using a non structured body."
+        }
+      ]
+    }
+  ],
+  "payloadMimeType": [
+    "*/*"
+  ],
+  "address": "mailto:stluke101@operations.cernerdirect.com"
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Slot xmlns="http://hl7.org/fhir">
+	<identifier>
+		<system value="http://happyvalley.com/slot"/>
+		<value value="SLOT-${CD8}-20180115100000"/>
+	</identifier>
+	<serviceCategory>
+		<coding>
+			<system value="http://example.org/service-category"/>
+			<code value="gp"/>
+			<display value="General Practice"/>
+		</coding>
+	</serviceCategory>
+	<serviceType>
+		<coding>
+			<system value="http://example.org/service-type"/>
+			<code value="bd"/>
+			<display value="Blood Donation"/>
+		</coding>
+	</serviceType>
+	<serviceType>
+		<coding>
+			<system value="http://example.org/service-type"/>
+			<code value="ph"/>
+			<display value="Pathology - Haematology"/>
+		</coding>
+	</serviceType>
+	<specialty>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="418652005"/>
+			<display value="Pediatric hematology"/>
+		</coding>
+	</specialty>
+	<status value="free"/>
+	<overbooked value="false"/>
+	<comment value="A referral is recommended but not required."/>
+</Slot>

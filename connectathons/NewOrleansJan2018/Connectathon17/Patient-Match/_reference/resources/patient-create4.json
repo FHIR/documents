@@ -1,0 +1,40 @@
+{
+  "resourceType": "Patient",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table><tbody><tr><td>Name</td><td>Samuel${D6} <b>Notsowell${D7}</b> (DECEASED)</td></tr><tr><td>Address</td><td>${D5} Right Field Street, Harrisburg, PA 17122</td></tr></tbody></table>    </div>"
+  },
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Notsowell${D7}",
+      "given": [
+        "Samuel${D6}"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1974-12-25",
+  "deceasedBoolean": true,
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "${D5} Right Field Street"
+      ],
+      "city": "Harrisburg",
+      "state": "PA",
+      "postalCode": "17122",
+      "country": "USA"
+    }
+  ],
+  "generalPractitioner": [
+    {
+      "display": "Dr Adam Careful"
+    }
+  ],
+  "managingOrganization": {
+    "display": "ACME Healthcare, Inc"
+  }
+}

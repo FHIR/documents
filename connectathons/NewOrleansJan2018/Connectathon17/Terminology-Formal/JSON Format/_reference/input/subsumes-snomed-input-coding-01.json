@@ -1,0 +1,23 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "system",
+      "valueUri": "http://snomed.info/sct"
+    },
+    {
+      "name": "codingA",
+      "valueCoding": {
+        "system": "http://snomed.info/sct",
+        "code": "3738000"
+      }
+    },
+    {
+      "name": "codingB",
+      "valueCoding": {
+        "system": "http://snomed.info/sct",
+        "code": "235856003"
+      }
+    }
+  ]
+}

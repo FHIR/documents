@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+	<text>
+		<status value="generated" />
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<table>
+				<tbody>
+					<tr>
+						<td>Name</td>
+						<td>Daniel${D6} <b>Notsogood${D7}</b> (DECEASED)
+						</td>
+					</tr>
+					<tr>
+						<td>Address</td>
+						<td>${D3} Lower Lane, Harrisburg, PA 17114</td>
+					</tr>
+					<tr>
+						<td>Id</td>
+						<td>MRN: ${D14} (Acme Healthcare)</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</text>
+	<identifier>
+		<system value="http://www.goodhealth.org/identifiers/mrn" />
+		<value value="${D14}" />
+	</identifier>
+	<active value="true" />
+	<name>
+		<use value="official" />
+		<family value="Notsogood${D7}" />
+		<given value="Daniel${D6}" />
+	</name>
+	<gender value="male" />
+	<birthDate value="1974-12-25" />
+	<deceasedBoolean value="true" />
+	<address>
+		<use value="home" />
+		<line value="${D3} Lower Lane" />
+		<city value="Harrisburg" />
+		<state value="PA" />
+		<postalCode value="17114" />
+		<country value="USA" />
+	</address>
+	<generalPractitioner>
+		<display value="Dr Adam Careful" />
+	</generalPractitioner>
+	<managingOrganization>
+		<display value="ACME Healthcare, Inc" />
+	</managingOrganization>
+</Patient>

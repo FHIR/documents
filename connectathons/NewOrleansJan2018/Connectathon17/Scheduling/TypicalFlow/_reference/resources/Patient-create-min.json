@@ -1,0 +1,39 @@
+{
+  "resourceType": "Patient",
+  "identifier": [
+    {
+      "use": "usual",
+      "system": "urn:oid:2.16.840.1.113883.3.72.5.30.2",
+      "value": "${D11}"
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": "Lerr",
+      "given": [
+        "Todd",
+        "G."
+      ],
+      "suffix": [
+        "Jr"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1972-06-07",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "123 North 102nd Street",
+        "Apt 4d"
+      ],
+      "city": "Harrisburg",
+      "state": "PA",
+      "postalCode": "17102",
+      "country": "USA"
+    }
+  ]
+}
