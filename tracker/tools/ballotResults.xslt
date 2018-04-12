@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Todo: need to capture submitter ballot row going forward -->
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xs">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xs">
   <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
   <xsl:variable name="inScopeItems" as="xs:string*" select="/*:Tracker/*:TrackerItem/@id"/>
 <!--  <xsl:variable name="inScopeItems" as="xs:string*" select="tokenize(/*:items, ',')"/>-->

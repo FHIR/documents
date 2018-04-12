@@ -26,7 +26,6 @@
   <property name="mail.user" value="hl7fhirbot@gmail.com"/>
   <property name="mail.from" value="hl7fhirbot@gmail.com"/>  
   <!-- Source SQL files -->
-  <property name="sql.assign" location="${dir.sql}/FHIR_Query_Tracker_assignee.sql"/>
   <property name="sql.date" location="${dir.sql}/FHIR_Query_date.sql"/>
   <property name="sql.tracker" location="${dir.sql}/FHIR_Query_Tracker.sql"/>
   <property name="sql.comments" location="${dir.sql}/FHIR_Query_Tracker_comments.sql"/>
@@ -36,8 +35,9 @@
   <property name="sql.user" location="${dir.sql}/FHIR_Query_Tracker_user.sql"/>
   <property name="sql.audit" location="${dir.sql}/FHIR_Query_audit.sql"/>
   <property name="sql.duplicate" location="${dir.sql}/FHIR_Query_Tracker_duplicate.sql"/>
+  <property name="sql.monitor" location="${dir.sql}/FHIR_Query_Tracker_monitor.sql"/>
+  <property name="sql.files" location="${dir.sql}/FHIR_Query_Tracker_files.sql"/>
   <!-- Source CSV files -->
-  <property name="csv.assign" location="${dir.csvs}/FHIR_Query_Tracker_assignee.csv"/>
   <property name="csv.date" location="${dir.csvs}/FHIR_Query_date.csv"/>
   <property name="csv.tracker" location="${dir.csvs}/FHIR_Query_Tracker.csv"/>
   <property name="csv.comments" location="${dir.csvs}/FHIR_Query_Tracker_comments.csv"/>
@@ -47,6 +47,8 @@
   <property name="csv.user" location="${dir.csvs}/FHIR_Query_Tracker_user.csv"/>
   <property name="csv.audit" location="${dir.csvs}/FHIR_Query_audit.csv"/>
   <property name="csv.duplicate" location="${dir.csvs}/FHIR_Query_Tracker_duplicate.csv"/>
+  <property name="csv.monitor" location="${dir.csvs}/FHIR_Query_Tracker_monitor.csv"/>
+  <property name="csv.files" location="${dir.csvs}/FHIR_Query_Tracker_files.csv"/>
   <!-- temporary files -->
   <property name="xml.csvfiles" location="${dir.temp}/csvs.xml"/>
   <property name="xml.processedFiles" location="${dir.temp}/processed.xml"/>
@@ -84,7 +86,8 @@
     <sql driver="${db.driver}" classpath="${db.driverpath}" url="${db.url}" userid="${db.userid}" password="${db.password}" print="true" showTrailers="false" escapeprocessing="true" showWarnings="true" csvQuoteCharacter="&quot;" src="${sql.user}" output="${csv.user}"/>
     <sql driver="${db.driver}" classpath="${db.driverpath}" url="${db.url}" userid="${db.userid}" password="${db.password}" print="true" showTrailers="false" escapeprocessing="true" showWarnings="true" csvQuoteCharacter="&quot;" src="${sql.audit}" output="${csv.audit}"/>
     <sql driver="${db.driver}" classpath="${db.driverpath}" url="${db.url}" userid="${db.userid}" password="${db.password}" print="true" showTrailers="false" escapeprocessing="true" showWarnings="true" csvQuoteCharacter="&quot;" src="${sql.duplicate}" output="${csv.duplicate}"/>
-    <sql driver="${db.driver}" classpath="${db.driverpath}" url="${db.url}" userid="${db.userid}" password="${db.password}" print="true" showTrailers="false" escapeprocessing="true" showWarnings="true" csvQuoteCharacter="&quot;" src="${sql.assign}" output="${csv.assign}"/>
+    <sql driver="${db.driver}" classpath="${db.driverpath}" url="${db.url}" userid="${db.userid}" password="${db.password}" print="true" showTrailers="false" escapeprocessing="true" showWarnings="true" csvQuoteCharacter="&quot;" src="${sql.monitor}" output="${csv.monitor}"/>
+    <sql driver="${db.driver}" classpath="${db.driverpath}" url="${db.url}" userid="${db.userid}" password="${db.password}" print="true" showTrailers="false" escapeprocessing="true" showWarnings="true" csvQuoteCharacter="&quot;" src="${sql.files}" output="${csv.files}"/>
   </target>
   <!-- Turn CSVs into XML -->
   <target name="NormalizeCsvs" depends="Queries">
@@ -99,7 +102,8 @@
         <file name="${csv.custom}"/>
         <file name="${csv.audit}"/>
         <file name="${csv.duplicate}"/>
-        <file name="${csv.assign}"/>
+        <file name="${csv.monitor}"/>
+        <file name="${csv.files}"/>
       </resources>
       <header filtering="no">&lt;?xml version="1.0" encoding="iso-8859-1" standalone="no"?&gt;&lt;files&gt;&lt;file&gt;</header>
       <filterchain>

@@ -21,7 +21,8 @@
         <xsl:when test="position()=8">custom</xsl:when>
         <xsl:when test="position()=9">audit</xsl:when>
         <xsl:when test="position()=10">dups</xsl:when>
-        <xsl:when test="position()=11">assignee</xsl:when>
+        <xsl:when test="position()=11">monitor</xsl:when>
+        <xsl:when test="position()=12">files</xsl:when>
       </xsl:choose>
     </xsl:variable>
     <xsl:copy-of select="fn:convertCSV(., $name)"/>
