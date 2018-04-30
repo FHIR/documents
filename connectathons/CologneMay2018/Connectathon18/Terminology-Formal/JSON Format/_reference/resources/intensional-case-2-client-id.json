@@ -1,0 +1,43 @@
+{
+  "resourceType": "ValueSet",
+  "id": "intensional-case-2",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">All Snomed codes that are subsumed by 38341003 (Hypertensive disorder, systemic arterial)</div>"
+  },
+  "url": "http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-2",
+  "identifier": [
+    {
+      "value": "intensional-case-2"
+    }
+  ],
+  "name": "Terminology Services Connectation #1 Intensional case #2",
+  "status": "active",
+  "experimental": true,
+  "publisher": "Grahame Grieve",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "email",
+          "value": "grahame@healthintersections.com.au"
+        }
+      ]
+    }
+  ],
+  "description": "All Snomed codes that are subsumed by 38341003 (Hypertensive disorder, systemic arterial)",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "38341003"
+          }
+        ]
+      }
+    ]
+  }
+}
