@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-18-patient-fhirclient-07-delete-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-3-0/TestScript/connectathon-18-patient-fhirclient-07-delete-xml"/>
+	<name value="FHIR Connectathon 18 - Patient - Formal Testing - FHIR Client - Delete - XML"/>
+	<status value="draft"/>
+	<date value="2018-04-30"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Patient Track - Formal Testing - tests external FHIR Client and Server to delete Patient with the optional response content in XML format. The origin and destination systems must support the delete operation. The destination system must also support the read operation to verify the deletion."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<origin>
+		<index value="1"/>
+		<profile>
+			<system value="http://hl7.org/fhir/testscript-profile-origin-types"/>
+			<code value="FHIR-Client"/>
+		</profile>
+	</origin>
+	<destination>
+		<index value="1"/>
+		<profile>
+			<system value="http://hl7.org/fhir/testscript-profile-destination-types"/>
+			<code value="FHIR-Server"/>
+		</profile>
+	</destination>
+
+	<profile id="operationoutcome-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+	</profile>
+
+	<variable>
+		<name value="patientResourceId"/>
+		<description value="Enter the patient FHIR resource id the origin system will send to the destination system."/>
+		<hint value="[Resource Id]"/>
+	</variable>
+	
+	<ruleset id="ruleset-deletevalid-headers-body">
+		<resource>
+			<reference value="/FHIRCommon/_reference/ruleset/RuleSet-DeleteValidHeadersBody-Groovy.xml"/>
+		</resource>
+		<rule>
+			<ruleId value="assertResponseCodeOkIfBody"/>
+		</rule>
+		<rule>
+			<ruleId value="assertResponseCodeNoContentIfNoBody"/>
+		</rule>
+		<rule>
+			<ruleId value="assertETagIfSupported"/>
+		</rule>
+		<rule>
+			<ruleId value="assertContentTypeIfBody"/>
+		</rule>
+		<rule>
+			<ruleId value="assertContentTypeCharsetIfBody"/>
+		</rule>
+		<rule>
+			<ruleId value="assertOperationOutcomeIfBody"/>
+		</rule>
+		<rule>
+			<ruleId value="assertProfileIfOperationOutcome"/>
+			<param>
+				<name value="validateProfileId"/>
+				<value value="operationoutcome-profile"/>
+			</param>
+		</rule>
+	</ruleset>
+
+	<test id="01-DeletePatient">
+		<name value="DeletePatient"/>
+		<description value="Test the delete operation of a known valid resource instance. The expected response is 200 (OK) when XML content is returned; e.g. OperationOutcome, or 204 (No Content) when the content is empty. A subsequent read operation is executed to confirm the deleted resource is not returned."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Patient delete operation of a known valid resource instance."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<destination value="1"/>
+				<encodeRequestUrl value="true"/>
+				<origin value="1"/>
+				<params value="/${patientResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client requested an Accept of the FHIR XML mime type 'application/fhir+xml'."/>
+				<direction value="request"/>
+				<headerField value="Accept"/>
+				<operator value="contains"/>
+				<value value="application/fhir+xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client did not request a Content-Type. Warning only to allow for systems that automatically send Content-Type."/>
+				<direction value="request"/>
+				<headerField value="Content-Type"/>
+				<operator value="empty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK), 204 (No Content) or 404 (Not Found)."/>
+				<direction value="response"/>
+				<operator value="in"/>
+				<responseCode value="200,204,404"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected delete ok response HTTP Headers and body."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-deletevalid-headers-body"/>
+					<rule>
+						<ruleId value="assertContentTypeMimeTypeIfBody"/>
+						<param>
+							<name value="headerExpectedValue"/>
+							<value value="application/fhir+xml"/>
+						</param>
+					</rule>
+				</ruleset>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Read the deleted Patient and verify the response is 410 (Gone) or 404 (Not Found) for servers that do not support versioning. The Accept header XML format is defined for an optionally returned OperationOutcome resource."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<destination value="1"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${patientResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 404(Not Found) or 410(Gone)."/>
+				<direction value="response"/>
+				<operator value="in"/>
+				<responseCode value="404,410"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

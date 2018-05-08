@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<id value="intensional-case-3"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">All Snomed codes that are subsumed by 404684003 (Clinical Finding)</div>
+	</text>
+	<url value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-3"/>
+	<identifier>
+		<value value="intensional-case-3"/>
+	</identifier>
+	<name value="Terminology Services Connectation #1 Intensional case #3"/>
+	<status value="active"/>
+	<experimental value="true"/>
+	<publisher value="Grahame Grieve"/>
+	<contact>
+		<telecom>
+			<system value="email"/>
+			<value value="grahame@healthintersections.com.au"/>
+		</telecom>
+	</contact>
+	<description value="All Snomed codes that are subsumed by 404684003 (Clinical Finding)"/>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
+			<filter>
+				<property value="concept"/>
+				<op value="is-a"/>
+				<value value="404684003"/>
+			</filter>
+		</include>
+	</compose>
+</ValueSet>

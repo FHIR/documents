@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="connectathon-18-patient-bonus-client-id-json"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-3-0/TestScript/connectathon-18-patient-bonus-client-id-json"/>
+	<name value="FHIR Connectathon 18 - Patient - JSON - Client Assigned Resource Id (Bonus)"/>
+	<status value="active"/>
+	<date value="2018-04-30"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Baseline Bonus tests using the JSON format to create, update, retrieve history and search a patient with extensions where the client assigns the resource id. The destination server must support conditional create."/>
+	<copyright value="© AEGIS.net, Inc. 2015+"/>
+
+	<fixture id="patient-create-bonus-PeterChalmers">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/patient-create-client-id-bonus-PeterChalmers.json"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-create-bonus-PeterChalmers-min">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/patient-create-bonus-PeterChalmers-min.json"/>
+		</resource>
+	</fixture>
+
+	<fixture id="patient-update-bonus1-PeterChalmers">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/patient-update-bonus1-PeterChalmers.json"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-update-bonus1-PeterChalmers-min">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/patient-update-bonus1-PeterChalmers-min.json"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-update-bonus2-PeterChalmers">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/patient-update-bonus2-PeterChalmers.json"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-update-bonus2-PeterChalmers-min">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/patient-update-bonus2-PeterChalmers-min.json"/>
+		</resource>
+	</fixture>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+	<profile id="operationoutcome-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+	</profile>
+	<profile id="patient-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+	</profile>
+
+	<variable>
+		<name value="createResourceId"/>
+		<path value="Patient/id"/>
+		<sourceId value="patient-read-PeterChalmers"/>
+	</variable>
+	<variable>
+		<name value="createIdentifier"/>
+		<path value="Patient/identifier/value"/>
+		<sourceId value="patient-create-bonus-PeterChalmers"/>
+	</variable>
+	<variable>
+		<name value="searchFamilyName"/>
+		<path value="Patient/name/family"/>
+		<sourceId value="patient-create-bonus-PeterChalmers"/>
+	</variable>
+	<variable>
+		<name value="searchGivenName"/>
+		<path value="Patient/name/given"/>
+		<sourceId value="patient-create-bonus-PeterChalmers"/>
+	</variable>
+
+	<ruleset id="ruleset-versioning-headers">
+		<resource>
+			<reference value="/FHIRCommon/_reference/ruleset/RuleSet-VersioningHeaders-Groovy.xml"/>
+		</resource>
+		<rule>
+			<ruleId value="assertETagIfSupported" />
+			<param>
+				<name value="resource" />
+				<value value="Patient" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertLastModifiedIfSupported" />
+			<param>
+				<name value="resource" />
+				<value value="Patient" />
+			</param>
+		</rule>
+	</ruleset>
+	<ruleset id="ruleset-updateok-headers-body">
+		<resource>
+			<reference value="/FHIRCommon/_reference/ruleset/RuleSet-UpdateOkHeadersBody-Groovy.xml"/>
+		</resource>
+		<rule>
+			<ruleId value="assertContentTypeIfBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertContentTypeCharsetIfBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertResourceTypesIfBody" />
+			<param>
+				<name value="resource" />
+				<value value="Patient,OperationOutcome" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertProfileIfOperationOutcome" />
+			<param>
+				<name value="validateProfileId" />
+				<value value="operationoutcome-profile" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertProfileIfResource" />
+			<param>
+				<name value="resource" />
+				<value value="Patient" />
+			</param>
+			<param>
+				<name value="validateProfileId" />
+				<value value="patient-profile" />
+			</param>
+		</rule>
+		<rule>
+			<ruleId value="assertVersionIdIfResourceAndSupported" />
+			<param>
+				<name value="resource" />
+				<value value="Patient" />
+			</param>
+			<param>
+				<name value="resourceOperator" />
+				<value value="equals" />
+			</param>
+		</rule>
+	</ruleset>
+	<ruleset id="ruleset-deletevalid-headers-body">
+		<resource>
+			<reference value="/FHIRCommon/_reference/ruleset/RuleSet-DeleteValidHeadersBody-Groovy.xml"/>
+		</resource>
+		<rule>
+			<ruleId value="assertResponseCodeOkIfBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertResponseCodeNoContentIfNoBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertETagIfSupported" />
+		</rule>
+		<rule>
+			<ruleId value="assertContentTypeIfBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertContentTypeCharsetIfBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertOperationOutcomeIfBody" />
+		</rule>
+		<rule>
+			<ruleId value="assertProfileIfOperationOutcome" />
+			<param>
+				<name value="validateProfileId" />
+				<value value="operationoutcome-profile" />
+			</param>
+		</rule>
+	</ruleset>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="System-generated search and delete operations from conditional delete to insure the patient does not exist on the server."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<encodeRequestUrl value="true"/>
+				<params value="?given=${searchGivenName}&amp;family=${searchFamilyName}"/>
+			</operation>
+		</action>
+	</setup>
+
+	<test id="Step1-RegisterNewPatient">
+		<name value="RegisterNewPatient"/>
+		<description value="Create a new patient, with extensions where the client assigns the resource id using JSON."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Create patient with client assigned resource id."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${createIdentifier}"/>
+				<responseId value="create-bonus-response" />
+				<sourceId value="patient-create-bonus-PeterChalmers"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<direction value="response"/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers"/>
+				</ruleset>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected create or update ok response HTTP Headers and body."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-updateok-headers-body"/>
+					<rule>
+						<ruleId value="assertContentTypeMimeTypeIfBody" />
+						<param>
+							<name value="headerExpectedValue" />
+							<value value="application/fhir+json" />
+						</param>
+					</rule>
+				</ruleset>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Read the created Patient in order to validate content."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${createIdentifier}"/>
+				<responseId value="patient-read-PeterChalmers" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers"/>
+				</ruleset>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Patient."/>
+				<direction value="response"/>
+				<resource value="Patient"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Patient profile."/>
+				<direction value="response"/>
+				<validateProfileId value="patient-profile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource contains the expected retained elements and values. Warning only to provide users with reviewable results."/>
+				<direction value="response"/>
+				<minimumId value="patient-create-bonus-PeterChalmers-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2a-Bonus1-UpdatePatient">
+		<name value="Step2a-Bonus1-UpdatePatient"/>
+		<description value="Update the patient's address city, the birth datetime extension remains unchanged."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Update the created Patient's address city."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${createResourceId}"/>
+				<responseId value="update-bonus1-response" />
+				<sourceId value="patient-update-bonus1-PeterChalmers"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers"/>
+				</ruleset>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected update ok response HTTP Headers and body."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-updateok-headers-body"/>
+					<rule>
+						<ruleId value="assertContentTypeMimeTypeIfBody" />
+						<param>
+							<name value="headerExpectedValue" />
+							<value value="application/fhir+json" />
+						</param>
+					</rule>
+				</ruleset>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Read the updated Patient in order to validate content."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${createResourceId}"/>
+				<responseId value="read-update-bonus1-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers"/>
+				</ruleset>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Patient."/>
+				<direction value="response"/>
+				<resource value="Patient"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Patient profile."/>
+				<direction value="response"/>
+				<validateProfileId value="patient-profile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that read returns updated version and that update did not delete previously created fields. Warning only to provide users with reviewable results."/>
+				<direction value="response"/>
+				<minimumId value="patient-update-bonus1-PeterChalmers-min"/>
+				<sourceId value="read-update-bonus1-response"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Additional confirmation that the address city got updated to the expected value."/>
+				<direction value="response"/>
+				<path value=".address[0].city"/>
+				<value value="Pleasant Valley"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step2b-Bonus2-UpdatePatient">
+		<name value="Step2b-Bonus2-UpdatePatient"/>
+		<description value="Update the patient's birth datetime as an extension."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Update the current Patient's birth datetime as an extension."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${createResourceId}"/>
+				<responseId value="update-bonus2-response" />
+				<sourceId value="patient-update-bonus2-PeterChalmers"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers"/>
+				</ruleset>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected update ok response HTTP Headers and body."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-updateok-headers-body"/>
+					<rule>
+						<ruleId value="assertContentTypeMimeTypeIfBody" />
+						<param>
+							<name value="headerExpectedValue" />
+							<value value="application/fhir+json" />
+						</param>
+					</rule>
+				</ruleset>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Read the updated Patient in order to validate content."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${createResourceId}"/>
+				<responseId value="read-update-bonus2-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected versioning HTTP Headers."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-versioning-headers"/>
+				</ruleset>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Patient."/>
+				<direction value="response"/>
+				<resource value="Patient"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Patient profile."/>
+				<direction value="response"/>
+				<validateProfileId value="patient-profile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that read returns updated version and that update did not delete previously created fields. Warning only to provide users with reviewable results."/>
+				<direction value="response"/>
+				<minimumId value="patient-update-bonus2-PeterChalmers-min"/>
+				<sourceId value="read-update-bonus2-response"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Additional confirmation that birthDate extension patient-birthTime got updated to the expected value."/>
+				<direction value="response"/>
+				<operator value="contains"/>
+				<path value="_birthDate.extension[?(@.url == 'http://hl7.org/fhir/StructureDefinition/patient-birthTime')].valueDateTime"/>
+				<value value="1975-01-02"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step3-PatientHistory">
+		<name value="Step3-PatientHistory"/>
+		<description value="Retrieve the patient's history."/>
+
+		<action>
+			<operation>
+				<resource value="Patient"/>
+				<description value="Retrieve the history for a single, known patient using the known identifier."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${createResourceId}/_history"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle type is 'history'."/>
+				<direction value="response"/>
+				<operator value="equals" />
+				<path value="/Bundle/type"/>
+				<value value="history"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one patient history resource returned. There should be at least two from the create and update operations if versioning is supported; at least one if versioning is not supported."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches or is greater than the number of entries in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.total.toInteger() &gt;= entry.count()"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that bundle contains the most recent updated version (bonus 2) of the patient. Warning only to provide users with reviewable results."/>
+				<direction value="response"/>
+				<minimumId value="patient-update-bonus2-PeterChalmers-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step4-PatientSearch">
+		<name value="Step4-PatientSearch"/>
+		<description value="Search for a patient with the name 'James Chalmers'."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for the patient James Chalmers. The destination server must support the family and given search parameters."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<encodeRequestUrl value="true"/>
+				<params value="?given=${searchGivenName}&amp;family=${searchFamilyName}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Bundle profile."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle.type is searchset."/>
+				<direction value="response"/>
+				<path value="/Bundle/type"/>
+				<value value="searchset"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one record returned. There could be other patient records returned."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value="/Bundle/total"/>
+				<value value="0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches or is greater than the number of entries in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.total.toInteger() &gt;= entry.count()"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that bundle contains the most recent updated version (bonus 2) of the patient. Warning only to provide users with reviewable results."/>
+				<direction value="response"/>
+				<minimumId value="patient-update-bonus2-PeterChalmers-min"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Step5-PatientDelete">
+		<name value="Step5-PatientDelete"/>
+		<description value="Delete the patient James Chalmers. Execute a subsequent read with an expected response of gone or not found."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Delete the patient James Chalmers on the destination server in order to leave the server in the same state before this test execution."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${createResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is either 200(OK) or 204(No Content)."/>
+				<direction value="response"/>
+				<operator value="in"/>
+				<responseCode value="200,204"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Complex ruleset assertion to conditionally validate expected delete ok response HTTP Headers and body."/>
+				<direction value="response"/>
+				<ruleset>
+					<rulesetId value="ruleset-deletevalid-headers-body"/>
+					<rule>
+						<ruleId value="assertContentTypeMimeTypeIfBody" />
+						<param>
+							<name value="headerExpectedValue" />
+							<value value="application/fhir+json" />
+						</param>
+					</rule>
+				</ruleset>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Read deleted patient resource with an expected response of gone or not found"/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${createResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 404(Not Found) or 410(Gone)."/>
+				<direction value="response"/>
+				<operator value="in"/>
+				<responseCode value="404,410"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

@@ -1,0 +1,21 @@
+{
+  "resourceType": "Patient",
+  "id": "${patientResourceId}",
+  "identifier": [
+    {
+      "value": "CREATE-IDENTIFER"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "CREATE-FAMILY",
+      "given": [
+        "CREATE-GIVEN"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "2001-01-01"
+}
