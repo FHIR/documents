@@ -1,7 +1,7 @@
 Blood Pressure: Observation (referencing other (possibly component) observations)
 Dictated Sound Clip: Media
 Cheek swab: Specimen
-Laboratory: Oganization
+Laboratory: Organization
 Home visit: Encounter
 Problem List: List (of Condition)
 Audit Record: AuditEvent
