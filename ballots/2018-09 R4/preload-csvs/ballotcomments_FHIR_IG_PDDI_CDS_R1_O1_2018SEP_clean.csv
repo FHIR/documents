@@ -1,0 +1,20 @@
+"Comment 
+Number",Ballot,Chapter,Section,Page #,Line #,Artifact ID,Resource(s),HTML Page name(s),URL,Vote and Type,Sub-category,Tracker #,Existing Wording,Proposed Wording,Ballot Comment,Summary,In person resolution requested,Comment grouping,Schedule,Triage Note,Pubs,Disposition WG,Disposition,"Disposition Comment
+or
+Retract/Withdraw details",Disposition/Retract/ Withdrawal Date,Mover / seconder,For ,Against,Abstain,Retracted / Withdrawn,Disposition External Organization,Responsible Person,Change Applied,Substantive Change,Submitted By,Organization,On behalf of,Commenter Email,Submitter Tracking ID,Referred To,Received From,Notes,,
+1,Potential Drug-Drug Interaction (PDDI),,4.0.0,NA,,,,,http://hl7.org/fhir/uv/pddi/2018Sep/start.html#-400--level-1-implementation,NEG,Correction,,"A CDS Hooks Card extension so that a DetectedIssue resource can be included in a Card response
+",,"Looking over the IG, it seems that DetectedIssue is at a level too high for CDS Hooks.  However, I hesitate to make a comment, as the overall workflow on positive DDI dectection would yield a hard-stop for the EHR.  I.e., no record would ever be entered for the Patient.  My hesitation is that it doesn’t really belong in Card.suggestion.action, as those are focused on creating, updating or deleting resources, but it also doesn’t belong on Card.suggestion as it has no context whatsoever.
+
+Which is actually a bigger issue with CDS Hooks—there is no standard placeholder for adding rationale for the Card.indicator.",DetectedIssue in CDS service response,Yes,,,,,,,,,,,,,,,,,,Phillip Warner ,University of Utah ,,"phillip.warner@utah.edu				 ",,,,,,
+2,Potential Drug-Drug Interaction (PDDI),,,NA,,,,,,A-S,,18056,,,,,,,,,,,,,,,,,,,,,,,Scott M Robertson ,Kaiser Permanente ,,scott.m.robertson@kp.org ,,,,,,
+3,Potential Drug-Drug Interaction (PDDI),,,NA,,,,,,A-S,,18057,,,,,,,,,,,,,,,,,,,,,,,Scott M Robertson ,Kaiser Permanente ,,scott.m.robertson@kp.org ,,,,,,
+4,Potential Drug-Drug Interaction (PDDI),,,NA,,,,,,A-T,,18072,,,,,,,,,,,,,,,,,,,,,,,Scott M Robertson ,Kaiser Permanente ,,scott.m.robertson@kp.org ,,,,,,
+5,Potential Drug-Drug Interaction (PDDI),,,NA,,,,,,A-S,,18073,,,,,,,,,,,,,,,,,,,,,,,Scott M Robertson ,Kaiser Permanente ,,scott.m.robertson@kp.org ,,,,,,
+6,Potential Drug-Drug Interaction (PDDI),,,NA,,,,,,A-T,,18074,,,,,,,,,,,,,,,,,,,,,,,Scott M Robertson ,Kaiser Permanente ,,scott.m.robertson@kp.org ,,,,,,
+7,Potential Drug-Drug Interaction (PDDI),,,NA,,,,,,A-S,,18078,,,,,,,,,,,,,,,,,,,,,,,Scott M Robertson ,Kaiser Permanente ,,scott.m.robertson@kp.org ,,,,,,
+8,Potential Drug-Drug Interaction (PDDI),,,NA,,,,,,A-S,,18079,,,,,,,,,,,,,,,,,,,,,,,Scott M Robertson ,Kaiser Permanente ,,scott.m.robertson@kp.org ,,,,,,
+9,Potential Drug-Drug Interaction (PDDI),,13.0.0 Profiles,NA,,,,13.0.0 Profiles,http://hl7.org/fhir/uv/pddi/2018Sep/profiles.html,A-C,Correction,,PDDI CarePlan,,Bad link,PDDI CarePlan - bad link,,,,,,,,,,,,,,,,,,,Thomson Kuhn ,ACP ,,tkuhn@acponline.org ,,,,,,
+10,Potential Drug-Drug Interaction (PDDI),,10.0.0 Terminology,NA,,,,10.0.0 Terminology,http://hl7.org/fhir/uv/pddi/2018Sep/artifacts.html,A-C,Correction,,All Resource Links,,All of the Resource links point to the Documentation page instead of specific reaources.,All of the Resource links point to the Documentation page.,,,,,,,,,,,,,,,,,,,Thomson Kuhn ,ACP ,,tkuhn@acponline.org ,,,,,,
+11,Potential Drug-Drug Interaction (PDDI),,6.0.0 Documentation,NA,,,,6.0.0 Documentation,http://hl7.org/fhir/uv/pddi/2018Sep/documentation.html,A-C,Correction,,"evidence for a suspected drug-drug interaction (x4)
+
+Contextual information/modifying factors (x2)",,Bad links,Bad links,,,,,,,,,,,,,,,,,,,Thomson Kuhn ,ACP ,,tkuhn@acponline.org ,,,,,,
