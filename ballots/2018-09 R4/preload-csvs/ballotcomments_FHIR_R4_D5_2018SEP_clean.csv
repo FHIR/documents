@@ -1,0 +1,372 @@
+Comment Number,Ballot,Chapter,Section,Page #,Line #,Artifact ID,Resource(s),HTML Page name(s),URL,Vote and Type,Sub-category,Tracker #,Existing Wording,Proposed Wording,Ballot Comment,Summary,In person resolution requested,Comment grouping,Schedule,Triage Note,Pubs,Disposition WG,Disposition,Disposition Comment or Retract/Withdraw details,Disposition/Retract/ Withdrawal Date,Mover / seconder,For ,Against,Abstain,Retracted / Withdrawn,Disposition External Organization,Responsible Person,Change Applied,Substantive Change,Submitted By,Organization,On behalf of,Commenter Email,Submitter Tracking ID,Referred To,Received From,Notes,,
+1,FHIR Core,,,,,,,,,NEG,,18049,,,,,,,,,,,,,,,,,,,,,,,Anthony Julian ,Mayo Clinic ,Lorraine Constable ,lorraine@constable.ca ,,,,,,
+2,FHIR Core,,Patient Administration,,,,,administration-module,http://hl7.org/fhir/2016Sep/administration-module.html,A-Q,,,,,"Need a “Patient Proxy” tied to a resource bundle – to support FHIR clients organizing records from a healthcare organization. This new object needed, for instance differentiate a parent and child’s record retrieved by proxy.   A number of objects don’t : http://hl7.org/fhir/2018Sep/relatedperson.html, https://www.hl7.org/fhir/patient-definitions.html#Patient.contact    Both of these concepts don’t really represent what MU3 needs to support proxy relationships.This is probably my biggest comment – can we cover?
+1)	What is an active proxy
+2)	Can we code a “MU 3 Proxy” type
+3)	Proxy type (Parent->Child, Child->Parent, etc.. ) 
+",Need a Patient Proxy,,,,Changed from A-A to A-Q because it's clearly looking for a response,,Patient Administration,,,,,,,,,,,,,Kevin Geminiuc ,Kaiser Permanente ,,Kevin.X.Geminiuc@kp.org ,,,,,,
+3,FHIR Core,,,,,,Organization,,http://hl7.org/fhir/2018Sep/organization.html,A-S,Enhancement,,,,"There lacks structure for an organization.
+It would be helpful to show a parent organization or show a division name. Today KP is responding with Kaiser Permanente as an organization.
+When in fact it is from KP Northwest.
+So when we intermix records we have not provenance!
+We should make a “division” field and make it non-optional if there is a “parent” org  
+Today you need to define a nested hierarchy - “part-of”  Example: Burgers University Medical Center
+    Eastern Services (prov)
+        Emergency Dept
+        Oncology Dept",There lacks structure for an organization.,,,,Changed from A-A to A-S because it's clearly looking for a response and a change,,Orders & Observations,,,,,,,,,,,,,Kevin Geminiuc ,Kaiser Permanente ,,Kevin.X.Geminiuc@kp.org ,,,,,,
+4,FHIR Core,,,,,,,,,A-S,,18198,,,,,,,,,,,,,,,,,,,,,,,Bryn Rhodes ,,,bryn@databaseconsultinggroup.com ,,,,,,
+5,FHIR Core,,,,,,,,,A-S,,18228,,,,,,,,,,,,,,,,,,,,,,,Bryn Rhodes ,,,bryn@databaseconsultinggroup.com ,,,,,,
+6,FHIR Core,,,,,,,,,A-S,,18229,,,,,,,,,,,,,,,,,,,,,,,Bryn Rhodes ,,,bryn@databaseconsultinggroup.com ,,,,,,
+7,FHIR Core,,,,,,,,,A-S,,18230,,,,,,,,,,,,,,,,,,,,,,,Bryn Rhodes ,,,bryn@databaseconsultinggroup.com ,,,,,,
+8,FHIR Core,,,,,,,,,A-S,,18234,,,,,,,,,,,,,,,,,,,,,,,Bryn Rhodes ,,,bryn@databaseconsultinggroup.com ,,,,,,
+9,FHIR Core,,,,,,,,,A-S,,18236,,,,,,,,,,,,,,,,,,,,,,,Bryn Rhodes ,,,bryn@databaseconsultinggroup.com ,,,,,,
+10,FHIR Core,,,,,,,,,A-S,,18237,,,,,,,,,,,,,,,,,,,,,,,Bryn Rhodes ,,,bryn@databaseconsultinggroup.com ,,,,,,
+11,FHIR Core,,,,,,,,,A-S,,18239,,,,,,,,,,,,,,,,,,,,,,,Bryn Rhodes ,,,bryn@databaseconsultinggroup.com ,,,,,,
+12,FHIR Core,,,,,,,,,A-S,,18241,,,,,,,,,,,,,,,,,,,,,,,Bryn Rhodes ,,,bryn@databaseconsultinggroup.com ,,,,,,
+13,FHIR Core,,,,,,,,,A-S,,18243,,,,,,,,,,,,,,,,,,,,,,,Bryn Rhodes ,,,bryn@databaseconsultinggroup.com ,,,,,,
+14,FHIR Core,,,,,,,,,A-S,,18244,,,,,,,,,,,,,,,,,,,,,,,Bryn Rhodes ,,,bryn@databaseconsultinggroup.com ,,,,,,
+15,FHIR Core,,,,,,,,,A-S,,18245,,,,,,,,,,,,,,,,,,,,,,,Bryn Rhodes ,,,bryn@databaseconsultinggroup.com ,,,,,,
+16,FHIR Core,,,,,,DocumentReference,,http://hl7.org/fhir/2018Sep/documentreference.html,NEG,Enhancement,,,,"For document management purposes it is helpful to provide the ability to have a short title (for a list available documents, but may be a bit more descriptive or different than the code text or code.coding.display) as well as a longer description of the document contents (for getting more details without necessarily downloading the full document.",Add title to DocumentReference resource,,,,"Not related
+
+Title is present in content.attachment.  Might be good to call that out in the usage notes.",,Structured Documents,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+17,FHIR Core,,,,,,AllergyIntolerance,,,A-A,,,,,Placeholder. There are some types that may be in issue,Placeholder. There are some types that may be in issue,,Ready-For-Vote,,Not vote type specified.  Classified as A-A as no detailed change requested/question asked.,,Patient Care,Considered - No action required,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+18,FHIR Core,,,,,,Practitioner,,http://hl7.org/fhir/2018Sep/practitioner.html,A-S,Enhancement,,,,Consider modeling the communication element like the Patient communication element (with a preferred indicator boolean,Model Practitioner.communication like Patient.communication,No,,,,,Patient Administration,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+19,FHIR Core,,,,,,RelatedPerson,,http://hl7.org/fhir/2018Sep/relatedperson.html,NEG,Enhancement,,,,RelatedPerson resources are often the source or a contact person for the patient. Their language capabilities may be just as important as the patients. Add a communication element modeled in the same way as Patient.communication,Add a communication element modeled in the same way as Patient.communication,No,,,Not related,,Patient Administration,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+20,FHIR Core,,8.6.3.2 (Constrints),,,,Organization,,http://hl7.org/fhir/2018Sep/organization.html,A-S,Clarification,,"The organization SHALL at least have a name or an id, and possibly more than one","The organization SHALL at least have a name or an identifier, and possibly more than one","id is used for the resource id, and so to avoid confusion, we should use the word identifier",use identifier term for business identifiers,No,,,,,Patient Administration,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+21,FHIR Core,,Appointment.status,,,,Appointment,,http://hl7.org/fhir/2018Sep/valueset-appointmentstatus.html,NEG,Enhancement,,,,"There is a status for arrived (waiting to be seen) and fulfilled (completed), but no status indicating that the appointment is in progress. This leaves the resource in an incorrect state.",Add in-progress status to appointment status valueset,No,,,Not related,,Patient Administration,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+22,FHIR Core,,Appointment.status,Appointment,,,Appointment,,http://hl7.org/fhir/2018Sep/valueset-appointmentstatus.html,NEG,Enhancement,,,,There should be a way to indicate that the appointment is in a waitlist state,Add waitlist to Appointment.status valueset,No,,,Not related,,Patient Administration,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+23,FHIR Core,,,,,,Appointment,,http://hl7.org/fhir/2018Sep/appointment.html,NEG,Correction,,,,Add a reference to Observation for Appointment.indication. Since clinical Findings are now captured in observations (instead of Conditions) a reference to an observation needs to be included since the reason for the appointment may related to a clinical finding or complaint,Add a reference to Observation for Appointment.indication.,No,,,Not related,,Patient Administration,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+24,FHIR Core,,12.10.3.2 Constraints,,,,Appointment,,http://hl7.org/fhir/2018Sep/appointment.html#invs,NEG,Correction,,"Either start and end are specified, or neither start.empty() xor end.exists()",,"xor means exclusive or. One or the either, but not both. The expression does not match the description",constraint description does not match the expression,,,,Not related,,Patient Administration,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+25,FHIR Core,,Appointment.status,,,,Appointment,,http://hl7.org/fhir/2018Sep/valueset-appointmentstatus.html,NEG,Enhancement,,,,"There should be a way to indicate that the appointment that was started, but was not completed, but rather discontinued. This will avoid confusion that a ""completed"" status for an appointment that did not reach its conclusion, particularly if there are several indications for a single appointment)",Add discontinued to Appointment.status valueset,No,,,Not related,,Patient Administration,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+26,FHIR Core,,,,,,Appointment,,http://hl7.org/fhir/2018Sep/appointment.html,NEG,Enhancement,,,,"indication should be a choice of a reference (to Condition, Observation, or Procedure) or a codeableConcept","indication should be a choice of a reference (to Condition, Observation, or Procedure) or a codeableConcept",No,,,Not related,,Patient Administration,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+27,FHIR Core,,,,,,Encounter,,http://hl7.org/fhir/2018Sep/encounter.html,NEG,Correction,,,,"Appointment has an ""indication"" element that is the reason for appointment which is a reference to a Condition or Procedure). It is unclear as to why the encounter reason does not have the same name and modeling. They both should be ""indication"" or ""reason"" and both should be a polymorphic codableConcept or reference to condition, observation, or procedure.",Make element naming and modeling more consistent for Appointment/Encounter reason,Yes,,,Not related,,Patient Administration,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+28,FHIR Core,,,,,,Encounter,,http://hl7.org/fhir/2018Sep/encounter.html,NEG,Enhancement,,,,Add relatedPerson to participant reference. A relatedPerson such as a parent or caregiver may be a participant in the encounter and could be as engaged as a Practitioner,Add relatedPerson to participant reference.,No,,,"Not related
+
+Lloyd: If a related person is acting in their professional capacity, they would be represented as Practitioner, regardless of any other relationship to the patient.",,Patient Administration,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+29,FHIR Core,,9.1.3.2 Constraints,,,,AllergyIntolerance,,http://hl7.org/fhir/2018Sep/allergyintolerance.html,A-Q,,,AllergyIntolerance.clinicalStatus SHALL be present if verificationStatus is not entered-in-error.,,"This constraint is problematic in the event that the allergy was communicated in a means besides FHIR (entered directly into a system, HL7 message, etc. It would mean that this allergyIntolerance cannot be communicated if the current status is unknown. This could be problematic, especially in the case of a severe allergy. This constraint should be removed.",Remove clinicalStatus requirement constraint,Yes,,,,,Patient Care,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+30,FHIR Core,,,,,,Condition,,http://hl7.org/fhir/2018Sep/condition.html,A-S,Clarification,,,,The Condition category is really open ended and therefore difficult to use across systems. It is not clear what this is meant to portray. Suggest adding more clarity.,Add more clarity to Condition.category,No,,,,,Patient Care,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+31,FHIR Core,,9.2.3.2 Constraints,,,,Condition,,http://hl7.org/fhir/2018Sep/condition.html,NEG,Correction,,Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error,,"This constraint is problematic in the event that the condition was communicated in a means besides FHIR (entered directly into a system, HL7 message, etc. It would mean that this allergyIntolerance cannot be communicated if the current status is unknown. This could be problematic, especially in the case of a severe allergy. This constraint should be removed.",Remove clinicalStatus requirement constraint,Yes,,,Not related,,Patient Care,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+32,FHIR Core,,,,,,MedicationRequest,,http://hl7.org/fhir/2018Sep/medicationrequest.html,NEG,Correction,,,,"The reason for a Medication request should be modeled the same way as an Appointment or Encounter. They are all reasons for the event. They should be a polymorphic element (named the same across all of them) with a choice of codeableConcept or reference to a Condition, Procedure, or Observation",Model MedicationRequest.reasonCode as polymorphic element.,Yes,,,"Not related
+
+Lloyd: Polymorphism isn't permitted for repeating elements.",,Pharmacy,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+33,FHIR Core,,,,,,MedicationStatement,,http://hl7.org/fhir/2018Sep/medicationstatement.html,NEG,Correction,,,,"The reason for a Medication statement should be modeled the same way as an Appointment or Encounter. They are all reasons for the event. They should be a polymorphic element (named the same across all of them) with a choice of codeableConcept or reference to a Condition, Procedure, or Observation",Model MedicationStatement.reasonCode as polymorphic element.,Yes,,,"Not related
+
+Lloyd: Polymorphism isn't permitted for repeating elements.",,Pharmacy,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+34,FHIR Core,,,,,,Immunization,,http://hl7.org/fhir/2018Sep/immunization.html,NEG,Correction,,,,"Add Patient and relatedPerson to the performer.actor reference options. As vaccines improve there are multiple ways they can be administered and some at home (like topical). Additionally, a school may have provided the vaccination and they are not included as a practitioner in the system.",Add Patient and relatedPerson to the performer.actor refernce options.,,,,"Not related
+
+School would be an Organization.  Consider the ""80%"" in terms of what systems support.",,Public Health,,,,,,,,,,,,,Corey Spears ,Infor ,,Corey.Spears@Infor.com ,,,,,,
+35,FHIR Core,,,,,,,,,A-S,,18136,,,,,,,,,,,,,,,,,,,,,,,Daniel Chaput ,,,Daniel.chaput@hhs.gov ,,,,,,
+36,FHIR Core,,,,,,,,,A-S,,18137,,,,,,,,,,,,,,,,,,,,,,,Daniel Chaput ,,,Daniel.chaput@hhs.gov ,,,,,,
+37,FHIR Core,,,,,,,,,A-S,,18139,,,,,,,,,,,,,,,,,,,,,,,Daniel Chaput ,,,Daniel.chaput@hhs.gov ,,,,,,
+38,FHIR Core,,,,,,,,,A-S,,18141,,,,,,,,,,,,,,,,,,,,,,,Daniel Chaput ,,,Daniel.chaput@hhs.gov ,,,,,,
+39,FHIR Core,,,,,,ServiceRequest,,http://hl7.org/fhir/2018Sep/servicerequest.html,A-S,,, <subject><!-- 1..1 Reference(Patient|Group|Location|Device) Individual the service is ordered for --></subject>, <subject><!-- 1..1 Reference(Patient|Group|Location|Device) Entity the service is ordered for --></subject>,"Description does note match the resource types (e.g. group is not ""individual"")","Description does note match the resource types (e.g. group is not ""individual"")",,,,Reclassified from A-T as this is not a typo,,Orders & Observations,,,,,,,,,,,,,Emma Jones ,Allscripts ,,emma.jones@allscripts.com ,,,,,,
+40,FHIR Core,,,,,,ServiceRequest,,http://hl7.org/fhir/2018Sep/servicerequest.html,A-S,Enhancement,,"""patientInstruction"" : ""<string>"", // Patient or consumer-oriented instructions",,"Need to provide ability to include specific instruction material that can reference any resource. For example, service request is to provide diabetic education. patient instruction about the diabetic diet may be instructions on the nutrition order about the diabetic diet. In this case, will need to be able to reference nutrition order. Diabetic diet instructions may be educational material which could be DocumentReference. ",Add support for instructional material,,,,,,Orders & Observations,,,,,,,,,,,,,Emma Jones ,Allscripts ,,emma.jones@allscripts.com ,,,,,,
+41,FHIR Core,,,,,,,,,A-S,,17910,,,,,,,,,,,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Dave Carlson ,dave.carlson@bookzurman.com ,,,,,,
+42,FHIR Core,,,,,,,,,A-S,,17911,,,,,,,,,,,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Dave Carlson ,dave.carlson@bookzurman.com ,,,,,,
+43,FHIR Core,,,,,,,,,NEG,,17638,,,,,,,,,,,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Ioana Singureanu ,ioana.singureanu@bookzurman.com ,,,,,,
+44,FHIR Core,,,,,,,,,NEG,,17743,,,,,,,,,,,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Ioana Singureanu ,ioana.singureanu@bookzurman.com ,,,,,,
+45,FHIR Core,,,,,,,,,A-C,,18122,,,,,,,,,,,,,,,,,,,,,,,Giorgio Cangioli ,HL7 Italy ,,giorgio.cangioli@gmail.com ,,,,,,
+46,FHIR Core,,,,,,,,,A-S,,18162,,,,,,,,,,,,,,,,,,,,,,,Jean Lose ,DoD/VA Interagency Program Office ,Minh-Huong Doan ,minh-huong.l.doan.mil@mail.mil  ,,,,,,
+47,FHIR Core,,,,,,,,,A-S,,18163,,,,,,,,,,,,,,,,,,,,,,,Jean Lose ,DoD/VA Interagency Program Office ,Minh-Huong Doan ,minh-huong.l.doan.mil@mail.mil  ,,,,,,
+48,FHIR Core,,,,,,,,,A-Q,,18165,,,,,,,,,,,,,,,,,,,,,,,Jean Lose ,DoD/VA Interagency Program Office ,Minh-Huong Doan ,minh-huong.l.doan.mil@mail.mil  ,,,,,,
+49,FHIR Core,,,,,,,,,A-Q,,18166,,,,,,,,,,,,,,,,,,,,,,,Jean Lose ,DoD/VA Interagency Program Office ,Minh-Huong Doan ,minh-huong.l.doan.mil@mail.mil  ,,,,,,
+50,FHIR Core,,,,,,,,,A-A,,18167,,,,,,,,,,,,,,,,,,,,,,,Jean Lose ,DoD/VA Interagency Program Office ,Mark Bellezza ,mark.bellezza@va.gov ,,,,,,
+51,FHIR Core,,,,,,,,,NEG,,10635,,,,,,,,,,,,,,,,,,,,,,,Jenni Syed ,Cerner ,,Jenni.Syed@cerner.com  ,,,,,,
+52,FHIR Core,,,,,,,,,NEG,,14564,,,,,,,,,,,,,,,,,,,,,,,Jenni Syed ,Cerner ,,Jenni.Syed@cerner.com  ,,,,,,
+53,FHIR Core,,,,,,,,,NEG,,15105,,,,,,,,,,,,,,,,,,,,,,,Jenni Syed ,Cerner ,,Jenni.Syed@cerner.com  ,,,,,,
+54,FHIR Core,,,,,,,,,NEG,,15108,,,,,,,,,,,,,,,,,,,,,,,Jenni Syed ,Cerner ,,Jenni.Syed@cerner.com  ,,,,,,
+55,FHIR Core,,,,,,,,,NEG,,15124,,,,,,,,,,,,,,,,,,,,,,,Jenni Syed ,Cerner ,,Jenni.Syed@cerner.com  ,,,,,,
+56,FHIR Core,,,,,,,,,NEG,,16314,,,,,,,,,,,,,,,,,,,,,,,Jenni Syed ,Cerner ,,Jenni.Syed@cerner.com  ,,,,,,
+57,FHIR Core,,,,,,,,,NEG,,17364,,,,,,,,,,,,,,,,,,,,,,,Jenni Syed ,Cerner ,,Jenni.Syed@cerner.com  ,,,,,,
+58,FHIR Core,,,,,,,,,NEG,,17671,,,,,,,,,,,,,,,,,,,,,,,Jenni Syed ,Cerner ,,Jenni.Syed@cerner.com  ,,,,,,
+59,FHIR Core,,,,,,,,,NEG,,17755,,,,,,,,,,,,,,,,,,,,,,,Jenni Syed ,Cerner ,,Jenni.Syed@cerner.com  ,,,,,,
+60,FHIR Core,,,,,,,,,NEG,,17756,,,,,,,,,,,,,,,,,,,,,,,Jenni Syed ,Cerner ,,Jenni.Syed@cerner.com  ,,,,,,
+61,FHIR Core,,,,,,,,,A-S,,17456,,,,,,,,,,,,,,,,,,,,,,,Joshua Mandel ,SMART Health IT ,,jmandel@gmail.com ,,,,,,
+62,FHIR Core,,,,,,,,,NEG,,17457,,,,,,,,,,,,,,,,,,,,,,,Joshua Mandel ,SMART Health IT ,,jmandel@gmail.com ,,,,,,
+63,FHIR Core,,2.1.0.4,,,,,conformance-rules,http://hl7.org/fhir/2018Sep/conformance-rules.html,A-T,,,"The definition of an AllergyIntolerance is that it contains information about ""Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance"" If the value of the 'verificationStatus' element is set to entered-in-error, the entire resource does not actually contain valid information about any risk of exposure, and is is not safe for applications to ignore this element. ","The definition of an AllergyIntolerance is that it contains information about ""Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance."" If the value of the 'verificationStatus' element is set to entered-in-error, the entire resource does not actually contain valid information about any risk of exposure, and it is not safe for applications to ignore this element.","Add period after substance in first sentence and change ""is"" to ""it"" in second sentence. ","Add period after substance in first sentence and change ""is"" to ""it"" in second sentence. ",,_Typo,,,,FHIR Infrastructure,Persuasive,Auto-approved,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Casey Thompson ,casey.thompson@lantanagroup.com ,,,,,,
+64,FHIR Core,,2.24.0.5,,,,,defining-extensions,http://hl7.org/fhir/2018Sep/defining-extensions.html,A-T,,,"id: There SHALL be a code with a value of ""1"" if there is a value. If system is present, it SHALL be UCUM. If present, the value SHALL a whole number","id: There SHALL be a code with a value of ""1"" if there is a value. If system is present, it SHALL be UCUM. If present, the value SHALL be a whole number.","Add ""be""","Add ""be""",,_Typo,,,,FHIR Infrastructure,Persuasive,Auto-approved,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Casey Thompson ,casey.thompson@lantanagroup.com ,,,,,,
+65,FHIR Core,,2.5.1.5,,,,,defining-extensions,http://hl7.org/fhir/2018Sep/defining-extensions.html,A-T,,,"However since, by their nature, resources tend to travel well, it's always better to publish it on a pblic facing web site. ","However since, by their nature, resources tend to travel well, it's always better to publish it on a public facing web site. ",Correct spelling of public,Correct spelling of public,,_Typo,,,,FHIR Infrastructure,Persuasive,Auto-approved,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Casey Thompson ,casey.thompson@lantanagroup.com ,,,,,,
+66,FHIR Core,,4.3.13.78,,,,Patient,,http://hl7.org/fhir/2018Sep/codesystem-administrative-gender.html,A-T,,,"other: The administrative gender is a value other than male/female/unknown. Where this value is selected, systems may often choose to include an extension with the localized more spefic value","other: The administrative gender is a value other than male/female/unknown. Where this value is selected, systems may often choose to include an extension with the localized more specific value",Correct spelling of specific,Correct spelling of specific,,_Typo,,,,Patient Administration,Persuasive,Auto-approved,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Casey Thompson ,casey.thompson@lantanagroup.com ,,,,,,
+67,FHIR Core,,2.1.1,,,,,best-practices,http://hl7.org/fhir/2018Sep/best-practices.html,A-T,,, Including a guman readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems., Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems.,Correct spelling of human,Correct spelling of human,,_Typo,,,,FHIR Infrastructure,Persuasive,Auto-approved,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Casey Thompson ,casey.thompson@lantanagroup.com ,,,,,,
+68,FHIR Core,,,,,,PlanDefinition,,http://hl7.org/fhir/2018Sep/clinicalreasoning-module.html,A-S,Enhancement,,,,We recommend that an implementation guide be developed for the use of logical reasoning resources in the context of CDS Hooks and CQL-based reasoning engines.,Create IG for logical reasoning resources in the context of CDS Hooks & CQL reasoning engines,,,,,,Clinical Decision Support,,,,,,,,,,,,,Phillip Warner ,University of Utah ,,phillip.warner@utah.edu ,,,,,,
+69,FHIR Core,,profiles,,,,PlanDefinition,,http://hl7.org/fhir/2018Sep/plandefinition-profiles.html,A-S,Enhancement,,,,"As part of the IG recommended in Comment 68, we recommend that a profile be defined on PlanDefinition that restricts the cardinality of the library attribute to 1..1, thus specifying the principal library to load in a CQL engine.",Creat profile on PlanDefinition requiring library,No,,,,,Clinical Decision Support,,,,,,,,,,,,,Phillip Warner ,University of Utah ,,phillip.warner@utah.edu ,,,,,,
+70,FHIR Core,,,,,,PlanDefinition,,http://hl7.org/fhir/2018Sep/clinicalreasoning-module.html,A-S,Enhancement,,,,"This IG (Comment 68) should provide a way to provide a clear mapping between CDS Hooks constructs and FHIR Resources.  For instance, it should provide the proper mappings between the CDS Hooks Request prefetch resources and PlanDefinition.action.input DataRequirements.  Similarly, a clear mapping specification should be provided for the mapping of the CDS Response to GuidanceResponse/RequestGroup.",Provide guidance on mapping between CDS Hooks constructs and FHIR resources,No,,,,,Clinical Decision Support,,,,,,,,,,,,,Phillip Warner ,University of Utah ,,phillip.warner@utah.edu ,,,,,,
+71,FHIR Core,,,,,,PlanDefinition,,http://hl7.org/fhir/2018Sep/plandefinition.html,NEG,Correction,,,,"Currently PlanDefinition does not provide a specification for the GuidanceResponse.  Yet such a specification is required when defining the path of dynamicValues in the PlanDefinition.  For instance, if the GuidanceResponse makes use of a RequestGroup, the dynamicValue.path will be different than if the GuidanceResponse makes use of a CarePlan.",Add specification for GuidanceResponse to PlanDefinition,Yes,,,Not related,,Clinical Decision Support,,,,,,,,,,,,,Phillip Warner ,University of Utah ,,phillip.warner@utah.edu ,,,,,,
+72,FHIR Core,,,,,,,,,NEG,,18277,,,,,,,,,,,,,,,,,,,,,,,Robert McClure ,"MD Partners, Inc. ",,rmcclure@mdpartners.com ,,,,,,
+73,FHIR Core,,,,,,,,,NEG,,17915,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+74,FHIR Core,,,,,,,,,NEG,,17916,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+75,FHIR Core,,,,,,,,,NEG,,17917,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+76,FHIR Core,,,,,,,,,NEG,,17918,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+77,FHIR Core,,,,,,,,,NEG,,17920,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+78,FHIR Core,,,,,,,,,NEG,,17921,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+79,FHIR Core,,,,,,,,,NEG,,17922,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+80,FHIR Core,,,,,,,,,NEG,,17923,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+81,FHIR Core,,,,,,,,,NEG,,17924,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+82,FHIR Core,,,,,,,,,NEG,,17925,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+83,FHIR Core,,,,,,,,,NEG,,17926,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+84,FHIR Core,,,,,,,,,NEG,,17927,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+85,FHIR Core,,,,,,,,,NEG,,17928,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+86,FHIR Core,,,,,,,,,NEG,,17929,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+87,FHIR Core,,,,,,,,,NEG,,17930,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+88,FHIR Core,,,,,,,,,NEG,,17931,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+89,FHIR Core,,,,,,,,,NEG,,17932,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+90,FHIR Core,,,,,,,,,NEG,,17933,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+91,FHIR Core,,,,,,,,,A-T,,17934,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+92,FHIR Core,,,,,,,,,NEG,,17935,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+93,FHIR Core,,,,,,,,,NEG,,17936,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+94,FHIR Core,,,,,,,,,NEG,,17937,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+95,FHIR Core,,,,,,,,,NEG,,17938,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+96,FHIR Core,,,,,,,,,NEG,,17939,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+97,FHIR Core,,,,,,,,,NEG,,17941,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+98,FHIR Core,,,,,,,,,NEG,,17942,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+99,FHIR Core,,,,,,,,,NEG,,17943,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+100,FHIR Core,,,,,,,,,NEG,,17944,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+101,FHIR Core,,,,,,,,,NEG,,17945,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+102,FHIR Core,,,,,,,,,A-T,,17947,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+103,FHIR Core,,,,,,,,,A-T,,17948,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+104,FHIR Core,,,,,,,,,NEG,,17949,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+105,FHIR Core,,,,,,,,,NEG,,17950,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+106,FHIR Core,,,,,,,,,NEG,,17951,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+107,FHIR Core,,,,,,,,,NEG,,17952,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+108,FHIR Core,,,,,,,,,NEG,,17953,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+109,FHIR Core,,,,,,,,,NEG,,17954,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+110,FHIR Core,,,,,,,,,NEG,,17955,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+111,FHIR Core,,,,,,,,,NEG,,17956,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+112,FHIR Core,,,,,,,,,NEG,,17957,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+113,FHIR Core,,,,,,,,,NEG,,17958,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+114,FHIR Core,,,,,,,,,NEG,,17959,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+115,FHIR Core,,,,,,,,,NEG,,17960,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+116,FHIR Core,,,,,,,,,NEG,,17961,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+117,FHIR Core,,,,,,,,,NEG,,17962,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+118,FHIR Core,,,,,,,,,NEG,,17963,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+119,FHIR Core,,,,,,,,,NEG,,17964,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+120,FHIR Core,,,,,,,,,NEG,,17965,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+121,FHIR Core,,,,,,,,,NEG,,17966,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+122,FHIR Core,,,,,,,,,NEG,,17967,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+123,FHIR Core,,,,,,,,,NEG,,17968,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+124,FHIR Core,,,,,,,,,NEG,,17969,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+125,FHIR Core,,,,,,,,,NEG,,17970,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+126,FHIR Core,,,,,,,,,NEG,,17971,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+127,FHIR Core,,,,,,,,,NEG,,17972,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+128,FHIR Core,,,,,,,,,NEG,,17973,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+129,FHIR Core,,,,,,,,,NEG,,17974,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+130,FHIR Core,,,,,,,,,NEG,,17975,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+131,FHIR Core,,,,,,,,,NEG,,17976,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+132,FHIR Core,,,,,,,,,NEG,,17977,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+133,FHIR Core,,,,,,,,,NEG,,17978,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+134,FHIR Core,,,,,,,,,NEG,,17979,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+135,FHIR Core,,,,,,,,,NEG,,17980,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+136,FHIR Core,,,,,,,,,NEG,,17981,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+137,FHIR Core,,,,,,,,,NEG,,17982,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+138,FHIR Core,,,,,,,,,NEG,,17983,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+139,FHIR Core,,,,,,,,,NEG,,17984,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+140,FHIR Core,,,,,,,,,NEG,,17985,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+141,FHIR Core,,,,,,,,,NEG,,17986,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+142,FHIR Core,,,,,,,,,NEG,,17987,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+143,FHIR Core,,,,,,,,,NEG,,17988,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+144,FHIR Core,,,,,,,,,NEG,,17989,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+145,FHIR Core,,,,,,,,,NEG,,17990,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+146,FHIR Core,,,,,,,,,NEG,,17991,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+147,FHIR Core,,,,,,,,,NEG,,17992,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+148,FHIR Core,,,,,,,,,NEG,,17993,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+149,FHIR Core,,,,,,,,,NEG,,17994,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+150,FHIR Core,,,,,,,,,NEG,,17995,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+151,FHIR Core,,,,,,,,,NEG,,17996,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+152,FHIR Core,,,,,,,,,NEG,,17997,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+153,FHIR Core,,,,,,,,,NEG,,17998,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+154,FHIR Core,,,,,,,,,NEG,,17999,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+155,FHIR Core,,,,,,,,,NEG,,18000,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+156,FHIR Core,,,,,,,,,NEG,,18001,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+157,FHIR Core,,,,,,,,,NEG,,18002,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+158,FHIR Core,,,,,,,,,NEG,,18003,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+159,FHIR Core,,,,,,,,,NEG,,18004,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+160,FHIR Core,,,,,,,,,NEG,,18005,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+161,FHIR Core,,,,,,,,,NEG,,18006,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+162,FHIR Core,,,,,,,,,NEG,,18007,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+163,FHIR Core,,,,,,,,,NEG,,18008,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+164,FHIR Core,,,,,,,,,NEG,,18009,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+165,FHIR Core,,,,,,,,,NEG,,18010,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+166,FHIR Core,,,,,,,,,NEG,,18011,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+167,FHIR Core,,,,,,,,,NEG,,18012,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+168,FHIR Core,,,,,,,,,NEG,,18013,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+169,FHIR Core,,,,,,,,,NEG,,18014,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+170,FHIR Core,,,,,,,,,NEG,,18015,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+171,FHIR Core,,,,,,,,,NEG,,18016,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+172,FHIR Core,,,,,,,,,NEG,,18017,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+173,FHIR Core,,,,,,,,,NEG,,18018,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+174,FHIR Core,,,,,,,,,NEG,,18019,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+175,FHIR Core,,,,,,,,,NEG,,18020,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+176,FHIR Core,,,,,,,,,NEG,,18021,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+177,FHIR Core,,,,,,,,,NEG,,18022,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+178,FHIR Core,,,,,,,,,NEG,,18023,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+179,FHIR Core,,,,,,,,,NEG,,18024,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+180,FHIR Core,,,,,,,,,NEG,,18025,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+181,FHIR Core,,,,,,,,,NEG,,18026,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+182,FHIR Core,,,,,,,,,NEG,,18027,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+183,FHIR Core,,,,,,,,,NEG,,18028,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+184,FHIR Core,,,,,,,,,NEG,,18029,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+185,FHIR Core,,,,,,,,,NEG,,18030,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+186,FHIR Core,,,,,,,,,NEG,,18031,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+187,FHIR Core,,,,,,,,,NEG,,18032,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+188,FHIR Core,,,,,,,,,NEG,,18033,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+189,FHIR Core,,,,,,,,,NEG,,18034,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+190,FHIR Core,,,,,,,,,NEG,,18035,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+191,FHIR Core,,,,,,,,,NEG,,18036,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+192,FHIR Core,,,,,,,,,NEG,,18083,,,,,,,,,,,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Paul Knapp ,pknapp@pknapp.com ,,,,,,
+193,FHIR Core,,4.4.1.618.1,,,,FamilyMemberHistory,,http://hl7.org/fhir/2018Sep/valueset-birth-sex.html,NEG,Correction,,"Include codes from http://hl7.org/fhir/administrative-gender where concept is-not-a other
+",----,"ValueSet for BirthSex (i.e.Clinical Sex ) should be XX|XY|other (e.g. XXY, XYY) rather than gender (male/female) .","ValueSet for BirthSex (i.e.Clinical Sex) should be XX|XY|other (e.g. XXY, XYY) rather than gender (male/female) ",,,,,,Patient Care,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Ken Sinn ,ken.sinn@gmail.com ,,,,,,
+194,FHIR Core,,4.4.1.618,,,,FamilyMemberHistory,,http://hl7.org/fhir/2018Sep/valueset-birth-sex.html,A-S,Enhancement,,"This value set is used in the following places:
+
+Resource: FamilyMemberHistory.gender",----,"BirthSex  may be more appropriately modelled under Observation, e.g. Observation of a newborn, as it is a clinical assessment",BirthSex  may be more appropriately modelled under Observation,,,,,,Patient Care,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Ken Sinn ,ken.sinn@gmail.com ,,,,,,
+195,FHIR Core,,9.4.5,,,,FamilyMemberHistory,,http://hl7.org/fhir/2018Sep/familymemberhistory-definitions.html#FamilyMemberHistory.gender,NEG,Correction,,Terminology Binding Birth Sex (Extensible),Terminology Binding AdministrativeGender  (Extensible),"FamilyMemberHistory.gender should be mapped to AdminitrativeGender valueset, not BirthSex valueset
+If there is intention to identify the documented sex (at birth) of a FamilyMember, it should be a separate BirthSex element, separate from the gender element so as not to further conflate concepts of administrative gender and clinical sex at birth","FamilyMemberHistory.gender should be mapped to AdminitrativeGender valueset, not BirthSex valueset",,,,,,Patient Care,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Ken Sinn ,ken.sinn@gmail.com ,,,,,,
+196,FHIR Core,,8.6.3,,,,Organization,,http://hl7.org/fhir/2018Sep/organization.html,A-S,Enhancement,,,,"OrganizationAffiliation resource needs to be a reference element in the Organization resource, for it to be useful. In its current state, retrieving an Organization resource gives no indication that it has affiliations at all. A user would need to know to search against the OrganizationAffiliation endpoint.",Organization.affiliation needs to be a reference to OrganizationAffiliation for the latter to be useful.,,,,,,Patient Administration,,,,,,,,,,,,,Ron Parker ,HL7 Canada ,Ken Sinn ,ken.sinn@gmail.com ,,,,,,
+197,FHIR Core,,,,,,,,,NEG,,17906,,,,,,,,,,,,,,,,,,,,,,,Stefan Lang ,HL7 Germany ,,stefan.lang@lang-hitc.de ,,,,,,
+198,FHIR Core,,,,,,,,,NEG,,17908,,,,,,,,,,,,,,,,,,,,,,,Stefan Lang ,HL7 Germany ,,stefan.lang@lang-hitc.de ,,,,,,
+199,FHIR Core,,,,,,,,,NEG,,17909,,,,,,,,,,,,,,,,,,,,,,,Stefan Lang ,HL7 Germany ,,stefan.lang@lang-hitc.de ,,,,,,
+200,FHIR Core,,,,,,,,,NEG,,17914,,,,,,,,,,,,,,,,,,,,,,,Stefan Lang ,HL7 Germany ,,stefan.lang@lang-hitc.de ,,,,,,
+201,FHIR Core,,,,,,AdverseEvent,,,NEG,Correction,,,,"AdverseEvent.resultingCondition - inadequate and inappropriate for documenting adverse reactions associated with AdverseEvent incidents
+Rationale - in very many cases an AdverseEvent incident is associated with a set of adverse reactions similar to the case of Allergy/Intolerance incidents.
+Example use case - a patient with severe gingival recession requires tissue graph treatment to cover exposure root of tooth. Soft tissue graft is harvested from patient's oral cavity and attached to the graft site by sutures. A couple of days later, the patient developed intraoral itchness and swelling
+The clinician needs to document the findings as adverse reactions
+Eventually, the graft devitalised and failed. After further investigation, it was determined that the patient might have suffered from allergic reactions to the suture material
+As there is no prior history, this will be recorded and reported eventually as an AdverseEvent incidence with associating allergic adverse reactions
+Comment - very often, a resultingCondition cannot be determined at the time of assessing and documenting reactions. What can be known is a temporal relationship between the Event incidence and a set of reactions
+This and many other similar use cases support the need for replacing AdverseEvent.resultingCondtion with a Choice for resultingCondition and an AdverseEvent.reaction element that references a new resource: AdverseReaction. This resource can be reused in AllergyIntolerance and other resources where appropriate",AdverseEvent.resultingCondition - inadequate and inappropriate for documenting adverse reactions associated with AdverseEvent incidents,,,,,,Patient Care,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+202,FHIR Core,,,,,,AdverseEvent,,,NEG,Correction,,"AdverseEvent.contributor:
+Definition = ""Parties that may or should contribute or have contributed information to the adverse event, which can consist of one or more activities …""
+Short description = ""Who was involved in the adverse event or the potential adverse event""","Rename element name to:
+either informationContributor or informant
+Change short description to: ""Who contribute(s) information about the adverse event""","The short description is significantly different in meaning to the Definition.
+The short description means that party/parties who contribute(s) to or responsible for causing the adverse event incidence
+Based on the definition, this element is information contributor
+To avoid confusion, the element should be renamed to either ""informationContributor"" or ""informant"". And the short description should be changed",The short description is significantly different in meaning to the Definition.,,,,,,Patient Care,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+203,FHIR Core,,,,,,AdverseEvent,,,NEG,Correction,,AdverseEvent.suspectedEntity,"Rename element name to:
+associatedEntity
+Change short description to:
+""The agent causing or suspected to cause the adverse event""
+Change definition to:
+""Describe the agent causing or suspected to cause the adverse event""","The suspectedEntity may be assessed to have casulty of ""certain"", in that case, it is no longer ""suspected"" - hence the name of this element is semantically inappropriate for meeting all scenarios
+The element name and definition/description need to be changed","SuspectedEntity doesn't work for ""certain""",,,,,,Patient Care,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+204,FHIR Core,,,,,,FamilyMemberHistory,,,NEG,Correction,,FamilyMemberHistory.age,,"It is unclear what clinical utility or relevance of documenting age of family member at time the history is taken. 
+The age of family member condition/disease onset and death (if the condition was the key contributor to death) are the two clinically important and relevant age values
+This element should be removed from the resource as thre is no good reason for the data collection in the context of family member history",What's reason for age of family member,,,,"Not related
+
+Lloyd: The age of a person with no onset of a condition may have relevance too.  Family history isn't only about assessing risk of a specific condition.",,Patient Care,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+205,FHIR Core,,,,,,FamilyMemberHistory,,,NEG,Correction,,FamilyMemberHistory.deceased,,"Similar toFamilyMemberHistory.age, this element is only relevant if the condition is the key contributor to death of family member history
+This element should be moved to under ""condition"" backbone element/cluster",What's reason for deceasedDate of family member,,,,"Not related
+Lloyd: A relative who died at a young age without ability to develop a condition may have different relevance than one who lived a long life",,Patient Care,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+206,FHIR Core,,,,,,FamilyMemberHistory,,,NEG,Enhancement,,FamilyMemberHistory.condition,,"This cluster/backbone element should include:
+- Is condition cause of death? (Y/N)
+- if yes: age at death",Revamp FamilyMemberHistory.condition,,,,Not related,,Patient Care,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+207,FHIR Core,,,,,,FamilyMemberHistory,,,NEG,Correction,,,,"The purpose of capturing patient's family member history is to support assessment of the patient's risk
+The sturctural definition of this resources does not appear to support execution of the assessment easily
+A better structue is:
+FamilyMemberHistory.condtion
+   .condtion.familyMember (1..*)
+                     .familyMember.relaship
+                                                .onset
+                                                 .Is condition cause of death?
+                                                        age of death
+                                          .....
+
+With this proposed structure, for any given condition (e.g. Type 2 DM, the structure supports capturing of all family members having the condition, relationship (e.g. grand parent, parent, sibling, first cousins ...etc), their age of onset, age of death ...etc being logically clustered and relative risk for patient computed",Change to be condition-centric,,,,"Not related
+
+Lloyd: Assessing risk for a specific condition is not the only use.  Systems frequently capture a patient's family history independent of the assessment of any particular condition.",,Patient Care,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+208,FHIR Core,,,,,,ClinicalImpression,,,NEG,Clarification,,"Description = A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter, but this varies greatly depending on the clinical workflow. This resource is called ""ClinicalImpression"" rather than ""ClinicalAssessment"" to avoid confusion with the recording of assessment tools such as Apgar score",,"ClinicalImpression (resource) is described as: ""a record of a clinical assessment performed …""
+This description/definition is at odd/semantically incompatible with the concept clinical impression
+Clinical impression is a clinician's assertion/declaration of a patient's clinical state at the end of a clinical assessment
+
+The structural definition of the ClinicalImpression as is represents a record of the clinical assessment performed and the assertion/declaration of the patient's clinical status based on the clinical assessment. As such, to lable it as ClinicalImpression is semantically inaccurate
+
+Suggestion:
+Either rename the resource to ClinicalAssessment and in the ""Scope and Usage"" section delcare that it should not be confused with assessment tool
+Or
+Redesign the resource to have the ""Finding"" (which should be renamed to ""Impression"" as the focal point, supported by evidences derived from the clinical assessment process",Definition/description at odds with what clinical impression is,,,,Not related,,Patient Care,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+209,FHIR Core,,,,,,ClinicalImpression,,,NEG,Correction,,"ClinicalImpression.investigation
+ClinicalInvestigation.supportingInfo",,"It is unclear why ""investigation"" is required, separate to ""supportingInfo"", which references ""Any"", which can include any investigation results used to supporting clinican arriving at the clinical impression",Merge investigation and supportingInfo,,,,"Not related
+Lloyd: Supporting info represents information considered.  Investigation represents what was produced",,Patient Care,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+210,FHIR Core,,,,,,ClinicalImpression,,,A-S,Correction,,ClinicalImpression.assessor,,"The name of this element is inconsistent with similar elements defined for other resources, e.g. Procedure
+Suggest harmonise the naming (e.g. performer) to be consistent with other similar resources",ClinicalImpression.assessor name is inconsistent,,,,,,Patient Care,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+211,FHIR Core,,,,,,MedicationRequest,,,NEG,Clarification,,"MedicationRequest.category
+Short description = Type of medication usage
+Description/definition = Indicates the type of medication request (for example, where the medication is expected to be consumed or administered (i.e. inpatient or outpatient))",,"The description/definition suggest that this element should be renamed to ""careSetting""
+
+The ""category"" element should be used for differentiating whether the request is physician initiated, nurse initiated (which in some organisations required endorsement by a physician within 24-hours), nurse practitioner initiated, etc
+
+This suggestion applies to other medication related resources",Rename category to careSetting,,,,"Not related
+
+Lloyd: Care setting is only one possible aspect of categorization.  Others might include type of substance, short term vs. long term, etc.",,Pharmacy,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+212,FHIR Core,,,,,,MedicationRequest,,,NEG,Enhancement,,,,"It is not uncommon for some medications to require authorisation by either the payor or a specialist before it can be dispensed, supplied and administered
+This resource needs additional structure to support this requirement:
+- authorisation number
+- authority (which has a choice of payor or specialist)",Add authorization,,,,"Not related
+
+Lloyd: Authorization is handled via the CoverageResponse resource (which covers pre-authorizations/pre-determinations)",,Pharmacy,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+213,FHIR Core,,,,,,MedicationDispense,,,A-S,Enhancement,,MedicationDispesne.status,,"It is possible that a MedicationRequest can be rejected, e.g. in case of doctor shopping and patient obtained a scribe that was assessed to be a duplication of another
+Suggest that the status value set include ""rejected""","Add ""rejected"" as MedicationDispense.status",,,,Lloyd: A refusal to fill wouldn't be captured by a status on a MedicationDispense - it would be managed through Task,,Pharmacy,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+214,FHIR Core,,,,,,MedicationKnowledge,,,NEG,Clarification,,,,"It is unclear whether this resource is intended to support (1) creation of medication catalogue/drug formulary, or (2) for creating medication knowledge base 
+As as, this resource is a mix-bag and serves both purposes very poorly
+If it is intended for (2), the structure definition needs to be redesigned to include contents such as:
+* name of medication
+* composition and pharmaceutical form
+* clinical features including:
+    - Therapeutic indications
+    - Dose, preparation, and method of administration
+    - Contraindications
+    - Special warning and precautions for use
+    - Adverse effects
+    - Dose range and overdose
+* Pharmacological properties, including:
+    - Pharmacodynamic properties
+    - Pharmacokinetic properties
+    - Clinical trials
+* Pharmaceutical properties, including:
+    - List of excipients
+    - Incompatibilities
+    - Special precautions for storage and disposal
+",Clarify use of resource,,,,Not related,,Pharmacy,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+215,FHIR Core,,,,,,Immunization,,,NEG,Clarification,,Description/definition (Scope and Usage section) = The Immunization resource is intended to cover the recording of current and historical administration of vaccines to patients across all healthcare disciplines in all care settings and all regions,,"Administration of vaccine (or a record of), which according to the scope and usage description, is not dlinically and semantically equivalent of immunsiation.
+Immunisation refers to becoming immune to certain disease(s) against which the person has been vaccinated (received vaccine administration)
+It is well established clinically that seroconversion and seroprotection rates after vaccinations vary between different populations (e.g. the young vs the elderly) and for different types of vaccines
+This resource (and other related) should be renamed to ""vaccination""",Vaccine administration is not the same as immunization,,,,Not related,,Public Health,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+216,FHIR Core,,,,,,Immunization,,,A-S,Clarification,,"Immunization.isSubpotent:
+Indication if a dose is considered to be subpotent. By default, a dose should be considered to be potent
+
+Immunization.subpotentReason:
+Reason why a dose is considered to be subpotent","Suggest change definition/description to:
+""Indicate a subpotent vaccine was administered. A vaccine dose given may be discovered after the fact as subpotent due to cold chain breach or product recall""","The description/definition for these two elements leads reader to interprete that a subpotent vaccine might have knowingly been administered
+It is assumed that these two elements are use in retrsopective documentation when scenarios such as discovery of cold chain breach or product recall due to subpotent batch was known
+
+Suggest change definition/description",Clarify subPotent definitions,,,,,,Public Health,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+217,FHIR Core,,,,,,Immunization,,,NEG,Enhancement,,,,"Missing Immunization.doseNumber
+doseNumber is included in ImmunizationEvaluation resource but not in Immunization resource
+This is an important requirement as the vaccination record should contain information about dose number administered (e.g. dose 2 of 3 of hepatitis B vaccine)
+If this information is not included in Immunization resource, how can ImmunizationEvaluation know whether the vaccination schedule is complete?",Missing Immunization.doseNumber,,,,,,Public Health,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+218,FHIR Core,,,,,,ImmunizationEvaluation,,,NEG,Enhancement,,Immunization.immunizationEvent (1..1),,"The cardinality should be 1..*
+For example, hep B vaccination requires 3 doses to complete, all three vaccincation records need to be referenced",Immunization.immunizationEvent should be 1..*,,,,Not related,,Public Health,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+219,FHIR Core,,,,,,ImmunizationRecommendation,,,NEG,Clarification,,"ImmunizationRecommendation.recommendation.forecastStatus:
+Indicates the patient status with respect to the path to immunity for the target disease
+
+ImmunizationRecommendation.recommendation.forecastReason:
+The reason for the assigned forecast status","Suggestion:
+(1) Create a new ""statusEvaluation"" cluster or backbone element for these two data elements
+(2) Rename them to: evaluatedStatus and evaluatedStatusReason
+(3) change definition to: indicate assessed status of patient's vaccination, e.g. due, overdue, complete","Element names and definition/description names are extremely confusing. If readers do not navigate to the value set example codes (due, overdue, immune, contraindicated, complete), the reader is completely at lost regarding what these elements are and their intended use
+
+Suggestion:
+(1) Given the value set, these two elements do not below to the Recommendation cluster/backbone element. They should form a separate cluster - ""statusEvaluation""
+(2) The element names and definition need to be improved",forcast elements are confusing,,,,Not related,,Public Health,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
+220,FHIR Core,,,,,,ServiceRequest,,,NEG,Clarification,,"ServiceRequest.status
+ServiceRequest.intent","ServiceRequest.lifecycleStatus = the state of the service request throug its lifecycle
+
+ServiceRequest.workflowStatus = the progression of the service request through the business/clinical workflow","These two elements represent status of a request lifecylce and status of a request workflow
+Suggest that they are changed to reflect what these two elements are actually use to provide clarity and a best-practice pattern for other resources to follow
+
+Suggested changes:
+(1) ServiceRequest.status -> ServiceRequest.requestLifeCycleStatus (or simpler: .lifeCycleStatus) with the following values:
+active | suspended | completed | entered-in-error | cancelled
+(2) ServiceRequest.intent -> .workflowStatus, with the following values:
+proposal | plan | draft | order | under review",Rename status and intent,,,,"Not related
+
+Lloyd: Intent is not a status.  It is an immutable characteristic of the resource instance.  Naming is consistent across all resources.  Naming convention is to keep things short.",,Orders & Observations,,,,,,,,,,,,,Stephen Chu ,Patient Care WG ,,chuscmi88@gmail.com ,,,,,,
