@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="terminology-c19-translate-03-ok-post-coding-xml"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-5-0/TestScript/terminology-c19-translate-03-ok-post-coding-xml"/>
+	<name value="FHIR Connectathon 19 - Terminology Services - Translate - OK - POST - Coding - XML"/>
+	<status value="active"/>
+	<date value="2018-09-13"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of coding, source and target."/>
+	<copyright value="(c) AEGIS.net, Inc. 2018"/>
+
+	<fixture id="translate-input-01">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/translate-input-coding-01.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="translate-input-02">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/translate-input-coding-02.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="ParametersProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+	</profile>
+
+	<test id="01-AddressUseTranslateHome">
+		<name value="AddressUseTranslateHome"/>
+		<description value="ConceptMap $translate operation test using HTTP POST with coding, source and target parameters; http://hl7.org/fhir/address-use|home, target http://terminology.hl7.org/ValueSet/v3-AddressUse. Expected response is 200 (OK) with a Parameters payload containing the matched target system code."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="translate"/>
+				</type>
+				<resource value="ConceptMap"/>
+				<description value="Test ConceptMap $translate operation for http://hl7.org/fhir/address-use|home, target http://terminology.hl7.org/ValueSet/v3-AddressUse."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$translate"/>
+				<sourceId value="translate-input-01"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<direction value="response"/>
+				<resource value="Parameters"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter result with boolean value equal to true."/>
+				<direction value="response"/>
+				<expression value="Parameters.parameter.where($this.name = 'result' and ($this.value as boolean))"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter match with part concept and valueCoding.code equal to 'H'."/>
+				<direction value="response"/>
+				<expression value="Parameters.parameter.where($this.name = 'match').part.where($this.name = 'concept').value.where($this.code = 'H').exists()"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-AddressUseTranslateOld">
+		<name value="AddressUseTranslateOld"/>
+		<description value="ConceptMap $translate operation test using HTTP POST with coding, source and target parameters; http://hl7.org/fhir/address-use|old, target http://terminology.hl7.org/ValueSet/v3-AddressUse. Expected response is 200 (OK) with a Parameters payload containing the matched target system code."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="translate"/>
+				</type>
+				<resource value="ConceptMap"/>
+				<description value="Test ConceptMap $translate operation for http://hl7.org/fhir/address-use|old, target http://terminology.hl7.org/ValueSet/v3-AddressUse."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$translate"/>
+				<sourceId value="translate-input-02"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<direction value="response"/>
+				<resource value="Parameters"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter result with boolean value equal to true."/>
+				<direction value="response"/>
+				<expression value="Parameters.parameter.where($this.name = 'result' and ($this.value as boolean))"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter match with part concept and valueCoding.code equal to 'BAD'."/>
+				<direction value="response"/>
+				<expression value="Parameters.parameter.where($this.name = 'match').part.where($this.name = 'concept').value.where($this.code = 'BAD').exists()"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

@@ -1,0 +1,68 @@
+<html>
+<head>
+	<title>FHIR Connectathon 19 Testing - Patient - FHIR STU3 v3.0.1</title>
+</head>
+<body style="font-family:arial">
+	<h1>FHIR Connectathon 19 Testing - Patient</h1>
+	<h2>FHIR STU3 v3.0.1 TestScript - Execution Details</h2>
+	<h3>Conventions Used</h3>
+	<p>
+		The execution of the TestScript resources contained in this folder are constrained by the following
+		conventions:
+	</p>
+	<ul>
+		<li>
+			<b>Fixtures</b> - All resource reference values can be either url paths or local file system
+			paths. The convention for these TestScript resources use local file system paths where the
+			execution engine is expected to resolve this path based on the following:
+			<ul>
+				<li>
+					Leading '/' character - this is resolved as an absolute path based on a known root path
+				</li>
+				<li>
+					No leading '/' character - this is resolved as a relative path based on the location of the
+					TestScript resource file
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<hr width="100%"></hr>
+
+	<h2>FHIR Connectathon 19 Testing - Baltimore, MD - September 2018</h2>
+	<h3>Patient Track</h3>
+	<p>
+		The TestScript resources in this folder represent all of the possible variations** within the tests; i.e.
+		JSON vs. XML content, client vs. server resource id assignment, and bonus vs. no bonus features.
+	</p>
+	<p>
+		Based on these testing variations, the following TestScript definitions are available - one for each
+		variation:
+	</p>
+	<h4>Base Tests</h4>
+	<table border="1" cellpadding="3" cellspacing="1">
+		<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+		<tr><td>patient-intro-base-client-id-json</td><td>JSON Format - Baseline tests to create, update, retrieve history and search a patient, no extensions with client assigned resource id.</td></tr>
+		<tr><td>patient-intro-base-client-id-xml</td><td>XML Format - Baseline tests to create, update, retrieve history and search a patient, no extensions with client assigned resource id.</td></tr>
+		<tr><td>patient-intro-base-server-id-json</td><td>JSON Format - Baseline tests to create, update, retrieve history and search a patient, no extensions with server assigned resource id.</td></tr>
+		<tr><td>patient-intro-base-server-id-xml</td><td>XML Format - Baseline tests to create, update, retrieve history and search a patient, no extensions with server assigned resource id.</td></tr>
+	</table>
+	<h4>Bonus Tests</h4>
+	<table border="1" cellpadding="3" cellspacing="1">
+		<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
+		<tr><td>patient-intro-bonus-client-id-json</td><td>JSON Format - Baseline (Bonus) tests to create, update, retrieve history and search a patient, with extensions and client assigned resource id.</td></tr>
+		<tr><td>patient-intro-bonus-client-id-xml</td><td>XML Format - Baseline (Bonus) tests to create, update, retrieve history and search a patient, with extensions and client assigned resource id.</td></tr>
+		<tr><td>patient-intro-bonus-server-id-json</td><td>JSON Format - Baseline (Bonus) tests to create, update, retrieve history and search a patient, with extensions and server assigned resource id.</td></tr>
+		<tr><td>patient-intro-bonus-server-id-xml</td><td>XML Format - Baseline (Bonus) tests to create, update, retrieve history and search a patient, with extensions and server assigned resource id.</td></tr>
+	</table>
+	<p>
+		<b>**</b> <i>This representation of the Patient Track tests is not meant to be diffinitive and complete. This is
+		one example of how these tests can be defined in the current STU3 format of the TestScript resource.
+		Constructive feedback, suggestions and critisms are welcome.</i>
+	</p>
+	<p>
+		Richard Ettema, AEGIS.net</br>
+		<a href="mailto:richard.ettema@aegis.net">richard.ettema@aegis.net</a>
+	</p>
+</body>
+</html>

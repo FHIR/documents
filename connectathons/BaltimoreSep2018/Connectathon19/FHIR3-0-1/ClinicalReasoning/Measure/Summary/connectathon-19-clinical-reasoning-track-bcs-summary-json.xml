@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+  <id value="connectathon-19-clinical-reasoning-track-ccs-summary-json"/>
+
+  <url value="http://projectcrucible.org/TestScript/connectathon-19-cr-ccs-json"/>
+  <name value="Connectathon 19 Clinical Reasoning track Colon Cancer Screening--Summary Patient TestScript--JSON"/>
+  <status value="active"/>
+  <date value="2018-07-23"/>
+  <publisher value="MITRE"/>
+  <contact>
+    <name value="Michael O'Keefe"/>
+    <telecom>
+      <system value="email"/>
+      <value value="mokeefe@mitre.org"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <description value="Tests using JSON format to execute the $evauate-measure operation. The destination server must support the $evaluate-measure operation on the Measure resource."/>
+  <copyright value="N/A"/>
+
+  <metadata>
+    <capability>
+      <required value="true"/>
+      <description value="Read and $evaluate-measure operations for measure"/>
+      <link value="http://hl7.org/fhir/STU3/http.html#read"/>
+      <link value="http://hl7.org/fhir/STU3/measure.html"/>
+      <link value="http://hl7.org/fhir/STU3/measurereport.html"/>
+      <capabilities>
+        <reference value="../_reference/capabilities/MeasureCapabilityStatement.xml" />
+      </capabilities>
+    </capability>
+  </metadata>
+
+  <fixture id="example-measurereport">
+    <resource>
+      <reference value="../_reference/resources/connectathon_19_measurereport_bcs_summary.json"/>
+    </resource>
+  </fixture>
+
+  <profile id="measurereport-profile">
+    <reference value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
+  </profile>
+
+  <variable>
+    <name value="PeriodStart"/>
+    <defaultValue value="1997-01-01"/>
+  </variable>
+  <variable>
+    <name value="PeriodEnd"/>
+    <defaultValue value="1997-12-31"/>
+  </variable>
+  <variable>
+    <name value="measureID"/>
+    <defaultValue value="measure-bcs"/>
+  </variable>
+  <variable>
+    <name value="measureID"/>
+    <path value="Measure/id"/>
+    <sourceId value="example-measure"/>
+  </variable>
+  <variable>
+    <name value="measurereportID"/>
+    <path value="Measure/id"/>
+    <sourceId value="example-measurereport"/>
+  </variable>
+
+  <test id="Step1-EvaluateMeasure">
+    <name value="EvaluateMeasure"/>
+    <description value="Evaluate the measure, no extensions."/>
+
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="evaluate-measure"/>
+        </type>
+        <resource value="Measure"/>
+        <label value="EvaluateMeasure"/>
+        <description value="Evaluate measure with server assigned resource id."/>
+        <accept value="json"/>
+        <contentType value="json"/>
+        <params value="/measure-ccs/$evaluate-measure?patient=${KnownPatientResourceId}&amp;periodStart=${PeriodStart}&amp;periodEnd=${PeriodEnd}"/>
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 200(OK)"/>
+        <operator value="in"/>
+        <responseCode value="200"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned format is JSON. Warning only as the server may not support the return of response content."/>
+        <contentType value="json"/>
+        <warningOnly value="true"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the return type is MeasureReport. Warning only as the server may not support the return of response content."/>
+        <resource value="MeasureReport"/>
+        <warningOnly value="true"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server may not support versioning."/>
+        <headerField value="Last-Modified"/>
+        <operator value="notEmpty"/>
+        <warningOnly value="true"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP Header ETag is present. Warning only as the server may not support versioning."/>
+        <headerField value="ETag"/>
+        <operator value="notEmpty"/>
+        <warningOnly value="true"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP Header Location is present. Warning only as this is optional but servers are encouraged to return this."/>
+        <headerField value="Location"/>
+        <operator value="notEmpty"/>
+        <warningOnly value="true"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned resource type is MeasureReport."/>
+        <resource value="MeasureReport"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport conforms to the base FHIR specification."/>
+        <validateProfileId value="measurereport-profile"/>
+        <warningOnly value="true"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport contains the expected initial population."/>
+        <operator value="equals"/>
+        <path value="MeasureReport/group/population[code[coding[code[@value='initial-population']]]]/count"/>
+        <value value="10"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport contains the expected denominator."/>
+        <operator value="equals"/>
+        <path value="MeasureReport/group/population[code[coding[code[@value='denominator']]]]/count"/>
+        <value value="10"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport contains the expected numerator."/>
+        <operator value="equals"/>
+        <path value="MeasureReport/group/population[code[coding[code[@value='numerator']]]]/count"/>
+        <value value="6"/>
+      </assert>
+    </action>
+  </test>
+</TestScript>

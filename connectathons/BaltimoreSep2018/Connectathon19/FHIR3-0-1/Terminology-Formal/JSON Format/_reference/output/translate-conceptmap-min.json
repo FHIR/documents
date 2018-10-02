@@ -1,0 +1,21 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "result",
+      "valueBoolean": true
+    },
+    {
+      "name": "match",
+      "part": [
+        {
+          "name": "codeableConcept",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/v3/AddressUse",
+            "code": "H"
+          }
+        }
+      ]
+    }
+  ]
+}

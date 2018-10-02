@@ -1,0 +1,20 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "coding",
+      "valueCoding": {
+        "system": "http://hl7.org/fhir/address-use",
+        "code": "xxx"
+      }
+    },
+    {
+      "name": "source",
+      "valueUri": "http://hl7.org/fhir/ValueSet/address-use"
+    },
+    {
+      "name": "target",
+      "valueUri": "http://hl7.org/fhir/ValueSet/v3-AddressUse"
+    }
+  ]
+}

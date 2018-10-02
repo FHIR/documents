@@ -1,0 +1,86 @@
+{
+  "resourceType": "Measure",
+  "id": "measure-ccs",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2018-09-28T21:36:07.928+00:00"
+  },
+  "text": {
+    "status": "generated"
+  },
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/payer-extract",
+      "value": "CCS"
+    }
+  ],
+  "version": "1.0.0",
+  "title": "Cervical Cancer Screening. Cohort Definition",
+  "status": "active",
+  "experimental": true,
+  "date": "2015-03-08",
+  "description": "Cervical Cancer Screening. Cohort Definition",
+  "topic": [
+    {
+      "text": "Preventive Care and Screening"
+    }
+  ],
+  "library": [
+    {
+      "reference": "Library/library-ccs-logic"
+    }
+  ],
+  "scoring": {
+    "coding": [
+      {
+        "code": "proportion"
+      }
+    ]
+  },
+  "group": [
+    {
+      "population": [
+        {
+          "identifier": {
+            "value": "initial-population"
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "initial-population"
+              }
+            ]
+          },
+          "criteria": "Initial Population"
+        },
+        {
+          "identifier": {
+            "value": "numerator"
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "numerator"
+              }
+            ]
+          },
+          "criteria": "Numerator"
+        },
+        {
+          "identifier": {
+            "value": "denominator"
+          },
+          "code": {
+            "coding": [
+              {
+                "code": "denominator"
+              }
+            ]
+          },
+          "criteria": "Denominator"
+        }
+      ]
+    }
+  ]
+}
