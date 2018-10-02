@@ -1,0 +1,402 @@
+Comment Number,Ballot,Chapter,Section,Page #,Line #,Artifact ID,Resource(s),HTML Page name(s),URL,Vote and Type,Sub-category,Tracker #,Existing Wording,Proposed Wording,Ballot Comment,Summary,In person resolution requested,Comment grouping,Schedule,Triage Note,Pubs,Disposition WG,Disposition,Disposition Comment or Retract/Withdraw details,Disposition/Retract/ Withdrawal Date,Mover / seconder,For ,Against,Abstain,Retracted / Withdrawn,Disposition External Organization,Responsible Person,Change Applied,Substantive Change,Submitted By,Organization,On behalf of,Commenter Email,Submitter Tracking ID,Referred To,Received From,Notes,,
+1,Electronic Case Reporting,,,,,,,,,A-S,,18256,,,,,,,,,,,,,,,,,,,,,,,Bryn Rhodes ,,,bryn@databaseconsultinggroup.com ,,,,,,
+2,Electronic Case Reporting,,,,,,,,,A-S,,18257,,,,,,,,,,,,,,,,,,,,,,,Bryn Rhodes ,,,bryn@databaseconsultinggroup.com ,,,,,,
+3,Electronic Case Reporting,,,,,,,,,A-S,,18258,,,,,,,,,,,,,,,,,,,,,,,Bryn Rhodes ,,,bryn@databaseconsultinggroup.com ,,,,,,
+4,Electronic Case Reporting,,Profiles,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-composition.html,A-Q,,,,,The mapping table seems to map Composition.id to ClinicalDocument/identifier in the CDA spec. ClinicalDocument/identifer appears to be required (CONF:1198-5363) (assuming identifier and id are the same element) but Composition.id has a Cardinality of 0..1. Should Composition.identifier be required?,LC:  Should composition.identifier be required?,,,,,,Public Health,,,,,,,,,,,,,Craig Newman ,,,csnewman88@gmail.com ,,,,,,
+5,Electronic Case Reporting,,Mappings,,,,,mappings,http://hl7.org/fhir/us/ecr/2018Sep/eicr-composition-map.html,A-Q,,,,,"The ""ID of the eICR Document"" is mapped to Composition.id but in the Snapshot View of the Composition profile lists id as the ""Logical id of this artifact"" and identifier as the ""eICR Document Id"". Which of these elements is the appropriate element?",LC: Confirm appropriate use of ID numbers ,,,,,,Public Health,,,,,,,,,,,,,Craig Newman ,,,csnewman88@gmail.com ,,,,,,
+6,Electronic Case Reporting,,Profiles,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-composition.html,A-Q,,,,,Composition.author references constrained profiles for US Core Practitioner and eCR Organziation but just the base PractionerRole resource. Should there be a profile for PractitionerRole? It looks like there is already an ecr-PractitionerRole profile,LC:  Confirm profile use for practitioner role,,,,,,Public Health,,,,,,,,,,,,,Craig Newman ,,,csnewman88@gmail.com ,,,,,,
+7,Electronic Case Reporting,,Profiles,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-encounter.html,A-Q,,,,,Do you expect the cardinality of homologous elements in the CDA and FHIR specs to be the same? For example. Encounter.period is 0..1 while ClinicalDocument/componentOf/encompassingEncounter/effectiveTime is 1..1 (with no null flavors) if I'm reading the specs correctly.,LC:  Review cardinality across specs,,,,,,Public Health,,,,,,,,,,,,,Craig Newman ,,,csnewman88@gmail.com ,,,,,,
+8,Electronic Case Reporting,,Profiles,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/profiles.html,A-Q,,,,,"Why do some profiles start with ""eICR"" while others start with ""eCR"" and others aren't prefixed at all? Some ""eICR"" profiles are also used in the RR profile. Is there a pattern for profiles used in one (eICR or RR) or both profiles?",LC:  describe use of prefixes for profiles,,,,,,Public Health,,,,,,,,,,,,,Craig Newman ,,,csnewman88@gmail.com ,,,,,,
+9,Electronic Case Reporting,,Profiles,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-pregnancy-status.html,A-S,Clarification,,,,"How is the ""effective"" element used in the pregnancy status profile? Is that the effective date of the pregnancy (ie conception date) or the effective date of the status (ie when the patient was documented as pregnant)? Can there be an effective date (or period) when the status is ""not pregnant""? Please clarify how this is to be used.",Clarify use of effective element for pregnancy status.,,,,,,Public Health,,,,,,,,,,,,,Craig Newman ,,,csnewman88@gmail.com ,,,,,,
+10,Electronic Case Reporting,,Profiles,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-occupationhistory.html,A-Q,,,,,Will this profile be updated if/when the ODH profiles on Observation are published (also in the Sept 2018 ballot)?,LC:  Use updated ODH profile when available,,,,,,Public Health,,,,,,,,,,,,,Craig Newman ,,,csnewman88@gmail.com ,,,,,,
+11,Electronic Case Reporting,,Profiles,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-extension-eicr-manually-initiated-reason.html,A-T,,,Example General': Patient has a suspected reportable condition.,,"Is the single quote (or is it an apostrophe?) after ""General"" meant to be there? The trigger code extension and the RR-communication profile also have similar potentially errant apostrophes.",LC:  Typo,,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,Craig Newman ,,,csnewman88@gmail.com ,,,,,,
+12,Electronic Case Reporting,,,,,,,,,NEG,,18261,,,,,,,,,,,,,,,,,,,,,,,Eric Haas ,Health eData Inc ,,ehaas@healthdatainc.com ,,,,,,
+13,Electronic Case Reporting,,,,,,,,,NEG,,18260,,,,,,,,,,,,,,,,,,,,,,,Eric Haas ,Health eData Inc ,,ehaas@healthdatainc.com ,,,,,,
+14,Electronic Case Reporting,,SD.31,,,,StructureDefinition,,http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-composition.html#sd-31-structuredefinition-eicr-composition,NEG,Enhancement,,,Composition[eICR Composition].section[Medication Administered].entry.extension (eICR Trigger Code Flag),"eICR Trigger Code Flag for medications administered section is needed. For some conditions, there is a need for Public Health to receive an eICR when medications were administered during the encounter (e.g.  Naloxone administration as an indication of a suspected overdose or Isoniazid administration as indication of suspected tuberculosis diagnosis). Based on how the eICR Trigger Code Flags included in the eCR FHIR spec have been developed, it seems like the it should be nested within the  Medication Administered Profile entry.",An eICR Trigger Code Flag should be developed for the medications administered section in order to allow for the triggering and generation of an eICR at this point during the encounter. ,,,,,,Public Health,,,,,,,,,,,,,Erin Holt ,TN Dept of Health ,Justine Maxwell ,Justine.Maxwell@tn.gov ,,,,,,
+15,Electronic Case Reporting,,SD.31,,,,StructureDefinition,,http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-composition.html#sd-31-structuredefinition-eicr-composition,NEG,Enhancement,,"Scope and Usage
+
+The Electronic Case Reporting Lab Orders profile establishes the core elements, extensions, vocabularies and value sets for representing the following for electronic case reporting:
+
+- Initial Case Report laboratory orders and other diagnostics for the reported event.",,"In the Plan of Treatment Section, the only entry referenced is the eICR Procedure Request. The Scope and Usage of the eICR Procedure Request only references lab orders and other diagnostics for the reported event. I believe the Plan of Treatment Section should also contain a Medication Request profile so that information on medication orders can be document in the eCR Plan of Treatment. ",The Plan of Treatment Section should contain a Medication Request resource to document medication orders.,,,,,,Public Health,,,,,,,,,,,,,Erin Holt ,TN Dept of Health ,Justine Maxwell ,Justine.Maxwell@tn.gov ,,,,,,
+16,Electronic Case Reporting,,SD.31,,,,StructureDefinition,,http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-composition.html#sd-31-structuredefinition-eicr-composition,A-S,Enhancement,," entry S  I   0..*   Reference (eICR ProcedureRequest) 
+id  0..1 string 
+extension  0..* Extension                     extension-eicr-trigger-code-flag S       0..1 (Complex) "," entry S  I   0..*   Reference (eICR ProcedureRequest) 
+id  0..1 string 
+extension  0..* Extension                     extension-eicr-trigger-code-flag S       0..1 (Complex)                                        entry S  I   0..*   Reference (eICR MedicationRequest) 
+id  0..1 string 
+extension  0..* Extension                     extension-eicr-trigger-code-flag S       0..1 (Complex) ","An eICR Trigger Code Flag for medications ordered is needed. For some specific conditions, there is a need for Public Health to receive an eICR when medications were ordered during the encounter. I believe the most appropriate place to develop the eICR trigger code flag is within the Medication Request resource (http://hl7.org/fhir/medicationrequest.html#bnr) as it allows for the documentation of a medication order or a medication prescription. ",The Medication Request resource should be used for an eICR Trigger Code Flag for medications ordered.,,,,,,Public Health,,,,,,,,,,,,,Erin Holt ,TN Dept of Health ,Justine Maxwell ,Justine.Maxwell@tn.gov ,,,,,,
+17,Electronic Case Reporting,,SD.31,,,,StructureDefinition,,http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-composition.html#sd-31-structuredefinition-eicr-composition,NEG,Clarification,, S  I   0..*                                     Reference (US Core MedicationStatement Profile), S  I   0..*                                     Reference (US Core MedicationAdministration Profile),"The Medication Administration section contains the entry that references the US Core Medication Statement Profile. I believe this entry resource should be the MedicationAdministration not Medication Statement. Medication Administration is more appropriate as it aligns with eICR (CDA) IG medication administration section which defines medications and fluids administered during the procedure, its related encounter, or other procedure. The Medication Administration captures information on the medication being administered during the encounter by the clinician unlike the  Medication Statement resource. The Medication Administration resource (http://hl7.org/fhir/medicationstatement.html) has more complete administration information and is based on actual administration information from the person who administered the medication. where the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.""",The Medications Administered section of the eICR Composition profile should reference the US Core Medication Administration profile/ ,,,,,,Public Health,,,,,,,,,,,,,Erin Holt ,TN Dept of Health ,Justine Maxwell ,Justine.Maxwell@tn.gov ,,,,,,
+18,Electronic Case Reporting,,SD.31,,,,StructureDefinition,,http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-composition.html#sd-31-structuredefinition-eicr-composition,NEG,Enhancement,,,,"It is important to document the observation after a medication administration . For some conditions, there is a need for Public Health to receive an eICR that contains information on the response to medications that have been administered during the encounter (e.g. Patient response after Naloxone administration as indication of an opioid drug overdose). There is no reference in the US Core medication Statement or US Core Medication Administration on the reaction observation. I believe information on the reaction observation should be nested within Medications Administered statement. ",Documentation of the response observation after the medications have been administered during an encounter.,,,,,,Public Health,,,,,,,,,,,,,Erin Holt ,TN Dept of Health ,Justine Maxwell ,Justine.Maxwell@tn.gov ,,,,,,
+19,Electronic Case Reporting,,1.0,,,,StructureDefinition,,http://hl7.org/fhir/us/core/StructureDefinition-us-core-medicationstatement.html#intro,NEG,Clarification,,Binding: Medication Clinical Drug (RxNorm) (extensible),Binding: Medication Clinical Drug  (RxNorm)  or Clinical Substance ,"The data type for MedicationStatement.medication is a codeable concept. Therefore there is the potential for alternate codes, local codes, or text to be documented for this code. However, the medication administered section contained in the eICR (CDA) IG only allows for the manufactured material to be either from the Medication Clinical Drug valueset or the Clinical Substance (translation). This may lead to loosing information when going from an eICR FHIR to the eICR (CDA) if text or other codes are used for the eCR FHIR representation of it. For the eICR FHIR spec, I believe the value set should be tightened to Medication Clinical Drug and Clinical substance and not be extensible as it is in within the eICR CDA IG.  ","For the eICR FHIR spec, the value set for the medications within the US Core Medication Statement should be bound to Medication Clinical Drug or Clinical Substance only. ",,,,,,Public Health,,,,,,,,,,,,,Erin Holt ,TN Dept of Health ,Justine Maxwell ,Justine.Maxwell@tn.gov ,,,,,,
+20,Electronic Case Reporting,,SD.31,,,,StructureDefinition,,http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-composition.html#sd-31-structuredefinition-eicr-composition,A-Q,,,,,"The element Composition. Encounter references the eICR Encounter profile. However, within the Encounter Section, the Composition.section.entry references the eICR Encounter profile. This is confusing and should be clarified as it seems like encounter information is in both places. ",There are two references to the eICR Encounter profile in the  eICR Composition profile instead of one reference. ,,,,,,Public Health,,,,,,,,,,,,,Erin Holt ,TN Dept of Health ,Justine Maxwell ,Justine.Maxwell@tn.gov ,,,,,,
+21,Electronic Case Reporting,,SD.31,,,,StructureDefinition,,http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-composition.html#sd-31-structuredefinition-eicr-composition,NEG,Enhancement,, S        0..* Reference(eICR Encounter), S        1..1 Reference(eICR Encounter),"The element Composition. Encounter references is 1..1 However, within the Encounter Section the Composition.section.entry is 0..* The Encounter profile in the Encounter Section should have a 1..1 cardinality instead of 0..* cardinality just as the eICR (CDA) has 1.1 cardinality for the encounter section. ",The Encounter Section element within the eICR Composition profile should be required.  ,,,,,,Public Health,,,,,,,,,,,,,Erin Holt ,TN Dept of Health ,Justine Maxwell ,Justine.Maxwell@tn.gov ,,,,,,
+22,Electronic Case Reporting,,SD.14,,,,StructureDefinition,,http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-extension-eicr-manually-initiated-reason.html#sd-14-structuredefinition-extension-eicr-manually-initiated-reas,NEG,Enhancement,," Extension  0..1  Initial Case Report Manual Initiation Reason
+... url  1..1 uri ""http://hl7.org/fhir/us/ecr/StructureDefinition/extension-manual-init-reason""
+... valueString  0..1 string",,"For the extension that indicates the eICR was manually initiated, there is only a ValueString data element with string for the data type. In the eICR (CDA), there is both the text string for the manual initiation but also the manual initiation code located in the documentationOf in the header. Therefore, there should be a data element for the manual initiation code too.",The extension profile for the eICR manually initiated reason should contain a manual initiation code.,,,,,,Public Health,,,,,,,,,,,,,Erin Holt ,TN Dept of Health ,Justine Maxwell ,Justine.Maxwell@tn.gov ,,,,,,
+23,Electronic Case Reporting,,Notice to ballot commenters #2 Difficulties related to CDA using nullflavors while FHIR does not,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/balloters.html#2-difficulties-related-to-cda-using-nullflavors-while-fhir-does-not,A-Q,,,,,"While this may not be any better than using extensions or updating all the value sets, would it be possible to reference a nullflavor value set and do conditional binding as needed? ",Difficulties related to CDA using nullFlavors while FHIR does not,,,,,,Public Health,,,,,,,,,,,,,Erin Holt ,TN Dept of Health ,,erin.holt@tn.gov ,,,,,,
+24,Electronic Case Reporting,,SD.38,,,,StructureDefinition,,http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-ecr-knowledge-distribution.html#sd-38-structuredefinition-ecr-knowledge-distribution,A-C,,,"Action- Create eICR
+
+Text equivalent- Required Pattern: delay eICR construction (x hours) - time after the start of the encounter before a triggered eICR should be composed and sent",,"In the notice to balloters, 6 hours was proposed as the number of hours post encounter to wait for creating the eICR. I think this isa good time frame to start with. Implementations will indicate whether or not its sufficient. ",Knowledge Distribution- time for creating eICR,,,,,,Public Health,,,,,,,,,,,,,Erin Holt ,TN Dept of Health ,,erin.holt@tn.gov ,,,,,,
+25,Electronic Case Reporting,,SD.38,,,,StructureDefinition,,http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-ecr-knowledge-distribution.html#sd-38-structuredefinition-ecr-knowledge-distribution,A-S,Clarification,,"Action- Periodic Update of eICR
+
+Text equivalent- Required Pattern: eICR periodic update (y hours) – the time after an initial eICR transmission to send a new eICR as an update during long episodes of care","Action- Periodic Update of eICR
+
+Required Pattern: eICR periodic update (y hours) – the time after an initial or a previous eICR transmission to send a new eICR as an update during long episodes of care","Added 'or previous eICR' to indicate that the update wouldn’t just be sent after the initial, rather every y hours after the initial. 
+
+",Knowledge Distribution- time for updating eICR,,,,,,Public Health,,,,,,,,,,,,,Erin Holt ,TN Dept of Health ,,erin.holt@tn.gov ,,,,,,
+26,Electronic Case Reporting,,SD.38,,,,StructureDefinition,,http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-ecr-knowledge-distribution.html#sd-38-structuredefinition-ecr-knowledge-distribution,A-C,,,"Action- Close Out eICR
+
+Text equivalent- Required Pattern: eICR episode of care close out (z hours) – the time after the end of an episode of care for a final eICR to be sent when there has been one or more trigger events",,"IN the notice to balloters, 24hour post close out was the proposed time. Im not sure if this is enough time for the completion of billing/coding.  It might be a good starting point but may need to adjust depending on what see in implementation. ",Knowledge Distribution- time for Close out eICR,,,,,,Public Health,,,,,,,,,,,,,Erin Holt ,TN Dept of Health ,,erin.holt@tn.gov ,,,,,,
+27,Electronic Case Reporting,,SD.28,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-occupationhistory.html,NEG,Correction,,,,Replace this profile with the ODH FHIR profiles.,Use ODH profiles,Yes,,,,,Public Health,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,bve2@cdc.gov ,,,,,,
+28,Electronic Case Reporting,,,,,,,terminologies,http://hl7.org/fhir/us/ecr/2018Sep/ValueSet-oes.html,NEG,Correction,,,,Use terminology specified in ODH profiles.,Use ODH profiles' terminology,Yes,,,,,Public Health,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,bve2@cdc.gov ,,,,,,
+29,Electronic Case Reporting,,,,,,,summary,http://hl7.org/fhir/us/ecr/2018Sep/balloters.html,A-C,,,"(for example “6” hours) 
+(for example “48” hours) 
+(for example “24” hours or “0” hours for no delay) ",,"The interval will vary based on the patients context. An Abulatory office visit versus in patient critical care, and the context of what's being reported should drive interval as well.  Since reporting duration is important suggest using the values you have documented as base guidelines and consider documenting the interval a report was last documented and include it in the document.  That would require a value of intial report and systems would be required to track the document and interval between submission.  The data should be included in the document it's self. 
+(for example “6” hours) 
+(for example “48” hours) 
+(for example “24” hours or “0” hours for no delay) ",Additional timing-related reporting parameters and suggested values,,,,,,Public Health,,,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+30,Electronic Case Reporting,,,,,,,summary,http://hl7.org/fhir/us/ecr/2018Sep/balloters.html,A-C,,,"To get around this, we make elements “must support” but allow them to be optional. Then in the case of missing data, the instance still validates.",,If the information is important enough to require but its left optional you  do not have a level of precision that tells you there was no available data as opposed to not implemented.  More complicated but a valueset of null values would be valuable esp in a case where you are capturing critical data. ,Difficulties related to CDA using nullFlavors while FHIR does not,,,,,,Public Health,,,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+31,Electronic Case Reporting,,,,,,,summary,http://hl7.org/fhir/us/ecr/2018Sep/balloters.html,A-C,,,How to best implement patient vital signs for public health reporting,,Given US Core Vital Signs comes with additional guidance I'm in favor of US Core over the FHIR Vital Signs Profiles (STU),Prefer US Core Vital Signs,,,,,,Public Health,,,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+32,Electronic Case Reporting,,,,,,,cda-intro,http://hl7.org/fhir/us/ecr/2018Sep/design-considerations.html#existing-cda-design ,A-C,,,"1.  informaton flowing from healthcare to PHAs (via the eICR) and back (via the RR)
+2.  information flowing from healthcare to AIMS/RCKMS (via the eICR) and then to PHAs (via the eICR and sometimes the RR) and with a response to healthcare from the AIMS/RCKMS (via the RR)
+and
+FHIR also offers several possibilities for eventually distributing more complex reporting rules to healthcare.",,"#2 is complex which increases failure points however the statement ""FHIR also offers several possibilities for eventually distributing more complex reporting rules to healthcare."" The ability to make frequent system updates across a variety of implementations and versions of software complicates and delays updates. From that perspective centrally managed distribution rules is less intrusive, more responsive and likely less costly. ",FHIR design considerations (distribution) ,,,,,,Public Health,,,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+33,Electronic Case Reporting,,,,,,,cda-intro,http://hl7.org/fhir/us/ecr/2018Sep/design-considerations.html,A-T,,,,,"Spelling Error 
+Spelling –1.  informaton flowing from healthcare to PHAs (via the eICR)
+Should be- information
+",Spelling Error - informaton,,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+34,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/design-considerations.html,A-T,,,,,"Spelling Error 
+Spelling - Widely implementable distributable rules would alieviate
+Should be- alleviate 
+
+",Spelling Error - alieviate,,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+35,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/design-considerations.html,A-T,,,,,"Spelling Error
+Spelling - HIE Retreive Form for Data Capture (RFD)
+Should be – Retrieve 
+",Spelling Error - Retreive,,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+36,Electronic Case Reporting,,,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/profiles.html#reportability-response-rr-transaction-and-profiles,NEG,Clarification,,The RR may originate from the Association of Public Health Laboratories (APHL) AIMS platform when public health decision support (the Reportable Condition Knowledge Management System - RCKMS) is used there or directly from a Public Health Agency if they received the eICR directly from healthcare.,," There may be several different intermediaries involved in its transmission including Health Information Exchanges and Health Data Networks, this indicates a number of hops. FHIR supports four different methodologies – REST, Document, Messaging and SOA. They aren’t defined by FHIR but FHIR can be used for them. This description seems to fit the Messaging paradigm. The issue here is how you are identifying the message and if the participants know what to do with it once they receive it. At present we believe that's going to be inconsistent. To make this functional there will need to be a defined stratgey, requirements and guides on this messaging flow. ",RR Messaging may pass through multiple entities,,,,,,Public Health,,,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+37,Electronic Case Reporting,,,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/profiles.html#reportability-response-rr-transaction-and-profiles,NEG,Clarification,,"In this implementation guide the reference transport transaction is a FHIR POST, but other transport mechanisms may be added or substituted as the data wend their way back to the source of the related",,"This is overly complicated and vague, the guide should define the process/technology that is used. Providing that level of flexibility without limits will not drive implementation forward. ",other transport mechanisms may be added or substituted as the data wend their way back to the source ,,,,,,Public Health,,,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+38,Electronic Case Reporting,,,,,,,element,http://hl7.org/fhir/us/ecr/2018Sep/ValueSet-pregnancy-status.html,NEG,Clarification,,,,"eICR CDA test data indicated start and stop dates for pregnancy/not pregnant, should that not be included in FHIR?  This needs to be harmonized. ",Pregnancy status start/stop dates.,,,,,,Public Health,,,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+39,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/narrative-guidance.html,A-T,,,,,"Spelling Error
+Section – Determination of Reportability 
+Spelling - represent the clincial diagnosis of a possible
+Should be - represent the clinical diagnosis of a possible
+",Spelling Error - clincial ,,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+40,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/narrative-guidance.html,A-T,,,,,"Spelling Error 
+Section – Determination of Reportability 
+Spelling - fully meets a public health case defintion.
+Should be - fully meets a public health case definition.
+",Spelling Error - defintion,,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+41,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/narrative-guidance.html,A-T,,,,,"Spelling Error
+Spelling – May be Reportable if additonal
+Should Be- May be Reportable if additional 
+",Spelling Error - additonal,,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+42,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/narrative-guidance.html,A-T,,,,,"Spelling Error
+Spelling – In these circumstaces there may only
+Should be- In these circumstances there may only
+",Spelling Error - circumstaces,,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+43,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/narrative-guidance.html,A-T,,,,,"Spelling Error
+Spelling - (include and repeat for each Relevent Reportable Condition PlanDefinition contained in the RR Communication)
+Should be - (include and repeat for each Relevant Reportable Condition PlanDefinition contained in the RR Communication)
+",Spelling Error - Relevent ,,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+44,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/narrative-guidance.html,A-T,,,,,"Spelling – 
+9 Manually initiatied eICR with no reporting criteria matched for One PHA
+10 Manually initiatied eICR with One Reportable Condition for One PHA
+Should be – 
+Manually initiated eICR with no reporting criteria matched for One PHA
+Manually initiated eICR with One Reportable Condition for One PHA
+",Spelling Error - initiatied,,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+45,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/narrative-guidance.html,A-T,,,,,"Spelling Error - 
+Example 9 – Example Reportability Response text for a Manually initiatied eICR with no reporting criteria matched for One PHA
+Should be – 
+  Example 9 – Example Reportability Response text for a Manually initiated eICR with no reporting criteria matched for One PHA
+",Spelling Error - initiatied,,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+46,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/narrative-guidance.html,A-T,,,,,"Spelling Error - 
+  Example 10 – Example Reportability Response text for a Manually initiatied eICR with One Reportable Condition for One PHA
+Should be – 
+  Example 10 – Example Reportability Response text for a Manually initiated eICR with One Reportable Condition for One PHA
+",Spelling Error - initiatied,,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+47,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/narrative-guidance.html,A-T,,,,,"Spelling Errors (2) - 
+Spelling (2) -
+Some decision support systems may not be able to fully differentiate between possible conditions that are Not Reportable and those that May be Reportable if additonal information is provided. In these circumstaces there may only be a reportabilty determination of:
+Should be – 
+Some decision support systems may not be able to fully differentiate between possible conditions that are Not Reportable and those that May be Reportable if additional information is provided. In these circumstances there may only be a reportabilty determination of:
+
+","Spelling Errors (2) - additonal, circumstaces 
+",,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+48,Electronic Case Reporting,,,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/capstatements.html ,A-T,,,,,"Spelling Error - 
+1 Store all of the Knowledge Managment resources and value sets
+Should be 
+1 Store all of the Knowledge Management resources and value sets
+",Spelling Error - Managment ,,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+49,Electronic Case Reporting,,,,,,,summary,http://hl7.org/fhir/us/ecr/2018Sep/balloters.html#3-how-to-best-implement-patient-vital-signs-for-public-health-reporting,A-C,,,How to best implement patient vital signs for public health reporting?  You are asking for input on the two options,,"I don't have an answer as to which option is better, but I can provide input on the requirements for what vital-sign related information is needed to make a decision about whether or not information provided would constitute a 'reportable case'.  This is particularly relevant if the case report specification is also driving the summary of information required for decision support as is currently the situation with the eICR.  This analysis helps understand the scope of VS info needed, although more info could be requested in the case report but not necessarily needed to determine if a case is reportable. 
+
+According to an analysis of the 68 conditions that are nationally notifible, Fever (with a temperature greater that ###) is included in the logic for 14 conditions, including default logic for Brucellosis, Dengue, Influenza, Leptospirosis, Q Fever, Rubella, SARS/MERS, Smallpox, Trichinellosis/Trichiniosis, Typhoid Fever, and Viral Hemorrhagic Fever, and optional logic for Coccidioidomycosis, Hantavirus, and Zika virus infection. 
+
+In addition, for Typhoid Fever, there is a criteria of ‘low heart rate (<60)’. 
+
+also, there is a need to represent pulse CO-oximetry levels which we understand may be represented in vital signs.  it is not lab work.  
+
+Do either of the options described in the current draft of the specification impact the ability to give guidance for the implementers to help them identify which vital signs should be included. For example, should the interface pull in the latest vital signs, or the highest temperature in the past ## hours. This issue is particularly important when the there is a lengthy inpatient hospital stay. 
+",LC:  Vital signs,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+50,Electronic Case Reporting,,,,,,,summary,http://hl7.org/fhir/us/ecr/2018Sep/balloters.html#1-additional-timing-related-reporting-parameters-and-suggested-values,A-C,,,"Delay eICR construction (for example “6” hours) - time after the start of the encounter before a triggered eICR should be composed and sent.(This delay is intended to allow adequate data to be recorded in the EHR, but is not so long as to delay reporting in critical circumstances.)",,"Is this only relevant for inpatient encounters?  I think it makes sense for all encounters. please clarify
+
+Is this saying, if the trigger occurs at 4 hours after admission(or anytime less than 6 hours), it will wait for 2 hours, but if the trigger occurs more than 6 hours after admission, then it will create the eICR at the time of the trigger?   Without data to actually justify it, that timing feels logical.  
+
+It would be useful to have this information to make a decision using data: 
+- what is the timing of triggering events relative to admission?
+- What is the difference in completeness and quality of informaiton in an eICR when it is created 3, 6, 9, 12 hours after admission in response to a triggered event during that time","input related to: ""Additional timing-related reporting parameters and suggested values""",,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+51,Electronic Case Reporting,,,,,,,summary,http://hl7.org/fhir/us/ecr/2018Sep/balloters.html#1-additional-timing-related-reporting-parameters-and-suggested-values,A-C,,,eICR periodic update (for example “48” hours) – the time after an initial eICR transmission to send new eICRs as an update for long episodes of care.,,"same question as in row 4 about how is 'episode of care' being operationalized. 
+Also, I assume this is only relevant for inpatient stays as the close out example would address follow-up for outpatient visits. ","input related to: ""Additional timing-related reporting parameters and suggested values""",,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+52,Electronic Case Reporting,,,,,,,summary,http://hl7.org/fhir/us/ecr/2018Sep/balloters.html#1-additional-timing-related-reporting-parameters-and-suggested-values,A-C,,,eICR episode of care close-out (for example “24” hours or “0” hours for no delay) – the time after the end of an episode of care for a final eICR to be sent when there has been one or more trigger events. (The close-out eICR is intended to provide the full data available at the end of an episode of care.),,"i am assuming this would be an additional eICR with updated info compared to an earlier eICR.  In that case, it seems appropriate to delay 24 hours to ensure it is complete.  Presumably, this is not the first time the event is reported.  
+
+also, i am assuming this would only be relevant when the encournter is inpatient or Emergency dept, but that is not clear from the description.  
+
+also, Is there a standard in FHIR for defining an episode of care? It would be great to include that definition, as it can mean different things in different context: an 'episode of care' for pregnancy can be 8 months long which is not the intent. another 'episode of care' could involve a series of outpatient encounters for a particular procedure.  Is 'episode of care' meant to be equivalent to the encounter?","input related to: ""Additional timing-related reporting parameters and suggested values""",,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+53,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/design-considerations.html,A-T,,,1. informaton flowing from healthcare to PHAs (via the eICR) and back (via the RR),1. information flowing from healthcare to PHAs (via the eICR) and back (via the RR),correct spelling of 'information',LC:  Typo,No,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+54,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/design-considerations.html,A-T,,,alieviate,alleviate,fix typo,LC:  Typo,No,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+55,Electronic Case Reporting,,,,,,,terminologies,http://hl7.org/fhir/us/ecr/2018Sep/ValueSet-location-relevance-ecr.html,A-T,,,RRVS7  Both patient home address and prvider facility address,Both patient home address and provider facility address,"fix typo.  I would assume that this would be copied directly from the original source so it may be that the original source also has a typo.  In any case, this should be fixed. ",LC:  Typo,No,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+56,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/narrative-guidance.html#reportability-response-summary,A-S,Clarification,,"(Not reportable)
+
+“<Relevant reportable condition name>” was determined not to be reportable to “<responsible agency name>”. This may be because it is not on the list of reportable conditions for the relevant Public Health Agency or the information provided at the time of this report does not meet reporting criteria.","(Not reportable)
+
+This record which was triggered to evaluate for “<Relevant reportable condition name>” was determined not to be reportable to “<responsible agency name>”. This may be because “<Relevant reportable condition name>” is not on the list of reportable conditions for the relevant Public Health Agency or the information provided at the time of this report does not meet reporting criteria.","this will require a crosswalk between triggers and the associated reportable events, which is feasible.  I think the current description is not accurate though as it isn't that <Relevant reportable condition name> is not reportable, it is that the record that was triggered doesn't have enough evidence to meet the reporting criteria.  ",LC:  Definition of not reportable,Yes,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+57,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/narrative-guidance.html#a-single-condition-is-not-reportable-to-a-single-pha,A-S,Clarification,,"A Single Condition is Not Reportable to a Single PHA
+Subject:
+
+Public Health Reporting Communication: Submitted report had no identifiable reporting needs.
+
+Summary:
+
+Your organization electronically submitted an initial case report to determine if reporting to public health is needed for a patient.
+
+“<Relevant reportable condition name>” was determined not to be reportable to “<responsible agency name>”. This may be because it is not on the list of reportable conditions for the relevant Public Health Agency or the information provided at the time of this report does not meet reporting criteria.
+
+Example text:
+Your organization electronically submitted an initial case report to determine if reporting to public health is needed for a patient.
+
+“Zika virus” was determined not to be reportable to “State Department of Health”. This may be because it is not on the list of reportable conditions for the relevant Public Health Agency or the information provided at the time of this report does not meet reporting criteria.","A Single Condition is Not Reportable to a Single PHA
+Subject:
+
+Public Health Reporting Communication: Submitted report had no identifiable reporting needs.
+
+Summary:
+
+Your organization electronically submitted an initial case report to determine if reporting to public health is needed for a patient.
+
+A record that was triggered to evaluate for “<Relevant reportable condition name>” was determined not to be reportable to “<responsible agency name>”. This may be because “<Relevant reportable condition name>” is not on the list of reportable conditions for the relevant Public Health Agency or the information provided at the time of this report does not meet reporting criteria.
+
+Example text:
+Your organization electronically submitted an initial case report to determine if reporting to public health is needed for a patient.
+
+A record that was triggered to evaluate for “Zika virus” was determined not to be reportable to “State Department of Health”. This may be because ""Zika virus"" is not on the list of reportable conditions for the relevant Public Health Agency or the information provided at the time of this report does not meet reporting criteria.",,LC:  Definition of not reportable,Yes,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+58,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/narrative-guidance.html#reportability-response-examples,A-T,,,"Example 6 – Example Reportability Response text with No Reporting Rule Met for One PHA
+
+Subject:
+
+Public Health Reporting Communication: submitted report had no identifiable reporting needs.
+
+Summary:
+
+Your organization electronically submitted an initial case report to determine if reporting to public health is needed for a patient. A determination of reporatbility for a triggered condition could not be made for “State Department of Health”. This may be because it is not on the list of reportable conditions for the relevant Public Health Agency, or the information provided at the time of this report does not meet reporting criteria, or not all data needed to confirm reportability were available.","Example 6 – Example Reportability Response text with No Reporting Rule Met for One PHA
+
+Subject:
+
+Public Health Reporting Communication: submitted report had no identifiable reporting needs.
+
+Summary:
+
+Your organization electronically submitted an initial case report to determine if reporting to public health is needed for a patient. A determination of reportability for a triggered condition could not be made for “State Department of Health”. This may be because  the triggered condition is not on the list of reportable conditions for the relevant Public Health Agency, or the information provided at the time of this report does not meet reporting criteria, or not all data needed to confirm reportability were available.",fix typo.  Suggest improved language. ,LC:  Typo and updated wording,,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+59,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/narrative-guidance.html#reportability-response-examples,A-Q,,,"Example 11 – Example Reportability Response text with Error for “EHR System Administrators”
+
+eICR Information:
+
+An initial report for a possible reportable condition was received on December 12, 2017 at 8:00pm with a file name “Eicr_Filename.xml” but it was not able to be processed.
+
+eICR was not processed due to an error of: fatal problem with the eICR that was received.",,a better error message would likely be helpful.  What does a 'fatal' error mean?,LC:  more description needed of fatal error,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+60,Electronic Case Reporting,,,,,,,mappings,http://hl7.org/fhir/us/ecr/2018Sep/eicr-composition-map.html#table-eicr-data-elements-to-eicr-composition-profile,A-C,,,no mention of medications in the list. ,,medications can also be a trigger. They need to be handled like the diagnoses and labs ,LC:  medication triggers,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+61,Electronic Case Reporting,,SD.32,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-ecr-organization.html#sd-32-1formal-views-of-profile-content,A-Q,,,Meta          Metadata about the resource,,"I looked at the eICR organization Example (here: http://hl7.org/fhir/us/ecr/2018Sep/Organization-ecr-organization-health-authority-west.html) and looked at definition (here: http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-ecr-organization-definitions.html#Organization.meta), however i still do not understand what information would be used as the metadata.  It would help if the definition were more explicit and a sample of expected info were included in the example. ",LC:  describe metadata,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+62,Electronic Case Reporting,,SD.30,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-encounter.html#sd-30-structuredefinition-eicr-encounter,A-S,Clarification,,"Examples
+eICR Encounter Example
+eICR Encounter Example","Examples
+eICR Encounter ambulatory visit Example
+eICR Encounter inpatient visit completed Example
+eICR Encounter inpatient visit currently active Example","the two examples appear to be identical.  It would be helpful to see examples of an outpatient visit, a completed inpatient visit, and a current inpatient visit that will not have an end date.  
+
+Also, the example is incomplete.  It doesn't include the content related to 'diagnosis',   'location', or 'serviceProvider' shown below in the differential view. ",LC:  expand example types,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+63,Electronic Case Reporting,,,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-encounter-definitions.html#Encounter.diagnosis,A-Q,,,"Encounter.diagnosis
+Definition 
+The list of diagnosis relevant to this encounter.
+
+Control 0..*
+Type BackboneElement
+Must Support true
+Invariants Defined on this element
+ele-1: All FHIR elements must have a @value or children (: hasValue() | (children().count() > id.count()))","Encounter.diagnosis
+Definition 
+The list of diagnosis relevant to this encounter.  
+OR 
+The list of diagnoses relevant to this encounter
+
+Control 0..*
+Type BackboneElement
+Must Support true
+Invariants Defined on this element
+ele-1: All FHIR elements must have a @value or children (: hasValue() | (children().count() > id.count()))","I am not sure which wording to suggest because it is not clear what is expected.  
+currently, the system sending hte record would only know the code that was used to trigger the eCR process. while it is feasible to also provide the reporting system with the relevant conditions associated with given triggers, that is currently something that is not known until decision support is processed. to know this, the trigger code output needs to be enhanced to associated codes with conditions (which is feasible but not the current structure).  It is important to know that there are some reportable conditions that share triggers, such as hepatitis B is associated with chronic and acute hep B so there may be a need to allow more than 1 conditions to be associated with a trigger code.  ",LC:  Clarify what is expected from element,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+64,Electronic Case Reporting,,SD.27,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-pregnancy-status.html#sd-27-structuredefinition-pregnancy-status,NEG,Clarification,,"in the differential view, the 'valueCodeableConcept' is binding to 'Determination of Reportability'.  I think there is an error here",,"need to double check the binding for the pregnancy status 
+
+also, please provide additional pregnancy status",LC:  pregnancy status update,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+65,Electronic Case Reporting,,,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/Observation-eicr-pregnancy-status-eve-everywoman.html,NEG,Correction,,"Observation eicr-pregnancy-status-eve-everywoman 
+id Pregnancy Status Date(s)
+eicr-pregnancy-status-eve-everywoman Not Pregnant JAN 1, 2016 to present","Observation eicr-pregnancy-status-eve-everywoman 
+id Pregnancy Status Date(s)
+eicr-pregnancy-status-eve-everywoman Not Pregnant JAN 1, 2016 to present",it is not valid to extend the effective period from the date it was documented to today's date just because it was not 'closed'.  I believe the system can only state what is known on the date the information was documented.  It should be on date ##/##/#### the status was pregnant or not pregnant.  ,LC: clarify dates expected,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+66,Electronic Case Reporting,,SD.27,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-pregnancy-status.html#sd-27-structuredefinition-pregnancy-status,NEG,Enhancement,,"Examples
+Pregnancy Status Example","Examples
+Pregnancy Status Example - not pregnant
+Pregnancy Status Example -  pregnant
+",need an example of pregnancy information when the woman is pregnant. ,LC:  expand example types,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+67,Electronic Case Reporting,,,,,,,xml,http://hl7.org/fhir/us/ecr/2018Sep/Observation-eicr-travel-history-eve-everywoman-201610.xml.html#xml-format-observation-eicr-travel-history-eve-everywoman-201610,NEG,Enhancement,,"  <td>1170 N Rancho Robles Rd, Oracle, AZ, 8562, USA</td>
+
+<valueAddress>
+          <line value=""1170 N Rancho Robles Rd""/>
+          <city value=""Oracle""/>
+          <postalCode value=""8562""/>
+          <country value=""US""/>
+        </valueAddress>","  <td>1170 N Rancho Robles Rd, Oracle, AZ, 8562, USA</td>
+
+<valueAddress>
+          <line value=""1170 N Rancho Robles Rd""/>
+          <city value=""Oracle""/>
+          <state value = ""AZ""  + the FIPS code
+          <postalCode value=""8562""/>
+          <country value=""US""/>   + the FIPS code
+        </valueAddress>","The coded location looks incomplete.  First of all, the texual display includes State of AZ but that's not in the codes section. That is likely just a transcription error.  But more importantly, we should be including FIPS codes for state and country in the location model to make sure the info is computable.  ",LC:  add state and expanded zip,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+68,Electronic Case Reporting,,SD.28,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-occupationhistory.html#sd-28-structuredefinition-eicr-occupationhistory,A-T,,,"Scope and Usage
+
+The Electronic Case Reporting Occupational History profile is establishes the core elements, extensions, vocabularies and value sets for representing the following for electronic case reporting:","Scope and Usage
+
+The Electronic Case Reporting Occupational History profile is establishes the core elements, extensions, vocabularies and value sets for representing the following for electronic case reporting:",minor typo,LC:  Typo,,_Typo,,,,Public Health,Persuasive,auto-approved,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+69,Electronic Case Reporting,,SD.28 ,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-occupationhistory.html#sd-28-structuredefinition-eicr-occupationhistory,NEG,Enhancement,,"Scope and Usage
+
+The Electronic Case Reporting Occupational History profile is establishes the core elements, extensions, vocabularies and value sets for representing the following for electronic case reporting:
+
+The Initial Case Report subject’s occupational history.
+Additional Profile specific implementation guidance:
+
+Both current and past occupation information should be sent if available.",,"the current structure of the content does not meet the description provided.  An occupational history requires documetnation of both occupation AND industry, and you need to be able to say if it is the current or usual occupation.  All of this is described in the Occupational Data for Health (ODH) model.  
+
+the current info here is simply one entry for an occupation.  it doesn't appear to allow you to specify if it is current or usual, and the industry is not included.  
+
+Therefore, either the description needs to be changed to match the limited content or the model needs to be enhanced, which is definately the preferred action. ",LC:  update to ODH templates when available,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+70,Electronic Case Reporting,,SD.4,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-extension-eicr-travel-history-address.html#sd-4-structuredefinition-extension-eicr-travel-history-address,NEG,Correction,,"eCR Extension: extension-eicr-travel-history-address
+
+Scope and Usage
+
+Where the patient traveled to as an address e.g.country, city, street address if applicable. At the least, address must contain the country.",,why is State not included?  City is irrelevant without State. ,LC:  Add State in travel history address,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+71,Electronic Case Reporting,,SD.23,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-rr-relevant-reportable-condition-plandefinition.html#sd-23-structuredefinition-rr-relevant-reportable-condition-pland,NEG,Clarification,,"Scope and Usage
+
+The Relevant Reportable Condition Information PlanDefinition establishes the core elements, extensions, vocabularies and value sets for representing the following for electronic case reporting:
+
+The Reportability Response case definitions and reporting requirements which include:
+
+The data that are needed to determine reportability
+For a given condition , the mandated timeframe in which the condition should be reported to the PHA.
+The name of the Responsible Agency(ies) in which the condition was determined to be or not be reportable
+The External Resources (text and links)in association with specific conditions",,"the purpose of this planned definition is not clear to me.  Also, I see that a component of this is to provide 'the data that are needed to determine reportability'.  This is dependent on the rules, and will need to be provided by the rules engine.  This is a requirement i have not previously seen.  also, are they wanting the data that was actually used to determine reportability, or the data that is needed, whether or not it was found to be reportable for the triggered condition?  Clarification would be needed.  ",LC:  Clarify use of PlanDefinition,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+72,Electronic Case Reporting,,SD.22,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-extension-ecr-practitionerrole.html#sd-22-structuredefinition-extension-ecr-practitionerrole,A-S,Clarification,,"Scope and Usage
+
+A reference to the PractitionerRole resource.",,an example is requested to clarify what is meant by practitioner role. ,LC: add example of practitioner role,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+73,Electronic Case Reporting,,SD.8,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-extension-rr-determination-of-reportability-rule.html#sd-8-structuredefinition-extension-rr-determination-of-reportabi,A-S,Clarification,,"Scope and Usage
+
+A rule that led to the determination of reportability.",,"this needs further clarification to explain what is expected from the CDS system. Are you expecting just enough detail to trace back to the rule that determined reportability or are you expecting something that would allow the person to 'see the logic that fired'.  at a minimum, I think you should expect an identifier and name for the rule engine and an identifier and name for the logic that was fired. That would allow for tracability.  ",LC: add detail on rule that matched to make determination of reportability,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+74,Electronic Case Reporting,,,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/Bundle-ecr-bundle-knowledge-distribution.html,A-A,,,"Resource Library:
+
+Generated Narrative with Details
+
+identifier: urn:oid:2.16.840.1.114222.4.11.7508
+
+name: rctc-valueset-library
+
+title: Reportable Condition Trigger Codes (RCTC)
+
+status: ACTIVE
+
+type: Asset Collection (Details : {http://hl7.org/fhir/library-type code 'asset-collection' = 'Asset Collection)
+
+date: 30/07/2018 12:00:00 AM
+
+description: Triggers for initiating decision support for electronic case reports",,"thank you for stating that the triggers are for initiating decision support!  This concept seems to get lost in many of the other places where things are described.  For example, in this section it appears as if the triggered event is a case report.  But the case report shouldn't be classified as a case report until decision support is completed.  ",LC:  Clarify use of triggers,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+75,Electronic Case Reporting,,SD.39,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-knowledge-distribution-valueset-library.html#sd-39-structuredefinition-knowledge-distribution-valueset-librar,NEG,Clarification,,"eCR Profile: knowledge-distribution-valueset-library
+
+Scope and Usage
+
+Defines the library containing the Reportable Condition Trigger Code value sets. These are used in Public Health as trigger codes to kick off creation of electronic initial case reports and reportability responses.","eCR Profile: knowledge-distribution-valueset-library
+
+Scope and Usage
+
+Defines the library containing the Reportable Condition Trigger Code value sets. These are used in Public Health as trigger codes to kick off decision support to determine reportability, as well as the creation of electronic initial case reports and reportability responses.",need to make is clear that trigger codes are NOT representative of reportable conditions until the data summary has been evaluated by logic. The fact that the eICR is being used to summarize the data is not an indication that the case is indeed reportable.  ,LC: Description of trigger codes,,,,,,Public Health,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+76,Electronic Case Reporting,,,,,,,downloads,http://hl7.org/fhir/us/ecr/2018Sep/downloads.html,A-S,Clarification,,"The following file contains all the value sets, profiles, extensions, list of pages and urls in the IG, etc defined as part of the this Implementation Guides.:",,"Remove the ""."" (period) before the colon at the end of the sentence.
+I suggest adding a link to somewhere in the FHIR spec that describes how this ""validator.pack"" file should be used. It is unclear if it is an executable that can be run, or if it is something that should be used in other tooling, somewhere...",Remove extraneous period and provide clarification on how to use the validator.pack download file.,,,,,,Public Health,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Sean McIlvenna ,sean.mcilvenna@lantanagroup.com ,,,,,,
+77,Electronic Case Reporting,,,,,,,summary,,A-C,,,,,"This is one of the most complete, comprehensive and well-organized FHIR implementation guides I have seen. Each of the pages are described very well, and are laid out cleanly. Great job!",Nice work!,,,,,,Public Health,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Sean McIlvenna ,sean.mcilvenna@lantanagroup.com ,,,,,,
+78,Electronic Case Reporting,,,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/profiles.html,A-S,Clarification,,,,"I suggest adding a paragraph to both main sections that describes what is expected to be in the transaction. It is unclear at a glance which of the profiles I should start with, even though the ""Composition"" and ""Communication"" profiles are first in the list of bullets. I would make it explicit where the starting point is for each of these transactions in this page.",LC:  add paragraph to describe composition and communication profiles,,,,,,Public Health,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Sean McIlvenna ,sean.mcilvenna@lantanagroup.com ,,,,,,
+79,Electronic Case Reporting,,,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/profiles.html,A-S,Clarification,,,,I suggest adding an explanation of why it is that Communication was chosen as opposed to Composition for the RR transaction. I know first hand that this was an explicit decision that had justification. The audience of the IG may wonder what that reasoning was.,LC:  add text to share reasoning for using Communiation for RR transaction.,,,,,,Public Health,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Sean McIlvenna ,sean.mcilvenna@lantanagroup.com ,,,,,,
+80,Electronic Case Reporting,,,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/capstatements.html,NEG,Correction,,,,"There appears to be only two CapabilityStatement instances (client and server) provided in the IG, yet it is referenced separately by both eICR transactions and RR transactions. This is a little mis-leading when in fact the same client and server CapabilityStatements are used by both transactions. I suggest either creating two additional CapabilityStatements that uses the profiles separately (according to which transaction is being referred to), or just simply merging the two high-level transaction bullets.",LC:  updates needed to Capability Statements,Yes,,,,,Public Health,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Sean McIlvenna ,sean.mcilvenna@lantanagroup.com ,,,,,,
+81,Electronic Case Reporting,,,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/eicr-composition-map.html,A-S,Correction,,,,"If time permits, it would be good to include the mappings in the StructureDefinitions within StructureDefinition.differential.element.mapping. This could faciliate automatic transformations in the future. Additionally, I'd recommend making the HTML table in the Mappings page fit better on the page. Perhaps using css like <table style=""overflow-x: auto;""> (so that a scrollbar shows up on the table when it exceeds the page width) or something like it.",LC:  add mappings in the StructureDefinition,,,,,,Public Health,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Sean McIlvenna ,sean.mcilvenna@lantanagroup.com ,,,,,,
+82,Electronic Case Reporting,,,,,,,mappings,http://hl7.org/fhir/us/ecr/2018Sep/eicr-composition-map.html,A-S,Correction,,,,"Provide a title for the page, so that it doesn't simply show ""eicr-composition-map.md"" in the title/breadcrumbs. The title should probably be ""StructureDefinition-eicr-composition"" since that is what the page is attached to. (and the same for rr)",LC:  Update titles on pages,,,,,,Public Health,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Sean McIlvenna ,sean.mcilvenna@lantanagroup.com ,,,,,,
+83,Electronic Case Reporting,,,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/examples.xml.zip,NEG,Correction,,,,The zip missing eCR and RR Bundle examples. ,LC:  Add zip to bundle examples,Yes,,,,,Public Health,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Rick Geimer ,rick.geimer@lantangroup.com ,,,,,,
+84,Electronic Case Reporting,,,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-ecr-knowledge-distribution.html,A-S,Clarification,,"Additional Profile specific implementation guidance:
+
+Instances:
+eCR Bundle Knowledge Distribution Instance","Additional Profile specific implementation guidance:
+
+Example:
+eCR Bundle Knowledge Distribution Instance","Change ""Instances"" to ""Example""",LC:  Confirm use of Instance vs Example,,,,L Conn changed from no vote to A-S.,,Public Health,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,,kp.sethi@lantanagroup.com ,,,,,,
+85,Electronic Case Reporting,,,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-rr-relevant-reportable-condition-plandefinition.html,A-S,Correction,,,,"I believe the extensions extension-rr-external-resource-type and extension-rr-priority should be moved to the ""action"" element above ""documentation"" in order to align with the CDA document. Otherwise, this information (when converting from a CDA document) gets repeated multiple times for each external reference.",LC:  determine correct placement of rr-external-resource-type and extenions-rr-priority,,,,,,Public Health,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,,kp.sethi@lantanagroup.com ,,,,,,
+86,Electronic Case Reporting,,,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-rr-relevant-reportable-condition-plandefinition.html,A-S,Clarification,,,,"PlanDefinition.goal.description should be either fixed with a specific value, or guidance should be provided to indicate that the value can be anything.",LC:  Need more guidance for PlanDefinition.goal.description,,,,,,Public Health,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,,kp.sethi@lantanagroup.com ,,,,,,
+87,Electronic Case Reporting,,,,,,,updates,,A-S,Enhancement,,,,Discuss and potentially update IG based on any eCR IG issues that come out of the testing in the FHIR connectathon.,Discuss and potentially update IG based on any eCR IG issues that come out of the testing in the FHIR connectathon.,,,,LC changed vote type from A-T to A-S.,,Public Health,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Sarah Gaunt ,sarah.gaunt@lantanagroup.com ,,,,,,
+88,Electronic Case Reporting,,top of each page,,,,,todo,,A-S,Correction,,TOC … TODO…,,Populate TOC and consolidate Table of Contents to appropriate location - avoid having on each page,Update TOC,,,,,,Public Health,,,,,,,,,,,,,Laura Conn ,CDC ,,lconn@cdc.gov ,,,,,,
+89,Electronic Case Reporting,,top of home page,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/index.html,A-S,Correction,,,,"Remove Yellow ""continuous integration build"" box from home page",Remove yellow box from homepage,,,,,,Public Health,,,,,,,,,,,,,Laura Conn ,CDC ,,lconn@cdc.gov ,,,,,,
+90,Electronic Case Reporting,,Diagnosis_Problem Triggers for Public Health Reporting,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/Bundle-ecr-bundle-knowledge-distribution.html#bundle-ecr-bundle-knowledge-distribution,A-C,,,,,"Where present, trigger codes should  be marked clearly as only examples.  The full trigger code value sets themselves should not reside in the IG.",Make sure triggers are explicitly examples,,,,,,Public Health,,,,,,,,,,,,,Laura Conn ,CDC ,,lconn@cdc.gov ,,,,,,
+91,Electronic Case Reporting,,,,,,,todo,,A-S,Enhancement,,,,A diagram is needed like the template heirarchy in the CDA eICR IG that shows how the profiles are related.,Add profile relationship diagram,,,,,,Public Health,,,,,,,,,,,,,Laura Conn ,CDC ,,lconn@cdc.gov ,,,,,,
+92,Electronic Case Reporting,,StructureDefinition-ecr-knowledge-distribution,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-ecr-knowledge-distribution.html#sd-38-structuredefinition-ecr-knowledge-distribution,A-S,Clarification,,,,Add an element to the PlanDefinition or elsewhere that associates a reporting program with related trigger codes.,associate triggers with reporting programs,,,,,,Public Health,,,,,,,,,,,,,Laura Conn ,CDC ,,lconn@cdc.gov ,,,,,,
+93,Electronic Case Reporting,,StructureDefinition-ecr-knowledge-distribution,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-ecr-knowledge-distribution.html#sd-38-structuredefinition-ecr-knowledge-distribution,A-Q,,,,,Should eventDefinition also be considered for triggering guidance?,eventDefinition,,,,,,Public Health,,,,,,,,,,,,,Laura Conn ,CDC ,,lconn@cdc.gov ,,,,,,
+94,Electronic Case Reporting,,Notice to Balloters,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/balloters.html,NEG,Correction,,Delay eICR construction,,eICR contruction timing/delay needs to be configurable within the EHR and there should not be any expectations that it can be set externally,eICR contruction timing/delay needs to be configurable within the EHR and there should not be any expectations that it can be set externally,,,,,,Public Health,,,,,,,,,,,,,Richard Hornaday ,Allscripts ,,richard.hornaday@allscripts.com ,,,,,,
+95,Electronic Case Reporting,,Notice to Balloters,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/balloters.html,NEG,Correction,,eICR periodic update,,"Presumes state is maintained at the EHR - this cannot be presumed.  eCR is transactional.  If follow-up information is needed, it needs to be ovetly requested and managed outsaide of the eICR/RR process (supplementary info request)","If follow-up information is needed, it needs to be ovetly requested and managed outsaide of the eICR/RR process (supplementary info request)",,,,,,Public Health,,,,,,,,,,,,,Richard Hornaday ,Allscripts ,,richard.hornaday@allscripts.com ,,,,,,
+96,Electronic Case Reporting,,Notice to Balloters,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/balloters.html,NEG,Correction,,eICR episode of care close-out,,"Presumes state is maintained at the EHR - this cannot be presumed.  eCR is transactional.  If follow-up information is needed, it needs to be ovetly requested and managed outsaide of the eICR/RR process (supplementary info request)","If follow-up information is needed, it needs to be ovetly requested and managed outsaide of the eICR/RR process (supplementary info request)",,,,,,Public Health,,,,,,,,,,,,,Richard Hornaday ,Allscripts ,,richard.hornaday@allscripts.com ,,,,,,
+97,Electronic Case Reporting,,"Profiles, Extensions & Transactions",,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-eicr-encounter.html,A-C,,,,,"Is the encounter profile mandatory?  
+Please note that any assumption that information within a single encounter will be aggregated is dependant on provider-configurable timers so it is possible that there may be multiple eICR for a single encounter.
+Please note that it cannot be assumed or counted upon that information within a single encounter will be correlated across multiple eICRs generated within the EHR.  
+The FHIR implementation should not be dependant on any aggregation or correlation within the EHR.",The FHIR implementation should not be dependant on any aggregation or correlation within the EHR.,,,,,,Public Health,,,,,,,,,,,,,Richard Hornaday ,Allscripts ,,richard.hornaday@allscripts.com ,,,,,,
+98,Electronic Case Reporting,,"Profiles, Extensions & Transactions",,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/Bundle-ecr-bundle-knowledge-distribution.html,A-C,,,"Entry 2 - Full URL = http://hl7.org/fhir/us/ecr/Library/rctc
+
+Resource Library:
+
+
+Generated Narrative with Details
+
+identifier: urn:oid:2.16.840.1.114222.4.11.7508
+
+name: rctc-valueset-library
+
+title: Reportable Condition Trigger Codes (RCTC)
+
+status: ACTIVE
+
+type: Asset Collection (Details : {http://hl7.org/fhir/library-type code 'asset-collection' = 'Asset Collection)
+
+date: 30/07/2018 12:00:00 AM
+
+description: Triggers for initiating decision support for electronic case reports
+
+effectivePeriod: 30/10/2018 12:00:00 AM --> (ongoing)
+
+relatedArtifact: , , , ",,"§ 170.315(f)(5) - Transmission to public health agencies – electronic case reporting requires that the eICR contains ""(4)An identifier representing the row and version of the trigger table that triggered the case report"".  From earlier clarification, this is intended to be the specific version of the RCTC information.  It is not clear from the current text how, or even if, this key information is communicated."," It is not clear from the current text how, or even if, RCTC Version information is communicated.",,,,,,Public Health,,,,,,,,,,,,,Richard Hornaday ,Allscripts ,,richard.hornaday@allscripts.com ,,,,,,
+99,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/balloters.html,NEG,Clarification,,Difficulties related to CDA using nullFlavors while FHIR does not,,"This section describes a discrepancy beteen the content of the CDA-based eCR and the FHIR version. If the two different formats are not functionally and content-wise equivalent, having two diverging specifications will lead to implementations of neither",The need for a FHIR-based eCR has not been demonstrated.,,,,,,Public Health,,,,,,,,,,,,,Vassil Peytchev ,Epic ,,vassil@epic.com ,,,,,,
+100,Electronic Case Reporting,,,,,,,ballot-intro,http://hl7.org/fhir/us/ecr/2018Sep/design-considerations.html,NEG,Clarification,,"The Knowledge Distribution transaction needs to be able to help orchestrate this reporting which may span a broad spectrum from trigger codes in an EHR all the way to a healthcare-based API connected rules engine that is external to the EHR, but operating inside of healthcare or at a healthcare Business Associate. To achieve this orchestration the Knowledge Distribution resource needs to guide the Triggering, Rule Processing, Clinical Feedback, Creation of eICR, Routing and Sending components of eCR and interactions between them.",,"This sounds a very much like a workflow design, yet there seems to be no reference made, or attention paid, to the workflow-related parts of the FHIR specification, and the various patterns that are discussed there. An Implementation guide should choose one of the workflow implementation patterns and describe its use in order to support interoperable implementations.",It is not clear how one would implement FHIR-based eCR,,,,,,Public Health,,,,,,,,,,,,,Vassil Peytchev ,Epic ,,vassil@epic.com ,,,,,,
+101,Electronic Case Reporting,,,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/profiles.html,A-C,,,"Electronic Initial Case Report (eICR) Transaction and Profiles
+Reportability Response (RR) Transaction and Profiles
+Knowledge Distribution Transaction and Profiles",,"The section titles refer to ""Transactions"", but there is no mention of any actual transactions, how the profiled resources will be used to exchange/push the required information, and who will be responsible for the management of these resources. The whole infrastructure part seems to be missing.",It is not clear how one would implement FHIR-based eCR,,,,L Conn changed from no vote to A-C.,,Public Health,,,,,,,,,,,,,Vassil Peytchev ,Epic ,,vassil@epic.com ,,,,,,
+102,Electronic Case Reporting,,,,,,,(profiles),http://hl7.org/fhir/us/ecr/2018Sep/StructureDefinition-ecr-knowledge-distribution.html,A-Q,,,,,There are references to TriggerDefinition that point to nothing.,"It is not clear how one would implement FHIR-based eCR
+Missing part of the profile?",,,,L Conn changed from no vote to A-Q.,,Public Health,,,,,,,,,,,,,Vassil Peytchev ,Epic ,,vassil@epic.com ,,,,,,

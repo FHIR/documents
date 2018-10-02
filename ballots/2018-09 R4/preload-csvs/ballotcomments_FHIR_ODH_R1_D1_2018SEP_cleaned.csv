@@ -1,0 +1,143 @@
+﻿"Comment 
+Number",Ballot,Chapter,Section,Page #,Line #,Artifact ID,Resource(s),HTML Page name(s),URL,Vote and Type,Sub-category,Tracker #,Existing Wording,Proposed Wording,Ballot Comment,Summary,In person resolution requested,Comment grouping,Schedule,Triage Note,Pubs,Disposition WG,Disposition,"Disposition Comment
+or
+Retract/Withdraw details",Disposition/Retract/ Withdrawal Date,Mover / seconder,For ,Against,Abstain,Retracted / Withdrawn,Disposition External Organization,Responsible Person,Change Applied,Substantive Change,Submitted By,Organization,On behalf of,Commenter Email,Submitter Tracking ID,Referred To,Received From,Notes,,
+1,US Occupational Data for Health,,,,,,,,,A-Q,,17781,,,,,,,,,,,,,,,,,,,,,,,Craig Newman ,,,csnewman88@gmail.com ,,,,,,
+2,US Occupational Data for Health,,Overall,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/index.html,NEG,Enhancement,,"""This Implementation Guide contains guidance, new logical models, profiles and extensions to implement support for Occupational Data for Health (ODH). ODH is primarily designed to facilitate clinical care, including population health; ODH also can be used to support public health reporting, population health, and similar value-based care. ODH is not designed to support billing activities.""",,This IG does not contain any guidance on how to use the artifacts in the IG to meet the stated objectives.  For example there is a composition artifact defined.  Should that be transacted as a FHIR document or using a FHIR RESTful approach.  Could I create a panel and use that instead ?   Without this guidance or at a few use cases to walk through I think the IG is incomplete.,add guidance on how to use the IG artifacts,,,,,,,,,,,,,,,,,,,Eric Haas ,Health eData Inc ,,emhaas@healthedatainc.com ,,,,,,
+3,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/logical.html,A-S,Correction,,"In the definition of CombatZonePeriod and PersonEmploymentStatus: ""Multiple periods in [name] should be recorded using multiple FHIR resources.""","In the definition of CombatZonePeriod and PersonEmploymentStatus: ""Multiple periods in [name] should be recorded using multiple instances of this profile.""",Primary logical models defined as part of this Implementation Guide,"Correct ""multiple FHIR resources"" statements in definitions",Yes,,,,,,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,gluensman@cdc.gov ,,,,,,
+4,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/logical.html,A-S,Clarification,,,,"Primary logical models defined as part of this Implementation Guide
+
+The definition of OccupationalDataForHealth is incorrect.",Correct OccupationalDataForHealth definition,Yes,,,,,,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,gluensman@cdc.gov ,,,,,,
+5,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/logical.html,A-S,Enhancement,,"The potential for exposure to Occupational Hazard(s) related to an Occupation and/or an Industry can change over time, and a person could have been in and out of their Usual Work over time, so additional data are helpful to fully evaluate the possible impact of the person’s Usual Work on their health and guide appropriate use of screening tests to detect early disease. Example: a person has worked for a total of 30 years as a ‘secretary’ (Occupation), but in various industries, mostly hotel construction. Her Usual Occupation is ‘secretary’ and her Usual Industry is ‘hotel construction.’ Usual Work does not include work that was unpaid or voluntary.","The potential for exposure to Occupational Hazard(s) related to an Occupation and/or an Industry can change over time, and a person could have been in and out of their Usual Work over time, so additional data are helpful to fully evaluate the possible impact of the person’s Usual Work on their health and guide appropriate use of screening tests to detect early disease. Example: a person has worked for a total of 30 years as a building carpenter (Occupation), but in various Industries, mostly hotel construction. Her Usual Occupation is ‘building carpenter’ and her Usual Industry is 'hotel construction.' Usual Work does not include work that was unpaid or voluntary.",Primary logical models defined as part of this Implementation Guide,Improve example in definition of Usual Work,Yes,,,,,,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,gluensman@cdc.gov ,,,,,,
+6,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/StructureDefinition-odh-PastOrPresentJob-model.html,A-S,Clarification,,,,"PastOrPresentJobModel
+
+Clarify the inclusion of the concept of occupation. It is not mentioned in the Descriptions and constraints.",Clarify occupation concept in PastOrPresentJob,Yes,,,,,,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,gluensman@cdc.gov ,,,,,,
+7,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/index.html,A-S,Enhancement,,,,"Occupational Data for Health Implementation Guide
+
+Remove or replace generic descriptions that are not specifically relevant in each logical model and profile. They make it very difficult to understand the models.",Remove/replace generic descriptions in logical models and profiles,Yes,,,,,,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,gluensman@cdc.gov ,,,,,,
+8,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/StructureDefinition-odh-OccupationalDataForHealth-model.html,A-S,Correction,,,,"OccupationalDataForHealthModel
+
+Remove reference to ""current OccupationalDataSummary."" which does not exist. Provide a clearer description for the OccupationalDataSectionModel.",Improve OccupationalDataSectionModel description,Yes,,,,,,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,gluensman@cdc.gov ,,,,,,
+9,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/StructureDefinition-odh-OccupationalDataForHealth-model.html,A-S,Enhancement,,,,"OccupationalDataForHealthModel
+
+Remove ""OccupationalDataSection""- there is no need to have a distinct section within an OccupationalDataForHealthModel""",Remove OccupationalDataSection,Yes,,,,,,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,gluensman@cdc.gov ,,,,,,
+10,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/StructureDefinition-odh-OccupationalDataForHealth-model.html,A-S,Correction,,,,"OccupationalDataForHealthModel
+
+The definition of OccupationalDataForHealth is incorrect.",Correct OccupationalDataForHealth definition,Yes,,,,,,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,gluensman@cdc.gov ,,,,,,
+11,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/StructureDefinition-odh-PastOrPresentJob-model.html,A-Q,,,,,"PastOrPresentJobModel
+
+Do individual data elements, such as Work Schedule and Supervisory Level, need to be described using individual models?",Are individual models needed for each data element,Yes,,,,,,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,gluensman@cdc.gov ,,,,,,
+12,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/StructureDefinition/odh-PastOrPresentIndustry-model,A-S,Clarification,,,,"PastOrPresentIndustryModel
+
+Improve the definition of Past or Present Industry to clarify that it pertains to the specific job to which it is related.",Clarify definition of Past Or Present Industry,Yes,,,,,,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,gluensman@cdc.gov ,,,,,,
+13,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/index.html,A-S,Correction,,,,"Occupational Data for Health Implementation Guide
+
+Correct the terminology bindingsthat have an item with a name ""?ext.""",Correct ?ext in Terminology binding names,Yes,,,,,,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,gluensman@cdc.gov ,,,,,,
+14,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/StructureDefinition-odh-UsualWork-model.html,A-S,Correction,,"Description od UsualIndustryModel: ""The industry (type of business) which the subject has worked in for the longest duration while in the usual occupation.""","Description od UsualIndustryModel: ""The industry (type of business) in which the subject has worked in for the longest duration while in the usual occupation.""",UsualWorkModel,Correct UsualIndustryModel description,Yes,,,,,,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,gluensman@cdc.gov ,,,,,,
+15,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/StructureDefinition-odh-UsualWork-model.html,A-S,Enhancement,,,,"UsualWorkModel
+
+Clarify the inclusion of the concept of usual occupation. It is not mentioned in the Descriptions and constraints.",Clarify occupation concept in UsualWork,Yes,,,,,,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,gluensman@cdc.gov ,,,,,,
+16,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/StructureDefinition-odh-UsualWork.html,A-S,Correction,,"Description of coding for UsualIndustry component: ""History of Usual industry""","Description of coding for UsualIndustry component: ""Usual industry""",UsualWorkProfile,Correct UsualIndustry coding component description,Yes,,,,,,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,gluensman@cdc.gov ,,,,,,
+17,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/index.html,A-S,Clarification,,,,"Occupational Data for Health Implementation Guide
+
+Maintain alignment across HL7 product families",Align ODH cross product families,Yes,,,,,,,,,,,,,,,,,,Genny Luensman ,CDC/NIOSH ,,gluensman@cdc.gov ,,,,,,
+18,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/index.html,A-S,Enhancement,,"While this profile is specified for the US Realm, the design is intended to support international needs. Three of the referenced value sets supporting Occupation, Industry, and Supervisory Level are necessarily US specific, and the remaining three supporting Work Schedule, Employment Status, and Work Classification are defined to support international concepts. ",,"Home - Questions for Reviewers
+
+Has there been consideration r/t the amount of PTO (personal Time Off ) available to the patient and how much they use/loose?  The use for international triggered my question. The US compared to some European countries have a large gap in available time.  ",US versus International Perspective,,,,,,,,,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+19,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/logical.html,A-Q,,,,,"Logical Model - RetirementDateModel
+
+Has there been any discussion on patient planned retirement (future date)?
+Retirement likely results in changes in income and healthcare. Is the patient preparing or anticipating the need to adapt? ",Retirement - Future Date Consideration,,,,,,,,,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+20,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/valuesets.html,NEG,Enhancement,,,,"Value Sets
+
+The value sets tab lists only yes / No. Should it not also list the value sets found on the logical model tab, the terminology bindings? At a minimum Usual Industry. 
+Value Set Code PHVS_Industry_CDC_Census2010
+Value Set Name Industry CDC Census 2010
+Value Set OID 2.16.840.1.114222.4.11.7187
+",Value Sets Tab only lists one value set. ,,,,,,,,,,,,,,,,,,,George Dixon ,,,george.dixon@allscripts.com ,,,,,,
+21,US Occupational Data for Health,,,,,,,(profiles),"http://hl7.org/fhir/us/odh/2018Sep/logical.html
+
+and
+
+http://hl7.org/fhir/us/odh/2018Sep/StructureDefinition-odh-PersonEmploymentStatus-model.html
+
+and 
+
+http://hl7.org/fhir/us/odh/2018Sep/StructureDefinition-odh-OccupationalDataSection-model.html",A-S,Correction,,"PersonEmploymentStatus definition:
+
+The self-reported current and historical data about a person’s economic relationship to work (e.g. having one or more jobs), including start and end dates. A person’s Employment Status could change over time, for example, a person could be employed following a period of choosing to not be in the labor force. Outside of ODH, the employment arrangement between an employer and a person (one job) has sometimes been referred to as a person’s ‘employment status.’ However, in ODH Employment Status is used to characterize a person, Work Classification is used to characterize a job, and Retirement Date is used to characterize a person as retired.","The self-reported current or historical status about a person’s economic relationship to work (e.g. having one or more jobs), including start and end dates. ","Logical Models
+
+and 
+
+PersonEmploymentStatusModel
+
+This info needs to be fixed in all the places where the definition is found.  
+
+the first sentence of the definition is very confusing and dense.  What is meant by 'current and historical data…'?  Should it be 'current or historical data....'?
+
+I think the word 'data' is  not helpful.  can you use the word 'status' in the definition if it is in the title?
+","need clarification to be readable and understandable.   I see this definition repeated though in other places as well, so all the places where it is defined would need to be fixed.  See ",,,,,,,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+22,US Occupational Data for Health,,,,,,,(profiles),"http://hl7.org/fhir/us/odh/2018Sep/logical.html
+
+and
+
+http://hl7.org/fhir/us/odh/2018Sep/StructureDefinition-odh-PersonEmploymentStatus-model.html
+
+",A-S,Correction,,"PersonEmploymentStatus definition:
+
+…..
+However, in ODH Employment Status is used to characterize a person, Work Classification is used to characterize a job, and Retirement Date is used to characterize a person as retired.","’However, in ODH, Employment Status is used to characterize a person, Work Classification is used to characterize a job, and Retirement Date is used to characterize a person as retired.","Logical Models
+
+and 
+
+PersonEmploymentStatusModel
+
+This info needs to be fixed in the two places where the definition is found.  
+
+
+The last sentence needs a comma after 'in ODH'   ",fix Logical Models and PersonEmploymentStatusModel,,,,,,,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+23,US Occupational Data for Health,,,,,,,(profiles),"http://hl7.org/fhir/us/odh/2018Sep/logical.html
+
+and
+
+http://hl7.org/fhir/us/odh/2018Sep/StructureDefinition-odh-RetirementDate-model.html",A-T,,,"Retirement date description: 
+..........
+However, in ODH Employment Status is used to characterize a person’s relationship to working (e.g., employed, unemployed) and Retirement Date is used to characterize whether or not a person self-identifies as retired. For example, a person could be ‘employed’ (Employment Status) and have retired from a previous job (recorded at the Person level as a Retirement Date).","......
+However, in ODH, Employment Status is used to characterize a person’s relationship to working (e.g., employed, unemployed) and Retirement Date is used to characterize whether or not a person self-identifies as retired. For example, a person could be ‘employed’ (Employment Status) and have retired from a previous job (recorded at the Person level as a Retirement Date).","Logical Models
+
+and
+
+RetirementDateModel
+
+This info needs to be fixed in the two places where the definition is found.  
+
+The last sentence needs a comma after 'in ODH'   ",fix Logical Models and RetirementDateModel,,,,,,,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+24,US Occupational Data for Health,,,,,,,(profiles),"http://hl7.org/fhir/us/odh/2018Sep/logical.html
+
+and 
+
+http://hl7.org/fhir/us/odh/2018Sep/StructureDefinition-odh-UsualWork-model.html",A-S,Correction,,"UsualWork definition:
+
+…..
+Example: a person has worked for a total of 30 years as a ‘secretary’ (Occupation), but in various industries, mostly hotel construction.","UsualWork definition:
+
+…..
+Example: a person has worked for a total of 30 years as a ‘secretary’ (Occupation), but in various industries, mostly involving boat construction ","Logical Models
+
+and 
+
+UsualWork
+
+this seems like an odd example to use as you still wouldn't expect the secretary to be at the construction site.  I think the point is more valid if you pick an industry where the person would have an exposure at their work that is not expected for their occupation.  therefore, i would suggest changing the industry to an enterprise such as a power plant or an indoor firing range or boat construction, or a mine operation to illustrate the point. ",change UsualWork example,,,,,,,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+25,US Occupational Data for Health,,,,,,,(profiles),http://hl7.org/fhir/us/odh/2018Sep/StructureDefinition-odh-CombatZonePeriod-model-definitions.html,A-S,Correction,,"odh-CombatZonePeriod-model.recorded definition
+
+The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.",Information ascribing the record to a particular contributor or responsible person.,"CombatZonePeriodModel
+
+the current definition is not relevant for this situation.  I like the definition for the attribution model that shows when you go to the type.  Suggest using that instead. ",change CombatZonePeriodModel definition,,,,,,,,,,,,,,,,,,,Greg Staudenmaier  ,US Department of Veterans Affairs ,Catherine Staes ,catherine.staes@hsc.utah.edu ,,,,,,
+26,US Occupational Data for Health,,Background,,,,,(profiles),,A-T,,,The incorporation of self-reported ODH into Electronic health records (EHRs) and other IT healthcare systems provides an opportunity to improve health in relation to work. ,The incorporation of self-reported ODH into Electronic Health Records (EHR) and other IT healthcare systems provides an opportunity to improve health in relation to work. ,Capitalize Electronic Healh Records ,Capitalize Electronic Healh Records ,,,,,,,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Kimberly Glenn ,kimberly.glenn@lantanagroup.com ,,,,,,
+27,US Occupational Data for Health,,Background,,,,,(profiles),,A-T,,, ODH has not been broadly recognized as a social determinate of health and has not yet been a priority for inclusion in IT healthcare systems in a structured way that fully supports direct patient care and occupational public health activities., ODH has not been broadly recognized as a social determinant of health and has not yet been a priority for inclusion in IT healthcare systems in a structured way that fully supports direct patient care and occupational public health activities.,Change determinate to determinant,Change determinate to determinant,,,,,,,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Kimberly Glenn ,kimberly.glenn@lantanagroup.com ,,,,,,
+28,US Occupational Data for Health,,Scope,,,,,(profiles),,A-Q,,,ODH is not designed to support billing activities.,,"By billing activities, does this mean that this would not be linked to workman's comp?",billing activities question,,,,,,,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Kimberly Glenn ,kimberly.glenn@lantanagroup.com ,,,,,,
+29,US Occupational Data for Health,,Known Issues and Limitations,,,,,(profiles),,A-Q,,,"Retirement date is captured as how it relates to a person, not to a specific job.",,Will this be the person's final retirement or will there be an allowance for multiple retirements?,will there be an allowance for multiple retirements,,,,,,,,,,,,,,,,,,,Kanwarpreet Sethi ,Lantana Consulting Group ,Kimberly Glenn ,kimberly.glenn@lantanagroup.com ,,,,,,
+30,US Occupational Data for Health,,,,,,,,,NEG,,18285,,,,,,,,,,,,,,,,,,,,,,,Robert Hausam ,Hausam Consulting LLC ,,rob@hausamconulting.com ,,,,,,
+31,US Occupational Data for Health,,,,,,,,,NEG,,18286,,,,,,,,,,,,,,,,,,,,,,,Robert Hausam ,Hausam Consulting LLC ,,rob@hausamconulting.com ,,,,,,
+32,US Occupational Data for Health,,,,,,,,,A-S,,18287,,,,,,,,,,,,,,,,,,,,,,,Robert Hausam ,Hausam Consulting LLC ,,rob@hausamconulting.com ,,,,,,
