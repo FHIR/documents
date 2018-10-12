@@ -10,6 +10,8 @@
   <xsl:variable name="items" as="element(item)*" select="$allItems[ballot='2015-May Core']"/>-->
   <xsl:template match="/">
 <xsl:message select="count($inScopeItems)"/>
+<xsl:message select="count($allItems)"/>
+<xsl:message select="count($items)"/>
 <xsl:message select="$inScopeItems[1]"/>
     <xsl:if test="count($items)=0">
       <xsl:message terminate="yes" select="'Must have a file named tracker.xml that is the download from https://docs.google.com/a/lmckenzie.com/uc?id=0B285oCHDUr09Q2VENW9Ta005QkE'"/>

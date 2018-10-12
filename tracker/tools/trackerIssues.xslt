@@ -64,7 +64,7 @@
         <xsl:with-param name="priority" select="1"/>
       </xsl:call-template>
       <xsl:call-template name="showError">
-        <xsl:with-param name="items" select="$relevantItems[@status='Triaged' and @category='Correction' and reviewingWorkGroup='FHIR Tooling/Pubs' and ballot='None']"/>
+        <xsl:with-param name="items" select="$relevantItems[@status='Triaged' and @category='Correction' and reviewingWorkGroup=('FHIR Core Tooling/Pubs', 'FHIR IG Tooling/Pubs') and ballot='None']"/>
         <xsl:with-param name="message" select="'Tooling/Pubs corrections should be auto-approved'"/>
         <xsl:with-param name="elements" select="('status', 'category', 'reviewingWorkGroup', 'ballot')"/>
         <xsl:with-param name="assignedTo" select="'Admin'"/>
@@ -109,7 +109,7 @@
         <xsl:with-param name="elements" select="('changeType', 'status')"/>
       </xsl:call-template>
       <xsl:call-template name="showError">
-        <xsl:with-param name="items" select="$relevantItems[ballot[not(.=('None', '2015-Jan Core'))] and not(@retractWithdraw) and not(@moverSeconderFor-Against-Abstain) and not(@status=('Submitted', 'Triaged', 'Waiting for Input', 'Duplicate')) and not(@category='Typo') and not(@category='Correction' and reviewingWorkGroup='FHIR Tooling/Pubs')]"/>
+        <xsl:with-param name="items" select="$relevantItems[ballot[not(.=('None', '2015-Jan Core'))] and not(@retractWithdraw) and not(@moverSeconderFor-Against-Abstain) and not(@status=('Submitted', 'Triaged', 'Waiting for Input', 'Duplicate')) and not(@category='Typo') and not(@category='Correction' and reviewingWorkGroup=('FHIR Core Tooling/Pubs', 'FHIR IG Tooling/Pubs'))]"/>
         <xsl:with-param name="message" select="'Item has a closed status but no vote is recorded'"/>
         <xsl:with-param name="elements" select="('ballot', 'moverSeconderFor-Against-Abstain', 'status', 'retractWithdraw')"/>
       </xsl:call-template>
@@ -186,19 +186,24 @@
         <xsl:with-param name="elements" select="('moverSeconderFor-Against-Abstain', 'ballotResolution')"/>
       </xsl:call-template>
       <xsl:call-template name="showError">
-<!--        <xsl:with-param name="items" select="$relevantItems[@resolutionDate and not(@ballot-weight='Affirmative') and not(@moverSeconderFor-Against-Abstain or @retractWithdraw) and @category!='Typo' and not(@category='Correction' and reviewingWorkGroup='FHIR Tooling/Pubs')]"/>-->
-        <xsl:with-param name="items" select="$relevantItems[@resolutionDate and ballot!='None' and not(@ballot-weight='Affirmative') and not(@moverSeconderFor-Against-Abstain or @retractWithdraw) and @category!='Typo' and not(@category='Correction' and reviewingWorkGroup='FHIR Tooling/Pubs')]"/>
+        <xsl:with-param name="items" select="$relevantItems[not(@status=('Submitted', 'Triaged', 'Waiting for Input', 'Duplicate')) and not(@ballotResolution or @retractWithdraw[.!='None'])]"/>
+        <xsl:with-param name="message" select="'Item is closed and not withdrawn, but no ballot resolution recorded'"/>
+        <xsl:with-param name="elements" select="('status', 'retractWithdraw', 'ballotResolution')"/>
+      </xsl:call-template>
+      <xsl:call-template name="showError">
+<!--        <xsl:with-param name="items" select="$relevantItems[@resolutionDate and not(@ballot-weight='Affirmative') and not(@moverSeconderFor-Against-Abstain or @retractWithdraw) and @category!='Typo' and not(@category='Correction' and reviewingWorkGroup=('FHIR Core Tooling/Pubs', 'FHIR IG Tooling/Pubs'))]"/>-->
+        <xsl:with-param name="items" select="$relevantItems[@resolutionDate and ballot!='None' and not(@ballot-weight='Affirmative') and not(@moverSeconderFor-Against-Abstain or @retractWithdraw) and @category!='Typo' and not(@category='Correction' and reviewingWorkGroup=('FHIR Core Tooling/Pubs', 'FHIR IG Tooling/Pubs'))]"/>
         <xsl:with-param name="message" select="'A resolution date is recorded but no vote is specified and the element isn''t marked as retracted or withdrawn and item isn''t an affirmative vote'"/>
         <xsl:with-param name="elements" select="('ballot', 'resolutionDate', 'moverSeconderFor-Against-Abstain', 'retractWithdraw', 'ballot-weight')"/>
       </xsl:call-template>
       <xsl:call-template name="showError">
-        <xsl:with-param name="items" select="$relevantItems[@resolutionDate and ballot!='None' and not(@ballotResolution=('Persuasive', 'Not Related', 'Considered for Future Use', 'Duplicate')) and not(resolution[normalize-space(.)!=''])]"/>
-        <xsl:with-param name="message" select="'A resolution date is recorded and resolution isn''t Persuasive, Not Related or Considered for Future Use but there is no text in resolution'"/>
+        <xsl:with-param name="items" select="$relevantItems[@resolutionDate and ballot!='None' and not(@ballotResolution=('Persuasive', 'Not Related', 'Considered - No action required', 'Considered for Future Use', 'Duplicate')) and not(resolution[normalize-space(.)!=''])]"/>
+        <xsl:with-param name="message" select="'A resolution date is recorded and resolution isn''t Persuasive, Not Related, Considered - No action required or Considered for Future Use but there is no text in resolution'"/>
         <xsl:with-param name="elements" select="('resolutionDate', 'ballot', 'ballotResolution', 'resolution')"/>
       </xsl:call-template>
       <xsl:call-template name="showError">
-        <xsl:with-param name="items" select="$relevantItems[ballot!='None' and not(@ballotResolution='Persuasive') and not(@status=('Submitted','Triaged','Waiting for Input','Duplicate')) and not(resolution[descendant::text()[normalize-space(.)!='']])]"/>
-        <xsl:with-param name="message" select="'Ballot item is closed with ballot resolution other than Persuasive and doesn''t have a resolution specified'"/>
+        <xsl:with-param name="items" select="$relevantItems[ballot!='None' and not(@ballotResolution=('Persuasive', 'Considered - No action required')) and not(@status=('Submitted','Triaged','Waiting for Input','Duplicate')) and not(resolution[descendant::text()[normalize-space(.)!='']])]"/>
+        <xsl:with-param name="message" select="'Ballot item is closed with ballot resolution other than Persuasive or Considered - No action required and doesn''t have a resolution specified'"/>
         <xsl:with-param name="elements" select="('ballot', 'ballotResolution', 'status', 'resolution')"/>
       </xsl:call-template>
       <xsl:call-template name="showError">
