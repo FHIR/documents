@@ -1,0 +1,120 @@
+"Comment Number",Ballot,Chapter,Section,Page #,Line #,Artifact ID,Resource(s),HTML Page name(s),URL,Vote and Type,Sub-category,Tracker #,Existing Wording,Proposed Wording,Ballot Comment,Summary,In person resolution requested,Comment grouping,Schedule,Triage Note,Pubs,Disposition WG,Disposition,"Disposition Comment or Retract/Withdraw details",Disposition/Retract/ Withdrawal Date,Mover / seconder,For ,Against,Abstain,Retracted / Withdrawn,Disposition External Organization,Responsible Person,Change Applied,Substantive Change,Submitted By,Organization,On behalf of,Commenter Email,Submitter Tracking ID,Referred To,Received From,Notes,,
+1,LOINC - IVD Test Code (LIVD),,1.1.1,,,,,,http://hl7.org/fhir/uv/livd/2018Sep/general.html,NEG,Enhancement,,[LOINC},{[LOINC]},"Structure and Supported Mappings
+
+[LOINC] – appears to be optional, and that makes since, but the description under “One vendor IVD Test Result to many LOINCs” claims the structure supports multiple LOINC.  Should it be {[LOINC]}, or is this supported another way.  If so, how?
+Recommend adding the following clarifying statement at the end of the section:  Alternately stated: Within the structure above, “IVD Test Result” codes are unique per “Equipment” group, but can repeat across “Equipment” groups.   “LOINC” is not unique, and may repeat when a single LOINC can be mapped to more than one “IVD Test Result”.",Add clarifying statement about uniquness and repeats for IVD Test Codes and LOINC.,Yes,,,,,Orders & Observations,,,,,,,,,,,,,David Burgess ,LabCorp ,,burgesd@labcorp.com ,,,,,,
+2,LOINC - IVD Test Code (LIVD),,1.1.2.1,,,,,,http://hl7.org/fhir/uv/livd/2018Sep/general.html,NEG,Correction,,Publication,Vendor Publication,"Publication
+
+Should be “Vendor Publication”, or the name in the structure section 1.1.1 should be changed to “Publication” to maintain constancy.",Change name to Vendor Publication.,,,,,,Orders & Observations,,,,,,,,,,,,,David Burgess ,LabCorp ,,burgesd@labcorp.com ,,,,,,
+3,LOINC - IVD Test Code (LIVD),,1.1.5,,,,,,http://hl7.org/fhir/uv/livd/2018Sep/general.html,NEG,Correction,,,,"Data Definitions
+
+Section 1.1.2.1 through 1.1.2.5.  Confused by the presence of five elements within Data Definitions, while the Structure only lists four data elements.  Should one be a sub-element, or do we need to adjust the structure to include 5 data elements?",Make number of Data Definitions elements consistent.,Yes,,,,,Orders & Observations,,,,,,,,,,,,,David Burgess ,LabCorp ,,burgesd@labcorp.com ,,,,,,
+4,LOINC - IVD Test Code (LIVD),,2.10,,,,,,http://hl7.org/fhir/uv/livd/2018Sep/extension-ext-capability.html,NEG,Correction,,Yet to be done: xref,,"Extension: LIVID Test Capability
+
+Suggest this be completed or removed.",Complete or remove Extension: LIVD Test Capability.,,,,,,Orders & Observations,,,,,,,,,,,,,David Burgess ,LabCorp ,,burgesd@labcorp.com ,,,,,,
+5,LOINC - IVD Test Code (LIVD),,2.12,,,,,,http://hl7.org/fhir/uv/livd/2018Sep/extension-ext-vendorReferenceIdentifier.html,NEG,Correction,,Yet to be done: xref,,"Extension: LIVD Vendor Reference Identifier
+
+Suggest this be completed or removed.",Complete or remove LIVD Vendor Reference.,,,,,,Orders & Observations,,,,,,,,,,,,,David Burgess ,LabCorp ,,burgesd@labcorp.com ,,,,,,
+6,LOINC - IVD Test Code (LIVD),,2.14.0.2,,,,,,http://hl7.org/fhir/uv/livd/2018Sep/valueset-loinc-livd.html,NEG,Correction,,No Expansion for this valueset (not supported by Publication Tooling),,"Expansion
+
+Suggest this be completed or removed.",Complete or remove value set expansion.,,,,,,Orders & Observations,,,,,,,,,,,,,David Burgess ,LabCorp ,,burgesd@labcorp.com ,,,,,,
+7,LOINC - IVD Test Code (LIVD),,,,,,,,,A-S,,18262,,,,,,,,,,,,,,,,,,,,,,,Eric Haas ,Health eData Inc ,,emhaas@healthedatainc.com ,,,,,,
+8,LOINC - IVD Test Code (LIVD),,,,,,,,,A-S,,18263,,,,,,,,,,,,,,,,,,,,,,,Eric Haas ,Health eData Inc ,,emhaas@healthedatainc.com ,,,,,,
+9,LOINC - IVD Test Code (LIVD),,,,,,,,,A-C,,18265,,,,,,,,,,,,,,,,,,,,,,,Eric Haas ,Health eData Inc ,,emhaas@healthedatainc.com ,,,,,,
+10,LOINC - IVD Test Code (LIVD),,,,,,,,,A-S,,18266,,,,,,,,,,,,,,,,,,,,,,,Eric Haas ,Health eData Inc ,,emhaas@healthedatainc.com ,,,,,,
+11,LOINC - IVD Test Code (LIVD),,,,,,,,,NEG,,18267,,,,,,,,,,,,,,,,,,,,,,,Eric Haas ,Health eData Inc ,,emhaas@healthedatainc.com ,,,,,,
+12,LOINC - IVD Test Code (LIVD),,,,,,,,,NEG,,18268,,,,,,,,,,,,,,,,,,,,,,,Eric Haas ,Health eData Inc ,,emhaas@healthedatainc.com ,,,,,,
+13,LOINC - IVD Test Code (LIVD),,,,,,,,,A-S,,18269,,,,,,,,,,,,,,,,,,,,,,,Eric Haas ,Health eData Inc ,,emhaas@healthedatainc.com ,,,,,,
+14,LOINC - IVD Test Code (LIVD),,,,,,,,,NEG,,18270,,,,,,,,,,,,,,,,,,,,,,,Eric Haas ,Health eData Inc ,,emhaas@healthedatainc.com ,,,,,,
+15,LOINC - IVD Test Code (LIVD),,,,,,,,,A-S,,18123,,,,,,,,,,,,,,,,,,,,,,,Freida Hall ,Quest Diagnostics ,,freida.x.hall@questdiagnostics.com ,,,,,,
+16,LOINC - IVD Test Code (LIVD),,,,,,,,,A-S,,18124,,,,,,,,,,,,,,,,,,,,,,,Freida Hall ,Quest Diagnostics ,,freida.x.hall@questdiagnostics.com ,,,,,,
+17,LOINC - IVD Test Code (LIVD),,,,,,,,,A-S,,18125,,,,,,,,,,,,,,,,,,,,,,,Freida Hall ,Quest Diagnostics ,,freida.x.hall@questdiagnostics.com ,,,,,,
+18,LOINC - IVD Test Code (LIVD),,,,,,,,,A-S,,18126,,,,,,,,,,,,,,,,,,,,,,,Freida Hall ,Quest Diagnostics ,,freida.x.hall@questdiagnostics.com ,,,,,,
+19,LOINC - IVD Test Code (LIVD),,,,,,,,,A-S,,18127,,,,,,,,,,,,,,,,,,,,,,,Freida Hall ,Quest Diagnostics ,,freida.x.hall@questdiagnostics.com ,,,,,,
+20,LOINC - IVD Test Code (LIVD),,,,,,,,,A-S,,18128,,,,,,,,,,,,,,,,,,,,,,,Freida Hall ,Quest Diagnostics ,,freida.x.hall@questdiagnostics.com ,,,,,,
+21,LOINC - IVD Test Code (LIVD),,,,,,,,,A-S,,18129,,,,,,,,,,,,,,,,,,,,,,,Freida Hall ,Quest Diagnostics ,,freida.x.hall@questdiagnostics.com ,,,,,,
+22,LOINC - IVD Test Code (LIVD),,,,,,,,,A-Q,,18130,,,,,,,,,,,,,,,,,,,,,,,Freida Hall ,Quest Diagnostics ,,freida.x.hall@questdiagnostics.com ,,,,,,
+23,LOINC - IVD Test Code (LIVD),,,,,,,,,A-S,,18131,,,,,,,,,,,,,,,,,,,,,,,Freida Hall ,Quest Diagnostics ,,freida.x.hall@questdiagnostics.com ,,,,,,
+24,LOINC - IVD Test Code (LIVD),,,,,,,,,A-S,,18131,,,,,,,,,,,,,,,,,,,,,,,Freida Hall ,Quest Diagnostics ,,freida.x.hall@questdiagnostics.com ,,,,,,
+25,LOINC - IVD Test Code (LIVD),,,,,,,,,A-T,,18132,,,,,,,,,,,,,,,,,,,,,,,Freida Hall ,Quest Diagnostics ,,freida.x.hall@questdiagnostics.com ,,,,,,
+26,LOINC - IVD Test Code (LIVD),,,,,,,,,A-Q,,18133,,,,,,,,,,,,,,,,,,,,,,,Freida Hall ,Quest Diagnostics ,,freida.x.hall@questdiagnostics.com ,,,,,,
+27,LOINC - IVD Test Code (LIVD),,1.1.1,,,,,General Principles and Design,https://build.fhir.org/ig/HL7/livd/general.html,NEG,Enhancement,,"IVD LOINC Publication begin
+- Vendor Publication
+-- {Vendor Equipment Mapping begin
+--- Equipment
+--- {IVD Test Mapping begin
+---- IVD Test Result
+---- [LOINC]
+--- IVD Test Mapping end}
+-- Vendor Equipment Mapping end}
+- IVD LOINC Publication end","IVD LOINC Publication begin
+- Vendor Publication
+-- {Vendor Equipment Mapping begin
+--- Equipment
+--- {IVD Test Mapping begin
+---- IVD Test Result
+---- {[LOINC]}
+--- IVD Test Mapping end}
+-- Vendor Equipment Mapping end}
+- IVD LOINC Publication end","An IVD Test Code may have 0, 1, or more LOINC codes as suggested mappings.","An IVD Test Code may have 0, 1, or more LOINC codes as suggested mappings.",,,,,,Orders & Observations,,,,,,,,,,,,,Hans Buitendijk ,Cerner ,,hans.buitendijk@cerner.com ,,,,,,
+28,LOINC - IVD Test Code (LIVD),,1.1.1,,,,,General Principles and Design,https://build.fhir.org/ig/HL7/livd/general.html,A-S,Enhancement,,,,"Suggest to include mapping of IICC Whitepaper terminology listed in sections 1.1.2 to the FHIR resource fields they map to, as well as a diagram to show the FHIR resources used.",Include mapping of IICC Whitepaper terminology to the resource fields they map to and add a diagram to show the resources used.,,,,,,Orders & Observations,,,,,,,,,,,,,Hans Buitendijk ,Cerner ,,hans.buitendijk@cerner.com ,,,,,,
+29,LOINC - IVD Test Code (LIVD),,0,,,,,Table of Contents,https://build.fhir.org/ig/HL7/livd/toc.html,A-S,Enhancement,,,,Sugges that the Table of Contents is either first or last in the Menu bar,Make the Table of Contents either first or last in the Menu bar.,,,,,,Orders & Observations,,,,,,,,,,,,,Hans Buitendijk ,Cerner ,,hans.buitendijk@cerner.com ,,,,,,
+30,LOINC - IVD Test Code (LIVD),,2.0.1,,,,,Artifacts,https://build.fhir.org/ig/HL7/livd/artifacts.html,A-S,Enhancement,,"
+  •  LIVD Bundle Bundle profile for the LIVD project.
+  •  LIVD Catalog Catalog profile for the LIVD project.
+  •  LIVD ObservationDefinition ObservationDefinition profile for the LIVD project.
+  •  LIVD DeviceDefinition DeviceDefinition profile for the LIVD project.
+  •  LIVD DeviceMetric DeviceMetric profile for the LIVD project.
+  •  LIVD EntryDefinition EntryDefinition profile for the LIVD project.
+  •  LIVD ConceptMap ConceptMap profile for the LIVD project.
+  •  LIVD LOINC CodeSystem CodeSystem profile for LOINC for the LIVD project.
+  •  LIVD ValueSet ValueSet profile for the LIVD project.
+","
+  •  LIVD Bundle Bundle profile for the LIVD project.
+  •  LIVD Catalog Catalog profile for the LIVD project.
+  •  LIVD DeviceDefinition DeviceDefinition profile for the LIVD project.
+  •  LIVD ObservationDefinition ObservationDefinition profile for the LIVD project.
+  •  LIVD ConceptMap ConceptMap profile for the LIVD project.
+  •  LIVD LOINC CodeSystem CodeSystem profile for LOINC for the LIVD project.
+",Suggest to change sequence and remove resources not used.,Change resource sequence and remove resources not used.,,,,,,Orders & Observations,,,,,,,,,,,,,Hans Buitendijk ,Cerner ,,hans.buitendijk@cerner.com ,,,,,,
+31,LOINC - IVD Test Code (LIVD),,2.0.3,,,,,Artifacts,https://build.fhir.org/ig/HL7/livd/artifacts.html,A-S,Correction,,,,Suggest to remove the LIVD LOINC value set as we are using the CodeSystem for LOINC only.,Remove the LIVD LOINC value set.,,,,,,Orders & Observations,,,,,,,,,,,,,Hans Buitendijk ,Cerner ,,hans.buitendijk@cerner.com ,,,,,,
+32,LOINC - IVD Test Code (LIVD),,2.1.0.1,,,,,LIVD Bundle,https://build.fhir.org/ig/HL7/livd/bundle-uv-livd.html,NEG,Clarification,,,,"We had not decided yet whether the Bundle.signature is necessary, optional, or not needed.","Decide whether the Bundle.signature is necessary, optional, or not needed.",,,,,,Orders & Observations,,,,,,,,,,,,,Hans Buitendijk ,Cerner ,,hans.buitendijk@cerner.com ,,,,,,
+33,LOINC - IVD Test Code (LIVD),,2.2.0.1,,,,,LIVD Catalog,https://build.fhir.org/ig/HL7/livd/catalog-uv-livd.html,NEG,Correction,,,,The extension for Region is missing.  Row 57 in the LIVDCatalogProifle-spreadsheet,The extension for Region is missing.,,,,,,Orders & Observations,,,,,,,,,,,,,Hans Buitendijk ,Cerner ,,hans.buitendijk@cerner.com ,,,,,,
+34,LOINC - IVD Test Code (LIVD),,2.4.0.1,,,,,LIVD Device Definition,https://build.fhir.org/ig/HL7/livd/devicedefinition-uv-livd.html,NEG,Correction,,,,The definition needs to be swapped to the DeviceDefinition resource.  In that process there are a couple of fields that need to be reviewed particularly as they were not/differently in Device,Change from Device to DeviceDefinition.,Yes,,,,,Orders & Observations,,,,,,,,,,,,,Hans Buitendijk ,Cerner ,,hans.buitendijk@cerner.com ,,,,,,
+35,LOINC - IVD Test Code (LIVD),,2.5.0.1,,,,,LIVD Device Metric,https://build.fhir.org/ig/HL7/livd/devicemetric-uv-livd.html,NEG,Correction,,,,This profile should be removed as it is not to be used.,Remove unused DeviceMetric profile.,,,,,,Orders & Observations,,,,,,,,,,,,,Hans Buitendijk ,Cerner ,,hans.buitendijk@cerner.com ,,,,,,
+36,LOINC - IVD Test Code (LIVD),,2.6.0.1,,,,,LIVD EntryDefinition,https://build.fhir.org/ig/HL7/livd/entrydefinition-uv-livd.html,NEG,Correction,,,,This profile should be removed as it is not to be used.,Remove unused EntryDefinition profile.,,,,,,Orders & Observations,,,,,,,,,,,,,Hans Buitendijk ,Cerner ,,hans.buitendijk@cerner.com ,,,,,,
+37,LOINC - IVD Test Code (LIVD),,2.7.0.1,,,,,LIVD ConceptMap,https://build.fhir.org/ig/HL7/livd/conceptmap-uv-livd.html,A-Q,,,,,Unclear how the slices work as both code and display seem to be required.  A link to the page(s) that explain that would be helpful.,Unclear how ConceptMap slices work.,,,,,,Orders & Observations,,,,,,,,,,,,,Hans Buitendijk ,Cerner ,,hans.buitendijk@cerner.com ,,,,,,
+38,LOINC - IVD Test Code (LIVD),,2.7.0.1,,,,,LIVD ConceptMap,https://build.fhir.org/ig/HL7/livd/conceptmap-uv-livd.html,NEG,Clarification,,,,Unclear how the property value is connected to either specimen or result property.  It looks like only the second target.dependsOn has a value.  ,Unclear how the ConceptMap property value is connected to either specimen or result property.,,,,,,Orders & Observations,,,,,,,,,,,,,Hans Buitendijk ,Cerner ,,hans.buitendijk@cerner.com ,,,,,,
+39,LOINC - IVD Test Code (LIVD),,2.7.0.1,,,,,LIVD LOINC Code System,https://build.fhir.org/ig/HL7/livd/conceptmap-uv-livd.html,NEG,Correction,,,,"Both target.dependsOn indicate they are the for Specimen, while one is needed for Specimen and the other for Result.",Change target.dependsOn slices to one for Specimen and the other for Result.,,,,,,Orders & Observations,,,,,,,,,,,,,Hans Buitendijk ,Cerner ,,hans.buitendijk@cerner.com ,,,,,,
+40,LOINC - IVD Test Code (LIVD),,2.8.0.1,,,,,LIVD LOINC Code System,https://build.fhir.org/ig/HL7/livd/codesystem-loinc-uv-livd.html,A-Q,,,,,Some of the cardinalities are grey rather than black font.  Any particular reason why?,CodeSystem cardinalities showing as grey rather than black font.,,,,,,Orders & Observations,,,,,,,,,,,,,Hans Buitendijk ,Cerner ,,hans.buitendijk@cerner.com ,,,,,,
+41,LOINC - IVD Test Code (LIVD),,2.9.0.1,,,,,LIVD Valueset,https://build.fhir.org/ig/HL7/livd/valueset-uv-livd.html,NEG,Correction,,,,This profile should be removed as it is not to be used.,Remove unused ValueSet profile.,,,,,,Orders & Observations,,,,,,,,,,,,,Hans Buitendijk ,Cerner ,,hans.buitendijk@cerner.com ,,,,,,
+42,LOINC - IVD Test Code (LIVD),,1.0.1,,,,,,http://hl7.org/fhir/uv/livd/2018Sep/index.html#background,A-C,,,,,"Background section
+
+Add in background example of workflow for a lab professional using the LIVD LOINCS?
+Proposed (from Andrea's email):
+1.  lab professional or (IT team) builds test order and result(s) and result values allowed for qualitative testing or units for quantitative test results values in their LIS.
+2.  They configure their analyzer on which assays/analytes are needed for said orders and results.  In the US, I'd expect most quantitative results values to be reported in mass/volume, while the same assay in other countries is moles/volume.  One of the other would be configured, but not both.  I have seen laboratories configure a qualitative assay for an analyte and also a quantitative assay for the same analyte on the same analyzer depending on which order and results each go with.
+3.  Even in current LAW and ASTM interfaces, I haven't seen LOINC and SCT from the analyzer in production.  Believe Biomerieux might be sending some codes with some of their results that are not challenge results (more microbiology).  Don't know how the middleware and LIS are handling said codes as almost all LISs provide LOINC maps in their test set up/dictionary mappings.  Assuming result values with units and analytes are coming across interface into LIS.
+4.  Laboratory professional performs mappings in their dictionaries where orders and results have been built. They are referencing vendor and reference lab maps to choose the LOINC for results currently and mapping themselves.  Per the concern about transcription.  All EHRs and LISs certified to 2015 ONC vendor requirements have LOINC and SCT functionality.  Most vendors have functionality to load these standardized terminologies including the FSN or LOINC name into their systems.  Mapping may entail typing in or selecting from a drop down the LOINC code mapped.  When the vendor creates outbound messages it attaches the FSN or LOINC name in the message as it populates other data.  
+5.  When LIVD enters the workflow, I expect that an LIS vendor implementation client could have an app that queries the vendor FHIR server for all the LIVD LOINCs to present them to the lab professional to sort/choose from for mapping.",Add in background example of workflow for a lab professional using the LIVD LOINCs.,,,,,,Orders & Observations,,,,,,,,,,,,,Ulrike Merrick ,"Vernetzt, LLC / APHL ",,rikimerrick@gmail.com ,,,,,,
+43,LOINC - IVD Test Code (LIVD),,1.1.2.7,,,,,,http://hl7.org/fhir/uv/livd/2018Sep/general.html,NEG,Enhancement,,,,"Display considerations (NEW)
+
+Provide a section that lists the display requirements of the data in LIVD resource bundle that are inherent in the spreadsheet (e.g. display all LOINC part information together, display the vendor descriptions of results, specimen and comments together, etc - I will work with Andrea and Pam to provide text for this section",Provide a section listing the display requirements of the data in the LIVD resource bundle that are inherent in the spreadsheet.,,,,,,Orders & Observations,,,,,,,,,,,,,Ulrike Merrick ,"Vernetzt, LLC / APHL ",,rikimerrick@gmail.com ,,,,,,
+44,LOINC - IVD Test Code (LIVD),,1.1.2.1,,,,,,http://hl7.org/fhir/uv/livd/2018Sep/general.html#publication,A-T,,,"This information establishes the version for the publication are expressed through the LIVD Catalog profile, including.","This information establishes the version for the publication as expressed through the LIVD Catalog profile, including.",Publication,Fix typo in Publication.,,,,,,Orders & Observations,,,,,,,,,,,,,Ulrike Merrick ,"Vernetzt, LLC / APHL ",,rikimerrick@gmail.com ,,,,,,
+45,LOINC - IVD Test Code (LIVD),,1.1.1,,,,,,http://hl7.org/fhir/uv/livd/2018Sep/general.html#structure-and-supported-mappings,NEG,Enhancement,,,,"Strucutre and Supported Mappings
+
+Add a paragraph at the end explaining, that the LIVD also supports mapping of IVD test codes from more than one vendor, potentially by domain - example would be the HIV table (we will need to add the actal IVD vendor IDs to the official table - but here is the link to the page that houses the spreadsheet: https://www.cdc.gov/hiv/guidelines/reporting.html)
+this also may result in a one LOINC to many IVD vendor code mappings, but for differnt reasons than listed in the One LOINC to many IVD test results paragraph (so could be sub-bullet under this one, if desired
+als add the diagram Hans was goign to create showing the example of mapping to multiple LOINCs, depenidng on outside context that is not known to the IVD instrument at time of testing (like challenge test etc).",Add a paragraph at the end explaining that LIVD also supports mapping of IVD test codes from more than one vendor.,,,,,,Orders & Observations,,,,,,,,,,,,,Ulrike Merrick ,"Vernetzt, LLC / APHL ",,rikimerrick@gmail.com ,,,,,,
+46,LOINC - IVD Test Code (LIVD),,1.1.1,,,,,,http://hl7.org/fhir/uv/livd/2018Sep/general.html ,NEG,Enhancement,,,,"Strucutre and Supported Mappings
+
+Add the diagram that we have in the ppt tht shows the relationships between the different resoures as part of this section (or make new section that exlains how the different resources work together)",Add the diagram that shows the relationships between the different resoures.,,,,,,Orders & Observations,,,,,,,,,,,,,Ulrike Merrick ,"Vernetzt, LLC / APHL ",,rikimerrick@gmail.com ,,,,,,
+47,LOINC - IVD Test Code (LIVD),,2.1.0.1,,,,,,http://hl7.org/fhir/uv/livd/2018Sep/bundle-uv-livd.html#tabs-diff,A-C,,,bundle.entry  5..*,,"LIVD Bundle - Diff table
+
+It would be good to add descriptive text about the 5 minimum entries that must be supported",Add descriptive text for the LIVD Bundle - Diff table about the 5 minimum entries that must be supported.,,,,,,Orders & Observations,,,,,,,,,,,,,Ulrike Merrick ,"Vernetzt, LLC / APHL ",,rikimerrick@gmail.com ,,,,,,
+48,LOINC - IVD Test Code (LIVD),,2.3.0.1,,,,,,http://hl7.org/fhir/uv/livd/2018Sep/observationdefinition-uv-livd.html#tabs-diff,A-T,,, SI ti Customary unit conversion factor, SI to Customary unit conversion factor,LIVD Observation Definition - Diff table,Fix typo in LIVD Observation Definition - Diff table.,,,,,,Orders & Observations,,,,,,,,,,,,,Ulrike Merrick ,"Vernetzt, LLC / APHL ",,rikimerrick@gmail.com ,,,,,,
+49,LOINC - IVD Test Code (LIVD),,All artifact pages,,,,,,,A-C,,,,,It would be helpful to include an introduction to whih elements from the LIVD publication are represented in the resource that is being constrined for LIVD to give folks the connection between the more generic underlying FHIR definitions for these things and how they are used in LIVD - helpful for folks that did not help to write this IG.,Include an introduction to which elements from the LIVD publication are represented in the resource that is being constrained for LIVD.,,,,,,Orders & Observations,,,,,,,,,,,,,Ulrike Merrick ,"Vernetzt, LLC / APHL ",,rikimerrick@gmail.com ,,,,,,
+50,LOINC - IVD Test Code (LIVD),,,,,,,,,NEG,Enhancement,,,,"Examples
+
+Add in missing examples",Add missing examples.,,,,,,Orders & Observations,,,,,,,,,,,,,Ulrike Merrick ,"Vernetzt, LLC / APHL ",,rikimerrick@gmail.com ,,,,,,
+51,LOINC - IVD Test Code (LIVD),,,,,,,,,NEG,Correction,,,,WG should not have allowed this IG to go to ballot even as for comment only. ,WG should not have allowed this IG to go to ballot even as for comment only. ,,,,,,Orders & Observations,,,,,,,,,,,,,Eric Haas ,Health eData Inc ,,emhaas@healthedatainc.com ,,,,,,
