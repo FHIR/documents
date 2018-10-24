@@ -1,4 +1,4 @@
-﻿"Comment Number",Ballot,Chapter,Section,Page #,Line #,Artifact ID,Resource(s),HTML Page name(s),URL,Vote and Type,Sub-category,Tracker #,Existing Wording,Proposed Wording,Ballot Comment,Summary,In person resolution requested,Comment grouping,Schedule,Triage Note,Pubs,Disposition WG,Disposition,"Disposition Comment or Retract/Withdraw details",Disposition/Retract/ Withdrawal Date,Mover / seconder,For ,Against,Abstain,Retracted / Withdrawn,Disposition External Organization,Responsible Person,Change Applied,Substantive Change,Submitted By,Organization,On behalf of,Commenter Email,Submitter Tracking ID,Referred To,Received From,Notes,,
+"Comment Number",Ballot,Chapter,Section,Page #,Line #,Artifact ID,Resource(s),HTML Page name(s),URL,Vote and Type,Sub-category,Tracker #,Existing Wording,Proposed Wording,Ballot Comment,Summary,In person resolution requested,Comment grouping,Schedule,Triage Note,Pubs,Disposition WG,Disposition,"Disposition Comment or Retract/Withdraw details",Disposition/Retract/ Withdrawal Date,Mover / seconder,For ,Against,Abstain,Retracted / Withdrawn,Disposition External Organization,Responsible Person,Change Applied,Substantive Change,Submitted By,Organization,On behalf of,Commenter Email,Submitter Tracking ID,Referred To,Received From,Notes,,
 1,International Patient Summary,,,,,,,,,A-T,,18202,,,,,,,,,,,,,,,,,,,,,,,Francois Macary ,PHAST / HL7 France ,,,,,,,,
 2,International Patient Summary,,,,,,,,,A-T,,18203,,,,,,,,,,,,,,,,,,,,,,,Francois Macary ,PHAST / HL7 France ,,,,,,,,
 3,International Patient Summary,,,,,,,,,A-T,,18204,,,,,,,,,,,,,,,,,,,,,,,Francois Macary ,PHAST / HL7 France ,,,,,,,,
@@ -52,8 +52,8 @@
 51,International Patient Summary,,,,,,,,,NEG,,18238,,,,,,,,,,,,,,,,,,,,,,,Robert McClure ,"MD Partners, Inc. ",,,,,,,,
 52,International Patient Summary,,,,,,,,,NEG,,18246,,,,,,,,,,,,,,,,,,,,,,,Robert McClure ,"MD Partners, Inc. ",,,,,,,,
 53,International Patient Summary,,,,,,,,,A-S,,18247,,,,,,,,,,,,,,,,,,,,,,,Robert McClure ,"MD Partners, Inc. ",,,,,,,,
-54,International Patient Summary,,,,,,,,,A-Q,,18090,,,,,,,,,,,,,,,,,,,,,,,Scott M Robertson ,Kaiser Permanente ,,,,,,,,
-55,International Patient Summary,,,,,,,,,A-C,,18110,,,,,,,,,,,,,,,,,,,,,,,Scott M Robertson ,Kaiser Permanente ,,,,,,,,
+54,International Patient Summary,,,,,,,,,A-Q,,18090,,,,,,,,,,,,,,,,,,,,,,,Scott Robertson ,Kaiser Permanente ,,,,,,,,
+55,International Patient Summary,,,,,,,,,A-C,,18110,,,,,,,,,,,,,,,,,,,,,,,Scott Robertson ,Kaiser Permanente ,,,,,,,,
 56,International Patient Summary,,General Principles,,,,,(profiles),http://hl7.org/fhir/uv/ips/2018Sep/general.html#representing-known-absent-and-not-known,A-C,,,Representing “known absent” and “not known”,,"General Principles
 
 While the header mentions ""known absent,"" the text does not address this case.","Address the case of ""known absent.""",,,,,,Structured Documents,,,,,,,,,,,,,Thomson Kuhn ,ACP ,,tkuhn@acponline.org ,,,,,,
