@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Practitioner xmlns="http://hl7.org/fhir">
+  <id value="practitioner1"/>
+  <meta>
+    <versionId value="1"/>
+    <profile value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-practitioner"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: practitioner1</p><p><b>meta</b>: </p><p><b>identifier</b>: NPI = 1234567893 (OFFICIAL)</p><p><b>active</b>: true</p><p><b>name</b>: George Washington(OFFICIAL)</p><p><b>telecom</b>: ph: 202-123-4567(MOBILE), george.washington@whitehouse.gov(HOME)</p><p><b>address</b>: 1600 Pennsylvania Ave NW, Washington, DC 20006, USA(HOME)</p><p><b>gender</b>: MALE</p><p><b>birthDate</b>: 22/02/1932</p><blockquote><p><b>qualification</b></p><p><b>identifier</b>: Medical License number = MD12345 (OFFICIAL)</p><p><b>code</b>: MD <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/v2-0360|2.7 code 'MD' = 'Doctor of Medicine', given as 'Doctor of Medicine'})</span></p><p><b>period</b>: 15/07/1959 --&gt; 15/07/1961</p><p><b>issuer</b>: DC Board of Medicine</p></blockquote><blockquote><p><b>qualification</b></p><p><b>identifier</b>: 123456</p><p><b>code</b>: Certification in Internal Medicine <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/v2-0360|2.7 code 'MD' = 'Doctor of Medicine', given as 'Doctor of Medicine'})</span></p><p><b>period</b>: 20/07/1971 --&gt; 20/07/1981</p><p><b>issuer</b>: American Board of Internal Medicine</p></blockquote><blockquote><p><b>qualification</b></p><p><b>identifier</b>: 123456</p><p><b>code</b>: Certification in Cardiovascular Disease <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/v2-0360|2.7 code 'MD' = 'Doctor of Medicine', given as 'Doctor of Medicine'})</span></p><p><b>period</b>: 10/07/1965 --&gt; 10/07/1975</p><p><b>issuer</b>: American Board of Internal Medicine</p></blockquote><p><b>communication</b>: English <span style="background: LightGoldenRodYellow">(Details : {urn:ietf:bcp:47 code 'en-US' = 'English (Region=United States)', given as 'English (United States)'})</span></p></div>
+  </text>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/endpoint-reference">
+    <valueReference>
+      <reference value="Endpoint/direct321"/>
+      <display value="Founding Fathers Memorial Hospital Heart and Vascular Institute Direct address"/>
+    </valueReference>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/digitalcertificate">
+    <extension url="type">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-digitalcertificate"/>
+        <code value="ind"/>
+        <display value="Individual"/>
+      </valueCoding>
+    </extension>
+    <extension url="use">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-digitalcertificate"/>
+        <code value="signing"/>
+        <display value="Signing"/>
+      </valueCoding>
+    </extension>
+    <extension url="certificateStandard">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-digitalcertificate"/>
+        <code value="x.509v3"/>
+        <display value="x.509v3"/>
+      </valueCoding>
+    </extension>
+    <extension url="certificate">
+      <valueString value="TXkgbmFtZSBpcyBHZW9yZ2UgV2FzaGluZ3Rvbi4gVGhpcyBpcyBteSBjZXJ0aWZpY2F0ZS4gDQoNCi0tLS0tQkVHSU4gUFVCTElDIEtFWS0tLS0tDQpNSUdlTUEwR0NTcUdTSWIzRFFFQkFRVUFBNEdNQURDQmlBS0JnRkZLcjVGazJla2dYSjdwUXpKVzBWdm9NZzQ4DQpldk1DTUFTbk95M09rS1VyZlIwSGZHTmRUS216L3VpcWVjOGR3U1E5NFpKR3Njd3FzczVScmtYNkEzUHZsZmM3DQpkdlJNQlBxYzdsKzRrOHN5b2t4bzh4SW8vN0hLOE1kWW45dlhId1k5VWxGZDduRjZsbWN0Nzd3THMxNWdrZjN1DQpHVXErZ1RDV3hnZlYzbm05QWdNQkFBRT0NCi0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQ=="/>
+    </extension>
+    <extension url="expirationDate">
+      <valueDate value="1970-09-03"/>
+    </extension>
+    <extension url="trustFramework">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-digitalcertificate"/>
+          <code value="direct"/>
+          <display value="DirectTrust"/>
+          <userSelected value="true"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/accessibility">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-accessibility"/>
+        <code value="cultcomp"/>
+        <display value="Cultural competence"/>
+        <userSelected value="true"/>
+      </coding>
+      <text value="Coordinates care with tribal healers of the Piscataway People"/>
+    </valueCodeableConcept>
+  </extension>
+  <identifier>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/identifier-status">
+      <valueCode value="active"/>
+    </extension>
+    <use value="official"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+        <code value="PRN"/>
+        <display value="Provider number"/>
+        <userSelected value="true"/>
+      </coding>
+      <text value="NPI"/>
+    </type>
+    <system value="http://hl7.org/fhir/sid/us-npi"/>
+    <value value="1234567893"/>
+    <period>
+      <start value="2005-07-16T09:00:00-05:00"/>
+    </period>
+    <assigner>
+      <display value="CMS"/>
+    </assigner>
+  </identifier>
+  <active value="true"/>
+  <name>
+    <use value="official"/>
+    <text value="George Washington"/>
+    <family value="Washington"/>
+    <given value="George"/>
+  </name>
+  <telecom>
+    <system value="phone"/>
+    <value value="202-123-4567"/>
+    <use value="mobile"/>
+    <rank value="1"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="george.washington@whitehouse.gov"/>
+    <use value="home"/>
+    <rank value="1"/>
+  </telecom>
+  <address>
+    <extension url="http://hl7.org/fhir/StructureDefinition/geolocation">
+      <extension url="latitude">
+        <valueDecimal value="38.897957"/>
+      </extension>
+      <extension url="longitude">
+        <valueDecimal value="-77.036560"/>
+      </extension>
+    </extension>
+    <use value="home"/>
+    <type value="both"/>
+    <text value="1600 Pennsylvania Ave NW, Washington, DC 20006, USA"/>
+    <line value="1600 Pennsylvania Ave NW"/>
+    <city value="Washington"/>
+    <state value="DC"/>
+    <postalCode value="20006"/>
+    <country value="USA"/>
+    <period>
+      <start value="1932-02-22"/>
+    </period>
+  </address>
+  <gender value="male"/>
+  <birthDate value="1932-02-22"/>
+  <qualification>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/practitioner-qualification">
+      <extension url="status">
+        <valueCoding>
+          <system value="http://hl7.org/fhir/resource-status"/>
+          <code value="active"/>
+          <display value="active"/>
+        </valueCoding>
+      </extension>
+      <extension url="whereValid">
+        <valueCodeableConcept>
+          <coding>
+            <system value="https://www.usps.com/"/>
+            <code value="DC"/>
+            <display value="District of Columbia"/>
+            <userSelected value="true"/>
+          </coding>
+          <text value="Washington, DC"/>
+        </valueCodeableConcept>
+      </extension>
+    </extension>
+    <identifier>
+      <use value="official"/>
+      <type>
+        <text value="Medical License number"/>
+      </type>
+      <system value="https://doh.dc.gov/bomed"/>
+      <value value="MD12345"/>
+      <period>
+        <start value="1959-07-15"/>
+        <end value="1961-07-15"/>
+      </period>
+      <assigner>
+        <display value="DC Board of Medicine"/>
+      </assigner>
+    </identifier>
+    <code>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0360|2.7"/>
+        <version value="2.8.2"/>
+        <code value="MD"/>
+        <display value="Doctor of Medicine"/>
+        <userSelected value="true"/>
+      </coding>
+      <text value="MD"/>
+    </code>
+    <period>
+      <start value="1959-07-15"/>
+      <end value="1961-07-15"/>
+    </period>
+    <issuer>
+      <display value="DC Board of Medicine"/>
+    </issuer>
+  </qualification>
+  <qualification>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/practitioner-qualification">
+      <extension url="status">
+        <valueCoding>
+          <system value="http://hl7.org/fhir/resource-status"/>
+          <code value="active"/>
+          <display value="active"/>
+        </valueCoding>
+      </extension>
+      <extension url="history">
+        <extension url="status">
+          <valueCoding>
+            <code value="active"/>
+            <display value="active"/>
+            <userSelected value="true"/>
+          </valueCoding>
+        </extension>
+        <extension url="period">
+          <valuePeriod>
+            <start value="1961-07-20"/>
+            <end value="1971-07-20"/>
+          </valuePeriod>
+        </extension>
+      </extension>
+    </extension>
+    <identifier>
+      <system value="http://www.abim.org/"/>
+      <value value="123456"/>
+      <assigner>
+        <display value="American Board of Internal Medicine"/>
+      </assigner>
+    </identifier>
+    <code>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0360|2.7"/>
+        <code value="MD"/>
+        <display value="Doctor of Medicine"/>
+        <userSelected value="true"/>
+      </coding>
+      <text value="Certification in Internal Medicine"/>
+    </code>
+    <period>
+      <start value="1971-07-20"/>
+      <end value="1981-07-20"/>
+    </period>
+    <issuer>
+      <display value="American Board of Internal Medicine"/>
+    </issuer>
+  </qualification>
+  <qualification>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/practitioner-qualification">
+      <extension url="status">
+        <valueCoding>
+          <system value="http://hl7.org/fhir/resource-status"/>
+          <code value="active"/>
+          <display value="active"/>
+        </valueCoding>
+      </extension>
+    </extension>
+    <identifier>
+      <system value="http://www.abim.org/"/>
+      <value value="123456"/>
+      <assigner>
+        <display value="American Board of Internal Medicine"/>
+      </assigner>
+    </identifier>
+    <code>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0360|2.7"/>
+        <version value="2.8.2"/>
+        <code value="MD"/>
+        <display value="Doctor of Medicine"/>
+        <userSelected value="true"/>
+      </coding>
+      <text value="Certification in Cardiovascular Disease"/>
+    </code>
+    <period>
+      <start value="1965-07-10"/>
+      <end value="1975-07-10"/>
+    </period>
+    <issuer>
+      <display value="American Board of Internal Medicine"/>
+    </issuer>
+  </qualification>
+  <communication>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/communication-proficiency">
+      <valueCodeableConcept>
+        <coding>
+          <code value="5"/>
+          <display value="Native or bilingual proficiency"/>
+          <userSelected value="true"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+    <coding>
+      <system value="urn:ietf:bcp:47"/>
+      <code value="en-US"/>
+      <display value="English (United States)"/>
+      <userSelected value="true"/>
+    </coding>
+    <text value="English"/>
+  </communication>
+</Practitioner>

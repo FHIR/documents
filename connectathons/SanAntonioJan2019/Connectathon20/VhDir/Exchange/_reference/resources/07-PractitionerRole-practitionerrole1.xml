@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PractitionerRole xmlns="http://hl7.org/fhir">
+  <id value="practitionerrole1"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-practitionerrole"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: practitionerrole1</p><p><b>meta</b>: </p><p><b>identifier</b>: Hospital ID = provider276 (SECONDARY)</p><p><b>active</b>: true</p><p><b>period</b>: 22/02/2016 --&gt; (ongoing)</p><p><b>practitioner</b>: <a href="Practitioner-practitioner1.html">Geroge Washington. Generated Summary: id: practitioner1; NPI = 1234567893 (OFFICIAL); active; George Washington(OFFICIAL); ph: 202-123-4567(MOBILE), george.washington@whitehouse.gov(HOME); gender: male; birthDate: 22/02/1932; <span title="Codes: {urn:ietf:bcp:47 en-US}">English</span></a></p><p><b>organization</b>: <a href="Organization-foundingfathers.html">Founding Fathers Memorial Hospital. Generated Summary: id: foundingfathers; NPI = 1345678910 (OFFICIAL); active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type prov}">Hospital</span>; name: Founding Fathers Memorial Hospital; alias: DC Memorial Hospital; ph: 202-101-0123</a></p><p><b>code</b>: Doctor <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/practitioner-role code 'doctor' = 'Doctor', given as 'Doctor'})</span></p><p><b>specialty</b>: Cardiology <span style="background: LightGoldenRodYellow">(Details : {SNOMED CT code '394579002' = 'Cardiology (qualifier value)', given as 'Cardiology'})</span></p><p><b>location</b>: <a href="Location-loc-ffmh-hvi.html">Founding Fathers Memorial Hospital, Heart and Vascular Institute. Generated Summary: id: loc-ffmh-hvi; main campus (SECONDARY); status: active; name: Founding Fathers Memorial Hospital Heart and Vascular Institute; description: Heart and Vascular Institute Specialty Wing; <span title="Codes: {http://terminology.hl7.org/CodeSystem/v3-RoleCode HOSP}">Hospital</span>; ph: 202-101-0123(WORK); <span title="Codes: {http://terminology.hl7.org/CodeSystem/location-physical-type si}">Site</span>; availabilityExceptions: visiting hours from 6:00 am - 10:00 pm</a></p><p><b>healthcareService</b>: <a href="HealthcareService-ffcardiology.html">Founding Fathers Memorial Hospital cardiac services. Generated Summary: id: ffcardiology; Business ID = service001 (SECONDARY); active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/service-category 35}">Hospital</span>; <span title="Codes: {http://terminology.hl7.org/CodeSystem/service-type 165}">Cardiology</span>; <span title="Codes: {http://snomed.info/sct 394579002}">Cardiology</span>; name: Founding Fathers Memorial Hospital Heart and Vascular Services; comment: Cardiac surgery, heart failure, cardiac electrophysiology, vascular surgery, and cardiovascular research; fax: 555 12345; <span title="Codes: {http://terminology.hl7.org/CodeSystem/service-provision-conditions cost}">Fees apply</span>; <span title="Codes: ">None</span>; eligibilityNote: No specific eligibility requirements; <span title="Codes: {http://terminology.hl7.org/CodeSystem/service-referral-method phone}">phone</span>, <span title="Codes: {http://terminology.hl7.org/CodeSystem/service-referral-method fax}">Fax</span>; appointmentRequired; availabilityExceptions: No interventional cardiac procedures are scheduled on Wednesdays</a></p><p><b>telecom</b>: ph: 202-101-0123</p><h3>AvailableTimes</h3><table class="grid"><tr><td>-</td><td><b>DaysOfWeek</b></td><td><b>AvailableStartTime</b></td><td><b>AvailableEndTime</b></td></tr><tr><td>*</td><td>MON</td><td/><td/></tr></table><p><b>endpoint</b>: <a href="Endpoint-direct321.html">Direct address for the Founding Fathers Heart and Vascular Institute. Generated Summary: id: direct321; Direct Address = heart@direct.ffhospital.com (USUAL); status: active; <span title="{http://terminology.hl7.org/CodeSystem/endpoint-connection-type direct-project}">Direct Project</span>; name: Founding Fathers Memorial Hospital Heart and Vascular Institute Direct address; ph: 202-101-0123(WORK); period: 19/11/2014 --&gt; (ongoing); <span title="Codes: {urn:oid:1.3.6.1.4.1.19376.1.2.3 urn:ihe:pcc:xphr:2007}">HL7 CCD Document</span>; payloadMimeType: application/hl7-v3+xml; address: mailto:heart@direct.ffhospital.com</a></p></div>
+  </text>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/network-reference">
+    <valueReference>
+      <reference value="Organization/patriotppo"/>
+      <display value="Patriot Preferred Provider Network"/>
+    </valueReference>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/digitalcertificate">
+    <extension url="type">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-digitalcertificate"/>
+        <code value="ind"/>
+        <display value="Individual"/>
+      </valueCoding>
+    </extension>
+    <extension url="use">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-digitalcertificate"/>
+        <code value="signing"/>
+        <display value="Signing"/>
+      </valueCoding>
+    </extension>
+    <extension url="certificateStandard">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-digitalcertificate"/>
+        <code value="x.509v3"/>
+        <display value="x.509v3"/>
+      </valueCoding>
+    </extension>
+    <extension url="certificate">
+      <valueString value="TXkgbmFtZSBpcyBHZW9yZ2UgV2FzaGluZ3Rvbi4gVGhpcyBpcyBteSBjZXJ0aWZpY2F0ZS4gDQoNCi0tLS0tQkVHSU4gUFVCTElDIEtFWS0tLS0tDQpNSUdlTUEwR0NTcUdTSWIzRFFFQkFRVUFBNEdNQURDQmlBS0JnRkZLcjVGazJla2dYSjdwUXpKVzBWdm9NZzQ4DQpldk1DTUFTbk95M09rS1VyZlIwSGZHTmRUS216L3VpcWVjOGR3U1E5NFpKR3Njd3FzczVScmtYNkEzUHZsZmM3DQpkdlJNQlBxYzdsKzRrOHN5b2t4bzh4SW8vN0hLOE1kWW45dlhId1k5VWxGZDduRjZsbWN0Nzd3THMxNWdrZjN1DQpHVXErZ1RDV3hnZlYzbm05QWdNQkFBRT0NCi0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQ=="/>
+    </extension>
+    <extension url="expirationDate">
+      <valueDate value="1970-09-03"/>
+    </extension>
+    <extension url="trustFramework">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-digitalcertificate"/>
+          <code value="direct"/>
+          <display value="DirectTrust"/>
+          <userSelected value="true"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/newpatients">
+    <extension url="acceptingPatients">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="network">
+      <valueReference>
+        <reference value="Organization/patriotppo"/>
+        <display value="Patriot Preferred Provider Network"/>
+      </valueReference>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/newpatientprofile">
+    <valueString value="New patients are accepted via referral from providers participating in Patriot PPO"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/qualification">
+    <extension url="identifier">
+      <valueIdentifier>
+        <use value="official"/>
+        <type>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+            <code value="PRN"/>
+            <display value="Provider number"/>
+          </coding>
+          <text value="DEA Registration Number"/>
+        </type>
+        <system value="https://www.deadiversion.usdoj.gov/"/>
+        <value value="CW1234563"/>
+        <period>
+          <start value="2016-02-26"/>
+          <end value="2019-02-26"/>
+        </period>
+        <assigner>
+          <identifier>
+            <value value="US Drug Enforcement Administration (DEA)"/>
+          </identifier>
+          <display value="US Drug Enforcement Administration (DEA)"/>
+        </assigner>
+      </valueIdentifier>
+    </extension>
+    <extension url="code">
+      <valueCodeableConcept>
+        <text value="DEA Registration Number"/>
+      </valueCodeableConcept>
+    </extension>
+    <extension url="issuer">
+      <valueReference>
+        <identifier>
+          <value value="US Drug Enforcement Administration (DEA)"/>
+        </identifier>
+        <display value="US Drug Enforcement Administration (DEA)"/>
+      </valueReference>
+    </extension>
+    <extension url="status">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/resource-status"/>
+        <code value="active"/>
+        <display value="active"/>
+      </valueCoding>
+    </extension>
+    <extension url="period">
+      <valuePeriod>
+        <start value="2016-02-26"/>
+        <end value="2019-02-26"/>
+      </valuePeriod>
+    </extension>
+  </extension>
+  <identifier>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/identifier-status">
+      <valueCode value="active"/>
+    </extension>
+    <use value="secondary"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+        <code value="PRN"/>
+        <display value="Provider number"/>
+      </coding>
+      <text value="Hospital ID"/>
+    </type>
+    <system value="http://example.org/www.foundingfathersmemorial.com"/>
+    <value value="provider276"/>
+    <period>
+      <start value="2016-02-22"/>
+    </period>
+    <assigner>
+      <reference value="Organization/foundingfathers"/>
+      <display value="Founding Fathers Memorial Hospital"/>
+    </assigner>
+  </identifier>
+  <active value="true"/>
+  <period>
+    <start value="2016-02-22"/>
+  </period>
+  <practitioner>
+    <reference value="Practitioner/practitioner1"/>
+    <display value="Geroge Washington"/>
+  </practitioner>
+  <organization>
+    <reference value="Organization/foundingfathers"/>
+    <display value="Founding Fathers Memorial Hospital"/>
+  </organization>
+  <code>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/practitioner-role"/>
+      <code value="doctor"/>
+      <display value="Doctor"/>
+    </coding>
+  </code>
+  <specialty>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="394579002"/>
+      <display value="Cardiology"/>
+    </coding>
+  </specialty>
+  <location>
+    <reference value="Location/loc-ffmh-hvi"/>
+    <display value="Founding Fathers Memorial Hospital, Heart and Vascular Institute"/>
+  </location>
+  <healthcareService>
+    <reference value="HealthcareService/ffcardiology"/>
+    <display value="Founding Fathers Memorial Hospital cardiac services"/>
+  </healthcareService>
+  <telecom>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/contactpoint-viaintermediary">
+      <valueReference>
+        <reference value="Location/loc-ffmh-hvi"/>
+        <display value="Founding Fathers Memorial Hospital, Heart and Vascular Institute"/>
+      </valueReference>
+    </extension>
+    <system value="phone"/>
+    <value value="202-101-0123"/>
+  </telecom>
+  <availableTime>
+    <daysOfWeek value="mon"/>
+    <daysOfWeek value="tue"/>
+    <daysOfWeek value="wed"/>
+    <daysOfWeek value="thu"/>
+    <availableStartTime value="09:00:00"/>
+    <availableEndTime value="12:00:00"/>
+  </availableTime>
+  <endpoint>
+    <reference value="Endpoint/direct321"/>
+    <display value="Direct address for the Founding Fathers Heart and Vascular Institute"/>
+  </endpoint>
+</PractitionerRole>

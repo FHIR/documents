@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<InsurancePlan xmlns="http://hl7.org/fhir">
+  <id value="insuranceplan1"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: insuranceplan1</p><p><b>identifier</b>: HIOS product ID = 1234567891 (OFFICIAL)</p><p><b>status</b>: ACTIVE</p><p><b>type</b>: Bronze <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-payercharacteristics code 'bronze' = 'Bronze', given as 'Bronze'})</span></p><p><b>name</b>: Patriot PPO Standard</p><p><b>alias</b>: Patriot Plus</p><p><b>period</b>: 06/06/2018 --&gt; 01/01/2019</p><p><b>ownedBy</b>: <a href="Organization-homeland.html">Homeland Health Insurance. Generated Summary: id: homeland; active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type ins}">Health System</span>; name: Homeland Health Insurance</a></p><p><b>administeredBy</b>: <a href="Organization-homeland.html">Homeland Health Insurance. Generated Summary: id: homeland; active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type ins}">Health System</span>; name: Homeland Health Insurance</a></p><p><b>coverageArea</b>: <a href="Location-wash-dc-metro.html">Washington, DC metro area. Generated Summary: id: wash-dc-metro; status: active; name: Washington, DC metro area; <span title="Codes: {http://terminology.hl7.org/CodeSystem/location-physical-type area}">Area</span></a></p><h3>Contacts</h3><table class="grid"><tr><td>-</td><td><b>Purpose</b></td><td><b>Telecom</b></td></tr><tr><td>*</td><td>General information <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/contactentity-type code 'PATINF' = 'Patient', given as 'Patient'})</span></td><td>ph: 202-123-5555</td></tr></table><p><b>endpoint</b>: patriot plan endpoint hub</p><p><b>network</b>: </p><ul><li><a href="Organization-patriotppo.html">Patriot Preferred Provider Network. Generated Summary: id: patriotppo; Healthcare.gov Network ID = DCN001 (SECONDARY); active; <span title="Codes: {http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-network-type ppo}">PPO</span>; name: Patriot Preferred Provider Network; alias: Patriot PPO</a></li><li><a href="Organization-patriotdental.html">Patriot Dental Provider Network. Generated Summary: id: patriotdental; active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type pay}">Health System</span>; name: Patriot Dental Provider Network</a></li></ul><blockquote><p><b>coverage</b></p><p><b>type</b>: Coverage related to medical inpatient, outpatient, diagnostic, and preventive care <span style="background: LightGoldenRodYellow">(Details : {[not stated] code 'medical' = 'medical', given as 'Medical'})</span></p><p><b>network</b>: <a href="Organization-patriotppo.html">Patriot Preferred Provider Network. Generated Summary: id: patriotppo; Healthcare.gov Network ID = DCN001 (SECONDARY); active; <span title="Codes: {http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-network-type ppo}">PPO</span>; name: Patriot Preferred Provider Network; alias: Patriot PPO</a></p><blockquote><p><b>benefit</b></p><p><b>type</b>: Primary care visit to treat an injury or illness <span style="background: LightGoldenRodYellow">(Details : {[not stated] code '001' = '001', given as 'Primary care visit to treat an injury or illness'})</span></p><p><b>requirement</b>: N/A</p><h3>Limits</h3><table class="grid"><tr><td>-</td><td><b>Code</b></td></tr><tr><td>*</td><td>unlimited <span style="background: LightGoldenRodYellow">(Details )</span></td></tr></table></blockquote></blockquote><blockquote><p><b>coverage</b></p><p><b>type</b>: Coverage related to dental care <span style="background: LightGoldenRodYellow">(Details : {[not stated] code 'dental' = 'dental', given as 'Dental'})</span></p><p><b>network</b>: <a href="Organization-patriotdental.html">Patriot Dental Provider Network. Generated Summary: id: patriotdental; active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type pay}">Health System</span>; name: Patriot Dental Provider Network</a></p><blockquote><p><b>benefit</b></p><p><b>type</b>: Periodic oral checkup <span style="background: LightGoldenRodYellow">(Details : {[not stated] code '052' = '052', given as 'Basic Dental Care – Adult'})</span></p><p><b>requirement</b>: N/A</p><h3>Limits</h3><table class="grid"><tr><td>-</td><td><b>Value</b></td><td><b>Code</b></td></tr><tr><td>*</td><td>2 visit/yr<span style="background: LightGoldenRodYellow"> (Details: UCUM code {visit}/a = '{visit}/a')</span></td><td>biannual oral checkup <span style="background: LightGoldenRodYellow">(Details )</span></td></tr></table></blockquote></blockquote><blockquote><p><b>plan</b></p><p><b>identifier</b>: HIOS plan ID = 123456789101112 (OFFICIAL)</p><p><b>type</b>: Bronze <span style="background: LightGoldenRodYellow">(Details : {[not stated] code 'bronze' = 'bronze', given as 'Bronze'})</span></p><p><b>coverageArea</b>: <a href="Location-wash-dc-metro.html">Washington, DC metro area. Generated Summary: id: wash-dc-metro; status: active; name: Washington, DC metro area; <span title="Codes: {http://terminology.hl7.org/CodeSystem/location-physical-type area}">Area</span></a></p><p><b>network</b>: <a href="Organization-patriotdental.html">Patriot Dental Provider Network. Generated Summary: id: patriotdental; active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type pay}">Health System</span>; name: Patriot Dental Provider Network</a></p><h3>GeneralCosts</h3><table class="grid"><tr><td>-</td><td><b>Type</b></td><td><b>GroupSize</b></td><td><b>Cost</b></td><td><b>Comment</b></td></tr><tr><td>*</td><td>Deductible <span style="background: LightGoldenRodYellow">(Details : {[not stated] code 'deductible' = 'deductible', given as 'Deductible'})</span></td><td>1</td><td/><td>Includes all prescription and medical costs for in-network providers</td></tr></table><blockquote><p><b>specificCost</b></p><p><b>category</b>: Medical <span style="background: LightGoldenRodYellow">(Details : {[not stated] code 'medical' = 'medical', given as 'Medical'})</span></p><blockquote><p><b>benefit</b></p><p><b>type</b>: Primary care visit to treat an injury or illness <span style="background: LightGoldenRodYellow">(Details : {[not stated] code '001' = '001', given as 'Primary care visit to treat an injury or illness'})</span></p><h3>Costs</h3><table class="grid"><tr><td>-</td><td><b>Type</b></td><td><b>Applicability</b></td><td><b>Qualifiers</b></td><td><b>Value</b></td></tr><tr><td>*</td><td>Copay <span style="background: LightGoldenRodYellow">(Details : {[not stated] code 'copay' = 'copay', given as 'Copay'})</span></td><td>In Network <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/applicability code 'in-network' = 'In Network', given as 'In Network'})</span></td><td>in-network preferred provider <span style="background: LightGoldenRodYellow">(Details )</span></td><td>50 dollars<span style="background: LightGoldenRodYellow"> (Details: urn:iso:std:iso:4217 code USD = 'United States dollar')</span></td></tr></table></blockquote></blockquote><blockquote><p><b>specificCost</b></p><p><b>category</b>: Dental <span style="background: LightGoldenRodYellow">(Details : {[not stated] code 'dental' = 'dental', given as 'Dental'})</span></p><blockquote><p><b>benefit</b></p><p><b>type</b>: Basic Dental Care – Adult <span style="background: LightGoldenRodYellow">(Details : {[not stated] code '052' = '052', given as 'Basic Dental Care – Adult'})</span></p><h3>Costs</h3><table class="grid"><tr><td>-</td><td><b>Type</b></td><td><b>Applicability</b></td><td><b>Qualifiers</b></td><td><b>Value</b></td></tr><tr><td>*</td><td>Coinsurance <span style="background: LightGoldenRodYellow">(Details : {[not stated] code 'coinsurance' = 'coinsurance', given as 'Coinsurance'})</span></td><td>In Network <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/applicability code 'in-network' = 'In Network', given as 'In Network'})</span></td><td>in-network provider <span style="background: LightGoldenRodYellow">(Details )</span></td><td>10 percent</td></tr></table></blockquote></blockquote></blockquote></div>
+  </text>
+  <identifier>
+    <use value="official"/>
+    <type>
+      <text value="HIOS product ID"/>
+    </type>
+    <system value="https://www.cms.gov/CCIIO/"/>
+    <value value="1234567891"/>
+    <assigner>
+      <display value="Centers for Medicare and Medicaid Services"/>
+    </assigner>
+  </identifier>
+  <status value="active"/>
+  <type>
+    <coding>
+      <system value="http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-payercharacteristics"/>
+      <code value="bronze"/>
+      <display value="Bronze"/>
+    </coding>
+  </type>
+  <name value="Patriot PPO Standard"/>
+  <alias value="Patriot Plus"/>
+  <period>
+    <start value="2018-06-06"/>
+    <end value="2019-01-01"/>
+  </period>
+  <ownedBy>
+    <reference value="Organization/homeland"/>
+    <display value="Homeland Health Insurance"/>
+  </ownedBy>
+  <administeredBy>
+    <reference value="Organization/homeland"/>
+    <display value="Homeland Health Insurance"/>
+  </administeredBy>
+  <coverageArea>
+    <reference value="Location/wash-dc-metro"/>
+    <display value="Washington, DC metro area"/>
+  </coverageArea>
+  <contact>
+    <purpose>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/contactentity-type"/>
+        <code value="PATINF"/>
+        <display value="Patient"/>
+      </coding>
+      <text value="General information"/>
+    </purpose>
+    <telecom>
+      <system value="phone"/>
+      <value value="202-123-5555"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="info@homelandinc.org"/>
+    </telecom>
+  </contact>
+  <endpoint>
+    <display value="patriot plan endpoint hub"/>
+  </endpoint>
+  <network>
+    <reference value="Organization/patriotppo"/>
+    <display value="Patriot Preferred Provider Network"/>
+  </network>
+  <network>
+    <reference value="Organization/patriotdental"/>
+    <display value="Patriot Dental Provider Network"/>
+  </network>
+  <coverage>
+    <type>
+      <coding>
+        <code value="medical"/>
+        <display value="Medical"/>
+      </coding>
+      <text value="Coverage related to medical inpatient, outpatient, diagnostic, and preventive care"/>
+    </type>
+    <network>
+      <reference value="Organization/patriotppo"/>
+      <display value="Patriot Preferred Provider Network"/>
+    </network>
+    <benefit>
+      <type>
+        <coding>
+          <code value="001"/>
+          <display value="Primary care visit to treat an injury or illness"/>
+        </coding>
+      </type>
+      <requirement value="N/A"/>
+      <limit>
+        <code>
+          <text value="unlimited"/>
+        </code>
+      </limit>
+    </benefit>
+  </coverage>
+  <coverage>
+    <type>
+      <coding>
+        <code value="dental"/>
+        <display value="Dental"/>
+      </coding>
+      <text value="Coverage related to dental care"/>
+    </type>
+    <network>
+      <reference value="Organization/patriotdental"/>
+      <display value="Patriot Dental Provider Network"/>
+    </network>
+    <benefit>
+      <type>
+        <coding>
+          <code value="052"/>
+          <display value="Basic Dental Care &#x2013; Adult"/>
+        </coding>
+        <text value="Periodic oral checkup"/>
+      </type>
+      <requirement value="N/A"/>
+      <limit>
+        <value>
+          <value value="2"/>
+          <unit value="visit/yr"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="{visit}/a"/>
+        </value>
+        <code>
+          <text value="biannual oral checkup"/>
+        </code>
+      </limit>
+    </benefit>
+  </coverage>
+  <plan>
+    <identifier>
+      <use value="official"/>
+      <type>
+        <text value="HIOS plan ID"/>
+      </type>
+      <system value="https://www.cms.gov/CCIIO/"/>
+      <value value="123456789101112"/>
+      <assigner>
+        <display value="Centers for Medicare and Medicaid Services"/>
+      </assigner>
+    </identifier>
+    <type>
+      <coding>
+        <code value="bronze"/>
+        <display value="Bronze"/>
+      </coding>
+      <text value="Bronze"/>
+    </type>
+    <coverageArea>
+      <reference value="Location/wash-dc-metro"/>
+      <display value="Washington, DC metro area"/>
+    </coverageArea>
+    <network>
+      <reference value="Organization/patriotdental"/>
+      <display value="Patriot Dental Provider Network"/>
+    </network>
+    <generalCost>
+      <type>
+        <coding>
+          <code value="deductible"/>
+          <display value="Deductible"/>
+        </coding>
+        <text value="Deductible"/>
+      </type>
+      <groupSize value="1"/>
+      <cost>
+        <value value="6200"/>
+        <currency value="USD"/>
+      </cost>
+      <comment value="Includes all prescription and medical costs for in-network providers"/>
+    </generalCost>
+    <specificCost>
+      <category>
+        <coding>
+          <code value="medical"/>
+          <display value="Medical"/>
+        </coding>
+      </category>
+      <benefit>
+        <type>
+          <coding>
+            <code value="001"/>
+            <display value="Primary care visit to treat an injury or illness"/>
+          </coding>
+        </type>
+        <cost>
+          <type>
+            <coding>
+              <code value="copay"/>
+              <display value="Copay"/>
+            </coding>
+          </type>
+          <applicability>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/applicability"/>
+              <code value="in-network"/>
+              <display value="In Network"/>
+            </coding>
+          </applicability>
+          <qualifiers>
+            <text value="in-network preferred provider"/>
+          </qualifiers>
+          <value>
+            <value value="50"/>
+            <unit value="dollars"/>
+            <system value="urn:iso:std:iso:4217"/>
+            <code value="USD"/>
+          </value>
+        </cost>
+      </benefit>
+    </specificCost>
+    <specificCost>
+      <category>
+        <coding>
+          <code value="dental"/>
+          <display value="Dental"/>
+        </coding>
+      </category>
+      <benefit>
+        <type>
+          <coding>
+            <code value="052"/>
+            <display value="Basic Dental Care &#x2013; Adult"/>
+          </coding>
+        </type>
+        <cost>
+          <type>
+            <coding>
+              <code value="coinsurance"/>
+              <display value="Coinsurance"/>
+            </coding>
+          </type>
+          <applicability>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/applicability"/>
+              <code value="in-network"/>
+              <display value="In Network"/>
+            </coding>
+          </applicability>
+          <qualifiers>
+            <text value="in-network provider"/>
+          </qualifiers>
+          <value>
+            <value value="10"/>
+            <unit value="percent"/>
+          </value>
+        </cost>
+      </benefit>
+    </specificCost>
+  </plan>
+</InsurancePlan>

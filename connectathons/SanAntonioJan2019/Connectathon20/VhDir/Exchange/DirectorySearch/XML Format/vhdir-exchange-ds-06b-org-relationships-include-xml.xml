@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="vhdir-c20-exchange-ds-06b-org-relationships-include-xml"/>
+	<meta>
+		<profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml"><p>FHIR Connectathon 20 - VhDir Exchange - Directory Search - Scenario 6b -  Organizational Relationships Include - XML</p></div>
+	</text>
+
+	<url value="http://wildfhir.aegis.net/fhir4-0-0/TestScript/vhdir-c20-exchange-ds-06b-org-relationships-include-xml"/>
+	<name value="FHIRC20VhDirExchangeDS6bXML"/>
+	<title value="VhDir Exchange - Directory Search - Scenario 6b -  Organizational Relationships Include - XML"/>
+	<status value="active"/>
+	<date value="2019-01-10"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="PractitionerRole search by Organizational relationships capabilities tests; resource format XML; validate practitioner and endpoint are present; test a FHIR server's PractitionerRole search operation support using the parameters: organization (reference), organization.address and organization.name and _include of Endpoint. Default values for the search parameters are based on the Resource Examples and can be modified to allow testing against other known resource instances."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+	
+	<origin>
+		<index value="1"/>
+		<profile>
+			<system value="http://terminology.hl7.org/CodeSystem/testscript-profile-origin-types"/>
+			<code value="FHIR-Client"/>
+		</profile>
+	</origin>
+	<destination>
+		<index value="1"/>
+		<profile>
+			<system value="http://terminology.hl7.org/CodeSystem/testscript-profile-destination-types"/>
+			<code value="FHIR-Server"/>
+		</profile>
+	</destination>
+
+	<profile id="vhdir-practitionerrole-profile">
+		<reference value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-practitionerrole" />
+	</profile>
+
+	<variable>
+		<name value="PractitionerSearchOrganizationCriteria"/>
+		<defaultValue value="Organization/foundingfathers"/>
+	</variable>
+	<variable>
+		<name value="PractitionerSearchOrganizationAddressCriteria"/>
+		<defaultValue value="Washington"/>
+	</variable>
+	<variable>
+		<name value="PractitionerSearchOrganizationNameCriteria"/>
+		<defaultValue value="Founding Fathers"/>
+	</variable>
+	<variable>
+		<name value="PractitionerRoleResourceId"/>
+		<expression value="Bundle.entry.select(resource as PractitionerRole).id[0]" />
+		<sourceId value="search-response"/>
+	</variable>
+
+	<test id="01-PractitionerRoleSearchOrganizationReference">
+		<name value="PractitionerRoleSearchOrganizationReference"/>
+		<description value="Search PractitionerRole using the organization (reference) search parameter with the provided organization reference value and _include of Endpoint."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="PractitionerRole"/>
+				<description value="Search for PractitionerRole matches using the organization (reference) search parameter."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<destination value="1"/>
+				<encodeRequestUrl value="true"/>
+				<origin value="1"/>
+				<params value="?organization=${PractitionerSearchOrganizationCriteria}&amp;_include=PractitionerRole:endpoint"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type is searchset."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/type"/>
+				<value value="searchset"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one entry in the Bundle. Although not expected, there could be other PractitionerRole records returned."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.count() &gt; 0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one Endpoint entry in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Endpoint).exists()"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="PractitionerRole"/>
+				<description value="Read the first PractitionerRole found in the organization (reference) search and verify the contents contain a practitioner and physical location."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<destination value="1"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${PractitionerRoleResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/xml+fhir'."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is PractitionerRole."/>
+				<direction value="response"/>
+				<resource value="PractitionerRole"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned PractitionerRole conforms to the VhDir IG specification. Warning only to allow for Example code systems."/>
+				<direction value="response"/>
+				<validateProfileId value="vhdir-practitionerrole-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned PractitionerRole contains a Practitioner value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="PractitionerRole/practitioner/reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned PractitionerRole contains a location value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="PractitionerRole/location/reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-PractitionerRoleSearchOrganizationAddress">
+		<name value="PractitionerRoleSearchOrganizationAddress"/>
+		<description value="Search PractitionerRole using the organization.address (chained) search parameter with the provided organization.address data value _include of Endpoint."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="PractitionerRole"/>
+				<description value="Search for PractitionerRole matches using the organization.address (chained) search parameter. The address value used is the city portion of the address."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<destination value="1"/>
+				<encodeRequestUrl value="true"/>
+				<origin value="1"/>
+				<params value="?organization.address=${PractitionerSearchOrganizationAddressCriteria}&amp;_include=PractitionerRole:endpoint"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type is searchset."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/type"/>
+				<value value="searchset"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one entry in the Bundle. Although not expected, there could be other PractitionerRole records returned."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.count() &gt; 0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one Endpoint entry in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Endpoint).exists()"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="PractitionerRole"/>
+				<description value="Read the first PractitionerRole found in the organization.address search and verify the contents contain a practitioner and physical location."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<destination value="1"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${PractitionerRoleResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/xml+fhir'."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is PractitionerRole."/>
+				<direction value="response"/>
+				<resource value="PractitionerRole"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned PractitionerRole conforms to the VhDir IG specification. Warning only to allow for Example code systems."/>
+				<direction value="response"/>
+				<validateProfileId value="vhdir-practitionerrole-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned PractitionerRole contains a Practitioner value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="PractitionerRole/practitioner/reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned PractitionerRole contains a location value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="PractitionerRole/location/reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-PractitionerRoleSearchOrganizationName">
+		<name value="PractitionerRoleSearchOrganizationName"/>
+		<description value="Search PractitionerRole using the organization.name search parameters with the provided organization.name data value _include of Endpoint."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="PractitionerRole"/>
+				<description value="Search for PractitionerRole matches using the organization.name (chained) search parameter."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<destination value="1"/>
+				<encodeRequestUrl value="true"/>
+				<origin value="1"/>
+				<params value="?organization.name=${PractitionerSearchOrganizationNameCriteria}&amp;_include=PractitionerRole:endpoint"/>
+				<responseId value="search-response" />
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type is searchset."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/type"/>
+				<value value="searchset"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one entry in the Bundle. Although not expected, there could be other PractitionerRole records returned."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.count() &gt; 0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one Endpoint entry in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.select(resource as Endpoint).exists()"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="PractitionerRole"/>
+				<description value="Read the first PractitionerRole found in the organization.name search and verify the contents contain a practitioner and physical location."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<destination value="1"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${PractitionerRoleResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/xml+fhir'."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is PractitionerRole."/>
+				<direction value="response"/>
+				<resource value="PractitionerRole"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned PractitionerRole conforms to the VhDir IG specification. Warning only to allow for Example code systems."/>
+				<direction value="response"/>
+				<validateProfileId value="vhdir-practitionerrole-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned PractitionerRole contains a Practitioner value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="PractitionerRole/practitioner/reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned PractitionerRole contains a location value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value="PractitionerRole/location/reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

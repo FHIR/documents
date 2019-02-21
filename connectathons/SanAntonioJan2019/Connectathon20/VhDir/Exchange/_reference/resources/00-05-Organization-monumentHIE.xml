@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Organization xmlns="http://hl7.org/fhir">
+  <id value="monumentHIE"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-organization"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: monumentHIE</p><p><b>meta</b>: </p><p><b>active</b>: true</p><p><b>type</b>: Health information exchange organization <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/organization-type code 'other' = 'Other', given as 'Other'})</span></p><p><b>name</b>: Monument Health Information Exchange</p></div>
+  </text>
+  <active value="true"/>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/organization-type"/>
+      <code value="other"/>
+      <display value="Other"/>
+    </coding>
+    <text value="Health information exchange organization"/>
+  </type>
+  <name value="Monument Health Information Exchange"/>
+</Organization>

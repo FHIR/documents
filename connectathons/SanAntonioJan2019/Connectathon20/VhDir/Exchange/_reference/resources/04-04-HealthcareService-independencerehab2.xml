@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<HealthcareService xmlns="http://hl7.org/fhir">
+  <id value="independencerehab2"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-healthcareservice"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: independencerehab2</p><p><b>meta</b>: </p><p><b>active</b>: true</p><p><b>providedBy</b>: <a href="Organization-independencerehab.html">Independence Rehabilitation Services, Inc.. Generated Summary: id: independencerehab; active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type prov}">Rehabilitation services provider</span>; name: Independence Rehabilitation Services, Inc.</a></p><p><b>category</b>: Specialist Medical <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/service-category code '27' = 'Specialist Medical', given as 'Specialist Medical'})</span></p><p><b>type</b>: Rehabilitation <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/service-type code '576' = 'Rehabilitation', given as 'Rehabilitation'})</span></p><p><b>specialty</b>: Rehabilitation <span style="background: LightGoldenRodYellow">(Details : {SNOMED CT code '394602003' = 'Rehabilitation - specialty (qualifier value)', given as 'Rehabilitation'})</span></p><p><b>name</b>: Independence Rehab - Outpatient rehabilitation services</p><p><b>comment</b>: Provides outpatient medical and vocational rehabilitation services to improve independence and employability of clients</p><p><b>appointmentRequired</b>: true</p></div>
+  </text>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/newpatients">
+    <extension url="acceptingPatients">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="network">
+      <valueReference>
+        <reference value="Organization/patriotppo"/>
+        <display value="Patriot Preferred Provider Network"/>
+      </valueReference>
+    </extension>
+  </extension>
+  <active value="true"/>
+  <providedBy>
+    <reference value="Organization/independencerehab"/>
+    <display value="Independence Rehabilitation Services, Inc."/>
+  </providedBy>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/service-category"/>
+      <code value="27"/>
+      <display value="Specialist Medical"/>
+    </coding>
+  </category>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/service-type"/>
+      <code value="576"/>
+      <display value="Rehabilitation"/>
+    </coding>
+  </type>
+  <specialty>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="394602003"/>
+      <display value="Rehabilitation"/>
+    </coding>
+  </specialty>
+  <name value="Independence Rehab - Outpatient rehabilitation services"/>
+  <comment value="Provides outpatient medical and vocational rehabilitation services to improve independence and employability of clients"/>
+  <appointmentRequired value="true"/>
+</HealthcareService>

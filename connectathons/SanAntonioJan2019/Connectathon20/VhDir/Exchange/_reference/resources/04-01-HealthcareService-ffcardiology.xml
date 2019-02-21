@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<HealthcareService xmlns="http://hl7.org/fhir">
+  <id value="ffcardiology"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-healthcareservice"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: ffcardiology</p><p><b>meta</b>: </p><p><b>identifier</b>: Business ID = service001 (SECONDARY)</p><p><b>active</b>: true</p><p><b>providedBy</b>: <a href="Organization-foundingfathers.html">Founding Fathers Memorial Hospital. Generated Summary: id: foundingfathers; NPI = 1345678910 (OFFICIAL); active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type prov}">Hospital</span>; name: Founding Fathers Memorial Hospital; alias: DC Memorial Hospital; ph: 202-101-0123</a></p><p><b>category</b>: Hospital <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/service-category code '35' = 'Hospital', given as 'Hospital'})</span></p><p><b>type</b>: Cardiology <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/service-type code '165' = 'Cardiology', given as 'Cardiology'})</span></p><p><b>specialty</b>: Cardiology <span style="background: LightGoldenRodYellow">(Details : {SNOMED CT code '394579002' = 'Cardiology (qualifier value)', given as 'Cardiology'})</span></p><p><b>location</b>: <a href="Location-loc-ffmh-hvi.html">Founding Fathers Memorial Hospital, Heart and Vascular Institute. Generated Summary: id: loc-ffmh-hvi; main campus (SECONDARY); status: active; name: Founding Fathers Memorial Hospital Heart and Vascular Institute; description: Heart and Vascular Institute Specialty Wing; <span title="Codes: {http://terminology.hl7.org/CodeSystem/v3-RoleCode HOSP}">Hospital</span>; ph: 202-101-0123(WORK); <span title="Codes: {http://terminology.hl7.org/CodeSystem/location-physical-type si}">Site</span>; availabilityExceptions: visiting hours from 6:00 am - 10:00 pm</a></p><p><b>name</b>: Founding Fathers Memorial Hospital Heart and Vascular Services</p><p><b>comment</b>: Cardiac surgery, heart failure, cardiac electrophysiology, vascular surgery, and cardiovascular research</p><p><b>telecom</b>: fax: 555 12345</p><p><b>serviceProvisionCode</b>: Fees apply <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/service-provision-conditions code 'cost' = 'Fees apply', given as 'Fees apply'})</span></p><p><b>eligibility</b>: None <span style="background: LightGoldenRodYellow">(Details )</span></p><p><b>eligibilityNote</b>: No specific eligibility requirements</p><p><b>referralMethod</b>: phone <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/service-referral-method code 'phone' = 'Phone', given as 'phone'})</span>, Fax <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/service-referral-method code 'fax' = 'Fax', given as 'Fax'})</span></p><p><b>appointmentRequired</b>: true</p><h3>AvailableTimes</h3><table class="grid"><tr><td>-</td><td><b>DaysOfWeek</b></td><td><b>AllDay</b></td><td><b>AvailableStartTime</b></td><td><b>AvailableEndTime</b></td></tr><tr><td>*</td><td>MON</td><td>false</td><td/><td/></tr></table><p><b>availabilityExceptions</b>: No interventional cardiac procedures are scheduled on Wednesdays</p><p><b>endpoint</b>: <a href="Endpoint-direct321.html">Direct address for the Founding Fathers Heart and Vascular Institute. Generated Summary: id: direct321; Direct Address = heart@direct.ffhospital.com (USUAL); status: active; <span title="{http://terminology.hl7.org/CodeSystem/endpoint-connection-type direct-project}">Direct Project</span>; name: Founding Fathers Memorial Hospital Heart and Vascular Institute Direct address; ph: 202-101-0123(WORK); period: 19/11/2014 --&gt; (ongoing); <span title="Codes: {urn:oid:1.3.6.1.4.1.19376.1.2.3 urn:ihe:pcc:xphr:2007}">HL7 CCD Document</span>; payloadMimeType: application/hl7-v3+xml; address: mailto:heart@direct.ffhospital.com</a></p></div>
+  </text>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/newpatients">
+    <extension url="acceptingPatients">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="network">
+      <valueReference>
+        <reference value="Organization/patriotppo"/>
+        <display value="Patriot Preferred Provider Network"/>
+      </valueReference>
+    </extension>
+  </extension>
+  <identifier>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/identifier-status">
+      <valueCode value="active"/>
+    </extension>
+    <use value="secondary"/>
+    <type>
+      <coding>
+        <system value="http://example.org/identifiers"/>
+        <code value="BID"/>
+      </coding>
+      <text value="Business ID"/>
+    </type>
+    <system value="http://example.org/www.foundingfathersmemorial.com"/>
+    <value value="service001"/>
+    <assigner>
+      <reference value="Organization/foundingfathers"/>
+      <display value="Founding Fathers Memorial Hospital"/>
+    </assigner>
+  </identifier>
+  <active value="true"/>
+  <providedBy>
+    <reference value="Organization/foundingfathers"/>
+    <display value="Founding Fathers Memorial Hospital"/>
+  </providedBy>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/service-category"/>
+      <code value="35"/>
+      <display value="Hospital"/>
+    </coding>
+  </category>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/service-type"/>
+      <code value="165"/>
+      <display value="Cardiology"/>
+    </coding>
+  </type>
+  <specialty>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="394579002"/>
+      <display value="Cardiology"/>
+    </coding>
+  </specialty>
+  <location>
+    <reference value="Location/loc-ffmh-hvi"/>
+    <display value="Founding Fathers Memorial Hospital, Heart and Vascular Institute"/>
+  </location>
+  <name value="Founding Fathers Memorial Hospital Heart and Vascular Services"/>
+  <comment value="Cardiac surgery, heart failure, cardiac electrophysiology, vascular surgery, and cardiovascular research"/>
+  <telecom>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/contactpoint-viaintermediary">
+      <valueReference>
+        <reference value="Location/loc-ffmh-hvi"/>
+        <display value="Founding Fathers Memorial Hospital, Heart and Vascular Institute"/>
+      </valueReference>
+    </extension>
+    <system value="fax"/>
+    <value value="555 12345"/>
+  </telecom>
+  <serviceProvisionCode>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/service-provision-conditions"/>
+      <code value="cost"/>
+      <display value="Fees apply"/>
+    </coding>
+  </serviceProvisionCode>
+  <eligibility>
+    <text value="None"/>
+  </eligibility>
+  <eligibilityNote value="No specific eligibility requirements"/>
+  <referralMethod>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/service-referral-method"/>
+      <code value="phone"/>
+      <display value="phone"/>
+    </coding>
+  </referralMethod>
+  <referralMethod>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/service-referral-method"/>
+      <code value="fax"/>
+      <display value="Fax"/>
+    </coding>
+  </referralMethod>
+  <appointmentRequired value="true"/>
+  <availableTime>
+    <daysOfWeek value="mon"/>
+    <daysOfWeek value="tue"/>
+    <daysOfWeek value="wed"/>
+    <daysOfWeek value="thu"/>
+    <daysOfWeek value="fri"/>
+    <allDay value="false"/>
+    <availableStartTime value="08:00:00"/>
+    <availableEndTime value="18:00:00"/>
+  </availableTime>
+  <availabilityExceptions value="No interventional cardiac procedures are scheduled on Wednesdays"/>
+  <endpoint>
+    <reference value="Endpoint/direct321"/>
+    <display value="Direct address for the Founding Fathers Heart and Vascular Institute"/>
+  </endpoint>
+</HealthcareService>

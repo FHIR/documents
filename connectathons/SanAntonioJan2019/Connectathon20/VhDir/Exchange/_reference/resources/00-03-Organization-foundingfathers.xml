@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Organization xmlns="http://hl7.org/fhir">
+  <id value="foundingfathers"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-organization"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: foundingfathers</p><p><b>meta</b>: </p><p><b>identifier</b>: NPI = 1345678910 (OFFICIAL)</p><p><b>active</b>: true</p><p><b>type</b>: Hospital <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/organization-type code 'prov' = 'Healthcare Provider', given as 'Healthcare Provider'})</span></p><p><b>name</b>: Founding Fathers Memorial Hospital</p><p><b>alias</b>: DC Memorial Hospital</p><p><b>telecom</b>: ph: 202-101-0123</p><p><b>address</b>: 330 C Street SW, Washington, DC 20201, USA(WORK)</p><p><b>partOf</b>: <a href="Organization-mtvernon.html">Mount Vernon Health System. Generated Summary: id: mtvernon; active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type prov}">Health System</span>; name: Mount Vernon Health System</a></p><h3>Contacts</h3><table class="grid"><tr><td>-</td><td><b>Purpose</b></td><td><b>Name</b></td><td><b>Telecom</b></td><td><b>Address</b></td></tr><tr><td>*</td><td>Administrative <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/contactentity-type code 'ADMIN' = 'Administrative', given as 'Administrative'})</span></td><td>Abigail Adams(OFFICIAL)</td><td>ph: 202-444-5555(WORK)</td><td>330 C Street SW, Washington, DC 20201, USA(WORK)</td></tr></table><p><b>endpoint</b>: <a href="Endpoint-direct321.html">Founding Fathers Memorial Hospital Heart and Vascular Institute Direct address. Generated Summary: id: direct321; Direct Address = heart@direct.ffhospital.com (USUAL); status: active; <span title="{http://terminology.hl7.org/CodeSystem/endpoint-connection-type direct-project}">Direct Project</span>; name: Founding Fathers Memorial Hospital Heart and Vascular Institute Direct address; ph: 202-101-0123(WORK); period: 19/11/2014 --&gt; (ongoing); <span title="Codes: {urn:oid:1.3.6.1.4.1.19376.1.2.3 urn:ihe:pcc:xphr:2007}">HL7 CCD Document</span>; payloadMimeType: application/hl7-v3+xml; address: mailto:heart@direct.ffhospital.com</a></p></div>
+  </text>
+  <identifier>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/identifier-status">
+      <valueCode value="active"/>
+    </extension>
+    <use value="official"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+        <code value="PRN"/>
+        <display value="Provider number"/>
+      </coding>
+      <text value="NPI"/>
+    </type>
+    <system value="http://hl7.org/fhir/sid/us-npi"/>
+    <value value="1345678910"/>
+    <period>
+      <start value="2004-04-21T11:57:00-05:00"/>
+    </period>
+    <assigner>
+      <display value="CMS"/>
+    </assigner>
+  </identifier>
+  <active value="true"/>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/organization-type"/>
+      <code value="prov"/>
+      <display value="Healthcare Provider"/>
+    </coding>
+    <text value="Hospital"/>
+  </type>
+  <name value="Founding Fathers Memorial Hospital"/>
+  <alias value="DC Memorial Hospital">
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/org-alias-type">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-organizationdemographics"/>
+        <code value="historical"/>
+        <display value="Historical"/>
+      </valueCoding>
+    </extension>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/org-alias-period">
+      <valuePeriod>
+        <start value="1975"/>
+        <end value="2000"/>
+      </valuePeriod>
+    </extension>
+  </alias>
+  <telecom>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/contactpoint-viaintermediary">
+      <valueReference>
+        <reference value="Location/loc-ffmh"/>
+        <display value="Founding Fathers Memorial Hospital"/>
+      </valueReference>
+    </extension>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/contactpoint-availabletime">
+      <extension url="allDay">
+        <valueBoolean value="true"/>
+      </extension>
+    </extension>
+    <system value="phone"/>
+    <value value="202-101-0123"/>
+  </telecom>
+  <address>
+    <extension url="http://hl7.org/fhir/StructureDefinition/geolocation">
+      <extension url="latitude">
+        <valueDecimal value="38.8859395"/>
+      </extension>
+      <extension url="longitude">
+        <valueDecimal value="-77.016469"/>
+      </extension>
+    </extension>
+    <use value="work"/>
+    <type value="both"/>
+    <text value="330 C Street SW, Washington, DC 20201, USA"/>
+    <line value="330 C Street SW"/>
+    <city value="Washington"/>
+    <state value="DC"/>
+    <postalCode value="20201"/>
+    <country value="USA"/>
+  </address>
+  <partOf>
+    <reference value="Organization/mtvernon"/>
+    <display value="Mount Vernon Health System"/>
+  </partOf>
+  <contact>
+    <purpose>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/contactentity-type"/>
+        <code value="ADMIN"/>
+        <display value="Administrative"/>
+      </coding>
+    </purpose>
+    <name>
+      <use value="official"/>
+      <text value="Abigail Adams"/>
+      <family value="Adams"/>
+      <given value="Abigail"/>
+    </name>
+    <telecom>
+      <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/contactpoint-availabletime">
+        <extension url="daysOfWeek">
+          <valueCode value="mon"/>
+        </extension>
+        <extension url="daysOfWeek">
+          <valueCode value="tue"/>
+        </extension>
+        <extension url="daysOfWeek">
+          <valueCode value="wed"/>
+        </extension>
+        <extension url="daysOfWeek">
+          <valueCode value="thu"/>
+        </extension>
+        <extension url="daysOfWeek">
+          <valueCode value="fri"/>
+        </extension>
+        <extension url="availableStartTime">
+          <valueTime value="07:00:00"/>
+        </extension>
+        <extension url="availableEndTime">
+          <valueTime value="18:00:00"/>
+        </extension>
+      </extension>
+      <system value="phone"/>
+      <value value="202-444-5555"/>
+      <use value="work"/>
+    </telecom>
+    <address>
+      <extension url="http://hl7.org/fhir/StructureDefinition/geolocation">
+        <extension url="latitude">
+          <valueDecimal value="38.8859395"/>
+        </extension>
+        <extension url="longitude">
+          <valueDecimal value="-77.016469"/>
+        </extension>
+      </extension>
+      <use value="work"/>
+      <type value="both"/>
+      <text value="330 C Street SW, Washington, DC 20201, USA"/>
+      <line value="330 C Street SW"/>
+      <city value="Washington"/>
+      <state value="DC"/>
+      <postalCode value="20201"/>
+      <country value="USA"/>
+    </address>
+  </contact>
+  <endpoint>
+    <reference value="Endpoint/direct321"/>
+    <display value="Founding Fathers Memorial Hospital Heart and Vascular Institute Direct address"/>
+  </endpoint>
+</Organization>

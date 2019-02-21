@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OrganizationAffiliation xmlns="http://hl7.org/fhir">
+  <id value="orgrole1"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: orgrole1</p><p><b>identifier</b>: service002 (SECONDARY)</p><p><b>active</b>: true</p><p><b>period</b>: 09/02/2018 --&gt; 01/02/2022</p><p><b>organization</b>: <a href="Organization-foundingfathers.html">Founding Fathers Memorial Hospital. Generated Summary: id: foundingfathers; NPI = 1345678910 (OFFICIAL); active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type prov}">Hospital</span>; name: Founding Fathers Memorial Hospital; alias: DC Memorial Hospital; ph: 202-101-0123</a></p><p><b>participatingOrganization</b>: <a href="Organization-independencerehab.html">Independence Rehabilitation Services, Inc.. Generated Summary: id: independencerehab; active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type prov}">Rehabilitation services provider</span>; name: Independence Rehabilitation Services, Inc.</a></p><p><b>network</b>: <a href="Organization-patriotppo.html">Patriot Preferred Provider Network. Generated Summary: id: patriotppo; Healthcare.gov Network ID = DCN001 (SECONDARY); active; <span title="Codes: {http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-network-type ppo}">PPO</span>; name: Patriot Preferred Provider Network; alias: Patriot PPO</a></p><p><b>code</b>: Provider of rehabilitation services <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/organization-role code 'provider' = 'Provider', given as 'Provider'})</span></p><p><b>specialty</b>: Rehabilitation <span style="background: LightGoldenRodYellow">(Details : {SNOMED CT code '394602003' = 'Rehabilitation - specialty (qualifier value)', given as 'Rehabilitation - specialty'})</span></p><p><b>location</b>: <a href="Location-loc-ffmh.html">Founding Fathers Memorial Hospital. Generated Summary: id: loc-ffmh; main campus (SECONDARY); status: active; name: Founding Fathers Memorial Hospital; description: Main campus of Founding Fathers Memorial Hospital; <span title="Codes: {http://terminology.hl7.org/CodeSystem/v3-RoleCode HOSP}">Hospital</span>; ph: 202-101-0123(WORK); <span title="Codes: {http://terminology.hl7.org/CodeSystem/location-physical-type si}">Site</span>; availabilityExceptions: visiting hours from 6:00 am - 10:00 pm</a></p><p><b>healthcareService</b>: </p><ul><li><a href="HealthcareService-independencerehab1.html">Inpatient rehabilitation services. Generated Summary: id: independencerehab1; active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/service-category 27}">Specialist Medical</span>; <span title="Codes: {http://terminology.hl7.org/CodeSystem/service-type 576}">Rehabilitation</span>; <span title="Codes: {http://snomed.info/sct 394602003}">Rehabilitation</span>; name: Independence Rehab - Inpatient rehabilitation services; comment: Provides inpatient medical and vocational rehabilitation services to improve independence and employability of clients; <span title="Codes: ">Referral</span>; eligibilityNote: Appointments require referral; <span title="Codes: {http://terminology.hl7.org/CodeSystem/service-referral-method phone}">phone</span>; appointmentRequired</a></li><li><a href="HealthcareService-independencerehab2.html">Outpatient rehabilitation services. Generated Summary: id: independencerehab2; active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/service-category 27}">Specialist Medical</span>; <span title="Codes: {http://terminology.hl7.org/CodeSystem/service-type 576}">Rehabilitation</span>; <span title="Codes: {http://snomed.info/sct 394602003}">Rehabilitation</span>; name: Independence Rehab - Outpatient rehabilitation services; comment: Provides outpatient medical and vocational rehabilitation services to improve independence and employability of clients; appointmentRequired</a></li></ul><p><b>telecom</b>: ph: 202-109-8765(WORK)</p></div>
+  </text>
+  <identifier>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/identifier-status">
+      <valueCode value="active"/>
+    </extension>
+    <use value="secondary"/>
+    <system value="http://example.org/www.foundingfathersmemorial.com"/>
+    <value value="service002"/>
+    <assigner>
+      <reference value="Organization/foundingfathers"/>
+      <display value="Founding Fathers Memorial Hospital"/>
+    </assigner>
+  </identifier>
+  <active value="true"/>
+  <period>
+    <start value="2018-02-09"/>
+    <end value="2022-02-01"/>
+  </period>
+  <organization>
+    <reference value="Organization/foundingfathers"/>
+    <display value="Founding Fathers Memorial Hospital"/>
+  </organization>
+  <participatingOrganization>
+    <reference value="Organization/independencerehab"/>
+    <display value="Independence Rehabilitation Services, Inc."/>
+  </participatingOrganization>
+  <network>
+    <reference value="Organization/patriotppo"/>
+    <display value="Patriot Preferred Provider Network"/>
+  </network>
+  <code>
+    <coding>
+      <system value="http://hl7.org/fhir/organization-role"/>
+      <code value="provider"/>
+      <display value="Provider"/>
+      <userSelected value="true"/>
+    </coding>
+    <text value="Provider of rehabilitation services"/>
+  </code>
+  <specialty>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="394602003"/>
+      <display value="Rehabilitation - specialty"/>
+    </coding>
+    <text value="Rehabilitation"/>
+  </specialty>
+  <location>
+    <reference value="Location/loc-ffmh"/>
+    <display value="Founding Fathers Memorial Hospital"/>
+  </location>
+  <healthcareService>
+    <reference value="HealthcareService/independencerehab1"/>
+    <display value="Inpatient rehabilitation services"/>
+  </healthcareService>
+  <healthcareService>
+    <reference value="HealthcareService/independencerehab2"/>
+    <display value="Outpatient rehabilitation services"/>
+  </healthcareService>
+  <telecom>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/contactpoint-availabletime">
+      <extension url="daysOfWeek">
+        <valueCode value="mon"/>
+      </extension>
+      <extension url="daysOfWeek">
+        <valueCode value="tue"/>
+      </extension>
+      <extension url="daysOfWeek">
+        <valueCode value="wed"/>
+      </extension>
+      <extension url="daysOfWeek">
+        <valueCode value="thu"/>
+      </extension>
+      <extension url="daysOfWeek">
+        <valueCode value="fri"/>
+      </extension>
+      <extension url="availableStartTime">
+        <valueTime value="08:00:00"/>
+      </extension>
+      <extension url="availableEndTime">
+        <valueTime value="18:00:00"/>
+      </extension>
+    </extension>
+    <system value="phone"/>
+    <value value="202-109-8765"/>
+    <use value="work"/>
+  </telecom>
+</OrganizationAffiliation>

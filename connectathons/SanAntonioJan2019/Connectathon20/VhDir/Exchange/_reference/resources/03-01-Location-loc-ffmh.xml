@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Location xmlns="http://hl7.org/fhir">
+  <id value="loc-ffmh"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-location"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: loc-ffmh</p><p><b>meta</b>: </p><p><b>identifier</b>: main campus (SECONDARY)</p><p><b>status</b>: ACTIVE</p><p><b>name</b>: Founding Fathers Memorial Hospital</p><p><b>description</b>: Main campus of Founding Fathers Memorial Hospital</p><p><b>type</b>: Hospital <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/v3-RoleCode code 'HOSP' = 'Hospital', given as 'Hospital'})</span></p><p><b>telecom</b>: ph: 202-101-0123(WORK)</p><p><b>address</b>: 330 C Street SW, Washington, DC 20201, USA(WORK)</p><p><b>physicalType</b>: Site <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/location-physical-type code 'si' = 'Site', given as 'Site'})</span></p><h3>Positions</h3><table class="grid"><tr><td>-</td><td><b>Longitude</b></td><td><b>Latitude</b></td></tr><tr><td>*</td><td>38.8859395</td><td>-77.016469</td></tr></table><p><b>managingOrganization</b>: <a href="Organization-foundingfathers.html">Founding Fathers Memorial Hospital. Generated Summary: id: foundingfathers; NPI = 1345678910 (OFFICIAL); active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type prov}">Hospital</span>; name: Founding Fathers Memorial Hospital; alias: DC Memorial Hospital; ph: 202-101-0123</a></p><h3>HoursOfOperations</h3><table class="grid"><tr><td>-</td><td><b>DaysOfWeek</b></td><td><b>AllDay</b></td></tr><tr><td>*</td><td>MON</td><td>true</td></tr></table><p><b>availabilityExceptions</b>: visiting hours from 6:00 am - 10:00 pm</p><p><b>endpoint</b>: <a href="Endpoint-direct321.html">Founding Fathers Memorial Hospital Heart and Vascular Institute Direct address. Generated Summary: id: direct321; Direct Address = heart@direct.ffhospital.com (USUAL); status: active; <span title="{http://terminology.hl7.org/CodeSystem/endpoint-connection-type direct-project}">Direct Project</span>; name: Founding Fathers Memorial Hospital Heart and Vascular Institute Direct address; ph: 202-101-0123(WORK); period: 19/11/2014 --&gt; (ongoing); <span title="Codes: {urn:oid:1.3.6.1.4.1.19376.1.2.3 urn:ihe:pcc:xphr:2007}">HL7 CCD Document</span>; payloadMimeType: application/hl7-v3+xml; address: mailto:heart@direct.ffhospital.com</a></p></div>
+  </text>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/accessibility">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-accessibility"/>
+        <code value="handiaccess"/>
+        <display value="handicap accessible"/>
+      </coding>
+      <text value="Founding Fathers Memorial Hospital offers a variety of services and programs for persons with disabilities"/>
+    </valueCodeableConcept>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/ehr">
+    <extension url="developer">
+      <valueString value="Revolutionary Health"/>
+    </extension>
+    <extension url="product">
+      <valueString value="Revolutionary Professional EHR"/>
+    </extension>
+    <extension url="version">
+      <valueString value="10.4.3"/>
+    </extension>
+    <extension url="certificationEdition">
+      <valueCoding>
+        <system value="http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-ehrcharacteristics"/>
+        <code value="2014"/>
+        <display value="ONC 2014 Certification"/>
+      </valueCoding>
+    </extension>
+    <extension url="patientAccess">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-ehrcharacteristics"/>
+          <code value="portal"/>
+          <display value="patient portal"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+    <extension url="certificationID">
+      <valueString value="04282014-1111-2"/>
+    </extension>
+  </extension>
+  <identifier>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/identifier-status">
+      <valueCode value="active"/>
+    </extension>
+    <use value="secondary"/>
+    <system value="http://example.org/www.foundingfathersmemorial.com"/>
+    <value value="main campus"/>
+    <assigner>
+      <reference value="Organization/foundingfathers"/>
+      <display value="Founding Fathers Memorial Hospital"/>
+    </assigner>
+  </identifier>
+  <status value="active"/>
+  <name value="Founding Fathers Memorial Hospital"/>
+  <description value="Main campus of Founding Fathers Memorial Hospital"/>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
+      <code value="HOSP"/>
+      <display value="Hospital"/>
+      <userSelected value="true"/>
+    </coding>
+  </type>
+  <telecom>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/contactpoint-availabletime">
+      <extension url="allDay">
+        <valueBoolean value="true"/>
+      </extension>
+    </extension>
+    <system value="phone"/>
+    <value value="202-101-0123"/>
+    <use value="work"/>
+    <rank value="1"/>
+  </telecom>
+  <address>
+    <use value="work"/>
+    <type value="both"/>
+    <text value="330 C Street SW, Washington, DC 20201, USA"/>
+    <line value="330 C Street SW"/>
+    <city value="Washington"/>
+    <state value="DC"/>
+    <postalCode value="20201"/>
+    <country value="USA"/>
+  </address>
+  <physicalType>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"/>
+      <code value="si"/>
+      <display value="Site"/>
+      <userSelected value="true"/>
+    </coding>
+  </physicalType>
+  <position>
+    <longitude value="38.8859395"/>
+    <latitude value="-77.016469"/>
+  </position>
+  <managingOrganization>
+    <reference value="Organization/foundingfathers"/>
+    <display value="Founding Fathers Memorial Hospital"/>
+  </managingOrganization>
+  <hoursOfOperation>
+    <daysOfWeek value="mon"/>
+    <daysOfWeek value="tue"/>
+    <daysOfWeek value="wed"/>
+    <daysOfWeek value="thu"/>
+    <daysOfWeek value="fri"/>
+    <daysOfWeek value="sat"/>
+    <daysOfWeek value="sun"/>
+    <allDay value="true"/>
+  </hoursOfOperation>
+  <availabilityExceptions value="visiting hours from 6:00 am - 10:00 pm"/>
+  <endpoint>
+    <reference value="Endpoint/direct321"/>
+    <display value="Founding Fathers Memorial Hospital Heart and Vascular Institute Direct address"/>
+  </endpoint>
+</Location>

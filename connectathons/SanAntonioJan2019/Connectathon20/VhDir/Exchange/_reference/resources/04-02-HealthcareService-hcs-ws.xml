@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<HealthcareService xmlns="http://hl7.org/fhir">
+  <id value="hcs-ws"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-healthcareservice"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: hcs-ws</p><p><b>meta</b>: </p><p><b>contained</b>: </p><p><b>active</b>: true</p><p><b>type</b>: Women's shelter <span style="background: LightGoldenRodYellow">(Details )</span></p><p><b>location</b>: <a href="Location-loc-ws.html">The W Womens Shelter. Generated Summary: id: loc-ws; status: active; name: The W Womens Shelter; https://exmaple.org/The-W-shelter, ph: 555 administration</a></p><p><b>name</b>: Womens shelter</p><p><b>comment</b>: This is an example of a Women's shelter to demonstrate how to restrict multiple contents</p><p><b>telecom</b>: https://exmaple.org/The-W-shelter, ph: 555 wshelter</p></div>
+  </text>
+  <contained>
+    <Consent>
+      <id value="restrict"/>
+      <meta>
+        <profile value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-restriction"/>
+      </meta>
+      <status value="in-progress"/>
+      <scope>
+        <text value="Direct Referral use only"/>
+      </scope>
+      <category>
+        <text value="conditional release (per DUA)"/>
+      </category>
+      <dateTime value="2017-12-18"/>
+      <policy>
+        <uri value="http://example.org/federal/policy#womans-shelter"/>
+      </policy>
+      <provision>
+        <type value="permit"/>
+        <actor>
+          <role>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+              <code value="IRCP"/>
+              <display value="information recipient"/>
+            </coding>
+          </role>
+          <reference>
+            <display value="Blue Team @ The W shelter (CareTeam)"/>
+          </reference>
+        </actor>
+        <action>
+          <text value="specific value"/>
+        </action>
+        <securityLabel>
+          <display value="womens-abuse-councellors"/>
+        </securityLabel>
+        <purpose>
+          <display value="Women&#39;s Shelter"/>
+        </purpose>
+      </provision>
+    </Consent>
+  </contained>
+  <active value="true"/>
+  <type>
+    <text value="Women&#39;s shelter"/>
+  </type>
+  <location>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/usage-restriction">
+      <valueReference>
+        <reference value="#restrict"/>
+      </valueReference>
+    </extension>
+    <reference value="Location/loc-ws"/>
+    <display value="The W Womens Shelter"/>
+  </location>
+  <name value="Womens shelter"/>
+  <comment value="This is an example of a Women&#39;s shelter to demonstrate how to restrict multiple contents"/>
+  <telecom>
+    <system value="url"/>
+    <value value="https://exmaple.org/The-W-shelter"/>
+  </telecom>
+  <telecom>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/usage-restriction">
+      <valueReference>
+        <reference value="#restrict"/>
+      </valueReference>
+    </extension>
+    <system value="phone"/>
+    <value value="555 wshelter"/>
+  </telecom>
+</HealthcareService>
