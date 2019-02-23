@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="terminology-c20-subsumes-snomed-02-ok-post-code-xml"/>
+	<meta>
+		<profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml"><p>FHIR Connectathon 20 - Terminology Services - Subsumes - SNOMED - OK - POST - Code - XML</p></div>
+	</text>
+
+	<url value="http://wildfhir.aegis.net/fhir4-0-0/TestScript/terminology-c20-subsumes-snomed-02-ok-post-code-xml"/>
+	<name value="FHIR Connectathon 20 - Terminology Services - Subsumes - SNOMED - OK - POST - Code - XML"/>
+	<status value="active"/>
+	<date value="2019-01-07"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a successful response with a valid outcome code value. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+
+	<fixture id="subsumes-snomed-input-01">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/subsumes-snomed-input-code-01.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="subsumes-snomed-input-02">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/subsumes-snomed-input-code-02.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="subsumes-snomed-input-03">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/subsumes-snomed-input-code-03.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="subsumes-snomed-input-04">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/subsumes-snomed-input-code-04.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="ParametersProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+	</profile>
+
+	<test id="01-SNOMED-SubsumedBy">
+		<name value="SNOMED-SubsumedBy"/>
+		<description value="Subsumes test for SNOMED system and code using HTTP POST with system, codeA and codeB parameters; 3738000 (viral hepatitis) subsumed-by 235856003(disorder of the liver). Expected response is 200 (OK) with a Parameters payload containing the outcome code subsumed-by."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $subsumes operation for SNOMED system and code for outcome of subsumed-by."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes"/>
+				<sourceId value="subsumes-snomed-input-01"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<direction value="response"/>
+				<resource value="Parameters"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter name with value of outcome."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Parameters/parameter[1]/name"/>
+				<value value="outcome"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter valueCode with value of subsumed-by."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Parameters/parameter[1]/valueCode"/>
+				<value value="subsumed-by"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-SNOMED-Subsumes">
+		<name value="SNOMED-Subsumes"/>
+		<description value="Subsumes test for SNOMED system and code using HTTP POST with system, codeA and codeB parameters; 235856003(disorder of the liver) subsumes 3738000 (viral hepatitis). Expected response is 200 (OK) with a Parameters payload containing the outcome code subsumes."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $subsumes operation for SNOMED system and code for outcome of subsumes."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes"/>
+				<sourceId value="subsumes-snomed-input-02"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter name with value of outcome."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Parameters/parameter[1]/name"/>
+				<value value="outcome"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter valueCode with value of subsumes."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Parameters/parameter[1]/valueCode"/>
+				<value value="subsumes"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-SNOMED-NotSubsumed">
+		<name value="SNOMED-NotSubsumed"/>
+		<description value="Subsumes test for SNOMED system and code using HTTP POST with system, codeA and codeB parameters; 399211009 (History of myocardial infarction) is not subsumed by 22298006 (Myocardial infarction). Expected response is 200 (OK) with a Parameters payload containing the outcome code not-subsumed."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $subsumes operation for SNOMED system and code for outcome of not-subsumed."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes"/>
+				<sourceId value="subsumes-snomed-input-03"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter name with value of outcome."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Parameters/parameter[1]/name"/>
+				<value value="outcome"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter valueCode with value of not-subsumed."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Parameters/parameter[1]/valueCode"/>
+				<value value="not-subsumed"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="04-SNOMED-Equivalent">
+		<name value="SNOMED-Equivalent"/>
+		<description value="Subsumes test for SNOMED system and code using HTTP POST with system, codeA and codeB parameters; 399211009 (History of myocardial infarction) is equivalent to 399211009 (History of myocardial infarction). Expected response is 200 (OK) with a Parameters payload containing the outcome code equivalent."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $subsumes operation for SNOMED system and code for outcome of equivalent."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes"/>
+				<sourceId value="subsumes-snomed-input-04"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter name with value of outcome."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Parameters/parameter[1]/name"/>
+				<value value="outcome"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter valueCode with value of equivalent."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Parameters/parameter[1]/valueCode"/>
+				<value value="equivalent"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

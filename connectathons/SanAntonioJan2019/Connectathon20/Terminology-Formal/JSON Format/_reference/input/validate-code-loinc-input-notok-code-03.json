@@ -1,0 +1,13 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "url",
+      "valueUri": "http://loinc.orgX"
+    },
+    {
+      "name": "code",
+      "valueCode": "11378-7"
+    }
+  ]
+}

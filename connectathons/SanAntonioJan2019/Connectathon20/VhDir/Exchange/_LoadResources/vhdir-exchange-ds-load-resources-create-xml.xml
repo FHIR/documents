@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="vhdir-c20-exchange-ds-load-resources-create-xml"/>
+	<meta>
+		<profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml"><p>FHIR Connectathon 20 - VhDir Exchange - Directory Search - Load Test Resources - Create - XML</p></div>
+	</text>
+
+	<url value="http://wildfhir.aegis.net/fhir4-0-0/TestScript/vhdir-c20-exchange-ds-load-resources-create-xml"/>
+	<name value="FHIRC20VhDirExchangeDSLoadXML"/>
+	<title value="FHIR Connectathon 20 - VhDir Exchange - Directory Search - Load Test Resources - Create - XML"/>
+	<status value="active"/>
+	<date value="2019-01-10"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="[OPTIONAL] Load (create) VhDir Exchange test resources using the update (PUT) operation of the target FHIR server for use in FHIR Connectathon 19 VhDir Exchange Track tests. All resource ids are pre-defined. The target FHIR server is expected to support resource create via the update (PUT) operation for client assigned ids."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+
+	<fixture id="organization-homeland">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/00-01-Organization-homeland.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="organization-mtvernon">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/00-02-Organization-mtvernon.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="organization-foundingfathers">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/00-03-Organization-foundingfathers.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="organization-independencerehab">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/00-04-Organization-independencerehab.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="organization-monumenthie">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/00-05-Organization-monumentHIE.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="organization-patriotdental">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/00-06-Organization-patriotdental.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="organization-patriotppo">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/00-07-Organization-patriotppo.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="organizationaffiliation-orgrole1">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/01-01-OrganizationAffiliation-orgrole1.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="organizationaffiliation-orgrole2">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/01-02-OrganizationAffiliation-orgrole2.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="endpoint-direct321">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/02-Endpoint-direct321.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="location-loc-ffmh-hvi">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/03-01-Location-loc-ffmh.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="location-loc-ffmh">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/03-02-Location-loc-ffmh-hvi.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="location-loc-ws">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/03-03-Location-loc-ws.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="location-wash-dc-metro">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/03-04-Location-wash-dc-metro.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="healthcareservice-ffcardiology">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/04-01-HealthcareService-ffcardiology.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="healthcareservice-hcs-ws">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/04-02-HealthcareService-hcs-ws.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="healthcareservice-independencerehab1">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/04-03-HealthcareService-independencerehab1.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="healthcareservice-independencerehab2">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/04-04-HealthcareService-independencerehab2.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="insuranceplan-insuranceplan1">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/05-InsurancePlan-insuranceplan1.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="practitioner-practitioner1">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/06-Practitioner-practitioner1.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="practitionerrole-practitionerrole1">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/07-PractitionerRole-practitionerrole1.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="careteam-cardiologycareteam1">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/08-CareTeam-cardiologycareteam1.xml"/>
+		</resource>
+	</fixture>
+
+	<variable>
+		<name value="organization-homeland-id"/>
+		<path value="Organization/id"/>
+		<sourceId value="organization-homeland"/>
+	</variable>
+	<variable>
+		<name value="organization-mtvernon-id"/>
+		<path value="Organization/id"/>
+		<sourceId value="organization-mtvernon"/>
+	</variable>
+	<variable>
+		<name value="organization-foundingfathers-id"/>
+		<path value="Organization/id"/>
+		<sourceId value="organization-foundingfathers"/>
+	</variable>
+	<variable>
+		<name value="organization-independencerehab-id"/>
+		<path value="Organization/id"/>
+		<sourceId value="organization-independencerehab"/>
+	</variable>
+	<variable>
+		<name value="organization-monumenthie-id"/>
+		<path value="Organization/id"/>
+		<sourceId value="organization-monumenthie"/>
+	</variable>
+	<variable>
+		<name value="organization-patriotdental-id"/>
+		<path value="Organization/id"/>
+		<sourceId value="organization-patriotdental"/>
+	</variable>
+	<variable>
+		<name value="organization-patriotppo-id"/>
+		<path value="Organization/id"/>
+		<sourceId value="organization-patriotppo"/>
+	</variable>
+	<variable>
+		<name value="organizationaffiliation-orgrole1-id"/>
+		<path value="OrganizationAffiliation/id"/>
+		<sourceId value="organizationaffiliation-orgrole1"/>
+	</variable>
+	<variable>
+		<name value="organizationaffiliation-orgrole2-id"/>
+		<path value="OrganizationAffiliation/id"/>
+		<sourceId value="organizationaffiliation-orgrole2"/>
+	</variable>
+	<variable>
+		<name value="endpoint-direct321-id"/>
+		<path value="Endpoint/id"/>
+		<sourceId value="endpoint-direct321"/>
+	</variable>
+	<variable>
+		<name value="location-loc-ffmh-hvi-id"/>
+		<path value="Location/id"/>
+		<sourceId value="location-loc-ffmh-hvi"/>
+	</variable>
+	<variable>
+		<name value="location-loc-ffmh-id"/>
+		<path value="Location/id"/>
+		<sourceId value="location-loc-ffmh"/>
+	</variable>
+	<variable>
+		<name value="location-loc-ws-id"/>
+		<path value="Location/id"/>
+		<sourceId value="location-loc-ws"/>
+	</variable>
+	<variable>
+		<name value="location-wash-dc-metro-id"/>
+		<path value="Location/id"/>
+		<sourceId value="location-wash-dc-metro"/>
+	</variable>
+	<variable>
+		<name value="healthcareservice-ffcardiology-id"/>
+		<path value="HealthcareService/id"/>
+		<sourceId value="healthcareservice-ffcardiology"/>
+	</variable>
+	<variable>
+		<name value="healthcareservice-hcs-ws-id"/>
+		<path value="HealthcareService/id"/>
+		<sourceId value="healthcareservice-hcs-ws"/>
+	</variable>
+	<variable>
+		<name value="healthcareservice-independencerehab1-id"/>
+		<path value="HealthcareService/id"/>
+		<sourceId value="healthcareservice-independencerehab1"/>
+	</variable>
+	<variable>
+		<name value="healthcareservice-independencerehab2-id"/>
+		<path value="HealthcareService/id"/>
+		<sourceId value="healthcareservice-independencerehab2"/>
+	</variable>
+	<variable>
+		<name value="insuranceplan-insuranceplan1-id"/>
+		<path value="InsurancePlan/id"/>
+		<sourceId value="insuranceplan-insuranceplan1"/>
+	</variable>
+	<variable>
+		<name value="practitioner-practitioner1-id"/>
+		<path value="Practitioner/id"/>
+		<sourceId value="practitioner-practitioner1"/>
+	</variable>
+	<variable>
+		<name value="practitionerrole-practitionerrole1-id"/>
+		<path value="PractitionerRole/id"/>
+		<sourceId value="practitionerrole-practitionerrole1"/>
+	</variable>
+	<variable>
+		<name value="careteam-cardiologycareteam1-id"/>
+		<path value="CareTeam/id"/>
+		<sourceId value="careteam-cardiologycareteam1"/>
+	</variable>
+
+	<!-- No Setup -->
+
+	<test id="Step1-LoadTestResourceCreate">
+		<name value="Step1-LoadTestResourceCreate"/>
+		<description value="[OPTIONAL] Load (create) Provider Directories test resources using the update (PUT) operation of the target FHIR server for use in FHIR Connectathon 19 VhDir Provider Directories Track tests."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Organization"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${organization-homeland-id}"/>
+				<sourceId value="organization-homeland"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Organization"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${organization-mtvernon-id}"/>
+				<sourceId value="organization-mtvernon"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Organization"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${organization-foundingfathers-id}"/>
+				<sourceId value="organization-foundingfathers"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Organization"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${organization-independencerehab-id}"/>
+				<sourceId value="organization-independencerehab"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Organization"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${organization-monumenthie-id}"/>
+				<sourceId value="organization-monumenthie"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Organization"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${organization-patriotdental-id}"/>
+				<sourceId value="organization-patriotdental"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Organization"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${organization-patriotppo-id}"/>
+				<sourceId value="organization-patriotppo"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="OrganizationAffiliation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${organizationaffiliation-orgrole1-id}"/>
+				<sourceId value="organizationaffiliation-orgrole1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="OrganizationAffiliation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${organizationaffiliation-orgrole2-id}"/>
+				<sourceId value="organizationaffiliation-orgrole2"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Endpoint"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${endpoint-direct321-id}"/>
+				<sourceId value="endpoint-direct321"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Location"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${location-loc-ffmh-hvi-id}"/>
+				<sourceId value="location-loc-ffmh-hvi"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Location"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${location-loc-ffmh-id}"/>
+				<sourceId value="location-loc-ffmh"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Location"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${location-loc-ws-id}"/>
+				<sourceId value="location-loc-ws"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Location"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${location-wash-dc-metro-id}"/>
+				<sourceId value="location-wash-dc-metro"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="HealthcareService"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${healthcareservice-ffcardiology-id}"/>
+				<sourceId value="healthcareservice-ffcardiology"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="HealthcareService"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${healthcareservice-hcs-ws-id}"/>
+				<sourceId value="healthcareservice-hcs-ws"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="HealthcareService"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${healthcareservice-independencerehab1-id}"/>
+				<sourceId value="healthcareservice-independencerehab1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="HealthcareService"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${healthcareservice-independencerehab2-id}"/>
+				<sourceId value="healthcareservice-independencerehab2"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="InsurancePlan"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${insuranceplan-insuranceplan1-id}"/>
+				<sourceId value="insuranceplan-insuranceplan1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Practitioner"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${practitioner-practitioner1-id}"/>
+				<sourceId value="practitioner-practitioner1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="PractitionerRole"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${practitionerrole-practitionerrole1-id}"/>
+				<sourceId value="practitionerrole-practitionerrole1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="CareTeam"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${careteam-cardiologycareteam1-id}"/>
+				<sourceId value="careteam-cardiologycareteam1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Organization xmlns="http://hl7.org/fhir">
+  <id value="patriotppo"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-network"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: patriotppo</p><p><b>meta</b>: </p><p><b>identifier</b>: Healthcare.gov Network ID = DCN001 (SECONDARY)</p><p><b>active</b>: true</p><p><b>type</b>: PPO <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-network-type code 'ppo' = 'PPO', given as 'PPO'})</span></p><p><b>name</b>: Patriot Preferred Provider Network</p><p><b>alias</b>: Patriot PPO</p><p><b>address</b>: 101 Independence Ave SE, Washington, DC 20540(WORK)</p><p><b>partOf</b>: <a href="Organization-homeland.html">Homeland Health Insurance. Generated Summary: id: homeland; active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type ins}">Health System</span>; name: Homeland Health Insurance</a></p><h3>Contacts</h3><table class="grid"><tr><td>-</td><td><b>Purpose</b></td><td><b>Name</b></td><td><b>Telecom</b></td><td><b>Address</b></td></tr><tr><td>*</td><td>Administrative <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/contactentity-type code 'ADMIN' = 'Administrative', given as 'Administrative'})</span></td><td>James Madison</td><td>ph: 202-010-1234(WORK)</td><td>101 Independence Ave SE, Washington, DC 20540(WORK)</td></tr></table><p><b>endpoint</b>: homelandinsurance.org/services/network</p></div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/organization-period">
+    <valuePeriod>
+      <start value="2012-03-11"/>
+    </valuePeriod>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/location-reference">
+    <valueReference>
+      <reference value="Location/wash-dc-metro"/>
+      <display value="Washington, DC metro area"/>
+    </valueReference>
+  </extension>
+  <identifier>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/identifier-status">
+      <valueCode value="active"/>
+    </extension>
+    <use value="secondary"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+        <code value="NIIP"/>
+        <display value="National Insurance Payor Identifier (Payor)"/>
+      </coding>
+      <text value="Healthcare.gov Network ID"/>
+    </type>
+    <system value="https://www.qhpcertification.cms.gov/s/QHP"/>
+    <value value="DCN001"/>
+    <assigner>
+      <display value="Centers for Medicare and Medicaid Services"/>
+    </assigner>
+  </identifier>
+  <active value="true"/>
+  <type>
+    <coding>
+      <system value="http://hl7.org/fhir/uv/vhdir/CodeSystem/codesystem-network-type"/>
+      <code value="ppo"/>
+      <display value="PPO"/>
+    </coding>
+  </type>
+  <name value="Patriot Preferred Provider Network"/>
+  <alias value="Patriot PPO"/>
+  <address>
+    <use value="work"/>
+    <type value="both"/>
+    <text value="101 Independence Ave SE, Washington, DC 20540"/>
+    <line value="101 Independence Ave SE"/>
+    <city value="Washington"/>
+    <state value="DC"/>
+    <postalCode value="20540"/>
+    <country value="USA"/>
+  </address>
+  <partOf>
+    <reference value="Organization/homeland"/>
+    <display value="Homeland Health Insurance"/>
+  </partOf>
+  <contact>
+    <purpose>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/contactentity-type"/>
+        <code value="ADMIN"/>
+        <display value="Administrative"/>
+      </coding>
+    </purpose>
+    <name>
+      <use value="usual"/>
+      <text value="James Madison"/>
+      <family value="Madison"/>
+      <given value="James"/>
+    </name>
+    <telecom>
+      <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/contactpoint-availabletime">
+        <extension url="daysOfWeek">
+          <valueCode value="mon"/>
+        </extension>
+        <extension url="daysOfWeek">
+          <valueCode value="tue"/>
+        </extension>
+        <extension url="daysOfWeek">
+          <valueCode value="wed"/>
+        </extension>
+        <extension url="daysOfWeek">
+          <valueCode value="thu"/>
+        </extension>
+        <extension url="daysOfWeek">
+          <valueCode value="fri"/>
+        </extension>
+        <extension url="availableStartTime">
+          <valueTime value="09:00:00"/>
+        </extension>
+        <extension url="availableEndTime">
+          <valueTime value="17:00:00"/>
+        </extension>
+      </extension>
+      <system value="phone"/>
+      <value value="202-010-1234"/>
+      <use value="work"/>
+    </telecom>
+    <address>
+      <use value="work"/>
+      <type value="both"/>
+      <text value="101 Independence Ave SE, Washington, DC 20540"/>
+      <line value="101 Independence Ave SE"/>
+      <city value="Washington"/>
+      <state value="DC"/>
+      <postalCode value="20540"/>
+      <country value="USA"/>
+    </address>
+  </contact>
+  <endpoint>
+    <display value="homelandinsurance.org/services/network"/>
+  </endpoint>
+</Organization>

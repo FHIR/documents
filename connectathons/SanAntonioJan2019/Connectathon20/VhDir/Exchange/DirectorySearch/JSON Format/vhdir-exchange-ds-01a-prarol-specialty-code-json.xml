@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="vhdir-c20-exchange-ds-01a-prarol-specialty-code-json"/>
+	<meta>
+		<profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml"><p>FHIR Connectathon 20 - VhDir Exchange - Directory Search - Scenario 1a - PractitionerRole Specialty Code - JSON</p></div>
+	</text>
+
+	<url value="http://wildfhir.aegis.net/fhir4-0-0/TestScript/vhdir-c20-exchange-ds-01a-prarol-specialty-code-json"/>
+	<name value="FHIRC20VhDirExchangeDS1aJSON"/>
+	<title value="VhDir Exchange - Directory Search - Scenario 1a - PractitionerRole Specialty Code - JSON"/>
+	<status value="active"/>
+	<date value="2019-01-10"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="PractitionerRole search capabilities tests; resource format JSON; validate telecom and physical location are present; test a FHIR server's PractitionerRole search operation support using the specialty parameter. Default values for the search parameters are based on the Practitioner Resource Example and can be modified to allow testing against other known PractitionerRole and Practitioner resource instances."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+	
+	<origin>
+		<index value="1"/>
+		<profile>
+			<system value="http://terminology.hl7.org/CodeSystem/testscript-profile-origin-types"/>
+			<code value="FHIR-Client"/>
+		</profile>
+	</origin>
+	<destination>
+		<index value="1"/>
+		<profile>
+			<system value="http://terminology.hl7.org/CodeSystem/testscript-profile-destination-types"/>
+			<code value="FHIR-Server"/>
+		</profile>
+	</destination>
+
+	<profile id="vhdir-practitionerrole-profile">
+		<reference value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-practitionerrole" />
+	</profile>
+
+	<variable>
+		<name value="PractitionerRoleSearchSpecialtySystemCriteria"/>
+		<defaultValue value="http://snomed.info/sct"/>
+	</variable>
+	<variable>
+		<name value="PractitionerRoleSearchSpecialtyCodeCriteria"/>
+		<defaultValue value="394579002"/>
+	</variable>
+	<variable>
+		<name value="PractitionerRoleResourceId"/>
+		<expression value="Bundle.entry.select(resource as PractitionerRole).id[0]" />
+		<sourceId value="search-response"/>
+	</variable>
+
+	<test id="01-PractitionerRoleSearchSpecialtyCode">
+		<name value="PractitionerRoleSearchSpecialtyCode"/>
+		<description value="Search PractitionerRole using the specialty search parameter with the provided specialty.coding.system and specialty.coding.code data values."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="PractitionerRole"/>
+				<description value="Search PractitionerRole matches using the specialty search parameter."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<destination value="1"/>
+				<encodeRequestUrl value="true"/>
+				<origin value="1"/>
+				<params value="?specialty=${PractitionerRoleSearchSpecialtySystemCriteria}|${PractitionerRoleSearchSpecialtyCodeCriteria}"/>
+				<responseId value="search-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type is searchset."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value=".type"/>
+				<value value="searchset"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that there is at least one entry in the Bundle. Although not expected, there could be other PractitionerRole records returned."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.count() &gt; 0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="PractitionerRole"/>
+				<description value="Read the first PractitionerRole found in the specialty search and verify the contents contain a telecom and physical location."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<destination value="1"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${PractitionerRoleResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/json+fhir'."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is PractitionerRole."/>
+				<direction value="response"/>
+				<resource value="PractitionerRole"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned PractitionerRole conforms to the VhDir IG specification. Warning only to allow for Example code systems."/>
+				<direction value="response"/>
+				<validateProfileId value="vhdir-practitionerrole-profile"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned PractitionerRole contains a telecom value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value=".telecom.value"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that returned PractitionerRole contains a location value. Warning only to allow subsequent asserts to execute."/>
+				<operator value="notEmpty"/>
+				<path value=".location.reference"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

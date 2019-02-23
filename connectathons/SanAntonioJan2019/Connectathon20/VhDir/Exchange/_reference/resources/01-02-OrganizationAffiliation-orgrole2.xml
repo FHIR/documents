@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OrganizationAffiliation xmlns="http://hl7.org/fhir">
+  <id value="orgrole2"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: orgrole2</p><p><b>identifier</b>: member hospital = hosp32 (SECONDARY)</p><p><b>active</b>: true</p><p><b>organization</b>: <a href="Organization-monumentHIE.html">Monument Health Information Exchange. Generated Summary: id: monumentHIE; active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type other}">Health information exchange organization</span>; name: Monument Health Information Exchange</a></p><p><b>participatingOrganization</b>: <a href="Organization-foundingfathers.html">Founding Fathers Memorial Hospital. Generated Summary: id: foundingfathers; NPI = 1345678910 (OFFICIAL); active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type prov}">Hospital</span>; name: Founding Fathers Memorial Hospital; alias: DC Memorial Hospital; ph: 202-101-0123</a></p><p><b>code</b>: Hospital member <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/organization-role code 'member' = 'Member', given as 'Member'})</span></p><p><b>endpoint</b>: Founding Fathers Memorial Hospital HIE endpoint</p></div>
+  </text>
+  <identifier>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/identifier-status">
+      <valueCode value="active"/>
+    </extension>
+    <use value="secondary"/>
+    <type>
+      <text value="member hospital"/>
+    </type>
+    <system value="http://example.org/www.monumentHIE.com"/>
+    <value value="hosp32"/>
+    <assigner>
+      <reference value="Organization/monumentHIE"/>
+      <display value="Monument Health Information Exchange"/>
+    </assigner>
+  </identifier>
+  <active value="true"/>
+  <organization>
+    <reference value="Organization/monumentHIE"/>
+    <display value="Monument Health Information Exchange"/>
+  </organization>
+  <participatingOrganization>
+    <reference value="Organization/foundingfathers"/>
+    <display value="Founding Fathers Memorial Hospital"/>
+  </participatingOrganization>
+  <code>
+    <coding>
+      <system value="http://hl7.org/fhir/organization-role"/>
+      <code value="member"/>
+      <display value="Member"/>
+    </coding>
+    <text value="Hospital member"/>
+  </code>
+  <endpoint>
+    <display value="Founding Fathers Memorial Hospital HIE endpoint"/>
+  </endpoint>
+</OrganizationAffiliation>

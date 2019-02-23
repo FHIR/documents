@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Organization xmlns="http://hl7.org/fhir">
+  <id value="patriotdental"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-network"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: patriotdental</p><p><b>meta</b>: </p><p><b>active</b>: true</p><p><b>type</b>: Health System <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/organization-type code 'pay' = 'Payer', given as 'Payer'})</span></p><p><b>name</b>: Patriot Dental Provider Network</p><p><b>partOf</b>: <a href="Organization-homeland.html">Homeland Health Insurance. Generated Summary: id: homeland; active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type ins}">Health System</span>; name: Homeland Health Insurance</a></p></div>
+  </text>
+  <active value="true"/>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/organization-type"/>
+      <code value="pay"/>
+      <display value="Payer"/>
+    </coding>
+    <text value="Health System"/>
+  </type>
+  <name value="Patriot Dental Provider Network"/>
+  <partOf>
+    <reference value="Organization/homeland"/>
+    <display value="Homeland Health Insurance"/>
+  </partOf>
+</Organization>

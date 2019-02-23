@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Location xmlns="http://hl7.org/fhir">
+  <id value="wash-dc-metro"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-location"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: wash-dc-metro</p><p><b>meta</b>: </p><p><b>status</b>: ACTIVE</p><p><b>name</b>: Washington, DC metro area</p><p><b>physicalType</b>: Area <span style="background: LightGoldenRodYellow">(Details : {http://terminology.hl7.org/CodeSystem/location-physical-type code 'area' = 'Area', given as 'Area'})</span></p></div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/location-boundary-geojson">
+    <valueAttachment>
+      <contentType value="application/geo+json"/>
+      <data value="VGhlbWU6IA0KUmF3UGFyc2VkDQp7InR5cGUiOiJGZWF0dXJlQ29sbGVjdGlvbiIsInByb3BlcnRpZXMiOnsia2luZCI6InN0YXRlIiwic3RhdGUiOiJEQyJ9LCJmZWF0dXJlcyI6Ww0KeyJ0eXBlIjoiRmVhdHVyZSIsInByb3BlcnRpZXMiOnsia2luZCI6ImNvdW50eSIsIm5hbWUiOiJEaXN0cmljdCBvZiBDb2x1bWJpYSIsInN0YXRlIjoiREMifSwiZ2VvbWV0cnkiOnsidHlwZSI6Ik11bHRpUG9seWdvbiIsImNvb3JkaW5hdGVzIjpbW1tbLTc3LjAzNTMsMzguOTkzOV0sWy03Ny4wMDI0LDM4Ljk2NjVdLFstNzYuOTA5MywzOC44OTUzXSxbLTc3LjA0MDcsMzguNzkxMl0sWy03Ny4wNDYyLDM4Ljg0MDVdLFstNzcuMDQwNywzOC44NzM0XSxbLTc3LjExNzQsMzguOTMzNl1dXV19fQ0KXX0="/>
+      <url value="https://github.com/OpenDataDE/State-zip-code-GeoJSON/raw/master/dc_district_of_columbia_zip_codes_geo.min.json"/>
+      <size value="549000"/>
+    </valueAttachment>
+  </extension>
+  <status value="active"/>
+  <name value="Washington, DC metro area"/>
+  <physicalType>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"/>
+      <code value="area"/>
+      <display value="Area"/>
+    </coding>
+  </physicalType>
+</Location>

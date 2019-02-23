@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="terminology-c20-validate-code-optional-xml"/>
+	<meta>
+		<profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				The 7 value sets that are used to test the API functionality span common
+				extensional and intensional definition styles and consequences.
+			</p>
+			<p>
+				Suite 4: A set of membership tests for valueset #2. This suite is checking 
+				the various ways that the operation can be invoked. Overview of value sets:
+			</p>
+			<ul>
+				<li>extensional-case-1: An enumeration of codes from a FHIR defined code system</li>
+				<li>extensional-case-2: An enumeration of codes from LOINC</li>
+				<li>extensional-case-3: An enumeration of codes from SNOMED </li>
+				<li>extensional-case-4: An enumeration of codes the crosses code systems, with codes from a FHIR defined value set and the V3 Role code system</li>
+				<li>intensional-case-1: A selection of codes from LOINC by their system value</li>
+				<li>intensional-case-2: A selection of codes from SNOMED based on subsumption</li>
+				<li>intensional-case-3: All clinical findings from SNOMED (based on subsumption) - a value set that is too large to expand</li>
+			</ul>
+		</div>
+	</text>
+
+	<url value="http://wildfhir.aegis.net/fhir4-0-0/TestScript/terminology-c20-validate-code-optional-xml"/>
+	<name value="FHIR Connectathon 20 - Terminology Services - Validate Code Optional - XML"/>
+	<status value="active"/>
+	<date value="2019-01-07"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="FHIR Connectathon 20 - Terminology Services - Validate Code Optional - XML Format - A set of membership validation tests with API variations for each of the 7 ValueSet fixtures. These tests check for API surface variations. All tests are the same as the first, but test different ways of passing the code. There is no setup and teardown as all ValueSet resources are expected to exist on the target system under test."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+
+	<fixture id="extensional-case-1-input-02-a">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/extensional-case-1-input-02-a.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-1-input-02-b">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/extensional-case-1-input-02-b.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-1-input-03-a">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/extensional-case-1-input-03-a.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-1-input-03-b">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/extensional-case-1-input-03-b.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-1-input-04-a">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/extensional-case-1-input-04-a.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="extensional-case-1-input-04-b">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/extensional-case-1-input-04-b.xml"/>
+		</resource>
+	</fixture>
+
+	<fixture id="validate-code-valid-min">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/output/validate-code-valid-min.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="validate-code-invalid-min">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/output/validate-code-invalid-min.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="ParametersProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+	</profile>
+	<profile id="ValueSetProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+	</profile>
+
+	<test id="Test-01-a-ValidateExtensionalCase1">
+		<name value="Test 01-a Validate extensional-case-1 valid - system/code/display url parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/administrative-gender}male is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for a valid code."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code?system=http://hl7.org/fhir/administrative-gender&amp;code=male&amp;display=Male"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-valid-min."/>
+				<minimumId value="validate-code-valid-min"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-01-b-ValidateExtensionalCase1">
+		<name value="Test 01-b Validate extensional-case-1 invalid display - system/code/display url parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/administrative-genderX}male is in the value set, but give the wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for an invalid display."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code?system=http://hl7.org/fhir/administrative-gender&amp;code=male&amp;display=MaleX"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-02-a-ValidateExtensionalCase1">
+		<name value="Test 02-a Validate extensional-case-1 valid - valueCoding Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/administrative-gender}male is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for a valid code."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code"/>
+				<sourceId value="extensional-case-1-input-02-a"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-valid-min."/>
+				<minimumId value="validate-code-valid-min"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-02-b-ValidateExtensionalCase1">
+		<name value="Test 02-b Validate extensional-case-1 invalid display - valueCoding Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/administrative-gender}male is in the value set, but give the wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for an invalid display."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code"/>
+				<sourceId value="extensional-case-1-input-02-b"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-03-a-ValidateExtensionalCase1">
+		<name value="Test 03-a Validate extensional-case-1 valid - codeableConcept Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/administrative-gender}male is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for a valid code."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code"/>
+				<sourceId value="extensional-case-1-input-03-a"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-valid-min."/>
+				<minimumId value="validate-code-valid-min"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-03-b-ValidateExtensionalCase1">
+		<name value="Test 03-b Validate extensional-case-1 invalid display - codeableConcept Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/administrative-gender}male is in the value set, but give the wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for an invalid display."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code"/>
+				<sourceId value="extensional-case-1-input-03-b"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-04-a-ValidateExtensionalCase1">
+		<name value="Test 04-a Validate extensional-case-1 valid - system/code/display Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/administrative-gender}male is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for a valid code."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code"/>
+				<sourceId value="extensional-case-1-input-04-a"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-valid-min."/>
+				<minimumId value="validate-code-valid-min"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-04-b-ValidateExtensionalCase1">
+		<name value="Test 04-b Validate extensional-case-1 invalid display - system/code/display Parameters"/>
+		<description value="Check that the code {http://hl7.org/fhir/administrative-gender}male is in the value set, but give the wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for an invalid display."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code"/>
+				<sourceId value="extensional-case-1-input-04-b"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

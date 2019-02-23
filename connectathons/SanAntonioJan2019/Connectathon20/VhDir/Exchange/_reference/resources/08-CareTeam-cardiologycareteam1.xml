@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CareTeam xmlns="http://hl7.org/fhir">
+  <id value="cardiologycareteam1"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-careteam"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: cardiologycareteam1</p><p><b>meta</b>: </p><p><b>identifier</b>: Business ID = careteam0021 (SECONDARY)</p><p><b>status</b>: ACTIVE</p><p><b>category</b>: Condition-focused care team <span style="background: LightGoldenRodYellow">(Details : {LOINC code 'LA27978-8' = 'LA27978-8', given as 'Condition-focused care team'})</span></p><p><b>name</b>: Founding Fathers Heart and Vascular Institute Cardiology Care Team</p><p><b>period</b>: 16/07/2016 --&gt; (ongoing)</p><h3>Participants</h3><table class="grid"><tr><td>-</td><td><b>Role</b></td><td><b>Member</b></td><td><b>Period</b></td></tr><tr><td>*</td><td>Cardiologist <span style="background: LightGoldenRodYellow">(Details : {SNOMED CT code '17561000' = 'Cardiologist', given as 'Cardiologist'})</span></td><td><a href="PractitionerRole-practitionerrole1.html">George Washington, a cardiologist at the Founding Fathers Memorial Hospital Heart and Vascular Institute. Generated Summary: id: practitionerrole1; Hospital ID = provider276 (SECONDARY); active; period: 22/02/2016 --&gt; (ongoing); <span title="Codes: {http://terminology.hl7.org/CodeSystem/practitioner-role doctor}">Doctor</span>; <span title="Codes: {http://snomed.info/sct 394579002}">Cardiology</span>; ph: 202-101-0123</a></td><td>16/07/2016 --&gt; (ongoing)</td></tr></table><p><b>managingOrganization</b>: <a href="Organization-foundingfathers.html">Founding Fathers Memorial Hospital. Generated Summary: id: foundingfathers; NPI = 1345678910 (OFFICIAL); active; <span title="Codes: {http://terminology.hl7.org/CodeSystem/organization-type prov}">Hospital</span>; name: Founding Fathers Memorial Hospital; alias: DC Memorial Hospital; ph: 202-101-0123</a></p><p><b>telecom</b>: heartteam@ffhospital.com(WORK)</p><p><b>note</b>: This care team was founded to optimize the management of complex cardiac cases</p></div>
+  </text>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/careteam-alias">
+    <valueString value="Founding Fathers Heart Team"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/location-reference">
+    <valueReference>
+      <reference value="Location/loc-ffmh-hvi"/>
+      <display value="Founding Fathers Memorial Hospital Heart and Vascular Institute"/>
+    </valueReference>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/healthcareservice-reference">
+    <valueReference>
+      <reference value="HealthcareService/ffcardiology"/>
+      <display value="Founding Fathers Memorial Hospital Heart and Vascular Services"/>
+    </valueReference>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/endpoint-reference">
+    <valueReference>
+      <reference value="Endpoint/direct321"/>
+      <display value="Direct address for the Founding Fathers Heart and Vascular Institute"/>
+    </valueReference>
+  </extension>
+  <identifier>
+    <extension url="http://hl7.org/fhir/uv/vhdir/StructureDefinition/identifier-status">
+      <valueCode value="active"/>
+    </extension>
+    <use value="secondary"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+        <code value="PRN"/>
+        <display value="Provider number"/>
+      </coding>
+      <text value="Business ID"/>
+    </type>
+    <system value="http://example.org/www.foundingfathersmemorial.com"/>
+    <value value="careteam0021"/>
+    <period>
+      <start value="2016-07-16T09:00:00-05:00"/>
+    </period>
+    <assigner>
+      <reference value="Organization/foundingfathers"/>
+      <display value="Founding Fathers Memorial Hospital"/>
+    </assigner>
+  </identifier>
+  <status value="active"/>
+  <category>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="LA27978-8"/>
+      <display value="Condition-focused care team"/>
+      <userSelected value="true"/>
+    </coding>
+  </category>
+  <name value="Founding Fathers Heart and Vascular Institute Cardiology Care Team"/>
+  <period>
+    <start value="2016-07-16"/>
+  </period>
+  <participant>
+    <role>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="17561000"/>
+        <display value="Cardiologist"/>
+      </coding>
+    </role>
+    <member>
+      <reference value="PractitionerRole/practitionerrole1"/>
+      <display value="George Washington, a cardiologist at the Founding Fathers Memorial Hospital Heart and Vascular Institute"/>
+    </member>
+    <period>
+      <start value="2016-07-16"/>
+    </period>
+  </participant>
+  <managingOrganization>
+    <reference value="Organization/foundingfathers"/>
+    <display value="Founding Fathers Memorial Hospital"/>
+  </managingOrganization>
+  <telecom>
+    <system value="email"/>
+    <value value="heartteam@ffhospital.com"/>
+    <use value="work"/>
+  </telecom>
+  <note>
+    <authorString value="Founding Fathers Memorial Hospital"/>
+    <text value="This care team was founded to optimize the management of complex cardiac cases"/>
+  </note>
+</CareTeam>
