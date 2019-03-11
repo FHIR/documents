@@ -70,45 +70,60 @@
     <user first="Abhijeet" last="Badale" email="abhijeet.badale@ge.com"/>
     <user first="Abrar" last="Salam" email="asalam@jointcommission.org"/>
     <user first="Al" last="Amyot" email="alamyot@sierrasystems.com"/>
-    <user first="Ali" last="Nakoulima" email="ali.nakoulima@cerner.com"/>
     <user first="Alan" last="Abilla" email="alan.abilla@kp.org"/>
+    <user first="Ali" last="Nakoulima" email="ali.nakoulima@cerner.com"/>
     <user first="Ana" last="Kostadinovska" email="ana.kostadinovska@philips.com"/>
     <user first="Angela" last="Flanagan" email="angela.flanagan@lantanagroup.com"/>
+    <user first="Angela" last="Brown" email="brown_angela@bah.com"/>
     <user first="Aziz" last="Boxwala" email="aziz.boxwala@meliorix.com"/>
+    <user first="Ben" last="Atkinson" email="batkinso@u.washington.edu"/>
     <user first="Bill" last="Clarke" email="bclarke@lincolnpeak.com"/>
     <user first="Bonnie" last="Briggs" email="bonnie.briggs@wolterskluwer.com"/>
     <user first="Carl" last="Burnett" email="cburnett@healthwise.org"/>
     <user first="Casey" last="Thompson" email="casey.thompson@lantanagroup.com"/>
     <user first="Catherine" last="Staes" email="catherine.staes@hsc.utah.edu"/>
     <user first="Chris" last="Hills" email="christopher.j.hills.civ@mail.mil"/>
+    <user first="Colleen" last="Skau" email="skau@augs.org"/>
+    <user first="Constantina" last="Papoutsakis" email="cpapoutsakis@eatright.org"/>
     <user first="Daniella" last="Meeker" email="dmeeker@usc.edu"/>
-    <user first="David" last="Parker" email="David.Parker@defined-it.com"/>
     <user first="David" last="Roeder" email="DavidRoeder@ge.com"/>
+    <user first="David" last="Parker" email="David.Parker@defined-it.com"/>
     <user first="Dileep" last="Ravindranath" email="dileep.ravindranath@ge.com"/>
     <user first="Divya" last="Ahuja" email="divya.ahuja1@ge.com"/>
     <user first="Elizabeth" last="Hartley" email="Elizabeth.Hartley@bcbsla.com"/>
     <user first="Erin" last="Holt" email="Erin.Holt@tn.gov"/>
+    <user first="Evelyn" last="Gallego" email="evelyn.gallego@emiadvisors.net"/>
+    <user first="Farrah" last="Kahn" email="farrah.khan@bcbsa.com"/>
     <user first="Genny" last="Luensman" email="gluensman@cdc.gov"/>
     <user first="Greg" last="Staudenmaier" email="greg.staudenmaier@va.gov"/>
+    <user first="Gunter" last="Haroske" email="haroske@icloud.com"/>
     <user first="Harri" last="Honko" email="hari.honko@w2e.fi"/>
     <user first="Hugh" last="Gordon" email="hugh@akidolabs.com"/>
-    <user first="Jamie" last="Parker" email="jamie.parker@esacinc.com"/>
     <user first="Jamalynne" last="Deckard" email="jkdeckar@regenstrief.org"/>
+    <user first="Jamie" last="Parker" email="jamie.parker@esacinc.com"/>
+    <user first="Jaqui" last="Parker" email="Parker_Jaqui@bah.com"/>
+    <user first="Jeremy" last="Kasmann" email="jeremy.kasmann@wolterskluwer.com"/>
+    <user first="Jocylen" last="Keegan" email="jocelyn.keegan@pocp.com"/>
+    <user first="John" last="Loonsk" email="lbk1@cdc.gov"/>
     <user first="Julia" last="Skapik" email="Julia.skapik@hhs.gov"/>
     <user first="Juliet" last="Rubini" email="julietkrubini@gmail.com"/>
     <user first="Kanwarpreet" last="Sethi" email="kp.sethi@lantanagroup.com"/>
     <user first="Kathy" last="Walsh" email="walshk@labcorp.com"/>
     <user first="Keith" last="Salzman" email="keith.salzman@gmail.com"/>
+    <user first="Kenneth" last="Salyards" email="kenneth.salyards@samhsa.hhs.gov"/>
     <user first="Kimberly" last="Glenn" email="kimberly.glenn@lantanagroup.com"/>
     <user first="Leslie" last="Tompkins" email="Leslie.Tompkins@fda.hhs.gov"/>
     <user first="Lisa" last="Anderson" email="landerson2@jointcommission.org"/>
     <user first="Lorraine" last="Doo" email="lorraine.doo@cms.hhs.gov"/>
     <user first="Mags" last="Tamilarasu" email="christopher.j.hills.civ@mail.mil"/>
+    <user first="Mamata" last="Thakkar" email="mamata.thakkar@allscripts.com"/>
     <user first="Manisha" last="Khatta" email="khatta_manisha@bah.com"/>
     <user first="Marilyn" last="Parenzan" email="mparenzan@jointcommission.org"/>
+    <user first="Mark" last="Bellezza" email="mark.bellezza@va.gov"/>
     <user first="Mark" last="Cacciapouti" email="mark.cacciapouti@wolterskluwer.com"/>
     <user first="Melanie" last="Edwards" email="Melanie.Edwards@cms.hhs.gov"/>
     <user first="Michelle" last="Dardis" email="mdardis@jointcommission.org"/>
+    <user first="Minh-Huong" last="Doan" email="minh-huong.l.doan.mil@mail.mil"/>
     <user first="Nancy" last="Orvis" email="nancy.j.orvis.civ@mail.mil"/>
     <user first="Nayan" last="Mergu" email="nayan.mergu@ge.com"/>
     <user first="Nilesh" last="Sawal" email="nilesh.sawal@ge.com"/>
@@ -117,19 +132,26 @@
     <user first="Perry" last="Mar" email="pmar@partners.org"/>
     <user first="Randy" last="Bates" email="randy.bates@vanderbilt.edu"/>
     <user first="Rashmi" last="MS" email="rashmi.ms@ge.com"/>
-    <user first="Richard" last="Hornaday" email="richard.hornaday@allscripts.com"/>
     <user first="Richard" last="Moldwin" email="rmoldwin@cap.org"/>
-    <user first="Rohan" last="Chavan" email="rohan.chavan@ge.com"/>
+    <user first="Richard" last="Hornaday" email="richard.hornaday@allscripts.com"/>
+    <user first="Robert" last="Stegwee" email="robert.stegwee@cgi.com"/>
+    <user first="Robin" last="Williams" email="robin.williams@lantanagroup.com"/>
     <user first="Rohan" last="Pachhapurkar" email="rohan_pachhapurkar@persistent.com"/>
+    <user first="Rohan" last="Chavan" email="rohan.chavan@ge.com"/>
+    <user first="Russ" last="Ott" email="rott@deloitte.com"/>
     <user first="Russell" last="Davis" email="Russell.J.Davis.civ@mail.mil"/>
     <user first="Rute" last="Martins" email="amartinsbaptista@jointcommission.org"/>
     <user first="Scott" last="Hollington" email="scott.hollington@provationmedical.com"/>
+    <user first="Sharon" last="Moore" email="moore_sharon2@bah.com"/>
     <user first="Sofia" last="Stokholm" email="svs@ds.dk"/>
     <user first="Steve" last="Eichner" email="steve.eichner@dshs.texas.gov"/>
+    <user first="Steven" last="Bratt" email="sbratt@mitre.org"/>
     <user first="Sunny" last="Goyal" email="sunny.goyal@ge.com"/>
     <user first="Swapna" last="Abhyankar" email="sabhyank@regenstrief.org"/>
     <user first="Terrie" last="Reed" email="Terrie.Reed@fda.hhs.gov"/>
     <user first="Timothy" last="Williams" email="timowilliams@deloitte.com"/>
+    <user first="Virginia" last="Hussong" email="virginia.hussong@fda.hhs.gov"/>
+    <user first="Walter" last="Suarez" email="walter.g.suarez@kp.org"/>
     <user first="Zabrina" last="Gonzaga" email="zabrina.gonzaga@lantanagroup.com"/>
   </xsl:variable>
   <xsl:variable name="newUsers" as="element(user)+">
@@ -137,20 +159,26 @@
   </xsl:variable>
   <xsl:variable name="orgTranslations" as="element(name)+">
     <name old="0" new=""/>
+    <name old="Academy of Nutrition and Dietetics" new="Academy of Nutrition &amp; Dietetics"/>
     <name old="Academy of Nutrition and Dietetics." new="Academy of Nutrition &amp; Dietetics"/>
     <name old="ACP" new="American College of Physicians"/>
+    <name old="Aegis" new="AEGIS.net, Inc."/>
+    <name old="AllScripts" new="Allscripts"/>
     <name old="BCBSA" new="Blue Cross Blue Shield Association"/>
     <name old="CBORD" new="The CBORD Group Inc."/>
+    <name old="CDC" new="Centers for Disease Control and Prevention/CDC"/>
     <name old="CDC/NIOSH" new="Centers for Disease Control and Prevention/CDC"/>
     <name old="Center for Medicare &amp; Medicaid Services (CMS)" new="Centers for Medicare &amp; Medicaid Services (CMS)"/>
     <name old="Cerner" new="Cerner Corporation"/>
     <name old="CERNER" new="Cerner Corporation"/>
     <name old="CMS" new="Centers for Medicare &amp; Medicaid Services (CMS)"/>
+    <name old="Cognosante" new="Cognosante, LLC"/>
     <name old="CSTE- on behalf of the RCKMS project" new="Council of State and Teritorial Epidemiologists"/>
     <name old="Datuit" new="Datuit, LLC"/>
     <name old="Department of Defense" new="PEO DHMS - DoD/VA Interagency Program Office"/>
     <name old="Defense Health Agency/Military Health System" new="PEO DHMS - DoD/VA Interagency Program Office"/>
     <name old="DoD/VA IPO" new="PEO DHMS - DoD/VA Interagency Program Office"/>
+    <name old="DoD/VA Interagency Program Office" new="PEO DHMS - DoD/VA Interagency Program Office"/>
     <name old="DoD/DHA/HIT/IATDD" new="PEO DHMS - DoD/VA Interagency Program Office"/>
     <name old="Department of State Health Services" new="Department of State Health Services (Texas)"/>
     <name old="e-HealthSign, LLC" new=""/>
@@ -159,6 +187,7 @@
     <name old="Elimu Informatics" new=""/>
     <name old="ESAC" new="Enterprise Science and Computing (ESAC)"/>
     <name old="ESAC, Inc." new="Enterprise Science and Computing (ESAC)"/>
+    <name old="ESAC Inc." new="Enterprise Science and Computing (ESAC)"/>
     <name old="ESC" new=""/>
     <name old="Eversolve (on behalf of SAMHSA)" new="Eversolve, LLC"/>
     <name old="FHIR Core" new="Partners Healthcare"/>
@@ -168,6 +197,7 @@
     <name old="Health eData Inc." new=""/>
     <name old="Hl7 Australia" new="HL7 Australia"/>
     <name old="HL7 France / PHAST" new="HL7 France"/>
+    <name old="HL7 France / Phast" new="HL7 France"/>
     <name old="HL7 Nutrition Workgroup and on Behalf of Association of Public Health Laboratories (APHL)" new="Association of Public Health Laboratories"/>
     <name old="ICSA Labs" new=""/>
     <name old="IMO" new="Intelligent Medical Objects (IMO)"/>
@@ -175,6 +205,7 @@
     <name old="iParsimony LLC" new=""/>
     <name old="Jenaker Consulting" new=""/>
     <name old="Knapp Consulting Inc." new=""/>
+    <name old="LabCorp" new="Laboratory Corporation of America"/>
     <name old="Lamprey Networks, Inc." new=""/>
     <name old="Life Over Time Solutions" new=""/>
     <name old="Mathematica Policy Research" new=""/>
@@ -188,11 +219,13 @@
     <name old="Nancy Orvis, CherylAnn Kraft)  (DHA/HIT/IATDD" new="PEO DHMS - DoD/VA Interagency Program Office"/>
     <name old="NEHTA" new="Australian Digital Health Agency"/>
     <name old="NIOSH" new="Centers for Disease Control and Prevention/CDC"/>
+    <name old="NICTIZ" new="NICTIZ Nat.ICT.Inst.Healthc.Netherlands"/>
     <name old="NLM" new="National Library of Medicine"/>
     <name old="NHS Digital" new="HL7 UK"/>
     <name old="Northrop Grumman" new="Northrop Grumman Technology Services"/>
     <name old="Ockham Information" new="Ockham Information Services LLC"/>
     <name old="on Behalf of Association of Public Health Laboratories (APHL)" new="Association of Public Health Laboratories"/>
+    <name old="Patient Care WG" new=""/>
     <name old="pcraig@jointcommission.org" new="Joint Commission"/>
     <name old="PEO DHMS-DOD/VA IPO" new="PEO DHMS - DoD/VA Interagency Program Office"/>
     <name old="Philips" new="Philips Healthcare"/>
@@ -208,11 +241,13 @@
     <name old="The Joint Commisison" new="Joint Commission"/>
     <name old="The Joint Commission" new="Joint Commission"/>
     <name old="The MITRE Corporation" new="MITRE Corporation"/>
+    <name old="TN Dept of Health" new="Tennessee Department of Health"/>
     <name old="TN Dept. of Health" new="Tennessee Department of Health"/>
     <name old="Trusted Solutions Foundry" new=""/>
     <name old="U.S. Department of Veterans Affairs" new="PEO DHMS - DoD/VA Interagency Program Office"/>
     <name old="Univ. of Utah Health Care" new="University of Utah Health Care"/>
     <name old="University of Utah" new="University of Utah Health Care"/>
+    <name old="U.S. Department of Defense, Military Health System" new="PEO DHMS - DoD/VA Interagency Program Office"/>
     <name old="US Department of Veterans Affairs" new="PEO DHMS - DoD/VA Interagency Program Office"/>
     <name old="USFDSA" new="Food and Drug Administration"/>
     <name old="VA" new="PEO DHMS - DoD/VA Interagency Program Office"/>
@@ -235,6 +270,7 @@
     <orgEmail name="Apprio, Inc." suffix="apprioinc.com"/>
     <orgEmail name="ARUP Laboratories, Inc." suffix="aruplab.com"/>
     <orgEmail name="Association of Public Health Laboratories" suffix="aphl.org"/>
+    <orgEmail name="Audacious Inquiry" suffix="ainq.com"/>
     <orgEmail name="Australian Digital Health Agency" suffix="nehta.gov.au"/>
     <orgEmail name="Australian Digital Health Agency" suffix="digitalhealth.gov.au"/>
     <orgEmail name="Availity, LLC" suffix="availity.com"/>
@@ -252,6 +288,7 @@
     <orgEmail name="Change Healthcare" suffix="changehealthcare.com"/>
     <orgEmail name="Clinicomp, Intl" suffix="clinicomp.com"/>
     <orgEmail name="Cognitive Medical Systems" suffix="cognitivemedicine.com"/>
+    <orgEmail name="Cognosante, LLC" suffix="cognosante.com"/>
     <orgEmail name="College of American Pathologists" suffix="cap.org"/>
     <orgEmail name="College of Healthcare Information Mgmt. Executives" suffix="chimecentral.org"/>
     <orgEmail name="Computrition, Inc." suffix="computrition.com"/>
@@ -267,6 +304,7 @@
     <orgEmail name="Enterprise Science and Computing (ESAC)" suffix="esacinc.com"/>
     <orgEmail name="Epic" suffix="epic.com"/>
     <orgEmail name="Eversolve, LLC" suffix="eversolve.com"/>
+    <orgEmail name="FEI.com" suffix="feisystems.com"/>
     <orgEmail name="Food and Drug Administration" suffix="fda.hhs.gov"/>
     <orgEmail name="GE Healthcare" suffix="ge.com"/>
     <orgEmail name="Health Care Software, Inc." suffix="hcssupport.com"/>
@@ -311,6 +349,7 @@
     <orgEmail name="HLN Consulting, LLC" suffix="hln.com"/>
     <orgEmail name="ICCBBA, Inc." suffix="iccbba.org"/>
     <orgEmail name="Info World" suffix="infoworld.ro"/>
+    <orgEmail name="Infor" suffix="inform.com"/>
     <orgEmail name="Intelligent Medical Objects (IMO)" suffix="imo-online.com"/>
     <orgEmail name="iNTERFACEWARE, Inc." suffix="interfaceware.com"/>
     <orgEmail name="Intermountain Healthcare" suffix="ihc.com"/>
@@ -350,6 +389,7 @@
     <orgEmail name="PEO DHMS - DoD/VA Interagency Program Office" suffix="mil.gov"/>
     <orgEmail name="PEO DHMS - DoD/VA Interagency Program Office" suffix="mail.mil"/>
     <orgEmail name="Philips Healthcare" suffix="philips.com"/>
+    <orgEmail name="Point-of-Care Partners" suffix="pocp.com"/>
     <orgEmail name="Practice Fusion" suffix="practicefusion.com"/>
     <orgEmail name="Professional Laboratory Management, Inc." suffix="plmweb.org"/>
     <orgEmail name="Quest Diagnostics" suffix="questdiagnostics.com"/>
@@ -652,7 +692,7 @@
     <xsl:param name="item" as="element(item)"/>
     <xsl:variable name="year" select="substring($date,1,4)"/>
     <xsl:variable name="month" select="substring($date,6,2)"/>
-    <xsl:variable name="monthAbbrev" select="if ($month=('01', '02')) then 'Jan' else if ($month=('05','06')) then 'May' else if ($month='09') then 'Sept' else '??'"/>
+    <xsl:variable name="monthAbbrev" select="if ($month=('01', '02')) then 'Jan' else if ($month=('05','06')) then 'May' else if ($month='09') then 'Sep' else '??'"/>
     <xsl:variable name="ballotPrefix" select="concat($year, '-', $monthAbbrev)"/>
     <xsl:choose>
       <xsl:when test="count($item/ballot[starts-with(., $ballotPrefix)])!=1">
