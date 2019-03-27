@@ -186,7 +186,8 @@
         <xsl:with-param name="elements" select="('moverSeconderFor-Against-Abstain', 'ballotResolution')"/>
       </xsl:call-template>
       <xsl:call-template name="showError">
-        <xsl:with-param name="items" select="$relevantItems[not(@status=('Submitted', 'Triaged', 'Waiting for Input', 'Duplicate')) and not(@ballotResolution or @retractWithdraw[.!='None'])]"/>
+        <xsl:with-param name="items" select="$relevantItems[not(@status=('Submitted', 'Triaged', 'Waiting for Input', 'Duplicate', 'Deferred')) and not(@ballotResolution or @retractWithdraw[.!='None'])]"/>
+<!--        <xsl:with-param name="items" select="$relevantItems[not(@status=('Submitted', 'Triaged', 'Waiting for Input', 'Duplicate')) and not(@ballotResolution or @retractWithdraw[.!='None'])]"/>-->
         <xsl:with-param name="message" select="'Item is closed and not withdrawn, but no ballot resolution recorded'"/>
         <xsl:with-param name="elements" select="('status', 'retractWithdraw', 'ballotResolution')"/>
       </xsl:call-template>
@@ -257,7 +258,6 @@
         <xsl:with-param name="message" select="'Item has a duplicate listed but doesn''t have a status of Duplicate'"/>
         <xsl:with-param name="elements" select="('duplicate', 'status')"/>
       </xsl:call-template>
-<xsl:message select="count($relevantItems[not(dup) and @status='Duplicate'])"/>
       <xsl:call-template name="showError">
         <xsl:with-param name="items" select="$relevantItems[not(dup) and @status='Duplicate']"/>
         <xsl:with-param name="message" select="'Item doesn''t have a duplicate listed but has a status of Duplicate'"/>
@@ -308,11 +308,11 @@
         <xsl:with-param name="message" select="'This item is a duplicate and the ballot strength of the referenced resource is less than the ballot strength of this item.  (Surviving duplicates should be updated to the strongest ballot strength of all references.)'"/>
         <xsl:with-param name="elements" select="('duplicate', 'ballot-weight')"/>
       </xsl:call-template>
-      
-<!--      <xsl:call-template name="showError">
+      <xsl:call-template name="showError">
         <xsl:with-param name="items" select="$relevantItems[@status='Resolved - No change' and @ballotResolution and @ballotResolution=('Persuasive', 'Persuasive with Mod', 'Not Persuasive with Mod')]"/>
         <xsl:with-param name="message" select="'Status is no change, but ballot resolution indicates change'"/>
-      </xsl:call-template>-->
+        <xsl:with-param name="elements" select="('status', 'ballotResolution')"/>
+      </xsl:call-template>
       <!-- Check:
         Withdrawn/retracted - does description explain circumstances of withdrawal/retraction
         Resolution changed after vote date **can't do right now**

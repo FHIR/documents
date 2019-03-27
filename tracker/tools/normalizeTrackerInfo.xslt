@@ -46,8 +46,9 @@
                 <xsl:when test="field_type=(1,2,3,7,8)">
                   <xsl:value-of select="key('extra',field_data)/element_name"/>
                 </xsl:when>
-                <xsl:when test="substring(field_data,1,1)='&amp;' or substring(field_data,1,1)='&lt;'">
-                  <xsl:value-of select="substring-before(substring-after(field_data, '&gt;'), '&lt;')"/>
+                <xsl:when test="tracker_extra_field_id='3842' and field_data!='' and matches(field_data, '((&lt;|&amp;(amp;)*lt;)a href=((&amp;(amp;)*quot;)|&quot;))(.+)((&amp;(amp;)*quot;)|&quot;.*)')">
+                  <xsl:variable name="fixed" select="replace(replace(field_data, ';amp', ''), '&amp;amp;', '&amp;')"/>
+                  <xsl:value-of select="replace(replace($fixed, '((&lt;|&amp;lt;)a href=(&amp;quot;|&quot;))(.+)((&amp;quot;|&quot;).*)', '$4'), '&amp;amp;', '&amp;')"/>
                 </xsl:when>
                 <xsl:otherwise>
                   <xsl:value-of select="field_data"/>
