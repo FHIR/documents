@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="podiatry-watt-c21-scenario-01-search-01-patient-date-json"/>
+	<url value="http://wildfhir.aegis.net/fhir3-0-1/TestScript/podiatry-watt-c21-scenario-01-search-01-patient-date-json"/>
+	<name value="PodiatryWATT01SearchPatientDateJSON"/>
+	<title value="FHIR Connectathon 21 - Podiatry WATT - Scenario 01 - Search - 01 - Patient and Date - JSON"/>
+	<status value="draft"/>
+	<date value="2019-04-22"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Podiatry WATT Track - Test WATT scenario 01 search 01 using a known Patient id and Assessed date with JSON formatted data."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+
+	<origin>
+		<index value="1" />
+		<profile>
+			<system value="http://hl7.org/fhir/testscript-profile-origin-types"/>
+			<code value="FHIR-Client"/>
+		</profile>
+	</origin>
+	<destination>
+		<index value="1" />
+		<profile>
+			<system value="http://hl7.org/fhir/testscript-profile-destination-types"/>
+			<code value="FHIR-Server"/>
+		</profile>
+	</destination>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+
+	<variable>
+		<name value="patientId"/>
+		<description value="Enter the patient id search parameter the origin system will send to the destination system."/>
+		<hint value="[Patient id]" />
+	</variable>
+	<variable>
+		<name value="assessedDate"/>
+		<description value="Enter the assessed-date search parameter the origin system will send to the destination system."/>
+		<hint value="[yyyy-MM-dd]" />
+	</variable>
+
+	<variable>
+		<name value="relatedObsReference"/>
+		<description value="Wound Assessment Related Observation reference for first Bundle.entry."/>
+		<expression value="entry[0].resource.extension('http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/PodiatryWoundRelatedObservationsPanelExt').select(value as Reference).reference.replace('Observation/','')" />
+		<sourceId value="watt-condition-search-response"/>
+	</variable>
+
+	<test id="01-PodiatryWATTConditionSearch">
+		<name value="PodiatryWATTConditionSearch"/>
+		<description value="Test the search for WATT Conditions with JSON content matching a known Patient id and Assessed Date. The expected response content is a searchset Bundle resource containing all matching Podiatry WATT Assessment Condition resource instances in JSON format."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Condition"/>
+				<description value="Search for matching WATT Assessment Conditions and verify the search results."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<destination value="1" />
+				<origin value="1" />
+				<params value="?_profile=http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/PodiatryWoundAssert&amp;asserted-date=${assessedDate}&amp;patient=${patientId}"/>
+				<responseId value="watt-condition-search-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client requested an Accept of the FHIR JSON mime type 'application/fhir+json'."/>
+				<direction value="request"/>
+				<headerField value="Accept"/>
+				<operator value="contains"/>
+				<value value="application/fhir+json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client did not request a Content-Type. Warning only to allow for systems that automatically send Content-Type."/>
+				<direction value="request"/>
+				<headerField value="Content-Type"/>
+				<operator value="empty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type is present."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="notEmpty"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/fhir+json'."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle conforms to the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type is searchset."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/type"/>
+				<value value="searchset"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned searchset Bundle at least 1 entry."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.count()"/>
+				<operator value="greaterThan"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-PodiatryWATTRelatedObservationSearch">
+		<name value="PodiatryWATTRelatedObservationSearch"/>
+		<description value="Test the search for WATT Related Observation with JSON content matching the related Observation id from Test 01. The expected response content is a searchset Bundle resource containing all matching Podiatry WATT Assessment Related Observation resource instances in JSON format."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Observation"/>
+				<description value="Search for matching WATT Assessment Related Observations and verify the search results."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<destination value="1" />
+				<origin value="1" />
+				<params value="?_include:recurse=Observation:related-target&amp;_id=${relatedObsReference}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client requested an Accept of the FHIR JSON mime type 'application/fhir+json'."/>
+				<direction value="request"/>
+				<headerField value="Accept"/>
+				<operator value="contains"/>
+				<value value="application/fhir+json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client did not request a Content-Type. Warning only to allow for systems that automatically send Content-Type."/>
+				<direction value="request"/>
+				<headerField value="Content-Type"/>
+				<operator value="empty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type is present."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="notEmpty"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/fhir+json'."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle conforms to the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type is searchset."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/type"/>
+				<value value="searchset"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned searchset Bundle at least 1 entry."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.count()"/>
+				<operator value="greaterThan"/>
+				<value value="0"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

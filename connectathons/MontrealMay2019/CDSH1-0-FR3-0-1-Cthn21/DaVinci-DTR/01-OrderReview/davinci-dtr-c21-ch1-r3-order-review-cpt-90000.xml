@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="davinci-dtr-c21-ch1-r3-order-review-cpt-90000"/>
+
+	<url value="http://wildfhir.aegis.net/fhir3-0-1/TestScript/davinci-dtr-c21-ch1-r3-order-review-cpt-90000"/>
+	<name value="C21DaVinciDTRCH1R3OrderReviewCPT90000"/>
+	<title value="Connectathon 21 - Da Vinci - DTR - CDS Hooks 1.0 - FHIR R3 - Order Review - CPT 90000 (invalid code)"/>
+	<status value="active"/>
+	<date value="2019-04-29"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Connectathon 21 - Da Vinci - DTR - CDS Hooks 1.0 - FHIR R3 - Order Review - CPT 90000 (invalid code)"/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+
+	<origin>
+		<index value="1"/>
+		<profile>
+			<system value="http://touchstone.com/fhir/testscript-profile-origin-types-extended"/>
+			<code value="CDSH-Client"/>
+		</profile>
+	</origin>
+	<destination>
+		<index value="1"/>
+		<profile>
+			<system value="http://touchstone.com/fhir/testscript-profile-destination-types-extended"/>
+			<code value="CDSH-Server"/>
+		</profile>
+	</destination>
+
+	<fixture id="order-review-cpt-90000-age-20">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="./_reference/resources/order-review-cpt-90000-age-20.json"/>
+		</resource>
+	</fixture>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+
+	<variable>
+		<name value="devicePrefetchKey"/>
+		<defaultValue value="devices"/>
+		<description value="Enter the devices Prefetch key name"/>
+	</variable>
+
+	<rule id="rule-validate-context-orders-bundle">
+		<resource>
+			<reference value="/CDSHCommon/_reference/rule/AssertValidateFHIRContent.groovy"/>
+		</resource>
+		<param>
+			<name value="jsonPath"/>
+			<value value="context.orders"/>
+		</param>
+		<param>
+			<name value="profileId"/>
+			<value value="bundle-profile"/>
+		</param>
+	</rule>
+
+	<rule id="rule-verify-card-required">
+		<resource>
+			<reference value="/CDSHCommon/_reference/rule/AssertCardsAllRequired.groovy"/>
+		</resource>
+	</rule>
+
+	<test id="01-Order-Review-CPT-90000-Age-20">
+		<name value="01-Order-Review-CPT-90000-Age-20"/>
+		<description value="Execute Order Review hook request with CPT 90000 (invalid code) Device"/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://touchstone.com/cds-hooks/testscript-operation-codes"/>
+					<code value="order-review"/>
+				</type>
+				<description value="Execute the cds-services order-review hook service with CPT 90000 (invalid code) Device."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<destination value="1"/>
+				<encodeRequestUrl value="true"/>
+				<origin value="1"/>
+				<sourceId value="order-review-cpt-90000-age-20"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the sent Accept format is of type json."/>
+				<direction value="request"/>
+				<headerField value="Accept"/>
+				<operator value="contains"/>
+				<value value="json"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the sent Content-Type format is of type json."/>
+				<direction value="request"/>
+				<headerField value="Content-Type"/>
+				<operator value="contains"/>
+				<value value="json"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that CPT code is '90000' in context DeviceRequest."/>
+				<direction value="request"/>
+				<path value="context.orders.entry[?(@.resource.resourceType == 'DeviceRequest')].resource.codeCodeableConcept.coding[?(@.system == 'http://www.ama-assn.org/go/cpt')].code"/>
+				<value value="90000"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate context.orders content within the request against the Bundle profile.  Warning only to allow review of all assert results."/>
+				<direction value="request"/>
+				<rule>
+					<ruleId value="rule-validate-context-orders-bundle"/>
+				</rule>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK). Warning only to allow review of all assert results."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is of type json."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="contains"/>
+				<value value="json"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Verify at least one card was returned. Warning only to allow review of all assert results."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value="cards.length()"/>
+				<value value="0"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Verify all cards contain the required and conditionally recommended fields."/>
+				<direction value="response"/>
+				<rule>
+					<ruleId value="rule-verify-card-required"/>
+				</rule>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

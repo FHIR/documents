@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+	<id value="${patientResourceId}"/>
+	<identifier>
+		<value value="UPDATE-IDENTIFER"/>
+	</identifier>
+	<active value="true"/>
+	<name>
+		<use value="official"/>
+		<family value="UPDATE-FAMILY"/>
+		<given value="UPDATE-GIVEN"/>
+	</name>
+	<gender value="male"/>
+	<birthDate value="2001-02-03"/>
+</Patient>

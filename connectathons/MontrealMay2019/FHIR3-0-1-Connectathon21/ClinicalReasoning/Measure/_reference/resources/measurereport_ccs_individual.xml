@@ -1,0 +1,50 @@
+<MeasureReport xmlns="http://hl7.org/fhir">
+    <status value="complete"/>
+    <type value="summary"/>
+    <measure>
+        <reference value="Measure/measure-bcs"/>
+    </measure>
+    <period>
+        <start value="1991-01-01T00:00:00+00:00"/>
+        <end value="1991-12-31T00:00:00+00:00"/>
+    </period>
+    <group>
+        <identifier>
+          <value value="group-population"/>
+        </identifier>
+        <population>
+            <identifier>
+                <value value="initial-population"/>
+            </identifier>
+            <code>
+                <coding>
+                    <code value="initial-population"/>
+                </coding>
+            </code>
+            <count value="1"/>
+        </population>
+        <population>
+            <identifier>
+                <value value="numerator"/>
+            </identifier>
+            <code>
+                <coding>
+                    <code value="numerator"/>
+                </coding>
+            </code>
+            <count value="0"/>
+        </population>
+        <population>
+            <identifier>
+                <value value="denominator"/>
+            </identifier>
+            <code>
+                <coding>
+                    <code value="denominator"/>
+                </coding>
+            </code>
+            <count value="0"/>
+        </population>
+        <measureScore value="0"/>
+    </group>
+</MeasureReport>

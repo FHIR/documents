@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir">
+	<id value="podiatrywoundrelatedobservationspanel-example"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/PodiatryWoundRelatedObservationsPanel"/>
+	</meta>
+	<identifier>
+		<system value="https://acme.org/identifiers"/>
+		<value value="watt-scenario-podiatry-wound-related-observations-panel-1001"/>
+	</identifier>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="exam"/>
+			<display value="Exam"/>
+		</coding>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="39135-9"/>
+			<display value="Wound assessment panel"/>
+		</coding>
+		<text value="Wound assessment panel"/>
+	</code>
+	<subject>
+		<reference value="Patient/patient-example"/>
+	</subject>
+	<effectiveDateTime value="2016-03-26"/>
+	<performer>
+		<reference value="Practitioner/practitioner-example"/>
+	</performer>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/podiatrywoundbed-example"/>
+			<display value="Podiatry Wound Bed Example"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/podiatrywoundedge-example"/>
+			<display value="Podiatry Wound Edge Example"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/woundsize-example"/>
+			<display value="Wound Size Example"/>
+		</target>
+	</related>
+</Observation>

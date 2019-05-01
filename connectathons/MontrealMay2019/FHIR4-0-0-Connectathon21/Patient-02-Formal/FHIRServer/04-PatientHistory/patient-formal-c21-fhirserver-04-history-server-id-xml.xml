@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="patient-formal-c21-fhirserver-04-history-server-id-xml"/>
+	<meta>
+		<profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml"><p>FHIR Connectathon 21 - Patient - Formal Testing - FHIR Server - History - Server Assigned Resource Id - XML</p></div>
+	</text>
+
+	<url value="http://wildfhir.aegis.net/fhir4-0-0/TestScript/patient-formal-c21-fhirserver-04-history-server-id-xml"/>
+	<name value="FHIRC21PatientServerHistoryXMLServerId"/>
+	<title value="FHIR Connectathon 21 - Patient - Formal Testing - FHIR Server - History - Server Assigned Resource Id - XML"/>
+	<status value="active"/>
+	<date value="2019-03-27"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Patient Track - Formal Testing - test FHIR Server using the XML format to retrieve a Patient resource instance history. The test setup creates and updates a new Patient resource where the server assigns the resource id. The destination server must support create, read, update, vread, search and delete operations to insure the Patient resource does not exist or is removed prior to test execution."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+
+	<fixture id="patient-create">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/patient-create-server-id.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="patient-update">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/patient-update-server-id.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+	<profile id="patient-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+	</profile>
+
+	<variable>
+		<name value="patientResourceId"/>
+		<path value="Patient/id"/>
+		<sourceId value="patient-create-search-response"/>
+	</variable>
+	<variable>
+		<name value="patientVersionIdUpdated"/>
+		<path value="Patient/meta/versionId"/>
+		<sourceId value="patient-update-read-response"/>
+	</variable>
+	<variable>
+		<name value="patientIdentifier"/>
+		<path value="Patient/identifier/value"/>
+		<sourceId value="patient-create"/>
+	</variable>
+	<variable>
+		<name value="patientFamilyName"/>
+		<path value="Patient/name/family"/>
+		<sourceId value="patient-create"/>
+	</variable>
+	<variable>
+		<name value="patientGivenName"/>
+		<path value="Patient/name/given"/>
+		<sourceId value="patient-create"/>
+	</variable>
+	<variable>
+		<name value="patientGender"/>
+		<path value="Patient/gender"/>
+		<sourceId value="patient-create"/>
+	</variable>
+	<variable>
+		<name value="patientBirthDateUpdated"/>
+		<path value="Patient/birthDate"/>
+		<sourceId value="patient-update"/>
+	</variable>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="System-generated search and delete operations from conditional delete on patient name to insure the patient does not exist on the server."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="?given=${patientGivenName}&amp;family=${patientFamilyName}"/>
+			</operation>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="System-generated search and delete operations from conditional delete on patient identifier to insure the patient does not exist on the server."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="?identifier=${patientIdentifier}"/>
+			</operation>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="create"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Create the Patient resource in XML format on the destination server for subsequent testing of the update operation."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<sourceId value="patient-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 201(Created)."/>
+				<direction value="response"/>
+				<responseCode value="201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for the created Patient by the unique identifier."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="?identifier=${patientIdentifier}"/>
+				<responseId value="patient-create-search-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/fhir+xml'."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Update patient with server assigned resource id to generate a second version."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${patientResourceId}"/>
+				<sourceId value="patient-update"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(Ok)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Read the updated patient by the known patient resource id in order to save the last version id."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${patientResourceId}"/>
+				<responseId value="patient-update-read-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is the FHIR XML format."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Patient."/>
+				<direction value="response"/>
+				<resource value="Patient"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Validate that the returned resource conforms to the base FHIR Patient profile."/>
+				<direction value="response"/>
+				<validateProfileId value="patient-profile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the resource version is present. This is needed for the test step 01-PatientHistory."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Patient/meta/versionId"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</setup>
+
+	<test id="01-PatientHistory">
+		<name value="PatientHistory"/>
+		<description value="Test the history-instance operation with XML content. The expected response content is a history Bundle resource containing all versions of the Patient resource in XML format."/>
+		<action>
+			<operation>
+				<resource value="Patient"/>
+				<description value="Retrieve the history Bundle for the Patient instance and verify the first entry is the last updated version."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${patientResourceId}/_history"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/fhir+xml'."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle conforms to the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type is history."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/type"/>
+				<value value="history"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned history Bundle contains at least 2 entries (greater than 1)."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value="Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches or is greater than the number of entries in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.total.toInteger() &gt;= entry.count()"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains the expected Patient meta versionId element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Patient/meta/versionId"/>
+				<value value="${patientVersionIdUpdated}"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains the expected Patient identifier element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Patient/identifier/value"/>
+				<value value="${patientIdentifier}"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains the expected Patient family name element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Patient/name/family"/>
+				<value value="${patientFamilyName}"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains the expected Patient given name element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Patient/name/given"/>
+				<value value="${patientGivenName}"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains the expected Patient retained gender element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Patient/gender"/>
+				<value value="${patientGender}"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains the expected Patient updated birthDate element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Patient/birthDate"/>
+				<value value="${patientBirthDateUpdated}"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

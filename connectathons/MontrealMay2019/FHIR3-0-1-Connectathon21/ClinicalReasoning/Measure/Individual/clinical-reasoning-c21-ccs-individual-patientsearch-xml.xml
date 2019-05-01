@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+  <id value="clinical-reasoning-c21-ccs-individual-patientsearch-xml"/>
+  <url value="http://wildfhir.aegis.net/fhir3-0-1/TestScript/clinical-reasoning-c21-ccs-individual-patientsearch-xml"/>
+  <name value="Connectathon 21 Clinical Reasoning track Colon Cancer Screening--Individual Patient TestScript--XML"/>
+  <status value="active"/>
+  <date value="2019-05-01"/>
+  <publisher value="MITRE, AEGIS.net, Inc."/>
+  <contact>
+    <name value="Michael O'Keefe"/>
+    <telecom>
+      <system value="email"/>
+      <value value="mokeefe@mitre.org"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <contact>
+    <name value="Touchstone Support"/>
+    <telecom>
+      <system value="email"/>
+      <value value="Touchstone_Support@aegis.net"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <description value="Tests using XML format to execute the $evauate-measure operation. The destination server must support the $evaluate-measure operation on the Measure resource. This TestScript first searches for a given patient and measure to get the identifier, before evaluating."/>
+  <copyright value="(c) MITRE 2019, (c) AEGIS.net, Inc. 2019"/>
+
+  <profile id="measurereport-profile">
+    <reference value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
+  </profile>
+
+  <variable>
+    <name value="PatientToSearchFor"/>
+    <defaultValue value="000006516"/>
+  </variable>
+  <variable>
+    <name value="MeasureToSearchFor"/>
+    <defaultValue value="CCS"/>
+  </variable>
+  <variable>
+    <name value="PeriodStart"/>
+    <defaultValue value="1991-01-01"/>
+  </variable>
+  <variable>
+    <name value="PeriodEnd"/>
+    <defaultValue value="1991-12-31"/>
+  </variable>
+  <variable>
+    <name value="measureID"/>
+    <path value="//fhir:Measure/fhir:id/@value"/>
+    <sourceId value="searchedMeasure"/>
+  </variable>
+  <variable>
+    <name value="patientID"/>
+    <path value="//fhir:Patient/fhir:id/@value"/>
+    <sourceId value="searchedPatient"/>
+  </variable>
+
+  <setup>
+    <action>
+      <operation>
+        <type>
+         <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+         <code value="search"/>
+        </type>
+        <resource value="Measure"/>
+        <label value="MeasureSearch"/>
+        <description value="Search for measure with a given identifier"/>
+        <accept value="xml"/>
+        <contentType value="xml"/>
+        <params value="?identifier=${MeasureToSearchFor}&amp;_count=1"/>
+        <responseId value="searchedMeasure"/>
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 200(OK)"/>
+        <operator value="in"/>
+        <responseCode value="200"/>
+      </assert>
+    </action>
+
+    <action>
+      <operation>
+        <type>
+         <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+         <code value="search"/>
+        </type>
+        <resource value="Patient"/>
+        <label value="PatientSearch"/>
+        <description value="Search for patient with a given identifier"/>
+        <accept value="xml"/>
+        <contentType value="xml"/>
+        <params value="?identifier=${PatientToSearchFor}&amp;_count=1"/>
+        <responseId value="searchedPatient"/>
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 200(OK)"/>
+        <operator value="in"/>
+        <responseCode value="200"/>
+      </assert>
+    </action>
+  </setup>
+
+  <test id="Step1-EvaluateMeasure">
+    <name value="EvaluateMeasure"/>
+    <description value="Evaluate the measure, no extensions."/>
+
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="evaluate-measure"/>
+        </type>
+        <resource value="Measure"/>
+        <label value="EvaluateMeasure"/>
+        <description value="Evaluate measure with server assigned resource id."/>
+        <accept value="xml"/>
+        <contentType value="xml"/>
+        <params value="/${measureID}/$evaluate-measure?patient=${patientID}&amp;periodStart=${PeriodStart}&amp;periodEnd=${PeriodEnd}"/>
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 200(OK)"/>
+        <operator value="in"/>
+        <responseCode value="200"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned format is XML. Warning only as the server may not support the return of response content."/>
+        <contentType value="xml"/>
+        <warningOnly value="true"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the return type is MeasureReport. Warning only as the server may not support the return of response content."/>
+        <resource value="MeasureReport"/>
+        <warningOnly value="true"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server may not support versioning."/>
+        <headerField value="Last-Modified"/>
+        <operator value="notEmpty"/>
+        <warningOnly value="true"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP Header ETag is present. Warning only as the server may not support versioning."/>
+        <headerField value="ETag"/>
+        <operator value="notEmpty"/>
+        <warningOnly value="true"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP Header Location is present. Warning only as this is optional but servers are encouraged to return this."/>
+        <headerField value="Location"/>
+        <operator value="notEmpty"/>
+        <warningOnly value="true"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned resource type is MeasureReport."/>
+        <resource value="MeasureReport"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport conforms to the base FHIR specification."/>
+        <validateProfileId value="measurereport-profile"/>
+        <warningOnly value="true"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport contains the expected initial population."/>
+        <operator value="equals"/>
+        <path value="MeasureReport/group/population[code[coding[code[@value='initial-population']]]]/count"/>
+        <value value="1"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport contains the expected denominator."/>
+        <operator value="equals"/>
+        <path value="MeasureReport/group/population[code[coding[code[@value='denominator']]]]/count"/>
+        <value value="1"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport contains the expected numerator."/>
+        <operator value="equals"/>
+        <path value="MeasureReport/group/population[code[coding[code[@value='numerator']]]]/count"/>
+        <value value="0"/>
+      </assert>
+    </action>
+  </test>
+</TestScript>

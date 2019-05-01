@@ -1,0 +1,23 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "system",
+      "valueUri": "http://snomed.info/sctx"
+    },
+    {
+      "name": "codingA",
+      "valueCoding": {
+        "system": "http://snomed.info/sctx",
+        "code": "3738000X"
+      }
+    },
+    {
+      "name": "codingB",
+      "valueCoding": {
+        "system": "http://snomed.info/sctx",
+        "code": "235856003X"
+      }
+    }
+  ]
+}

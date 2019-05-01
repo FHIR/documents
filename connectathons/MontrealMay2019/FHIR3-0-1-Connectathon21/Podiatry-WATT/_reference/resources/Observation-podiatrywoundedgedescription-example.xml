@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir">
+	<id value="podiatrywoundedgedescription-example"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/WoundEdgeDescription"/>
+	</meta>
+	<identifier>
+		<system value="https://acme.org/identifiers"/>
+		<value value="watt-scenario-podiatry-wound-edge-description-1001"/>
+	</identifier>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="exam"/>
+			<display value="Exam"/>
+		</coding>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="72304-9"/>
+			<display value="Edge of wound description"/>
+		</coding>
+		<text value="Wound bed panel"/>
+	</code>
+	<subject>
+		<reference value="Patient/patient-example"/>
+	</subject>
+	<effectiveDateTime value="2016-03-26"/>
+	<performer>
+		<reference value="Practitioner/practitioner-example"/>
+	</performer>
+	<valueCodeableConcept>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="449760000"/>
+			<display value="Scab of wound edge"/>
+		</coding>
+	</valueCodeableConcept>
+</Observation>

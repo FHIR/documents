@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir">
+	<id value="woundsize-example"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/WoundSize"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/MeasurementDeviceExt">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="44056008"/>
+				<display value="Caliper"/>
+			</coding>
+		</valueCodeableConcept>
+	</extension>
+	<identifier>
+		<system value="https://acme.org/identifiers"/>
+		<value value="watt-scenario-wound-size-1001"/>
+	</identifier>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="exam"/>
+			<display value="Exam"/>
+		</coding>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="72287-6"/>
+			<display value="Wound size panel"/>
+		</coding>
+		<text value="Wound size panel"/>
+	</code>
+	<subject>
+		<reference value="Patient/patient-example"/>
+	</subject>
+	<effectiveDateTime value="2016-03-26"/>
+	<performer>
+		<reference value="Practitioner/practitioner-example"/>
+	</performer>
+	<component>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="39126-8"/>
+				<display value="Length of Wound"/>
+			</coding>
+		</code>
+		<valueQuantity>
+			<value value="4"/>
+			<unit value="cm"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="cm"/>
+		</valueQuantity>
+	</component>
+	<component>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="39125-0"/>
+				<display value="Width of Wound"/>
+			</coding>
+		</code>
+		<valueQuantity>
+			<value value="2"/>
+			<unit value="cm"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="cm"/>
+		</valueQuantity>
+	</component>
+	<component>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="39127-6"/>
+				<display value="Depth of Wound"/>
+			</coding>
+		</code>
+		<valueQuantity>
+			<value value="0.2"/>
+			<unit value="cm"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="cm"/>
+		</valueQuantity>
+	</component>
+	<component>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="89260-4"/>
+				<display value="Area of Wound"/>
+			</coding>
+		</code>
+		<valueQuantity>
+			<value value="4"/>
+			<unit value="cm2"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="cm2"/>
+		</valueQuantity>
+	</component>
+	<component>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="39114-4"/>
+				<display value="Depth of Wound - nominal"/>
+			</coding>
+		</code>
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="261074009"/>
+				<display value="External"/>
+			</coding>
+		</valueCodeableConcept>
+	</component>
+</Observation>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir">
+	<id value="podiatrywoundbedappearance-example"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/WoundBedAppearance"/>
+	</meta>
+	<identifier>
+		<system value="https://acme.org/identifiers"/>
+		<value value="watt-scenario-podiatry-wound-bed-appearance-1001"/>
+	</identifier>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="exam"/>
+			<display value="Exam"/>
+		</coding>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="72371-8"/>
+			<display value="Appearance of Wound base"/>
+		</coding>
+		<text value="Wound bed panel"/>
+	</code>
+	<subject>
+		<reference value="Patient/patient-example"/>
+	</subject>
+	<effectiveDateTime value="2016-03-26"/>
+	<performer>
+		<reference value="Practitioner/practitioner-example"/>
+	</performer>
+	<valueCodeableConcept>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="225541009"/>
+			<display value="Granulation of tissue"/>
+		</coding>
+	</valueCodeableConcept>
+	<component>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="72370-0"/>
+				<display value="Area of identified wound bed appearance/Area of wound bed of Wound base"/>
+			</coding>
+		</code>
+		<valueQuantity>
+			<value value="4"/>
+			<unit value="cm2"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="%"/>
+		</valueQuantity>
+	</component>
+</Observation>

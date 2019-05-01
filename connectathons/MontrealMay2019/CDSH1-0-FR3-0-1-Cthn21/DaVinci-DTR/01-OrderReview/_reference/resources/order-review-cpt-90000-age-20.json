@@ -1,0 +1,311 @@
+{
+  "hook": "order-review",
+  "hookInstance": "${UUID}",
+  "fhirServer": null,
+  "fhirAuthorization": null,
+  "user": "Practitioner/example",
+  "context": {
+    "patientId": "pat1234",
+    "encounterId": null,
+    "orders": {
+      "resourceType": "Bundle",
+      "id": "${UUID}",
+      "type": "searchset",
+      "total": 1,
+      "entry": [
+        {
+          "fullUrl": "http://localhost:8080/fhir-server/DeviceRequest/devreq1234",
+          "resource": {
+            "resourceType": "DeviceRequest",
+            "id": "devreq1234",
+            "meta": {
+              "profile": [
+                "http://hl7.org/fhir/us/davinci-crd/STU3/StructureDefinition/profile-devicerequest-stu3"
+              ]
+            },
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/us/davinci-crd/STU3/StructureDefinition/ext-insurance",
+                "valueReference" : {
+                  "reference": "Coverage/cov1234"
+                }
+              }
+            ],
+            "definition": [{
+              "reference": "ActivityDefinition/actdef1234"
+            }],
+            "basedOn": [{
+              "reference": "Encounter/enc1234"
+            }],
+            "status": "draft",
+            "intent": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/request-intent",
+                  "code": "proposal",
+                  "display": "Proposal"
+                }
+              ]
+            },
+            "codeCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.ama-assn.org/go/cpt",
+                  "code": "90000"
+                }
+              ],
+              "text": "Continuous positive airway pressure ventilation (CPAP), initiation and management"
+            },
+            "subject": {
+              "reference": "Patient/pat1234"
+            },
+            "authoredOn": "2018-10-08",
+            "requester": {
+              "agent": {
+                "reference": "Practitioner/pra1234"
+              }
+            },
+            "performer": {
+              "reference": "Practitioner/pra1234"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "prefetch": {
+    "${devicePrefetchKey}": {
+      "resourceType": "Bundle",
+      "id": "${UUID}",
+      "type": "searchset",
+      "total": 1,
+      "entry": [
+        {
+          "fullUrl": "http://localhost:8080/fhir-server/DeviceRequest/devreq1234",
+          "resource": {
+            "resourceType": "DeviceRequest",
+            "id": "devreq1234",
+            "meta": {
+              "profile": [
+                "http://hl7.org/fhir/us/davinci-crd/STU3/StructureDefinition/profile-devicerequest-stu3"
+              ]
+            },
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/us/davinci-crd/STU3/StructureDefinition/ext-insurance",
+                "valueReference" : {
+                  "reference": "Coverage/cov1234"
+                }
+              }
+            ],
+            "definition": [{
+              "reference": "ActivityDefinition/actdef1234"
+            }],
+            "basedOn": [{
+              "reference": "Encounter/enc1234"
+            }],
+            "status": "draft",
+            "intent": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/request-intent",
+                  "code": "proposal",
+                  "display": "Proposal"
+                }
+              ]
+            },
+            "codeCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.ama-assn.org/go/cpt",
+                  "code": "90000"
+                }
+              ],
+              "text": "Continuous positive airway pressure ventilation (CPAP), initiation and management"
+            },
+            "subject": {
+              "reference": "Patient/pat1234"
+            },
+            "authoredOn": "2018-10-08",
+            "requester": {
+              "agent": {
+                "reference": "Practitioner/pra1234"
+              }
+            },
+            "performer": {
+              "reference": "Practitioner/pra1234"
+            }
+          }
+        },
+        {
+          "fullUrl": "http://localhost:8080/fhir-server/Patient/pat1234",
+          "resource": {
+            "resourceType": "Patient",
+            "id": "pat1234",
+            "meta": {
+              "profile": [
+                "http://hl7.org/fhir/us/davinci-crd/STU3/StructureDefinition/profile-patient-stu3"
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>name</b>: Roger T. Shaw </p></div>"
+            },
+            "identifier": [
+              {
+                "use": "usual",
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                      "code": "MR",
+                      "display": "Medical Record Number"
+                    }
+                  ],
+                  "text": "Medical Record Number"
+                },
+                "system": "http://hospital.smarthealthit.org",
+                "value": "1032702"
+              }
+            ],
+            "active": true,
+            "name": [
+              {
+                "family": "Shaw",
+                "given": [
+                  "Roger",
+                  "T."
+                ]
+              }
+            ],
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "555-555-5555",
+                "use": "home"
+              },
+              {
+                "system": "email",
+                "value": "roger.shaw@example.com"
+              }
+            ],
+            "gender": "male",
+            "birthDate": "${CURRENTDATE, y, -20}",
+            "address": [
+              {
+                "use": "home",
+                "type": "physical",
+                "line": [
+                  "49 Meadow St"
+                ],
+                "city": "Amherst",
+                "state": "MA",
+                "postalCode": "01002",
+                "country": "US"
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl": "http://localhost:8080/fhir-server/Practitioner/pra1234",
+          "resource": {
+            "resourceType": "Practitioner",
+            "id": "pra1234",
+            "meta": {
+              "profile": [
+                "http://hl7.org/fhir/us/davinci-crd/STU3/StructureDefinition/profile-practitioner-stu3"
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>name</b>: Dr. Jane Doe </p></div>"
+            },
+            "identifier": [
+              {
+                "system": "http://hl7.org/fhir/sid/us-npi",
+                "value": "1122334455"
+              }
+            ],
+            "name": [
+              {
+                "family": "Doe",
+                "given": [
+                  "Jane"
+                ],
+                "prefix": [
+                  "Dr."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl": "http://localhost:8080/fhir-server/Organization/org1234",
+          "resource": {
+            "resourceType": "Organization",
+            "id": "org1234",
+            "meta": {
+              "profile": [
+                "http://hl7.org/fhir/us/davinci-crd/STU3/StructureDefinition/profile-organization-stu3"
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>name</b>: Centers for Medicare and Medicaid Services </p></div>"
+            },
+            "identifier": [
+              {
+                "system": "http://hospital.smarthealthit.org",
+                "value": "9910029"
+              }
+            ],
+            "active": true,
+            "name": "Centers for Medicare and Medicaid Services",
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "555-555-1234",
+                "use": "work"
+              }
+            ],
+            "address": [
+              {
+                "line": [
+                  "4058 Healthy St"
+                ],
+                "city": "Amherst",
+                "state": "MA",
+                "postalCode": "01002",
+                "country": "US"
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl": "http://localhost:8080/fhir-server/Coverage/cov1234",
+          "resource": {
+            "resourceType": "Coverage",
+            "id": "cov1234",
+            "meta": {
+              "profile": [
+                "http://hl7.org/fhir/us/davinci-crd/STU3/StructureDefinition/profile-coverage-stu3"
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>plan</b>: Medicare Part D </p></div>"
+            },
+            "payor": [
+              {
+                "reference": "Organization/org1234"
+              }
+            ],
+            "grouping": {
+              "plan": "Medicare Part D"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
