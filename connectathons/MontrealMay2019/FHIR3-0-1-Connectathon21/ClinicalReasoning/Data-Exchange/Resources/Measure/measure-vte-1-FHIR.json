@@ -1,0 +1,285 @@
+{
+  "resourceType": "Measure",
+  "id": "measure-vte-1-FHIR",
+  "meta": {
+    "versionId": "3",
+    "lastUpdated": "2019-03-12T11:08:36.881-06:00",
+    "profile": [
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid dict\"><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Id: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">Measure/measure-vte-1-FHIR</td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"1\" scope=\"row\"><b>Type: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://hl7.org/fhir/measure-type</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>process</span></span></span></span></td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"2\" scope=\"row\"><b>Identifier: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><b>system: </b><span>http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms</span><br/><b>value: </b><span>108</span></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><b>system: </b><span>http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/nqf</span><br/><b>value: </b><span>0371</span></td></tr><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Title: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">Venous Thromboembolism Prophylaxis</td></tr><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Status: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">active</td></tr><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Description: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">This measure assesses the number of patients who received VTE prophylaxis or have documentation why no VTE prophylaxis was given the day of or the day after hospital admission or surgery end date for surgeries that start the day of or the day after hospital admission</td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"1\" scope=\"row\"><b>Use Context: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"padding-left: 25px; margin-bottom: 5px;\"><b>code: </b><span>program</span></p><p style=\"padding-left: 25px; margin-bottom: 5px;\"><b>value: </b><br/><span><span style=\"padding-left: 25px;\"><b>text: </b><span>eligibile-hospital</span></span></span></p></td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"1\" scope=\"row\"><b>Topic: </b></th><td style=\"padding-right: 25px;\"><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://loinc.org</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>57024-2</span><br/></span><span style=\"padding-left: 25px;\"><b>display: </b><span>Health Quality Measure Document</span></span></span></span></td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"1\" scope=\"row\"><b>Contributor: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><b><span>author</span>: </b><span>The Joint Commission</span></td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"5\" scope=\"row\"><b>Related: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>citation</span></p><p style=\"margin-bottom: 5px;\"><b>citation: </b><br/><span>Geerts WH, Bergqvist D, Pineo GF, Heit JA, Samama CM, Lassen MR, Colwell CW. Prevention of venous thromboembolism. The Eighth ACCP Conference on antithrombotic and thrombolytic therapy. Chest. 2008; 133:381S-453S</span></p></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>citation</span></p><p style=\"margin-bottom: 5px;\"><b>citation: </b><br/><span>Guyatt, G.H., Akl, E.A., Crowther, M., Gutterman, D., Schunemann, H. Antithrombotic Therapy and Prevention of Thrombosis, 9th edition: American College of Chest Physicians Evidence-Based Clinical Practice Guidelines. CHEST 2012; 141(2)(Supp):7S-47S</span></p></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>citation</span></p><p style=\"margin-bottom: 5px;\"><b>citation: </b><br/><span>Kearon C, Akl EA, Comerota AJ, Prandoni P, Bounameaux H, Goldhaber SZ, Nelson ME, Wells PS, Gould MK, Dentali F, Crowther M, Kahn SR. Antithrombotic therapy for VTE disease: Antithrombotic Therapy and Prevention of Thrombosis, 9th Edition: American College of Chest Physicians Evidence-based Clinical Practice Guidelines. CHEST 2012 Feb; 141(2) (Supp):e419S-94S.</span></p></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>citation</span></p><p style=\"margin-bottom: 5px;\"><b>citation: </b><br/><span>National Quality Forum. National Voluntary Consensus Standards for Prevention and Care of Venous Thromboembolism: Policy, Preferred Practices, and Initial Performance Measures. A Consensus Report. Washington, DC. NQF; 2006</span></p></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>citation</span></p><p style=\"margin-bottom: 5px;\"><b>citation: </b><br/><span>Shojania KG, Duncan BW, McDonald DM, et al. (Eds.). (2001). Making healthcare safer; A critical analysis of patient safety practices (Evidence Report/Technology Assessment No. 43). Prepared by the University of California at San Francisco-Stanford Evidenced-based Practice Center under Contract no. 290-97-0013 (AHRQ Publication NO.01-E058). Rockville, MD:Agency for Healthcare Research and Quality.</span></p></td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"1\" scope=\"row\"><b>Library: </b></th><td><p style=\"padding-left: 25px; padding-right: 25px;\"><b>reference: </b><span>Library/library-vte-1-FHIR</span></p></td></tr><tr><th scope=\"row\"><b>Disclaimer: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">These performance measures are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications. The measures and specifications are provided without warranty</td></tr><tr><th scope=\"row\"><b>Scoring: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://hl7.org/fhir/measure-scoring</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>proportion</span></span></span></span></td></tr><tr><th scope=\"row\"><b>Rationale: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">Hospitalized patients at high-risk for VTE may develop an asymptomatic deep vein thrombosis (DVT), and die from pulmonary embolism (PE) even before the diagnosis is suspected. The majority of fatal events occur as sudden or abrupt death, underscoring the importance of prevention as the most critical action step for reducing death from PE (Geerts, et al, 2008).The estimated annual incidence of deep-vein thrombosis (DVT) and pulmonary embolism (PE), known collectively as venous thromboembolism (VTE), is approximately 900,000 (Geerts, et al, 2008). Approximately two-thirds of cases of DVT or PE are associated with recent hospitalization. This is consistent with the 2001 report by The Agency for Healthcare Research and Quality (AHRQ). AHRQ indicates that \"the appropriate application of effective preventive measures in hospitals has major potential for improving patient safety by reducing the incidence of venous thromboembolism\" (Shojania, 2001).Despite its proven effectiveness, rates of appropriate thromboprophylaxis remain low in both medical and surgical patients. A recent analysis from the ENDORSE survey, which evaluated prophylaxis rates in 17,084 major surgery patients, found that more than one third of patients at risk for VTE (38%) did not receive prophylaxis and that rates varied by surgery type (Cohen, et al., 2008).In a review of evidence-based patient safety practices, the Agency for Healthcare Research and Quality defined thromboprophylaxis against VTE as the \"number one patient safety practice\" for hospitalized patients (Shojania, 2001). Updated \"safe practices\" published by the National Quality Forum (NQF) recommend routine evaluation of hospitalized patients for risk of VTE and use of appropriate prophylaxis (National Quality Forum. National Voluntary Consensus Standards for Prevention and Care of Venous Thromboembolism, 2006).As noted by the ACCP, a vast number of randomized clinical trials provide irrefutable evidence that thromboprophylaxis reduces VTE events, and there are studies that have also shown that fatal PE is prevented by thromboprophylaxis (Geerts, et al. 2008).Some select surgeries have previously been monitored in the Surgical Care Improvement Project; since performance on these surgeries has achieved very high levels, they are not included in this measure.</td></tr><tr><th scope=\"row\"><b>Clinical Recommendation: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">Failure to recognize and protect patients at risk for venous thromboembolism (VTE) increases the chances for acutely ill hospitalized patients at high risk for developing a deep vein thrombosis or dying from a pulmonary emboli. Screening all patients is the only evidence based practice in reducing incidence of disease. All hospitalized patients should be evaluated for primary VTE prophylaxis, and given appropriate prophylaxis when indicated.</td></tr><tr><th scope=\"row\"><b>Guidance: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">When low dose unfractionated heparin is administered for VTE Prophylaxis, the intended administration route for low dose unfractionated heparin is subcutaneous.Reasons for no pharmacological and no mechanical VTE prophylaxis must be explicitly documented by the MD/APN/PA or pharmacist and linked with VTE prophylaxis. Ambulation alone is not a sufficient reason for not administering VTE prophylaxis. In order for ambulation/patient ambulating to be considered as an acceptable reason, there needs to be explicit documentation, e.g., \"patient out of bed and ambulating in halls - no VTE prophylaxis needed.\"</td></tr><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Group:</b></th><td><p style=\"padding-left: 25px; padding-right: 25px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>CMS125-group-1</span><br/></span></p></td></tr><tr style=\"vertical-align: top;\"><td colspan=\"2\"><table style=\"margin-bottom: 5px; width: 100%\"><tr style=\"vertical-align: top;\"><th rowspan=\"4\" scope=\"row\" style=\"padding-left: 25px;\"><b>Population:</b></th><td><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>initial-population-identifier</span><br/></span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>description: </b><span>Patients age 18 and older discharged from hospital inpatient acute care without a diagnosis of venous thromboembolism (VTE) or obstetrics with a length of stay less than or equal to 120 days that ends during the measurement period</span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>criteria: </b><span>Initial Population</span></p></td></tr><tr style=\"vertical-align: top;\"><td><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>numerator-identifier</span><br/></span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>description: </b><span>Patients who received VTE prophylaxis:- the day of or the day after hospital admission- the day of or the day after surgery end date for surgeries that end the day of or the day after hospital admissionPatients who have documentation of a reason why no VTE prophylaxis was given:- between arrival and hospital admission- the day of or the day after hospital admission- the day of or the day after surgery end date (for surgeries that end the day of or the day after hospital admission)</span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>criteria: </b><span>Numerator</span></p></td></tr><tr style=\"vertical-align: top;\"><td><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>denominator-identifier</span><br/></span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>description: </b><span>All patients in the initial population</span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>criteria: </b><span>Denominator</span></p></td></tr><tr style=\"vertical-align: top;\"><td><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>denominator-exclusions-identifier</span><br/></span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>description: </b><span>* Patients who have a length of stay less than 2 days* Patients with comfort measures documented anytime between arrival and the day after hospital admission* Patients with comfort measures documented by the day after surgery end date for surgeries that start the day of or the day after hospital admission* Patients who are direct admits to intensive care unit (ICU), or transferred to ICU the day of or the day after hospital admission with ICU length of stay greater than or equal to one day* Patients with a principal diagnosis of mental disorders or stroke* Patients with a principal procedure of Surgical Care Improvement Project (SCIP) VTE selected surgeries</span></p><p style=\"margin-bottom: 5px; padding-left: 25px;\"><b>criteria: </b><span>Denominator Exclusion</span></p></td></tr></table></td></tr><tr><th rowspan=\"4\" scope=\"row\"><b>Supplemental Data:</b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>sde-ethnicity</span><br/></span></p><p style=\"margin-bottom: 5px;\"><b>usage: </b><span><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://hl7.org/fhir/measure-data-usage</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>supplemental-data</span></span></span></span></span></p><p style=\"margin-bottom: 5px;\"><b>criteria: </b><span>SDE Ethnicity</span></p></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>sde-payer</span><br/></span></p><p style=\"margin-bottom: 5px;\"><b>usage: </b><span><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://hl7.org/fhir/measure-data-usage</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>supplemental-data</span></span></span></span></span></p><p style=\"margin-bottom: 5px;\"><b>criteria: </b><span>SDE Payer</span></p></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>sde-race</span><br/></span></p><p style=\"margin-bottom: 5px;\"><b>usage: </b><span><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://hl7.org/fhir/measure-data-usage</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>supplemental-data</span></span></span></span></span></p><p style=\"margin-bottom: 5px;\"><b>criteria: </b><span>SDE Race</span></p></td></tr><tr><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>Identifier:</b><br/><span style=\"padding-left: 25px;\"><b>value: </b><span>sde-sex</span><br/></span></p><p style=\"margin-bottom: 5px;\"><b>usage: </b><span><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://hl7.org/fhir/measure-data-usage</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>supplemental-data</span></span></span></span></span></p><p style=\"margin-bottom: 5px;\"><b>criteria: </b><span>SDE Sex</span></p></td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+      "valueCode": "Encounter"
+    }
+  ],
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-vte-1-FHIR",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms",
+      "value": "108"
+    },
+    {
+      "use": "official",
+      "system": "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/nqf",
+      "value": "0371"
+    }
+  ],
+  "version": "7.4.000",
+  "name": "VTE_1_FHIR",
+  "title": "Venous Thromboembolism Prophylaxis",
+  "status": "active",
+  "experimental": true,
+  "date": "2018-08-31",
+  "publisher": "The Joint Commission",
+  "description": "This measure assesses the number of patients who received VTE prophylaxis or have documentation why no VTE prophylaxis was given the day of or the day after hospital admission or surgery end date for surgeries that start the day of or the day after hospital admission",
+  "approvalDate": "2019-03-08",
+  "lastReviewDate": "2019-03-08",
+  "effectivePeriod": {
+    "start": "2018-01-01",
+    "end": "2018-12-31"
+  },
+  "useContext": [
+    {
+      "code": {
+        "code": "program"
+      },
+      "valueCodeableConcept": {
+        "text": "eligibile-hospital"
+      }
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "topic": [
+    {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "57024-2",
+          "display": "Health Quality Measure Document"
+        }
+      ]
+    }
+  ],
+  "contributor": [
+    {
+      "type": "author",
+      "name": "The Joint Commission"
+    }
+  ],
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.jointcommission.org/"
+        }
+      ]
+    }
+  ],
+  "copyright": "Measure specifications are in the Public Domain.\n\nLOINC(R) is a registered trademark of the Regenstrief Institute.\n\nThis material contains SNOMED Clinical Terms(R) (SNOMED CT(C)) copyright 2004-2017 International Health Terminology Standards Development Organization. All rights reserved.",
+  "relatedArtifact": [
+    {
+      "type": "citation",
+      "citation": "Geerts  WH, Bergqvist D, Pineo GF, Heit JA, Samama CM, Lassen MR, Colwell CW. Prevention of venous thromboembolism. The Eighth ACCP Conference on antithrombotic and thrombolytic therapy. Chest. 2008; 133:381S-453S"
+    },
+    {
+      "type": "citation",
+      "citation": "Guyatt, G.H., Akl, E.A., Crowther, M., Gutterman, D., Schunemann, H. Antithrombotic Therapy and Prevention of Thrombosis, 9th edition: American College of Chest Physicians Evidence-Based Clinical Practice Guidelines. CHEST 2012; 141(2)(Supp):7S-47S"
+    },
+    {
+      "type": "citation",
+      "citation": "Kearon C, Akl EA, Comerota AJ, Prandoni P, Bounameaux H, Goldhaber SZ, Nelson ME, Wells PS, Gould MK, Dentali F, Crowther M, Kahn SR. Antithrombotic therapy for VTE disease: Antithrombotic Therapy and Prevention of Thrombosis, 9th Edition: American College of Chest Physicians Evidence-based Clinical Practice Guidelines. CHEST 2012 Feb; 141(2) (Supp):e419S-94S."
+    },
+    {
+      "type": "citation",
+      "citation": "National Quality Forum. National Voluntary Consensus Standards for Prevention and Care of Venous Thromboembolism: Policy, Preferred Practices, and Initial Performance Measures. A Consensus Report. Washington, DC. NQF; 2006"
+    },
+    {
+      "type": "citation",
+      "citation": "Shojania KG, Duncan BW, McDonald DM, et al. (Eds.). (2001). Making healthcare safer; A critical analysis of patient safety practices (Evidence Report/Technology Assessment No. 43). Prepared by the University of California at San Francisco-Stanford Evidenced-based Practice Center under Contract no. 290-97-0013 (AHRQ Publication NO.01-E058). Rockville, MD:Agency for Healthcare Research and Quality."
+    }
+  ],
+  "library": [
+    {
+      "reference": "Library/library-vte-1-FHIR"
+    }
+  ],
+  "disclaimer": "These performance measures are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications. The measures and specifications are provided without warranty",
+  "scoring": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/measure-scoring",
+        "code": "proportion"
+      }
+    ]
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/measure-type",
+          "code": "process"
+        }
+      ]
+    }
+  ],
+  "rationale": "Hospitalized patients at high-risk for VTE may develop an asymptomatic deep vein thrombosis (DVT), and die from pulmonary embolism (PE) even before the diagnosis is suspected. The majority of fatal events occur as sudden or abrupt death, underscoring the importance of prevention as the most critical action step for reducing death from PE (Geerts, et al, 2008).\n\nThe estimated annual incidence of deep-vein thrombosis (DVT) and pulmonary embolism (PE), known collectively as venous thromboembolism (VTE), is approximately 900,000 (Geerts, et al, 2008). Approximately two-thirds of cases of DVT or PE are associated with recent hospitalization. This is consistent with the 2001 report by The Agency for Healthcare Research and Quality (AHRQ). AHRQ indicates that \"the appropriate application of effective preventive measures in hospitals has major potential for improving patient safety by reducing the incidence of venous thromboembolism\" (Shojania, 2001).\n\nDespite its proven effectiveness, rates of appropriate thromboprophylaxis remain low in both medical and surgical patients. A recent analysis from the ENDORSE survey, which evaluated prophylaxis rates in 17,084 major surgery patients, found that more than one third of patients at risk for VTE (38%) did not receive prophylaxis and that rates varied by surgery type (Cohen, et al., 2008).\n\nIn a review of evidence-based patient safety practices, the Agency for Healthcare Research and Quality defined thromboprophylaxis against VTE as the \"number one patient safety practice\" for hospitalized patients (Shojania, 2001). Updated \"safe practices\" published by the National Quality Forum (NQF) recommend routine evaluation of hospitalized patients for risk of VTE and use of appropriate prophylaxis (National Quality Forum. National Voluntary Consensus Standards for Prevention and Care of Venous Thromboembolism, 2006).\n\nAs noted by the ACCP, a vast number of randomized clinical trials provide irrefutable evidence that thromboprophylaxis reduces VTE events, and there are studies that have also shown that fatal PE is prevented by thromboprophylaxis (Geerts, et al. 2008).\n\nSome select surgeries have previously been monitored in the Surgical Care Improvement Project; since performance on these surgeries has achieved very high levels, they are not included in this measure.",
+  "clinicalRecommendationStatement": "Failure to recognize and protect patients at risk for venous thromboembolism (VTE) increases the chances for acutely ill hospitalized patients at high risk for developing a deep vein thrombosis or dying from a pulmonary emboli. Screening all patients is the only evidence based practice in reducing incidence of disease.  All hospitalized patients should be evaluated for primary VTE prophylaxis, and given appropriate prophylaxis when indicated.",
+  "improvementNotation": "increase",
+  "guidance": "When low dose unfractionated heparin is administered for VTE Prophylaxis, the intended administration route for low dose unfractionated heparin is subcutaneous.\n\nReasons for no pharmacological and no mechanical VTE prophylaxis must be explicitly documented by the MD/APN/PA or pharmacist and linked with VTE prophylaxis. Ambulation alone is not a sufficient reason for not administering VTE prophylaxis. In order for ambulation/patient ambulating to be considered as an acceptable reason, there needs to be explicit documentation, e.g., \"patient out of bed and ambulating in halls - no VTE prophylaxis needed.\"",
+  "group": [
+    {
+      "identifier": {
+        "value": "CMS125-group-1"
+      },
+      "population": [
+        {
+          "identifier": {
+            "value": "initial-population-identifier"
+          },
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          },
+          "description": "Patients age 18 and older discharged from hospital inpatient acute care without a diagnosis of venous thromboembolism (VTE) or obstetrics with a length of stay less than or equal to 120 days that ends during the measurement period",
+          "criteria": "Initial Population"
+        },
+        {
+          "identifier": {
+            "value": "numerator-identifier"
+          },
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
+              }
+            ]
+          },
+          "description": "Patients who received VTE prophylaxis:\n- the day of or the day after hospital admission\n- the day of or the day after surgery end date for surgeries that end the day of or the day after hospital admission\n\nPatients who have documentation of a reason why no VTE prophylaxis was given:\n- between arrival and hospital admission\n- the day of or the day after hospital admission\n- the day of or the day after surgery end date (for surgeries that end the day of or the day after hospital admission)",
+          "criteria": "Numerator"
+        },
+        {
+          "identifier": {
+            "value": "denominator-identifier"
+          },
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          },
+          "description": "All patients in the initial population",
+          "criteria": "Denominator"
+        },
+        {
+          "identifier": {
+            "value": "denominator-exclusions-identifier"
+          },
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exclusion",
+                "display": "Denominator Exclusion"
+              }
+            ]
+          },
+          "description": "* Patients who have a length of stay less than 2 days\n* Patients with comfort measures documented anytime between arrival and the day after hospital admission\n* Patients with comfort measures documented by the day after surgery end date for surgeries that start the day of or the day after hospital admission\n* Patients who are direct admits to intensive care unit (ICU), or transferred to ICU the day of or the day after hospital admission with ICU length of stay greater than or equal to one day\n* Patients with a principal diagnosis of mental disorders or stroke\n* Patients with a principal procedure of Surgical Care Improvement Project (SCIP) VTE selected surgeries",
+          "criteria": "Denominator Exclusion"
+        }
+      ]
+    }
+  ],
+  "supplementalData": [
+    {
+      "identifier": {
+        "value": "sde-ethnicity"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ],
+      "criteria": "SDE Ethnicity"
+    },
+    {
+      "identifier": {
+        "value": "sde-payer"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ],
+      "criteria": "SDE Payer"
+    },
+    {
+      "identifier": {
+        "value": "sde-race"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ],
+      "criteria": "SDE Race"
+    },
+    {
+      "identifier": {
+        "value": "sde-sex"
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ],
+      "criteria": "SDE Sex"
+    }
+  ]
+}

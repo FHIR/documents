@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+    <id value="col-data-requirements"/>
+
+    <url value="http://example.com"/>
+    <name value="Data requirements test for colon cancer measure"/>
+    <status value="draft"/>
+    <date value="2019-03-04"/>
+    <publisher value="MITRE"/>
+    <contact>
+        <name value="Matthew Gramigna"/>
+        <telecom>
+            <system value="email"/>
+            <value value="mgramigna@mitre.org"/>
+            <use value="work"/>
+        </telecom>
+    </contact>
+    <description value="Tests using XML format to execute the $data-requirements operation operation. The destination server must support the $data-requirements operation on the Measure resource."/>
+    <copyright value="N/A"/>
+
+    <fixture id="library-col-logic">
+        <resource>
+            <reference value="./_reference/resources/Library/library-col-logic.json"/>
+        </resource>
+    </fixture>
+    <fixture id="measure-col">
+        <resource>
+            <reference value="./_reference/resources/Measure/measure-col.json"/>
+        </resource>
+    </fixture>
+
+    <variable>
+        <name value="createMeasureId"/>
+        <path value="Measure/id"/>
+        <sourceId value="create-measure-response"/>
+    </variable>
+
+    <setup>
+        <action>
+            <operation>
+                <type>
+                    <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+                    <code value="update"/>
+                </type>
+                <resource value="Library"/>
+                <description value="Update or create a library on the server"/>
+                <accept value="json"/>
+                <contentType value="json"/>
+                <params value="/library-col-logic"/>
+                <sourceId value="library-col-logic"/>
+            </operation>
+        </action>
+        <action>
+            <assert>
+                <description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+                <operator value="in"/>
+                <responseCode value="200,201"/>
+            </assert>
+        </action>
+        <action>
+            <operation>
+                <type>
+                    <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+                    <code value="create"/>
+                </type>
+                <resource value="Measure"/>
+                <description value="Create a measure on the server"/>
+                <accept value="json"/>
+                <contentType value="json"/>
+                <sourceId value="measure-col"/>
+                <responseId value="create-measure-response"/>
+            </operation>
+        </action>
+        <action>
+            <assert>
+                <description value="Confirm that the returned HTTP status is 201(Created)."/>
+                <response value="created"/>
+            </assert>
+        </action>
+    </setup>
+
+    <test id="TestDataRequirements">
+        <name value="Test Data Requirements"/>
+        <description value="Validate the data requirements for the measure against the logic"/>
+        <action>
+            <operation>
+                <type>
+                    <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+                    <code value="data-requirements"/>
+                </type>
+                <resource value="Measure"/>
+                <description value="Get the data requirements for the measure"/>
+                <accept value="json"/>
+                <contentType value="json"/>
+                <url value="Measure/${createMeasureId}/$data-requirements"/>
+                <responseId value="data-requirements-result"/>
+            </operation>
+        </action>
+        <action>
+            <assert>
+                <description value="Confirm that the returned HTTP status is 200(OK)."/>
+                <response value="okay"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <description value="Confirm that the response is a Library resource"/>
+                <resource value="Library"/>
+            </assert>
+        </action>
+        <action>
+            <assert>
+                <description value="Verify that the data requirements match those described by the measure logic"/>
+                <operator value="equals"/>
+                <path value="$.dataRequirement"/>
+                <compareToSourceId value="library-col-logic"/>
+                <compareToSourcePath value="$.dataRequirement"/>
+            </assert>
+        </action>
+    </test>
+
+    <teardown>
+        <action>
+            <operation>
+                <type>
+                    <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+                    <code value="delete"/>
+                </type>
+                <resource value="Measure"/>
+                <description value="Delete the measure"/>
+                <params value="/${createMeasureId}"/>
+            </operation>
+        </action>
+    </teardown>
+</TestScript>
