@@ -88,10 +88,10 @@
 		</action>
 		<action>
 			<assert>
-				<description value="Confirm that the returned ValueSet equals the requested version C20."/>
+				<description value="Confirm that the returned ValueSet equals the requested version R4."/>
 				<direction value="response"/>
 				<path value="ValueSet.version"/>
-				<value value="C20"/>
+				<value value="R4"/>
 				<warningOnly value="false"/>
 			</assert>
 		</action>
