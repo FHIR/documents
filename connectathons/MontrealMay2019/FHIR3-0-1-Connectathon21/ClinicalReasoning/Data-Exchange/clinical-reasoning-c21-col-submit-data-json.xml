@@ -6,7 +6,7 @@
   <name value="Submit Data" />
   <status value="draft" />
   <date value="2018-11-28" />
-  <publisher value="" />
+  <publisher value="MITRE" />
   <contact>
     <name value="Tom Strassner" />
     <telecom>
@@ -79,8 +79,8 @@
         <description value="Create a measure" />
         <accept value="json" />
         <contentType value="json" />
-        <sourceId value="measure-col" />
         <responseId value="create-measure-response" />
+        <sourceId value="measure-col" />
       </operation>
     </action>
     <action>
@@ -113,8 +113,8 @@
         <description value="Submit data for a measure." />
         <accept value="json" />
         <contentType value="json" />
-        <params value="/${createMeasureId}" />
         <encodeRequestUrl value="false" />
+        <params value="/${createMeasureId}" />
         <sourceId value="submit-data-parameters" />
       </operation>
     </action>
@@ -135,7 +135,7 @@
         <description value="Evaluate a measure." />
         <accept value="json" />
         <contentType value="json" />
-        <url value="Measure/${createMeasureId}/$evaluate-measure?patient=${createPatientId}&amp;periodStart=2017&amp;periodEnd=2017" />
+        <params value="/${createMeasureId}/$evaluate-measure?patient=${createPatientId}&amp;periodStart=2017&amp;periodEnd=2017" />
         <responseId value="measure-calc-report" />
       </operation>
     </action>
@@ -195,6 +195,8 @@
         <description value="Delete the patient resource on the test server using the id of the Patient." />
         <targetId value="${createPatientId}" />
       </operation>
+    </action>
+    <action>
       <operation>
         <type>
           <system value="http://hl7.org/fhir/testscript-operation-codes" />
@@ -204,6 +206,8 @@
         <description value="Delete the observation on the test server using the id of the Observation" />
         <targetId value="test-Observation-32794" />
       </operation>
+    </action>
+    <action>
       <operation>
         <type>
           <system value="http://hl7.org/fhir/testscript-operation-codes" />
@@ -213,6 +217,8 @@
         <description value="Delete the measure resource on the test server" />
         <targetId value="${createMeasureId}" />
       </operation>
+    </action>
+    <action>
       <operation>
         <type>
           <system value="http://hl7.org/fhir/testscript-operation-codes" />

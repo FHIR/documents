@@ -197,8 +197,8 @@
                 <description value="Create a measure on the server"/>
                 <accept value="json"/>
                 <contentType value="json"/>
-                <sourceId value="measure-vte-1-FHIR"/>
                 <responseId value="create-measure-response"/>
+                <sourceId value="measure-vte-1-FHIR"/>
             </operation>
         </action>
         <action>
@@ -222,7 +222,7 @@
                 <description value="Get the data requirements for the measure"/>
                 <accept value="json"/>
                 <contentType value="json"/>
-                <url value="Measure/${createMeasureId}/$data-requirements"/>
+                <params value="/${createMeasureId}/$data-requirements"/>
                 <responseId value="data-requirements-result"/>
             </operation>
         </action>
@@ -241,10 +241,10 @@
         <action>
             <assert>
                 <description value="Verify that the data requirements match those described by the measure logic"/>
-                <operator value="equals"/>
-                <path value="$.dataRequirement"/>
                 <compareToSourceId value="library-vte-1-FHIR"/>
                 <compareToSourcePath value="$.dataRequirement"/>
+                <operator value="equals"/>
+                <path value="$.dataRequirement"/>
             </assert>
         </action>
     </test>
