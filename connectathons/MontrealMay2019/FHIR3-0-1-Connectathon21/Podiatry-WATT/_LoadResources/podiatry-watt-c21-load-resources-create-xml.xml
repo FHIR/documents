@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="podiatry-watt-c21-load-resources-create-xml"/>
+	<url value="http://wildfhir.aegis.net/fhir3-0-1/TestScript/podiatry-watt-c21-load-resources-create-xml"/>
+	<name value="PodiatryWATTLoadResourcesCreateXML"/>
+	<title value="FHIR Connectathon 21 - Podiatry WATT - Load Test Resources - Create - XML"/>
+	<status value="draft"/>
+	<date value="2019-04-22"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="[OPTIONAL] Load (create) Provider Directories test resources using the update (PUT) operation of the target FHIR server for use in FHIR Connectathon 21 Podiatry WATT Track tests. All resource ids are pre-defined. The target FHIR server is expected to support resource create via the update (PUT) operation for client assigned ids."/>
+	<copyright value="© AEGIS.net, Inc. 2019"/>
+
+	<fixture id="Patient-patient-example">
+		<resource>
+			<reference value="../_reference/resources/Patient-patient-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Practitioner-practitioner-example">
+		<resource>
+			<reference value="../_reference/resources/Practitioner-practitioner-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-podiatrywoundbedappearance-example">
+		<resource>
+			<reference value="../_reference/resources/Observation-podiatrywoundbedappearance-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-podiatrywoundbedcolor-example">
+		<resource>
+			<reference value="../_reference/resources/Observation-podiatrywoundbedcolor-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-podiatrywoundbed-example">
+		<resource>
+			<reference value="../_reference/resources/Observation-podiatrywoundbed-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-podiatrywoundedgecolor-example">
+		<resource>
+			<reference value="../_reference/resources/Observation-podiatrywoundedgecolor-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-podiatrywoundedgedescription-example">
+		<resource>
+			<reference value="../_reference/resources/Observation-podiatrywoundedgedescription-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-podiatrywoundedge-example">
+		<resource>
+			<reference value="../_reference/resources/Observation-podiatrywoundedge-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-woundsize-example">
+		<resource>
+			<reference value="../_reference/resources/Observation-woundsize-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-podiatrywoundrelatedobservationspanel-example">
+		<resource>
+			<reference value="../_reference/resources/Observation-podiatrywoundrelatedobservationspanel-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Condition-podiatrywoundassert-example">
+		<resource>
+			<reference value="../_reference/resources/Condition-podiatrywoundassert-example.xml"/>
+		</resource>
+	</fixture>
+
+	<variable>
+		<name value="Patient-patient-example-id"/>
+		<path value="Patient/id"/>
+		<sourceId value="Patient-patient-example"/>
+	</variable>
+	<variable>
+		<name value="Practitioner-practitioner-example-id"/>
+		<path value="Practitioner/id"/>
+		<sourceId value="Practitioner-practitioner-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-podiatrywoundbedappearance-example-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-podiatrywoundbedappearance-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-podiatrywoundbedcolor-example-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-podiatrywoundbedcolor-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-podiatrywoundbed-example-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-podiatrywoundbed-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-podiatrywoundedgecolor-example-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-podiatrywoundedgecolor-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-podiatrywoundedgedescription-example-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-podiatrywoundedgedescription-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-podiatrywoundedge-example-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-podiatrywoundedge-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-woundsize-example-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-woundsize-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-podiatrywoundrelatedobservationspanel-example-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-podiatrywoundrelatedobservationspanel-example"/>
+	</variable>
+	<variable>
+		<name value="Condition-podiatrywoundassert-example-id"/>
+		<path value="Condition/id"/>
+		<sourceId value="Condition-podiatrywoundassert-example"/>
+	</variable>
+
+	<!-- No Setup -->
+
+	<test id="Step1-LoadTestResourceCreate">
+		<name value="Step1-LoadTestResourceCreate"/>
+		<description value="[OPTIONAL] Load (create) Podiatry WATT test resources using the update (PUT) operation of the target FHIR server for use in FHIR Connectathon 21 Podiatry WATT Track tests."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Patient-patient-example-id}"/>
+				<sourceId value="Patient-patient-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Practitioner"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Practitioner-practitioner-example-id}"/>
+				<sourceId value="Practitioner-practitioner-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-podiatrywoundbedappearance-example-id}"/>
+				<sourceId value="Observation-podiatrywoundbedappearance-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-podiatrywoundbedcolor-example-id}"/>
+				<sourceId value="Observation-podiatrywoundbedcolor-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-podiatrywoundbed-example-id}"/>
+				<sourceId value="Observation-podiatrywoundbed-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-podiatrywoundedgecolor-example-id}"/>
+				<sourceId value="Observation-podiatrywoundedgecolor-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-podiatrywoundedgedescription-example-id}"/>
+				<sourceId value="Observation-podiatrywoundedgedescription-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-podiatrywoundedge-example-id}"/>
+				<sourceId value="Observation-podiatrywoundedge-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-woundsize-example-id}"/>
+				<sourceId value="Observation-woundsize-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-podiatrywoundrelatedobservationspanel-example-id}"/>
+				<sourceId value="Observation-podiatrywoundrelatedobservationspanel-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Condition"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Condition-podiatrywoundassert-example-id}"/>
+				<sourceId value="Condition-podiatrywoundassert-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Condition xmlns="http://hl7.org/fhir">
+	<id value="podiatrywoundassert-example"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/PodiatryWoundAssert"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/PodiatryWoundRelatedObservationsPanelExt">
+		<valueReference>
+			<reference value="Observation/podiatrywoundrelatedobservationspanel-example"/>
+		</valueReference>
+	</extension>
+	<extension url="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/PodiatryBodyLocationExt">
+		<extension url="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/AnatomicLocationExt">
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="244185002"/>
+					<display value="Entire skin of heel"/>
+				</coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/BodySideExt">
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="85421007"/>
+					<display value="Structure of right half of body"/>
+				</coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/BodyLocationOrientationExt">
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="261788001"/>
+					<display value="Exteriorized"/>
+				</coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/PodiatryUnderlyingAnatomicalStructureExt">
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="2986006"/>
+					<display value="Talar facet of navicular bone of foot"/>
+				</coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/PodiatryBodyLandmarkOrientationExt">
+			<extension url="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/PodiatryBodyLandmarkDescriptionExt">
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="80144004"/>
+						<display value="Bone structure of calcaneum"/>
+					</coding>
+				</valueCodeableConcept>
+			</extension>
+			<extension url="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/ClockFacePositionExt">
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="260341007"/>
+						<display value="8 o'clock position"/>
+					</coding>
+				</valueCodeableConcept>
+			</extension>
+			<extension url="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/DistanceFromLandmarkExt">
+				<extension url="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/MeasurementDeviceExt">
+					<valueCodeableConcept>
+						<coding>
+							<system value="http://snomed.info/sct"/>
+							<code value="44056008"/>
+							<display value="Caliper"/>
+						</coding>
+					</valueCodeableConcept>
+				</extension>
+				<extension url="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/DistanceFromLandmarkMeasurementExt">
+					<valueQuantity>
+						<value value="0.5"/>
+						<unit value="cm"/>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="cm"/>
+					</valueQuantity>
+				</extension>
+			</extension>
+			<extension url="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/SurfaceOrientationExt">
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="255551008"/>
+						<display value="Posterior"/>
+					</coding>
+				</valueCodeableConcept>
+			</extension>
+		</extension>
+		<extension url="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/BodyLocationQualifierExt">
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="255509001"/>
+					<display value="Large"/>
+				</coding>
+			</valueCodeableConcept>
+		</extension>
+	</extension>
+	<clinicalStatus value="active"/>
+	<verificationStatus value="confirmed"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/condition-category"/>
+			<code value="encounter-diagnosis"/>
+			<display value="Encounter Diagnosis"/>
+		</coding>
+	</category>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="400012003"/>
+			<display value="Abrasion and/or friction burn of skin"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/patient-example"/>
+		<display value="Amy V. Shaw"/>
+	</subject>
+	<assertedDate value="2019-03-26"/>
+	<asserter>
+		<reference value="Practitioner/practitioner-example"/>
+	</asserter>
+</Condition>

@@ -1,0 +1,21 @@
+{
+  "resourceType": "Patient",
+  "id": "${patientResourceId}",
+  "identifier": [
+    {
+      "value": "UPDATE-IDENTIFER"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "UPDATE-FAMILY",
+      "given": [
+        "UPDATE-GIVEN"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "2001-02-03"
+}

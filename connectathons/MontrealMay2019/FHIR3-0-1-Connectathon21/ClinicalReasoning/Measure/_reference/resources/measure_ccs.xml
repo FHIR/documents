@@ -1,0 +1,67 @@
+<Measure xmlns="http://hl7.org/fhir">
+  <id value="measure-ccs"/>
+  <meta>
+    <versionId value="1"/>
+    <lastUpdated value="2018-09-28T21:36:07.928+00:00"/>
+  </meta>
+  <identifier>
+    <use value="official"/>
+    <system value="http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/payer-extract"/>
+    <value value="CCS"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <title value="Cervical Cancer Screening. Cohort Definition"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2015-03-08"/>
+  <description value="Cervical Cancer Screening. Cohort Definition"/>
+  <topic>
+    <text value="Preventive Care and Screening"/>
+  </topic>
+  <library>
+    <reference value="Library/library-ccs-logic"/>
+  </library>
+  <scoring>
+    <coding>
+      <code value="proportion"/>
+    </coding>
+  </scoring>
+  <group>
+    <identifier>
+      <value value="group-population"/>
+    </identifier>
+    <population>
+      <identifier>
+        <value value="initial-population"/>
+      </identifier>
+      <code>
+        <coding>
+          <code value="initial-population"/>
+        </coding>
+      </code>
+      <criteria value="Initial Population"/>
+    </population>
+    <population>
+      <identifier>
+        <value value="numerator"/>
+      </identifier>
+      <code>
+        <coding>
+          <code value="numerator"/>
+        </coding>
+      </code>
+      <criteria value="Numerator"/>
+    </population>
+    <population>
+      <identifier>
+        <value value="denominator"/>
+      </identifier>
+      <code>
+        <coding>
+          <code value="denominator"/>
+        </coding>
+      </code>
+      <criteria value="Denominator"/>
+    </population>
+  </group>
+</Measure>

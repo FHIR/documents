@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir">
+	<id value="podiatrywoundbedcolor-example"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/WoundBedColor"/>
+	</meta>
+	<identifier>
+		<system value="https://acme.org/identifiers"/>
+		<value value="watt-scenario-podiatry-wound-bed-color-1001"/>
+	</identifier>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="exam"/>
+			<display value="Exam"/>
+		</coding>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="39132-6"/>
+			<display value="Color of Wound base"/>
+		</coding>
+		<text value="Wound bed panel"/>
+	</code>
+	<subject>
+		<reference value="Patient/patient-example"/>
+	</subject>
+	<effectiveDateTime value="2016-03-26"/>
+	<performer>
+		<reference value="Practitioner/practitioner-example"/>
+	</performer>
+	<valueCodeableConcept>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="371250004"/>
+			<display value="Purple color"/>
+		</coding>
+	</valueCodeableConcept>
+	<component>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="89255-4"/>
+				<display value="Wound bed area identified by color/Area of wound bed"/>
+			</coding>
+		</code>
+		<valueQuantity>
+			<value value="4"/>
+			<unit value="cm2"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="%"/>
+		</valueQuantity>
+	</component>
+</Observation>

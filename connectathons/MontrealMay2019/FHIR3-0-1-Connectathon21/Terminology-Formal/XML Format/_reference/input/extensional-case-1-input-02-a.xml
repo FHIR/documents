@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<parameter>
+		<name value="coding"/>
+		<valueCoding>
+			<system value="http://hl7.org/fhir/administrative-gender"/>
+			<code value="male"/>
+			<display value="Male"/>
+		</valueCoding>
+	</parameter>
+</Parameters>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir">
+	<id value="podiatrywoundedge-example"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/hspc/podiatrywound/StructureDefinition/WoundEdge"/>
+	</meta>
+	<identifier>
+		<system value="https://acme.org/identifiers"/>
+		<value value="watt-scenario-podiatry-wound-edge-1001"/>
+	</identifier>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="exam"/>
+			<display value="Exam"/>
+		</coding>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="89256-2"/>
+			<display value="Wound edge panel"/>
+		</coding>
+		<text value="Wound edge panel"/>
+	</code>
+	<subject>
+		<reference value="Patient/patient-example"/>
+	</subject>
+	<effectiveDateTime value="2016-03-26"/>
+	<performer>
+		<reference value="Practitioner/practitioner-example"/>
+	</performer>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/podiatrywoundedgecolor-example"/>
+			<display value="Wound Edge Color Example"/>
+		</target>
+	</related>
+	<related>
+		<type value="has-member"/>
+		<target>
+			<reference value="Observation/podiatrywoundedgedescription-example"/>
+			<display value="Wound Edge Description Example"/>
+		</target>
+	</related>
+</Observation>

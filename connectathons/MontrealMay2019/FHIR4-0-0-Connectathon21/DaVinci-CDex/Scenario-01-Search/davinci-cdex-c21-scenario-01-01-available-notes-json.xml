@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="davinci-cdex-c21-scenario-01-01-available-notes-json"/>
+	<url value="http://wildfhir.aegis.net/fhir3-0-1/TestScript/davinci-cdex-c21-scenario-01-01-available-notes-json"/>
+	<name value="C21DaVinciCDexSC0101AvailNotesJSON"/>
+	<title value="FHIR Connectathon 21 - Da Vinci CDex - Scenario 01 - Step 01 - Search Available Clinical Notes - JSON"/>
+	<status value="draft"/>
+	<date value="2019-04-29"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="FHIR Connectathon 21 - Da Vinci CDex - Scenario 01 - Step 01 - Search Available Clinical Notes DocumentReference resources as JSON formatted data. The DocumentReference.category search parameter is fixed with the US Core R4 value 'clinical-note'."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+
+	<origin>
+		<index value="1" />
+		<profile>
+			<system value="http://hl7.org/fhir/testscript-profile-origin-types"/>
+			<code value="FHIR-Client"/>
+		</profile>
+	</origin>
+	<destination>
+		<index value="1" />
+		<profile>
+			<system value="http://hl7.org/fhir/testscript-profile-destination-types"/>
+			<code value="FHIR-Server"/>
+		</profile>
+	</destination>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+
+	<variable>
+		<name value="patientId"/>
+		<description value="Enter the patient id search parameter the origin system will send to the destination system."/>
+		<hint value="[Patient id]" />
+	</variable>
+	<variable>
+		<name value="beginDate"/>
+		<defaultValue value="2018-01-01"/>
+		<description value="Enter the begin date search parameter the origin system will send to the destination system."/>
+		<hint value="[yyyy-MM-dd]" />
+	</variable>
+	<variable>
+		<name value="endDate"/>
+		<defaultValue value="2018-12-31"/>
+		<description value="Enter the end date search parameter the origin system will send to the destination system."/>
+		<hint value="[yyyy-MM-dd]" />
+	</variable>
+
+	<test id="01-SearchAvailableClinicalNotes">
+		<name value="SearchAvailableClinicalNotes"/>
+		<description value="Test the search for Available Clinical Notes documents with JSON content matching a known Patient id and specified date range. The expected response content is a searchset Bundle resource containing all matching Clinical Notes DocumentReference resource instances in JSON format."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="DocumentReference"/>
+				<description value="Search for matching Available Clinical Notes documents and verify the search results."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<destination value="1" />
+				<encodeRequestUrl value="true"/>
+				<origin value="1" />
+				<params value="?patient=${patientId}&amp;date=ge${beginDate}&amp;date=le${endDate}&amp;category=clinical-note"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client requested an Accept of the FHIR JSON mime type 'application/fhir+json'."/>
+				<direction value="request"/>
+				<headerField value="Accept"/>
+				<operator value="contains"/>
+				<value value="application/fhir+json"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client did not request a Content-Type. Warning only to allow for systems that automatically send Content-Type."/>
+				<direction value="request"/>
+				<headerField value="Content-Type"/>
+				<operator value="empty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type is present."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/fhir+json'."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type is searchset."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/type"/>
+				<value value="searchset"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned searchset Bundle contains at least 1 entry."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.count()"/>
+				<operator value="greaterThan"/>
+				<value value="0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle conforms to the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

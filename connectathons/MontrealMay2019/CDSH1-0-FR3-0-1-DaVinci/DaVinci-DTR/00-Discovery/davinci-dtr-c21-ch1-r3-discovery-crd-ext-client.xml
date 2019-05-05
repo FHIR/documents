@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="davinci-dtr-c21-ch1-r3-discovery-crd-ext-client"/>
+	<url value="http://wildfhir.aegis.net/fhir3-0-1/TestScript/davinci-dtr-c21-ch1-r3-discovery-crd-ext-client"/>
+	<name value="C21DaVinciDTRCH1R3DiscoveryCRDExt"/>
+	<title value="Connectathon 21 - Da Vinci - CDS Hooks 1.0 - FHIR R3 - Discovery - CRD Extensions - Client"/>
+	<status value="active"/>
+	<date value="2019-04-29"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="CDS Hooks 1.0 - FHIR R3 v3.0.1 - Discovery - Check for CRD Extensions - Client (default format JSON); validate the CDS Hooks server returns a valid list of services that contain the required and conditionally recommended fields; also conditionally check for the specific CRD hooks and optional CRD extensions. The focus of this test is correct client behavior."/>
+	<copyright value="(c) AEGIS.net, Inc. 2018"/>
+
+	<origin>
+		<index value="1"/>
+		<profile>
+			<system value="http://touchstone.com/fhir/testscript-profile-origin-types-extended"/>
+			<code value="CDSH-Client"/>
+		</profile>
+	</origin>
+	<destination>
+		<index value="1"/>
+		<profile>
+			<system value="http://touchstone.com/fhir/testscript-profile-destination-types-extended"/>
+			<code value="CDSH-Server"/>
+		</profile>
+	</destination>
+
+	<rule id="rule-verify-required">
+		<resource>
+			<reference value="/CDSHCommon/_reference/rule/AssertServicesAllRequired.groovy"/>
+		</resource>
+	</rule>
+	<rule id="rule-verify-crd-extension">
+		<resource>
+			<reference value="./_reference/rule/AssertServicesCRDExtension.groovy"/>
+		</resource>
+	</rule>
+
+	<test id="01-Discovery-Services">
+		<name value="01-Discovery-Services"/>
+		<description value="Test the cds-services operation of the CDS Hooks server. The expected response code is 200(OK) and payload content of a valid services list that contain one or more of the Da Vinci CRD use case services."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://touchstone.com/cds-hooks/testscript-operation-codes"/>
+					<code value="cds-services"/>
+				</type>
+				<description value="Execute the cds-services operation to return the server's services list."/>
+				<accept value="json"/>
+				<contentType value="none"/>
+				<destination value="1"/>
+				<encodeRequestUrl value="true"/>
+				<origin value="1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the sent Accept format is of type json."/>
+				<direction value="request"/>
+				<headerField value="Accept"/>
+				<operator value="contains"/>
+				<value value="json"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is of type json."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="contains"/>
+				<value value="json"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Verify at least one service was returned."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value="services.length()"/>
+				<value value="0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Verify all services contain the required and conditionally recommended fields."/>
+				<direction value="response"/>
+				<rule>
+					<ruleId value="rule-verify-required"/>
+				</rule>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Conditionally verify the appointment-booking hook is defined and optionally contains the Da Vinci extension davinci-crd.configuration-options."/>
+				<direction value="response"/>
+				<rule>
+					<ruleId value="rule-verify-crd-extension"/>
+					<param>
+						<name value="hook"/>
+						<value value="appointment-booking"/>
+					</param>
+				</rule>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Conditionally verify the encounter-discharge hook is defined and optionally contains the Da Vinci extension davinci-crd.configuration-options."/>
+				<direction value="response"/>
+				<rule>
+					<ruleId value="rule-verify-crd-extension"/>
+					<param>
+						<name value="hook"/>
+						<value value="encounter-discharge"/>
+					</param>
+				</rule>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Conditionally verify the encounter-start hook is defined and optionally contains the Da Vinci extension davinci-crd.configuration-options."/>
+				<direction value="response"/>
+				<rule>
+					<ruleId value="rule-verify-crd-extension"/>
+					<param>
+						<name value="hook"/>
+						<value value="encounter-start"/>
+					</param>
+				</rule>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Conditionally verify the medication-prescribe hook is defined and optionally contains the Da Vinci extension davinci-crd.configuration-options."/>
+				<direction value="response"/>
+				<rule>
+					<ruleId value="rule-verify-crd-extension"/>
+					<param>
+						<name value="hook"/>
+						<value value="medication-prescribe"/>
+					</param>
+				</rule>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Conditionally verify the order-review hook is defined and optionally contains the Da Vinci extension davinci-crd.configuration-options."/>
+				<direction value="response"/>
+				<rule>
+					<ruleId value="rule-verify-crd-extension"/>
+					<param>
+						<name value="hook"/>
+						<value value="order-review"/>
+					</param>
+				</rule>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

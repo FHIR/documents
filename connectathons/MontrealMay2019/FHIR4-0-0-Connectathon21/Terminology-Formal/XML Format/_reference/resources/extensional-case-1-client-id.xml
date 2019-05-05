@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<id value="extensional-case-1"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A selection of codes from http://hl7.org/fhir/administrative-gender</div>
+	</text>
+	<url value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-1"/>
+	<identifier>
+		<value value="extensional-case-1"/>
+	</identifier>
+	<version value="R4"/>
+	<name value="Terminology Services Connectation #1 Extensional case #1"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<publisher value="Grahame Grieve"/>
+	<contact>
+		<telecom>
+			<system value="email"/>
+			<value value="grahame@healthintersections.com.au"/>
+		</telecom>
+	</contact>
+	<description value="an enumeration of codes defined by FHIR itself"/>
+	<compose>
+		<include>
+			<!-- note - the source for this is at http://hl7.org/fhir/2017Jan/valueset-administrative-gender.html -->
+			<system value="http://hl7.org/fhir/administrative-gender"/>
+			<concept>
+				<code value="male"/>
+				<display value="Male"/>
+			</concept>
+			<concept>
+				<code value="female"/>
+				<display value="Female"/>
+			</concept>
+			<concept>
+				<code value="other"/>
+				<display value="Other"/>
+			</concept>
+			<concept>
+				<code value="unknown"/>
+				<display value="Unknown"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
