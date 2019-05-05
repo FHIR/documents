@@ -682,7 +682,7 @@
 
 	<test id="Test-04-a-ValidateExtensionalCase4">
 		<name value="Test 04-a Validate extensional-case-4 valid"/>
-		<description value="Check that the code {http://hl7.org/fhir/v2/0001}A 'Ambiguous' is in the value set."/>
+		<description value="Check that the code {http://terminology.hl7.org/CodeSystem/v2-0001}A 'Ambiguous' is in the value set."/>
 
 		<action>
 			<operation>
@@ -694,7 +694,7 @@
 				<description value="Test $validate-code operation on ValueSet extensional-case-4 for a valid code."/>
 				<accept value="xml"/>
 				<encodeRequestUrl value="false"/>
-				<params value="/extensional-case-4/$validate-code?system=http://hl7.org/fhir/v2/0001&amp;code=A&amp;display=Ambiguous"/>
+				<params value="/extensional-case-4/$validate-code?system=http://terminology.hl7.org/CodeSystem/v2-0001&amp;code=A&amp;display=Ambiguous"/>
 			</operation>
 		</action>
 		<action>
@@ -729,7 +729,7 @@
 
 	<test id="Test-04-b-ValidateExtensionalCase4">
 		<name value="Test 04-b Validate extensional-case-4 valid code invalid display"/>
-		<description value="Check that the code {http://hl7.org/fhir/v2/0001}A 'Ambiguous' is in the value set, but give the wrong display."/>
+		<description value="Check that the code {http://terminology.hl7.org/CodeSystem/v2-0001}A 'Ambiguous' is in the value set, but give the wrong display."/>
 
 		<action>
 			<operation>
@@ -741,7 +741,7 @@
 				<description value="Test $validate-code operation on ValueSet extensional-case-4 for an invalid display."/>
 				<accept value="xml"/>
 				<encodeRequestUrl value="false"/>
-				<params value="/extensional-case-4/$validate-code?system=http://hl7.org/fhir/v2/0001&amp;code=A&amp;display=AmbiguousX"/>
+				<params value="/extensional-case-4/$validate-code?system=http://terminology.hl7.org/CodeSystem/v2-0001&amp;code=A&amp;display=AmbiguousX"/>
 			</operation>
 		</action>
 		<action>
@@ -776,7 +776,7 @@
 
 	<test id="Test-04-c-ValidateExtensionalCase4">
 		<name value="Test 04-c Validate extensional-case-4 invalid system"/>
-		<description value="Check that the code {http://hl7.org/fhir/v2/0001X}A is not in the value set."/>
+		<description value="Check that the code {http://terminology.hl7.org/CodeSystem/v2-0001X}A is not in the value set."/>
 
 		<action>
 			<operation>
@@ -788,7 +788,7 @@
 				<description value="Test $validate-code operation on ValueSet extensional-case-4 for a code not in the value set."/>
 				<accept value="xml"/>
 				<encodeRequestUrl value="false"/>
-				<params value="/extensional-case-4/$validate-code?system=http://hl7.org/fhir/v2/0001X&amp;code=A"/>
+				<params value="/extensional-case-4/$validate-code?system=http://terminology.hl7.org/CodeSystem/v2-0001X&amp;code=A"/>
 			</operation>
 		</action>
 		<action>
@@ -823,7 +823,7 @@
 
 	<test id="Test-04-d-ValidateExtensionalCase4">
 		<name value="Test 04-d Validate extensional-case-4 invalid code"/>
-		<description value="Check that the code {http://hl7.org/fhir/v2/0001}x is not in the value set."/>
+		<description value="Check that the code {http://terminology.hl7.org/CodeSystem/v2-0001}x is not in the value set."/>
 
 		<action>
 			<operation>
@@ -835,7 +835,7 @@
 				<description value="Test $validate-code operation on ValueSet extensional-case-4 for a code not in the value set."/>
 				<accept value="xml"/>
 				<encodeRequestUrl value="false"/>
-				<params value="/extensional-case-4/$validate-code?system=http://hl7.org/fhir/v2/0001&amp;code=x"/>
+				<params value="/extensional-case-4/$validate-code?system=http://terminology.hl7.org/CodeSystem/v2-0001&amp;code=x"/>
 			</operation>
 		</action>
 		<action>
@@ -870,7 +870,7 @@
 
 	<test id="Test-04-e-ValidateExtensionalCase4">
 		<name value="Test 04-e Validate extensional-case-4 valid code not in valid set"/>
-		<description value="Check that the code {http://hl7.org/fhir/v2/0001}FULLINS is not in the value set."/>
+		<description value="Check that the code {http://terminology.hl7.org/CodeSystem/v2-0001}FULLINS is not in the value set."/>
 
 		<action>
 			<operation>
@@ -882,7 +882,7 @@
 				<description value="Test $validate-code operation on ValueSet extensional-case-4 for a code not in the value set."/>
 				<accept value="xml"/>
 				<encodeRequestUrl value="false"/>
-				<params value="/extensional-case-4/$validate-code?system=http://hl7.org/fhir/v2/0001&amp;code=FULLINS"/>
+				<params value="/extensional-case-4/$validate-code?system=http://terminology.hl7.org/CodeSystem/v2-0001&amp;code=FULLINS"/>
 			</operation>
 		</action>
 		<action>

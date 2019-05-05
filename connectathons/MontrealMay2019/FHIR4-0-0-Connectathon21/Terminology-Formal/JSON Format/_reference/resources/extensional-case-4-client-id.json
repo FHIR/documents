@@ -51,7 +51,7 @@
         ]
       },
       {
-        "system": "http://hl7.org/fhir/v2/0001",
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0001",
         "concept": [
           {
             "code": "A",

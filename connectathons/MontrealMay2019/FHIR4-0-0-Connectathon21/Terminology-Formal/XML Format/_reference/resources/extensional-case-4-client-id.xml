@@ -43,8 +43,8 @@
 			</concept>
 		</include>
 		<include>
-			<!-- note - the source for this is at http://hl7.org/fhir/2017Jan/v2/0001/index.html -->
-			<system value="http://hl7.org/fhir/v2/0001"/>
+			<!-- note - the source for this is at http://hl7.org/fhir/v2/0001/index.html -->
+			<system value="http://terminology.hl7.org/CodeSystem/v2-0001"/>
 			<concept>
 				<code value="A"/>
 				<display value="Ambiguous"/>
