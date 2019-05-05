@@ -27,7 +27,7 @@
 			<filter>
 				<property value="SYSTEM"/>
 				<op value="="/>
-				<value value="Arterial system"/>
+				<value value="LP7034-4"/>
 			</filter>
 		</include>
 	</compose>
