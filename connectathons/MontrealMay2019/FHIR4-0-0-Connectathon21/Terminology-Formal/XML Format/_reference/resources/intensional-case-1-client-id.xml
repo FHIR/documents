@@ -3,7 +3,7 @@
 	<id value="intensional-case-1"/>
 	<text>
 		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">All loinc codes for system = Arterial system</div>
+		<div xmlns="http://www.w3.org/1999/xhtml">All loinc codes for system = LP7034-4</div>
 	</text>
 	<url value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-1"/>
 	<identifier>
@@ -20,7 +20,7 @@
 			<value value="grahame@healthintersections.com.au"/>
 		</telecom>
 	</contact>
-	<description value="All loinc codes for system = Arterial system"/>
+	<description value="All loinc codes for system = LP7034-4"/>
 	<compose>
 		<include>
 			<system value="http://loinc.org"/>

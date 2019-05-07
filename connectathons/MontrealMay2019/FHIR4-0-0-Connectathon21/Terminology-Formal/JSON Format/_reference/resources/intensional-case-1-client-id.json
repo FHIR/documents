@@ -3,7 +3,7 @@
   "id": "intensional-case-1",
   "text": {
     "status": "generated",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">All loinc codes for system = Arterial system</div>"
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">All loinc codes for system = LP7034-4</div>"
   },
   "url": "http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-1",
   "identifier": [
@@ -26,7 +26,7 @@
       ]
     }
   ],
-  "description": "All loinc codes for system = Arterial system",
+  "description": "All loinc codes for system = LP7034-4",
   "compose": {
     "include": [
       {
