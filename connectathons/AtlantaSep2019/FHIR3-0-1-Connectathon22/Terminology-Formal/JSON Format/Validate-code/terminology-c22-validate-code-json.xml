@@ -1,0 +1,1482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="terminology-c22-validate-code-json"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				The 7 value sets that are used to test the API functionality span common
+				extensional and intensional definition styles and consequences.
+			</p>
+			<p>
+				Suite 3: A set of membership tests for each of the valuesets. Check, for each 
+				value set, a valid code, and various kinds of invalid codes. Some value sets have 
+				additional variations. In all cases, the code to test is passed as code, system
+				and (optionally) display parameters in the URL. These tests are highly 
+				repetitive. Overview of value sets:
+			</p>
+			<ul>
+				<li>extensional-case-1: An enumeration of codes from a FHIR defined code system</li>
+				<li>extensional-case-2: An enumeration of codes from LOINC</li>
+				<li>extensional-case-3: An enumeration of codes from SNOMED </li>
+				<li>extensional-case-4: An enumeration of codes the crosses code systems, with codes from a FHIR defined value set and the V3 Role code system</li>
+				<li>intensional-case-1: A selection of codes from LOINC by their system value</li>
+				<li>intensional-case-2: A selection of codes from SNOMED based on subsumption</li>
+				<li>intensional-case-3: All clinical findings from SNOMED (based on subsumption) - a value set that is too large to expand</li>
+			</ul>
+		</div>
+	</text>
+
+	<url value="http://wildfhir.aegis.net/fhir3-0-1/TestScript/terminology-c22-validate-code-json"/>
+	<name value="FHIR Connectathon 22 - Terminology Services - Validate Code - JSON"/>
+	<status value="active"/>
+	<date value="2019-08-17"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="FHIR Connectathon 22 - Terminology Services - Validate Code - JSON Format - A set of membership validation tests for each of the 7 ValueSet fixtures. Checks are performed for valid codes and various invalid codes. There is no setup and teardown as all ValueSet resources are expected to exist on the target system under test."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+
+	<fixture id="validate-code-valid-min">
+		<resource>
+			<reference value="../_reference/output/validate-code-valid-min.json"/>
+		</resource>
+	</fixture>
+	<fixture id="validate-code-invalid-min">
+		<resource>
+			<reference value="../_reference/output/validate-code-invalid-min.json"/>
+		</resource>
+	</fixture>
+
+	<profile id="ParametersProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+	</profile>
+	<profile id="ValueSetProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+	</profile>
+
+	<test id="Test-01-a-ValidateExtensionalCase1">
+		<name value="Test 01-a Validate extensional-case-1 valid"/>
+		<description value="Check that the code {http://hl7.org/fhir/administrative-gender}male is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for a valid code."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code?system=http://hl7.org/fhir/administrative-gender&amp;code=male"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-valid-min."/>
+				<minimumId value="validate-code-valid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-01-b-ValidateExtensionalCase1">
+		<name value="Test 01-b Validate extensional-case-1 invalid system"/>
+		<description value="Check that the code {http://hl7.org/fhir/administrative-genderX}male is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for an invalid code."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code?system=http://hl7.org/fhir/administrative-genderX&amp;code=male"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-01-c-ValidateExtensionalCase1">
+		<name value="Test 01-c Validate extensional-case-1 invalid code"/>
+		<description value="Check that the code {http://hl7.org/fhir/administrative-gender}maleX is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-1 for an invalid code."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$validate-code?system=http://hl7.org/fhir/administrative-gender&amp;code=maleX"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-02-a-ValidateExtensionalCase2">
+		<name value="Test 02-a Validate extensional-case-2 valid"/>
+		<description value="Check that the code {http://loinc.org}11378-7 'Systolic blood pressure at First encounter' is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-2 for a valid code."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-2/$validate-code?system=http://loinc.org&amp;code=11378-7&amp;display=Systolic%20blood%20pressure%20at%20First%20encounter"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-valid-min."/>
+				<minimumId value="validate-code-valid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-02-b-ValidateExtensionalCase2">
+		<name value="Test 02-b Validate extensional-case-2 valid code invalid display"/>
+		<description value="Check that the code {http://loinc.org}11378-7 'Systolic blood pressure at First encounter' is in the value set, but supply a wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-2 for an invalid display."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-2/$validate-code?system=http://loinc.org&amp;code=11378-7&amp;display=Systolic%20blood%20pressure%20at%20First%20encounterX"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-02-c-ValidateExtensionalCase2">
+		<name value="Test 02-c Validate extensional-case-2 invalid system"/>
+		<description value="Check that the code {http://loinc.orgX}11378-7 'Systolic blood pressure at First encounter' is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-2 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-2/$validate-code?system=http://loinc.orgX&amp;code=11378-7"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-02-d-ValidateExtensionalCase2">
+		<name value="Test 02-d Validate extensional-case-2 invalid code"/>
+		<description value="Check that the code {http://loinc.org}11378-7X 'Systolic blood pressure at First encounter' is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-2 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-2/$validate-code?system=http://loinc.org&amp;code=11378-7X"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-02-e-ValidateExtensionalCase2">
+		<name value="Test 02-e Validate extensional-case-2 valid code not in valid set"/>
+		<description value="Check that the code {http://loinc.org}13457-7 is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-2 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-2/$validate-code?system=http://loinc.org&amp;code=13457-7"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-03-a-ValidateExtensionalCase3">
+		<name value="Test 03-a Validate extensional-case-3 valid"/>
+		<description value="Check that the code {http://snomed.info/sct}371037005 'Systolic dysfunction' is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-3 for a valid code."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-3/$validate-code?system=http://snomed.info/sct&amp;code=371037005&amp;display=Systolic%20dysfunction"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-valid-min."/>
+				<minimumId value="validate-code-valid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-03-b-ValidateExtensionalCase3">
+		<name value="Test 03-b Validate extensional-case-3 valid code invalid display"/>
+		<description value="Check that the code {http://snomed.info/sct}371037005 'Systolic dysfunction' is in the value set, but give the wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-3 for an invalid display."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-3/$validate-code?system=http://snomed.info/sct&amp;code=371037005&amp;display=Systolic%20dysfunctionX"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-03-c-ValidateExtensionalCase3">
+		<name value="Test 03-c Validate extensional-case-3 invalid system"/>
+		<description value="Check that the code {http://snomed.info/sctX}371037005 is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-3 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-3/$validate-code?system=http://snomed.info/sctX&amp;code=371037005"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-03-d-ValidateExtensionalCase3">
+		<name value="Test 03-d Validate extensional-case-3 invalid code"/>
+		<description value="Check that the code {http://snomed.info/sct}371037005X is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-3 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-3/$validate-code?system=http://snomed.info/sct&amp;code=371037005X"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-03-e-ValidateExtensionalCase3">
+		<name value="Test 03-e Validate extensional-case-3 valid code not in valid set"/>
+		<description value="Check that the code {http://snomed.info/sct}102261002 is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-3 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-3/$validate-code?system=http://snomed.info/sct&amp;code=102261002"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-04-a-ValidateExtensionalCase4">
+		<name value="Test 04-a Validate extensional-case-4 valid"/>
+		<description value="Check that the code {http://hl7.org/fhir/v2/0001}A 'Ambiguous' is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-4 for a valid code."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-4/$validate-code?system=http://hl7.org/fhir/v2/0001&amp;code=A&amp;display=Ambiguous"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-valid-min."/>
+				<minimumId value="validate-code-valid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-04-b-ValidateExtensionalCase4">
+		<name value="Test 04-b Validate extensional-case-4 valid code invalid display"/>
+		<description value="Check that the code {http://hl7.org/fhir/v2/0001}A 'Ambiguous' is in the value set, but give the wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-4 for an invalid display."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-4/$validate-code?system=http://hl7.org/fhir/v2/0001&amp;code=A&amp;display=AmbiguousX"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-04-c-ValidateExtensionalCase4">
+		<name value="Test 04-c Validate extensional-case-4 invalid system"/>
+		<description value="Check that the code {http://hl7.org/fhir/v2/0001X}A is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-4 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-4/$validate-code?system=http://hl7.org/fhir/v2/0001X&amp;code=A"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-04-d-ValidateExtensionalCase4">
+		<name value="Test 04-d Validate extensional-case-4 invalid code"/>
+		<description value="Check that the code {http://hl7.org/fhir/v2/0001}x is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-4 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-4/$validate-code?system=http://hl7.org/fhir/v2/0001&amp;code=x"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-04-e-ValidateExtensionalCase4">
+		<name value="Test 04-e Validate extensional-case-4 valid code not in valid set"/>
+		<description value="Check that the code {http://hl7.org/fhir/v2/0001}FULLINS is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet extensional-case-4 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-4/$validate-code?system=http://hl7.org/fhir/v2/0001&amp;code=FULLINS"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-05-a-ValidateIntensionalCase1">
+		<name value="Test 05-a Validate intensional-case-1 valid"/>
+		<description value="Check that the code {http://loinc.org}11377-9 'Diastolic blood pressure at First encounter' is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet intensional-case-1 for a valid code."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-1/$validate-code?system=http://loinc.org&amp;code=11377-9&amp;display=Diastolic%20blood%20pressure%20at%20First%20encounter"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-valid-min."/>
+				<minimumId value="validate-code-valid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-05-b-ValidateIntensionalCase1">
+		<name value="Test 05-b Validate intensional-case-1 valid code invalid display"/>
+		<description value="Check that the code {http://loinc.org}11377-9 'Diastolic blood pressure at First encounter' is in the value set, but supply a wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet intensional-case-1 for an invalid display."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-1/$validate-code?system=http://loinc.org&amp;code=11377-9&amp;display=Diastolic%20blood%20pressure%20at%20First%20encounterX"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-05-c-ValidateIntensionalCase1">
+		<name value="Test 05-c Validate intensional-case-1 invalid system"/>
+		<description value="Check that the code {http://loinc.orgX}11377-9 is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet intensional-case-1 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-1/$validate-code?system=http://loinc.orgX&amp;code=11377-9"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-05-d-ValidateIntensionalCase1">
+		<name value="Test 05-d Validate intensional-case-1 invalid code"/>
+		<description value="Check that the code {http://loinc.org}11377-9X is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet intensional-case-1 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-1/$validate-code?system=http://loinc.org&amp;code=11377-9X"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-05-e-ValidateIntensionalCase1">
+		<name value="Test 05-e Validate intensional-case-1 valid code not in valid set"/>
+		<description value="Check that the code {http://loinc.org}13457-7 is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet intensional-case-1 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-1/$validate-code?system=http://loinc.org&amp;code=13457-7"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-06-a-ValidateIntensionalCase2">
+		<name value="Test 06-a Validate intensional-case-2 valid"/>
+		<description value="Check that the code {http://snomed.info/sct}8762007 'Chronic hypertension in obstetric context (disorder)' is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet intensional-case-2 for a valid code."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-2/$validate-code?system=http://snomed.info/sct&amp;code=8762007&amp;display=Chronic%20hypertension%20in%20obstetric%20context%20(disorder)"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-valid-min."/>
+				<minimumId value="validate-code-valid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-06-b-ValidateIntensionalCase2">
+		<name value="Test 06-b Validate intensional-case-2 valid code invalid display"/>
+		<description value="Check that the code {http://snomed.info/sct}8762007 'Chronic hypertension in obstetric context (disorder)' is in the value set, but give the wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet intensional-case-2 for an invalid display."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-2/$validate-code?system=http://snomed.info/sct&amp;code=8762007&amp;display=Chronic%20hypertension%20in%20obstetric%20context%20(disorder)X"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-06-c-ValidateIntensionalCase2">
+		<name value="Test 06-c Validate intensional-case-2 invalid system"/>
+		<description value="Check that the code {http://snomed.info/sctX}8762007 is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet intensional-case-2 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-2/$validate-code?system=http://snomed.info/sctX&amp;code=8762007"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-06-d-ValidateIntensionalCase2">
+		<name value="Test 06-d Validate intensional-case-2 invalid code"/>
+		<description value="Check that the code {http://snomed.info/sct}8762007X is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet intensional-case-2 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-2/$validate-code?system=http://snomed.info/sct&amp;code=8762007X"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-06-e-ValidateIntensionalCase2">
+		<name value="Test 06-e Validate intensional-case-2 valid code not in valid set"/>
+		<description value="Check that the code {http://snomed.info/sct}102261002 is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet intensional-case-2 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-2/$validate-code?system=http://snomed.info/sct&amp;code=102261002"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-07-a-ValidateIntensionalCase3">
+		<name value="Test 07-a Validate intensional-case-3 valid"/>
+		<description value="Check that the code {http://snomed.info/sct}8762007 'Chronic hypertension in obstetric context (disorder)' is in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet intensional-case-3 for a valid code."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-3/$validate-code?system=http://snomed.info/sct&amp;code=8762007&amp;display=Chronic%20hypertension%20in%20obstetric%20context%20(disorder)"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-valid-min."/>
+				<minimumId value="validate-code-valid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-07-b-ValidateIntensionalCase3">
+		<name value="Test 07-b Validate intensional-case-3 valid code invalid display"/>
+		<description value="Check that the code {http://snomed.info/sct}8762007 'Chronic hypertension in obstetric context (disorder)' is in the value set, but give the wrong display."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet intensional-case-3 for an invalid display."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-3/$validate-code?system=http://snomed.info/sct&amp;code=8762007&amp;display=Chronic%20hypertension%20in%20obstetric%20context%20(disorder)X"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-07-c-ValidateIntensionalCase3">
+		<name value="Test 07-c Validate intensional-case-3 invalid system"/>
+		<description value="Check that the code {http://snomed.info/sctX}8762007 is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet intensional-case-3 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-3/$validate-code?system=http://snomed.info/sctX&amp;code=8762007"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-07-d-ValidateIntensionalCase3">
+		<name value="Test 07-d Validate intensional-case-3 invalid code"/>
+		<description value="Check that the code {http://snomed.info/sct}8762007X is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet intensional-case-3 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-3/$validate-code?system=http://snomed.info/sct&amp;code=8762007X"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="Test-07-e-ValidateIntensionalCase3">
+		<name value="Test 07-e Validate intensional-case-3 valid code not in valid set"/>
+		<description value="Check that the code {http://snomed.info/sct}102261002 is not in the value set."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $validate-code operation on ValueSet intensional-case-3 for a code not in the value set."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/intensional-case-3/$validate-code?system=http://snomed.info/sct&amp;code=102261002"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON."/>
+				<contentType value="json"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-invalid-min."/>
+				<minimumId value="validate-code-invalid-min"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

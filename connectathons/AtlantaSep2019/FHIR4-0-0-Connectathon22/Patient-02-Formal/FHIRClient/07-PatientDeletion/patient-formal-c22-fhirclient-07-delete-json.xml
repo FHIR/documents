@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="patient-formal-c22-fhirclient-07-delete-json"/>
+	<meta>
+		<profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml"><p>FHIR Connectathon 22 - Patient - Formal Testing - FHIR Client - Delete - JSON</p></div>
+	</text>
+
+	<extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-ruleset">
+		<extension url="rulesetId">
+			<valueId value="ruleset-deletevalid-headers-body"/>
+		</extension>
+		<extension url="path">
+			<valueString value="/FHIRCommon/_reference/ruleset/RuleSet-DeleteValidHeadersBody-Groovy.xml"/>
+		</extension>
+		<extension url="rule">
+			<extension url="ruleId">
+				<valueId value="assertResponseCodeOkIfBody"/>
+			</extension>
+		</extension>
+		<extension url="rule">
+			<extension url="ruleId">
+				<valueId value="assertResponseCodeNoContentIfNoBody"/>
+			</extension>
+		</extension>
+		<extension url="rule">
+			<extension url="ruleId">
+				<valueId value="assertETagIfSupported"/>
+			</extension>
+		</extension>
+		<extension url="rule">
+			<extension url="ruleId">
+				<valueId value="assertContentTypeIfBody"/>
+			</extension>
+		</extension>
+		<extension url="rule">
+			<extension url="ruleId">
+				<valueId value="assertContentTypeCharsetIfBody"/>
+			</extension>
+		</extension>
+		<extension url="rule">
+			<extension url="ruleId">
+				<valueId value="assertOperationOutcomeIfError"/>
+			</extension>
+		</extension>
+		<extension url="rule">
+			<extension url="ruleId">
+				<valueId value="assertProfileIfOperationOutcome"/>
+			</extension>
+			<extension url="param">
+				<extension url="name">
+					<valueString value="validateProfileId"/>
+				</extension>
+				<extension url="value">
+					<valueString value="operationoutcome-profile"/>
+				</extension>
+			</extension>
+		</extension>
+	</extension>
+
+	<url value="http://wildfhir.aegis.net/fhir4-0-0/TestScript/patient-formal-c22-fhirclient-07-delete-json"/>
+	<name value="FHIRC22PatientClientDeleteJSON"/>
+	<title value="FHIR Connectathon 22 - Patient - Formal Testing - FHIR Client - Delete - JSON"/>
+	<status value="active"/>
+	<date value="2019-08-07"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Patient Track - Formal Testing - tests external FHIR Client and Server to delete Patient with the optional response content in JSON format. The origin and destination systems must support the delete operation. The destination system must also support the read operation to verify the deletion."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+
+	<origin>
+		<index value="1"/>
+		<profile>
+			<system value="http://terminology.hl7.org/CodeSystem/testscript-profile-origin-types"/>
+			<code value="FHIR-Client"/>
+		</profile>
+	</origin>
+	<destination>
+		<index value="1"/>
+		<profile>
+			<system value="http://terminology.hl7.org/CodeSystem/testscript-profile-destination-types"/>
+			<code value="FHIR-Server"/>
+		</profile>
+	</destination>
+
+	<profile id="operationoutcome-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+	</profile>
+
+	<variable>
+		<name value="patientResourceId"/>
+		<description value="Enter the patient FHIR resource id the origin system will send to the destination system."/>
+		<hint value="[Resource Id]"/>
+	</variable>
+
+	<test id="01-DeletePatient">
+		<name value="DeletePatient"/>
+		<description value="Test the delete operation of a known valid resource instance. The expected response is 200 (OK) when JSON content is returned; e.g. OperationOutcome, or 204 (No Content) when the content is empty. A 404 (Not Found) is also allowed. A subsequent read operation is executed to confirm the deleted resource is not returned."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Patient delete operation of a known valid resource instance."/>
+				<accept value="json"/>
+				<destination value="1"/>
+				<encodeRequestUrl value="true"/>
+				<origin value="1"/>
+				<params value="/${patientResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client requested an Accept of the FHIR JSON mime type 'application/fhir+json'."/>
+				<direction value="request"/>
+				<headerField value="Accept"/>
+				<operator value="contains"/>
+				<value value="application/fhir+json"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client did not request a Content-Type. Warning only to allow for systems that automatically send Content-Type."/>
+				<direction value="request"/>
+				<headerField value="Content-Type"/>
+				<operator value="empty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK), 204 (No Content) or 404 (Not Found)."/>
+				<direction value="response"/>
+				<operator value="in"/>
+				<responseCode value="200,204,404"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<extension url="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript-assert-ruleset">
+					<extension url="rulesetId">
+						<valueId value="ruleset-deletevalid-headers-body"/>
+					</extension>
+					<extension url="rule">
+						<extension url="ruleId">
+							<valueId value="assertContentTypeMimeTypeIfBody"/>
+						</extension>
+						<extension url="param">
+							<extension url="name">
+								<valueString value="headerExpectedValue"/>
+							</extension>
+							<extension url="value">
+								<valueString value="application/fhir+json"/>
+							</extension>
+						</extension>
+					</extension>
+				</extension>
+				<description value="Complex ruleset assertion to conditionally validate expected delete ok response HTTP Headers and body."/>
+				<direction value="response"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Read the deleted Patient and verify the response is 410 (Gone) or 404 (Not Found) for servers that do not support versioning. The Accept header JSON format is defined for an optionally returned OperationOutcome resource."/>
+				<accept value="json"/>
+				<destination value="1"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${patientResourceId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 404(Not Found) or 410(Gone)."/>
+				<direction value="response"/>
+				<operator value="in"/>
+				<responseCode value="404,410"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

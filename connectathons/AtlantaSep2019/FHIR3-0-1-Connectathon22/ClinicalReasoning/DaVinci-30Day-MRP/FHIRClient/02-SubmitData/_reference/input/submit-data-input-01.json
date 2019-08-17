@@ -1,0 +1,151 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "measureReport",
+      "resource": {
+        "resourceType": "MeasureReport",
+        "status": "complete",
+        "type": "individual",
+        "measure": {
+          "reference": "Measure/measure-mrp"
+        },
+        "patient": {
+          "reference": "Patient/Practitioner-2178"
+        },
+        "period": {
+          "start": "2017-01-01T00:00:00+00:00",
+          "end": "2017-12-31T00:00:00+00:00"
+        }
+      }
+    },
+    {
+      "name": "resource",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "Patient-2178",
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "text": "US Social Security Number"
+            },
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "000002418"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Walter",
+            "given": [
+              "Natalie",
+              "Huff"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "248-555-3608",
+            "use": "home"
+          },
+          {
+            "system": "phone",
+            "value": "248-555-4649",
+            "use": "mobile"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1974-07-26",
+        "address": [
+          {
+            "use": "home",
+            "type": "postal",
+            "line": [
+              "623 SW French Place"
+            ],
+            "city": "Westland",
+            "district": "Wayne County",
+            "state": "MI",
+            "postalCode": "48185"
+          }
+        ]
+      }
+    },
+    {
+      "name": "resource",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-62912",
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "inpatient",
+          "display": "Inpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "56876005",
+                "display": "Drug rehabilitation and detoxification"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2178",
+          "display": "Natalie Huff Walter"
+        },
+        "period": {
+          "start": "2018-05-29T11:00:00-04:00",
+          "end": "2018-05-29T11:00:00-04:00"
+        },
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/discharge-disposition",
+                "code": "home",
+                "display": "Home"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "resource",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-89972",
+        "identifier": [
+          {
+            "system": "http://mihin.org/fhir/sid/elementId",
+            "value": "ca097928-b18c-406c-a01b-6ad4a321fc28"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "1111F",
+              "display": "Medication reconciliation postdischarge"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2178",
+          "display": "Natalie Huff Walter"
+        },
+        "performedPeriod": {
+          "start": "2018-06-02T14:00:00-05:00",
+          "end": "2018-06-02T14:00:00-05:00"
+        }
+      }
+    }
+  ]
+}

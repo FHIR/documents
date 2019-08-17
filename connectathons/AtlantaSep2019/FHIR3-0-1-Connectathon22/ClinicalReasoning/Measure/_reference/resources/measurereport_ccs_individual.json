@@ -1,0 +1,74 @@
+{
+    "resourceType": "MeasureReport",
+    "contained": [
+        {
+            "resourceType": "Bundle",
+            "id": "77bedaeb-cb95-496f-b64b-349639868a6a",
+            "type": "collection"
+        }
+    ],
+    "status": "complete",
+    "type": "individual",
+    "measure": {
+        "reference": "Measure/measure-ccs"
+    },
+    "patient": {
+        "reference": "Patient/Patient-6516"
+    },
+    "period": {
+        "start": "1991-01-01T00:00:00+00:00",
+        "end": "1991-12-31T00:00:00+00:00"
+    },
+    "group": [
+        {
+          "identifier": {
+            "value": "group-population"
+          },
+            "population": [
+                {
+                    "identifier": {
+                        "value": "initial-population"
+                    },
+                    "code": {
+                        "coding": [
+                            {
+                                "code": "initial-population"
+                            }
+                        ]
+                    },
+                    "count": 1
+                },
+                {
+                    "identifier": {
+                        "value": "numerator"
+                    },
+                    "code": {
+                        "coding": [
+                            {
+                                "code": "numerator"
+                            }
+                        ]
+                    },
+                    "count": 0
+                },
+                {
+                    "identifier": {
+                        "value": "denominator"
+                    },
+                    "code": {
+                        "coding": [
+                            {
+                                "code": "denominator"
+                            }
+                        ]
+                    },
+                    "count": 1
+                }
+            ],
+            "measureScore": 0
+        }
+    ],
+    "evaluatedResources": {
+        "reference": "#77bedaeb-cb95-496f-b64b-349639868a6a"
+    }
+}
