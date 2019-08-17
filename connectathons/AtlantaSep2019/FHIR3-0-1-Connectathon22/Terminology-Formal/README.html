@@ -1,9 +1,9 @@
 <html>
 <head>
-	<title>FHIR Connectathon 17 - Terminology Services Test Track - Formal</title>
+	<title>FHIR Connectathon 22 - Terminology Services Test Track - Formal</title>
 </head>
 <body style="font-family:arial">
-	<h1>FHIR Connectathon 17 - Terminology Services Test Track - Formal</h1>
+	<h1>FHIR Connectathon 22 - Terminology Services Test Track - Formal</h1>
 	<h3>Conventions Used</h3>
 	<p>
 		The execution of the TestScript resources contained in this folder are constrained by the following
@@ -28,7 +28,7 @@
 
 	<hr width="100%"></hr>
 
-	<h2>FHIR Connectathon 17 - New Orleans, LA - January 2018</h2>
+	<h2>FHIR Connectathon 22 - Atlanta, GA - September 2019</h2>
 	<h3>Terminology Services Test Track - Formal</h3>
 	<p>
 		The TestScript resources in this folder represent an evolution** of the TestScript originally used at the
@@ -76,48 +76,48 @@
 	<div style="margin-left: 50px">
 		<table border="1" cellpadding="3" cellspacing="1">
 			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
-			<tr><td>connectathon-17-ts-expand</td><td>Terminology tests for $expand where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
-			<tr><td>connectathon-17-ts-expand-filter</td><td>Terminology tests for $expand with filter options where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
+			<tr><td>connectathon-22-ts-expand</td><td>Terminology tests for $expand where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
+			<tr><td>connectathon-22-ts-expand-filter</td><td>Terminology tests for $expand with filter options where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
 		</table>
 	</div>
 	<h3>Validate Code Operation - $validate-code</h3>
 	<div style="margin-left: 50px">
 		<table border="1" cellpadding="3" cellspacing="1">
 			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
-			<tr><td>connectathon-17-ts-validate-code</td><td>Terminology tests for $validate-code where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
-			<tr><td>connectathon-17-ts-validate-code-optional</td><td>Terminology tests for $validate-code with optional invocations where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
+			<tr><td>connectathon-22-ts-validate-code</td><td>Terminology tests for $validate-code where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
+			<tr><td>connectathon-22-ts-validate-code-optional</td><td>Terminology tests for $validate-code with optional invocations where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
 		</table>
 	</div>
 	<h3>Lookup Operation - $lookup</h3>
 	<div style="margin-left: 50px">
 		<table border="1" cellpadding="3" cellspacing="1">
 			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
-			<tr><td>connectathon-17-ts-lookup-loinc</td><td>Terminology tests for $lookup operations against the LOINC set of terminology codes.</td></tr>
-			<tr><td>connectathon-17-ts-lookup-snomed</td><td>Terminology tests for $lookup operations against the SNOMED-CT set of terminology codes.</td></tr>
+			<tr><td>connectathon-22-ts-lookup-loinc</td><td>Terminology tests for $lookup operations against the LOINC set of terminology codes.</td></tr>
+			<tr><td>connectathon-22-ts-lookup-snomed</td><td>Terminology tests for $lookup operations against the SNOMED-CT set of terminology codes.</td></tr>
 		</table>
 	</div>
 	<h3>Subsumes Operation - $subsumes</h3>
 	<div style="margin-left: 50px">
 		<table border="1" cellpadding="3" cellspacing="1">
 			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
-			<tr><td>connectathon-17-ts-subsumes-snomed-01-ok-get</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a successful response with a valid outcome code value. All $subsumes operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
-			<tr><td>connectathon-17-ts-subsumes-snomed-02-ok-post-code</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a successful response with a valid outcome code value. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
-			<tr><td>connectathon-17-ts-subsumes-snomed-03-ok-post-coding</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a successful response with a valid outcome code value. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
-			<tr><td>connectathon-17-ts-subsumes-snomed-04-notok-get</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
-			<tr><td>connectathon-17-ts-subsumes-snomed-05-notok-post-code</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
-			<tr><td>connectathon-17-ts-subsumes-snomed-06-notok-post-coding</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
+			<tr><td>connectathon-22-ts-subsumes-snomed-01-ok-get</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a successful response with a valid outcome code value. All $subsumes operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>connectathon-22-ts-subsumes-snomed-02-ok-post-code</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a successful response with a valid outcome code value. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
+			<tr><td>connectathon-22-ts-subsumes-snomed-03-ok-post-coding</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a successful response with a valid outcome code value. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
+			<tr><td>connectathon-22-ts-subsumes-snomed-04-notok-get</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>connectathon-22-ts-subsumes-snomed-05-notok-post-code</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
+			<tr><td>connectathon-22-ts-subsumes-snomed-06-notok-post-coding</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
 		</table>
 	</div>
 	<h3>Translate Operation - $translate</h3>
 	<div style="margin-left: 50px">
 		<table border="1" cellpadding="3" cellspacing="1">
 			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
-			<tr><td>connectathon-17-ts-translate-01-ok-get</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
-			<tr><td>connectathon-17-ts-translate-02-ok-post-code</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
-			<tr><td>connectathon-17-ts-translate-03-ok-post-coding</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
-			<tr><td>connectathon-17-ts-translate-04-notok-get</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
-			<tr><td>connectathon-17-ts-translate-05-notok-post-code</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
-			<tr><td>connectathon-17-ts-translate-06-notok-post-coding</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
+			<tr><td>connectathon-22-ts-translate-01-ok-get</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>connectathon-22-ts-translate-02-ok-post-code</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
+			<tr><td>connectathon-22-ts-translate-03-ok-post-coding</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
+			<tr><td>connectathon-22-ts-translate-04-notok-get</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>connectathon-22-ts-translate-05-notok-post-code</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
+			<tr><td>connectathon-22-ts-translate-06-notok-post-coding</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
 		</table>
 	</div>
 	<h3>Closure Operation - $closure</h3>

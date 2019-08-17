@@ -1,9 +1,9 @@
 <html>
 <head>
-	<title>FHIR Connectathon 20 - Terminology Services Test Track - Formal - FHIR R4 Official v4.0.0</title>
+	<title>FHIR Connectathon 22 - Terminology Services Test Track - Formal - FHIR R4 Official v4.0.0</title>
 </head>
 <body style="font-family:arial">
-	<h1>FHIR Connectathon 20 - Terminology Services Test Track - Formal</h1>
+	<h1>FHIR Connectathon 22 - Terminology Services Test Track - Formal</h1>
 	<h2>FHIR R4 Official v4.0.0 TestScript - Execution Details</h2>
 	<h3>Conventions Used</h3>
 	<p>
@@ -29,7 +29,7 @@
 
 	<hr width="100%"></hr>
 
-	<h2>FHIR Connectathon 20 - San Antonio, TX - January 2019</h2>
+	<h2>FHIR Connectathon 22 - Atlanta, GA - September 2019</h2>
 	<h3>Terminology Services Test Track - Formal</h3>
 	<p>
 		The TestScript resources in this folder represent an evolution** of the TestScript originally used at the
@@ -78,72 +78,72 @@
 	<div style="margin-left: 50px">
 		<table border="1" cellpadding="3" cellspacing="1">
 			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
-			<tr><td>terminology-c20-expand</td><td>Terminology tests for $expand where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
-			<tr><td>terminology-c20-expand-filter</td><td>Terminology tests for $expand with filter options where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
-			<tr><td>terminology-c20-expand-version-extensional1-01-ok</td><td>$expand operation with a valid version parameter test for ValueSet extensional-case-1 where the expected outcome is a successful response.</td></tr>
-			<tr><td>terminology-c20-expand-version-extensional1-02-notok</td><td>$expand operation with an invalid version parameter test for ValueSet extensional-case-1 where the expected outcome is a failure response with a returned OperationOutcome.</td></tr>
+			<tr><td>terminology-c22-expand</td><td>Terminology tests for $expand where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
+			<tr><td>terminology-c22-expand-filter</td><td>Terminology tests for $expand with filter options where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
+			<tr><td>terminology-c22-expand-version-extensional1-01-ok</td><td>$expand operation with a valid version parameter test for ValueSet extensional-case-1 where the expected outcome is a successful response.</td></tr>
+			<tr><td>terminology-c22-expand-version-extensional1-02-notok</td><td>$expand operation with an invalid version parameter test for ValueSet extensional-case-1 where the expected outcome is a failure response with a returned OperationOutcome.</td></tr>
 		</table>
 	</div>
 	<h3>Lookup Operation - $lookup</h3>
 	<div style="margin-left: 50px">
 		<table border="1" cellpadding="3" cellspacing="1">
 			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
-			<tr><td>terminology-c20-lookup-loinc-01-ok-get-simple</td><td>CodeSystem $lookup simple tests against known LOINC codes where the expected outcome is a successful response with valid name and display value. All $lookup operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
-			<tr><td>terminology-c20-lookup-loinc-02-ok-post-code-simple</td><td>CodeSystem $lookup simple tests against known LOINC codes where the expected outcome is a successful response with valid name and display value. All $lookup operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system and code.</td></tr>
-			<tr><td>terminology-c20-lookup-loinc-03-ok-post-coding-simple</td><td>CodeSystem $lookup simple tests against known LOINC codes where the expected outcome is a successful response with valid name and display value. All $lookup operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of coding.</td></tr>
-			<tr><td>terminology-c20-lookup-sct-01-ok-get-simple</td><td>CodeSystem $lookup simple tests against known SNOMED codes where the expected outcome is a successful response with valid name and display value. All $lookup operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
-			<tr><td>terminology-c20-lookup-sct-02-ok-post-code-simple</td><td>CodeSystem $lookup simple tests against known SNOMED codes where the expected outcome is a successful response with valid name and display value. All $lookup operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system and code.</td></tr>
-			<tr><td>terminology-c20-lookup-sct-03-ok-post-coding-simple</td><td>CodeSystem $lookup simple tests against known SNOMED codes where the expected outcome is a successful response with valid name and display value. All $lookup operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of coding.</td></tr>
+			<tr><td>terminology-c22-lookup-loinc-01-ok-get-simple</td><td>CodeSystem $lookup simple tests against known LOINC codes where the expected outcome is a successful response with valid name and display value. All $lookup operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>terminology-c22-lookup-loinc-02-ok-post-code-simple</td><td>CodeSystem $lookup simple tests against known LOINC codes where the expected outcome is a successful response with valid name and display value. All $lookup operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system and code.</td></tr>
+			<tr><td>terminology-c22-lookup-loinc-03-ok-post-coding-simple</td><td>CodeSystem $lookup simple tests against known LOINC codes where the expected outcome is a successful response with valid name and display value. All $lookup operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of coding.</td></tr>
+			<tr><td>terminology-c22-lookup-sct-01-ok-get-simple</td><td>CodeSystem $lookup simple tests against known SNOMED codes where the expected outcome is a successful response with valid name and display value. All $lookup operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>terminology-c22-lookup-sct-02-ok-post-code-simple</td><td>CodeSystem $lookup simple tests against known SNOMED codes where the expected outcome is a successful response with valid name and display value. All $lookup operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system and code.</td></tr>
+			<tr><td>terminology-c22-lookup-sct-03-ok-post-coding-simple</td><td>CodeSystem $lookup simple tests against known SNOMED codes where the expected outcome is a successful response with valid name and display value. All $lookup operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of coding.</td></tr>
 		</table>
 	</div>
 	<h3>Subsumes Operation - $subsumes</h3>
 	<div style="margin-left: 50px">
 		<table border="1" cellpadding="3" cellspacing="1">
 			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
-			<tr><td>terminology-c20-subsumes-snomed-01-ok-get</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a successful response with a valid outcome code value. All $subsumes operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
-			<tr><td>terminology-c20-subsumes-snomed-02-ok-post-code</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a successful response with a valid outcome code value. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
-			<tr><td>terminology-c20-subsumes-snomed-03-ok-post-coding</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a successful response with a valid outcome code value. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
-			<tr><td>terminology-c20-subsumes-snomed-04-notok-get</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
-			<tr><td>terminology-c20-subsumes-snomed-05-notok-post-code</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
-			<tr><td>terminology-c20-subsumes-snomed-06-notok-post-coding</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
+			<tr><td>terminology-c22-subsumes-snomed-01-ok-get</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a successful response with a valid outcome code value. All $subsumes operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>terminology-c22-subsumes-snomed-02-ok-post-code</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a successful response with a valid outcome code value. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
+			<tr><td>terminology-c22-subsumes-snomed-03-ok-post-coding</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a successful response with a valid outcome code value. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
+			<tr><td>terminology-c22-subsumes-snomed-04-notok-get</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>terminology-c22-subsumes-snomed-05-notok-post-code</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
+			<tr><td>terminology-c22-subsumes-snomed-06-notok-post-coding</td><td>CodeSystem $subsumes tests against known SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
 		</table>
 	</div>
 	<h3>Translate Operation - $translate</h3>
 	<div style="margin-left: 50px">
 		<table border="1" cellpadding="3" cellspacing="1">
 			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
-			<tr><td>terminology-c20-translate-01-ok-get</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
-			<tr><td>terminology-c20-translate-02-ok-post-code</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
-			<tr><td>terminology-c20-translate-03-ok-post-coding</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
-			<tr><td>terminology-c20-translate-04-notok-get</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
-			<tr><td>terminology-c20-translate-05-notok-post-code</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
-			<tr><td>terminology-c20-translate-06-notok-post-coding</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
+			<tr><td>terminology-c22-translate-01-ok-get</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>terminology-c22-translate-02-ok-post-code</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
+			<tr><td>terminology-c22-translate-03-ok-post-coding</td><td>ConceptMap $translate tests against known FHIR code systems where the expected outcome is a successful response with a matched code value from the target system. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
+			<tr><td>terminology-c22-translate-04-notok-get</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>terminology-c22-translate-05-notok-post-code</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB.</td></tr>
+			<tr><td>terminology-c22-translate-06-notok-post-coding</td><td>ConceptMap $translate tests against known and unknown FHIR code systems where the expected outcome is a failure response with a returned OperationOutcome. All $translate operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codingA and codingB.</td></tr>
 		</table>
 	</div>
 	<h3>CodeSystem - Validate Code Operation - $validate-code</h3>
 	<div style="margin-left: 50px">
 		<table border="1" cellpadding="3" cellspacing="1">
 			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
-			<tr><td>terminology-c20-validate-cs-loinc-01-ok-get</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP GET method.</td></tr>
-			<tr><td>terminology-c20-validate-cs-loinc-02-ok-post-code</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP POST method with Parameters of url, code and display.</td></tr>
-			<tr><td>terminology-c20-validate-cs-loinc-02-ok-post-coding</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP POST method with Parameters of url and coding.</td></tr>
-			<tr><td>terminology-c20-validate-cs-loinc-04-notok-get</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP GET method.</td></tr>
-			<tr><td>terminology-c20-validate-cs-loinc-05-notok-post-code</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP POST method with Parameters of url, code and display.</td></tr>
-			<tr><td>terminology-c20-validate-cs-loinc-06-notok-post-coding</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP POST method with Parameters of url and coding.</td></tr>
-			<tr><td>terminology-c20-validate-cs-sct-01-ok-get</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP GET method.</td></tr>
-			<tr><td>terminology-c20-validate-cs-sct-02-ok-post-code</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP POST method with Parameters of url, code and display.</td></tr>
-			<tr><td>terminology-c20-validate-cs-sct-02-ok-post-coding</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP POST method with Parameters of url and coding.</td></tr>
-			<tr><td>terminology-c20-validate-cs-sct-04-notok-get</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP GET method.</td></tr>
-			<tr><td>terminology-c20-validate-cs-sct-05-notok-post-code</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP POST method with Parameters of url, code and display.</td></tr>
-			<tr><td>terminology-c20-validate-cs-sct-06-notok-post-coding</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP POST method with Parameters of url and coding.</td></tr>
+			<tr><td>terminology-c22-validate-cs-loinc-01-ok-get</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>terminology-c22-validate-cs-loinc-02-ok-post-code</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP POST method with Parameters of url, code and display.</td></tr>
+			<tr><td>terminology-c22-validate-cs-loinc-02-ok-post-coding</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP POST method with Parameters of url and coding.</td></tr>
+			<tr><td>terminology-c22-validate-cs-loinc-04-notok-get</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>terminology-c22-validate-cs-loinc-05-notok-post-code</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP POST method with Parameters of url, code and display.</td></tr>
+			<tr><td>terminology-c22-validate-cs-loinc-06-notok-post-coding</td><td>CodeSystem $validate-code tests against known LOINC codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP POST method with Parameters of url and coding.</td></tr>
+			<tr><td>terminology-c22-validate-cs-sct-01-ok-get</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>terminology-c22-validate-cs-sct-02-ok-post-code</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP POST method with Parameters of url, code and display.</td></tr>
+			<tr><td>terminology-c22-validate-cs-sct-02-ok-post-coding</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a successful response using the FHIR Operation Framework HTTP POST method with Parameters of url and coding.</td></tr>
+			<tr><td>terminology-c22-validate-cs-sct-04-notok-get</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP GET method.</td></tr>
+			<tr><td>terminology-c22-validate-cs-sct-05-notok-post-code</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP POST method with Parameters of url, code and display.</td></tr>
+			<tr><td>terminology-c22-validate-cs-sct-06-notok-post-coding</td><td>CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a failure response using the FHIR Operation Framework HTTP POST method with Parameters of url and coding.</td></tr>
 		</table>
 	</div>
 	<h3>ValueSet - Validate Code Operation - $validate-code</h3>
 	<div style="margin-left: 50px">
 		<table border="1" cellpadding="3" cellspacing="1">
 			<tr style="background-color:lightgray"><td><b>TestScript Name</b></td><td><b>Description</b></td></tr>
-			<tr><td>terminology-c20-validate-code</td><td>Terminology tests for $validate-code where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
-			<tr><td>terminology-c20-validate-code-optional</td><td>Terminology tests for $validate-code with optional invocations where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
+			<tr><td>terminology-c22-validate-code</td><td>Terminology tests for $validate-code where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
+			<tr><td>terminology-c22-validate-code-optional</td><td>Terminology tests for $validate-code with optional invocations where the FHIR server is expected to have the existing ValueSet resource.</td></tr>
 		</table>
 	</div>
 	<h3>Closure Operation - $closure</h3>
