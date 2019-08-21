@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<TestScript xmlns="http://hl7.org/fhir">
+  <id value="clinical-reasoning-c22-ccs-individual-multisystem-json" />
+  <url value="http://example.com" />
+  <name value="Individual Patient Multisystem TestScript for Evaluating Measures--JSON" />
+  <status value="draft" />
+  <date value="2019-02-11" />
+  <publisher value="MITRE" />
+  <contact>
+    <name value="Matthew Gramigna" />
+    <telecom>
+      <system value="email" />
+      <value value="mgramigna@mitre.org" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="Tests using JSON format to execute the $evauate-measure operation. The destination server must support the $evaluate-measure operation on the Measure resource." />
+  <copyright value="N/A" />
+  <origin>
+    <index value="1" />
+    <profile>
+      <code value="FHIR-Client" />
+    </profile>
+  </origin>
+  <destination>
+    <index value="1" />
+    <profile>
+      <code value="FHIR-Server" />
+    </profile>
+  </destination>
+  <destination>
+    <index value="2" />
+    <profile>
+      <code value="FHIR-Server" />
+    </profile>
+  </destination>
+  <fixture id="library-col-logic">
+    <resource>
+      <reference value="../_reference/resources/Library/library-col-logic.json" />
+    </resource>
+  </fixture>
+  <fixture id="measure-col">
+    <resource>
+      <reference value="../_reference/resources/Measure/measure-col.json" />
+    </resource>
+  </fixture>
+  <fixture id="fixture-create-patient">
+    <resource>
+      <reference value="../_reference/resources/Patient/test-Patient-410.json" />
+    </resource>
+  </fixture>
+  <profile id="measurereport-profile">
+    <reference value="http://hl7.org/fhir/StructureDefinition/MeasureReport" />
+  </profile>
+  <variable>
+    <name value="dest1CreateMeasureId" />
+    <path value="Measure/id" />
+    <sourceId value="dest1-create-measure-response" />
+  </variable>
+  <variable>
+    <name value="dest2CreateMeasureId" />
+    <path value="Measure/id" />
+    <sourceId value="dest2-create-measure-response" />
+  </variable>
+  <variable>
+    <name value="createPatientId" />
+    <defaultValue value="test-Patient-410" />
+    <sourceId value="fixture-create-patient" />
+  </variable>
+  <variable>
+    <name value="PeriodStart" />
+    <defaultValue value="2017" />
+  </variable>
+  <variable>
+    <name value="PeriodEnd" />
+    <defaultValue value="2017" />
+  </variable>
+  <setup>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="create" />
+        </type>
+        <resource value="Library" />
+        <description value="Create a library on the first server" />
+        <accept value="json" />
+        <contentType value="json" />
+        <destination value="1" />
+        <sourceId value="library-col-logic" />
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 201(Created)." />
+        <operator value="equals" />
+        <responseCode value="201" />
+      </assert>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="create" />
+        </type>
+        <resource value="Measure" />
+        <description value="Create a measure on the first server" />
+        <accept value="json" />
+        <contentType value="json" />
+        <destination value="1" />
+        <responseId value="dest1-create-measure-response" />
+        <sourceId value="measure-col" />
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 201(Created)." />
+        <operator value="equals" />
+        <responseCode value="201" />
+      </assert>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="update" />
+        </type>
+        <resource value="Patient" />
+        <description value="Create a patient on the first server" />
+        <accept value="json" />
+        <contentType value="json" />
+        <destination value="1" />
+        <params value="/${createPatientId}" />
+        <sourceId value="fixture-create-patient" />
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)." />
+        <operator value="in" />
+        <responseCode value="200,201" />
+      </assert>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="create" />
+        </type>
+        <resource value="Library" />
+        <description value="Create a library on the second server" />
+        <accept value="json" />
+        <contentType value="json" />
+        <destination value="2" />
+        <sourceId value="library-col-logic" />
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 201(Created)." />
+        <operator value="equals" />
+        <responseCode value="201" />
+      </assert>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="create" />
+        </type>
+        <resource value="Measure" />
+        <description value="Create a measure on the second server" />
+        <accept value="json" />
+        <contentType value="json" />
+        <destination value="2" />
+        <responseId value="dest2-create-measure-response" />
+        <sourceId value="measure-col" />
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 201(Created)." />
+        <operator value="equals" />
+        <responseCode value="201" />
+      </assert>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="update" />
+        </type>
+        <resource value="Patient" />
+        <description value="Create a patient on the second server" />
+        <accept value="json" />
+        <contentType value="json" />
+        <destination value="2" />
+        <params value="/${createPatientId}" />
+        <sourceId value="fixture-create-patient" />
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)." />
+        <operator value="in" />
+        <responseCode value="200,201" />
+      </assert>
+    </action>
+  </setup>
+  <test id="Step1-Dest1EvaluateMeasure">
+    <name value="Dest1EvaluateMeasure" />
+    <description value="Evaluate the measure on the first server." />
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="evaluate-measure" />
+        </type>
+        <resource value="Measure" />
+        <label value="EvaluateMeasure" />
+        <description value="Evaluate measure with server assigned resource id." />
+        <accept value="xml" />
+        <contentType value="xml" />
+        <destination value="1" />
+        <params value="/${dest1CreateMeasureId}/$evaluate-measure?patient=${createPatientId}&amp;periodStart=${PeriodStart}&amp;periodEnd=${PeriodEnd}" />
+        <responseId value="dest1-measurereport" />
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 200(OK)" />
+        <operator value="in" />
+        <responseCode value="200" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned format is XML. Warning only as the server may not support the return of response content." />
+        <contentType value="xml" />
+        <warningOnly value="true" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the return type is MeasureReport. Warning only as the server may not support the return of response content." />
+        <resource value="MeasureReport" />
+        <warningOnly value="true" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server may not support versioning." />
+        <headerField value="Last-Modified" />
+        <operator value="notEmpty" />
+        <warningOnly value="true" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP Header ETag is present. Warning only as the server may not support versioning." />
+        <headerField value="ETag" />
+        <operator value="notEmpty" />
+        <warningOnly value="true" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP Header Location is present. Warning only as this is optional but servers are encouraged to return this." />
+        <headerField value="Location" />
+        <operator value="notEmpty" />
+        <warningOnly value="true" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport conforms to the base FHIR specification." />
+        <validateProfileId value="measurereport-profile" />
+        <warningOnly value="true" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport contains the expected initial population." />
+        <operator value="equals" />
+        <path value="//fhir:MeasureReport/fhir:group/fhir:population[fhir:code[fhir:coding[fhir:code[@value='initial-population']]]]/fhir:count/@value" />
+        <value value="1" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport contains the expected denominator." />
+        <operator value="equals" />
+        <path value="//fhir:MeasureReport/fhir:group/fhir:population[fhir:code[fhir:coding[fhir:code[@value='denominator']]]]/fhir:count/@value" />
+        <value value="1" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport contains the expected numerator." />
+        <operator value="equals" />
+        <path value="//fhir:MeasureReport/fhir:group/fhir:population[fhir:code[fhir:coding[fhir:code[@value='numerator']]]]/fhir:count/@value" />
+        <value value="1" />
+      </assert>
+    </action>
+  </test>
+  <test id="Step2-Dest2EvaluateMeasure">
+    <name value="Dest2EvaluateMeasure" />
+    <description value="Evaluate the measure on the second server. Compare to results from first server." />
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="evaluate-measure" />
+        </type>
+        <resource value="Measure" />
+        <label value="EvaluateMeasure" />
+        <description value="Evaluate measure with server assigned resource id." />
+        <accept value="xml" />
+        <contentType value="xml" />
+        <destination value="2" />
+        <params value="/${dest2CreateMeasureId}/$evaluate-measure?patient=${createPatientId}&amp;periodStart=${PeriodStart}&amp;periodEnd=${PeriodEnd}" />
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 200(OK)" />
+        <operator value="in" />
+        <responseCode value="200" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned format is XML. Warning only as the server may not support the return of response content." />
+        <contentType value="xml" />
+        <warningOnly value="true" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the return type is MeasureReport. Warning only as the server may not support the return of response content." />
+        <resource value="MeasureReport" />
+        <warningOnly value="true" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server may not support versioning." />
+        <headerField value="Last-Modified" />
+        <operator value="notEmpty" />
+        <warningOnly value="true" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP Header ETag is present. Warning only as the server may not support versioning." />
+        <headerField value="ETag" />
+        <operator value="notEmpty" />
+        <warningOnly value="true" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP Header Location is present. Warning only as this is optional but servers are encouraged to return this." />
+        <headerField value="Location" />
+        <operator value="notEmpty" />
+        <warningOnly value="true" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport conforms to the base FHIR specification." />
+        <validateProfileId value="measurereport-profile" />
+        <warningOnly value="true" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport contains the expected initial population." />
+        <compareToSourceId value="dest1-measurereport" />
+        <compareToSourcePath value="//fhir:MeasureReport/fhir:group/fhir:population[fhir:code[fhir:coding[fhir:code[@value='initial-population']]]]/fhir:count/@value" />
+        <operator value="equals" />
+        <path value="//fhir:MeasureReport/fhir:group/fhir:population[fhir:code[fhir:coding[fhir:code[@value='initial-population']]]]/fhir:count/@value" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport contains the expected denominator." />
+        <compareToSourceId value="dest1-measurereport" />
+        <compareToSourcePath value="//fhir:MeasureReport/fhir:group/fhir:population[fhir:code[fhir:coding[fhir:code[@value='denominator']]]]/fhir:count/@value" />
+        <operator value="equals" />
+        <path value="//fhir:MeasureReport/fhir:group/fhir:population[fhir:code[fhir:coding[fhir:code[@value='denominator']]]]/fhir:count/@value" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport contains the expected numerator." />
+        <compareToSourceId value="dest1-measurereport" />
+        <compareToSourcePath value="//fhir:MeasureReport/fhir:group/fhir:population[fhir:code[fhir:coding[fhir:code[@value='numerator']]]]/fhir:count/@value" />
+        <operator value="equals" />
+        <path value="//fhir:MeasureReport/fhir:group/fhir:population[fhir:code[fhir:coding[fhir:code[@value='numerator']]]]/fhir:count/@value" />
+      </assert>
+    </action>
+  </test>
+  <teardown>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="delete" />
+        </type>
+        <resource value="Patient" />
+        <description value="Delete the patient resource on the first server" />
+        <destination value="1" />
+        <targetId value="${createPatientId}" />
+      </operation>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="delete" />
+        </type>
+        <resource value="Patient" />
+        <description value="Delete the patient resource on the second server" />
+        <destination value="2" />
+        <targetId value="${createPatientId}" />
+      </operation>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="delete" />
+        </type>
+        <resource value="Measure" />
+        <description value="Delete the measure resource on the first server" />
+        <destination value="1" />
+        <targetId value="${dest1CreateMeasureId}" />
+      </operation>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="delete" />
+        </type>
+        <resource value="Measure" />
+        <description value="Delete the measure resource on the second server" />
+        <destination value="2" />
+        <targetId value="${dest2CreateMeasureId}" />
+      </operation>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="delete" />
+        </type>
+        <resource value="Library" />
+        <description value="Delete the library on the first server" />
+        <destination value="1" />
+        <targetId value="library-col-logic" />
+      </operation>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="delete" />
+        </type>
+        <resource value="Library" />
+        <description value="Delete the library on the second server" />
+        <destination value="2" />
+        <targetId value="library-col-logic" />
+      </operation>
+    </action>
+  </teardown>
+</TestScript>

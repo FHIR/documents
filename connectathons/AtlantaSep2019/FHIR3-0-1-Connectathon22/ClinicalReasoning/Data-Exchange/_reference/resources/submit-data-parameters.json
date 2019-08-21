@@ -1,0 +1,75 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "measure-report",
+      "resource": {
+        "resourceType": "MeasureReport",
+        "type": "individual",
+        "measure": {
+          "reference": "Measure/measure-col"
+        },
+        "patient": {
+          "reference": "Patient/test-Patient-410"
+        },
+        "period": {
+          "start": "2017-01-01T00:00:00+00:00",
+          "end": "2017-12-31T00:00:00+00:00"
+        }
+      }
+    },
+    {
+      "name": "resource",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "test-Observation-32794",
+        "meta": {
+          "versionId": "2",
+          "lastUpdated": "2019-01-23T18:19:39.465+00:00",
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "6f28ad6e-326e-4904-85ea-f5ecb514f352"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "82274"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/test-Patient-410",
+          "display": "Bobbie Simon Jackson"
+        },
+        "effectiveDateTime": "2017-01-07T00:08:00-05:00",
+        "valueString": "NEGATIVE"
+      }
+    }
+  ]
+}

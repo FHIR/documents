@@ -1,0 +1,21 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "code",
+      "valueCode": "home"
+    },
+    {
+      "name": "system",
+      "valueUri": "http://hl7.org/fhir/address-use"
+    },
+    {
+      "name": "source",
+      "valueUri": "http://hl7.org/fhir/ValueSet/address-use"
+    },
+    {
+      "name": "target",
+      "valueUri": "http://terminology.hl7.org/ValueSet/v3-AddressUse"
+    }
+  ]
+}

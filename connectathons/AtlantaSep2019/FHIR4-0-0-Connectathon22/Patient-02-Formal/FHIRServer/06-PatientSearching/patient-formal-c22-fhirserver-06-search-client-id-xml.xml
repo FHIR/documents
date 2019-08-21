@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="patient-formal-c22-fhirserver-06-search-client-id-xml"/>
+	<meta>
+		<profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml"><p>FHIR Connectathon 22 - Patient - Formal Testing - FHIR Server - Search - Client Assigned Resource Id - XML</p></div>
+	</text>
+
+	<url value="http://wildfhir.aegis.net/fhir4-0-0/TestScript/patient-formal-c22-fhirserver-06-search-client-id-xml"/>
+	<name value="FHIRC22PatientServerSearchXMLClientId"/>
+	<title value="FHIR Connectathon 22 - Patient - Formal Testing - FHIR Server - Search - Client Assigned Resource Id - XML"/>
+	<status value="active"/>
+	<date value="2019-08-08"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Patient Track - Formal Testing - tests FHIR Server using the XML format to search for a Patient resource instance created in the test setup where the client assigns the resource id. The destination server must support conditional create using the update (PUT) operation, read, search and delete to insure the Patient resource does not exist or is removed prior to test execution."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+
+	<fixture id="patient-create">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/resources/patient-create-client-id.xml"/>
+		</resource>
+	</fixture>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+
+	<variable>
+		<name value="patientResourceId"/>
+		<path value="Patient/id"/>
+		<sourceId value="patient-create"/>
+	</variable>
+	<variable>
+		<name value="patientVersionId"/>
+		<path value="Patient/meta/versionId"/>
+		<sourceId value="patient-create-read-response"/>
+	</variable>
+	<variable>
+		<name value="patientIdentifier"/>
+		<path value="Patient/identifier/value"/>
+		<sourceId value="patient-create"/>
+	</variable>
+	<variable>
+		<name value="patientFamilyName"/>
+		<path value="Patient/name/family"/>
+		<sourceId value="patient-create"/>
+	</variable>
+	<variable>
+		<name value="patientGivenName"/>
+		<path value="Patient/name/given"/>
+		<sourceId value="patient-create"/>
+	</variable>
+	<variable>
+		<name value="patientGender"/>
+		<path value="Patient/gender"/>
+		<sourceId value="patient-create"/>
+	</variable>
+	<variable>
+		<name value="patientBirthDate"/>
+		<path value="Patient/birthDate"/>
+		<sourceId value="patient-create"/>
+	</variable>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="System-generated search and delete operations from conditional delete on patient name to insure the patient does not exist on the server."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="?given=${patientGivenName}&amp;family=${patientFamilyName}"/>
+			</operation>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="delete"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="System-generated search and delete operations from conditional delete on patient identifier to insure the patient does not exist on the server."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="?identifier=${patientIdentifier}"/>
+			</operation>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="updateCreate"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Create patient with client assigned resource id."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${patientResourceId}"/>
+				<sourceId value="patient-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<direction value="response"/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Read the created patient by the known patient resource id in order to save the current version id."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${patientResourceId}"/>
+				<responseId value="patient-create-read-response"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is the FHIR XML format."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Patient."/>
+				<direction value="response"/>
+				<resource value="Patient"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</setup>
+
+	<test id="01-SearchPatient">
+		<name value="SearchPatient"/>
+		<description value="Test the search operation with XML content. The expected response content is a searchset Bundle resource where the first (and only entry) is the created version of the Patient resource in XML format."/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for the Patient and verify the search results contain the created version of the patient."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="?identifier=${patientIdentifier}&amp;given=${patientGivenName}&amp;family=${patientFamilyName}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/fhir+xml'."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle conforms to the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type is searchset."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/type"/>
+				<value value="searchset"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned searchset Bundle contains 1 entry."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/total"/>
+				<value value="1"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches or is greater than the number of entries in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.total.toInteger() &gt;= entry.count()"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains the expected Patient identifier element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Patient/identifier/value"/>
+				<value value="${patientIdentifier}"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains the expected Patient family name element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Patient/name/family"/>
+				<value value="${patientFamilyName}"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains the expected Patient given name element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Patient/name/given"/>
+				<value value="${patientGivenName}"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains the expected Patient retained gender element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Patient/gender"/>
+				<value value="${patientGender}"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains the expected Patient updated birthDate element and value."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/entry[1]/resource/Patient/birthDate"/>
+				<value value="${patientBirthDate}"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

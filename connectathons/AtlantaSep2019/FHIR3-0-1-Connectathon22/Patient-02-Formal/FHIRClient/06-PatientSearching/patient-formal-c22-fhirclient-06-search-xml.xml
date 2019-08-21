@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="patient-formal-c22-fhirclient-06-search-xml"/>
+	<url value="http://wildfhir.aegis.net/fhir3-0-1/TestScript/patient-formal-c22-fhirclient-06-search-xml"/>
+	<name value="FHIR Connectathon 22 - Patient - Formal Testing - FHIR Client - Search - XML"/>
+	<status value="draft"/>
+	<date value="2019-08-17"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Patient Track - Formal Testing - tests external FHIR Client and Server to search a XML formatted Patient with minimum data elements: identifier, name.family, name.given, gender and birthDate. The origin and destination systems must support the search operation and Patient search parameters: identifier, family and given."/>
+	<copyright value="(c) AEGIS.net, Inc. 2018"/>
+
+	<origin>
+		<index value="1" />
+		<profile>
+			<system value="http://hl7.org/fhir/testscript-profile-origin-types"/>
+			<code value="FHIR-Client"/>
+		</profile>
+	</origin>
+	<destination>
+		<index value="1" />
+		<profile>
+			<system value="http://hl7.org/fhir/testscript-profile-destination-types"/>
+			<code value="FHIR-Server"/>
+		</profile>
+	</destination>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+
+	<variable>
+		<name value="patientIdentifier"/>
+		<description value="Enter the patient identifier search parameter the origin system will send to the destination system."/>
+		<hint value="[Identifier]" />
+	</variable>
+	<variable>
+		<name value="patientFamily"/>
+		<description value="Enter the patient family search parameter the origin system will send to the destination system."/>
+		<hint value="[Family Name]" />
+	</variable>
+	<variable>
+		<name value="patientGiven"/>
+		<description value="Enter the patient given search parameter the origin system will send to the destination system."/>
+		<hint value="[Given Name]" />
+	</variable>
+
+	<test id="01-PatientSearch">
+		<name value="PatientSearch"/>
+		<description value="Test the search operation with XML content. The expected response content is a searchset Bundle resource containing all matching Patient resource instances in XML format."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Search for matching Patients and verify the search results."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<destination value="1" />
+				<origin value="1" />
+				<params value="?identifier=${patientIdentifier}&amp;given=${patientGiven}&amp;family=${patientFamily}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client requested an Accept of the FHIR XML mime type 'application/fhir+xml'."/>
+				<direction value="request"/>
+				<headerField value="Accept"/>
+				<operator value="contains"/>
+				<value value="application/fhir+xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client did not request a Content-Type. Warning only to allow for systems that automatically send Content-Type."/>
+				<direction value="request"/>
+				<headerField value="Content-Type"/>
+				<operator value="empty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type is present."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="notEmpty"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/fhir+xml'."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle conforms to the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type is searchset."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/type"/>
+				<value value="searchset"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned searchset Bundle at least 1 entry."/>
+				<operator value="greaterThan"/>
+				<path value="Bundle/total"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches or is greater than the number of entries in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.total.toInteger() &gt;= entry.count()"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains a Patient identifier element and value."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Patient/identifier/value"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains a Patient family name element and value."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Patient/name/family"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains a Patient given name element and value."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Patient/name/given"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains a Patient retained gender element and value."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Patient/gender"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains a Patient updated birthDate element and value."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Patient/birthDate"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

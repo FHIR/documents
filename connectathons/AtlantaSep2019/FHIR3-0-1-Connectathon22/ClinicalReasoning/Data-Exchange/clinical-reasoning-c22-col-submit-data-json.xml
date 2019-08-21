@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<TestScript xmlns="http://hl7.org/fhir">
+  <id value="testscript-example-submit-data" />
+  <url value="http://example.com" />
+  <version value="1.0" />
+  <name value="Submit Data" />
+  <status value="draft" />
+  <date value="2018-11-28" />
+  <publisher value="MITRE" />
+  <contact>
+    <name value="Tom Strassner" />
+    <telecom>
+      <system value="email" />
+      <value value="tstrassner@mitre.org" />
+      <use value="work" />
+    </telecom>
+  </contact>
+  <description value="TestScript resource with submit-data test." />
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166" />
+      <code value="US" />
+      <display value="United States of America (the)" />
+    </coding>
+  </jurisdiction>
+  <fixture id="library-col-logic">
+    <resource>
+      <reference value="./_reference/resources/Library/library-col-logic.json" />
+    </resource>
+  </fixture>
+  <fixture id="measure-col">
+    <resource>
+      <reference value="./_reference/resources/Measure/measure-col.json" />
+    </resource>
+  </fixture>
+  <fixture id="fixture-create-patient">
+    <resource>
+      <reference value="./_reference/resources/Patient/test-Patient-410.json" />
+    </resource>
+  </fixture>
+  <fixture id="submit-data-parameters">
+    <resource>
+      <reference value="./_reference/resources/submit-data-parameters.json" />
+    </resource>
+  </fixture>
+  <variable>
+    <name value="createMeasureId" />
+    <path value="Measure/id" />
+    <sourceId value="create-measure-response" />
+  </variable>
+  <variable>
+    <name value="createPatientId" />
+    <defaultValue value="test-Patient-410" />
+    <sourceId value="fixture-create-patient" />
+  </variable>
+  <test id="SubmitData">
+    <name value="Submit Data" />
+    <description value="Submit measure data for a patient." />
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="create" />
+        </type>
+        <resource value="Library" />
+        <description value="Create a library" />
+        <accept value="json" />
+        <contentType value="json" />
+        <sourceId value="library-col-logic" />
+      </operation>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="create" />
+        </type>
+        <resource value="Measure" />
+        <description value="Create a measure" />
+        <accept value="json" />
+        <contentType value="json" />
+        <responseId value="create-measure-response" />
+        <sourceId value="measure-col" />
+      </operation>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="update" />
+        </type>
+        <resource value="Patient" />
+        <description value="Create a patient" />
+        <accept value="json" />
+        <contentType value="json" />
+        <params value="/${createPatientId}" />
+        <sourceId value="fixture-create-patient" />
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)." />
+        <operator value="in" />
+        <responseCode value="200,201" />
+      </assert>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <code value="submit-data" />
+        </type>
+        <resource value="Measure" />
+        <description value="Submit data for a measure." />
+        <accept value="json" />
+        <contentType value="json" />
+        <encodeRequestUrl value="false" />
+        <params value="/${createMeasureId}" />
+        <sourceId value="submit-data-parameters" />
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 200(OK)." />
+        <direction value="response" />
+        <responseCode value="200" />
+      </assert>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="evaluate-measure" />
+        </type>
+        <resource value="Measure" />
+        <description value="Evaluate a measure." />
+        <accept value="json" />
+        <contentType value="json" />
+        <params value="/${createMeasureId}/$evaluate-measure?patient=${createPatientId}&amp;periodStart=2017&amp;periodEnd=2017" />
+        <responseId value="measure-calc-report" />
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 200(OK)." />
+        <direction value="response" />
+        <responseCode value="200" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned format is JSON. Warning only as the server may not support the return of response content." />
+        <contentType value="json" />
+        <warningOnly value="true" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the return type is MeasureReport. Warning only as the server may not support the return of response content." />
+        <resource value="MeasureReport" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport contains the expected initial population." />
+        <operator value="equals" />
+        <path value="//fhir:MeasureReport/fhir:group/fhir:population[fhir:code[fhir:coding[fhir:code[@value='initial-population']]]]/fhir:count/@value" />
+        <value value="1" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport contains the expected denominator." />
+        <operator value="equals" />
+        <path value="//fhir:MeasureReport/fhir:group/fhir:population[fhir:code[fhir:coding[fhir:code[@value='denominator']]]]/fhir:count/@value" />
+        <value value="1" />
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned MeasureReport contains the expected numerator." />
+        <operator value="equals" />
+        <path value="//fhir:MeasureReport/fhir:group/fhir:population[fhir:code[fhir:coding[fhir:code[@value='numerator']]]]/fhir:count/@value" />
+        <value value="1" />
+      </assert>
+    </action>
+  </test>
+  <teardown>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="delete" />
+        </type>
+        <resource value="Patient" />
+        <description value="Delete the patient resource on the test server using the id of the Patient." />
+        <targetId value="${createPatientId}" />
+      </operation>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="delete" />
+        </type>
+        <resource value="Observation" />
+        <description value="Delete the observation on the test server using the id of the Observation" />
+        <targetId value="test-Observation-32794" />
+      </operation>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="delete" />
+        </type>
+        <resource value="Measure" />
+        <description value="Delete the measure resource on the test server" />
+        <targetId value="${createMeasureId}" />
+      </operation>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes" />
+          <code value="delete" />
+        </type>
+        <resource value="Library" />
+        <description value="Delete the library on the test server using the id of the Library" />
+        <targetId value="library-col-logic" />
+      </operation>
+    </action>
+  </teardown>
+</TestScript>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="terminology-c21-expand-version-extensional1-02-notok-xml"/>
+	<meta>
+		<profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml"><p>FHIR Connectathon 21 - Terminology Services - Expand with Unknown Version - XML</p></div>
+	</text>
+
+	<url value="http://wildfhir.aegis.net/fhir4-0-0/TestScript/terminology-c21-expand-version-extensional1-02-notok-xml"/>
+	<name value="FHIRC21TerminologyExpandUnknownVersionXML"/>
+	<title value="FHIR Connectathon 21 - Terminology Services - Expand with Unknown Version - XML"/>
+	<status value="active"/>
+	<date value="2019-03-27"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<contact>
+		<name value="HL7 New Zealand"/>
+		<telecom>
+			<system value="email"/>
+			<value value="pkjordan@xtra.co.nz"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="FHIR Connectathon 18 - Terminology Services - Expand with Version Parameter - XML Format - Expansion test using an unknown version parameter. There is no setup and teardown as all ValueSet resources are expected to exist on the target system under test."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+
+	<profile id="OperationOutcomeProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+	</profile>
+
+	<test id="01-ExpansionVersionExtensionalCase1">
+		<name value="01-ExpansionVersionExtensionalCase1"/>
+		<description value="$expand operation with an unknown version parameter test for ValueSet extensional-case-1."/>
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="expand"/>
+				</type>
+				<resource value="ValueSet"/>
+				<description value="Test $expand operation with valueSetVersion parameter=xxx on ValueSet extensional-case-1."/>
+				<accept value="xml"/>
+				<encodeRequestUrl value="false"/>
+				<params value="/extensional-case-1/$expand?valueSetVersion=xxx"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx/5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is XML."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="clin-reas-c22-dv-mrp-01-submitdata-01-ok-post-server-xml"/>
+	<url value="http://wildfhir.aegis.net/fhir3-0-1/TestScript/clin-reas-c22-dv-mrp-01-submitdata-01-ok-post-server-xml"/>
+	<name value="Da Vinci DEQM MRP 1.0 - FHIR STU3 - Submit Data - OK - POST - Server Test - XML"/>
+	<status value="active"/>
+	<date value="2019-08-17"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="HL7 FHIR Connectathon 22 - Clinical Reasoning - Da Vinci Measure $submit-data operation simple test against a known Measure resource where the expected outcome is a successful response. All $submit-data operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of measureReport and resource."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+
+	<fixture id="submit-data-input-01">
+		<resource>
+			<reference value="./_reference/input/submit-data-input-01.xml"/>
+		</resource>
+	</fixture>
+
+	<variable>
+		<name value="MeasureId"/>
+		<defaultValue value="measure-mrp"/>
+		<description value="Enter a resource id for a valid Measure on the destination system."/>
+		<hint value="[Valid Measure Id]"/>
+	</variable>
+
+	<test id="01-Measure-Submit-Data">
+		<name value="01-Measure-Submit-Data"/>
+		<description value="Submit the required data for a known Measure using HTTP POST. Expected response is 200 (OK)."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://touchstone.com/fhir/testscript-operation-codes-extended"/>
+					<code value="submit-data"/>
+				</type>
+				<resource value="Measure"/>
+				<description value="Measure $submit-data operation for a known Measure."/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${MeasureId}/$submit-data"/>
+				<sourceId value="submit-data-input-01"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

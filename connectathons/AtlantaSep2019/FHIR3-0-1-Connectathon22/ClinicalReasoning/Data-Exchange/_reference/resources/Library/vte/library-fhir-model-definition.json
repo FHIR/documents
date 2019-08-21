@@ -1,0 +1,50 @@
+{
+  "resourceType": "Library",
+  "id": "library-fhir-model-definition",
+  "url": "http://hl7.org/fhir/Library/library-fhir-model-definition",
+  "identifier": [
+    {
+      "use": "official",
+      "system": "http://example.org/fhir/cqi/ecqm/Library/Identifier",
+      "value": "FHIR"
+    }
+  ],
+  "version": "3.0.0",
+  "name": "FHIR",
+  "title": "FHIR Model Definition",
+  "status": "active",
+  "type": {
+      "coding": [
+          {
+        "system": "http://hl7.org/fhir/library-type",
+              "code": "model-definition"
+          }
+      ]
+  },
+  "date": "2016-07-08",
+  "publisher": "Health Level 7 International - Clinical Quality Information Work Group",
+  "description": "Model definition for the DSTU2 FHIR Model",
+  "approvalDate": "2016-07-08",
+  "lastReviewDate": "2016-07-08",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "topic": [
+      {
+          "text": "FHIR"
+      }
+  ],
+  "content": [
+      {
+          "contentType": "application/xml",
+          "url": "https://cqlrepository.org/fhir-modelinfo-3.0.0.xml"
+      }
+  ]
+}
