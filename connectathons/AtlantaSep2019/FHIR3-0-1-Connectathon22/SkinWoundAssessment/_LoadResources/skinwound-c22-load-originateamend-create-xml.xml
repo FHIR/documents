@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="skinwound-c22-load-originateamend-create-xml"/>
+	<url value="http://wildfhir.aegis.net/fhir3-0-1/TestScript/skinwound-c22-load-originateamend-create-xml"/>
+	<name value="SkinWoundC22LoadOriginateAmendCreateXML"/>
+	<title value="FHIR Connectathon 22 - Skin Wound Assessment - Load Originate Amend Resources - Create - XML"/>
+	<status value="draft"/>
+	<date value="2019-08-20"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="[OPTIONAL] Load (create) Skin Wound Assessment Originate and Amend test resources using the update (PUT) operation of the target FHIR server. All resource ids are pre-defined. The target FHIR server is expected to support resource create via the update (PUT) operation for client assigned ids."/>
+	<copyright value="© AEGIS.net, Inc. 2019"/>
+
+	<fixture id="Patient-patient-example">
+		<resource>
+			<reference value="../_reference/resources/Patient-patient-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Practitioner-practitioner-example">
+		<resource>
+			<reference value="../_reference/resources/Practitioner-practitioner-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-skinwoundbedappearance-originateamend-1">
+		<resource>
+			<reference value="../_reference/resources/Observation-skinwoundbedappearance-originateamend-1.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-skinwoundbed-originateamend-1">
+		<resource>
+			<reference value="../_reference/resources/Observation-skinwoundbed-originateamend-1.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-skinwoundrelatedobservationspanel-originateamend-1">
+		<resource>
+			<reference value="../_reference/resources/Observation-skinwoundrelatedobservationspanel-originateamend-1.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Condition-skinwoundassert-originateamend-1">
+		<resource>
+			<reference value="../_reference/resources/Condition-skinwoundassert-originateamend-1.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-skinwoundbedappearance-originateamend-2">
+		<resource>
+			<reference value="../_reference/resources/Observation-skinwoundbedappearance-originateamend-2.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-skinwoundbed-originateamend-2">
+		<resource>
+			<reference value="../_reference/resources/Observation-skinwoundbed-originateamend-2.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-skinwoundrelatedobservationspanel-originateamend-2">
+		<resource>
+			<reference value="../_reference/resources/Observation-skinwoundrelatedobservationspanel-originateamend-2.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Condition-skinwoundassert-originateamend-2">
+		<resource>
+			<reference value="../_reference/resources/Condition-skinwoundassert-originateamend-2.xml"/>
+		</resource>
+	</fixture>
+
+	<variable>
+		<name value="Patient-patient-example-id"/>
+		<path value="Patient/id"/>
+		<sourceId value="Patient-patient-example"/>
+	</variable>
+	<variable>
+		<name value="Practitioner-practitioner-example-id"/>
+		<path value="Practitioner/id"/>
+		<sourceId value="Practitioner-practitioner-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-skinwoundbedappearance-originateamend-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-skinwoundbedappearance-originateamend-1"/>
+	</variable>
+	<variable>
+		<name value="Observation-skinwoundbed-originateamend-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-skinwoundbed-originateamend-1"/>
+	</variable>
+	<variable>
+		<name value="Observation-skinwoundrelatedobservationspanel-originateamend-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-skinwoundrelatedobservationspanel-originateamend-1"/>
+	</variable>
+	<variable>
+		<name value="Condition-skinwoundassert-originateamend-id"/>
+		<path value="Condition/id"/>
+		<sourceId value="Condition-skinwoundassert-originateamend-1"/>
+	</variable>
+
+	<!-- No Setup -->
+
+	<test id="Step1-LoadTestResourceCreate">
+		<name value="Step1-LoadTestResourceCreate"/>
+		<description value="[OPTIONAL] Load (create) example test resources using the update (PUT) operation of the target FHIR server for use in FHIR Connectathon 22 Skin Wound Assessment Track tests."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Patient-patient-example-id}"/>
+				<sourceId value="Patient-patient-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Practitioner"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Practitioner-practitioner-example-id}"/>
+				<sourceId value="Practitioner-practitioner-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-skinwoundbedappearance-originateamend-id}"/>
+				<sourceId value="Observation-skinwoundbedappearance-originateamend-1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-skinwoundbed-originateamend-id}"/>
+				<sourceId value="Observation-skinwoundbed-originateamend-1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-skinwoundrelatedobservationspanel-originateamend-id}"/>
+				<sourceId value="Observation-skinwoundrelatedobservationspanel-originateamend-1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Condition"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Condition-skinwoundassert-originateamend-id}"/>
+				<sourceId value="Condition-skinwoundassert-originateamend-1"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-skinwoundbedappearance-originateamend-id}"/>
+				<sourceId value="Observation-skinwoundbedappearance-originateamend-2"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-skinwoundbed-originateamend-id}"/>
+				<sourceId value="Observation-skinwoundbed-originateamend-2"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-skinwoundrelatedobservationspanel-originateamend-id}"/>
+				<sourceId value="Observation-skinwoundrelatedobservationspanel-originateamend-2"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Condition"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Condition-skinwoundassert-originateamend-id}"/>
+				<sourceId value="Condition-skinwoundassert-originateamend-2"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>
