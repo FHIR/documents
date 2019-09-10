@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="skinwoundbedappearance-originateamend"/>
+  <meta>
+    <versionId value="1"/>
+    <profile value="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/WoundBedAppearance"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: skinwoundbedappearance-originateamend</p><p><b>meta</b>: </p><p><b>identifier</b>: wat-scenario-skin-wound-bed-appearance-originateamend</p><p><b>status</b>: preliminary</p><p><b>code</b>: Wound bed panel <span style="background: LightGoldenRodYellow">(Details : {LOINC code '72371-8' = 'Appearance of Wound base', given as 'Appearance of Wound base'})</span></p><p><b>subject</b>: <a href="Patient-patient-example.html">Generated Summary: id: patient-example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: female; birthDate: Feb 20, 1954</a></p></div>
+  </text>
+  <identifier>
+    <system value="https://acme.org/identifiers"/>
+    <value value="wat-scenario-skin-wound-bed-appearance-originateamend"/>
+  </identifier>
+  <status value="preliminary"/>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="72371-8"/>
+      <display value="Appearance of Wound base"/>
+    </coding>
+    <text value="Wound bed panel"/>
+  </code>
+  <subject>
+    <reference value="Patient/patient-example"/>
+  </subject>
+</Observation>

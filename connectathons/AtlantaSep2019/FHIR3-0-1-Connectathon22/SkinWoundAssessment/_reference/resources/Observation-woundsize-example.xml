@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="woundsize-example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/WoundSize"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: woundsize-example</p><p><b>meta</b>: </p><p><b>identifier</b>: watt-scenario-wound-size-1001</p><p><b>status</b>: final</p><p><b>category</b>: Exam <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/observation-category code 'exam' = 'Exam', given as 'Exam'})</span></p><p><b>code</b>: Wound size panel <span style="background: LightGoldenRodYellow">(Details : {LOINC code '72287-6' = 'Wound size panel', given as 'Wound size panel'})</span></p><p><b>subject</b>: <a href="Patient-patient-example.html">Generated Summary: id: patient-example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: female; birthDate: Feb 20, 1954</a></p><p><b>effective</b>: Mar 26, 2016</p><p><b>performer</b>: <a href="Practitioner-practitioner-example.html">Generated Summary: id: practitioner-example; 9941339108, 25456; Ronald Bone </a></p><blockquote><p><b>component</b></p><p><b>code</b>: Length of Wound <span style="background: LightGoldenRodYellow">(Details : {LOINC code '39126-8' = 'Length of Wound', given as 'Length of Wound'})</span></p><p><b>value</b>: 4 cm<span style="background: LightGoldenRodYellow"> (Details: UCUM code cm = 'cm')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: Width of Wound <span style="background: LightGoldenRodYellow">(Details : {LOINC code '39125-0' = 'Width of Wound', given as 'Width of Wound'})</span></p><p><b>value</b>: 2 cm<span style="background: LightGoldenRodYellow"> (Details: UCUM code cm = 'cm')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: Depth of Wound <span style="background: LightGoldenRodYellow">(Details : {LOINC code '39127-6' = 'Depth of Wound', given as 'Depth of Wound'})</span></p><p><b>value</b>: 0.2 cm<span style="background: LightGoldenRodYellow"> (Details: UCUM code cm = 'cm')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: Area of Wound <span style="background: LightGoldenRodYellow">(Details : {LOINC code '89260-4' = 'Area of wound', given as 'Area of Wound'})</span></p><p><b>value</b>: 4 cm2<span style="background: LightGoldenRodYellow"> (Details: UCUM code cm2 = 'cm2')</span></p></blockquote><blockquote><p><b>component</b></p><p><b>code</b>: Depth of Wound - nominal <span style="background: LightGoldenRodYellow">(Details : {LOINC code '39114-4' = 'Depth of Wound - nominal', given as 'Depth of Wound - nominal'})</span></p><p><b>value</b>: External <span style="background: LightGoldenRodYellow">(Details : {SNOMED CT code '261074009' = 'External', given as 'External'})</span></p></blockquote></div>
+  </text>
+  <extension url="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/MeasurementDeviceExt">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="44056008"/>
+        <display value="Caliper"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <identifier>
+    <system value="https://acme.org/identifiers"/>
+    <value value="watt-scenario-wound-size-1001"/>
+  </identifier>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/observation-category"/>
+      <code value="exam"/>
+      <display value="Exam"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="72287-6"/>
+      <display value="Wound size panel"/>
+    </coding>
+    <text value="Wound size panel"/>
+  </code>
+  <subject>
+    <reference value="Patient/patient-example"/>
+  </subject>
+  <effectiveDateTime value="2016-03-26"/>
+  <performer>
+    <reference value="Practitioner/practitioner-example"/>
+  </performer>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="39126-8"/>
+        <display value="Length of Wound"/>
+      </coding>
+    </code>
+    <valueQuantity>
+      <value value="4"/>
+      <unit value="cm"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="cm"/>
+    </valueQuantity>
+  </component>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="39125-0"/>
+        <display value="Width of Wound"/>
+      </coding>
+    </code>
+    <valueQuantity>
+      <value value="2"/>
+      <unit value="cm"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="cm"/>
+    </valueQuantity>
+  </component>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="39127-6"/>
+        <display value="Depth of Wound"/>
+      </coding>
+    </code>
+    <valueQuantity>
+      <value value="0.2"/>
+      <unit value="cm"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="cm"/>
+    </valueQuantity>
+  </component>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="89260-4"/>
+        <display value="Area of Wound"/>
+      </coding>
+    </code>
+    <valueQuantity>
+      <value value="4"/>
+      <unit value="cm2"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="cm2"/>
+    </valueQuantity>
+  </component>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="39114-4"/>
+        <display value="Depth of Wound - nominal"/>
+      </coding>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="261074009"/>
+        <display value="External"/>
+      </coding>
+    </valueCodeableConcept>
+  </component>
+</Observation>

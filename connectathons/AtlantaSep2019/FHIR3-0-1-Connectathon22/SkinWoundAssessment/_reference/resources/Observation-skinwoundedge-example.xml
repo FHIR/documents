@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="skinwoundedge-example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/WoundEdge"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: skinwoundedge-example</p><p><b>meta</b>: </p><p><b>identifier</b>: watt-scenario-skin-wound-edge-1001</p><p><b>status</b>: final</p><p><b>category</b>: Exam <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/observation-category code 'exam' = 'Exam', given as 'Exam'})</span></p><p><b>code</b>: Wound edge panel <span style="background: LightGoldenRodYellow">(Details : {LOINC code '89256-2' = 'Wound edge panel', given as 'Wound edge panel'})</span></p><p><b>subject</b>: <a href="Patient-patient-example.html">Generated Summary: id: patient-example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: female; birthDate: Feb 20, 1954</a></p><p><b>effective</b>: Mar 26, 2016</p><p><b>performer</b>: <a href="Practitioner-practitioner-example.html">Generated Summary: id: practitioner-example; 9941339108, 25456; Ronald Bone </a></p><blockquote><p><b>related</b></p><p><b>type</b>: has-member</p><p><b>target</b>: <a href="Observation-skinwoundedgecolor-example.html">Wound Edge Color Example. Generated Summary: id: skinwoundedgecolor-example; watt-scenario-skin-wound-edge-color-1001; <span title="Codes: {http://hl7.org/fhir/observation-category exam}">Exam</span>; <span title="Codes: {http://loinc.org 39133-4}">Wound bed panel</span>; effective: Mar 26, 2016; <span title="Codes: {http://snomed.info/sct 371251000}">White color</span></a></p></blockquote><blockquote><p><b>related</b></p><p><b>type</b>: has-member</p><p><b>target</b>: <a href="Observation-skinwoundedgedescription-example.html">Wound Edge Description Example. Generated Summary: id: skinwoundedgedescription-example; watt-scenario-skin-wound-edge-description-1001; <span title="Codes: {http://hl7.org/fhir/observation-category exam}">Exam</span>; <span title="Codes: {http://loinc.org 72304-9}">Wound bed panel</span>; effective: Mar 26, 2016; <span title="Codes: {http://snomed.info/sct 449760000}">Scab of wound edge</span></a></p></blockquote></div>
+  </text>
+  <identifier>
+    <system value="https://acme.org/identifiers"/>
+    <value value="watt-scenario-skin-wound-edge-1001"/>
+  </identifier>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/observation-category"/>
+      <code value="exam"/>
+      <display value="Exam"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="89256-2"/>
+      <display value="Wound edge panel"/>
+    </coding>
+    <text value="Wound edge panel"/>
+  </code>
+  <subject>
+    <reference value="Patient/patient-example"/>
+  </subject>
+  <effectiveDateTime value="2016-03-26"/>
+  <performer>
+    <reference value="Practitioner/practitioner-example"/>
+  </performer>
+  <related>
+    <type value="has-member"/>
+    <target>
+      <reference value="Observation/skinwoundedgecolor-example"/>
+      <display value="Wound Edge Color Example"/>
+    </target>
+  </related>
+  <related>
+    <type value="has-member"/>
+    <target>
+      <reference value="Observation/skinwoundedgedescription-example"/>
+      <display value="Wound Edge Description Example"/>
+    </target>
+  </related>
+</Observation>

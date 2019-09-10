@@ -90,7 +90,7 @@
 		</resource>
 		<param>
 			<name value="xPath" />
-			<value value="Patient/meta/versionId" />
+			<value value="Bundle/entry[1]/resource/Patient/meta/versionId" />
 		</param>
 		<param>
 			<name value="jsonPath" />

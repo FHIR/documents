@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Condition xmlns="http://hl7.org/fhir">
+  <id value="skinwoundassert-originateamend"/>
+  <meta>
+    <versionId value="1"/>
+    <profile value="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/SkinWoundAssert"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: skinwoundassert-originateamend</p><p><b>meta</b>: </p><p><b>clinicalStatus</b>: active</p><p><b>verificationStatus</b>: unknown</p><p><b>category</b>: Originate default value to be amended <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/condition-category code 'encounter-diagnosis' = 'Encounter Diagnosis', given as 'Encounter Diagnosis'})</span></p><p><b>code</b>: Originate default value to be amended <span style="background: LightGoldenRodYellow">(Details : {SNOMED CT code '125667009' = 'Contusion (disorder)', given as 'Contusion'})</span></p><p><b>subject</b>: <a href="Patient-patient-example.html">Amy V. Shaw. Generated Summary: id: patient-example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: female; birthDate: Feb 20, 1954</a></p></div>
+  </text>
+  <extension url="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/SkinWoundRelatedObservationsPanelExt">
+    <valueReference>
+      <reference value="Observation/skinwoundrelatedobservationspanel-originateamend"/>
+    </valueReference>
+  </extension>
+  <clinicalStatus value="active"/>
+  <verificationStatus value="unknown"/>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-category"/>
+      <code value="encounter-diagnosis"/>
+      <display value="Encounter Diagnosis"/>
+    </coding>
+    <text value="Originate default value to be amended"/>
+  </category>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="125667009"/>
+      <display value="Contusion"/>
+    </coding>
+    <text value="Originate default value to be amended"/>
+  </code>
+  <subject>
+    <reference value="Patient/patient-example"/>
+    <display value="Amy V. Shaw"/>
+  </subject>
+</Condition>
