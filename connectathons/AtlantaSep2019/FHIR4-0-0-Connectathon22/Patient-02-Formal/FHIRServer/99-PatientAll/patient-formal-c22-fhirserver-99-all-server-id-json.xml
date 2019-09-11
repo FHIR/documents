@@ -21,7 +21,7 @@
 				<valueString value="xPath"/>
 			</extension>
 			<extension url="value">
-				<valueString value="Patient/meta/versionId"/>
+				<valueString value="Bundle/entry[1]/resource/Patient/meta/versionId"/>
 			</extension>
 		</extension>
 		<extension url="param">
@@ -29,7 +29,7 @@
 				<valueString value="jsonPath"/>
 			</extension>
 			<extension url="value">
-				<valueString value=".meta.versionId"/>
+				<valueString value=".entry[0].resource.meta.versionId"/>
 			</extension>
 		</extension>
 		<extension url="param">

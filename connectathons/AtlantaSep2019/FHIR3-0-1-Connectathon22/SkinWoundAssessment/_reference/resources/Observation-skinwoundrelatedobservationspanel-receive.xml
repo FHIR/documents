@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="skinwoundrelatedobservationspanel-receive"/>
+  <meta>
+    <versionId value="1"/>
+    <profile value="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/SkinWoundRelatedObservationsPanel"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: skinwoundrelatedobservationspanel-receive</p><p><b>meta</b>: </p><p><b>identifier</b>: wat-scenario-skin-wound-related-observations-panel-receive</p><p><b>status</b>: amended</p><p><b>category</b>: Exam <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/observation-category code 'exam' = 'Exam', given as 'Exam'})</span></p><p><b>code</b>: Wound assessment panel <span style="background: LightGoldenRodYellow">(Details : {LOINC code '39135-9' = 'Wound assessment panel', given as 'Wound assessment panel'})</span></p><p><b>subject</b>: <a href="Patient-patient-example.html">Generated Summary: id: patient-example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: female; birthDate: Feb 20, 1954</a></p><p><b>effective</b>: Aug 15, 2016</p><p><b>performer</b>: <a href="Practitioner-practitioner-example.html">Generated Summary: id: practitioner-example; 9941339108, 25456; Ronald Bone </a></p><h3>Relateds</h3><table class="grid"><tr><td>-</td><td><b>Type</b></td><td><b>Target</b></td></tr><tr><td>*</td><td>has-member</td><td><a href="Observation-skinwoundbed-receive.html">Skin Wound Bed Receive Example. Generated Summary: id: skinwoundbed-receive; wat-scenario-skin-wound-bed-receive; status: amended; <span title="Codes: {http://hl7.org/fhir/observation-category exam}">Exam</span>; <span title="Codes: {http://loinc.org 89254-7}">Wound bed panel</span>; effective: Aug 15, 2016</a></td></tr></table></div>
+  </text>
+  <identifier>
+    <system value="https://acme.org/identifiers"/>
+    <value value="wat-scenario-skin-wound-related-observations-panel-receive"/>
+  </identifier>
+  <status value="amended"/>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/observation-category"/>
+      <code value="exam"/>
+      <display value="Exam"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="39135-9"/>
+      <display value="Wound assessment panel"/>
+    </coding>
+    <text value="Wound assessment panel"/>
+  </code>
+  <subject>
+    <reference value="Patient/patient-example"/>
+  </subject>
+  <effectiveDateTime value="2016-08-15"/>
+  <performer>
+    <reference value="Practitioner/practitioner-example"/>
+  </performer>
+  <related>
+    <type value="has-member"/>
+    <target>
+      <reference value="Observation/skinwoundbed-receive"/>
+      <display value="Skin Wound Bed Receive Example"/>
+    </target>
+  </related>
+</Observation>

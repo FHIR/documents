@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Provenance xmlns="http://hl7.org/fhir">
+  <id value="skinwoundassert-originateamend-provenance-2"/>
+  <meta>
+    <versionId value="1"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/ehrsrle-provenance"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: skinwoundassert-originateamend-provenance</p><p><b>meta</b>: </p><p><b>target</b>: <a href="Patient-patient-example.html">Generated Summary: id: patient-example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: female; birthDate: Feb 20, 1954</a></p><p><b>period</b>: Aug 15, 2019 12:00:00 AM --&gt; Aug 16, 2019 12:00:00 AM</p><p><b>recorded</b>: Aug 15, 2019 2:44:21 PM</p><p><b>policy</b>: <a href="http://ehr.familyclinic.com/fhir/Consent/25">http://ehr.familyclinic.com/fhir/Consent/25</a></p><p><b>reason</b>: records management (Details: http://hl7.org/fhir/v3/ActReason code RECORDMGT = 'records management', stated as 'records management')</p><blockquote><p><b>agent</b></p><p><b>role</b>: author (originator) <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/v3/ParticipationType code 'AUT' = 'author (originator))</span></p><p><b>who</b>: <a href="Practitioner-practitioner-example.html">Generated Summary: id: practitioner-example; 9941339108, 25456; Ronald Bone </a></p><p><b>relatedAgentType</b>: used <span style="background: LightGoldenRodYellow">(Details )</span></p></blockquote><blockquote><p><b>agent</b></p><p><b>role</b>: Application <span style="background: LightGoldenRodYellow">(Details : {DICOM code '110150' = 'Application', given as 'Application'})</span></p><p><b>who</b>: Workstation01.ehr.familyclinic.com</p></blockquote><h3>Entities</h3><table class="grid"><tr><td>-</td><td><b>Role</b></td><td><b>What[x]</b></td></tr><tr><td>*</td><td>source</td><td><a href="Condition-skinwoundassert-originateamend.html">Generated Summary: id: skinwoundassert-originateamend; clinicalStatus: active; verificationStatus: confirmed; <span title="Codes: {http://hl7.org/fhir/condition-category encounter-diagnosis}">Encounter Diagnosis</span>; <span title="Codes: {http://snomed.info/sct 400012003}">Abrasion and/or friction burn of skin</span>; assertedDate: Aug 15, 2019</a></td></tr></table><p><b>signature</b>: </p></div>
+  </text>
+  <target>
+    <reference value="Patient/patient-example"/>
+  </target>
+  <period>
+    <start value="2019-08-15"/>
+    <end value="2019-08-16"/>
+  </period>
+  <recorded value="2019-08-15T18:44:21Z"/>
+  <policy value="http://ehr.familyclinic.com/fhir/Consent/25"/>
+  <reason>
+    <system value="http://hl7.org/fhir/v3/ActReason"/>
+    <code value="RECORDMGT"/>
+    <display value="records management"/>
+  </reason>
+  <agent>
+    <role>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+        <code value="AUT"/>
+      </coding>
+    </role>
+    <whoReference>
+      <reference value="Practitioner/practitioner-example"/>
+    </whoReference>
+    <relatedAgentType>
+      <text value="used"/>
+    </relatedAgentType>
+  </agent>
+  <agent>
+    <role>
+      <coding>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+        <code value="110150"/>
+        <display value="Application"/>
+      </coding>
+    </role>
+    <whoReference>
+      <display value="Workstation01.ehr.familyclinic.com"/>
+    </whoReference>
+  </agent>
+  <entity>
+    <role value="source"/>
+    <whatReference>
+      <reference value="Condition/skinwoundassert-originateamend"/>
+    </whatReference>
+  </entity>
+  <signature>
+    <type>
+      <system value="urn:iso-astm:E1762-95:2013"/>
+      <code value="1.2.840.10065.1.12.1.14"/>
+      <display value="Source Signature"/>
+    </type>
+    <when value="2019-08-15T18:42:55Z"/>
+    <whoReference>
+      <reference value="Practitioner/practitioner-example"/>
+    </whoReference>
+    <contentType value="application/signature+xml"/>
+    <blob value="dGhpcyBibG9iIGlzIHNuaXBwZWQ="/>
+  </signature>
+</Provenance>

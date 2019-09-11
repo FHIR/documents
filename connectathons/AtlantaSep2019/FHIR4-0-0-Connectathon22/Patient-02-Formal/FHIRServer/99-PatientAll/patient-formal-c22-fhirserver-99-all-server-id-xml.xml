@@ -21,7 +21,7 @@
 				<valueString value="xPath"/>
 			</extension>
 			<extension url="value">
-				<valueString value="Patient/meta/versionId"/>
+				<valueString value="Bundle/entry[1]/resource/Patient/meta/versionId"/>
 			</extension>
 		</extension>
 		<extension url="param">
@@ -29,7 +29,7 @@
 				<valueString value="jsonPath"/>
 			</extension>
 			<extension url="value">
-				<valueString value=".meta.versionId"/>
+				<valueString value=".entry[0].resource.meta.versionId"/>
 			</extension>
 		</extension>
 		<extension url="param">
@@ -702,7 +702,7 @@
 				<description value="Confirm that the returned resource contains the expected retained identifier element and value."/>
 				<direction value="response"/>
 				<operator value="equals"/>
-				<path value="Patient/identifier/value"/>
+				<path value="Bundle/entry[1]/resource/Patient/identifier/value"/>
 				<value value="${patientIdentifier}"/>
 				<warningOnly value="false"/>
 			</assert>
@@ -712,7 +712,7 @@
 				<description value="Confirm that the returned resource contains the expected retained family name element and value."/>
 				<direction value="response"/>
 				<operator value="equals"/>
-				<path value="Patient/name/family"/>
+				<path value="Bundle/entry[1]/resource/Patient/name/family"/>
 				<value value="${patientFamilyName}"/>
 				<warningOnly value="false"/>
 			</assert>
@@ -722,7 +722,7 @@
 				<description value="Confirm that the returned resource contains the expected retained given name element and value."/>
 				<direction value="response"/>
 				<operator value="equals"/>
-				<path value="Patient/name/given"/>
+				<path value="Bundle/entry[1]/resource/Patient/name/given"/>
 				<value value="${patientGivenName}"/>
 				<warningOnly value="false"/>
 			</assert>
@@ -732,7 +732,7 @@
 				<description value="Confirm that the returned resource contains the expected retained gender element and value."/>
 				<direction value="response"/>
 				<operator value="equals"/>
-				<path value="Patient/gender"/>
+				<path value="Bundle/entry[1]/resource/Patient/gender"/>
 				<value value="${patientGender}"/>
 				<warningOnly value="false"/>
 			</assert>
@@ -742,7 +742,7 @@
 				<description value="Confirm that the returned resource contains the expected retained birthDate element and value."/>
 				<direction value="response"/>
 				<operator value="equals"/>
-				<path value="Patient/birthDate"/>
+				<path value="Bundle/entry[1]/resource/Patient/birthDate"/>
 				<value value="${patientBirthDate}"/>
 				<warningOnly value="false"/>
 			</assert>

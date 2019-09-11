@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<AuditEvent xmlns="http://hl7.org/fhir">
+  <id value="skinwoundassert-receive-auditevent"/>
+  <meta>
+    <versionId value="1"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/ehrsrle-auditevent"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: skinwoundassert-receive-auditevent</p><p><b>meta</b>: </p><p><b>type</b>: Restful Operation (Details: http://hl7.org/fhir/audit-event-type code rest = 'RESTful Operation', stated as 'Restful Operation')</p><p><b>subtype</b>: Update (Details: http://hl7.org/fhir/restful-interaction code update = 'update', stated as 'Update')</p><p><b>action</b>: U</p><p><b>recorded</b>: Aug 15, 2019 2:43:37 PM</p><p><b>outcome</b>: 0</p><blockquote><p><b>agent</b></p><p><b>userId</b>: mbrody</p><p><b>altId</b>: 601847123</p><p><b>name</b>: Michael Brody</p><p><b>requestor</b>: true</p></blockquote><blockquote><p><b>agent</b></p><p><b>role</b>: Source Role ID <span style="background: LightGoldenRodYellow">(Details : {DICOM code '110153' = 'Source Role ID', given as 'Source Role ID'})</span></p><p><b>userId</b>: 2.16.840.1.113883.4.2|2.16.840.1.113883.4.2</p><p><b>altId</b>: 6580</p><p><b>requestor</b>: false</p><h3>Networks</h3><table class="grid"><tr><td>-</td><td><b>Address</b></td><td><b>Type</b></td></tr><tr><td>*</td><td>Workstation01.ehr.familyclinic.com</td><td>1</td></tr></table></blockquote><h3>Sources</h3><table class="grid"><tr><td>-</td><td><b>Site</b></td><td><b>Identifier</b></td><td><b>Type</b></td></tr><tr><td>*</td><td>Family Clinic EHR Cloud</td><td>ehr.familyclinic.com</td><td>Web Server (Details: http://hl7.org/fhir/security-source-type code 3 = 'Web Server', stated as 'Web Server')</td></tr></table><blockquote><p><b>entity</b></p><p><b>reference</b>: <a href="Patient-patient-example.html">Generated Summary: id: patient-example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: female; birthDate: Feb 20, 1954</a></p><p><b>type</b>: Patient (Details: http://hl7.org/fhir/resource-types code Patient = 'Patient', stated as 'Patient')</p><p><b>role</b>: Patient (Details: http://hl7.org/fhir/object-role code 1 = 'Patient', stated as 'Patient')</p></blockquote><blockquote><p><b>entity</b></p><p><b>reference</b>: <a href="Condition-skinwoundassert-receive.html">Generated Summary: id: skinwoundassert-receive; clinicalStatus: active; verificationStatus: confirmed; <span title="Codes: {http://hl7.org/fhir/condition-category encounter-diagnosis}">Encounter Diagnosis</span>; <span title="Codes: {http://snomed.info/sct 400012003}">Abrasion and/or friction burn of skin</span>; assertedDate: Aug 15, 2019</a></p><p><b>type</b>: System Object (Details: http://hl7.org/fhir/audit-entity-type code 2 = 'System Object', stated as 'System Object')</p><p><b>lifecycle</b>: Receive/Retain - Lifecycle Event (Details: http://hl7.org/fhir/iso-21089-lifecycle code 9 = 'Receive/Retain - Lifecycle Event', stated as 'Receive/Retain - Lifecycle Event')</p></blockquote></div>
+  </text>
+  <type>
+    <system value="http://hl7.org/fhir/audit-event-type"/>
+    <code value="rest"/>
+    <display value="Restful Operation"/>
+  </type>
+  <subtype>
+    <system value="http://hl7.org/fhir/restful-interaction"/>
+    <code value="update"/>
+    <display value="Update"/>
+  </subtype>
+  <action value="U"/>
+  <recorded value="2019-08-15T18:43:37Z"/>
+  <outcome value="0"/>
+  <agent>
+    <userId>
+      <value value="mbrody"/>
+    </userId>
+    <altId value="601847123"/>
+    <name value="Michael Brody"/>
+    <requestor value="true"/>
+  </agent>
+  <agent>
+    <role>
+      <coding>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+        <code value="110153"/>
+        <display value="Source Role ID"/>
+      </coding>
+    </role>
+    <userId>
+      <value value="2.16.840.1.113883.4.2|2.16.840.1.113883.4.2"/>
+    </userId>
+    <altId value="6580"/>
+    <requestor value="false"/>
+    <network>
+      <address value="Workstation01.ehr.familyclinic.com"/>
+      <type value="1"/>
+    </network>
+  </agent>
+  <source>
+    <site value="Family Clinic EHR Cloud"/>
+    <identifier>
+      <value value="ehr.familyclinic.com"/>
+    </identifier>
+    <type>
+      <system value="http://hl7.org/fhir/security-source-type"/>
+      <code value="3"/>
+      <display value="Web Server"/>
+    </type>
+  </source>
+  <entity>
+    <reference>
+      <reference value="Patient/patient-example"/>
+    </reference>
+    <type>
+      <system value="http://hl7.org/fhir/resource-types"/>
+      <code value="Patient"/>
+      <display value="Patient"/>
+    </type>
+    <role>
+      <system value="http://hl7.org/fhir/object-role"/>
+      <code value="1"/>
+      <display value="Patient"/>
+    </role>
+  </entity>
+  <entity>
+    <reference>
+      <reference value="Condition/skinwoundassert-receive"/>
+    </reference>
+    <type>
+      <system value="http://hl7.org/fhir/audit-entity-type"/>
+      <code value="2"/>
+      <display value="System Object"/>
+    </type>
+    <lifecycle>
+      <system value="http://hl7.org/fhir/iso-21089-lifecycle"/>
+      <code value="9"/>
+      <display value="Receive/Retain - Lifecycle Event"/>
+    </lifecycle>
+  </entity>
+</AuditEvent>
