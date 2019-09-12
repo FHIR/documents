@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Condition xmlns="http://hl7.org/fhir">
+  <id value="skinwoundassert-receive"/>
+  <meta>
+    <versionId value="1"/>
+    <profile value="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/SkinWoundAssert"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: skinwoundassert-receive</p><p><b>meta</b>: </p><p><b>clinicalStatus</b>: active</p><p><b>verificationStatus</b>: confirmed</p><p><b>category</b>: Encounter Diagnosis <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/condition-category code 'encounter-diagnosis' = 'Encounter Diagnosis', given as 'Encounter Diagnosis'})</span></p><p><b>code</b>: Abrasion and/or friction burn of skin <span style="background: LightGoldenRodYellow">(Details : {SNOMED CT code '400012003' = 'Abrasion AND/OR friction burn of skin', given as 'Abrasion and/or friction burn of skin'})</span></p><p><b>subject</b>: <a href="Patient-patient-example.html">Amy V. Shaw. Generated Summary: id: patient-example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: female; birthDate: Feb 20, 1954</a></p><p><b>assertedDate</b>: Aug 15, 2019</p><p><b>asserter</b>: <a href="Practitioner-practitioner-example.html">Generated Summary: id: practitioner-example; 9941339108, 25456; Ronald Bone </a></p></div>
+  </text>
+  <extension url="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/SkinWoundRelatedObservationsPanelExt">
+    <valueReference>
+      <reference value="Observation/skinwoundrelatedobservationspanel-receive"/>
+    </valueReference>
+  </extension>
+  <extension url="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/SkinBodyLocationExt">
+    <extension url="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/AnatomicLocationExt">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="244185002"/>
+          <display value="Entire skin of heel"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+    <extension url="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/BodySideExt">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="85421007"/>
+          <display value="Structure of right half of body"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+    <extension url="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/BodyLocationOrientationExt">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="261788001"/>
+          <display value="Exteriorized"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+    <extension url="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/SkinUnderlyingAnatomicalStructureExt">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="2986006"/>
+          <display value="Talar facet of navicular bone of foot"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+    <extension url="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/SkinBodyLandmarkOrientationExt">
+      <extension url="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/SkinBodyLandmarkDescriptionExt">
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="80144004"/>
+            <display value="Bone structure of calcaneum"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/ClockFacePositionExt">
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="260341007"/>
+            <display value="8 o&#39;clock position"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/DistanceFromLandmarkExt">
+        <extension url="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/MeasurementDeviceExt">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="44056008"/>
+              <display value="Caliper"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/DistanceFromLandmarkMeasurementExt">
+          <valueQuantity>
+            <value value="0.5"/>
+            <unit value="cm"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="cm"/>
+          </valueQuantity>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/SurfaceOrientationExt">
+        <valueCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="255551008"/>
+            <display value="Posterior"/>
+          </coding>
+        </valueCodeableConcept>
+      </extension>
+    </extension>
+    <extension url="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/BodyLocationQualifierExt">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="255509001"/>
+          <display value="Large"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+  </extension>
+  <clinicalStatus value="active"/>
+  <verificationStatus value="confirmed"/>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/condition-category"/>
+      <code value="encounter-diagnosis"/>
+      <display value="Encounter Diagnosis"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="400012003"/>
+      <display value="Abrasion and/or friction burn of skin"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/patient-example"/>
+    <display value="Amy V. Shaw"/>
+  </subject>
+  <assertedDate value="2019-08-15"/>
+  <asserter>
+    <reference value="Practitioner/practitioner-example"/>
+  </asserter>
+</Condition>

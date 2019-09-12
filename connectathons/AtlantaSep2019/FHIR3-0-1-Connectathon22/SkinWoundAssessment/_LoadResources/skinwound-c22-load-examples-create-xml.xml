@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="skinwound-c22-load-examples-create-xml"/>
+	<url value="http://wildfhir.aegis.net/fhir3-0-1/TestScript/skinwound-c22-load-examples-create-xml"/>
+	<name value="SkinWoundC22LoadExamplesCreateXML"/>
+	<title value="FHIR Connectathon 22 - Skin Wound Assessment - Load Example Resources - Create - XML"/>
+	<status value="draft"/>
+	<date value="2019-08-20"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="[OPTIONAL] Load (create) Skin Wound Assessment example test resources using the update (PUT) operation of the target FHIR server. All resource ids are pre-defined. The target FHIR server is expected to support resource create via the update (PUT) operation for client assigned ids."/>
+	<copyright value="© AEGIS.net, Inc. 2019"/>
+
+	<fixture id="Patient-patient-example">
+		<resource>
+			<reference value="../_reference/resources/Patient-patient-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Practitioner-practitioner-example">
+		<resource>
+			<reference value="../_reference/resources/Practitioner-practitioner-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-skinwoundbedappearance-example">
+		<resource>
+			<reference value="../_reference/resources/Observation-skinwoundbedappearance-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-skinwoundbedcolor-example">
+		<resource>
+			<reference value="../_reference/resources/Observation-skinwoundbedcolor-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-skinwoundbed-example">
+		<resource>
+			<reference value="../_reference/resources/Observation-skinwoundbed-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-skinwoundedgecolor-example">
+		<resource>
+			<reference value="../_reference/resources/Observation-skinwoundedgecolor-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-skinwoundedgedescription-example">
+		<resource>
+			<reference value="../_reference/resources/Observation-skinwoundedgedescription-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-skinwoundedge-example">
+		<resource>
+			<reference value="../_reference/resources/Observation-skinwoundedge-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-woundsize-example">
+		<resource>
+			<reference value="../_reference/resources/Observation-woundsize-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Observation-skinwoundrelatedobservationspanel-example">
+		<resource>
+			<reference value="../_reference/resources/Observation-skinwoundrelatedobservationspanel-example.xml"/>
+		</resource>
+	</fixture>
+	<fixture id="Condition-skinwoundassert-example">
+		<resource>
+			<reference value="../_reference/resources/Condition-skinwoundassert-example.xml"/>
+		</resource>
+	</fixture>
+
+	<variable>
+		<name value="Patient-patient-example-id"/>
+		<path value="Patient/id"/>
+		<sourceId value="Patient-patient-example"/>
+	</variable>
+	<variable>
+		<name value="Practitioner-practitioner-example-id"/>
+		<path value="Practitioner/id"/>
+		<sourceId value="Practitioner-practitioner-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-skinwoundbedappearance-example-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-skinwoundbedappearance-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-skinwoundbedcolor-example-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-skinwoundbedcolor-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-skinwoundbed-example-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-skinwoundbed-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-skinwoundedgecolor-example-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-skinwoundedgecolor-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-skinwoundedgedescription-example-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-skinwoundedgedescription-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-skinwoundedge-example-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-skinwoundedge-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-woundsize-example-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-woundsize-example"/>
+	</variable>
+	<variable>
+		<name value="Observation-skinwoundrelatedobservationspanel-example-id"/>
+		<path value="Observation/id"/>
+		<sourceId value="Observation-skinwoundrelatedobservationspanel-example"/>
+	</variable>
+	<variable>
+		<name value="Condition-skinwoundassert-example-id"/>
+		<path value="Condition/id"/>
+		<sourceId value="Condition-skinwoundassert-example"/>
+	</variable>
+
+	<!-- No Setup -->
+
+	<test id="Step1-LoadTestResourceCreate">
+		<name value="Step1-LoadTestResourceCreate"/>
+		<description value="[OPTIONAL] Load (create) example test resources using the update (PUT) operation of the target FHIR server for use in FHIR Connectathon 22 Skin Wound Assessment Track tests."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Patient"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Patient-patient-example-id}"/>
+				<sourceId value="Patient-patient-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Practitioner"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Practitioner-practitioner-example-id}"/>
+				<sourceId value="Practitioner-practitioner-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-skinwoundbedappearance-example-id}"/>
+				<sourceId value="Observation-skinwoundbedappearance-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-skinwoundbedcolor-example-id}"/>
+				<sourceId value="Observation-skinwoundbedcolor-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-skinwoundbed-example-id}"/>
+				<sourceId value="Observation-skinwoundbed-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-skinwoundedgecolor-example-id}"/>
+				<sourceId value="Observation-skinwoundedgecolor-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-skinwoundedgedescription-example-id}"/>
+				<sourceId value="Observation-skinwoundedgedescription-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-skinwoundedge-example-id}"/>
+				<sourceId value="Observation-skinwoundedge-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-woundsize-example-id}"/>
+				<sourceId value="Observation-woundsize-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Observation"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Observation-skinwoundrelatedobservationspanel-example-id}"/>
+				<sourceId value="Observation-skinwoundrelatedobservationspanel-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="update"/>
+				</type>
+				<resource value="Condition"/>
+				<accept value="xml"/>
+				<contentType value="xml"/>
+				<params value="/${Condition-skinwoundassert-example-id}"/>
+				<sourceId value="Condition-skinwoundassert-example"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK) or 201(Created)."/>
+				<operator value="in"/>
+				<responseCode value="200,201"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

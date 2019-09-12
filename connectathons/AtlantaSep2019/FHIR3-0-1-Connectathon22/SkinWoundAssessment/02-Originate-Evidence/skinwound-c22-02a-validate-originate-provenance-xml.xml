@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="skinwound-c22-02a-validate-originate-provenance-xml"/>
+	<url value="http://wildfhir.aegis.net/fhir3-0-1/TestScript/skinwound-c22-02a-validate-originate-provenance-xml"/>
+	<name value="SkinWoundC2202aValidateProvenanceXML"/>
+	<title value="FHIR Connectathon 22 - Skin Wound Assessment - Scenario 02a - Validate Originate Provenance - XML"/>
+	<status value="draft"/>
+	<date value="2019-08-21"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Skin Wound Assessment Track - Test Scenario 02a Validate Originate Provenance - search using a known Patient id and Date with XML formatted data."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+
+	<origin>
+		<index value="1" />
+		<profile>
+			<system value="http://hl7.org/fhir/testscript-profile-origin-types"/>
+			<code value="FHIR-Client"/>
+		</profile>
+	</origin>
+	<destination>
+		<index value="1" />
+		<profile>
+			<system value="http://hl7.org/fhir/testscript-profile-destination-types"/>
+			<code value="FHIR-Server"/>
+		</profile>
+	</destination>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+
+	<variable>
+		<name value="patientId"/>
+		<description value="Enter the patient id search parameter the origin system will send to the destination system."/>
+		<hint value="[Patient id]" />
+	</variable>
+	<variable>
+		<name value="provenanceDate"/>
+		<description value="Enter the date search parameter the origin system will send to the destination system."/>
+		<hint value="[yyyy-MM-dd]" />
+	</variable>
+
+	<test id="02a-SkinWoundProvenanceSearch">
+		<name value="02a-SkinWoundProvenanceSearch"/>
+		<description value="Search for RLE Provenance evidence with XML content matching a known Patient id and Date. The expected response content is a searchset Bundle resource containing all matching RLE Provenance evidence resource instances in XML format."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Provenance"/>
+				<description value="Search for matching RLE Provenance evidence resources and verify the search results."/>
+				<accept value="xml"/>
+				<contentType value="none"/>
+				<destination value="1" />
+				<origin value="1" />
+				<params value="?_profile=http://hl7.org/fhir/StructureDefinition/ehrsrle-provenance&amp;recorded=${provenanceDate}&amp;patient=${patientId}"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client requested an Accept of the FHIR XML mime type 'application/fhir+xml'."/>
+				<direction value="request"/>
+				<headerField value="Accept"/>
+				<operator value="contains"/>
+				<value value="application/fhir+xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client did not request a Content-Type. Warning only to allow for systems that automatically send Content-Type."/>
+				<direction value="request"/>
+				<headerField value="Content-Type"/>
+				<operator value="empty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type is present."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="notEmpty"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/fhir+xml'."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type is searchset."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/type"/>
+				<value value="searchset"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned searchset Bundle contains at least 1 entry."/>
+				<direction value="response"/>
+				<expression value="Bundle.entry.count()"/>
+				<operator value="greaterThan"/>
+				<value value="0"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle conforms to the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

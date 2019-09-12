@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="skinwoundbedappearance-example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/skinwoundassessment/StructureDefinition/WoundBedAppearance"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: skinwoundbedappearance-example</p><p><b>meta</b>: </p><p><b>identifier</b>: watt-scenario-skin-wound-bed-appearance-1001</p><p><b>status</b>: final</p><p><b>category</b>: Exam <span style="background: LightGoldenRodYellow">(Details : {http://hl7.org/fhir/observation-category code 'exam' = 'Exam', given as 'Exam'})</span></p><p><b>code</b>: Wound bed panel <span style="background: LightGoldenRodYellow">(Details : {LOINC code '72371-8' = 'Appearance of Wound base', given as 'Appearance of Wound base'})</span></p><p><b>subject</b>: <a href="Patient-patient-example.html">Generated Summary: id: patient-example; Medical Record Number = 1032702 (USUAL); active; Amy V. Shaw ; ph: 555-555-5555(HOME), amy.shaw@example.com; gender: female; birthDate: Feb 20, 1954</a></p><p><b>effective</b>: Mar 26, 2016</p><p><b>performer</b>: <a href="Practitioner-practitioner-example.html">Generated Summary: id: practitioner-example; 9941339108, 25456; Ronald Bone </a></p><p><b>value</b>: Granulation of tissue <span style="background: LightGoldenRodYellow">(Details : {SNOMED CT code '225541009' = 'Granulation of tissue', given as 'Granulation of tissue'})</span></p><h3>Components</h3><table class="grid"><tr><td>-</td><td><b>Code</b></td><td><b>Value[x]</b></td></tr><tr><td>*</td><td>Area of identified wound bed appearance/Area of wound bed of Wound base <span style="background: LightGoldenRodYellow">(Details : {LOINC code '72370-0' = 'Area of identified wound bed appearance/Area of wound bed of Wound base', given as 'Area of identified wound bed appearance/Area of wound bed of Wound base'})</span></td><td>4 cm2<span style="background: LightGoldenRodYellow"> (Details: UCUM code % = '%')</span></td></tr></table></div>
+  </text>
+  <identifier>
+    <system value="https://acme.org/identifiers"/>
+    <value value="watt-scenario-skin-wound-bed-appearance-1001"/>
+  </identifier>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/observation-category"/>
+      <code value="exam"/>
+      <display value="Exam"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="72371-8"/>
+      <display value="Appearance of Wound base"/>
+    </coding>
+    <text value="Wound bed panel"/>
+  </code>
+  <subject>
+    <reference value="Patient/patient-example"/>
+  </subject>
+  <effectiveDateTime value="2016-03-26"/>
+  <performer>
+    <reference value="Practitioner/practitioner-example"/>
+  </performer>
+  <valueCodeableConcept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="225541009"/>
+      <display value="Granulation of tissue"/>
+    </coding>
+  </valueCodeableConcept>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="72370-0"/>
+        <display value="Area of identified wound bed appearance/Area of wound bed of Wound base"/>
+      </coding>
+    </code>
+    <valueQuantity>
+      <value value="4"/>
+      <unit value="cm2"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="%"/>
+    </valueQuantity>
+  </component>
+</Observation>
