@@ -19,15 +19,6 @@ Why = rationale, purpose of action taken
 Why = rationale, purpose of information capture or update
 
 Granularity of provenance (e.g., binding authorship to content) may be at the dataset or element level.",How is provenance represented?,,,,,,Financial Mgmt,,,,,,,,,,,,,Gary Dickinson ,CentriHealth ,,gary.dickinson@ehr-standards.com ,,,,,,
-54,US Da Vinci PCDE,,,,,,,(profiles),,NEG,,23987,,,,,,,,,,Financial Mgmt,,,,,,,,,,,,,Bob Milius ,NMDP/CIBMTR ,,bmilius@nmdp.org ,,,,,,
-55,US Da Vinci PCDE,,,,,,,(profiles),,NEG,,23994,,,,,,,,,,Financial Mgmt,,,,,,,,,,,,,Bob Milius ,NMDP/CIBMTR ,,bmilius@nmdp.org ,,,,,,
-56,US Da Vinci PCDE,,,,,,,(profiles),,NEG,,23995,,,,,,,,,,Financial Mgmt,,,,,,,,,,,,,Bob Milius ,NMDP/CIBMTR ,,bmilius@nmdp.org ,,,,,,
-57,US Da Vinci PCDE,,,,,,,(profiles),,NEG,,23997,,,,,,,,,,Financial Mgmt,,,,,,,,,,,,,Bob Milius ,NMDP/CIBMTR ,,bmilius@nmdp.org ,,,,,,
-58,US Da Vinci PCDE,,,,,,,(profiles),,NEG,,23998,,,,,,,,,,Financial Mgmt,,,,,,,,,,,,,Bob Milius ,NMDP/CIBMTR ,,bmilius@nmdp.org ,,,,,,
-59,US Da Vinci PCDE,,,,,,,(profiles),,NEG,,23999,,,,,,,,,,Financial Mgmt,,,,,,,,,,,,,Bob Milius ,NMDP/CIBMTR ,,bmilius@nmdp.org ,,,,,,
-60,US Da Vinci PCDE,,,,,,,(profiles),,A-Q,,24001,,,,,,,,,,Financial Mgmt,,,,,,,,,,,,,Bob Milius ,NMDP/CIBMTR ,,bmilius@nmdp.org ,,,,,,
-61,US Da Vinci PCDE,,,,,,,(profiles),,NEG,,24003,,,,,,,,,,Financial Mgmt,,,,,,,,,,,,,Bob Milius ,NMDP/CIBMTR ,,bmilius@nmdp.org ,,,,,,
-62,US Da Vinci PCDE,,,,,,,(profiles),,NEG,,24005,,,,,,,,,,Financial Mgmt,,,,,,,,,,,,,Bob Milius ,NMDP/CIBMTR ,,bmilius@nmdp.org ,,,,,,
 63,US Da Vinci PCDE,,,,,,,(profiles),http://build.fhir.org/ig/HL7/davinci-pcde/spec.html,A-C,,,,,Text field does not require all the content in the human readable section-- need to consider what should be considered critical for human readable content.,What should be considered critical for human readable content,,,,,,Financial Mgmt,,,,,,,,,,,,,Julia Skapik ,Cognitive Medical ,,jskapik@cognitivemedicine.com ,,,,,,
 64,US Da Vinci PCDE,,,,,,,(profiles),http://build.fhir.org/ig/HL7/davinci-pcde/spec.html,A-C,,,,,If authorization will not happen using a patient authorization using OAUTH then recommend IG reference a shared approach using communication request. Consider duplicating HREX or CDEX approaches. Clarify what requests and what responses are appropriate and how it is applied to the record. Please also clarify the LOINC code for the communication request and category.,Recommend IG reference a shared approach for authorization using communication request.,,,,,,Financial Mgmt,,,,,,,,,,,,,Julia Skapik ,Cognitive Medical ,,jskapik@cognitivemedicine.com ,,,,,,
 65,US Da Vinci PCDE,,,,,,,(profiles),http://build.fhir.org/ig/HL7/davinci-pcde/spec.html,A-C,,,,,Need title fields to be clearer for users to implement consistently-- what is the document and section title to contain? Should it reference any patient or plan identifier? ,Need title fields to be clearer for users to implement consistently.,,,,,,Financial Mgmt,,,,,,,,,,,,,Julia Skapik ,Cognitive Medical ,,jskapik@cognitivemedicine.com ,,,,,,
