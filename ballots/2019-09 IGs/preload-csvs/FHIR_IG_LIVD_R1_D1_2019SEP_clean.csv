@@ -1,0 +1,119 @@
+Comment Number,Ballot,Chapter,Section,Page #,Line #,Artifact ID,Resource(s),HTML Page name(s),URL,Vote and Type,Sub-category,Tracker #,Existing Wording,Proposed Wording,Ballot Comment,Summary,In person resolution requested,Comment grouping,Schedule,Triage Note,Pubs,Disposition WG,Disposition,Disposition Comment or Retract/Withdraw details,Disposition/Retract/ Withdrawal Date,Mover / seconder,For ,Against,Abstain,Retracted / Withdrawn,Disposition External Organization,Responsible Person,Change Applied,Substantive Change,Submitted By,Organization,On behalf of,Commenter Email,Submitter Tracking ID,Referred To,Received From,Notes,,
+1,US LOINC – IVD Test Code (LIVD),,Links,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/downloads.html#links,A-T,,,,,"After downloading: •This full IG
+Used Index.html to view downloaded content but receive error message: This page can’t be displayed",Error message page can't be displayed,,,,,,Orders & Observations,,,,,,,,,,,,,Freida Hall ,Quest Diagnostics ,Freida Hall ,freida.x.hall@questdiagnostics.com ,,,,,,
+2,US LOINC – IVD Test Code (LIVD),,LOINC Mapping Summary,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/general.html#loinc-mapping-summary,A-S,Enhancement,,"...while the Laboratory creates test result codes for the tests they provide... 
+For Lab test results...",,"For consistent references, please change all references to 'Lab' or 'lab' to 'Laboratory' or 'laboratory' ",Suggestion for consistent reference,,,,,,Orders & Observations,,,,,,,,,,,,,Freida Hall ,Quest Diagnostics ,Freida Hall ,freida.x.hall@questdiagnostics.com ,,,,,,
+3,US LOINC – IVD Test Code (LIVD),,LOINC Mapping Summary,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/general.html#loinc-mapping-summary,A-T,,,Antoher example may be that an IVD test for serum glucose could map ,Another example may be that an IVD test for serum glucose could map ,,Typo,,,,,,Orders & Observations,,,,,,,,,,,,,Freida Hall ,Quest Diagnostics ,Freida Hall ,freida.x.hall@questdiagnostics.com ,,,,,,
+4,US LOINC – IVD Test Code (LIVD),,Equipment,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/general.html#equipment,A-C,,,Note that types and cardinality are aligned with values reported in Laboratory Analytical Workflow (LAW) Profile OBX-18 Equipment Instance Identifier.,Note that types and cardinality are aligned with values reported in Integrating the Healthcare Enterprise (IHE) Laboratory Analytical Workflow (LAW) Profile OBX-18 Equipment Instance Identifier.,Clarify this an IHE (not HL7) artifact,Clarify document reference,,,,,,Orders & Observations,,,,,,,,,,,,,Freida Hall ,Quest Diagnostics ,Freida Hall ,freida.x.hall@questdiagnostics.com ,,,,,,
+5,US LOINC – IVD Test Code (LIVD),,1.1.3.4,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/general.html,A-T,,,**_IVD Test Result_**,IVD Test Result,"[General Principles and Design]
+
+I think the ""**_"" in front and ""_**"" in back should be a formating (something like bold italic perhaps?)","Formating change to ""IVD Test Result""",,,,,,Orders & Observations,,,,,,,,,,,,,Ralf Herzog ,Roche ,,Ralf.Herzog@roche.com ,,,,,,
+6,US LOINC – IVD Test Code (LIVD),,1.3,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/acknowledgements.html,A-T,,,http://ivdconnectivity.org/livd/,http://ivdconnectivity.org/livd/,"[Acknowledgements]
+
+Should be a hyperlink.",should be a hyperlink (is currently none),,,,,,Orders & Observations,,,,,,,,,,,,,Ralf Herzog ,Roche Diagnostics International ,,Ralf.Herzog@roche.com ,,,,,,
+7,US LOINC – IVD Test Code (LIVD),,LIVDObservationDefinition,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/observationdefinition-uv-livd.html,A-S,Enhancement,,,,"[CodeSystem]
+[StructureDefinition: LIVDCodeSystemFragmentLOINC]
+
+Recommend adding a description of what the profile is for such as a scope statemen.",Add LOINC code system fragment description,,,,,,Orders & Observations,,,,,,,,,,,,,Susan Matney ,Intermountain Healthcare ,,susan.matney@imail.org ,,,,,,
+8,US LOINC – IVD Test Code (LIVD),,LIVDObservationDefinition,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/observationdefinition-uv-livd.html,A-A,,,,,"[CodeSystem]
+[StructureDefinition: LIVDCodeSystemFragmentLOINC]
+
+Don't understand why many elements such experimental  description, jurisdiction, use context, purpose and contact have been constrained out.",Why are LOINC code system fragment elements constrained out?,,,,,,Orders & Observations,,,,,,,,,,,,,Susan Matney ,Intermountain Healthcare ,,susan.matney@imail.org ,,,,,,
+9,US LOINC – IVD Test Code (LIVD),,LIVDObservationDefinition,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/observationdefinition-uv-livd.html,NEG,Clarification,,,,"[CodeSystem]
+[StructureDefinition: LIVDCodeSystemFragmentLOINC]
+
+Unclear as to why property of the code system is sliced into the LOINC axis is also duplicated under ""concept"". It seems like it should be one place.",Why is  LOINC code system fragment property duplicated?,,,,,,Orders & Observations,,,,,,,,,,,,,Susan Matney ,Intermountain Healthcare ,,susan.matney@imail.org ,,,,,,
+10,US LOINC – IVD Test Code (LIVD),,StructureDefinition: LIVDCodeSystemFragmentLOINC,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/codesystem-loinc-frag-uv-livd.html,NEG,Enhancement,,,,"[CodeSystem]
+[Snapshot]
+
+Under concept.property.value suggest constraining to the property datatype. Same for system.value, scale_typ, etc.",Constrain LOINC code system fragment concept.property.value to the property datatype,,,,,,Orders & Observations,,,,,,,,,,,,,Susan Matney ,Intermountain Healthcare ,,susan.matney@imail.org ,,,,,,
+11,US LOINC – IVD Test Code (LIVD),,StructureDefinition: LIVDCodeSystemFragmentLOINC,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/codesystem-loinc-frag-uv-livd.html,A-S,Clarification,,,,"[CodeSystem]
+[Snapshot]
+
+Need to understand why all LOINC axes need to be specified. Please add examples.",Need explanation and examples why all LOINC code system fragment axes are specified,,,,,,Orders & Observations,,,,,,,,,,,,,Susan Matney ,Intermountain Healthcare ,,susan.matney@imail.org ,,,,,,
+12,US LOINC – IVD Test Code (LIVD),,StructureDefinition: LIVDBundle,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/bundle-uv-livd.html,A-Q,,,,,"[Bundle]
+[Snapshot]
+
+entry cardinality requires at least six, unclear as to why ""six""?","Explain reason for ""six"" required Bundle entries ",,,,,,Orders & Observations,,,,,,,,,,,,,Susan Matney ,Intermountain Healthcare ,,susan.matney@imail.org ,,,,,,
+13,US LOINC – IVD Test Code (LIVD),,StructureDefinition: LIVDBundle,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/bundle-uv-livd.html,A-Q,,,,,"[Bundle]
+[Snapshot]
+
+Missing a timestamp, wondering why the elements removed have been removed",Bundle timestamp missing and explain removed elements,,,,,,Orders & Observations,,,,,,,,,,,,,Susan Matney ,Intermountain Healthcare ,,susan.matney@imail.org ,,,,,,
+14,US LOINC – IVD Test Code (LIVD),,General Principles and Design,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/general.html,A-S,Enhancement,,,,"[None]
+
+A diagram of the work/data flow would really be helpful.",Add work and data flow diagrams,,,,,,Orders & Observations,,,,,,,,,,,,,Susan Matney ,Intermountain Healthcare ,,susan.matney@imail.org ,,,,,,
+15,US LOINC – IVD Test Code (LIVD),,StructureDefinition: LIVDObservationDefinition,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/observationdefinition-uv-livd.html,NEG,Enhancement,,,,"[Observation]
+[Snapshot]
+
+Suggest keeping category and restrict to ""lab"" as the category (although you may want pathology as well.)","Keep category and restrict to ""lab""",,,,,,Orders & Observations,,,,,,,,,,,,,Susan Matney ,Intermountain Healthcare ,,susan.matney@imail.org ,,,,,,
+16,US LOINC – IVD Test Code (LIVD),,,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/devicedefinition-uv-livd.html,NEG,Enhancement,,,,"[DeviceDefinition]
+[Snapshot]
+
+Concerned that model number still exists but device name and identifier has been constrained out. For usability, suggest keeping device name and identifier.",Keep DeviceDefinition name and identifier,,,,,,Orders & Observations,,,,,,,,,,,,,Susan Matney ,Intermountain Healthcare ,,susan.matney@imail.org ,,,,,,
+17,US LOINC – IVD Test Code (LIVD),,,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/conceptmap-uv-livd.html,NEG,Enhancement,,,,"[ConceptMap]
+[StructureDefinition: LIVDConceptMap]
+
+All contrained out data elements should be used. Especially identifier and version. If you decide to keep them constrained out, please explain why.","Keep constrained out ConceptMap elements, including identifier and version, ",,,,,,Orders & Observations,,,,,,,,,,,,,Susan Matney ,Intermountain Healthcare ,,susan.matney@imail.org ,,,,,,
+18,US LOINC – IVD Test Code (LIVD),,1.1.1,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/general.html#loinc-mapping-summary,A-T,,, Logical Observation Identifiers Names and Codes (LOINC(R)) ,,ensure the Registered Trademark ® displays as such,Fix Registered Trademark display,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+19,US LOINC – IVD Test Code (LIVD),,1.1.1,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/general.html#loinc-mapping-summary,A-T,,,"The manufacturer assigns Vendor Analyte Code to their devices, while the Laboratory creates test result codes for the tests they provide.","The manufacturer assigns a Vendor Analyte Code to their devices, while the Laboratory creates test result codes for the tests they provide.",,Fix typo,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+20,US LOINC – IVD Test Code (LIVD),,1.1.1,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/general.html#loinc-mapping-summary,NEG,Correction,,"Vendor Analyte Code = 1067 (Gluc) is mapped in the LIS to:
+LIS Test Result Code = 123 - Random Glucose
+LIS Test Result Code = 456 - Fasting Glucose
+LIS Test Result Code = 789 - 1 Hour Glucose
+LIVD Mapping Vendor Analyte Code = 1067 (Gluc) suggests:
+Based on vendor comment [comment], vendor result description [result] A, vendor specimen description [specimen] ""cerebrospinal"", LOINC axes => 2342-4
+Based on vendor comment [comment], vendor result description [result] B, vendor specimen description ""urine"", LOINC axes => 63382-6
+Based on vendor comment [comment], vendor result description [result] C, vendor specimen description ""serum/plasma"", LOINC axes => 20438-8
+Consequently, most appropriate mapping:
+LIS Test Result Code = 123 - Random Glucose
+LOINC Code = 2342-4
+LIS Test Result Code = 456 - Fasting Glucose
+LOINC Code = 63382-6
+LIS Test Result Code = 789 - 1 Hour Glucose
+LOINC Code = 20438-8",,"This example is not correct - the vendor comments refer to different specimen, while the LIS test codes refer to different timing / other parameters about the Glucose test- sugget to update to showcase the specimen difference instead",Fix example so it is consistent with vendor comments,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+21,US LOINC – IVD Test Code (LIVD),,1.1.2,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/general.html#livd-concepts,A-T,,,Antoher example may be that an IVD test for serum glucose could map to one LOINC code considering a mass concentration (e.g. mg/dL) or another LOINC considering a substance concentration (e.g. mol/L).,Another example may be that an IVD test for serum glucose could map to one LOINC code considering a mass concentration (e.g. mg/dL) or another LOINC considering a substance concentration (e.g. mol/L).,,Fix typo,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+22,US LOINC – IVD Test Code (LIVD),,1.1.5,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/general.html#livd-data-mappings-to-fhir,A-T,,,"Before continue reading this implementation guide, it’s important to ..","Before continuing to read this implementation guide, it’s important to ...",,Fix wording,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+23,US LOINC – IVD Test Code (LIVD),,1.1.5.1,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/general.html#overview,A-T,,,The concepts described above are mapped to a number of FHIR resource …,The concepts described above are mapped to a number of FHIR resources …,,Fix typo,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+24,US LOINC – IVD Test Code (LIVD),,1.1.5.1,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/general.html#overview,A-T,,,"Each LIVD publication must include at least one device, and can be many.","Each LIVD publication must include at least one device, and can cover many.",,Fix wording,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+25,US LOINC – IVD Test Code (LIVD),,1.1.5.1,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/general.html#overview,A-Q,,,,,"In the list below the diagram in this section are we missing a description of the LIVDLOINCValueset - or should that have been removed from the diagram?
+",Is LIVDLOINCValueset description missing or should the value set be removed from the diagram?,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+26,US LOINC – IVD Test Code (LIVD),,1.1.5.2,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/general.html#detailed-mapping,A-T,,,ObservvationDefinition.ext-device,ObservationDefinition.ext-device,,Fix typo,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+27,US LOINC – IVD Test Code (LIVD),,1.1.5.2,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/general.html#detailed-mapping,A-T,,,ObservationDefinitio.validCodedValueSet,ObservationDefinition.validCodedValueSet,,Fix typo,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+28,US LOINC – IVD Test Code (LIVD),,1.1.5.2,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/general.html#detailed-mapping,A-T,,,"ConceptMap.group.element.target.dependsOn.property
+ConceptMap.group.element.target.dependsOn.value",,needs to get moved 1 column over,Move text (in Detailed Mapping) to correct column,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+29,US LOINC – IVD Test Code (LIVD),,1.2,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/glossary.html#glossary,A-S,Correction,,"If the qualitative test result value is an organism, then the SNOMED CT codes from the Organism hierarchy are the required mapping.","If the qualitative test result value is an organism, then the SNOMED CT codes from the Organism hierarchy are the required mapping in the US.",[Glossary],"Add ""in the US"" to qualitative test result value description in glossary entry",,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+30,US LOINC – IVD Test Code (LIVD),,1.3,,,,,(NA),http://hl7.org/fhir/uv/livd/2019SEP/acknowledgements.html#acknowledgements,A-Q,,,"LIS vendors
+Cerner Corporation
+Epic
+LabCorp",,"[Acknowledgements]
+
+Should LabCorp be listed as Lab implementer rather than LIS vendor?",Change LabCorp to implementer in Acknowledgements?,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+31,US LOINC – IVD Test Code (LIVD),,2.14.2,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/valueset-livd-bundle-type.html#allowed-types-of-bundles-for-the-livd-catalog,A-Q,,,,,"[Allowed types of bundles for the LIVD catalog]
+
+it would be helpful to provide guidance how transaction is expected to be used in conjunction with the guide compared to collection",Add text clarifying the use of transaction vs. collection Bundle type,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+32,US LOINC – IVD Test Code (LIVD),,2.3.1.1,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/catalog-uv-livd.html#profile,A-T,,,LIVD Mappipng Publication LOINC Code,LIVD Mapping Publication LOINC Code,"[Formal Views of Profile Content]
+
+Should this be the LOINC actually created for LIVD instead?",Fix typo,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+33,US LOINC – IVD Test Code (LIVD),,2.3.1.2,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/catalog-uv-livd.html#tx,A-Q,,,"Composition.attester.mode
+Composition.relatesTo.code
+Composition.event.code",,"[Terminology Binding]
+
+these elements are all not supported, why are they listed in the vocab section?",Why are unsupported Composition elements listed in the vocab section?,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+34,US LOINC – IVD Test Code (LIVD),,2.4.1.2,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/observationdefinition-uv-livd.html#tx,A-Q,,,"ObservationDefinition.qualifiedInterval.category
+ObservationDefinition.qualifiedInterval.context 
+ObservationDefinition.qualifiedInterval.appliesTo 
+ObservationDefinition.qualifiedInterval.gender",,"[Terminology Binding]
+
+these elements are all not supported, why are they listed in the vocab section?",Why are unsupported ObservationDefinition elements listed in the vocab section?,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+35,US LOINC – IVD Test Code (LIVD),,2.5.1.2,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/devicedefinition-uv-livd.html#tx,A-Q,,,DeviceDefinition.deviceName.type,,"[Terminology Binding]
+
+this element is not supported, why is it listed in the vocab section?",Why are unsupported DeviceDefinition elements listed in the vocab section?,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+36,US LOINC – IVD Test Code (LIVD),,2.6.1.1,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/conceptmap-uv-livd.html#profile,A-Q,,,ConceptMap.group.element.target.dependsOn.Other,,"[Formal Views of Profile Content]
+
+is it useful to have this be named other - are we saying this could be method or expected result type or units of measure?","Is ""other"" a useful slice name for ConceptMap.group.element.target.dependsOn?",,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+37,US LOINC – IVD Test Code (LIVD),,2.6.1.1,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/conceptmap-uv-livd.html#profile,A-T,,,ConceptMap.group.element.target.dependsOn.Other.value 1.1 string Value of the result property,Value of the other  property,[Formal Views of Profile Content],Fix typo,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+38,US LOINC – IVD Test Code (LIVD),,2.6.1.2,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/conceptmap-uv-livd.html#tx,A-Q,,,ConceptMap.group.unmapped.mode,,"[Terminology Binding]
+
+this element is not supported, why is it listed in the vocab section?",Why is the unsupported ConceptMap.group.unmapped.mode element listed in the vocab section?,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+39,US LOINC – IVD Test Code (LIVD),,2.7.1,,,,,(profiles),http://hl7.org/fhir/uv/livd/2019SEP/extension-ext-capability.html,A-S,Enhancement,,,,"It would be good to explain how this extension is intended to be used either as part of this section, or in the definiton in the deviceDefinition.",Explain how the test capability extension is used in DeviceDefinition,,,,,,Orders & Observations,,,,,,,,,,,,,Riki Merrick ,"Vernetzt, LLC ",,rikimerrick@gmail.com ,,,,,,
+40,US LOINC – IVD Test Code (LIVD),,,,,,,(NA),,A-A,,,,,"While the IG needs work to make it easier to understand the implementation, and use in practice, I vote affirmatively.","IG still needs work to understand its implementation and use, but voting affirmative ",,,,,,Orders & Observations,,,,,,,,,,,,,Bret Heale ,Intermountain Healthcare ,,Heale@imail.org ,,,,,,
