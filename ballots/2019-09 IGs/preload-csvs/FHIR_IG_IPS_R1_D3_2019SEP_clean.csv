@@ -11,11 +11,11 @@ Especially when modelling laboratoy tests it is often nesessarry / interesting t
 4,International Patient Summary,,IPS Composition,,,,,(profiles),http://hl7.org/fhir/uv/ips/2019SEP/ipsStructure.html,A-S,Enhancement,,,,"[IPS Structure]
 
 Suggest adding Nutrition under the optional section of the IPS Composition. While a general, healthful diet may not be necessary to know for unplanned care, it can be a patient safety issue if a patient is on a dysphagia diet,  has a fluid restriction, or needs enteral feeding instructions, for example, thus the suggestion to add Nutrition.",Add Nutrition as an optional section,,,,,,Patient Care,,,,,,,,,,,,,Becky Gradl ,,,bgradl@eatright.org ,,,,,,
-5,International Patient Summary,,,,,,,,,A-S,,23770,,,,,,,,,,,,,,,,,,,,,,,François Macary ,HL7 France ,,francois.macary@phast.fr ,,,,,,
-6,International Patient Summary,,,,,,,,,A-S,,23771,,,,,,,,,,,,,,,,,,,,,,,François Macary ,HL7 France ,,francois.macary@phast.fr ,,,,,,
-7,International Patient Summary,,,,,,,,,A-S,,23974,,,,,,,,,,,,,,,,,,,,,,,François Macary ,HL7 France ,,francois.macary@phast.fr ,,,,,,
-8,International Patient Summary,,,,,,,,,A-T,,23975,,,,,,,,,,,,,,,,,,,,,,,François Macary ,HL7 France ,,francois.macary@phast.fr ,,,,,,
-9,International Patient Summary,,,,,,,,,A-C,,23979,,,,,,,,,,,,,,,,,,,,,,,François Macary ,HL7 France ,,francois.macary@phast.fr ,,,,,,
+5,International Patient Summary,,,,,,,,,A-S,,23770,,,,,,,,,,,,,,,,,,,,,,,Francois Macary ,HL7 France ,,francois.macary@phast.fr ,,,,,,
+6,International Patient Summary,,,,,,,,,A-S,,23771,,,,,,,,,,,,,,,,,,,,,,,Francois Macary ,HL7 France ,,francois.macary@phast.fr ,,,,,,
+7,International Patient Summary,,,,,,,,,A-S,,23974,,,,,,,,,,,,,,,,,,,,,,,Francois Macary ,HL7 France ,,francois.macary@phast.fr ,,,,,,
+8,International Patient Summary,,,,,,,,,A-T,,23975,,,,,,,,,,,,,,,,,,,,,,,Francois Macary ,HL7 France ,,francois.macary@phast.fr ,,,,,,
+9,International Patient Summary,,,,,,,,,A-C,,23979,,,,,,,,,,,,,,,,,,,,,,,Francois Macary ,HL7 France ,,francois.macary@phast.fr ,,,,,,
 10,International Patient Summary,,,,,,,,,A-C,,23880,,,,,,,,,,,,,,,,,,,,,,,Giorgio Cangioli ,HL7 Italy ,,giorgio.cangioli@gmail.com ,,,,,,
 11,International Patient Summary,,,,,,,,,A-C,,23771,,,,,,,,,,,,,,,,,,,,,,,Giorgio Cangioli ,HL7 Italy ,,giorgio.cangioli@gmail.com ,,,,,,
 12,International Patient Summary,,,,,,,,,A-S,,23881,,,,,,,,,,,,,,,,,,,,,,,Giorgio Cangioli ,HL7 Italy ,,giorgio.cangioli@gmail.com ,,,,,,
