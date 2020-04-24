@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Todo: need to capture submitter ballot row going forward -->
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xs">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xs">
   <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
   <xsl:variable name="inScopeItems" as="xs:string*" select="/*:Tracker/*:TrackerItem/@id"/>
 <!--  <xsl:variable name="inScopeItems" as="xs:string*" select="tokenize(/*:items, ',')"/>-->
@@ -10,8 +10,6 @@
   <xsl:variable name="items" as="element(item)*" select="$allItems[ballot='2015-May Core']"/>-->
   <xsl:template match="/">
 <xsl:message select="count($inScopeItems)"/>
-<xsl:message select="count($allItems)"/>
-<xsl:message select="count($items)"/>
 <xsl:message select="$inScopeItems[1]"/>
     <xsl:if test="count($items)=0">
       <xsl:message terminate="yes" select="'Must have a file named tracker.xml that is the download from https://docs.google.com/a/lmckenzie.com/uc?id=0B285oCHDUr09Q2VENW9Ta005QkE'"/>

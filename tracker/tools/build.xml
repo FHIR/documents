@@ -50,8 +50,16 @@
   <property name="csv.monitor" location="${dir.csvs}/FHIR_Query_Tracker_monitor.csv"/>
   <property name="csv.files" location="${dir.csvs}/FHIR_Query_Tracker_files.csv"/>
   <!-- temporary files -->
-  <property name="xml.csvfiles" location="${dir.temp}/csvs.xml"/>
+  <property name="xml.csvfiles1" location="${dir.temp}/csvs1.xml"/>
+  <property name="xml.csvfiles2" location="${dir.temp}/csvs2.xml"/>
+  <property name="xml.csvfiles3" location="${dir.temp}/csvs3.xml"/>
+  <property name="xml.processedFiles1" location="${dir.temp}/processed1.xml"/>
+  <property name="xml.processedFiles2" location="${dir.temp}/processed2.xml"/>
+  <property name="xml.processedFiles3" location="${dir.temp}/processed3.xml"/>
   <property name="xml.processedFiles" location="${dir.temp}/processed.xml"/>
+  <property name="xml.tracker1" location="${dir.temp}/tracker1.xml"/>
+  <property name="xml.tracker2" location="${dir.temp}/tracker2.xml"/>
+  <property name="xml.tracker3" location="${dir.temp}/tracker3.xml"/>
   <property name="properties.tracker" location="${dir.temp}/properties.txt"/>
   <property name="txt.interestedEmails" location="${dir.temp}/interestedEmails.txt"/>
   <property name="txt.issueEmails" location="${dir.temp}/issueEmails.txt"/>
@@ -91,21 +99,12 @@
   </target>
   <!-- Turn CSVs into XML -->
   <target name="NormalizeCsvs" depends="Queries">
-    <concat destfile="${xml.csvfiles}">
+    <concat destfile="${xml.csvfiles1}">
       <resources>
-        <file name="${csv.date}"/>
-        <file name="${csv.extrafields}"/>
-        <file name="${csv.extra}"/>
-        <file name="${csv.user}"/>
         <file name="${csv.tracker}"/>
-        <file name="${csv.comments}"/>
         <file name="${csv.custom}"/>
-        <file name="${csv.audit}"/>
-        <file name="${csv.duplicate}"/>
-        <file name="${csv.monitor}"/>
-        <file name="${csv.files}"/>
+        <file name="${csv.extra}"/>
       </resources>
-      <header filtering="no">&lt;?xml version="1.0" encoding="iso-8859-1" standalone="no"?&gt;&lt;files&gt;&lt;file&gt;</header>
       <filterchain>
         <striplinebreaks/>
         <tokenfilter>
@@ -128,19 +127,120 @@
           <replacestring from="&#xC2;" to=""/>
         </tokenfilter>
       </filterchain>
+      <header filtering="no">&lt;?xml version="1.0" encoding="iso-8859-1" standalone="no"?&gt;&lt;files&gt;&lt;file&gt;</header>
+      <footer filtering="no">&lt;/file&gt;&lt;/files&gt;</footer>
+    </concat>
+    <concat destfile="${xml.csvfiles2}">
+      <resources>
+        <file name="${csv.tracker}"/>
+        <file name="${csv.extrafields}"/>
+        <file name="${csv.audit}"/>
+      </resources>
+      <filterchain>
+        <striplinebreaks/>
+        <tokenfilter>
+          <replacestring from="&amp;" to="&amp;amp;"/>
+          <replacestring from="&lt;" to="&amp;lt;"/>
+          <replacestring from="===," to="&#x0a;"/>
+          <replacestring from="*start*," to="&lt;/file&gt;&lt;file&gt;"/>
+          <replacestring from="amp;rdquo;" to="amp;quot;"/>
+          <replacestring from="amp;ldquo;" to="amp;quot;"/>
+          <replacestring from="amp;rsquo;" to="amp;apos;"/>
+          <replacestring from="amp;lsquo;" to="amp;apos;"/>
+          <replacestring from="amp;bull;" to="amp;#x95;"/>
+          <replacestring from="amp;nbsp;" to="amp;#xA0;"/>
+          <replacestring from="amp;ndash;" to="amp;#x96;"/>
+          <replacestring from="amp;hellip;" to="amp;#x85;"/>
+          <replacestring from="amp;auml;" to="amp;#xC4;"/>
+          <replacestring from="amp;uuml;" to="amp;#xDC;"/>
+          <replacestring from="amp;copy;" to="amp;#xA9;"/>
+          <replacestring from="amp;sect;" to="amp;#xA7;"/>
+          <replacestring from="&#xC2;" to=""/>
+        </tokenfilter>
+      </filterchain>
+      <header filtering="no">&lt;?xml version="1.0" encoding="iso-8859-1" standalone="no"?&gt;&lt;files&gt;&lt;file&gt;</header>
+      <footer filtering="no">&lt;/file&gt;&lt;/files&gt;</footer>
+    </concat>
+    <concat destfile="${xml.csvfiles3}">
+      <resources>
+        <file name="${csv.date}"/>
+        <file name="${csv.user}"/>
+        <file name="${csv.comments}"/>
+        <file name="${csv.duplicate}"/>
+        <file name="${csv.monitor}"/>
+        <file name="${csv.files}"/>
+      </resources>
+      <filterchain>
+        <striplinebreaks/>
+        <tokenfilter>
+          <replacestring from="&amp;" to="&amp;amp;"/>
+          <replacestring from="&lt;" to="&amp;lt;"/>
+          <replacestring from="===," to="&#x0a;"/>
+          <replacestring from="*start*," to="&lt;/file&gt;&lt;file&gt;"/>
+          <replacestring from="amp;rdquo;" to="amp;quot;"/>
+          <replacestring from="amp;ldquo;" to="amp;quot;"/>
+          <replacestring from="amp;rsquo;" to="amp;apos;"/>
+          <replacestring from="amp;lsquo;" to="amp;apos;"/>
+          <replacestring from="amp;bull;" to="amp;#x95;"/>
+          <replacestring from="amp;nbsp;" to="amp;#xA0;"/>
+          <replacestring from="amp;ndash;" to="amp;#x96;"/>
+          <replacestring from="amp;hellip;" to="amp;#x85;"/>
+          <replacestring from="amp;auml;" to="amp;#xC4;"/>
+          <replacestring from="amp;uuml;" to="amp;#xDC;"/>
+          <replacestring from="amp;copy;" to="amp;#xA9;"/>
+          <replacestring from="amp;sect;" to="amp;#xA7;"/>
+          <replacestring from="&#xC2;" to=""/>
+        </tokenfilter>
+      </filterchain>
+      <header filtering="no">&lt;?xml version="1.0" encoding="iso-8859-1" standalone="no"?&gt;&lt;files&gt;&lt;file&gt;</header>
       <footer filtering="no">&lt;/file&gt;&lt;/files&gt;</footer>
     </concat>
   </target>
 
   <target name="TrackerXML" depends="NormalizeCsvs">
-    <xslt in="${xml.csvfiles}" out="${xml.processedFiles}" style="${dir.tools}/trackersToXML.xslt" classpathref="saxon.path">
+    <xslt in="${xml.csvfiles1}" out="${xml.processedFiles1}" style="${dir.tools}/trackersToXML.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+      <param name="file1" expression="tracker"/>
+      <param name="file2" expression="custom"/>
+      <param name="file3" expression="extra"/>
+    </xslt>
+    <xslt in="${xml.csvfiles2}" out="${xml.processedFiles2}" style="${dir.tools}/trackersToXML.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+      <param name="file1" expression="tracker"/>
+      <param name="file2" expression="extrafields"/>
+      <param name="file3" expression="audit"/>
+    </xslt>
+    <xslt in="${xml.csvfiles3}" out="${xml.processedFiles3}" style="${dir.tools}/trackersToXML.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+      <param name="file1" expression="date"/>
+      <param name="file2" expression="user"/>
+      <param name="file3" expression="comments"/>
+      <param name="file4" expression="dups"/>
+      <param name="file5" expression="monitor"/>
+      <param name="file6" expression="files"/>
+    </xslt>
+    <xslt in="${xml.processedFiles1}" out="${xml.tracker1}" style="${dir.tools}/normalizeTrackerInfoA.xslt" classpathref="saxon.path">
       <factory name="${saxon.classname}"/>
     </xslt>
-    <xslt in="${xml.processedFiles}" out="${xml.tracker}" style="${dir.tools}/normalizeTrackerInfo.xslt" classpathref="saxon.path">
+    <xslt in="${xml.processedFiles2}" out="${xml.tracker2}" style="${dir.tools}/normalizeTrackerInfoB.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+    <xslt in="${xml.processedFiles3}" out="${xml.tracker3}" style="${dir.tools}/normalizeTrackerInfoC.xslt" classpathref="saxon.path">
+      <factory name="${saxon.classname}"/>
+    </xslt>
+    <concat destfile="${xml.processedFiles}">
+      <resources>
+        <file name="${xml.tracker1}"/>
+        <file name="${xml.tracker2}"/>
+        <file name="${xml.tracker3}"/>
+      </resources>
+      <header filtering="no">&lt;?xml version="1.0" encoding="utf-8" standalone="no"?&gt;&lt;files&gt;&lt;file&gt;</header>
+      <footer filtering="no">&lt;/file&gt;&lt;/files&gt;</footer>
+    </concat>
+    <xslt in="${xml.processedFiles}" out="${xml.tracker}" style="${dir.tools}/normalizeTrackerInfoFull.xslt" classpathref="saxon.path">
       <factory name="${saxon.classname}"/>
     </xslt>
   </target>
-
   <target name="ContinuousReports" depends="TrackerXML">
     <xslt in="${xml.tracker}" out="${xml.issues}" style="${dir.tools}/trackerIssues.xslt" classpathref="saxon.path">
       <factory name="${saxon.classname}"/>

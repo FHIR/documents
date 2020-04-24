@@ -172,12 +172,12 @@
         <xsl:with-param name="message" select="'Item is making a substantive change to a frozen artifact for a frozen release - FMG approval is required'"/>
         <xsl:with-param name="elements" select="('targetrelease', 'changeType', 'resources', 'hTMLPages')"/>
       </xsl:call-template>
-      <xsl:call-template name="showError">
 <!-- Todo: check this -->
+<!--      <xsl:call-template name="showError">
         <xsl:with-param name="items" select="$relevantItems[@targetrelease and not(@status=('Resolved - Change required', 'Applied'))]"/>
         <xsl:with-param name="message" select="'A target release has been specified but no change has yet been agreed.  (Indicate desired release for a proposed change via comment).'"/>
         <xsl:with-param name="elements" select="('status', 'targetrelease')"/>
-      </xsl:call-template>
+      </xsl:call-template>-->
       <!-- Change is substantive to frozen artifact and targetRelease is frozen release -->
       <!-- Target release is specified and status isn't Resolved - Change required or Applied -->
       <xsl:call-template name="showError">

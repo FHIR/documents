@@ -1,5 +1,11 @@
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fn="fn" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs fn">
   <xsl:output indent="yes"/>
+  <xsl:param name="file1"/>
+  <xsl:param name="file2"/>
+  <xsl:param name="file3"/>
+  <xsl:param name="file4"/>
+  <xsl:param name="file5"/>
+  <xsl:param name="file6"/>
   <xsl:template match="/">
     <xsl:apply-templates mode="convertCSV" select="."/>
   </xsl:template>
@@ -12,17 +18,24 @@
   <xsl:template mode="convertCSV" match="file">
     <xsl:variable name="name">
       <xsl:choose>
-        <xsl:when test="position()=2">date</xsl:when>
-        <xsl:when test="position()=3">extrafields</xsl:when>
-        <xsl:when test="position()=4">extra</xsl:when>
-        <xsl:when test="position()=5">user</xsl:when>
-        <xsl:when test="position()=6">trackers</xsl:when>
-        <xsl:when test="position()=7">comments</xsl:when>
-        <xsl:when test="position()=8">custom</xsl:when>
-        <xsl:when test="position()=9">audit</xsl:when>
-        <xsl:when test="position()=10">dups</xsl:when>
-        <xsl:when test="position()=11">monitor</xsl:when>
-        <xsl:when test="position()=12">files</xsl:when>
+        <xsl:when test="position()=2">
+          <xsl:value-of select="$file1"/>
+        </xsl:when>
+        <xsl:when test="position()=3">
+          <xsl:value-of select="$file2"/>
+        </xsl:when>
+        <xsl:when test="position()=4">
+          <xsl:value-of select="$file3"/>
+        </xsl:when>
+        <xsl:when test="position()=5">
+          <xsl:value-of select="$file4"/>
+        </xsl:when>
+        <xsl:when test="position()=6">
+          <xsl:value-of select="$file5"/>
+        </xsl:when>
+        <xsl:when test="position()=7">
+          <xsl:value-of select="$file6"/>
+        </xsl:when>
       </xsl:choose>
     </xsl:variable>
     <xsl:copy-of select="fn:convertCSV(., $name)"/>
