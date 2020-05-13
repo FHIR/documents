@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<id value="extensional-case-4"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A selection of codes from http://hl7.org/fhir/administrative-gender</div>
+	</text>
+	<url value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-4"/>
+	<identifier>
+		<value value="extensional-case-4"/>
+	</identifier>
+	<version value="R4"/>
+	<name value="TSCntn1Ext4"/>
+	<title value="Terminology Services Connectation #1 Extensional case #4"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<publisher value="Grahame Grieve"/>
+	<contact>
+		<telecom>
+			<system value="email"/>
+			<value value="grahame@healthintersections.com.au"/>
+		</telecom>
+	</contact>
+	<description value="A mixed enumeration of codes from FHIR, and from V2 administrative gender code"/>
+	<compose>
+		<include>
+			<!-- note - the source for this is at http://hl7.org/fhir/2017Jan/valueset-administrative-gender.html -->
+			<system value="http://hl7.org/fhir/administrative-gender"/>
+			<concept>
+				<code value="male"/>
+				<display value="Male"/>
+			</concept>
+			<concept>
+				<code value="female"/>
+				<display value="Female"/>
+			</concept>
+			<concept>
+				<code value="other"/>
+				<display value="Other"/>
+			</concept>
+			<concept>
+				<code value="unknown"/>
+				<display value="Unknown"/>
+			</concept>
+		</include>
+		<include>
+			<!-- note - the source for this is at http://hl7.org/fhir/v2/0001/index.html -->
+			<system value="http://terminology.hl7.org/CodeSystem/v2-0001"/>
+			<concept>
+				<code value="A"/>
+				<display value="Ambiguous"/>
+			</concept>
+			<concept>
+				<code value="F"/>
+				<display value="Female"/>
+			</concept>
+			<concept>
+				<code value="M"/>
+				<display value="Male"/>
+			</concept>
+			<concept>
+				<code value="N"/>
+				<display value="Not applicable"/>
+			</concept>
+			<concept>
+				<code value="O"/>
+				<display value="Other"/>
+			</concept>
+			<concept>
+				<code value="U"/>
+				<display value="Unknown"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>

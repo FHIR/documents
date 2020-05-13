@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<parameter>
+		<name value="url"/>
+		<valueUri value="http://loinc.org"/>
+	</parameter>
+	<parameter>
+		<name value="code"/>
+		<valueCode value="11378-7"/>
+	</parameter>
+	<parameter>
+		<name value="display"/>
+		<valueString value="Systolic blood pressure at First encounter"/>
+	</parameter>
+</Parameters>

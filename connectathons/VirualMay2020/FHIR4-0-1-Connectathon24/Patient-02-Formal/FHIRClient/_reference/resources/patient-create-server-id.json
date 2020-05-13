@@ -1,0 +1,20 @@
+{
+  "resourceType": "Patient",
+  "identifier": [
+    {
+      "value": "CREATE-IDENTIFIER${CD7}"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "CREATE-FAMILY",
+      "given": [
+        "CREATE-GIVEN"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "2001-01-01"
+}
