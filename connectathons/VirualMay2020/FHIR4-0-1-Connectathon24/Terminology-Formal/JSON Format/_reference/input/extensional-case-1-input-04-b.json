@@ -1,0 +1,17 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "code",
+      "valueCode": "male"
+    },
+    {
+      "name": "system",
+      "valueUri": "http://hl7.org/fhir/administrative-gender"
+    },
+    {
+      "name": "display",
+      "valueString": "MaleX"
+    }
+  ]
+}

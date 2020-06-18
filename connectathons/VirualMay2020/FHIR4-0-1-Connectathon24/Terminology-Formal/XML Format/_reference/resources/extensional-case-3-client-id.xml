@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<id value="extensional-case-3"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A selection of codes from http://snomed.info/sct</div>
+	</text>
+	<url value="http://www.healthintersections.com.au/fhir/ValueSet/extensional-case-3"/>
+	<identifier>
+		<value value="extensional-case-3"/>
+	</identifier>
+	<version value="R4"/>
+	<name value="TSCntn1Ext3"/>
+	<title value="Terminology Services Connectation #1 Extensional case #3"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<publisher value="Grahame Grieve"/>
+	<contact>
+		<telecom>
+			<system value="email"/>
+			<value value="grahame@healthintersections.com.au"/>
+		</telecom>
+	</contact>
+	<description value="an enumeration of codes defined by SNOMED"/>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
+			<concept>
+				<code value="371037005"/>
+				<display value="Systolic dysfunction"/>
+			</concept>
+			<concept>
+				<code value="56218007"/>
+				<display value="Systolic hypertension"/>
+			</concept>
+			<concept>
+				<code value="271657009"/>
+				<display value="Systolic cardiac thrill"/>
+			</concept>
+			<concept>
+				<code value="429457004"/>
+				<display value="Systolic essential hypertension"/>
+			</concept>
+			<concept>
+				<code value="417996009"/>
+				<display value="Systolic heart failure"/>
+			</concept>
+			<concept>
+				<code value="44623008"/>
+				<display value="Systolic ejection sound"/>
+			</concept>
+			<concept>
+				<code value="248677002"/>
+				<display value="Systolic flow murmur"/>
+			</concept>
+			<concept>
+				<code value="31574009"/>
+				<display value="Systolic murmur"/>
+			</concept>
+			<concept>
+				<code value="120871000119108"/>
+				<display value="Systolic heart failure stage B"/>
+			</concept>
+			<concept>
+				<code value="120851000119104"/>
+				<display value="Systolic heart failure stage D"/>
+			</concept>
+			<concept>
+				<code value="120861000119102"/>
+				<display value="Systolic heart failure stage C"/>
+			</concept>
+			<concept>
+				<code value="609556008"/>
+				<display value="Systolic heart failure stage A"/>
+			</concept>
+			<concept>
+				<code value="61926008"/>
+				<display value="Basal systolic thrill"/>
+			</concept>
+			<concept>
+				<code value="248672008"/>
+				<display value="Soft systolic murmur"/>
+			</concept>
+			<concept>
+				<code value="65254001"/>
+				<display value="Late systolic murmur"/>
+			</concept>
+			<concept>
+				<code value="89985004"/>
+				<display value="Early systolic murmur"/>
+			</concept>
+			<concept>
+				<code value="248692001"/>
+				<display value="Mid-systolic click"/>
+			</concept>
+			<concept>
+				<code value="248678007"/>
+				<display value="Mitral late systolic murmur"/>
+			</concept>
+			<concept>
+				<code value="443254009"/>
+				<display value="Acute systolic heart failure"/>
+			</concept>
+			<concept>
+				<code value="441481004"/>
+				<display value="Chronic systolic heart failure"/>
+			</concept>
+			<concept>
+				<code value="48965007"/>
+				<display value="Single non-ejection systolic click"/>
+			</concept>
+			<concept>
+				<code value="68519006"/>
+				<display value="Multiple non-ejection systolic clicks"/>
+			</concept>
+			<concept>
+				<code value="134401001"/>
+				<display value="Left ventricular systolic dysfunction"/>
+			</concept>
+			<concept>
+				<code value="416158002"/>
+				<display value="Right ventricular systolic dysfunction"/>
+			</concept>
+			<concept>
+				<code value="68494000"/>
+				<display value="Mid-systolic murmur"/>
+			</concept>
+			<concept>
+				<code value="442304009"/>
+				<display value="Combined systolic and diastolic dysfunction"/>
+			</concept>
+			<concept>
+				<code value="18352002"/>
+				<display value="Abnormal systolic arterial pressure"/>
+			</concept>
+			<concept>
+				<code value="407596008"/>
+				<display value="Echocardiogram shows left ventricular systolic dysfunction"/>
+			</concept>
+			<concept>
+				<code value="371857005"/>
+				<display value="Normal left ventricular systolic function and wall motion"/>
+			</concept>
+			<concept>
+				<code value="430396006"/>
+				<display value="Chronic systolic dysfunction of left ventricle"/>
+			</concept>
+			<concept>
+				<code value="12929001"/>
+				<display value="Normal systolic arterial pressure"/>
+			</concept>
+			<concept>
+				<code value="275285009"/>
+				<display value="On examination - systolic murmur"/>
+			</concept>
+			<concept>
+				<code value="443253003"/>
+				<display value="Acute on chronic systolic heart failure"/>
+			</concept>
+			<concept>
+				<code value="371862006"/>
+				<display value="Depression of left ventricular systolic function"/>
+			</concept>
+			<concept>
+				<code value="81010002"/>
+				<display value="Decreased systolic arterial pressure"/>
+			</concept>
+			<concept>
+				<code value="163030003"/>
+				<display value="On examination - Systolic BP reading"/>
+			</concept>
+			<concept>
+				<code value="163069009"/>
+				<display value="On examination - systolic cardiac thrill"/>
+			</concept>
+			<concept>
+				<code value="18050000"/>
+				<display value="Increased systolic arterial pressure"/>
+			</concept>
+			<concept>
+				<code value="163094005"/>
+				<display value="On examination - pulmonary systolic murmur"/>
+			</concept>
+			<concept>
+				<code value="426263006"/>
+				<display value="Congestive heart failure due to left ventricular systolic dysfunction"/>
+			</concept>
+			<concept>
+				<code value="417081007"/>
+				<display value="Systolic anterior movement of mitral valve"/>
+			</concept>
+			<concept>
+				<code value="248679004"/>
+				<display value="Mitral pansystolic murmur"/>
+			</concept>
+			<concept>
+				<code value="248687003"/>
+				<display value="Presystolic mitral murmur"/>
+			</concept>
+			<concept>
+				<code value="248688008"/>
+				<display value="Presystolic tricuspid murmur"/>
+			</concept>
+			<concept>
+				<code value="71201008"/>
+				<display value="Pansystolic murmur"/>
+			</concept>
+			<concept>
+				<code value="23795000"/>
+				<display value="Presystolic murmur"/>
+			</concept>
+			<concept>
+				<code value="23795000"/>
+				<display value="Presystolic murmur"/>
+			</concept>
+			<concept>
+				<code value="248680001"/>
+				<display value="Tricuspid inspiratory pansystolic murmur"/>
+			</concept>
+			<concept>
+				<code value="248681002"/>
+				<display value="Left parasternal pansystolic murmur"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>

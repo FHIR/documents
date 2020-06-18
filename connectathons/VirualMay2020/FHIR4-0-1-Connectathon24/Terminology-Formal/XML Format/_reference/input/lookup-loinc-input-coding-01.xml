@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<parameter>
+		<name value="coding"/>
+		<valueCoding>
+			<system value="http://loinc.org"/>
+			<code value="1963-8"/>
+		</valueCoding>
+	</parameter>
+</Parameters>
