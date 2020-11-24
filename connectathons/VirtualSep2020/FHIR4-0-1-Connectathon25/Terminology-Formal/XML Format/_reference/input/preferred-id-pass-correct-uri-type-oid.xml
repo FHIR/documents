@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<parameter>
+		<name value="id"/>
+		<valueString value="http://snomed.info/sct"/>
+	</parameter>
+	<parameter>
+		<name value="type"/>
+		<valueCode value="oid"/>
+	</parameter>
+</Parameters>

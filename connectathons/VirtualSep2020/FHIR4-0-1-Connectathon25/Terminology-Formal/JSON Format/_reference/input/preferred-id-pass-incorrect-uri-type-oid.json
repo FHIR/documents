@@ -1,0 +1,13 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "id",
+      "valueString": "http://snomed.info/sctx"
+    },
+    {
+      "name": "type",
+      "valueCode": "oid"
+    }
+  ]
+}

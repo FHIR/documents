@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        <b>Generated Narrative with Details</b>
+      </p>
+
+      <p>
+        <b>identifier</b>: CREATE-IDENTIFIER      
+      </p>
+      <p>
+        <b>active</b>: true      
+      </p>
+      <p>
+        <b>name</b>: CREATE-GIVEN CREATE-FAMILY (OFFICIAL)      
+      </p>
+      <p>
+        <b>gender</b>: MALE      
+      </p>
+      <p>
+        <b>birthDate</b>: Jan 1, 2001      
+      </p>
+    </div>
+  </text>
+	<identifier>
+		<value value="CREATE-IDENTIFIER${CD7}"/>
+	</identifier>
+	<active value="true"/>
+	<name>
+		<use value="official"/>
+		<family value="CREATE-FAMILY"/>
+		<given value="CREATE-GIVEN"/>
+	</name>
+	<gender value="male"/>
+	<birthDate value="2001-01-01"/>
+</Patient>

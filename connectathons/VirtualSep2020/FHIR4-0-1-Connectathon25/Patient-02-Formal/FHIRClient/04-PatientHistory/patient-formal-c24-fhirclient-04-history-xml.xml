@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="patient-formal-c24-fhirclient-04-history-xml"/>
+	<meta>
+		<profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml"><p>FHIR Connectathon 24 - Patient - Formal Testing - FHIR Client - History - XML</p></div>
+	</text>
+
+	<url value="http://wildfhir.aegis.net/fhir4-0-0/TestScript/patient-formal-c24-fhirclient-04-history-xml"/>
+	<name value="FHIRC24PatientClientHistoryXML"/>
+	<title value="FHIR Connectathon 24 - Patient - Formal Testing - FHIR Client - History - XML"/>
+	<status value="active"/>
+	<date value="2020-04-24"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="Patient Track - Formal Testing - tests external FHIR Client and Server to retrieve the history of a XML formatted Patient with minimum data elements: identifier, name.family, name.given, gender and birthDate. The origin and destination systems must support the history operation."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+
+	<origin>
+		<index value="1"/>
+		<profile>
+			<system value="http://terminology.hl7.org/CodeSystem/testscript-profile-origin-types"/>
+			<code value="FHIR-Client"/>
+		</profile>
+	</origin>
+	<destination>
+		<index value="1"/>
+		<profile>
+			<system value="http://terminology.hl7.org/CodeSystem/testscript-profile-destination-types"/>
+			<code value="FHIR-Server"/>
+		</profile>
+	</destination>
+
+	<profile id="bundle-profile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+	</profile>
+
+	<variable>
+		<name value="patientResourceId"/>
+		<description value="Enter the patient FHIR resource id the origin system will send to the destination system."/>
+		<hint value="[Resource Id]"/>
+	</variable>
+
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Retrieve the Patient to use as a target fixture."/>
+				<accept value="json"/>
+				<destination value="1"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/${patientResourceId}"/>
+				<responseId value="resource-read"/>
+			</operation>
+		</action>	
+	</setup>
+
+	<test id="01-PatientHistory">
+		<name value="PatientHistory"/>
+		<description value="Test the history-instance operation with XML content. The expected response content is a history Bundle resource containing all versions of the Patient resource in XML format."/>
+
+		<action>
+			<operation>
+				<!-- <type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="history"/>
+				</type> -->
+				<resource value="Patient"/>
+				<description value="Retrieve the history Bundle for the Patient and verify the contents."/>
+				<accept value="xml"/>
+				<destination value="1"/>
+				<encodeRequestUrl value="true"/>
+				<origin value="1"/>
+				<params value="/${patientResourceId}/_history"/>
+				<!-- <targetId value="resource-read"/> -->
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client requested an Accept of the FHIR XML mime type 'application/fhir+xml'. Warning only to allow for review."/>
+				<direction value="request"/>
+				<headerField value="Accept"/>
+				<operator value="contains"/>
+				<value value="application/fhir+xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the client did not request a Content-Type. Warning only to allow for systems that automatically send Content-Type."/>
+				<direction value="request"/>
+				<headerField value="Content-Type"/>
+				<operator value="empty"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type is present."/>
+				<direction value="response"/>
+				<headerField value="Content-Type"/>
+				<operator value="notEmpty"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP Header Content-Type contains the FHIR mime-type 'application/fhir+xml'. Warning only to allow for review."/>
+				<direction value="response"/>
+				<contentType value="xml"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<direction value="response"/>
+				<resource value="Bundle"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle conforms to the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="bundle-profile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle type is history."/>
+				<direction value="response"/>
+				<operator value="equals"/>
+				<path value="Bundle/type"/>
+				<value value="history"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned history Bundle contains at least 1 entry."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<path value="Bundle/total"/>
+				<value value="0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the Bundle total value matches or is greater than the number of entries in the Bundle."/>
+				<direction value="response"/>
+				<expression value="Bundle.total.toInteger() &gt;= entry.count()"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains a Patient meta versionId element and value."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Bundle/entry[1]/resource/Patient/meta/versionId"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains a Patient identifier element and value."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Bundle/entry[1]/resource/Patient/identifier/value"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains a Patient family name element and value."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Bundle/entry[1]/resource/Patient/name/family"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle resource first entry contains a Patient updated birthDate element and value."/>
+				<direction value="response"/>
+				<operator value="notEmpty"/>
+				<path value="Bundle/entry[1]/resource/Patient/birthDate"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>
