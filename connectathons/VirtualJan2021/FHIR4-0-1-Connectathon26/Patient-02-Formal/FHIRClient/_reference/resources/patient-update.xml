@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+	<id value="${patientResourceId}"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        <b>Generated Narrative with Details</b>
+      </p>
+
+      <p>
+        <b>identifier</b>: UPDATE-IDENTIFIER      
+      </p>
+      <p>
+        <b>active</b>: true      
+      </p>
+      <p>
+        <b>name</b>: UPDATE-GIVEN UPDATE-FAMILY (OFFICIAL)      
+      </p>
+      <p>
+        <b>gender</b>: MALE      
+      </p>
+      <p>
+        <b>birthDate</b>: Feb 3, 2001      
+      </p>
+    </div>
+  </text>
+	<identifier>
+		<value value="UPDATE-IDENTIFIER${CD7}"/>
+	</identifier>
+	<active value="true"/>
+	<name>
+		<use value="official"/>
+		<family value="UPDATE-FAMILY"/>
+		<given value="UPDATE-GIVEN"/>
+	</name>
+	<gender value="male"/>
+	<birthDate value="2001-02-03"/>
+</Patient>

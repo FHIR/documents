@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<parameter>
+		<name value="system"/>
+		<valueUri value="http://snomed.info/sctx"/>
+	</parameter>
+	<parameter>
+		<name value="codingA"/>
+		<valueCoding>
+			<system value="http://snomed.info/sctx"/>
+			<code value="3738000X"/>
+		</valueCoding>
+	</parameter>
+	<parameter>
+		<name value="codingB"/>
+		<valueCoding>
+			<system value="http://snomed.info/sctx"/>
+			<code value="235856003X"/>
+		</valueCoding>
+	</parameter>
+</Parameters>

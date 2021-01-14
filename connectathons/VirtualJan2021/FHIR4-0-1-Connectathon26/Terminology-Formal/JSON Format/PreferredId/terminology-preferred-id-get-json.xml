@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="terminology-c25-preferred-id-get-json"/>
+	<meta>
+		<profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml"><p>FHIR Connectathon 25 - Terminology Services - Preferred Id - GET - JSON</p></div>
+	</text>
+
+	<url value="http://wildfhir.aegis.net/fhir4-0-1/TestScript/terminology-c25-preferred-id-get-json"/>
+	<name value="FHIRC25TerminologyPreferredIdGETJSON"/>
+	<title value="FHIR Connectathon 25 - Terminology Services - Preferred Id - GET - JSON"/>
+	<status value="active"/>
+	<date value="2020-09-27"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="NamingSystem $preferred-id tests against the example NamingSystem resource in the R4 specification namingsystem-example.xml. All $preferred-id operations are performed using the FHIR Operation Framework HTTP GET method."/>
+	<copyright value="(c) AEGIS.net, Inc. 2020"/>
+
+	<profile id="OperationOutcomeProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+	</profile>
+	<profile id="ParametersProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+	</profile>
+
+	<test id="01-CorrectOIDRequestURI-Ok">
+		<name value="CorrectOIDRequestURIOk"/>
+		<description value="Test $preferred-id operation using example snomed-ct, passsing a correct OID requesting URI using HTTP GET. Expected response is 200 (OK) with a Parameters payload containing the preferred URI 'http://snomed.info/sct'."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://touchstone.com/fhir/extended-operation-codes"/>
+					<code value="preferred-id"/>
+				</type>
+				<resource value="NamingSystem"/>
+				<description value="NamingSystem $preferred-id operation using example snomed-ct, passsing a correct OID requesting URI."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$preferred-id?id=2.16.840.1.113883.6.96&amp;type=uri"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON. Warning only to allow for review."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<direction value="response"/>
+				<resource value="Parameters"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource contains the expected parameter name with valueString of 'http://snomed.info/sct'."/>
+				<direction value="response"/>
+				<operator value="contains"/>
+				<path value=".parameter[?(@.name=='result')].valueString"/>
+				<value value="http://snomed.info/sct"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-IncorrectOIDRequestURI-Fail">
+		<name value="IncorrectOIDRequestURIFail"/>
+		<description value="Test $preferred-id operation using example snomed-ct, passsing an incorrect OID requesting URI using HTTP GET. Expected response is 200 (OK) with an OperationOutcome payload containing an issue with severity 'error' due to no preferred identifier found."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://touchstone.com/fhir/extended-operation-codes"/>
+					<code value="preferred-id"/>
+				</type>
+				<resource value="NamingSystem"/>
+				<description value="NamingSystem $preferred-id operation using example snomed-ct, passsing an incorrect OID requesting URI."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$preferred-id?id=2.16.840.1.113883.6.99&amp;type=uri"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx or 5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON. Warning only to allow for review."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-CorrectURIRequestOID-Fail">
+		<name value="CorrectURIRequestOIDFail"/>
+		<description value="Test $preferred-id operation using example snomed-ct, passsing a correct URI requesting OID using HTTP POST with Parameters of id and type. Expected response is 200 (OK) with an OperationOutcome payload containing an issue with severity 'error' due to absence of any id marked as preferred (no inference can be drawn)."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://touchstone.com/fhir/extended-operation-codes"/>
+					<code value="preferred-id"/>
+				</type>
+				<resource value="NamingSystem"/>
+				<description value="NamingSystem $preferred-id operation using example snomed-ct, passsing a correct URI requesting OID."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$preferred-id?id=http://snomed.info/sct&amp;type=oid"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx or 5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON. Warning only to allow for review."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="04-IncorrectURIRequestOID-Fail">
+		<name value="IncorrectURIRequestOIDFail"/>
+		<description value="Test $preferred-id operation using example snomed-ct, passsing an incorrect URI requesting OID using HTTP POST with Parameters of id and type. Expected response is 200 (OK) with an OperationOutcome payload containing an issue with severity 'error' due to no preferred identifier found."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://touchstone.com/fhir/extended-operation-codes"/>
+					<code value="preferred-id"/>
+				</type>
+				<resource value="NamingSystem"/>
+				<description value="NamingSystem $preferred-id operation using example snomed-ct, passsing an incorrect URI requesting OID."/>
+				<accept value="json"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$preferred-id?id=http://snomed.info/sctx&amp;type=oid"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx or 5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON. Warning only to allow for review."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>
