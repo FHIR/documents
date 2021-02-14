@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="terminology-c25-validate-cs-sct-02-ok-post-code-json"/>
+	<meta>
+		<profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml"><p>FHIR Connectathon 25 - Terminology Services - CodeSystem Validate Code - SNOMED-CT - OK - POST - Code - JSON</p></div>
+	</text>
+
+	<url value="http://wildfhir.aegis.net/fhir4-0-0/TestScript/terminology-c25-validate-cs-sct-02-ok-post-code-json"/>
+	<name value="FHIRc25TerminologyCSValidateSNOMEDOKPOSTCodeJSON"/>
+	<title value="FHIR Connectathon 25 - Terminology Services - CodeSystem Validate Code - SNOMED-CT - OK - POST - Code - JSON"/>
+	<status value="active"/>
+	<date value="2020-09-04"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="CodeSystem $validate-code tests against known SNOMED-CT codes where the expected outcome is a successful response and a valid Parameters payload with a result true value. All $validate-code operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of url, code and display."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+
+	<fixture id="validate-code-loinc-input-01">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/validate-code-loinc-input-code-01.json"/>
+		</resource>
+	</fixture>
+	<fixture id="validate-code-valid-min">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/output/validate-code-valid-min.json"/>
+		</resource>
+	</fixture>
+
+	<profile id="ParametersProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+	</profile>
+
+	<test id="01-SNOMED-CT-ValidateSystolic">
+		<name value="SNOMED-CT-ValidateSystolic"/>
+		<description value="Validate code test for SNOMED-CT code system using HTTP POST with url, code and display parameters; where code='371037005' and display='Systolic dysfunction'. Expected response is 200 (OK) with a Parameters payload containing the result value true."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="validate-code"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="Test $validate-code operation on the SNOMED-CT code system for a valid code and display."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$validate-code"/>
+				<sourceId value="validate-code-loinc-input-01"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<response value="okay"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON. Warning only to allow for review."/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Parameters."/>
+				<resource value="Parameters"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="ParametersProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Parameters minimally contains the information in validate-code-valid-min."/>
+				<minimumId value="validate-code-valid-min"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

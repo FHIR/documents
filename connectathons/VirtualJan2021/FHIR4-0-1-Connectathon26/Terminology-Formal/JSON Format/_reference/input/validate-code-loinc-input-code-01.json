@@ -1,0 +1,17 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "url",
+      "valueUri": "http://loinc.org"
+    },
+    {
+      "name": "code",
+      "valueCode": "11378-7"
+    },
+    {
+      "name": "display",
+      "valueString": "Systolic blood pressure at First encounter"
+    }
+  ]
+}

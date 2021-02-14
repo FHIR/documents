@@ -1,0 +1,111 @@
+<RuleSet>
+	<description value="Contains common rules for asserting validate-code not ok response code and body." />
+	<rule id="assertResourceTypesIfBody">
+		<required value="true" />
+		<reference value="/FHIRCommon/_reference/rule/AssertResourceIfBody.groovy"/>
+		<param>
+			<name value="resourceOperator" />
+			<value value="in" />
+		</param>
+		<param>
+			<name value="bodyOperator" />
+			<value value="notEmpty" />
+		</param>
+	</rule>
+	<rule id="assertOperationOutcomeIfError">
+		<required value="true" />
+		<reference value="/FHIRCommon/_reference/rule/AssertResourceIfResponseCode.groovy"/>
+		<param>
+			<name value="resource" />
+			<value value="OperationOutcome" />
+		</param>
+		<param>
+			<name value="resourceOperator" />
+			<value value="equals" />
+		</param>
+		<param>
+			<name value="responseCode" />
+			<value value="399" />
+		</param>
+		<param>
+			<name value="responseCodeOperator" />
+			<value value="greaterThan" />
+		</param>
+	</rule>
+	<rule id="assertProfileIfOperationOutcome">
+		<required value="true" />
+		<reference value="/FHIRCommon/_reference/rule/AssertProfileIfResource.groovy"/>
+		<param>
+			<name value="resource" />
+			<value value="OperationOutcome" />
+		</param>
+		<param>
+			<name value="resourceOperator" />
+			<value value="equals" />
+		</param>
+	</rule>
+	<rule id="assertPathIfOperationOutcome">
+		<required value="true" />
+		<reference value="/FHIRCommon/_reference/rule/AssertPathIfResource.groovy"/>
+		<param>
+			<name value="resource" />
+			<value value="OperationOutcome" />
+		</param>
+		<param>
+			<name value="resourceOperator" />
+			<value value="equals" />
+		</param>
+		<param>
+			<name value="fhirPath" />
+			<value value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+		</param>
+	</rule>
+	<rule id="assertParametersIfSuccess">
+		<required value="true" />
+		<reference value="/FHIRCommon/_reference/rule/AssertResourceIfResponseCode.groovy"/>
+		<param>
+			<name value="resource" />
+			<value value="Parameters" />
+		</param>
+		<param>
+			<name value="resourceOperator" />
+			<value value="equals" />
+		</param>
+		<param>
+			<name value="responseCode" />
+			<value value="200" />
+		</param>
+		<param>
+			<name value="responseCodeOperator" />
+			<value value="equals" />
+		</param>
+	</rule>
+	<rule id="assertProfileIfParameters">
+		<required value="true" />
+		<reference value="/FHIRCommon/_reference/rule/AssertProfileIfResource.groovy"/>
+		<param>
+			<name value="resource" />
+			<value value="Parameters" />
+		</param>
+		<param>
+			<name value="resourceOperator" />
+			<value value="equals" />
+		</param>
+	</rule>
+	<rule id="assertPathIfParameters">
+		<required value="true" />
+		<reference value="/FHIRCommon/_reference/rule/AssertPathIfResource.groovy"/>
+		<param>
+			<name value="resource" />
+			<value value="Parameters" />
+		</param>
+		<param>
+			<name value="resourceOperator" />
+			<value value="equals" />
+		</param>
+		<param>
+			<name value="fhirPath" />
+			<value value="Parameters.parameter.where(name = 'result').value = false"/>
+		</param>
+	</rule>
+</RuleSet>

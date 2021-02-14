@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir">
+	<parameter>
+		<name value="id"/>
+		<valueString value="2.16.840.1.113883.6.96"/>
+	</parameter>
+	<parameter>
+		<name value="type"/>
+		<valueCode value="uri"/>
+	</parameter>
+</Parameters>

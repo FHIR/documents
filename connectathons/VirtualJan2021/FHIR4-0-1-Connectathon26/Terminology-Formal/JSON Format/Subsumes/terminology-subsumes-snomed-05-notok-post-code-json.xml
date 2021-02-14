@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestScript xmlns="http://hl7.org/fhir">
+	<id value="terminology-c25-subsumes-snomed-05-notok-post-code-json"/>
+	<meta>
+		<profile value="http://touchstone.aegis.net/touchstone/fhir/testing/StructureDefinition/testscript"/>
+	</meta>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml"><p>FHIR Connectathon 25 - Terminology Services - Subsumes - SNOMED - Not OK - POST - Code - JSON</p></div>
+	</text>
+
+	<url value="http://wildfhir.aegis.net/fhir4-0-0/TestScript/terminology-c25-subsumes-snomed-05-notok-post-code-json"/>
+	<name value="FHIRc25TerminologySubsumesSNOMEDNotOKPOSTCodeJSON"/>
+	<title value="FHIR Connectathon 25 - Terminology Services - Subsumes - SNOMED - Not OK - POST - Code - JSON"/>
+	<status value="active"/>
+	<date value="2020-04-24"/>
+	<publisher value="AEGIS.net, Inc."/>
+	<contact>
+		<name value="Touchstone Support"/>
+		<telecom>
+			<system value="email"/>
+			<value value="Touchstone_Support@aegis.net"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<description value="CodeSystem $subsumes tests against known and unknown SNOMED codes where the expected outcome is a failure response with a returned OperationOutcome. All $subsumes operations are performed using the FHIR Operation Framework HTTP POST method with Parameters of system, codeA and codeB."/>
+	<copyright value="(c) AEGIS.net, Inc. 2019"/>
+
+	<fixture id="subsumes-snomed-input-notok-01">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/subsumes-snomed-input-notok-code-01.json"/>
+		</resource>
+	</fixture>
+	<fixture id="subsumes-snomed-input-notok-02">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/subsumes-snomed-input-notok-code-02.json"/>
+		</resource>
+	</fixture>
+	<fixture id="subsumes-snomed-input-notok-03">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/subsumes-snomed-input-notok-code-03.json"/>
+		</resource>
+	</fixture>
+	<fixture id="subsumes-snomed-input-notok-04">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/subsumes-snomed-input-notok-code-04.json"/>
+		</resource>
+	</fixture>
+	<fixture id="subsumes-snomed-input-notok-05">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/subsumes-snomed-input-notok-code-05.json"/>
+		</resource>
+	</fixture>
+	<fixture id="subsumes-snomed-input-notok-06">
+		<autocreate value="false"/>
+		<autodelete value="false"/>
+		<resource>
+			<reference value="../_reference/input/subsumes-snomed-input-notok-code-06.json"/>
+		</resource>
+	</fixture>
+
+	<profile id="OperationOutcomeProfile">
+		<reference value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+	</profile>
+
+	<test id="01-SNOMED-InvalidSystemValue">
+		<name value="SNOMED-InvalidSystemValue"/>
+		<description value="Subsumes test for an invalid (SNOMED) system and codes using HTTP POST with system, codeA and codeB parameters; 3738000 (viral hepatitis) subsumed-by 235856003 (disorder of the liver). Expected response is 4xx/5xx with an OperationOutcome payload containing at least one error issue."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $subsumes operation for invalid (SNOMED) system and valid codes."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes"/>
+				<sourceId value="subsumes-snomed-input-notok-01"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx/5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON. Warning only to allow for review."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="02-SNOMED-InvalidCodeAValue">
+		<name value="SNOMED-InvalidCodeAValue"/>
+		<description value="Subsumes test for the SNOMED system and an invalid codeA value using HTTP POST with system, codeA and codeB parameters; 3738000X (invalid) subsumed-by 235856003 (disorder of the liver). Expected response is 4xx/5xx with an OperationOutcome payload containing at least one error issue."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $subsumes operation for SNOMED system and an invalid codeA value."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes"/>
+				<sourceId value="subsumes-snomed-input-notok-02"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx/5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON. Warning only to allow for review."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="03-SNOMED-InvalidCodeBValue">
+		<name value="SNOMED-InvalidCodeBValue"/>
+		<description value="Subsumes test for the SNOMED system and an invalid codeB value using HTTP POST with system, codeA and codeB parameters; 3738000 (viral hepatitis) subsumed-by 235856003X (invalid). Expected response is 4xx/5xx with an OperationOutcome payload containing at least one error issue."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $subsumes operation for SNOMED system and an invalid codeB value."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes"/>
+				<sourceId value="subsumes-snomed-input-notok-03"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx/5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON. Warning only to allow for review."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="04-SNOMED-InvalidSystemCodeACodeBValues">
+		<name value="SNOMED-InvalidSystemCodeACodeBValues"/>
+		<description value="Subsumes test for invalid (SNOMED) system, codeA, and codeB values using HTTP POST with system, codeA and codeB parameters; 3738000X (invalid) subsumed-by 235856003X (invalid). Expected response is 4xx/5xx with an OperationOutcome payload containing at least one error issue."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $subsumes operation for invalid (SNOMED) system, codeA, and codeB values."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes"/>
+				<sourceId value="subsumes-snomed-input-notok-04"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx/5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON. Warning only to allow for review."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="05-SNOMED-MissingParameterCodeB">
+		<name value="SNOMED-MissingParameterCodeB"/>
+		<description value="Subsumes test for the SNOMED system and a missing codeB parameter using HTTP POST with system and codeA parameters; 3738000 (viral hepatitis) subsumed-by (missing). Expected response is 4xx/5xx with an OperationOutcome payload containing at least one error issue."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $subsumes operation for SNOMED system and a missing codeB parameter."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes"/>
+				<sourceId value="subsumes-snomed-input-notok-05"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx/5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON. Warning only to allow for review."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+
+	<test id="06-SNOMED-IncorrectParameterCode">
+		<name value="SNOMED-IncorrectParameterCode"/>
+		<description value="Subsumes test for the SNOMED system and an incorrect code parameter using HTTP POST with system, codeA and code parameters; 3738000 (viral hepatitis) subsumed-by 235856003 (disorder of the liver). Expected response is 4xx/5xx with an OperationOutcome payload containing at least one error issue."/>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://terminology.hl7.org/CodeSystem/testscript-operation-codes"/>
+					<code value="subsumes"/>
+				</type>
+				<resource value="CodeSystem"/>
+				<description value="CodeSystem $subsumes operation for SNOMED system and an incorrect code parameter."/>
+				<accept value="json"/>
+				<contentType value="json"/>
+				<encodeRequestUrl value="true"/>
+				<params value="/$subsumes"/>
+				<sourceId value="subsumes-snomed-input-notok-06"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 4xx/5xx."/>
+				<direction value="response"/>
+				<operator value="greaterThan"/>
+				<responseCode value="399"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned format is JSON. Warning only to allow for review."/>
+				<direction value="response"/>
+				<contentType value="json"/>
+				<warningOnly value="true"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is OperationOutcome."/>
+				<direction value="response"/>
+				<resource value="OperationOutcome"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource type conforms the base FHIR specification."/>
+				<direction value="response"/>
+				<validateProfileId value="OperationOutcomeProfile"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned OperationOutcome resource contains at least one error or fatal issue."/>
+				<direction value="response"/>
+				<expression value="OperationOutcome.issue.where(severity = 'error').count() &gt; 0 or OperationOutcome.issue.where(severity = 'fatal').count() &gt; 0"/>
+				<warningOnly value="false"/>
+			</assert>
+		</action>
+	</test>
+</TestScript>

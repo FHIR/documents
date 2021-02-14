@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<id value="intensional-case-1"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">All loinc codes for system = LP7034-4</div>
+	</text>
+	<url value="http://www.healthintersections.com.au/fhir/ValueSet/intensional-case-1"/>
+	<identifier>
+		<value value="intensional-case-1"/>
+	</identifier>
+	<version value="R4"/>
+	<name value="Terminology Services Connectation #1 Intensional case #1"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<publisher value="Grahame Grieve"/>
+	<contact>
+		<telecom>
+			<system value="email"/>
+			<value value="grahame@healthintersections.com.au"/>
+		</telecom>
+	</contact>
+	<description value="All loinc codes for system = LP7034-4"/>
+	<compose>
+		<include>
+			<system value="http://loinc.org"/>
+			<filter>
+				<property value="SYSTEM"/>
+				<op value="="/>
+				<value value="LP7034-4"/>
+			</filter>
+		</include>
+	</compose>
+</ValueSet>
