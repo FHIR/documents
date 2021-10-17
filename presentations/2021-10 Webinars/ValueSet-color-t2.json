@@ -1,0 +1,28 @@
+{
+  "resourceType": "ValueSet",
+  "url": "http://example.org/t2-colors",
+  "title": "Terminology Exercise 2",
+  "status": "draft",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "email"
+        }
+      ]
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "system": "http://example.org/CodeSystem/colors"
+      }
+    ]
+  },
+  "description": "Set of colors for exercise 2",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Terminology Exercise 2</h2><tt>http://example.org/t2-colors</tt><p>Set of colors for exercise 2</p></div>"
+  },
+  "name": "Terminology_Exercise_2"
+}

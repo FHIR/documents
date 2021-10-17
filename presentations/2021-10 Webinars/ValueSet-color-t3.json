@@ -1,0 +1,45 @@
+{
+  "resourceType": "ValueSet",
+  "url": "http://example.org/t3-colors",
+  "title": "Terminology Exercise 3",
+  "status": "draft",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "email"
+        }
+      ]
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "system": "http://example.org/CodeSystem/colors",
+        "concept": [
+          {
+            "code": "red"
+          },
+          {
+            "code": "blue"
+          },
+          {
+            "code": "emerald-green"
+          },
+          {
+            "code": "white"
+          },
+          {
+            "code": "black"
+          },
+        ]
+      }
+    ]
+  },
+  "description": "Set of colors for exercise 3",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Terminology Exercise 3</h2><tt>http://example.org/t3-colors</tt><p>Set of colors for exercise 3</p></div>"
+  },
+  "name": "Terminology_Exercise_3"
+}

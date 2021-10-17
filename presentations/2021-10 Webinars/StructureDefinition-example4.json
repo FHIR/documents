@@ -1,0 +1,65 @@
+{
+  "id": "example-t4",
+  "resourceType": "StructureDefinition",
+  "status": "active",
+  "kind": "resource",
+  "derivation": "constraint",
+  "url": "http://example.org/StructureDefinition/example-t4",
+  "name": "ExampleT4",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation"
+      },
+      {
+        "id": "Observation.status",
+        "path": "Observation.status",
+        "fixedCode": "completed"
+      },
+      {
+        "id": "Observation.subject",
+        "path": "Observation.subject",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.value[x]",
+        "path": "Observation.value[x]",
+        "type": [
+          {
+            "code": "Quantity"
+          }
+        ]
+      },
+      {
+        "id": "Observation.interpretation",
+        "path": "Observation.interpretation",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/observation-interpretation"
+        }
+      },
+      {
+        "id": "Observation.referenceRange",
+        "path": "Observation.referenceRange",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Observation.component",
+        "path": "Observation.component",
+        "max": "0"
+      }
+    ]
+  }
+}
