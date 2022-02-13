@@ -1,0 +1,132 @@
+"Last Name","First Name",Organization,Title,Location,Phone,Ext,Email,Vote,"Mbr. Type",Upload,Comments
+"Bales MA, MHA",Joel,"Federal Electronic Health Record Modernization Progam Office",,"Rosslyn, VA 22209","+1 703-328-1713",,joel.d.bales.ctr@mail.mil,Abstain,"Government/Non-Profit                             ",,
+Bearden,Edward,"Food and Drug Administration","Supervisory Computer Scientist","Jefferson, AR 72079","+1 301-827-7784",,edward.bearden@fda.hhs.gov,Negative,"Government/Non-Profit                             ",,"See Mitra Rocca's ballot for comments."
+"Beaufort MPH",Nosipho,"Public Health Informatics Institute",,"Decatur, GA 30030","+1 4049248235",,nbeaufort@phii.org,Abstain,"Government/Non-Profit                             ",,
+Bellezza,Mark,"Federal Electronic Health Records Modernization Office",,"Rosslyn, VA 22209","+1 703-588-8751",,mark.a.bellezza.civ@mail.mil,Abstain,"Government/Non-Profit                             ",,
+"Bray MD",Bruce,"University of Utah Health Care","Professor, Biomedical Informatics","Salt Lake City, UT 84108","+1 801-581-4080",,bruce.bray@hsc.utah.edu,Abstain,"Provider                                          ",,
+"Buitendijk MSc",Hans,"Cerner Corporation","Director, Interoperability Strategy","Malvern, PA 19355","+1 610-219-2087",,hans.buitendijk@cerner.com,Abstain,"Vendor                                            ",,
+Campbell,Keith,"U.S. Department of Veterans Affairs",,"524 NE Emerson AveBend, OR 97701","+1 727-519-4607",,Keith.Campbell@va.gov,Abstain,"Government/Non-Profit                             ",,
+Canessa,Gino,"Microsoft Corporation","Senior Software Engineer","Madison, WI 53703",,,gino.canessa@microsoft.com,"No Return","Vendor                                            ",,
+Cangioli,Giorgio,"HL7 Italy","HL7 Italy Chair","Sesto Fiorentino,  50019",,,giorgio.cangioli@gmail.com,"No Return","Affiliate                                         ",,
+"Carlson Ph.D.",Dave,"U.S. Department of Veterans Affairs","Standards Architect","Kalispell, MT 59901",,,dcarlson@xmlmodeling.com,Abstain,"Government/Non-Profit                             ",,
+Claros,Ronald,"Food and Drug Administration","Consumer Safety Officer","Rockville, MD 20857","+1 301-796-9557",,ronald.claros@fda.hhs.gov,Negative,"Government/Non-Profit                             ",,"See Mitra Rocca's ballot for comments."
+Cole,Yvonne,"Federal Electronic Health Records Modernization Office","Technical Lead","Rosslyn, VA 22209","+1 703-588-8751",,yvonne.m.cole.civ@mail.mil,Abstain,"Government/Non-Profit                             ",,
+Connor,Kathleen,"U.S. Department of Veterans Affairs",,"Tumwater, WA 98512","+1 727-519-4607",,kathleen_connor@comcast.net,Abstain,"Government/Non-Profit                             ",,
+"Danford MS-MI",Jeffrey,Allscripts,"Sr Principal Software Engineer","Raleigh, NC 27615","+1 919-329-1870",,jeffrey.danford@allscripts.com,Abstain,"Vendor                                            ",,
+Davis,Mike,"U.S. Department of Veterans Affairs",,"Encinitas, CA 92024","+1 760-632-0294",,mike.davis@va.gov,Abstain,"Government/Non-Profit                             ",,
+"de Leon",Alexander,"Kaiser Permanente","Integration Certification Manager","Pasadena, CA 91103","+1 626-381-4141",,alexander.j.deleon@kp.org,Abstain,"Provider                                          ",,
+"Dickinson FHL7",Gary,,"EHR/HIT Standards Consultant","Paradise, CA 95969",,,gary.dickinson@ehr-standards.com,Negative,"Consultant                                        ",,"1) We reviewed the ballot material with an eye to ascertain whether this specification is advantageous, disadvantageous or neutral with regard to clinician burden reduction and patient safety assurance.  Have clinician burden and patient safety been considered?  Is there any formal documentation of this analysis?  Are there specific points of guidance which might be included to show how this specification can be used to enhance front-line clinician practice, reduce burden and ensure patient safety?
+
+2a) Not clear if/how provenance is captured, represented and persisted (over time) in this specification.  Knowing who did what when were and why is essential.  Capture points include:  i) point of origination (at the source, for newly captured content), ii) point of update (for newly updated content whilst preserving previous content and its provenance).
+
+Who = subject of care/information (typically the patient)
+Who = participant in action taken, including role (e.g., performer, assistant, observer) and credentials (e.g., MD, RN, PharmD, therapist, MA...)
+Who = author of information captured or updated
+Who = organization
+What = action taken
+When = date/time of action taken
+When = date/time of information capture or update
+Where = physical location of action taken
+Where = physical location of information capture or update
+Where = network address and/or device ID where information captured or updated
+Why = rationale, purpose of action taken
+
+2b)  Provenance elements, if not captured at the point of origination or point of update, are often forever lost beyond that moment.
+
+2c)  Granularity of provenance (e.g., binding authorship to content) may be at the dataset or element level, as appropriate.
+
+2d)  Provenance elements are intrinsic to what the source system or device already “knows” at the point of origination or update and thus should not increase burden by requiring extra input on the part of the entering author (clinician or other end user).
+
+3)  For FHIR IGs, please include reference to Clinical Safety - FHIR Implementer’s Safety Checklist:  http://hl7.org/fhir/safety.html"
+Dieterle,Robert,"EnableCare LLC",CEO,"Overland Park, KS 66223-9815","+1 816-853-7164",,rcdieterle@enablecare.us,Abstain,"Consultant                                        ",,
+Doan,Minh-Huong,"Federal Electronic Health Records Modernization Office",,"Rosslyn, VA 22209","+1 703-588-8751",,minh-huong.l.doan.mil@mail.mil,Abstain,"Government/Non-Profit                             ",,
+Drijfhout-Wisse,Helen,"HL7 Netherlands",,"9700 AX Groningen,","+31 318-553812",,helen.drijfhout@axians.com,Abstain,"Affiliate                                         ",,
+Egger,Oliver,"HL7 Switzerland /ahdis ag","HL7 Switzerland Voter #3","Zürich,  8003","+41 765795005",,oliver.egger@ahdis.ch,Affirmative,"Affiliate                                         ",,
+"Eisenberg MD",Floyd,"iParsimony LLC",President,"Washington, DC 20003","+1 202-643-6350",,FEisenberg@iParsimony.com,Negative,"Consultant                                        ",FHIR_IG_CDISC_R1_I1_2021JAN_Floyd_Eisenberg_20201228155112.xls,
+Espina,Javier,"Philips Healthcare",,"Eindhoven,",978-659-3235,,javier.espina@philips.com,Abstain,"Vendor                                            ",,
+Ferguson,James,"Kaiser Permanente","VP, Health IT Strategy and Policy","Oakland, CA 94612","+1 510-271-5639",,jamie.ferguson@kp.org,Abstain,"Provider                                          ",,
+Francis,Joel,"HL7 Canada",,"Toronto, ON M5H 1J9","+1 416-595-3448",,jfrancis@infoway-inforoute.ca,Abstain,"Affiliate                                         ",,
+Gabrial,Charles,"Federal Electronic Health Record Modernization Off","Senior Manager","Falls Church, VA 22042","+1 703-588-8751",,charles.h.gabrial.civ@mail.mil,Abstain,"Government/Non-Profit                             ",,
+Geminiuc,Kevin,"Kaiser Permanente",,"pleasanton, CA 94588",925-926-3011,,kevin.x.geminiuc@kp.org,Abstain,"Provider                                          ",,
+Gessner,Christof,"HL7 Germany",,"Berlin,  10405","+49 172-3994033",,christof.gessner@gematik.de,Abstain,"Affiliate                                         ",,
+"Gradl MPH, RD",Becky,"Academy of Nutrition & Dietetics","Informatics Manager","Chicago, IL 60606-6995","+1 312-899-4835",,bgradl@eatright.org,Abstain,"Government/Non-Profit                             ",,
+Greene,Matthew,"U.S. Department of Veterans Affairs","Standards Architect","Williamsville, NY 14221","+1 716-574-4161",,matthew.greene2@va.gov,Abstain,"Government/Non-Profit                             ",,
+Gregory,Norman,"Food and Drug Administration",CVM,"Rockville, MD 20855","+1 240-402-0684",,norman.gregory@fda.hhs.gov,Negative,"Government/Non-Profit                             ",,"See Mitra Rocca’s ballot for comments."
+Grob,Timon,"Philips Healthcare","Senior scientist","Eindhoven,","+31 6-15249109",,t.r.grob@philips.com,"No Return","Vendor                                            ",,
+"Haas DVM, MS",Eric,"Health eData Inc.",Consultant,"Sausalito, CA 94965-2313","+1 707-227-2608",,ehaas@healthedatainc.com,Abstain,"Consultant                                        ",,
+Hastak,Smita,"Samvit Solutions",CEO,"Reston, VA 20190-4700","+1 703-362-1280",,shastak@samvit-solutions.com,"No Return","Consultant                                        ",,
+"Hatem RN MS MBA",John,,,"San Rafael, CA 94903",,,jnhatem@hotmail.com,Abstain,"Consultant                                        ",,
+Heermann-Do,Kim,"Federal Electronic Health Record Modernization Office",,"Rosslyn, VA 22209","+1 703-588-8751",,Kimberly.heermann-do@va.gov,Abstain,"Government/Non-Profit                             ",,
+"Hermann M.S.",Arthur,"Kaiser Permanente","Principal Technology Consultant","Pleasanton,, CA 94588",925-926-3011,,Arthur.Hermann@kp.org,Abstain,"Provider                                          ",,
+"Hess BSc Pharm",William,"Food and Drug Administration",Pharmacist,"Silver Spring, MD 20993","+1 301-796-8494",,william.hess@fda.hhs.gov,Negative,"Government/Non-Profit                             ",,"See Mitra Rocca's ballot for comments."
+"Hoang BSN, MS",Catherine,"U.S. Department of Veterans Affairs","Program Manager Terminology Standards","Gainesville, FL 32608","+1 352-275-5330",,Catherine.Hoang2@va.gov,Abstain,"Government/Non-Profit                             ",,
+Hogan,Cindee,"Food and Drug Administration",,"College Park, MD 20740","+1 301-827-7784",,cindee.hogan@fda.hhs.gov,Negative,"Government/Non-Profit                             ",,"See Mitra Rocca's ballot for comments."
+"Hoggle MS, PMP",Lindsey,"IRIS Health Solutions, LLC",,"MD, MD 20878",,,lhoggle@healthprojectpartners.com,Abstain,"Consultant                                        ",,
+Hussong,Virginia,"Food and Drug Administration","Chief, Data Standards Staff","Silver Spring, MD 20993","+1 301-796-1016",,virginia.hussong@fda.hhs.gov,Negative,"Government/Non-Profit                             ",,"See Mitra Rocca's ballot for comments."
+Iverson,Andy,Medtronic,"Clinical Outcomes Solutions Lead","Minneapolis, MN 55432","+1 763-526-1401",,andy.iverson@medtronic.com,"No Return","Vendor                                            ",,
+Jafari,Mohammad,"U.S. Department of Veterans Affairs",,"Fairfax, VA 22033","+1 727-519-4607",,mohammad.jafari@bookzurman.com,Abstain,"Government/Non-Profit                             ",,
+Johanson,Elaine,"Food and Drug Administration",,"Silver Spring, MD 20993",301-827-7784,,elaine.johanson@fda.hhs.gov,Negative,"Government/Non-Profit                             ",,"See Mitra Rocca's ballot for comments."
+"Kann MHA",Vannak,"U.S. Department of Veterans Affairs","Program Analysts","DC, DC 20571","+1 202-207-4692",,vannak.kann@va.gov,Abstain,"Government/Non-Profit                             ",,
+"Kawamoto MD, PhD",Kensaku,"University of Utah Health Care","Associate Chief Medical Information Officer","Salt Lake City, UT 84108","+1 801-587-8076",,kensaku.kawamoto@utah.edu,Abstain,"Provider                                          ",,
+"Khanoyan MPH, CSM",Christopher,"Federal Electronic Health Record Modernization Off","Senior Consultant","Washington DC, DC 20005",703-588-8751,,Christopher.Khanoyan@va.gov,Abstain,"Government/Non-Profit                             ",,
+Koide,Daisuke,"HL7 Japan Voter #13","HL7 Japan Voter #13","Tokyo,  1138655","+81 338155411",35597,koide-tky@umin.ac.jp,"No Return","Affiliate                                         ",,
+Kostadinovska,Ana,"Philips Healthcare",,"Eindhoven,",978-659-3235,,ana.kostadinovska@philips.com,Abstain,"Vendor                                            ",,
+"Mandel MD",Josh,"SMART Health IT",,"Madison, WI 53726-5345","+1 617-500-3253",,jmandel@gmail.com,"No Return","Government/Non-Profit                             ",,
+Marquard,Brett,"WaveOne Associates Inc.",,"Amherst, MA 01002",,,brett@waveoneassociates.com,Abstain,"Consultant                                        ",,
+McCloud,Charles,"Federal Electronic Health Records Modernization Office",,"Rosslyn, VA 22209","+1 703-588-8751",,charles.j.mccloud.civ@mail.mil,Abstain,"Government/Non-Profit                             ",,
+"McClure MD",Robert,"MD Partners, Inc.",President,"Lafayette, CO 80026-1545","+1 303-926-6771",,rmcclure@mdpartners.com,Affirmative,"Consultant                                        ",,
+"McDonald MD",Clement,"National Library of Medicine",,"Bethesda, MD 20894","+1 301-496-4441",,ClemMcDonald@mail.nih.gov,"No Return","Government/Non-Profit                             ",,
+Melo,Christopher,"Philips Healthcare","Senior Standardization Officer","Cambridge, MA 02141","+1 978-659-3235",,chris.melo@philips.com,Abstain,"Vendor                                            ",,
+Merrick,Ulrike,"Vernetzt, LLC",,"Wilton, CA 95693","+1 415-634-4131",,rikimerrick@gmail.com,Abstain,"Consultant                                        ",,
+Mikkili,Minil,"Kaiser Permanente",,"Pasadena, CA 91101","+1 925-926-3011",,minil.x.mikkili@kp.org,"No Return","Provider                                          ",,
+"Miller RN, MS",Holly,"U.S. Department of Veterans Affairs","Associate Terminologist","San Diego, CA 92119","+1 8017922638",,holly.miller@va.gov,Abstain,"Government/Non-Profit                             ",,
+Muir,Sean,"U.S. Department of Veterans Affairs",President,"Gainesville, VA 20155",727-519-4607,,sean.muir@jkmsoftware.com,Abstain,"Government/Non-Profit                             ",,
+"Mulrooney MBA",Galen,"U.S. Department of Veterans Affairs","Standards Architect","Clifton, VA 20124","+1 703-815-0900",,galen.mulrooney@jpsys.com,Abstain,"Government/Non-Profit                             ",,
+Nanjo,Claude,"University of Utah Health Care","Research Associate","Chula Vista, CA 91910","+1 810-587-6092",,cnanjo@gmail.com,Abstain,"Provider                                          ",,
+"Nelson MS, MBA",Lisa,MaxMD,"Principal Informaticist","Fort Lee, NJ 07024","+1 201-963-0005",,LNelson@max.md,"No Return","Vendor                                            ",,
+Newman,Craig,Altarum,"Interoperability Standards Analyst","Madison, WI 53711",,,craig.newman@altarum.org,Abstain,"Consultant                                        ",,
+Newton,Elizabeth,"Kaiser Permanente","Consulting Engineer","Lafayette, CA 94549","+1 9259978150",,elizabeth.h.newton@kp.org,Abstain,"Provider                                          ",,
+Nichols,Steven,"GE Healthcare","Director of Interoperability","Waukesha, WI 53118",,,steven.nichols@ge.com,Abstain,"Vendor                                            ",,
+Nida,Leah,"Flatiron Health",,"shelby township, MI 48317",888-662-6367,,lnida@flatiron.com,Abstain,"Vendor                                            ",,
+Parker,Ron,"HL7 Canada","HL7 Canada Chair","Halifax, NS B3M 4N3",,,ron@parkerdhc.com,Abstain,"Affiliate                                         ",,
+Patterson,Dennis,"Cerner Corporation","Associate Principal Engineer","Kansas City, MO 64137","+1 816-201-0922",,dennis.patterson@cerner.com,Abstain,"Vendor                                            ",,
+"Pech MD, MBA",Brian,"Kaiser Permanente","Health I.T. Standards & Strategy Consultant","Atlanta, GA 30305","+1 678-245-1762",,brian.pech@kp.org,Abstain,"Provider                                          ",,
+Peters,Melva,"Jenaker Consulting",,"Ladysmith, BC V9G0B5","+1 604-512-5124",,melva@jenakerconsulting.com,Abstain,"Consultant                                        ",,
+Peytchev,Vassil,Epic,"Software Developer","Verona, WI 53593","+1 608-271-9000",,vassil@epic.com,Abstain,"Vendor                                            ",,
+Pickering,Kathy,"Cerner Corporation","Sr Solution Designer","Kansas City, MO 64117","+1 610-219-2087",,kathy.pickering@cerner.com,"No Return","Vendor                                            ",,
+Plattner,Cathy,"Kaiser Permanente","Business Consulting Specialist","Pasadena, CA 91103","+1 925-926-3011",,Cathy.P.Plattner@kp.org,Abstain,"Provider                                          ",,
+Pratt,Douglas,"Cerner Corporation","Lead Solution Strategist","Downingtown, PA 19335","+1 610-219-3050",,Doug.Pratt@cerner.com,"No Return","Vendor                                            ",,
+Price,Camala,"Federal Electronic Health Record Modernization Prgrm Office","Federal Engagement Lead","Rosslyn, VA 22209","+1 703-588-8710",,camala.m.price.civ@mail.mil,Abstain,"Government/Non-Profit                             ",,
+"Pumo MBA",Beth,"Kaiser Permanente",Principal,"Englewood, CO 80111","+1 925-926-3011",,Beth.Pumo@kp.org,Abstain,"Provider                                          ",,
+"Quintano Neira",Ricardo,"Philips Healthcare",,"Eindhoven,  5656 AE",978-659-3235,,ricardo.quintano@philips.com,"No Return","Vendor                                            ",,
+Rahn,Matt,"Office of the National Coordinator for Health IT","Program Analyst","Washington, DC 20201","+1 202-527-4644",,Matthew.Rahn@hhs.gov,Abstain,"Government/Non-Profit                             ",,
+Rhodes,Bryn,"Dynamic Content Group","CTO - Founding/Managing Owner","Orem, UT 84057","+1 801-210-0324",,bryn@dynamiccontentgroup.com,Affirmative,"Consultant                                        ",,
+"Robertson PharmD",Scott,"Kaiser Permanente","Principal Technology Consultant","Torrance, CA 90501","+1 310-200-0231",,scott.m.robertson@kp.org,Abstain,"Provider                                          ",,
+Rocca,Mitra,"Food and Drug Administration","Senior Medical Informatician","Bldg. 21, Room 4608Silver Spring, MD 20993","+1 301-796-2175",,mitra.rocca@fda.hhs.gov,Negative,"Government/Non-Profit                             ",FHIR_IG_CDISC_R1_I1_2021JAN_mitra_rocca_20210114002031.xls,
+"Salzman BA MD MPH",Keith,"U.S. Department of Veterans Affairs","HIT Strategist/Owner Salzman HCIT Consulting","Keyport, WA 98345","+1 727-519-4607",,keith.salzman@gmail.com,Abstain,"Government/Non-Profit                             ",,
+Schaut,Christopher,Epic,,"Verona, WI 53705",608-271-9000,,cschaut@epic.com,Abstain,"Vendor                                            ",,
+"Sharma B.Eng, MS",Harsh,"HL7 Canada","Senior Advisor - Terminology Standards","Calgary, AB T2W 3N2","+1 416-595-3448",,Harsh.Sharma2@albertahealthservices.ca,Abstain,"Affiliate                                         ",,
+Shawn,Chris,"U.S. Department of Veterans Affairs","Security Architect","Cooperstown, NY 13326","+1 518-681-1858",,christopher.shawn2@va.gov,Abstain,"Government/Non-Profit                             ",,
+Simons,David,"Philips Healthcare","Principal Architect","Eindhoven,  5656 AE",,,david.simons@philips.com,Abstain,"Vendor                                            ",,
+"Singureanu MSCs, FHL7",Ioana,"U.S. Department of Veterans Affairs","Standards Architect","Windham, NH 03087","+1 603-548-5640",,ioana.singureanu@bookzurman.com,Abstain,"Government/Non-Profit                             ",,
+Slack,"Mary Ann","Food and Drug Administration","Director, Center for Drug Evaluation and Research","Silver Spring, MD 20993","+1 301-796-0603",,MaryAnn.Slack@fda.hhs.gov,Negative,"Government/Non-Profit                             ",,"See Mitra Rocca's ballot for comments."
+"Smith MPH",Jeffrey,"Food and Drug Administration","Informatics Team Lead/ Project Manager","WO75/G436SIlver Spring, MD 20993","+1 301-827-7784",,JeffreyK.Smith@fda.hhs.gov,Negative,"Government/Non-Profit                             ",,"See Mitra Rocca's ballot for comments."
+Smithies,Rik,"HL7 UK",,"Birmingham,  B14 7AT","+44 7720-290967",,rik@nprogram.co.uk,"No Return","Affiliate                                         ",,
+Staemmler,Martin,"HL7 Germany Voter #15 c/o Fachhochschule","HL7 Germany Voter #15","Schwedenschanze 15Stralsund,  18435","+49 (383)-145-6786",,martin.staemmler@fh-stralsund.de,"No Return","Affiliate                                         ",,
+Stevens,Lise,"Saturno Health Information Technology Services, LLC",Owner,"Rockville, MD 20851","+1 202-758-0054",,1saturnservices@gmail.com,"No Return","Consultant                                        ",,
+Stuart,Sandra,"Kaiser Permanente","Executive Director Health IT Standards","Corona, CA 92881","+1 925-519-5735",,sandra.stuart@kp.org,Abstain,"Provider                                          ",,
+"Suarez MD MPH",Walter,"Kaiser Permanente","Executive Director, Health IT Strategy & Policy","Washington, DC 20001","+1 301-801-3207",,walter.g.suarez@kp.org,Abstain,"Provider                                          ",,
+Syed,Jenni,"Cerner Corporation","Software Architect","Kansas City, MO 64118","+1 816-201-2566",,jenni.syed@cerner.com,Abstain,"Vendor                                            ",,
+Territo,Joseph,"Federal Electronic Health Records Modernization Office","Terminology Services Lead","Rosslyn, VA 22209","+1 941-240-2822",,joseph.territo@va.gov,Abstain,"Government/Non-Profit                             ",,
+"Terry BSEE, RN",May,"The MITRE Corporation","Open Health Services","Bedford, MA 01730","+1 9739451578",,MayT@mitre.org,"No Return","Vendor                                            ",,
+Tiptur,Sathish,"GE Healthcare",,"560066Bangalore,",,,sathish.tiptur@geind.ge.com,"No Return","Vendor                                            ",,
+Torres,Andrew,"Cerner Corporation",,"Cupertino, CA 95014","+1 610-219-2087",,drew.torres@cerner.com,Abstain,"Vendor                                            ",,
+"Uy MD",Raymonde,"National Association of Community Health Centers","Physician Informaticist","Bethesda, MD 20814","+1 301-347-0400",2064,ruy@nachc.com,"No Return","Government/Non-Profit                             ",,
+"van den Heuvel",Bas,"Philips Healthcare",,"Eindhoven,  5656 AE","+31 620110450",,bas.van.den.heuvel@philips.com,Abstain,"Vendor                                            ",,
+Velezis,Marti,"Food and Drug Administration",,"Woodbridge, VA 22191","+1 301-827-7784",,marti.velezis@sonrisaconsulting.com,Negative,"Government/Non-Profit                             ",,"See Mitra Rocca's ballot for comments"
+Vernon,Annette,"Food and Drug Administration",Analyst,"silver spring, MD 20903","+1 301-796-7325",,annette.vernon@fda.hhs.gov,Negative,"Government/Non-Profit                             ",,
+Vreeman,Daniel,"RTI International",,"Fishers, IN 46038","+1 919-248-8518",,dvreeman@rti.org,Affirmative,"Government/Non-Profit                             ",FHIR_IG_CDISC_R1_I1_2021JAN_daniel_vreeman_20210115173518.xls,
+"Walker BS, MA",Mellissa,"Federal Electronic Health Records Modernization Office",CDR,"Arlington, VA 22209","+1 703-588-8751",,mellissa.a.walker.mil@mail.mil,Abstain,"Government/Non-Profit                             ",,
+Walsh,Kathy,"Laboratory Corporation of America","Prlject Analyst","Brentwood, TN 37076","+1 615-221-1880",,walshk@labcorp.com,Abstain,"Provider                                          ",,
+Warner,Phillip,"University of Utah Health Care",,"Salt Lake City, UT 84108",810-587-6092,,phillip.warner@utah.edu,Abstain,"Provider                                          ",,
+Yao,Gary,"GE Healthcare","Technical leader","Mississauga, ON L5N 1P8",,,gary.yao@med.ge.com,"No Return","Vendor                                            ",,
