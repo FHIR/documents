@@ -1,0 +1,116 @@
+{
+  "resourceType": "CodeSystem",
+  "title": "Example Color CodeSystem",
+  "url": "http://example.org/CodeSystem/colors",
+  "version": "t1",
+  "status": "draft",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "email"
+        }
+      ]
+    }
+  ],
+  "description": "Terminology exercise 1 - color code system",
+  "compositional": false,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "red",
+      "display": "Red",
+      "property": [
+        {
+          "code": "RGB",
+          "valueCode": "FF0000"
+        }
+      ],
+      "definition": "The primary color at one extreme end of the visible spectrum, an effect of light with a wavelength between 610 and 780 nanometers"
+    },
+    {
+      "code": "green",
+      "display": "Green",
+      "definition": "A color intermediate in the spectrum between yellow and blue, an effect of light with a wavelength between 500 and 570 nanometers",
+      "property": [
+        {
+          "code": "RGB",
+          "valueCode": "00FF00"
+        }
+      ]
+    },
+    {
+      "code": "blue",
+      "display": "Blue",
+      "definition": "The primary color between green and violet in the visible spectrum, an effect of light with a wavelength between 450 and 500 nanometers",
+      "property": [
+        {
+          "code": "RGB",
+          "valueCode": "0000FF"
+        }
+      ]
+    },
+    {
+      "code": "yellow",
+      "display": "Yellow",
+      "definition": "The primary color between green and orange in the visible spectrum, an effect of light with a wavelength between 570 and 590 nanometers.",
+      "property": [
+        {
+          "code": "RGB",
+          "valueCode": "FFFF00"
+        }
+      ]
+    },
+    {
+      "code": "amber",
+      "display": "Amber",
+      "definition": "The yellowish-brown color of resin.",
+      "property": [
+        {
+          "code": "parent",
+          "valueCode": "yellow"
+        },
+        {
+          "code": "RGB",
+          "valueCode": "FFBF00"
+        }
+      ]
+    },
+    {
+      "code": "turquoise",
+      "definition": "A greenish blue or bluish green.",
+      "display": "Turquoise",
+      "property": [
+        {
+          "code": "parent",
+          "valueCode": "blue"
+        },
+        {
+          "code": "parent",
+          "valueCode": "green"
+        },
+        {
+          "code": "RGB",
+          "valueCode": "40E0D0"
+        }
+      ]
+    }
+  ],
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Example Color CodeSystem</h2><tt>http://example.org/colors</tt><p>Terminology exercise 3 - color code system</p></div>"
+  },
+  "hierarchyMeaning": "is-a",
+  "property": [
+    {
+      "code": "RGB",
+      "type": "code"
+    }
+  ],
+  "name": "ColorExample",
+  "caseSensitive": false,
+  "language": "en-CA",
+  "experimental": true,
+  "publisher": "Lloyd McKenzie",
+  "count": 6
+}

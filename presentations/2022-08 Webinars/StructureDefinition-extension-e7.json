@@ -1,0 +1,45 @@
+{
+  "id": "extension-e7",
+  "resourceType": "StructureDefinition",
+  "status": "active",
+  "kind": "resource",
+  "derivation": "constraint",
+  "url": "http://example.org/StructureDefinition/extension-e7",
+  "name": "ExtensionExample",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "ContactPoint"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension"
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUrl": "http://example.org/StructureDefinition/example-e7"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ]
+      }
+    ]
+  },
+  "experimental": true
+}

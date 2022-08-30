@@ -1,0 +1,47 @@
+{
+  "id": "example-T7",
+  "resourceType": "StructureDefinition",
+  "status": "active",
+  "kind": "resource",
+  "derivation": "constraint",
+  "url": "http://example.org/StructureDefinition/example-T7",
+  "name": "ExampleT7",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://example.org/StructureDefinition/example-t4",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation",
+        "path": "Observation"
+      },
+      {
+        "id": "Observation.extension",
+        "path": "Observation.extension",
+        "slicing": {
+          "rules": "open",
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ]
+        }
+      },
+      {
+        "sliceName": "afterHours",
+        "id": "Observation.extension:afterHours",
+        "path": "Observation.extension",
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://example.org/StructureDefinition/extension-e7"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
