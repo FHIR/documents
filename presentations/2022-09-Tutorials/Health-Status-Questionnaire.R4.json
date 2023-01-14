@@ -1,0 +1,286 @@
+{
+  "subjectType": [
+    "Patient"
+  ],
+  "status": "draft",
+  "experimental": true,
+  "url": "http://example.org/sample",
+  "title": "Health Status Questionnaire",
+  "resourceType": "Questionnaire",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire|2.7"
+    ],
+    "tag": [
+      {
+        "code": "lformsVersion: 29.2.1"
+      }
+    ]
+  },
+  "item": [
+    {
+      "type": "display",
+      "text": "This questionnaire identifies adults for whom physical activity might be inappropriate or adults who should seek physician consultation before beginning a regular physical activity program."
+    },
+    {
+      "type": "group",
+      "required": false,
+      "text": "Personal and Emergency Contact Information",
+      "prefix": "Section 1",
+      "item": [
+        {
+          "type": "string",
+          "required": false,
+          "text": "Name"
+        },
+        {
+          "type": "date",
+          "required": false,
+          "text": "Birth date"
+        },
+        {
+          "type": "string",
+          "required": false,
+          "text": "Address"
+        },
+        {
+          "type": "string",
+          "required": false,
+          "text": "Phone"
+        },
+        {
+          "type": "string",
+          "required": false,
+          "text": "Physician's name"
+        },
+        {
+          "type": "quantity",
+          "code": [
+            {
+              "code": "8302-2",
+              "display": "Height",
+              "system": "http://loinc.org"
+            }
+          ],
+          "required": false,
+          "text": "Height"
+        },
+        {
+          "type": "quantity",
+          "code": [
+            {
+              "code": "29463-7",
+              "display": "Weight",
+              "system": "http://loinc.org"
+            }
+          ],
+          "required": false,
+          "text": "Weight"
+        },
+        {
+          "type": "group",
+          "required": false,
+          "text": "General Medical History",
+          "prefix": "Section 2",
+          "item": [
+            {
+              "type": "choice",
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "drop-down",
+                        "display": "Drop down"
+                      }
+                    ],
+                    "text": "Drop down"
+                  }
+                }
+              ],
+              "required": false,
+              "repeats": true,
+              "text": "Heart history",
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "code": "22298006",
+                    "display": "Heart Attack",
+                    "system": "http://snomed.info/sct"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "64915003",
+                    "display": "Heart surgery",
+                    "system": "http://snomed.info/sct"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "41976001",
+                    "display": "Cardiac catheterization",
+                    "system": "http://snomed.info/sct"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "41339005",
+                    "display": "Coronary angioplasty (PTCA)",
+                    "system": "http://snomed.info/sct"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "441509002",
+                    "display": "Cardiac pacemaker",
+                    "system": "http://snomed.info/sct"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "361135004",
+                    "display": "Cardiac rhythm disturbance",
+                    "system": "http://snomed.info/sct"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "368009",
+                    "display": "Heart valve disease",
+                    "system": "http://snomed.info/sct"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "84114007",
+                    "display": "Heart failure",
+                    "system": "http://snomed.info/sct"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "32413006",
+                    "display": "Heart transplantation",
+                    "system": "http://snomed.info/sct"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "3213009",
+                    "display": "Congenital heart disease",
+                    "system": "http://snomed.info/sct"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "choice",
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "drop-down",
+                        "display": "Drop down"
+                      }
+                    ],
+                    "text": "Drop down"
+                  }
+                }
+              ],
+              "required": false,
+              "repeats": true,
+              "text": "Symptoms",
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "code": "279084009|408729009=255214003",
+                    "display": "You experience chest discomfort with exertion",
+                    "system": "http://snomed.info/sct"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "code": "267036007",
+                    "display": "You experience unreasonable shortness of breath at any time",
+                    "system": "http://snomed.info/sct"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "display": "You experience dizziness, fainting, or blackouts"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "display": "You take heart medications"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "choice",
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "drop-down",
+                        "display": "Drop down"
+                      }
+                    ],
+                    "text": "Drop down"
+                  }
+                }
+              ],
+              "required": false,
+              "repeats": true,
+              "text": "Additional Health Issues",
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "code": "50043002",
+                    "display": "You have asthma or other lung disease (e.g., emphysema)",
+                    "system": "http://snomed.info/sct"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "display": "You have burning or cramping sensations in your lower legs with minimal physical activity"
+                  }
+                }
+              ]
+            },
+            {
+              "text": "Please check the following conditions you have experienced",
+              "type": "display",
+              "linkId": "undefined-help",
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "text": "Help-Button",
+                    "coding": [
+                      {
+                        "code": "help",
+                        "display": "Help-Button",
+                        "system": "http://hl7.org/fhir/questionnaire-item-control"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
