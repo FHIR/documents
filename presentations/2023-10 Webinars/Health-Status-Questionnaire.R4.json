@@ -7,6 +7,40 @@
   "url": "http://example.org/sample",
   "title": "Health Status Questionnaire",
   "resourceType": "Questionnaire",
+  "extension": [
+    {
+      "extension" : [
+        {
+          "url" : "name",
+          "valueCoding" : {
+            "system" : "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+            "code" : "patient"
+          }
+        },
+        {
+          "url" : "type",
+          "valueCode" : "Patient"
+        }
+      ],
+      "url" : "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-launchContext"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/variable",
+      "valueExpression" : {
+        "name" : "patientWithGP",
+        "language" : "application/x-fhir-query",
+        "expression" : "Patient?_id={{%patient.id}}_include=Patient:general-practitioner"
+      }
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/variable",
+      "valueExpression" : {
+        "name" : "conditions",
+        "language" : "application/x-fhir-query",
+        "expression" : "Condition?patient={{%patient.id}}&verification-status=confirmed,provisional,unconfirmed&code={{%sct}}|22298006,{{%sct}}|64915003,{{%sct}}|41976001,{{%sct}}|41339005,{{%sct}}|441509002,{{%sct}}|361135004,{{%sct}}|368009,{{%sct}}|84114007,{{%sct}}|32413006,{{%sct}}|3213009,{{%sct}}|50043002,{{%sct}}|279084009|408729009=255214003,{{%sct}}|267036007"
+      }
+    }
+  ],
   "meta": {
     "profile": [
       "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire|2.7"
@@ -31,29 +65,92 @@
         {
           "type": "string",
           "required": false,
-          "text": "Name"
+          "text": "Name",
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression" : {
+                "language" : "text/fhirpath",
+                "expression" : "%patient.name.first().given.first() + ' ' + %patient.name.first().family"
+              }
+            }
+          ]     
         },
         {
           "type": "date",
           "required": false,
-          "text": "Birth date"
+          "text": "Birth date",
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression" : {
+                "language" : "text/fhirpath",
+                "expression" : "%patient.birthDate"
+              }
+            }
+          ]     
         },
         {
           "type": "string",
           "required": false,
-          "text": "Address"
+          "text": "Address",
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression" : {
+                "language" : "text/fhirpath",
+                "expression" : "%patient.address.text"
+              }
+            }
+          ]     
         },
         {
           "type": "string",
           "required": false,
-          "text": "Phone"
+          "text": "Phone",
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression" : {
+                "language" : "text/fhirpath",
+                "expression" : "%patient.telecom.where(system='phone').first().value"
+              }
+            }
+          ]     
         },
         {
           "type": "string",
           "required": false,
-          "text": "Physician's name"
+          "text": "Physician's name",
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/variable",
+              "valueExpression" : {
+                "name" : "physicianName",
+                "language" : "text/fhirpath",
+                "expression" : "%patientWithGP.entry.where(search.mode='include').resource.name.first()"
+              }
+            },
+            {
+              "url" : "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+              "valueExpression" : {
+                "language" : "text/fhirpath",
+                "expression" : "%physicianName.select((text | (family | (given | prefix).join(' ')).join(', ')).first())"
+              }
+            }
+          ]     
         },
         {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationLinkPeriod",
+              "valueDuration" : {
+                "system" : "http://unitsofmeasure.org",
+                "code" : "y",
+                "value" : 5
+              }
+            }
+          ],  
           "type": "quantity",
           "code": [
             {
@@ -66,6 +163,16 @@
           "text": "Height"
         },
         {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationLinkPeriod",
+              "valueDuration" : {
+                "system" : "http://unitsofmeasure.org",
+                "code" : "mo",
+                "value" : 3
+              }
+            }
+          ],  
           "type": "quantity",
           "code": [
             {
@@ -97,6 +204,13 @@
                       }
                     ],
                     "text": "Drop down"
+                  }
+                },
+                {
+                  "url" : "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                  "valueExpression" : {
+                    "language" : "text/fhirpath",
+                    "expression" : "%conditions.code.coding.where(code in ('22298006','64915003','41976001','41339005','441509002','361135004','368009','84114007','32413006','3213009')).distinct()"
                   }
                 }
               ],
@@ -191,6 +305,13 @@
                     ],
                     "text": "Drop down"
                   }
+                },
+                {
+                  "url" : "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                  "valueExpression" : {
+                    "language" : "text/fhirpath",
+                    "expression" : "%conditions.code.coding.where(code in ('279084009|408729009=255214003','267036007')).distinct()"
+                  }
                 }
               ],
               "required": false,
@@ -237,6 +358,13 @@
                       }
                     ],
                     "text": "Drop down"
+                  }
+                },
+                {
+                  "url" : "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+                  "valueExpression" : {
+                    "language" : "text/fhirpath",
+                    "expression" : "%conditions.code.coding.where(code in ('50043002')).distinct()"
                   }
                 }
               ],
