@@ -29,7 +29,7 @@
       "valueExpression" : {
         "name" : "patientWithGP",
         "language" : "application/x-fhir-query",
-        "expression" : "Patient?_id={{%patient.id}}_include=Patient:general-practitioner"
+        "expression" : "Patient?_id={{%patient.id}}&_include=Patient:general-practitioner"
       }
     },
     {
