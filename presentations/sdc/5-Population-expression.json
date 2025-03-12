@@ -1,0 +1,107 @@
+{
+  "resourceType": "Questionnaire",
+  "url": "http://example.org/sdc/expression-pop",
+  "title": "SDC Expression Population Example",
+  "status": "draft",
+  "description": "Example Questionnaire showing expression-based population",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-launchContext",
+      "extension": [
+        {
+          "url": "name",
+          "valueCoding": {
+            "system": "http://hl7.org/fhir/uv/sdc/CodeSystem/launchContext",
+            "code": "patient"
+          }
+        },
+        {
+          "url": "type",
+          "valueCode": "Patient"
+        }
+      ]
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/variable",
+      "valueExpression": {
+        "name": "father",
+        "language": "application/x-fhir-query",
+        "expression": "RelatedPerson?patient={{%patient.id}}&relationship=http%3A//terminology.hl7.org/CodeSystem/v3-RoleCode|FTH&active=true"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/variable",
+      "valueExpression": {
+        "name": "mother",
+        "language": "application/x-fhir-query",
+        "expression": "RelatedPerson?patient={{%patient.id}}&relationship=http%3A//terminology.hl7.org/CodeSystem/v3-RoleCode|MTH&active=true"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/variable",
+      "valueExpression": {
+        "name": "weight",
+        "language": "application/x-fhir-query",
+        "expression": "Observation?patient={{%patient.id}}&code=http%3A//loinc.org|29463-7,http%3A//loinc.org|3141-9&status=final&_sort=-date&_count=1"
+      }
+    }
+  ],
+  "item": [
+    {
+      "type": "date",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "%patient.birthDate"
+          }
+        }
+      ],
+      "linkId": "bdate",
+      "text": "Patient's Birth Date"
+    },
+    {
+      "type": "string",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "%mother.entry.resource.name.first().select(given | family).join(' ')"
+          }
+        }
+      ],
+      "linkId": "mom",
+      "text": "Mother's name"
+    },
+    {
+      "type": "string",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "%father.entry.resource.name.first().select(given | family).join(' ')"
+          }
+        }
+      ],
+      "linkId": "dad",
+      "text": "Father's name"
+    },
+    {
+      "type": "quantity",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-initialExpression",
+          "valueExpression": {
+            "language": "text/fhirpath",
+            "expression": "%weight.entry.resource.value"
+          }
+        }
+      ],
+      "linkId": "weight",
+      "text": "Most recent weight"
+    }
+  ]
+}

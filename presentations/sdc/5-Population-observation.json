@@ -1,0 +1,105 @@
+{
+  "resourceType": "Questionnaire",
+  "url": "http://example.org/sdc/observation-pop",
+  "title": "SDC Observation Population Example",
+  "status": "draft",
+  "description": "Example Questionnaire showing observation-based population",
+  "item": [
+    {
+      "type": "date",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationLinkPeriod",
+          "valueDuration": {
+            "value": 100,
+            "unit": "years",
+            "system": "http://unitsofmeasure.org",
+            "code": "a"
+          }
+        }
+      ],
+      "linkId": "bdate",
+      "code": [
+        {
+          "system": "http://loinc.org",
+          "code": "21112-8"
+        }
+      ],
+      "text": "Patient's Birth Date"
+    },
+    {
+      "type": "string",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationLinkPeriod",
+          "valueDuration": {
+            "value": 100,
+            "unit": "years",
+            "system": "http://unitsofmeasure.org",
+            "code": "a"
+          }
+        }
+      ],
+      "linkId": "mom",
+      "code": [
+        {
+          "system": "http://loinc.org",
+          "code": "19132-0"
+        }
+      ],
+      "text": "Mother's name"
+    },
+    {
+      "type": "string",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationLinkPeriod",
+          "valueDuration": {
+            "value": 100,
+            "unit": "years",
+            "system": "http://unitsofmeasure.org",
+            "code": "a"
+          }
+        }
+      ],
+      "linkId": "dad",
+      "code": [
+        {
+          "system": "http://loinc.org",
+          "code": "80909-5"
+        }
+      ],
+      "text": "Father's name"
+    },
+    {
+      "type": "quantity",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationLinkPeriod",
+          "valueDuration": {
+            "value": 6,
+            "unit": "months",
+            "system": "http://unitsofmeasure.org",
+            "code": "mo"
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
+          "valueCoding": {
+            "system": "http://unitsofmeasure.org",
+            "code": "kg",
+            "display": "kilogram"
+          }
+        }
+      ],
+      "linkId": "weight",
+      "code": [
+        {
+          "system": "http://loinc.org",
+          "code": "29463-7"
+        }
+      ],
+      "text": "Most recent weight"
+    }
+  ]
+}

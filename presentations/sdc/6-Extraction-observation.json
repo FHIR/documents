@@ -1,0 +1,78 @@
+{
+  "resourceType": "Questionnaire",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationExtract",
+      "valueBoolean": true
+    }
+  ],
+  "url": "http://example.org/sdc/observation-extract",
+  "title": "SDC Observation Extraction Example",
+  "status": "draft",
+  "description": "Example Questionnaire showing observation-based extraction",
+  "item": [
+    {
+      "type": "date",
+      "linkId": "bdate",
+      "code": [
+        {
+          "system": "http://loinc.org",
+          "code": "21112-8"
+        }
+      ],
+      "text": "Patient's Birth Date"
+    },
+    {
+      "type": "string",
+      "linkId": "mom",
+      "code": [
+        {
+          "system": "http://loinc.org",
+          "code": "19132-0"
+        }
+      ],
+      "text": "Mother's name"
+    },
+    {
+      "type": "string",
+      "linkId": "dad",
+      "code": [
+        {
+          "system": "http://loinc.org",
+          "code": "80909-5"
+        }
+      ],
+      "text": "Father's name"
+    },
+    {
+      "type": "quantity",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption",
+          "valueCoding": {
+            "system": "http://unitsofmeasure.org",
+            "code": "kg",
+            "display": "kilogram"
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observation-extract-category",
+          "valueCodeableConcept": {
+            "coding": {
+              "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+              "code": "vital-signs"
+            }
+          }
+        }
+      ],
+      "linkId": "weight",
+      "code": [
+        {
+          "system": "http://loinc.org",
+          "code": "29463-7"
+        }
+      ],
+      "text": "Most recent weight"
+    }
+  ]
+}
